@@ -5,8 +5,8 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "npx webpack",
-        "server": "npx  webpack --watch"
+        "build": "npx webpack --mode production",
+        "watch": "npx  webpack --mode development --watch"
     },
     "repository": {
         "type": "git",

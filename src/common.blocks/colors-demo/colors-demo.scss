@@ -1,0 +1,10 @@
+@import './colors-demo__item/colors-demo__item.scss';
+@import './colors-demo__color-description.scss';
+@import './colors-demo__color-block.scss';
+@import './colors-demo__color-name.scss';
+@import './colors-demo__color-value.scss';
+
+.colors-demo {
+    width: 270px;
+    height: 610px;
+}

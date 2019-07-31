@@ -1,0 +1,10 @@
+.flex-container{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    flex: auto;
+}
+
+
+@import './flex-container_column.scss';
+@import './flex-container_row.scss';

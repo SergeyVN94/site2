@@ -1,15 +1,19 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const pageName = 'ui-kit';
-const path = `${__dirname}/src/pages/${pageName}`;
+const path = `${__dirname}/src/${pageName}`;
 
 
 module.exports = {
-    entry: `${path}/index.js`,
+    entry: [
+        `${path}/index.js`,
+        `${path}/index.scss`
+    ],
     output: {
         path: `${__dirname}/app/${pageName}`,
         filename: 'main.js'
     },
+    devtool: "source-map",
     module: {
         rules: [{
             test: /\.pug$/,
