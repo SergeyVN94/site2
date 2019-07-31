@@ -1,0 +1,11 @@
+.text-demo__item:not(:last-child) {
+    margin-bottom: 50px;
+    align-items: flex-start;
+}
+
+@import './text-demo__item-head.scss';
+@import './text-demo__item-text.scss';
+@import './text-demo__item_h1.scss';
+@import './text-demo__item_h2.scss';
+@import './text-demo__item_h3.scss';
+@import './text-demo__item_body.scss';

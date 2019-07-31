@@ -1,5 +1,7 @@
-div.colors-and-type
+.colors-and-type.flex-container
     include ../logo/logo.pug
     +logo('colors-and-type__logo')
     include ../colors-demo/colors-demo.pug
-    +colors-demo()
+    +colors-demo('colors-and-type__colors-demo')
+    include ../text-demo/text-demo.pug
+    +text-demo('colors-and-type__text-demo')

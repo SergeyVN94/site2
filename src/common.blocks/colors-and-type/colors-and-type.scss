@@ -3,8 +3,11 @@
     width: 100%;
     height: 900px;
     background-color: #fff;
-    padding: 145px 150px;
+    justify-content: space-between;
 }
 
 @import './colors-and-type__logo.scss';
 @import '../colors-demo/colors-demo.scss';
+@import './colors-and-type__colors-demo.scss';
+@import './colors-and-type__text-demo.scss';
+@import '../text-demo/text-demo.scss';

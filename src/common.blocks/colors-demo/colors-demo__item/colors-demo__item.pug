@@ -1,6 +1,6 @@
-mixin colors-demo__item(color, name)
-    .colors-demo__item.flex-container.flex-container_row
+mixin colors-demo__item(color, name, colorValue)
+    .colors-demo__item.flex-container
         .colors-demo__color-block(style="background-color: " + color + ";")
         .colors-demo__color-description
             span.colors-demo__color-name #{name}
-            span.colors-demo__color-value #{color}
+            span.colors-demo__color-value #{colorValue}

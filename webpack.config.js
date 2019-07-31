@@ -10,7 +10,7 @@ module.exports = {
         `${path}/index.scss`
     ],
     output: {
-        path: `${__dirname}/app/${pageName}`,
+        path: `${__dirname}/app/`,
         filename: 'main.js'
     },
     devtool: "source-map",

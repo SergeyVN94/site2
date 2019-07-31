@@ -1,3 +1,7 @@
 .colors-demo__item {
     align-items: center;
 }
+
+.colors-demo__item:not(:last-child) {
+    margin-bottom: 20px;
+}
