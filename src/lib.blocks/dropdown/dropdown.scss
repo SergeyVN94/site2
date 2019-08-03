@@ -1,0 +1,10 @@
+.dropdown {
+    display: block;
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+}
+
+@import './dropdown__head.scss';
+@import './dropdown__text.scss';
+@import './dropdown__button-expend.scss';

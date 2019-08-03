@@ -1,0 +1,13 @@
+.button {
+    display: inline-block;
+    height: 44px;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 14px 20px 15px 20px;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    cursor: pointer;
+}
+
+@import './button_expend.scss';

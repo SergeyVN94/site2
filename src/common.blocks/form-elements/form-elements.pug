@@ -2,3 +2,22 @@
     include ../logo/logo.pug
     +logo('form-elements__logo')
     .flex-container.flex-container_column
+        include ../../lib.blocks/text-field/text-field.pug
+        +text-field({
+            title:'text field', 
+            placeholder:'Email', 
+            help:'default',
+            classes: 'form-elements__form-item'
+        })
+        +text-field({
+            title:'text field', 
+            placeholder:'This is pretty awesome', 
+            help:'hover / focus', 
+            classes: 'text-field_focus form-elements__form-item'
+        })
+        .dropdown.form-elements__form-item 
+            .form-element-title dropdown
+            .form-element-help default
+            .dropdown__head
+                .dropdown__text Сколько гостей
+                .button.button_expend.dropdown__button-expend expand_more

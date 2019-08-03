@@ -1,4 +1,4 @@
-mixin text-demo__item(head, text, classes, textClasses)
-    .text-demo__item.flex-container(class=classes)
-        .text-demo__item-head #{head}
-        .text-demo__item-text(class=textClasses) #{text}
+mixin text-demo__item(options)
+    .text-demo__item.flex-container(class=options.classes)
+        .text-demo__item-head #{options.head}
+        .text-demo__item-text(class=textClasses) #{options.text}

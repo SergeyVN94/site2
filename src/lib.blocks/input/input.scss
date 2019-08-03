@@ -1,6 +1,6 @@
 .input {
     height: 44px;
-    background: #fff;
+    background-color: #fff;
     border: 1px solid #1f204140;
     box-sizing: border-box;
     border-radius: 4px;
@@ -13,8 +13,22 @@
     color: #1f204140;
 }
 
+input.input::-webkit-input-placeholder {
+    /* Edge */
+    color: #1f204140;
+}
+
+input.input:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #1f204140;
+}
+
+input.input::placeholder {
+    color: #1f204140;
+}
+
 .input:hover,
-.input:focus{
+.input:focus {
     border-color: #1f204180;
     line-height: 24px;
     color: #1f2041bf;
