@@ -1,5 +1,7 @@
 mixin text-field(params)
     .text-field(class=params.classes)
+        if params.title
         .form-element-title #{params.title}
-        .form-element-help #{params.help}
+        if params.help
+            .form-element-help #{params.help}
         input.input.text-field__input(placeholder=params.placeholder)

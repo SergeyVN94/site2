@@ -1,0 +1,9 @@
+mixin text-field-subscription(params)
+    .text-field-subscription(class=params.classes)
+        if params.title
+            .form-element-title #{params.title}
+        if params.help
+            .form-element-help #{params.help}
+        .text-field-subscription__container
+            input.input.text-field-subscription__input(placeholder=params.placeholder)
+            .button.button_form-element.text-field-subscription__button-subscription arrow_forward

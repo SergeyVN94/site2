@@ -1,7 +1,7 @@
 .input {
     height: 44px;
     background-color: #fff;
-    border: 1px solid #1f204140;
+    border: 1px solid $color-dark-25;
     box-sizing: border-box;
     border-radius: 4px;
     padding: 13px 15px;
@@ -10,27 +10,27 @@
     font-weight: normal;
     font-size: 14px;
     line-height: 18px;
-    color: #1f204140;
+    color: $color-dark-25;
 }
 
 input.input::-webkit-input-placeholder {
     /* Edge */
-    color: #1f204140;
+    color: $color-dark-25;
 }
 
 input.input:-ms-input-placeholder {
     /* Internet Explorer 10-11 */
-    color: #1f204140;
+    color: $color-dark-25;
 }
 
 input.input::placeholder {
-    color: #1f204140;
+    color: $color-dark-25;
 }
 
 .input:hover,
 .input:focus {
-    border-color: #1f204180;
+    border-color: $color-dark-50;
     line-height: 24px;
-    color: #1f2041bf;
+    color: $color-dark-75;
     outline: none;
 }

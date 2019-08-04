@@ -1,5 +1,5 @@
 .dropdown__text {
-    float: left;
+    flex: auto;
     padding: 13px 15px;
     font-family: Montserrat;
     font-style: normal;
@@ -8,4 +8,6 @@
     line-height: 17px;
     height: 44px;
     box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
 }

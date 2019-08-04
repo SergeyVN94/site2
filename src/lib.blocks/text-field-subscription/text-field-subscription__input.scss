@@ -1,0 +1,27 @@
+.text-field-subscription__input {
+    border: none;
+    height: 100%;
+    width: 100%;
+}
+
+.text-field-subscription__input::-webkit-input-placeholder {
+    /* Edge */
+    color: $color-dark-25;
+}
+
+.text-field-subscription__input:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: $color-dark-25;
+}
+
+.text-field-subscription__input::placeholder {
+    color: $color-dark-25;
+}
+
+.text-field-subscription__input:hover,
+.text-field-subscription__input:focus {
+    border: none;
+    line-height: 24px;
+    color: $color-dark-75;
+    outline: none;
+}
