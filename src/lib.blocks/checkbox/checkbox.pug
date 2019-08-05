@@ -1,0 +1,7 @@
+mixin checkbox(params)
+    .checkbox(class=params.classes)
+        include ../checkbox-input/checkbox-input.pug
+        +checkbox-input({
+            checked: params.checked
+        })
+        .checkbox__text #{params.text}

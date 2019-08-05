@@ -1,52 +1,70 @@
 .form-elements.flex-container
     include ../logo/logo.pug
     +logo('form-elements__logo')
-    .form-elements__column
-        include ../../lib.blocks/text-field/text-field.pug
-        +text-field({
-            title:'text field', 
-            placeholder:'Email', 
-            help:'default',
-            classes: 'form-elements__form-item'
-        })
-        +text-field({
-            title:'text field', 
-            placeholder:'This is pretty awesome', 
-            help:'hover / focus', 
-            classes: 'text-field_focus form-elements__form-item'
-        })
-        include ../../lib.blocks/dropdown/dropdown.pug
-        +dropdown({
-            title: 'dropdown',
-            help: 'default',
-            text: 'Сколько гостей',
-            classes: 'form-elements__form-item'
-        }) 
-        +text-field({
-            title:'masked text field', 
-            placeholder:'ДД.ММ.ГГГГ', 
-            help:'default',
-            classes: 'form-elements__form-item text-field_masked'
-        })
-        .form-elements__row.form-elements__form-item
-            +dropdown({
-                title: 'date dropdown',
-                text: 'ДД.ММ.ГГГГ',
-                classes: 'dropdown_date'
-            }) 
-            +dropdown({
-                title: 'date dropdown',
-                text: '19.08.2019',
-                classes: 'dropdown_date'
-            }) 
-        .form-elements__column_sm
-            +dropdown({
-                title: 'filter date dropdown',
-                text: '19 авг - 23 авг',
-                classes: 'form-elements__form-item_bg'
+    .form-elements__container
+        .form-elements__column.form-elements__column_mg
+            include ../../lib.blocks/text-field/text-field.pug
+            +text-field({
+                title:'text field', 
+                placeholder:'Email', 
+                help:'default',
+                classes: 'form-elements__form-item'
             })
-            include ../../lib.blocks/text-field-subscription/text-field-subscription.pug
-            +text-field-subscription({
-                title: 'subscription text field',
-                placeholder: 'Email'
+            +text-field({
+                title:'text field', 
+                placeholder:'This is pretty awesome', 
+                help:'hover / focus', 
+                classes: 'text-field_focus form-elements__form-item'
+            })
+            include ../../lib.blocks/dropdown/dropdown.pug
+            +dropdown({
+                title: 'dropdown',
+                help: 'default',
+                text: 'Сколько гостей',
+                classes: 'form-elements__form-item'
+            }) 
+            +text-field({
+                title:'masked text field', 
+                placeholder:'ДД.ММ.ГГГГ', 
+                help:'default',
+                classes: 'form-elements__form-item text-field_masked'
+            })
+            .form-elements__row.form-elements__form-item
+                +dropdown({
+                    title: 'date dropdown',
+                    text: 'ДД.ММ.ГГГГ',
+                    classes: 'dropdown_date'
+                }) 
+                +dropdown({
+                    title: 'date dropdown',
+                    text: '19.08.2019',
+                    classes: 'dropdown_date'
+                }) 
+            .form-elements__column_sm
+                +dropdown({
+                    title: 'filter date dropdown',
+                    text: '19 авг - 23 авг',
+                    classes: 'form-elements__form-item_bg'
+                })
+                include ../../lib.blocks/text-field-subscription/text-field-subscription.pug
+                +text-field-subscription({
+                    title: 'subscription text field',
+                    placeholder: 'Email'
+                })
+        .form-elements__column_sm.form-elements__column_mg
+            .form-elements__section-title Checkbox Buttons
+            include ../../lib.blocks/checkbox/checkbox.pug
+            +checkbox({
+                classes: 'form-elements__form-item_sm',
+                text: 'Можно курить'
+            })
+            +checkbox({  
+                checked: true,
+                classes: 'form-elements__form-item_sm',
+                text: 'Можно с питомцами'
+            })
+            +checkbox({
+                checked: true,
+                classes: 'form-elements__form-item_sm',
+                text: 'Можно пригласить гостей (до 10 человек)'
             })
