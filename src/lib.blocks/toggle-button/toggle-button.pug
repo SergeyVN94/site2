@@ -1,0 +1,8 @@
+mixin toggle-button(params)
+    .toggle-button(class=params.classes)
+        include ../toggle-input/toggle-input.pug
+        +toggle-input({
+            checked: params.checked,
+            classes: 'toggle-button__input'
+        })
+        .toggle-input__text #{params.text}

@@ -1,24 +1,27 @@
 .checkbox-input__new-input {
     display: flex;
+    justify-content: center;
+    align-items: center;
     width: 20px;
     height: 20px;
-    margin: 0;
-    padding: 0;
     background: #fff;
     border: 1px solid $color-dark-25;
     box-sizing: border-box;
     border-radius: 4px;
-    padding: 3px 4px 5px 4px;
+    font-family: Material Icons;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    font-weight: bold;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    color: white;
 }
 
 .checkbox-input__input:checked + .checkbox-input__new-input {
     border-color: $color-purple;
-}
-
-.checkbox-input__new-input svg {
-    display: none;
-}
-
-.checkbox-input__input:checked + .checkbox-input__new-input svg {
-    display: block;
+    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }

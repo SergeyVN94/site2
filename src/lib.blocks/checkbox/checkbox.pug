@@ -4,4 +4,7 @@ mixin checkbox(params)
         +checkbox-input({
             checked: params.checked
         })
-        .checkbox__text #{params.text}
+        .checkbox__text-container
+            .checkbox__text #{params.text}
+            if params.help
+                .checkbox__text-help #{params.help}

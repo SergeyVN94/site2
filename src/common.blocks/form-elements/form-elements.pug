@@ -1,9 +1,9 @@
 .form-elements.flex-container
+    include ../../lib.blocks/index.pug
     include ../logo/logo.pug
     +logo('form-elements__logo')
     .form-elements__container
         .form-elements__column.form-elements__column_mg
-            include ../../lib.blocks/text-field/text-field.pug
             +text-field({
                 title:'text field', 
                 placeholder:'Email', 
@@ -16,7 +16,6 @@
                 help:'hover / focus', 
                 classes: 'text-field_focus form-elements__form-item'
             })
-            include ../../lib.blocks/dropdown/dropdown.pug
             +dropdown({
                 title: 'dropdown',
                 help: 'default',
@@ -38,7 +37,7 @@
                 +dropdown({
                     title: 'date dropdown',
                     text: '19.08.2019',
-                    classes: 'dropdown_date'
+                    classes: 'dropdown_date form-elements__form-item_ml'
                 }) 
             .form-elements__column_sm
                 +dropdown({
@@ -46,14 +45,12 @@
                     text: '19 авг - 23 авг',
                     classes: 'form-elements__form-item_bg'
                 })
-                include ../../lib.blocks/text-field-subscription/text-field-subscription.pug
                 +text-field-subscription({
                     title: 'subscription text field',
                     placeholder: 'Email'
                 })
         .form-elements__column_sm.form-elements__column_mg
             .form-elements__section-title Checkbox Buttons
-            include ../../lib.blocks/checkbox/checkbox.pug
             +checkbox({
                 classes: 'form-elements__form-item_sm',
                 text: 'Можно курить'
@@ -65,6 +62,40 @@
             })
             +checkbox({
                 checked: true,
-                classes: 'form-elements__form-item_sm',
-                text: 'Можно пригласить гостей (до 10 человек)'
+                classes: 'form-elements__form-item_bg',
+                text: 'Можно пригласить гостей',
+                help: '(до 10 человек)'
             })
+            .form-elements__section-title Radio Buttons
+            .form-elements__row.form-elements__form-item_bg
+                +radio-button({
+                    text: 'Мужчина',
+                    name: 'gender',
+                    checked: true
+                })
+                +radio-button({
+                    text: 'Женщина',
+                    name: 'gender',
+                    classes: 'form-elements__form-item_ml'
+                })
+            .form-elements__section-title Toggle
+            +toggle-button({
+                text: 'Получать спецпредложения',
+                checked: true,
+                classes: 'form-elements__form-item_mgb14'
+            })
+            +toggle-button({
+                text: 'Получать спецпредложения',
+                checked: false,
+                classes: 'form-elements__form-item_bg'
+            })
+            .form-elements__section-title like button
+            .form-elements__row
+                +like-button({
+                    likes: 2
+                })
+                +like-button({
+                    likes: 12,
+                    checked: true,
+                    classes: 'form-elements__form-item_ml10'
+                })

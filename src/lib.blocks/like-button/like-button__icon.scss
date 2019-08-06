@@ -1,0 +1,19 @@
+.like-button__icon {
+    width: 19px;
+    height: 18px;
+    font-family: Material Icons;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 9px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: $color-dark-25;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}

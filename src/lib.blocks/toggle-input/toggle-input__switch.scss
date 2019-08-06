@@ -1,0 +1,17 @@
+.toggle-input__switch {
+    width: 40px;
+    height: 20px;
+    background: white;
+    border: 1px solid $color-dark-25;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 3px;
+}
+
+.toggle-input__input:checked + .toggle-input__switch {
+    border-color: $color-purple;
+}
+.toggle-input__input:checked + .toggle-input__switch .toggle-input__switch-indicator {
+    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    float: right;
+}

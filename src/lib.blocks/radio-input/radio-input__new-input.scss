@@ -1,0 +1,18 @@
+.radio-input__new-input {
+    display: flex;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border: 1px solid $color-dark-25;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.radio-input__input:checked + .radio-input__new-input {
+    border-color: $color-purple;
+}
+
+.radio-input__input:checked + .radio-input__new-input > .radio-input__input-indicator {
+    display: block;
+}
