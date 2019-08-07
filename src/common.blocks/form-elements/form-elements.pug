@@ -3,71 +3,73 @@
     include ../logo/logo.pug
     +logo('form-elements__logo')
     .form-elements__container
-        .form-elements__column.form-elements__column_mg
+        .form-elements__column.form-elements__column_w320
             +text-field({
                 title:'text field', 
                 placeholder:'Email', 
                 help:'default',
-                classes: 'form-elements__form-item'
+                classes: 'form-elements__item form-elements__item_mb20'
             })
             +text-field({
                 title:'text field', 
                 placeholder:'This is pretty awesome', 
                 help:'hover / focus', 
-                classes: 'text-field_focus form-elements__form-item'
+                classes: 'form-elements__item form-elements__item_mb20'
             })
             +dropdown({
                 title: 'dropdown',
                 help: 'default',
                 text: 'Сколько гостей',
-                classes: 'form-elements__form-item'
-            }) 
+                classes: 'form-elements__item form-elements__item_mb20'
+            })  
             +text-field({
                 title:'masked text field', 
                 placeholder:'ДД.ММ.ГГГГ', 
                 help:'default',
-                classes: 'form-elements__form-item text-field_masked'
+                classes: 'form-elements__item form-elements__item_mb40'
             })
-            .form-elements__row.form-elements__form-item
-                +dropdown({
+            .form-elements__row.form-elements__row_mb40
+                +dropdown-date({
                     title: 'date dropdown',
-                    text: 'ДД.ММ.ГГГГ',
-                    classes: 'dropdown_date'
+                    text: 'ДД.ММ.ГГГГ'
                 }) 
-                +dropdown({
+                +dropdown-date({
                     title: 'date dropdown',
                     text: '19.08.2019',
-                    classes: 'dropdown_date form-elements__form-item_ml'
+                    classes: 'form-elements__item form-elements__item_ml20'
                 }) 
-            .form-elements__column_sm
+            .form-elements__column.form-elements__column_w266
                 +dropdown({
                     title: 'filter date dropdown',
                     text: '19 авг - 23 авг',
-                    classes: 'form-elements__form-item_bg'
+                    classes: 'form-elements__item form-elements__item_mb40'
                 })
                 +text-field-subscription({
                     title: 'subscription text field',
                     placeholder: 'Email'
                 })
-        .form-elements__column_sm.form-elements__column_mg
+        .form-elements__column.form-elements__column_w266
             .form-elements__section-title Checkbox Buttons
-            +checkbox({
-                classes: 'form-elements__form-item_sm',
-                text: 'Можно курить'
-            })
-            +checkbox({  
-                checked: true,
-                classes: 'form-elements__form-item_sm',
-                text: 'Можно с питомцами'
-            })
-            +checkbox({
-                checked: true,
-                classes: 'form-elements__form-item_bg',
-                text: 'Можно пригласить гостей',
-                help: '(до 10 человек)'
-            })
+            .form-elements__column.form-elements__column_mb40
+                    +checkbox({
+                        classes: 'form-elements__item_sm',
+                        text: 'Можно курить',
+                        classes: 'form-elements__item form-elements__item_mb10'
+                    })
+                    +checkbox({  
+                        checked: true,
+                        classes: 'form-elements__item_sm',
+                        text: 'Можно с питомцами',
+                        classes: 'form-elements__item form-elements__item_mb10'
+                    })
+                    +checkbox({
+                        checked: true,
+                        text: 'Можно пригласить гостей',
+                        help: '(до 10 человек)',
+                        classes: 'form-elements__item'
+                    })
             .form-elements__section-title Radio Buttons
-            .form-elements__row.form-elements__form-item_bg
+            .form-elements__row.form-elements__row_mb40
                 +radio-button({
                     text: 'Мужчина',
                     name: 'gender',
@@ -76,26 +78,35 @@
                 +radio-button({
                     text: 'Женщина',
                     name: 'gender',
-                    classes: 'form-elements__form-item_ml'
+                    classes: 'form-elements__item form-elements__item_ml20'
                 })
             .form-elements__section-title Toggle
-            +toggle-button({
-                text: 'Получать спецпредложения',
-                checked: true,
-                classes: 'form-elements__form-item_mgb14'
-            })
-            +toggle-button({
-                text: 'Получать спецпредложения',
-                checked: false,
-                classes: 'form-elements__form-item_bg'
-            })
+            .form-elements__column.form-elements__column_mb40
+                +toggle-button({
+                    text: 'Получать спецпредложения',
+                    checked: true,
+                    classes: 'form-elements__item form-elements__item_mb14'
+                })
+                +toggle-button({
+                    text: 'Получать спецпредложения',
+                    checked: false
+                })
             .form-elements__section-title like button
-            .form-elements__row
+            .form-elements__row.form-elements__row_mb40
                 +like-button({
                     likes: 2
                 })
                 +like-button({
                     likes: 12,
                     checked: true,
-                    classes: 'form-elements__form-item_ml10'
+                    classes: 'form-elements__item form-elements__item_ml10'
+                })
+            .form-elements__section-title rate button
+            .form-elements__row
+                +rate-button({
+                    selectStar: 4
+                })
+                +rate-button({
+                    selectStar: 5,
+                    classes: 'form-elements__item form-elements__item_ml20'
                 })

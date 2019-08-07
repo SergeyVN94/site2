@@ -1,15 +1,13 @@
 include ../dropdown-head/dropdown-head.pug
-
-mixin dropdown(params={})
-    .dropdown(class=params.classes)
+mixin dropdown-date(params={})
+    .dropdown-date(class=params.classes)
         if params.title
             .form-element-title #{params.title}
         if params.help
             .form-element-help #{params.help}
         +dropdown-head({
             text: params.text,
-            classes: 'dropdown__head'
+            classes: 'dropdown-date__head'
         })
-        .dropdown__body
-            if block
-                block
+        .dropdown-date__calendar
+        

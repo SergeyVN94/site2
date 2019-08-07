@@ -1,0 +1,8 @@
+.form-elements__column {
+    display: flex;
+    flex-direction: column;
+}
+
+@import './form-elements__column_w320.scss';
+@import './form-elements__column_w266.scss';
+@import './form-elements__column_mb40.scss';

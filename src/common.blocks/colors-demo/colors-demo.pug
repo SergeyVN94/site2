@@ -1,6 +1,6 @@
 mixin colors-demo(classes)
     .colors-demo(class=classes)
-        include ./colors-demo__item/colors-demo__item.pug
+        include ./__item/colors-demo__item.pug
         +colors-demo__item('#1F2041', 'Dark Shade 100%', '#1F2041')
         +colors-demo__item('rgba(31, 32, 65, 0.75)', 'Dark Shade 75%', '#1F2041')
         +colors-demo__item('rgba(31, 32, 65, 0.5)', 'Dark Shade 50%', '#1F2041')
