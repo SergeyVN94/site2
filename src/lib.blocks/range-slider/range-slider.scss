@@ -1,0 +1,12 @@
+.range-slider {
+    width: 266px;
+    height: 6px;
+    background: #fff;
+    border: 1px solid $color-dark-25;
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+
+@import './range-slider__line.scss';
+@import './range-slider__point-left.scss';
+@import './range-slider__point-right.scss';

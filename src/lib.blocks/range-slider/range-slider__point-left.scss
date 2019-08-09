@@ -1,0 +1,11 @@
+.range-slider__point-left {
+    display: block;
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    width: 12px;
+    height: 12px;
+    background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+    border: 2px solid #FFFFFF;
+    border-radius: 10px;
+}

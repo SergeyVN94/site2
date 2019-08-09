@@ -4,4 +4,4 @@ mixin text-field(params={})
         .form-element-title #{params.title}
         if params.help
             .form-element-help #{params.help}
-        input.input.text-field__input(placeholder=params.placeholder)
+        input.input.text-field__input(placeholder=params.placeholder, value=params.value)

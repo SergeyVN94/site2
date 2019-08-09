@@ -12,9 +12,9 @@
             })
             +text-field({
                 title:'text field', 
-                placeholder:'This is pretty awesome', 
+                value:'This is pretty awesome', 
                 help:'hover / focus', 
-                classes: 'form-elements__item form-elements__item_mb20'
+                classes: 'text-field_focus form-elements__item form-elements__item_mb20'
             })
             +dropdown({
                 title: 'dropdown',
@@ -49,27 +49,26 @@
                     placeholder: 'Email'
                 })
         .form-elements__column.form-elements__column_w266
-            .form-elements__section-title Checkbox Buttons
-            .form-elements__column.form-elements__column_mb40
-                    +checkbox({
-                        classes: 'form-elements__item_sm',
-                        text: 'Можно курить',
-                        classes: 'form-elements__item form-elements__item_mb10'
-                    })
-                    +checkbox({  
-                        checked: true,
-                        classes: 'form-elements__item_sm',
-                        text: 'Можно с питомцами',
-                        classes: 'form-elements__item form-elements__item_mb10'
-                    })
-                    +checkbox({
-                        checked: true,
-                        text: 'Можно пригласить гостей',
-                        help: '(до 10 человек)',
-                        classes: 'form-elements__item'
-                    })
-            .form-elements__section-title Radio Buttons
-            .form-elements__row.form-elements__row_mb40
+            +checkbox-buttons({
+                classes: 'form-elements__item form-elements__item_mb40'
+            })
+                +checkbox-button({
+                    text: 'Можно курить',
+                    classes: 'checkbox-buttons__checkbox-button'
+                })
+                +checkbox-button({  
+                    checked: true,
+                    text: 'Можно с питомцами',
+                    classes: 'checkbox-buttons__checkbox-button'
+                })
+                +checkbox-button({
+                    checked: true,
+                    text: 'Можно пригласить гостей',
+                    help: '(до 10 человек)'
+                })
+            +radio-buttons({
+                classes: 'form-elements__item form-elements__item_mb40'
+            })
                 +radio-button({
                     text: 'Мужчина',
                     name: 'gender',
@@ -78,14 +77,15 @@
                 +radio-button({
                     text: 'Женщина',
                     name: 'gender',
-                    classes: 'form-elements__item form-elements__item_ml20'
+                    classes: 'radio-buttons__radio-button'
                 })
-            .form-elements__section-title Toggle
-            .form-elements__column.form-elements__column_mb40
+            +toggle-buttons({
+                classes: 'form-elements__column form-elements__column_mb40'
+            })
                 +toggle-button({
                     text: 'Получать спецпредложения',
                     checked: true,
-                    classes: 'form-elements__item form-elements__item_mb14'
+                    classes: 'toggle-buttons__toggle-button'
                 })
                 +toggle-button({
                     text: 'Получать спецпредложения',
@@ -110,3 +110,10 @@
                     selectStar: 5,
                     classes: 'form-elements__item form-elements__item_ml20'
                 })
+        .form-elements__column.form-elements__column_w320
+            .form-elements__section-title.form-elements_section-title_mb20 Range Slider
+            .form-element-help.form-element-help_mb20 5 000₽ - 10 000₽
+            +range-slider({
+                marginLeft: 82,
+                marginRight: 96
+            })

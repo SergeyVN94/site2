@@ -1,0 +1,10 @@
+mixin checkbox-button(params={})
+    .checkbox-button(class=params.classes)
+        include ../checkbox-input/checkbox-input.pug
+        +checkbox-input({
+            checked: params.checked
+        })
+        .checkbox-button__text-container
+            .checkbox-button__text #{params.text}
+            if params.help
+                .checkbox-button__text-help #{params.help}
