@@ -111,9 +111,18 @@
                     classes: 'form-elements__item form-elements__item_ml20'
                 })
         .form-elements__column.form-elements__column_w320
-            .form-elements__section-title.form-elements_section-title_mb20 Range Slider
-            .form-element-help.form-element-help_mb20 5 000₽ - 10 000₽
             +range-slider({
+                title: 'Range Slider',
+                help: '5 000₽ - 10 000₽',
                 marginLeft: 82,
-                marginRight: 96
+                marginRight: 96,
+                classes: 'form-elements__item form-elements__item_mb40'
             })
+            .form-elements__column.form-elements__column_mb30
+                .form-elements__section-title buttons
+                .form-elements__row.form-elements__row_mb30
+                    .button.button_theme_default CLICK ME
+                    .button.button_theme_default.button_theme_default_disable.form-elements__item.form-elements__item_ml20 CLICK ME
+                //- .form-elements__row.form-elements__row_mb30
+                //-     .button.button_theme_default CLICK ME
+                //-     .button.button_theme_default.button_theme_default_disable.form-elements__item.form-elements__item_ml20 CLICK ME

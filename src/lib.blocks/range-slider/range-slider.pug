@@ -1,8 +1,13 @@
 mixin range-slider(params={})
     .range-slider(class=params.classes)
-        -let marginLeft = params.marginLeft || 0;
-        -let marginRight = params.marginRight || 0;
-        -const styles = "margin-left:" + params.marginLeft + "px;margin-right:" + marginRight + "px;";
-        .range-slider__line(style=styles)
-            .range-slider__point-left
-            .range-slider__point-right
+        if params.title
+            .form-element-title.range-slider__title #{params.title}
+        if params.help
+            .form-element-help.range-slider__value #{params.help}
+        .range-slider__slider
+            -let marginLeft = params.marginLeft || 0;
+            -let marginRight = params.marginRight || 0;
+            -const styles = "margin-left:" + params.marginLeft + "px;margin-right:" + marginRight + "px;";
+            .range-slider__line(style=styles)
+                .range-slider__point-left
+                .range-slider__point-right
