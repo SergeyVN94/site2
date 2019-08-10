@@ -1,0 +1,13 @@
+mixin pagination(params={})
+    .pagination(class=params.classes)
+        if params.title
+            .form-element-title.pagination__title #{params.title}
+        .pagination__button-container
+            .button.button_theme_round 1
+            .button.button_theme_form-element-text 2
+            .button.button_theme_form-element-text 3
+            .button.button_theme_form-element-text ...
+            .button.button_theme_form-element-text 15
+            .button.button_theme_round-green arrow_forward
+        if params.bottomText
+            .pagination__bottom-text #{params.bottomText}  

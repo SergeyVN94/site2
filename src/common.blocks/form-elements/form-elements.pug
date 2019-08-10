@@ -121,8 +121,19 @@
             .form-elements__column.form-elements__column_mb30
                 .form-elements__section-title buttons
                 .form-elements__row.form-elements__row_mb30
-                    .button.button_theme_default CLICK ME
-                    .button.button_theme_default.button_theme_default_disable.form-elements__item.form-elements__item_ml20 CLICK ME
-                //- .form-elements__row.form-elements__row_mb30
-                //-     .button.button_theme_default CLICK ME
-                //-     .button.button_theme_default.button_theme_default_disable.form-elements__item.form-elements__item_ml20 CLICK ME
+                    .button.button_theme_default click me
+                    .button.button_theme_default.button_disable.form-elements__item.form-elements__item_ml20 click me
+                .form-elements__row.form-elements__row_mb30
+                    .button.button_theme_default_light click me
+                    .button.button_theme_default_light.button_disable.form-elements__item.form-elements__item_ml20 click me
+                .form-elements__row.form-elements__row_mb30
+                    .button.button_theme_text click me
+                    .button.button_theme_text_dark.form-elements__item.form-elements__item_ml20 click me
+                +button-go-to({
+                    text: 'перейти к оплате',
+                    classes: 'form-elements__item form-elements__item_mb40'
+                })
+                +pagination({
+                    title: 'pagination',
+                    bottomText: '1 – 12 из 100+ вариантов аренды'
+                })
