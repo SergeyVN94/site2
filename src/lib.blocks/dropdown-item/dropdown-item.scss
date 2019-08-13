@@ -1,0 +1,9 @@
+.dropdown-item {
+    display: block;
+    width: 100%;
+    height: 30px;
+}
+
+@import './dropdown-item__text.scss';
+@import './dropdown-item__counter.scss';
+@import './dropdown-item__counter-value.scss';

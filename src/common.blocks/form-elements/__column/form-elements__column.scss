@@ -1,9 +1,9 @@
 .form-elements__column {
+    width: 320px;
     display: flex;
     flex-direction: column;
 }
 
-@import './form-elements__column_w320.scss';
 @import './form-elements__column_w266.scss';
 @import './form-elements__column_mb40.scss';
 @import './form-elements__column_mb30.scss';

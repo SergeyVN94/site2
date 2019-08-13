@@ -1,9 +1,9 @@
-.form-elements.flex-container
+.form-elements
     include ../../lib.blocks/index.pug
     include ../logo/logo.pug
     +logo('form-elements__logo')
-    .form-elements__container
-        .form-elements__column.form-elements__column_w320
+    .form-elements__container.form-elements__container_mb100
+        .form-elements__column
             +text-field({
                 title:'text field', 
                 placeholder:'Email', 
@@ -110,7 +110,7 @@
                     selectStar: 5,
                     classes: 'form-elements__item form-elements__item_ml20'
                 })
-        .form-elements__column.form-elements__column_w320
+        .form-elements__column
             +range-slider({
                 title: 'Range Slider',
                 help: '5 000₽ - 10 000₽',
@@ -137,3 +137,125 @@
                     title: 'pagination',
                     bottomText: '1 – 12 из 100+ вариантов аренды'
                 })
+    .form-elements__container
+        .form-elements__column.form-elements__column_w266
+            +dropdown({
+                title: 'dropdown',
+                help: 'default',
+                text: '2 спальни, 2 кровати...',
+                classes: 'form-elements__item form-elements__item_mb20'
+            })
+            +dropdown({
+                title: 'dropdown',
+                help: 'expanded',
+                text: '2 спальни, 2 кровати...',
+                classes: 'dropdown_expend form-elements__item form-elements__item_mb40'
+            })
+                +dropdown-item({
+                    text: 'спальни',
+                    value: 2
+                })
+                +dropdown-item({
+                    text: 'кровати',
+                    value: 2
+                })
+                +dropdown-item({
+                    text: 'ванные комнаты',
+                    value: 0
+                })
+            +expandable-checkbox-list({
+                title: 'expandable checkbox list',
+                classes: 'form-elements__item form-elements__item_mb20'
+            })
+            +expandable-checkbox-list({
+                title: 'expandable checkbox list',
+                classes: 'expandable-checkbox-list_expend form-elements__item form-elements__item_mb40'
+            })
+                +checkbox-button({
+                    text: 'Завтрак',
+                    classes: 'expandable-checkbox-list__checkbox'
+                })
+                +checkbox-button({
+                    text: 'Письменный стол',
+                    checked: true,
+                    classes: 'expandable-checkbox-list__checkbox'
+                })
+                +checkbox-button({
+                    text: 'Стул для кормления',
+                    checked: true,
+                    classes: 'expandable-checkbox-list__checkbox'
+                })
+                +checkbox-button({
+                    text: 'Кроватка',
+                    checked: true,
+                    classes: 'expandable-checkbox-list__checkbox'
+                })
+                +checkbox-button({
+                    text: 'Телевизор',
+                    classes: 'expandable-checkbox-list__checkbox'
+                })
+                +checkbox-button({
+                    text: 'Шампунь',
+                    classes: 'expandable-checkbox-list__checkbox'
+                })
+                +checkbox-button({
+                    text: 'Телевизор',
+                    classes: 'expandable-checkbox-list__checkbox'
+                })
+                +checkbox-button({
+                    text: 'Шампунь',
+                    classes: 'expandable-checkbox-list__checkbox'
+                })
+            //- +advantage({
+            //-     logo: 'insert_emoticon',
+            //-     title: 'Комфорт',
+            //-     text: 'Шумопоглощающие стены',
+            //-     classes: 'form-elements__item form-elements__item_mb20'
+            //- })
+            //- +advantage({
+            //-     logo: 'location_city',
+            //-     title: 'Удобство',
+            //-     text: 'Окно в каждой из спален'
+            //- })
+        .form-elements__container
+            .form-elements__row
+            +dropdown({
+                title: 'dropdown',
+                text: 'Сколько гостей',
+                classes: 'dropdown_expend dropdown_guest-counter'
+            })
+                +dropdown-item({
+                    text: 'Взрослые',
+                    value: 0
+                })
+                +dropdown-item({
+                    text: 'Дети',
+                    value: 0
+                })
+                +dropdown-item({
+                    text: 'Младенцы',
+                    value: 0
+                })
+                +dropdown-item-buttons()
+            +dropdown({
+                title: 'dropdown',
+                text: 'Сколько гостей',
+                classes: 'dropdown_expend dropdown_guest-counter'
+            })
+                +dropdown-item({
+                    text: 'Взрослые',
+                    value: 2
+                })
+                +dropdown-item({
+                    text: 'Дети',
+                    value: 1
+                })
+                +dropdown-item({
+                    text: 'Младенцы',
+                    value: 0
+                })
+                +dropdown-item-buttons()
+                
+            
+
+                
