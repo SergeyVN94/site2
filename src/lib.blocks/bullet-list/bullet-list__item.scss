@@ -1,0 +1,13 @@
+.bullet-list__item {
+    width: 266px;
+}
+
+.bullet-list__item::before {
+    content: '';
+    display: inline-block;
+    margin-right: 10px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: $color-dark-25;
+}

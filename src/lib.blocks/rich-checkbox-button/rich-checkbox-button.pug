@@ -1,0 +1,9 @@
+include ../checkbox-input/checkbox-input.pug
+mixin rich-checkbox-button(params={})
+    .rich-checkbox-button(class=params.classes)
+        +checkbox-input({
+            checked: params.checked
+        })
+        .rich-checkbox-button__text-container
+            .rich-checkbox-button__text #{params.text}
+            .rich-checkbox-button__help #{params.help}

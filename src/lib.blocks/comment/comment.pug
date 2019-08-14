@@ -1,0 +1,13 @@
+mixin comment(params={})
+    .comment(class=params.classes)
+        .comment__head
+            image.comment__head-image(src=params.image)
+            .comment__head-text
+                .comment__head-user #{params.user}
+                .comment__head-date #{params.date}
+        .comment__body
+            +like-button({
+                checked: params.checked,
+                likes: params.likes || '0'
+            })
+            .comment__body-text #{params.text}

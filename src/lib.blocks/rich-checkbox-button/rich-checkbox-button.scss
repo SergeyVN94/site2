@@ -1,0 +1,7 @@
+.rich-checkbox-button {
+    display: flex;
+}
+
+@import './rich-checkbox-button__text-container.scss';
+@import './rich-checkbox-button__text.scss';
+@import './rich-checkbox-button__help.scss';

@@ -1,6 +1,6 @@
 mixin checkbox-buttons(params={})
     .checkbox-buttons(class=params.classes)
-        .form-element-title.checkbox-buttons__title Checkbox Buttons
+        .form-element-title.checkbox-buttons__title #{params.title}
         .checkbox-buttons__container
             if block
                 block

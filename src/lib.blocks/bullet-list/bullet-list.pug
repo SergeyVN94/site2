@@ -1,0 +1,8 @@
+include ./bullet-list__item.pug
+
+mixin bullet-list(params={})
+    .bullet-list(class=params.classes)
+        .form-element-title.bullet-list__title bullet list
+        ul.bullet-list__container
+            if block
+                block

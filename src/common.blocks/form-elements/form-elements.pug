@@ -50,6 +50,7 @@
                 })
         .form-elements__column.form-elements__column_w266
             +checkbox-buttons({
+                title: 'Checkbox Buttons',
                 classes: 'form-elements__item form-elements__item_mb40'
             })
                 +checkbox-button({
@@ -217,45 +218,68 @@
             //-     title: 'Удобство',
             //-     text: 'Окно в каждой из спален'
             //- })
-        .form-elements__container
+        .form-elements__column.form-elements__column_wf
             .form-elements__row
-            +dropdown({
-                title: 'dropdown',
-                text: 'Сколько гостей',
-                classes: 'dropdown_expend dropdown_guest-counter'
-            })
-                +dropdown-item({
-                    text: 'Взрослые',
-                    value: 0
+                +dropdown({
+                    title: 'dropdown',
+                    text: 'Сколько гостей',
+                    classes: 'dropdown_expend dropdown_guest-counter'
                 })
-                +dropdown-item({
-                    text: 'Дети',
-                    value: 0
+                    +dropdown-item({
+                        text: 'Взрослые',
+                        value: 0
+                    })
+                    +dropdown-item({
+                        text: 'Дети',
+                        value: 0
+                    })
+                    +dropdown-item({
+                        text: 'Младенцы',
+                        value: 0
+                    })
+                    +dropdown-item-buttons()
+                +dropdown({
+                    title: 'dropdown',
+                    text: 'Сколько гостей',
+                    classes: 'dropdown_expend dropdown_guest-counter'
                 })
-                +dropdown-item({
-                    text: 'Младенцы',
-                    value: 0
+                    +dropdown-item({
+                        text: 'Взрослые',
+                        value: 2
+                    })
+                    +dropdown-item({
+                        text: 'Дети',
+                        value: 1
+                    })
+                    +dropdown-item({
+                        text: 'Младенцы',
+                        value: 0
+                    })
+                    +dropdown-item-buttons()
+            .form-elements__row
+                +checkbox-buttons({
+                    title: 'rich checkbox buttons'
                 })
-                +dropdown-item-buttons()
-            +dropdown({
-                title: 'dropdown',
-                text: 'Сколько гостей',
-                classes: 'dropdown_expend dropdown_guest-counter'
-            })
-                +dropdown-item({
-                    text: 'Взрослые',
-                    value: 2
-                })
-                +dropdown-item({
-                    text: 'Дети',
-                    value: 1
-                })
-                +dropdown-item({
-                    text: 'Младенцы',
-                    value: 0
-                })
-                +dropdown-item-buttons()
+                    +rich-checkbox-button({
+                        text: 'Широкий коридор',
+                        help: 'Ширина коридоров в номере не менее 91 см.',
+                        classes: 'checkbox-buttons__checkbox-button'
+                    })
+                    +rich-checkbox-button({
+                        text: 'Помощник для инвалидов',
+                        help: 'На 1 этаже вас встретит специалист  и проводит до номера.',
+                        classes: 'checkbox-buttons__checkbox-button'
+                    })
+                +bullet-list()
+                    +bullet-list__item('Нельзя с питомцами')
+                    +bullet-list__item('Без вечеринок и мероприятий')
+                    +bullet-list__item('Время прибытия — после 13:00, а выезд до 12:00')
                 
-            
-
-                
+            +comment({
+                likes: 12,
+                checked: true,
+                image: 'images/image.png',
+                user: 'Мурад Сарафанов',
+                date: '5 дней назад',
+                text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'
+            })
