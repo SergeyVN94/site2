@@ -1,17 +1,15 @@
 .form-elements {
-    
     position: relative;
     width: 100%;
     background-color: white;
     justify-content: space-between;
-    padding: 143px 141px;
+    padding-top: 143px;
 }
 
 .form-elements .flex-container {
     max-width: 350px;
 }
 
-@import './form-elements__logo.scss';
 @import './form-elements__container.scss';
 @import './__row/form-elements__row.scss';
 @import './__column/form-elements__column.scss';

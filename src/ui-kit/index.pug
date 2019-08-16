@@ -4,6 +4,8 @@ block pageTitle
     title ui-kit
 
 block page
-    main.flex-container.container-content.page-container__container-content
-        //- include ../common.blocks/colors-and-type/colors-and-type.pug
-        include ../common.blocks/form-elements/form-elements.pug
+    main.container-content.page-container__container-content
+        include ../common.blocks/index.pug
+        +logo('ui-kit__logo')
+        +colors-and-type()
+        +form-elements()

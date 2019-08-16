@@ -2,8 +2,9 @@
     position: relative;
     width: 100%;
     background-color: #fff;
-    justify-content: space-between;
+    justify-content: space-around;
     padding-top: 145px;
+    display: flex;
 }
 
 @import './colors-and-type__logo.scss';

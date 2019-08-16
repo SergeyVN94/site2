@@ -1,7 +1,6 @@
-.colors-and-type
-    include ../logo/logo.pug
-    +logo('colors-and-type__logo')
-    include ../colors-demo/colors-demo.pug
-    +colors-demo('colors-and-type__colors-demo')
-    include ../text-demo/text-demo.pug
-    +text-demo('colors-and-type__text-demo')
+mixin colors-and-type(params={})
+    .colors-and-type(class=params.classes)
+        include ../colors-demo/colors-demo.pug
+        +colors-demo()
+        include ../text-demo/text-demo.pug
+        +text-demo()

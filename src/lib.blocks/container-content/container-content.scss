@@ -1,6 +1,7 @@
 .container-content {
-    display: block;
-    width: auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     min-width: 320px;
-    max-width: 1440px;
+    max-width: 1160px;
 }
