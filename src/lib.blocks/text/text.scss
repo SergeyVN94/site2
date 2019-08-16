@@ -1,0 +1,11 @@
+.text {
+    font-family: Quicksand;
+    font-weight: bold;
+    font-style: normal;
+    color: $color-dark-100;
+}
+
+@import './text_h1.scss';
+@import './text_h2.scss';
+@import './text_h3.scss';
+@import './text_body.scss';

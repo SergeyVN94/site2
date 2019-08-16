@@ -6,26 +6,27 @@ function getTextGuests(guests) {
     }
 
     let text = guests + ' гост';
-    const ost = guests % 10;
+    const ost10 = guests % 10;
+    const ost100 = guests % 100;
     let end = '';
 
-    if (ost === 1 && (guests > 20 || guests === 1)) {
+    if (ost10 === 1 && (ost100 > 20 || guests === 1)) {
         end = 'ь';
     }
 
-    if (ost >= 2 && ost <= 4) {
+    if (ost10 >= 2 && ost10 <= 4) {
         end = 'я';
     }
 
-    if (ost >= 5 && ost <= 9 || ost === 0 || (guests >= 11 && guests <= 20)) {
+    if (ost10 >= 5 && ost10 <= 9 || ost10 === 0 || (ost100 >= 11 && ost100 <= 20)) {
         end = 'ей';
     }
 
     return text + end;
 }
 
-// init all dropdown_guest-counter
-$('.dropdown.dropdown_guest-counter').each(function () {
+// init all dropdown_guest
+$('.dropdown_guest').each(function () {
     const _this = $(this);
 
     let guests = 0;
@@ -39,9 +40,7 @@ $('.dropdown.dropdown_guest-counter').each(function () {
     }
 });
 
-
-
-$('.dropdown.dropdown_guest-counter .dropdown__body').filter(function () {
+$('.dropdown_guest .dropdown__body').filter(function () {
     return $(this).find('.dropdown-item-buttons').length > 0;
 }).on('click', function (event) {
     const _this = $(this);

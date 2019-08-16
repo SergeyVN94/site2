@@ -1,12 +1,11 @@
 include ../dropdown-head/dropdown-head.pug
 mixin dropdown-date(params={})
     .dropdown-date(class=params.classes)
-        if params.title
-            .form-element-title #{params.title}
+        .form-element-title #{params.title}
         if params.help
             .form-element-help #{params.help}
         +dropdown-head({
-            text: params.text,
+            text: params.text || 'ДД.ММ.ГГГГ',
             classes: 'dropdown-date__head'
         })
         .dropdown-date__calendar

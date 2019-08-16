@@ -1,9 +1,11 @@
 .dropdown {
     display: block;
-    width: 100%;
+    width: 320px;
     min-width: 266px;
     height: auto;
     background-color: #fff;
+    min-height: 65px;
+    position: relative;
 }
 
 @import './dropdown__button-expend.scss';

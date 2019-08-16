@@ -1,5 +1,4 @@
 .colors-and-type {
-    position: relative;
     width: 100%;
     background-color: #fff;
     justify-content: space-around;
@@ -8,7 +7,5 @@
 }
 
 @import './colors-and-type__logo.scss';
-@import '../colors-demo/colors-demo.scss';
 @import './colors-and-type__colors-demo.scss';
 @import './colors-and-type__text-demo.scss';
-@import '../text-demo/text-demo.scss';

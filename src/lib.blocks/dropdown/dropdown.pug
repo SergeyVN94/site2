@@ -2,8 +2,7 @@ include ../dropdown-head/dropdown-head.pug
 
 mixin dropdown(params={})
     .dropdown(class=params.classes)
-        if params.title
-            .form-element-title #{params.title}
+        .form-element-title #{params.title}
         if params.help
             .form-element-help #{params.help}
         +dropdown-head({
