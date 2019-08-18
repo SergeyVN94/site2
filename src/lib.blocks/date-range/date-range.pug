@@ -1,0 +1,10 @@
+mixin date-range(params={})
+    .date-range(class=params.classes)
+        +dropdown-date({
+            title: 'прибытие',
+            date: params.start
+        })
+        +dropdown-date({
+            title: 'выезд',
+            date: params.end
+        })

@@ -1,31 +1,12 @@
 mixin form-pick-number(params={})
     .form-pick-number(class=params.classes)
         .form-pick-number__title.text.text_h1_m Найдём номера под ваши пожелания
-        .form-pick-number__date-range
-            +dropdown-date({
-                title: 'Прибытие'
-            })
-            +dropdown-date({
-                title: 'Выезд'
-            })
-        +dropdown({
-            title: 'Гости',
-            text: 'Сколько гостей',
-            classes: 'dropdown_guest form-pick-number__dropdown-guests'
+        +date-range({
+            classes: 'form-pick-number__date-range'
         })
-            +dropdown-item({
-                text: 'Взрослые',
-                value: 0
-            })
-            +dropdown-item({
-                text: 'Дети',
-                value: 0
-            })
-            +dropdown-item({
-                text: 'Младенцы',
-                value: 0
-            })
-            +dropdown-item-buttons() 
+        +dropdown-guest({
+            classes: 'form-pick-number__dropdown-guests'
+        })
         +button-go-to({
             text: 'подобрать номер'
         })

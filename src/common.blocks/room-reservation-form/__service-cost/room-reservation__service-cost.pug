@@ -1,0 +1,6 @@
+mixin room-reservation__service-cost(params={})
+    .room-reservation__service-cost(class=params.classes)
+        .text.text_body.room-reservation__service-cost-text !{params.text}
+        if params.icon
+            .text.text_body.room-reservation__service-cost-icon i
+        .text.text_body.room-reservation__service-cost-value !{params.cost}&#8381;

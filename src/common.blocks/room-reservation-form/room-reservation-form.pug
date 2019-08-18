@@ -1,0 +1,44 @@
+mixin room-reservation-form(param={})
+    .room-reservation-form(class=param.classes)
+        include ./__service-cost/room-reservation__service-cost.pug
+        .room-reservation-form__head
+            div
+                span.text.text_h2.room-reservation-form__room-number-icon № 
+                span.text.text_h1 #{param.roomNumber || 0} 
+                if param.luxury
+                    span.text.text_h3.text_color_purple люкс
+            if param.price
+                .room-reservation-form__price
+                    span.text.text_h3.room-reservation-form__price-num #{param.price}&#8381;
+                    span.text.text_body.room-reservation-form__price-time в сутки
+        +date-range({
+            classes: 'room-reservation-form__date-range',
+            start: '19.08.2019',
+            end: '23.08.2019'
+        })
+        +dropdown-guest({
+            text: '3 гостя',
+            classes: 'room-reservation-form__guest'
+        })
+        +room-reservation__service-cost({
+            text: '9 990₽ х 4 суток',
+            cost: '39 960'
+        })
+        +room-reservation__service-cost({
+            text: 'Сбор за услуги: скидка 2 179&#8381;',
+            cost: '0',
+            icon: true
+        })
+        +room-reservation__service-cost({
+            text: 'Сбор за дополнительные услуги',
+            cost: '300',
+            icon: true,
+            classes: 'room-reservation__service-cost_additional-services'
+        })
+        .room-reservation-form__total-cost
+            .text.text_h2_m Итого
+            .room-reservation-form__total-cost-line
+            .text.text_h2_m 38 081&#8381;
+        +button-go-to({
+            text: 'забронировать'
+        })

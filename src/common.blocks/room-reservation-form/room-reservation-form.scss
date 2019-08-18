@@ -1,0 +1,24 @@
+.room-reservation-form {
+    display: block;
+    width: 380px;
+    height: 511px;
+    max-height: 511px;
+    padding: 40px 30px 30px 30px;
+    background: #ffffff;
+    border: 1px solid #0000001f;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 25px #00000033;
+    border-radius: 4px;
+}
+
+@import './room-reservation-form__head.scss';
+@import './room-reservation-form__room-number-icon.scss';
+@import './room-reservation-form__price.scss';
+@import './room-reservation-form__price-num.scss';
+@import './room-reservation-form__price-time.scss';
+@import './room-reservation-form__date-range.scss';
+@import './room-reservation-form__guest.scss';
+@import './__service-cost/room-reservation__service-cost.scss';
+@import './room-reservation-form__total-cost.scss';
+@import './room-reservation-form__total-cost-line.scss';
+@import './room-reservation__service-cost_additional-services.scss';

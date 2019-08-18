@@ -1,0 +1,10 @@
+.room-reservation__service-cost {
+    display: flex;
+    align-items: baseline;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+@import './room-reservation__service-cost-text.scss';
+@import './room-reservation__service-cost-icon.scss';
+@import './room-reservation__service-cost-value.scss';

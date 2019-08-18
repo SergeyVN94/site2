@@ -3,3 +3,9 @@ mixin cards(params={})
         include ../../lib.blocks/index.pug
         +form-pick-number()
         +form-create-account()
+        +room-reservation-form({
+            roomNumber: 888,
+            luxury: true,
+            price: 9900
+        })
+        

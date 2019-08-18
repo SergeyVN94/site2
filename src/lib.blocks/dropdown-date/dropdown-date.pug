@@ -5,8 +5,7 @@ mixin dropdown-date(params={})
         if params.help
             .form-element-help #{params.help}
         +dropdown-head({
-            text: params.text || 'ДД.ММ.ГГГГ',
+            text: params.date || 'ДД.ММ.ГГГГ',
             classes: 'dropdown-date__head'
         })
-        .dropdown-date__calendar
         

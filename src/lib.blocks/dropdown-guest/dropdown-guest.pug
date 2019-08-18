@@ -1,0 +1,19 @@
+mixin dropdown-guest(params={})
+    +dropdown({
+        title: params.title || 'Гости',
+        text: params.text || 'Сколько гостей',
+        classes: 'dropdown_guest ' + params.classes
+    })
+        +dropdown-item({
+            text: 'Взрослые',
+            value: 0
+        })
+        +dropdown-item({
+            text: 'Дети',
+            value: 0
+        })
+        +dropdown-item({
+            text: 'Младенцы',
+            value: 0
+        })
+        +dropdown-item-buttons()
