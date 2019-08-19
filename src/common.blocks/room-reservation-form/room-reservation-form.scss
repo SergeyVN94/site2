@@ -1,14 +1,8 @@
 .room-reservation-form {
-    display: block;
+    @include form;
     width: 380px;
     height: 511px;
     max-height: 511px;
-    padding: 40px 30px 30px 30px;
-    background: #ffffff;
-    border: 1px solid #0000001f;
-    box-sizing: border-box;
-    box-shadow: 0px 0px 25px #00000033;
-    border-radius: 4px;
 }
 
 @import './room-reservation-form__head.scss';

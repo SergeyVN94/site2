@@ -1,0 +1,12 @@
+mixin form-log-in(params={})
+    .form-log-in(class=params.classes)
+        .text.text_h1_m.form-log-in__title Войти
+        input.input.form-log-in__email(placeholder='Email')
+        input.input.form-log-in__password(placeholder='Пароль')
+        +button-go-to({
+            text: 'Войти',
+            classes: 'form-log-in__btn-log-in'
+        })
+        .form-log-in__go-to-form-create-account
+            .text.text_body Нет аккаунта на Toxin?
+            .button.button_theme_default-light создать

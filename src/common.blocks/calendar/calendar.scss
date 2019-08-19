@@ -1,0 +1,15 @@
+.calendar {
+    @include form;
+    width: 320px;
+    height: 369px;
+    max-height: 369px;
+    border-color: #1f204140;
+    box-shadow: 0px 10px 20px #1f20410d;
+    padding: 20px 20px;
+}
+
+@import './calendar__head.scss';
+@import './calendar__head-btn-arrow.scss';
+@import './calendar__week.scss';
+@import './calendar__week-day-name.scss';
+@import './calendar__week-day.scss';

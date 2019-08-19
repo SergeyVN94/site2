@@ -1,0 +1,7 @@
+.calendar__head {
+    @include flex-row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}

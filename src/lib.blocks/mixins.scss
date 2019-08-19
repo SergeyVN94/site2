@@ -1,0 +1,16 @@
+@mixin flex {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+@mixin flex-row {
+    @include flex;
+    flex-direction: row;
+}
+
+@mixin flex-column {
+    @include flex;
+    flex-direction: column;
+}

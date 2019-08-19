@@ -1,0 +1,15 @@
+mixin calendar(params={})
+    .calendar(class=params.classes)
+        -const date = (params.date ? (new Date(params.date)) : (new Date()));
+        -const monthNames = ["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"];
+        -const monthNumber = date.getMonth();
+        -const dayMonth = date.getDate();
+        .calendar__head
+            .button.button_theme_form-element.calendar__head-btn-arrow arrow_back
+            .text.text_h2_m #{monthNames[monthNumber]} #{date.getFullYear()}
+            .button.button_theme_form-element.calendar__head-btn-arrow arrow_forward
+        .calendar__week
+            - const daysWeek = ['Пн','Вт','Ср','Чт','Пт','Сб','Вс'];
+            -for(i = 0; i < 7; i++) {
+                .button.button_theme_form-element-text.calendar__week-day-name #{daysWeek[i]}
+            -}

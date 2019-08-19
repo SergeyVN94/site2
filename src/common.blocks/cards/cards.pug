@@ -1,11 +1,14 @@
 mixin cards(params={})
     .cards(class=params.classes)
         include ../../lib.blocks/index.pug
-        +form-pick-number()
-        +form-create-account()
-        +room-reservation-form({
-            roomNumber: 888,
-            luxury: true,
-            price: 9900
+        //- +form-pick-number()
+        //- +form-create-account()
+        //- +room-reservation-form({
+        //-     roomNumber: 888,
+        //-     luxury: true,
+        //-     price: 9900
+        //- })
+        +form-log-in()
+        +calendar({
+            
         })
-        

@@ -1,0 +1,12 @@
+.form-log-in {
+    @include form;
+    width: 380px;
+    height: 358px;
+    max-height: 358px;
+}
+
+@import './form-log-in__title.scss';
+@import './form-log-in__email.scss';
+@import './form-log-in__password.scss';
+@import './form-log-in__btn-log-in.scss';
+@import './form-log-in__go-to-form-create-account.scss';

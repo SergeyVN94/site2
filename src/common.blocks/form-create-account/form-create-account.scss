@@ -1,13 +1,8 @@
 .form-create-account {
+    @include form;
     width: 380px;
     height: 646px;
     max-height: 646px;
-    background: #ffffff;
-    border: 1px solid #0000001f;
-    box-sizing: border-box;
-    box-shadow: 0px 0px 25px #00000033;
-    border-radius: 4px;
-    padding: 40px 30px 30px 30px;
 }
 
 @import './form-create-account__title.scss';

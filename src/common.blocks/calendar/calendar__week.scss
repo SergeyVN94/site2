@@ -1,0 +1,5 @@
+.calendar__week {
+    @include flex-row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}

@@ -1,3 +1,14 @@
+@mixin form {
+    display: block;
+    background: #ffffff;
+    border: 1px solid #0000001f;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 25px #00000033;
+    border-radius: 4px;
+    padding: 40px 30px 30px 30px;
+}
+
+
 @import './colors-demo/colors-demo.scss';
 @import './text-demo/text-demo.scss';
 @import './colors-and-type/colors-and-type.scss';
@@ -7,4 +18,5 @@
 @import './form-pick-number/form-pick-number.scss';
 @import './form-create-account/form-create-account.scss';
 @import './room-reservation-form/room-reservation-form.scss';
-
+@import './form-log-in/form-log-in.scss';
+@import './calendar/calendar.scss';
