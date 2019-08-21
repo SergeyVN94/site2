@@ -1,15 +1,65 @@
 mixin calendar(params={})
-    .calendar(class=params.classes)
+    .calendar(class=params.classes, date-start-day=params.startDay, data-end-day=params.endDay)
         -const date = (params.date ? (new Date(params.date)) : (new Date()));
         -const monthNames = ["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"];
         -const monthNumber = date.getMonth();
-        -const dayMonth = date.getDate();
+        -const year = date.getFullYear();
+        
         .calendar__head
             .button.button_theme_form-element.calendar__head-btn-arrow arrow_back
-            .text.text_h2_m #{monthNames[monthNumber]} #{date.getFullYear()}
+            .text.text_h2_m #{monthNames[monthNumber]} #{year}
             .button.button_theme_form-element.calendar__head-btn-arrow arrow_forward
         .calendar__week
             - const daysWeek = ['Пн','Вт','Ср','Чт','Пт','Сб','Вс'];
             -for(i = 0; i < 7; i++) {
                 .button.button_theme_form-element-text.calendar__week-day-name #{daysWeek[i]}
             -}
+        
+        //- render first week
+        -let countDays = 1;
+        .calendar__week
+            -const dayWeekOnFirstDay = ((new Date(year, monthNumber, 1)).getDay() || 7) - 1;
+            -const previousMonth = ((monthNumber - 1 < 0) ? 11 : monthNumber - 1);
+            -const previousYear = ((monthNumber - 1 < 0) ? year - 1 : year);
+            
+            //- This code return days in month
+            -const daysInPreviousMonth = 33 - (new Date(previousYear, previousMonth, 33)).getDate();
+            
+            -for(let i = (daysInPreviousMonth - dayWeekOnFirstDay + 1); i <= daysInPreviousMonth; i++){
+                .button.button_theme_form-element-text.calendar__week-day.calendar__week-day-another-month #{i}
+            -}
+
+            -for(;countDays <= (7 - dayWeekOnFirstDay); countDays++){
+                -if(countDays != date.getDate()){
+                    .button.button_theme_form-element-text.calendar__week-day #{countDays}
+                -} else {
+                    .button.button_theme_round-green-text.calendar__week-day.calendar__current-day #{countDays}
+                -}
+            -}
+        
+        //- render other weeks    
+        -const daysMonth = 33 - (new Date(year, monthNumber, 33)).getDate();
+        -for(week = 0; countDays <= daysMonth; week++) {
+            -const tmp = countDays + 6;
+            .calendar__week
+                -for(;countDays <= tmp && countDays <= daysMonth;) {
+                    -if(countDays != date.getDate()){
+                        .button.button_theme_form-element-text.calendar__week-day #{countDays++}
+                    -} else {
+                        .button.button_theme_round-green-text.calendar__week-day.calendar__current-day #{countDays++}
+                    -}
+                -}
+
+                -if(countDays > daysMonth) {
+                    -const dayWeekOnLastDay = ((new Date(year, monthNumber, daysMonth)).getDay() || 7) - 1;
+                    -if(dayWeekOnLastDay < 6) {
+                        -for(let i = 1; i <= (7 - dayWeekOnLastDay - 1);) {
+                            .button.button_theme_form-element-text.calendar__week-day.calendar__week-day-another-month #{i++}
+                        -}
+                    -}
+                -}
+        -}
+            
+        .calendar__buttons
+            .button.button_theme_text-dark очистить
+            .button.button_theme_text применить
