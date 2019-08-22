@@ -1,0 +1,45 @@
+.images-slider {
+    display: block;
+    width: 270px;
+    height: 151px;
+    position: relative;
+}
+
+@mixin btn-nav() {
+    color: #fff;
+    transform: rotate(90deg);
+    z-index: 999;
+}
+
+@mixin btn-nav-container($property) {
+    @if $property != left and $property != right {
+        @error "Property #{$property} must be either left or right.";
+    }
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    
+    @if $property == left {
+        left: 0;
+    }
+
+    @if $property == right {
+        right: 0;
+    }
+
+    z-index: 998;
+}
+
+@import './images-slider__button-back.scss';
+@import './images-slider__button-forward.scss';
+@import './images-slider__button-left-container.scss';
+@import './images-slider__button-right-container.scss';
+@import './images-slider__slide-nav.scss';
+@import './images-slider__slide-nav-item.scss';
+@import './images-slider__slide-nav-item_current-image.scss';
+@import './images-slider__image.scss';

@@ -1,0 +1,5 @@
+mixin hotel-number(params={})
+    .hotel-number(class=params.classes)
+        +images-slider({
+            images: params.images || []
+        })

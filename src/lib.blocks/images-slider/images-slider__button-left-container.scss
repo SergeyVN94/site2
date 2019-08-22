@@ -1,0 +1,4 @@
+.images-slider__button-left-container {
+    @include btn-nav-container(left);
+    background: linear-gradient(90deg, #00000080 0%, #00000000 99.99%, #ffffff00 100%);
+}

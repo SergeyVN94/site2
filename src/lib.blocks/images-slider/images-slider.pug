@@ -1,0 +1,20 @@
+mixin images-slider(params={})
+    .images-slider(class=params.classes)
+        .images-slider__container
+            -const images = params.images;
+            -if(images && Array.isArray(images)) {
+                -for(let i = 0; i < images.length; i++){
+                    img(src=images[i], class='images-slider__image')
+                -}
+            -}
+        .images-slider__button-left-container
+            .button.button_theme_form-element.images-slider__button-back expand_more  
+        .images-slider__button-right-container
+            .button.button_theme_form-element.images-slider__button-forward expand_more
+        .images-slider__slide-nav
+            -if(images.length) {
+                .images-slider__slide-nav-item.images-slider__slide-nav-item_current-image
+                -for(let i = 1; i < images.length; i++){
+                    .images-slider__slide-nav-item
+                -}
+            -}
