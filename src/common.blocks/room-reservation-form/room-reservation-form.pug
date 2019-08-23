@@ -1,16 +1,12 @@
-mixin room-reservation-form(param={})
-    .room-reservation-form(class=param.classes)
+mixin room-reservation-form(params={})
+    .room-reservation-form(class=params.classes)
         include ./__service-cost/room-reservation__service-cost.pug
-        .room-reservation-form__head
-            div
-                span.text.text_h2.room-reservation-form__room-number-icon № 
-                span.text.text_h1 #{param.roomNumber || 0} 
-                if param.luxury
-                    span.text.text_h3.text_color_purple люкс
-            if param.price
-                .room-reservation-form__price
-                    span.text.text_h3.room-reservation-form__price-num #{param.price}&#8381;
-                    span.text.text_body.room-reservation-form__price-time в сутки
+        +hotel-room-info({
+            classes: 'room-reservation-form__head',
+            roomNumber: params.roomNumber,
+            luxury: params.luxury,
+            price: params.price
+        })            
         +date-range({
             classes: 'room-reservation-form__date-range',
             start: '19.08.2019',

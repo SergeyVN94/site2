@@ -1,24 +1,42 @@
 mixin cards(params={})
     .cards(class=params.classes)
         include ../../lib.blocks/index.pug
-        //- +form-pick-number()
-        //- +form-create-account()
-        //- +room-reservation-form({
-        //-     roomNumber: 888,
-        //-     luxury: true,
-        //-     price: 9900
-        //- })
-        //- +form-log-in()
-        //- +calendar({
-        //-     date: '2019-08-08',
-        //-     startDay: '2019-08-19',
-        //-     endDay: '2019-08-23'
-        //- })
+        +form-pick-number()
+        +form-create-account()
+        +room-reservation-form({
+            roomNumber: 888,
+            luxury: true,
+            price: '9 990'
+        })
+        +form-log-in()
+        +calendar({
+            date: '2019-08-08',
+            startDay: '2019-08-19',
+            endDay: '2019-08-23'
+        })
         +hotel-number({
             images: [
                 'images/hotels/888.png',
                 '',
                 '',
                 ''
-            ]
+            ],
+            sliderButton: true,
+            roomNumber: 888,
+            luxury: true,
+            price: '9 990',
+            stars: 5,
+            comments: 145
+        })
+        +hotel-number({
+            images: [
+                'images/hotels/840.png',
+                '',
+                '',
+                ''
+            ],
+            roomNumber: 840,
+            price: '9 900',
+            stars: 4,
+            comments: 65
         })

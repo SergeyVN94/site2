@@ -1,0 +1,12 @@
+.hotel-room-info {
+    @include flex-row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: baseline;
+    height: 30px;
+}
+
+@import './hotel-room-info__room-number-icon.scss';
+@import './hotel-room-info__number.scss';
+@import './hotel-room-info__price-num.scss';
+@import './hotel-room-info__price.scss';

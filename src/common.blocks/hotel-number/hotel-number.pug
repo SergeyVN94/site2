@@ -1,5 +1,21 @@
 mixin hotel-number(params={})
     .hotel-number(class=params.classes)
         +images-slider({
-            images: params.images || []
+            images: params.images || [],
+            sliderButton: params.sliderButton
         })
+        .hotel-number__description
+            +hotel-room-info({
+                classes: 'hotel-number__info',
+                roomNumber: params.roomNumber,
+                luxury: params.luxury,
+                price: params.price
+            }) 
+            .hotel-number__description-any
+                +rate-button({
+                    stars: params.stars ? params.stars : 0
+                })
+                if params.comments
+                    .hotel-number__comments-count.text.text_body
+                        span.hotel-number__comments-count-number #{params.comments} 
+                        span Отзывов
