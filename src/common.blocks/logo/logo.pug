@@ -1,4 +1,8 @@
 mixin logo(classes)
-    div(class="logo " + classes)
-        include ./logo.svg
-        
+    .logo(class=classes)
+        -if(!/logo_theme_main/i.test(classes)) {
+            include ./icon.svg
+        -} else {
+            include ./icon-main.svg
+            include ./text.svg
+        -}

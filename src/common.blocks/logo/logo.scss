@@ -1,5 +1,9 @@
 .logo {
-    display: block;
-    width: 48px;
-    height: 48px;
+    @include flex;
+    align-items: center;
+    flex-wrap: nowrap;
 }
+
+@import './logo__icon.scss';
+@import './logo__icon-main.scss';
+@import './logo__text.scss';

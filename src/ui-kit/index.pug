@@ -4,9 +4,10 @@ block pageTitle
     title ui-kit
 
 block page
-    main.container-content.page-container__container-content
+    main
         include ../common.blocks/index.pug
         +logo('ui-kit__logo')
         //- +colors-and-type()
         //- +form-elements()
-        +cards()
+        //- +cards()
+        +header-footer()
