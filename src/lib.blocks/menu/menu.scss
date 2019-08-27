@@ -1,0 +1,9 @@
+.menu {
+    @include flex-row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@import './menu__item.scss';
+@import './menu__item-expend.scss';

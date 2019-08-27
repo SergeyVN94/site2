@@ -1,4 +1,7 @@
 .header {
+    @include flex-row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
     width: 100%;
     height: 70px;
     background: #fff;
@@ -6,3 +9,6 @@
 }
 
 @import './header__container-content.scss';
+@import './header__logo.scss';
+@import './header__button-login.scss';
+@import './header__user.scss';

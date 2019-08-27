@@ -1,0 +1,6 @@
+mixin menu-item(params={})
+    -if(params.current) {
+        -params.classes = params.classes || '';
+        -params.classes += ' menu-item__current'
+    -}
+    .menu-item.text.text_body(class=params.classes) #{params.text}
