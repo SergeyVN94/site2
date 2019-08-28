@@ -1,9 +1,16 @@
 mixin header-footer(params={})
     .header-footer(class=params.classes)
         +header({
-            classes: 'header-footer__header1'
+            classes: 'header-footer__header'
         })
         +header({
-            user: 'Cosmin Negoita'
+            user: 'Cosmin Negoita',
+            classes: 'header-footer__header'
         })
-            
+        +footer({
+
+        })
+        +copyright-bar({
+            text: 'Copyright © 2018 Toxin UI Kit. All rights reserved.',
+            classes: 'header-footer__copyright-bar'
+        })

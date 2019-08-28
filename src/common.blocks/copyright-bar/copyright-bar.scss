@@ -1,0 +1,8 @@
+.copyright-bar {
+    height: 70px;
+    background: #fff;
+    box-shadow: 0px 10px 20px #1f20410d;
+}
+
+@import './copyright-bar__container-content.scss';
+@import './copyright-bar__social-icon.scss';

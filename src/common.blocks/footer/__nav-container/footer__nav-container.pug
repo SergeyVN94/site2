@@ -1,0 +1,14 @@
+mixin footer__nav-container(params={})
+    .footer__nav-container(class=params.classes)
+        .text.text_h3.footer__container-title #{params.title}
+        +menu({
+            classes: 'menu_theme_vertical'
+        })
+        -const items = params.menuItems || [];
+            -for(let i = 0; i < items.length; i++){
+                +menu-item({
+                    text: items[i],
+                    classes: 'footer__nav-container__menu-item'
+                })
+            -}
+                

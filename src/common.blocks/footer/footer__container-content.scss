@@ -1,0 +1,5 @@
+.footer__container-content {
+    @include container-content-horizontal;
+    align-items: flex-start;
+    padding-top: 100px;
+}
