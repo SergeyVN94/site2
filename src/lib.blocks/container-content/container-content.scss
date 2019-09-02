@@ -1,5 +1,5 @@
 .container-content {
-    @include flex-column;
+    @include flex;
     width: 100%;
     min-width: 320px;
     max-width: 1160px;

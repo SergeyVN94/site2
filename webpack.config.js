@@ -1,35 +1,67 @@
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const pageName = 'ui-kit';
-const path = `${__dirname}/src/${pageName}`;
-
-
-module.exports = {
-    entry: [
-        `${path}/index.js`,
-        `${path}/index.scss`
-    ],
-    output: {
-        path: `${__dirname}/app/`,
-        filename: 'main.js'
-    },
-    devtool: "source-map",
-    module: {
-        rules: [{
+const NODE_ENV = process.env.NODE_ENV || 'development';
+const isDevelopment = NODE_ENV === 'development';
+const devtool = isDevelopment ? "cheap-inline-module-source-map" : null;
+const watchOptions = {
+    aggregateTimeout: 100
+}
+const _module = {
+    rules: [{
             test: /\.pug$/,
-            use: ['pug-loader']
-        }, {
+            use: {
+                loader: 'pug-loader'
+            }
+        },
+        {
             test: /\.scss$/,
             use: [
                 "style-loader", // creates style nodes from JS strings
                 "css-loader", // translates CSS into CommonJS
                 "sass-loader" // compiles Sass to CSS, using Node Sass by default
             ]
-        }]
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: `${path}/index.pug`
-        })
+        },
+        {
+            test: /\.js$/,
+            use: {
+                loader: 'babel-loader'
+            }
+        }
     ]
 }
+const optimization = {
+    splitChunks: {
+        chunks: 'all'
+    }
+}
+
+function getConfig(page) {
+    const entry = {};
+    const name = page.replace(/[\ -]/i, '_');
+    entry[name] = `./index.js`;
+    entry[name + '_style'] = `./index.scss`;
+
+    return {
+        context: `${__dirname}/src/${page}`,
+        entry: entry,
+        output: {
+            path: `${__dirname}/app/${page}`,
+            filename: '[name].js'
+        },
+        plugins: [
+            new HtmlWebpackPlugin({
+                template: `${__dirname}/src/${page}/index.pug`
+            })
+        ],
+        module: _module,
+        devtool: devtool,
+        watch: isDevelopment,
+        watchOptions: watchOptions,
+        optimization: optimization
+    }
+}
+
+module.exports = [
+    getConfig('ui-kit')
+];

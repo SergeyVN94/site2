@@ -1,6 +1,11 @@
+.text-demo__item {
+    @include flex-row;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+}
+
 .text-demo__item:not(:last-child) {
     margin-bottom: 50px;
-    align-items: flex-start;
 }
 
 @import './text-demo__item_h1.scss';

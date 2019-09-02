@@ -3,7 +3,7 @@ import $ from 'jquery';
 $('.dropdown-item').on('click', function(event) {
     const _this = $(this);
     const target = $(event.target);
-
+    
     if (target.hasClass('dropdown-item__button-minus')) {
         const counter = _this.find('.dropdown-item__counter-value');
         let number = parseInt(counter.html());

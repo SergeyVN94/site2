@@ -2,7 +2,7 @@ mixin radio-input(params={})
     .radio-input(class=params.classes)
         label.radio-input__label
             if params.checked
-                input.radio-input__input(type="radio", value=params.value, name=params.name, checked="checked")
+                input.radio-input__input(type="radio", value=params.value, name=params.name, checked)
             else 
                 input.radio-input__input(type="radio", value=params.value, name=params.name)
             .radio-input__new-input
