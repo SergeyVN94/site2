@@ -1,0 +1,10 @@
+.date-range {
+    width: 320px;
+    height: 65px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+@import './date-range_mode_select-dates.scss';
+@import './date-range__calendar.scss';

@@ -1,10 +1,11 @@
 mixin calendar(params={})
-    .calendar(class=params.classes, date-start-day=params.startDay, data-end-day=params.endDay)
-        -const date = (params.date ? (new Date(params.date)) : (new Date()));
+    -const date = (params.date ? (new Date(params.date)) : (new Date()));
+    -const year = date.getFullYear();
+    -const monthNumber = date.getMonth();
+    -const day = date.getDate();
+    -const currentDate = `${year}-${monthNumber + 1}-${day}`
+    .calendar(class=params.classes, date-start-day=params.startDay, data-end-day=params.endDay, data-current-day=currentDate, data-render-date=currentDate)
         -const monthNames = ["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"];
-        -const monthNumber = date.getMonth();
-        -const year = date.getFullYear();
-        
         .calendar__head
             .button.button_theme_form-element.calendar__head-btn-arrow arrow_back
             .text.text_h2_m #{monthNames[monthNumber]} #{year}

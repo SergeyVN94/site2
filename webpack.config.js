@@ -63,5 +63,6 @@ function getConfig(page) {
 }
 
 module.exports = [
-    getConfig('ui-kit')
+    // getConfig('ui-kit'),
+    getConfig('landing-page')
 ];

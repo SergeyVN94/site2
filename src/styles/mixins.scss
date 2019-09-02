@@ -15,12 +15,9 @@
     flex-direction: column;
 }
 
-@mixin container-content-horizontal {
-    @include flex-row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    margin: 0 auto;
+@mixin reset-css {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
 }

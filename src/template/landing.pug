@@ -1,0 +1,13 @@
+extends ../template/page.pug
+
+block page
+    main.page
+        include ../lib.blocks/index.pug
+        include ../common.blocks/index.pug
+        +header()
+        block content
+        +footer()
+        +copyright-bar({
+            classes: 'page__copyright-bar',
+            text: 'Copyright © 2018 Toxin отель. Все права зачищены.'
+        })

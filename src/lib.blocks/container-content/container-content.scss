@@ -3,4 +3,7 @@
     width: 100%;
     min-width: 320px;
     max-width: 1160px;
+    margin: 0 auto;
 }
+
+@import './container-content-horizontal.scss';

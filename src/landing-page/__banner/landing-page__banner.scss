@@ -1,0 +1,11 @@
+.landing-page__banner {
+    height: 830px;
+    margin: 0 auto;
+    background: url('/images/banner.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 0 0;
+}
+
+@import './landing-page__banner-container-content.scss';
+@import './landing-page__banner-form-pick-number.scss';

@@ -1,4 +1,3 @@
-@import './mixins.scss';
 @import './page-container/page-container.scss';
 @import './container-content/container-content.scss';
 @import './flex-container/flex-container.scss';
@@ -33,8 +32,8 @@
 @import './bullet-list/bullet-list.scss';
 @import './comment/comment.scss';
 @import './text/text.scss';
-@import './date-range/date-range.scss';
 @import './images-slider/images-slider.scss';
 @import './menu/menu.scss';
 @import './menu-item/menu-item.scss';
-@import './menu-item-expend/menu-item-expend.scss'
+@import './menu-item-expend/menu-item-expend.scss';
+@import './page/page.scss';
