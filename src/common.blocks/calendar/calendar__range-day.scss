@@ -1,0 +1,15 @@
+.calendar__range-day {
+    position: relative;
+}
+
+.calendar__range-day::after {
+    content: "";
+    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    opacity: 0.25;
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}

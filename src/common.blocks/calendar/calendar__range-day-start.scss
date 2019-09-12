@@ -1,0 +1,8 @@
+.calendar__range-day-start {
+    @include calendar__range-day-out;
+}
+
+.calendar__range-day-start::after {
+    @include calendar__range-day-out-bg;
+    right: 0;
+}

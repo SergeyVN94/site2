@@ -1,4 +1,4 @@
-.button_theme_round {
+@mixin button_theme_round {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -13,4 +13,8 @@
     font-size: 12px;
     line-height: 15px;
     color: white;
+}
+
+.button_theme_round {
+    @include button_theme_round;
 }
