@@ -186,7 +186,6 @@ function updateCalendar(previousMonth = false) {
     calendar.find('.calendar__head .text.text_h2_m').html(`${monthNames[indexMonth]} ${dateArr[0]}`);
 
     calendar.trigger('calendar-update', [
-        renderDate,
         newDate
     ]);
 

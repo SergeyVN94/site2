@@ -1,5 +1,32 @@
 import $ from 'jquery';
 
+function dateToString(date, format, monthFromOne = true) {
+    const items = {
+        "%Y": date => {
+            return date.getFullYear();
+        },
+        "%m": date => {
+            let month = date.getMonth();
+            if (monthFromOne) {
+                month++;
+            }
+            return String(month).padStart(2, '0');
+        },
+        "%d": date => {
+            return String(date.getDate()).padStart(2, '0');
+        }
+    };
+
+    let result = format;
+
+    for (const key in items) {
+        result = result.replace(key, items[key](date));
+    }
+
+    return result;
+}
+
+
 $('.date-range .dropdown-date').on('click', function () {
     const dropdown = $(this);
 
@@ -23,19 +50,22 @@ $('.date-range .dropdown-date').on('click', function () {
     }
 });
 
-$('.date-range').on('calendar-select-date', function (event, mode, date) {
+$('.date-range').on('calendar-set-range', function(event, start, end){
     event.preventDefault();
-
     const dateRange = $(this);
+    const dateMask = 'ДД.ММ.ГГГГ';
+    const itemStart = dateRange.find('.dropdown-date.start .dropdown-head__text');
+    const itemEnd = dateRange.find('.dropdown-date.end .dropdown-head__text');
 
-    if (
-        !mode ||
-        typeof mode !== 'string' ||
-        !date ||
-        typeof date !== 'string'
-    ) {
-        return false;
+    if (start) {
+        itemStart.html(dateToString(start, '%d.%m.%Y'));
+    } else {
+        itemStart.html(dateMask);
     }
 
-    dateRange.find(`.dropdown-date.${mode} .dropdown-head__text`).html(date);
+    if (end) {
+        itemEnd.html(dateToString(end, '%d.%m.%Y'));
+    } else {
+        itemEnd.html(dateMask);
+    }
 });
