@@ -1,0 +1,11 @@
+mixin dropdown-item-counter(params={})
+    .dropdown-item-counter.dropdown__item(class=params.classes)
+        .dropdown-item-counter__text #{params.text}
+        .dropdown-item-counter__counter
+            if params.value != 0
+                .button.button_theme_round-light.dropdown-item-counter__button-minus -
+            else
+                .button.button_disable.button_theme_round-light.dropdown-item-counter__button-minus -
+            .dropdown-item-counter__counter-value #{params.value}
+            .button.button_theme_round-light.dropdown-item-counter__button-plus +
+        

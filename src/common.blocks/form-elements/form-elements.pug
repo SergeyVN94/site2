@@ -1,5 +1,5 @@
 mixin form-elements(params={})
-    .form-elements(class=params.calsses)
+    .form-elements(class=params.classes)
         .container-content.form-elements__container-content
             include ../../lib.blocks/index.pug
             .form-elements__container.form-elements__container_mb100
@@ -240,24 +240,10 @@ mixin form-elements(params={})
                             classes: 'checkbox-buttons__checkbox-button'
                         })
                 .form-elements__column    
-                    +dropdown({
-                        title: 'dropdown',
+                    +dropdown-guest({
                         text: 'Сколько гостей',
                         classes: 'dropdown_expend dropdown_guest'
                     })
-                        +dropdown-item({
-                            text: 'Взрослые',
-                            value: 2
-                        })
-                        +dropdown-item({
-                            text: 'Дети',
-                            value: 1
-                        })
-                        +dropdown-item({
-                            text: 'Младенцы',
-                            value: 0
-                        })
-                        +dropdown-item-buttons()   
                     +bullet-list()
                         +bullet-list__item('Нельзя с питомцами')
                         +bullet-list__item('Без вечеринок и мероприятий')

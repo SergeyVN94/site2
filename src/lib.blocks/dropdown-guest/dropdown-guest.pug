@@ -4,16 +4,18 @@ mixin dropdown-guest(params={})
         text: params.text || 'Сколько гостей',
         classes: 'dropdown_guest ' + params.classes
     })
-        +dropdown-item({
+        +dropdown-item-counter({
             text: 'Взрослые',
             value: 0
         })
-        +dropdown-item({
+        +dropdown-item-counter({
             text: 'Дети',
             value: 0
         })
-        +dropdown-item({
+        +dropdown-item-counter({
             text: 'Младенцы',
             value: 0
         })
-        +dropdown-item-buttons()
+        .dropdown-guest__buttons
+            .button.button_theme_text-dark.dropdown-guest__button-clear.button_hide очистить
+            .button.button_theme_text.dropdown-guest__button-inter применить

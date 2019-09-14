@@ -25,70 +25,56 @@ function getTextGuests(guests) {
     return text + end;
 }
 
-// init all dropdown_guest
-$('.dropdown_guest').each(function () {
-    const _this = $(this);
+function resetCounter(counter) {
+    counter = $(counter);
+    counter.find('.dropdown-item-counter__counter-value').text('0');
+    counter.find('.dropdown-item-counter__button-minus').addClass('button_disable');
+}
 
-    let guests = 0;
-    _this.find('.dropdown-item__counter-value').each(function () {
-        guests += parseInt(this.innerHTML);
+function clearDropdown() {
+    const dropdown = $('.dropdown_guest');
+    
+    dropdown.find('.dropdown-item-counter').each(function() {
+        resetCounter(this);
     });
 
-    if (guests) {
-        _this.find('.dropdown-head__text').html(getTextGuests(guests));
-        _this.find('.dropdown-item-buttons__button-clear').removeClass('button_hide');
+    dropdown.find('.dropdown-head__text').text('Сколько гостей');
+}
+
+function countGuests() {
+    let counter = 0;
+    $('.dropdown_guest').find('.dropdown-item-counter__counter-value').each(function() {
+        counter += Number(this.innerHTML);
+    });
+
+    return counter;
+}
+
+$('.dropdown_guest').click(function(event) {
+    const dropdown = $(this);
+    const target = $(event.target);
+
+    if (target.hasClass('dropdown-guest__button-clear')) {
+        clearDropdown();
+        return true;
+    }
+
+    if (target.hasClass('dropdown-guest__button-inter')) {
+        const guests = countGuests();
+        dropdown.find('.dropdown-head__text').text(getTextGuests(guests));
+        return true;
+    }
+
+    if (
+        target.hasClass('dropdown-item-counter__button-minus') ||
+        target.hasClass('dropdown-item-counter__button-plus')
+    ) {        
+        if (countGuests()) {
+            dropdown.find('.dropdown-guest__button-clear').removeClass('button_hide');
+        } else {
+            dropdown.find('.dropdown-guest__button-clear').addClass('button_hide');
+        }
+
+        return true;
     }
 });
-
-$('.dropdown_guest .dropdown__body')
-    .filter(function () {
-        return $(this).find('.dropdown-item-buttons').length > 0;
-    })
-    .on('click', function (event) {
-        const _this = $(this);
-        const target = $(event.target);
-
-        if (target.hasClass('dropdown-item-buttons__button-clear')) {
-            _this.find('.dropdown-item__counter-value')
-                .each(function () {
-                    this.innerHTML = 0;
-                });
-
-            _this.parent('.dropdown')
-                .find('.dropdown-head__text')
-                .html('Сколько гостей');
-
-            _this.parent('.dropdown')
-                .find('.dropdown-item__button-minus')
-                .each(function () {
-                    this.classList.add('button_disable');
-                });
-
-            target.addClass('button_hide');
-
-            return true;
-        }
-
-        if (!target.hasClass('dropdown-item__button-minus') &&
-            !target.hasClass('dropdown-item__button-plus')) {
-            return true;
-        }
-
-        let guests = 0;
-        _this.find('.dropdown-item__counter-value')
-            .each(function () {
-                guests += parseInt(this.innerHTML);
-            });
-
-        if (guests === 0) {
-            _this.find('.dropdown-item-buttons__button-clear')
-                .addClass('button_hide');
-        } else {
-            _this.find('.dropdown-item-buttons__button-clear')
-                .removeClass('button_hide');
-        }
-
-        _this.parent('.dropdown')
-            .find('.dropdown-head__text')
-            .html(getTextGuests(guests));
-    });
