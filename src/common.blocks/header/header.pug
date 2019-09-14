@@ -3,32 +3,9 @@ mixin header(params={})
         include ../../lib.blocks/index.pug
         .container-content.header__container-content
             +logo('logo_theme_main header__logo')
-            +menu()
-                +menu-item({
-                    text: 'Home',
-                    current: true,
-                    classes: 'menu__item'
-                })
-                +menu-item({
-                    text: 'About Us',
-                    classes: 'menu__item'
-                })
-                +menu-item-expend({
-                    text: 'Services',
-                    classes: 'menu__item-expend'
-                })
-                +menu-item({
-                    text: 'Careers',
-                    classes: 'menu__item'
-                })
-                +menu-item({
-                    text: 'News',
-                    classes: 'menu__item'
-                })
-                +menu-item({
-                    text: 'Documentation',
-                    classes: 'menu__item'
-                })
+            +menu({
+                items: params.menu
+            })
             -if(params.user) {
                 .header__user.text.text_body #{params.user}
             -} else {

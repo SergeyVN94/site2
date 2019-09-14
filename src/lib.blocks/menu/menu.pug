@@ -1,4 +1,18 @@
 mixin menu(params={})
     .menu(class=params.classes)
-        if block
-            block
+        -const items = params.items;
+        if items
+            -for(let i = 0; i < items.length; i++){
+                -const item = items[i];
+                if item.expend
+                    +menu-item-expend({
+                        text: item.text,
+                        classes: 'menu__item-expend'
+                    })
+                else 
+                    +menu-item({
+                        text: item.text,
+                        current: item.current,
+                        classes: 'menu__item'
+                    })
+            -}

@@ -5,36 +5,17 @@ mixin footer(params={})
         .container-content.footer__container-content
             .footer__site-info
                 +logo('logo_theme_main footer__site-info-logo')
-                .text.text_body Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.
-            +footer__nav-container({
-                title: 'Navigation',
-                menuItems: [
-                    'About Us',
-                    'News',
-                    'Support',
-                    'Products'
-                ]
-            })
-            +footer__nav-container({
-                title: 'ABOUT US',
-                menuItems: [
-                    'Who we are',
-                    'Our team',
-                    'Careers',
-                    'Investors'
-                ]
-            })
-            +footer__nav-container({
-                title: 'Support',
-                menuItems: [
-                    'Documentation',
-                    'Community',
-                    'Get in Touch'
-                ]
-            })
-            .footer__subscribe
-                .text.text_h3.footer__container-title Subscribe to our newsletter
-                .text.text_body.footer__subscribe-text Receive our latest news and promotions in your inbox!
-                +text-field-subscription({
-                    placeholder: 'Your email address'
-                })
+                .text.text_body #{params.siteDescription}
+            if params.navigation
+                +footer__nav-container(params.navigation)
+            if params.aboutUs
+                +footer__nav-container(params.aboutUs)
+            if params.support
+                +footer__nav-container(params.support)
+            if params.subscribe
+                .footer__subscribe
+                    .text.text_h3.footer__container-title #{params.subscribe.title}
+                    .text.text_body.footer__subscribe-text #{params.subscribe.text}
+                    +text-field-subscription({
+                        placeholder: 'Your email address'
+                    })

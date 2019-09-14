@@ -4,7 +4,7 @@ mixin footer__nav-container(params={})
         +menu({
             classes: 'menu_theme_vertical'
         })
-        -const items = params.menuItems || [];
+        -const items = params.items || [];
             -for(let i = 0; i < items.length; i++){
                 +menu-item({
                     text: items[i],

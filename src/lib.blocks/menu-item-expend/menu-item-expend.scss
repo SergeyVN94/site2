@@ -1,8 +1,8 @@
 .menu-item-expend {
     @include flex-row;
     flex-wrap: nowrap;
-    align-items: center;  
-    color: $color-dark-50;  
+    align-items: center;   
 }
 
 @import './menu-item-expend__button-expend.scss';
+@import './menu-item-expend__text.scss';
