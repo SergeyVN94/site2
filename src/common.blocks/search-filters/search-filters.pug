@@ -1,0 +1,84 @@
+mixin search-filters(params={})
+    .search-filters(class=params.classes)
+        +dropdown({
+            title: 'даты пребывания в отеле',
+            text: '19 авг - 23 авг',
+            classes: 'search-filters__item search-filters__item_mb21'
+        })
+        +dropdown-guest({
+            classes: 'search-filters__item search-filters__item_mb30'
+        })
+        +range-slider({
+            title: 'Диапазон цены',
+            max: 15000,
+            min: 0,
+            step: 1000,
+            valueMin: 5000,
+            valueMax: 10000,
+            bottomText: 'Стоимость за сутки пребывания в номере',
+            classes: 'search-filters__item search-filters__item_mb30'
+        })
+        +checkbox-list({
+            title: 'Checkbox Buttons',
+            items: [
+                {
+                    text: 'Можно курить'
+                },
+                {
+                    text: 'Можно с питомцами'
+                },
+                {
+                    text: 'Можно пригласить гостей (до 10 человек)'
+                }
+            ],
+            classes: 'search-filters__item search-filters__item_mb30'
+        })
+        +checkbox-list({
+            title: 'Доступность',
+            items: [
+                {
+                    type: 'rich-checkbox',
+                    text: 'Широкий коридор',
+                    bottomText: 'Ширина коридоров в номере не менее 91 см.'
+                },
+                {
+                    type: 'rich-checkbox',
+                    text: 'Помощник для инвалидов',
+                    bottomText: 'На 1 этаже вас встретит специалист  и проводит до номера.'
+                }
+            ],
+            classes: 'search-filters__item search-filters__item_mb30'
+        })
+        +dropdown-rooms({
+            title: 'Удобства номера',
+            classes: 'search-filters__item search-filters__item_mb16'
+        })
+        +checkbox-list-expend({
+            title: 'Дополнительные удобства',
+            items: [
+                {
+                    text: 'Завтрак'
+                },
+                {
+                    text: 'Письменный стол'
+                },
+                {
+                    text: 'Стул для кормления'
+                },
+                {
+                    text: 'Кроватка'
+                },
+                {
+                    text: 'Телевизор'
+                },
+                {
+                    text: 'Шампунь'
+                },
+                {
+                    text: 'Телевизор'
+                },
+                {
+                    text: 'Шампунь'
+                }
+            ]
+        })

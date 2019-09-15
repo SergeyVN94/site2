@@ -1,3 +1,4 @@
+@import './text/text.scss';
 @import './page-container/page-container.scss';
 @import './container-content/container-content.scss';
 @import './flex-container/flex-container.scss';
@@ -20,17 +21,16 @@
 @import './rate-button/rate-button.scss';
 @import './range-slider/range-slider.scss';
 @import './radio-buttons/radio-buttons.scss';
-@import './checkbox-buttons/checkbox-buttons.scss';
+@import './checkbox-list/checkbox-list.scss';
 @import './toggle-buttons/toggle-buttons.scss';
 @import './button-go-to/button-go-to.scss';
 @import './pagination/pagination.scss';
 @import './dropdown-item-counter/dropdown-item-counter.scss';
-@import './expandable-checkbox-list/expandable-checkbox-list.scss';
+@import './checkbox-list-expend/checkbox-list-expend.scss';
 @import './advantage/advantage.scss';
 @import './rich-checkbox-button/rich-checkbox-button.scss';
 @import './bullet-list/bullet-list.scss';
 @import './comment/comment.scss';
-@import './text/text.scss';
 @import './images-slider/images-slider.scss';
 @import './menu/menu.scss';
 @import './menu-item/menu-item.scss';

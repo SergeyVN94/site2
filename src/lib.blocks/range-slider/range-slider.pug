@@ -11,3 +11,5 @@ mixin range-slider(params={})
             .range-slider__line(style=styles)
                 .range-slider__point-left
                 .range-slider__point-right
+        if params.bottomText
+            .text.text_body.range-slider__bottom-text #{params.bottomText}

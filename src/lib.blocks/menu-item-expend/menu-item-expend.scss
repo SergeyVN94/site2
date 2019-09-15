@@ -1,7 +1,9 @@
 .menu-item-expend {
     @include flex-row;
     flex-wrap: nowrap;
-    align-items: center;   
+    align-items: center;  
+    cursor: pointer;
+    @include no-select; 
 }
 
 @import './menu-item-expend__button-expend.scss';

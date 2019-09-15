@@ -1,0 +1,18 @@
+mixin dropdown-rooms(params={})
+    +dropdown({
+        title: params.title || '',
+        text: params.text || 'Сколько комнат',
+        classes: 'dropdown-rooms ' + (params.classes || '')
+    })
+        +dropdown-item-counter({
+            text: 'Спальни',
+            value: 0
+        })
+        +dropdown-item-counter({
+            text: 'Кровати',
+            value: 0
+        })
+        +dropdown-item-counter({
+            text: 'Ванные комнаты',
+            value: 0
+        })

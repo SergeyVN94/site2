@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const isDevelopment = NODE_ENV === 'development';
-const devtool = isDevelopment ? "cheap-inline-module-source-map" : null;
+const devtool = isDevelopment ? "source-map" : null;
 const watchOptions = {
     aggregateTimeout: 100
 }
@@ -64,5 +64,6 @@ function getConfig(page) {
 
 module.exports = [
     // getConfig('ui-kit'),
-    getConfig('landing-page')
+    // getConfig('landing-page'),
+    getConfig('search-room')
 ];

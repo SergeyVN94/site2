@@ -1,0 +1,19 @@
+mixin checkbox-list-items(items, defaultClass='') 
+    -items = items || [];
+    -for(let i = 0; i < items.length; i++){
+        -const item = items[i];
+        case item.type
+            when 'rich-checkbox'
+                +rich-checkbox-button({
+                    classes: (item.classes || '') + ' ' + defaultClass,
+                    checked: item.checked,
+                    text: item.text || '',
+                    bottomText: item.bottomText
+                })
+            default
+                +checkbox-button({
+                    classes: (item.classes || '') + ' ' + defaultClass,
+                    checked: item.checked,
+                    text: item.text || ''
+                })
+    -}          

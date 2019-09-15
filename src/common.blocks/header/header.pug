@@ -1,7 +1,7 @@
 mixin header(params={})
     .header(class=params.classes)
         include ../../lib.blocks/index.pug
-        .container-content.header__container-content
+        .container-content
             +logo('logo_theme_main header__logo')
             +menu({
                 items: params.menu
