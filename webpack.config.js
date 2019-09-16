@@ -64,6 +64,6 @@ function getConfig(page) {
 
 module.exports = [
     // getConfig('ui-kit'),
-    // getConfig('landing-page'),
+    getConfig('landing-page'),
     getConfig('search-room')
 ];

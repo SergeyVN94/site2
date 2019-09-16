@@ -33,6 +33,12 @@
     }
 
     z-index: 998;
+    display: none;
+}
+
+.images-slider:hover .images-slider__button-left-container,
+.images-slider:hover .images-slider__button-right-container{
+    display: flex;
 }
 
 @import './images-slider__button-back.scss';
@@ -43,3 +49,4 @@
 @import './images-slider__slide-nav-item.scss';
 @import './images-slider__slide-nav-item_current-image.scss';
 @import './images-slider__image.scss';
+@import './images-slider__container.scss';

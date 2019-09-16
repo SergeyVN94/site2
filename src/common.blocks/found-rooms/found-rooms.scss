@@ -1,0 +1,8 @@
+.found-rooms {
+    @include flex;
+    justify-content: space-between;
+}
+
+@import './found-rooms__title.scss';
+@import './found-rooms__hotel-room.scss';
+@import './found-rooms__pagination.scss';
