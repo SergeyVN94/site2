@@ -1,66 +1,41 @@
 import $ from 'jquery';
+import {
+    countValueOfCounters,
+    getIndexGraduation,
+    clearDropdown
+} from '../lib';
 
 function getTextGuests(guests) {
-    if (guests === 0) {
+    if (guests.all === 0) {
         return 'Сколько гостей';
     }
 
-    let text = guests + ' гост';
-    const ost10 = guests % 10;
-    const ost100 = guests % 100;
-    let end = '';
-
-    if (ost10 === 1 && (ost100 > 20 || guests === 1)) {
-        end = 'ь';
-    }
-
-    if (ost10 >= 2 && ost10 <= 4) {
-        end = 'я';
-    }
-
-    if (ost10 >= 5 && ost10 <= 9 || ost10 === 0 || (ost100 >= 11 && ost100 <= 20)) {
-        end = 'ей';
-    }
-
-    return text + end;
-}
-
-function resetCounter(counter) {
-    counter = $(counter);
-    counter.find('.dropdown-item-counter__counter-value').text('0');
-    counter.find('.dropdown-item-counter__button-minus').addClass('button_disable');
-}
-
-function clearDropdown() {
-    const dropdown = $('.dropdown_guest');
+    const result = [];
     
-    dropdown.find('.dropdown-item-counter').each(function() {
-        resetCounter(this);
-    });
+    if (guests.grown) {
+        const gradNum = getIndexGraduation(guests.grown);
+        result.push(`${guests.grown} гост${['ь', 'я', 'ей'][gradNum]}`);        
+    }
 
-    dropdown.find('.dropdown-head__text').text('Сколько гостей');
+    if (guests.babies) {
+        const gradNum = getIndexGraduation(guests.babies);
+        result.push(`${guests.babies} младен${['ец', 'ца', 'цев'][gradNum]}`);       
+    }  
+
+    return result.join(', ');
 }
 
-function countGuests() {
-    let counter = 0;
-    $('.dropdown_guest').find('.dropdown-item-counter__counter-value').each(function() {
-        counter += Number(this.innerHTML);
-    });
-
-    return counter;
-}
-
-$('.dropdown_guest').click(function(event) {
+$('.dropdown-guest').click(function(event) {
     const dropdown = $(this);
     const target = $(event.target);
 
     if (target.hasClass('dropdown-guest__button-clear')) {
-        clearDropdown();
+        clearDropdown('.dropdown-guest', 'Сколько гостей');
         return true;
     }
 
     if (target.hasClass('dropdown-guest__button-inter')) {
-        const guests = countGuests();
+        const guests = countValueOfCounters('.dropdown-guest');
         dropdown.find('.dropdown-head__text').text(getTextGuests(guests));
         return true;
     }
@@ -69,7 +44,7 @@ $('.dropdown_guest').click(function(event) {
         target.hasClass('dropdown-item-counter__button-minus') ||
         target.hasClass('dropdown-item-counter__button-plus')
     ) {        
-        if (countGuests()) {
+        if (countValueOfCounters('.dropdown-guest').all) {
             dropdown.find('.dropdown-guest__button-clear').removeClass('button_hide');
         } else {
             dropdown.find('.dropdown-guest__button-clear').addClass('button_hide');

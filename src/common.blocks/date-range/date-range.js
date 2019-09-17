@@ -40,13 +40,17 @@ $('.date-range .dropdown-date').on('click', function () {
     const dMode = dropdown.hasClass('start') ? 'start' : 'end';
     const selectMode = calendar.attr('data-select-mode');
     const isCalendarHide = calendar.css('display') === 'none';
+    
+    dropdown.addClass('dropdown-date_focus');
     if (isCalendarHide) {
         calendar.css('display', 'block');
         calendar.attr('data-select-mode', dMode);
     } else if (dMode !== selectMode) {
         calendar.attr('data-select-mode', dMode);
+        $(`.date-range .dropdown-date.${dMode === 'start' ? 'end' : 'start'}`).removeClass('dropdown-date_focus');
     } else {
         calendar.css('display', 'none');
+        dropdown.removeClass('dropdown-date_focus');
     }
 });
 

@@ -2,17 +2,22 @@ mixin dropdown-guest(params={})
     +dropdown({
         title: params.title || 'Гости',
         text: params.text || 'Сколько гостей',
-        classes: 'dropdown_guest ' + params.classes
+        classes: 'dropdown-guest ' + params.classes
     })
         +dropdown-item-counter({
+            name: 'grown',
+            classes: 'dropdown-guest__item-counter',
             text: 'Взрослые',
             value: 0
         })
         +dropdown-item-counter({
+            name: 'grown',
+            classes: 'dropdown-guest__item-counter',
             text: 'Дети',
             value: 0
         })
         +dropdown-item-counter({
+            name: 'babies',
             text: 'Младенцы',
             value: 0
         })

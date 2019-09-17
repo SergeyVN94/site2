@@ -1,5 +1,5 @@
 mixin dropdown-item-counter(params={})
-    .dropdown-item-counter.dropdown__item(class=params.classes)
+    .dropdown-item-counter(class=params.classes, data-name=params.name)
         .dropdown-item-counter__text #{params.text}
         .dropdown-item-counter__counter
             if params.value != 0
