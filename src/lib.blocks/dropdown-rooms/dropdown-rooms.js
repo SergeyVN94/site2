@@ -43,8 +43,11 @@ $('.dropdown-rooms').click(function(event) {
             return false;
         }
 
-        let text = getRoomsAsText(rooms);
-        if (text.split(', ').length >= 2) {
+        let text = getRoomsAsText(rooms);        
+
+        if (text.length > 21) {
+            text = text.slice(0, 20) + '...';
+        } else {
             text = text.split(', ').slice(0, 2).join(', ') + '...';
         }
         

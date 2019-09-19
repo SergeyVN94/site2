@@ -1,15 +1,16 @@
 mixin range-slider(params={})
-    .range-slider(class=params.classes)
-        if params.title
-            .form-element-title.range-slider__title #{params.title}
-        if params.help
-            .form-element-help.range-slider__value #{params.help}
+    -const min = params.min || 0;
+    -const step = params.step || 1;
+    -const max = params.max || (step * 100);
+    -const format = params.valueFormat || "{min} - {max}";
+    -const value = params.value || format.replace('{min}', min).replace('{max}', max);
+    .range-slider(class=params.classes, data-min=min, data-max=max, data-step=step, data-format=format)
+        .form-element-title.range-slider__title #{params.title}
+        .form-element-help.range-slider__value #{value}
         .range-slider__slider
-            -let marginLeft = params.marginLeft || 0;
-            -let marginRight = params.marginRight || 0;
-            -const styles = "margin-left:" + params.marginLeft + "px;margin-right:" + marginRight + "px;";
-            .range-slider__line(style=styles)
+            .range-slider__line
                 .range-slider__point-left
                 .range-slider__point-right
+            .range-slider__move-container
         if params.bottomText
             .text.text_body.range-slider__bottom-text #{params.bottomText}
