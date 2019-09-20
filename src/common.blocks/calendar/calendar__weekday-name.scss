@@ -1,5 +1,5 @@
-.calendar__week-day-name {
+.calendar__weekday-name {
     color: $color-purple;
     font-weight: bold;
-    width: 100%;
+    width: (100% / 7);
 }

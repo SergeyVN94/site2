@@ -2,237 +2,160 @@ import $ from 'jquery';
 
 const eventName = 'calendar-select-date';
 
-function dateToString(date, format, monthFromOne = true) {
-    const items = {
-        "%Y": date => {
-            return date.getFullYear();
-        },
-        "%m": date => {
-            let month = date.getMonth();
-            if (monthFromOne) {
-                month++;
-            }
-            return String(month).padStart(2, '0');
-        },
-        "%d": date => {
-            return String(date.getDate()).padStart(2, '0');
-        }
-    };
-
-    let result = format;
-
-    for (const key in items) {
-        result = result.replace(key, items[key](date));
-    }
-
-    return result;
+function stringifyDate(date) {
+    return JSON.stringify({
+        year: date.getFullYear(),
+        month: date.getMonth(),
+        day: date.getDate()
+    })
 }
 
-function sendDate(mode, date) {
-    $('.calendar').trigger('calendar-select-date', [
-        mode,
-        date
-    ]);
-}
-
-function clearRange(clearAttributes = false) {
-    const calendar = $('.calendar');
-
-    const classes = [
-        'calendar__range-day',
-        'calendar__range-day_out-only',
-        'calendar__range-day-start',
-        'calendar__range-day-end'
-    ];
-
-    for (let i = 0; i < classes.length; i++) {
-        const className = classes[i];
-        
-        calendar.find(`.${className}`).each(function () {
-            this.classList.remove(className);
-        });
+function getExtremeDatesOfDateRange(calendar) {
+    if (!calendar) {
+        calendar = $('.calendar');
     }
 
-    if (clearAttributes) {
-        calendar.removeAttr('data-range-day-start');
-        calendar.removeAttr('data-range-day-end');
-    }
-}
+    const rangeStartOpt = calendar.attr('data-range-day-start'),
+        rangeEndOpt = calendar.attr('data-range-day-end');
 
-function getOutRangeDays() {
-    const calendar = $('.calendar');
-    const start = calendar.attr('data-range-day-start');
-    const end = calendar.attr('data-range-day-end');
     const result = {
         length: 0
     };
-
-    if (start && (typeof start === 'string' && start.length !== 0)) {
-        result['start'] = new Date(start);
-        result['start'].setHours(0);
+    try {
+        let tmp = JSON.parse(rangeStartOpt);
+        result['start'] = new Date(tmp.year, tmp.month, tmp.day);
         result.length++;
-    }
+    } catch (error) {}
 
-    if (end && (typeof end === 'string' && end.length !== 0)) {
-        result['end'] = new Date(end);
-        result['end'].setHours(0);
+    try {
+        let tmp = JSON.parse(rangeEndOpt);
+        result['end'] = new Date(tmp.year, tmp.month, tmp.day);
         result.length++;
-    }
+    } catch (error) {}
 
     return result;
-}
-
-function getTargetDate(day) {
-    const calendar = $('.calendar');
-    const renderDate = new Date(calendar.attr('data-render-date'));
-    const targetDate = new Date(renderDate.toDateString());
-    targetDate.setDate(Number(day.text()));
-
-    return targetDate;
-}
-
-function isSetDatePossible(day) {
-    const calendar = $('.calendar');
-    const mode = calendar.attr('data-select-mode');
-
-    if (mode !== 'start' && mode !== 'end') {
-        return false;
-    }
-
-    const currentDate = new Date(calendar.attr('data-current-date'));
-    const targetDate = getTargetDate(day);
-
-    if (targetDate.valueOf() < currentDate.valueOf()) {
-        return false;
-    }
-
-    const outRangeDays = getOutRangeDays();
-
-    if (outRangeDays.length === 0) {
-        return true;
-    }
-
-    const otherOutDate = outRangeDays[mode === 'start' ? 'end' : 'start'];
-
-    if (mode === 'start' && targetDate.valueOf() >= otherOutDate.valueOf()) {        
-        return false;
-    }
-
-    if (mode === 'end' && targetDate.valueOf() <= otherOutDate.valueOf()) {
-        return false;
-    }
-
-    return true;
-}
-
-function renderOutRangeDay(name) {
-    const calendar = $('.calendar');
-    const outRangeDays = getOutRangeDays();
-    const renderDate = new Date(calendar.attr('data-render-date'));
-    
-    const outDate = outRangeDays[name];
-
-    if (!outDate) {
-        return;
-    }
-
-    if (outDate.getMonth() !== renderDate.getMonth()) {
-        return;
-    }
-
-    const dayNum = outDate.getDate();
-
-    calendar.find('.calendar__week-day:not(.calendar__week-day-another-month)').each(function() {
-        const day = $(this);
-
-        if (day.text() == dayNum) {
-            day.addClass(`calendar__range-day-${name}`);
-            if (outRangeDays.length === 1) {
-                day.addClass(`calendar__range-day_out-only`);
-            }
-        }
-    });
-}
-
-function renderRange() {
-    const calendar = $('.calendar');
-    const outRangeDays = getOutRangeDays();
-
-    if (outRangeDays.length === 0) {
-        return;
-    }    
-
-    const start = outRangeDays['start'];
-    if (start) {     
-        renderOutRangeDay('start');
-    }
-
-    const end = outRangeDays['end'];
-    if (end) {  
-        renderOutRangeDay('end');
-    }
-
-    if (outRangeDays.length < 2) {
-        return;
-    }
-
-    const renderDate = new Date(calendar.attr('data-render-date'));
-    const tmpDate = new Date(renderDate.toDateString());
-
-    calendar.find('.calendar__week-day:not(.calendar__week-day-another-month)').each(function() {
-        const day = $(this);
-
-        tmpDate.setDate(Number(day.text()));
-        const t = tmpDate.valueOf();
-
-        if (t > start.valueOf() && t < end.valueOf()) {
-            day.addClass('calendar__range-day');
-        }
-    });
 }
 
 function updateRange(day) {
     const calendar = $('.calendar');
-    const mode = calendar.attr('data-select-mode');    
 
-    if (!isSetDatePossible(day)) {
+    const mode = calendar.attr('data-select-mode');
+    if (mode !== 'start' && mode !== 'end') {
         return false;
     }
 
-    const renderDate = new Date(calendar.attr('data-render-date'));
-    const targetDate = new Date(renderDate.toDateString());
-    targetDate.setDate(Number(day.text()));
+    const renderOpt = JSON.parse(calendar.attr('data-render-date')),
+        targetDate = new Date(renderOpt.year, renderOpt.month, Number(day.text())),
+        currentDate = new Date((new Date()).toDateString()); // to reset the time
 
-    calendar.attr(`data-range-day-${mode}`, dateToString(targetDate, '%Y-%m-%d'));
+    if (targetDate < currentDate) {
+        return false;
+    }
 
-    clearRange();
-    renderRange();
+    const extDateRange = getExtremeDatesOfDateRange(calendar);
 
-    sendDate(mode, targetDate);
-}
-
-function initDateMonitor() {
-    $('.calendar').on('click', function (event) {
-        const calendar = $(this);
-        const target = $(event.target);
-
+    if (mode === 'start') {
         if (
-            !target.hasClass('calendar__week-day') ||
-            target.hasClass('calendar__week-day-another-month')
+            extDateRange['end'] &&
+            targetDate >= extDateRange['end']
         ) {
             return false;
         }
-        
-        updateRange(target);
-    });
+
+        calendar.attr('data-range-day-start', stringifyDate(targetDate));
+    } else {
+        if (extDateRange['start']) {
+            const tmpDate = new Date(
+                extDateRange['start'].getFullYear(),
+                extDateRange['start'].getMonth(),
+                extDateRange['start'].getDate() + 1
+            );
+
+            if (targetDate < tmpDate) {
+                return false;
+            }
+        }
+
+        calendar.attr('data-range-day-end', stringifyDate(targetDate));
+    }
 }
 
-initDateMonitor();
+function clearRange() {
+    const calendar = $('.calendar');
 
-$('.calendar').on('calendar-update', function (event) {
-    event.preventDefault();
+    calendar.find(`.calendar__weekday`).removeClass([
+        'calendar__range-day-middle',
+        'calendar__range-day-start',
+        'calendar__range-day-end',
+        'calendar__range-day_only'
+    ]);
+}
+
+function renderRange() {
+    const calendar = $('.calendar'),
+        renderOpt = JSON.parse(calendar.attr('data-render-date')),
+        extDateRange = getExtremeDatesOfDateRange(calendar);
+
+    if (extDateRange.length === 0) {
+        return;
+    }
+
+    const days = calendar.find('.calendar__weekday:not(.calendar__weekday_another-month)');
+    const dayStart = extDateRange['start'];
+    const dayEnd = extDateRange['end'];
+
+    if (dayStart && dayStart.getMonth() === renderOpt.month) {
+        days.each(function () {
+            const num = Number(this.innerHTML);
+            if (num === Number(dayStart.getDate())) {
+                this.classList.add('calendar__range-day-start');
+                if (extDateRange.length === 1) {
+                    this.classList.add('calendar__range-day_only');
+                }
+            }
+        });
+    }
+
+    if (dayEnd && dayEnd.getMonth() === renderOpt.month) {
+        days.each(function () {
+            const num = Number(this.innerHTML);
+            if (num === Number(dayEnd.getDate())) {
+                this.classList.add('calendar__range-day-end');
+                if (extDateRange.length === 1) {
+                    this.classList.add('calendar__range-day_only');
+                }
+            }
+        });
+    }
+
+    if (extDateRange.length === 2) {
+        const tmpDate = new Date(renderOpt.year, renderOpt.month);
+        days.each(function () {
+            tmpDate.setDate(Number(this.innerHTML));
+            if (tmpDate > dayStart && tmpDate < dayEnd) {
+                this.classList.add('calendar__range-day-middle');
+            }
+        });
+    }
+}
+
+$('.calendar .calendar__body').click(function (event) {
+    const target = $(event.target);
+
+    if (
+        !target.hasClass('calendar__weekday') ||
+        target.hasClass('calendar__weekday_another-month')
+    ) {
+        return false;
+    }
+
+    clearRange();
+    updateRange(target);
     renderRange();
-    initDateMonitor();
-})
+});
 
-export {clearRange, getOutRangeDays};
+export {
+    clearRange,
+    renderRange,
+    getExtremeDatesOfDateRange
+};

@@ -1,16 +1,26 @@
 .calendar {
     @include form;
     width: 320px;
-    // height: 369px;
-    // max-height: 369px;
     border-color: #1f204140;
     box-shadow: 0px 10px 20px #1f20410d;
     padding: 20px 20px;
 }
 
 @mixin calendar__range-day-out {
-    @include button_theme_round;
-    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    width: 100% / 7;
+    height: 40px;
+    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    border-radius: 50%;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    color: white;
     position: relative;
 }
 
@@ -28,13 +38,13 @@
 
 @import './calendar__head.scss';
 @import './calendar__head-btn-arrow.scss';
-@import './calendar__week.scss';
-@import './calendar__week-day-name.scss';
-@import './calendar__week-day.scss';
-@import './calendar__week-day-another-month.scss';
-@import './calendar__current-day';
+@import './calendar__weekday-name.scss';
+@import './calendar__weekday.scss';
+@import './calendar__weekday_another-month.scss';
+@import './calendar__weekday_current-day';
 @import './calendar__buttons.scss';
-@import './calendar__range-day.scss';
+@import './calendar__range-day-middle.scss';
 @import './calendar__range-day-start.scss';
 @import './calendar__range-day-end.scss';
-@import './calendar__range-day_out-only.scss';
+@import './calendar__range-day_only.scss';
+@import './calendar__body.scss';

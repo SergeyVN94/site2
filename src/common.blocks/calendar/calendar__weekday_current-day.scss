@@ -1,20 +1,14 @@
-@mixin button_theme_round {
+.calendar__weekday_current-day {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: 0;
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
     border-radius: 50%;
     font-family: Montserrat;
     font-style: normal;
     font-weight: bold;
     font-size: 12px;
     line-height: 15px;
-    color: white;
-}
-
-.button_theme_round {
-    @include button_theme_round;
+    color: #fff;
 }

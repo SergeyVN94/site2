@@ -1,8 +1,8 @@
-.calendar__range-day {
+.calendar__range-day-middle {
     position: relative;
 }
 
-.calendar__range-day::after {
+.calendar__range-day-middle::after {
     content: "";
     background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
     opacity: 0.25;
