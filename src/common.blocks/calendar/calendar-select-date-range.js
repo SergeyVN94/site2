@@ -36,9 +36,7 @@ function getExtremeDatesOfDateRange(calendar) {
     return result;
 }
 
-function updateRange(day) {
-    const calendar = $('.calendar');
-
+function updateRangeAttr(calendar, day) {
     const mode = calendar.attr('data-select-mode');
     if (mode !== 'start' && mode !== 'end') {
         return false;
@@ -65,11 +63,8 @@ function updateRange(day) {
         calendar.attr('data-range-day-start', stringifyDate(targetDate));
     } else {
         if (extDateRange['start']) {
-            const tmpDate = new Date(
-                extDateRange['start'].getFullYear(),
-                extDateRange['start'].getMonth(),
-                extDateRange['start'].getDate() + 1
-            );
+            const tmpDate = new Date(extDateRange['start'].toDateString());
+            tmpDate.setDate(tmpDate.getDate() + 1);
 
             if (targetDate < tmpDate) {
                 return false;
@@ -80,20 +75,22 @@ function updateRange(day) {
     }
 }
 
-function clearRange() {
-    const calendar = $('.calendar');
-
+function clearRange(calendar, clearRangeAttr = false) {
     calendar.find(`.calendar__weekday`).removeClass([
         'calendar__range-day-middle',
         'calendar__range-day-start',
         'calendar__range-day-end',
         'calendar__range-day_only'
     ]);
+
+    if (clearRangeAttr) {
+        calendar.attr('data-range-day-start', '');
+        calendar.attr('data-range-day-end', '');
+    }
 }
 
-function renderRange() {
-    const calendar = $('.calendar'),
-        renderOpt = JSON.parse(calendar.attr('data-render-date')),
+function renderRange(calendar) {
+    const renderOpt = JSON.parse(calendar.attr('data-render-date')),
         extDateRange = getExtremeDatesOfDateRange(calendar);
 
     if (extDateRange.length === 0) {
@@ -139,22 +136,8 @@ function renderRange() {
     }
 }
 
-$('.calendar .calendar__body').click(function (event) {
-    const target = $(event.target);
-
-    if (
-        !target.hasClass('calendar__weekday') ||
-        target.hasClass('calendar__weekday_another-month')
-    ) {
-        return false;
-    }
-
-    clearRange();
-    updateRange(target);
-    renderRange();
-});
-
 export {
+    updateRangeAttr,
     clearRange,
     renderRange,
     getExtremeDatesOfDateRange

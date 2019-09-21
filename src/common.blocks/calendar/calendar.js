@@ -1,51 +1,47 @@
-import './calendar-update-month';
-import './calendar-select-date-range';
 import $ from 'jquery';
 import {
+    updateRangeAttr,
     clearRange,
-    renderRange,
-    getExtremeDatesOfDateRange
+    renderRange
 } from './calendar-select-date-range';
+import {
+    updateCalendar,
+    renderCurrentDate
+} from './calendar-update-month';
 
-const calendar = $('.calendar');
+$('.calendar').click(function (event) {
+    const calendar = $(this);
+    const target = $(event.target);
+    const renderOpt = JSON.parse(calendar.attr('data-render-date'));
+    const renderDate = new Date(renderOpt.year, renderOpt.month);
 
-calendar.on('calendar-update', function(event, newDate) {
-    clearRange();
-    renderRange();
+    if (target.hasClass('calendar__head-btn-arrow')) {
+        let month = renderDate.getMonth();
+        target.html() === 'arrow_back' ? month-- : month++;
+        const newDate = new Date(
+            renderDate.getFullYear(), month);
+        calendar.attr('data-render-date', JSON.stringify({
+            year: newDate.getFullYear(),
+            month: newDate.getMonth()
+        }));
+        updateCalendar(calendar, newDate);
+        renderCurrentDate(calendar);
+        renderRange(calendar);
+        return true;
+    }
 
-    const currentDate = new Date();
     if (
-        currentDate.getFullYear() !== newDate.getFullYear() ||
-        currentDate.getMonth() !== newDate.getMonth()
+        target.hasClass('calendar__weekday') &&
+        !target.hasClass('calendar__weekday_another-month')
     ) {
-        return false;
+        updateRangeAttr(calendar, target);
+        clearRange(calendar);
+        renderRange(calendar);
+        return true;
     }
 
-    calendar.find('.calendar__weekday:not(.calendar__weekday_another-month)')
-    .each(function() {
-        const day = $(this);
-        if (Number(day.html()) === currentDate.getDate()) {
-            day.addClass('calendar__weekday_current-day');
-        }
-    });
-});
-
-calendar.find('.calendar__button-clear').click(() => {
-    clearRange();
-    calendar.attr('data-range-day-start', '');
-    calendar.attr('data-range-day-end', '');
-    calendar.trigger('calendar-set-range');
-});
-
-calendar.find('.calendar__button-enter').click(() => {
-    const extDateRange = getExtremeDatesOfDateRange();
-
-    if (extDateRange.length === 0) {
-        return;
+    if (target.hasClass('calendar__button-clear')) {
+        clearRange(calendar, true);
+        return true;
     }
-
-    calendar.trigger('calendar-set-range', [
-        extDateRange['start'],
-        extDateRange['end']
-    ]);
 });

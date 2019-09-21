@@ -7,7 +7,7 @@ mixin calendar(params={})
     -const monthNames = ["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"];
     -const daysWeek = ['Пн','Вт','Ср','Чт','Пт','Сб','Вс'];
     -const renderDate = JSON.stringify({year: year, month: monthNumber});
-    .calendar(class=params.classes, date-range-day-start="", data-range-day-end="", data-render-date=renderDate)
+    .calendar(class=params.classes, data-range-day-start="", data-range-day-end="", data-render-date=renderDate)
         .calendar__head
             .button.button_theme_form-element.calendar__head-btn-arrow arrow_back
             .text.text_h2_m #{monthNames[monthNumber]} #{year}

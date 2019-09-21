@@ -10,8 +10,16 @@ function createDaysItem(dayNumber) {
     return day;
 }
 
-function updateCalendar(date) {
-    const calendarBody = $('.calendar .calendar__body');
+function updateCalendarHead(calendar) {
+    const rangeDate = JSON.parse(calendar.attr('data-render-date'));
+
+    const month = Number(rangeDate.month);
+    const calendarDateText = `${monthNames[month]} ${rangeDate.year}`;
+    calendar.find('.calendar__head .text.text_h2_m').text(calendarDateText);
+}
+
+function updateCalendar(calendar, date) {
+    const calendarBody = calendar.find('.calendar__body');
     calendarBody.html('');
 
     const year = date.getFullYear();
@@ -37,32 +45,32 @@ function updateCalendar(date) {
         const item = createDaysItem(d);
         item.classList.add('calendar__weekday_another-month');
         calendarBody.append(item);
-    }     
+    }
+    
+    updateCalendarHead(calendar);
 }
 
-$('.calendar').click(function (event) {
-    const target = $(event.target);
-    
-    if (!target.hasClass('calendar__head-btn-arrow')) {        
-        return false;
+function renderCurrentDate(calendar) {
+    const rangeDate = JSON.parse(calendar.attr('data-render-date'));
+    const currentDate = new Date();
+
+    if (
+        currentDate.getMonth() !== Number(rangeDate.month) ||
+        currentDate.getFullYear() !== Number(rangeDate.year)
+    ) {
+        return;
     }
 
-    const calendar = $(this);
+    calendar.find('.calendar__weekday:not(.calendar__weekday_another-month)')
+    .each(function() {
+        const day = $(this);
+        if (Number(day.html()) === currentDate.getDate()) {
+            day.addClass('calendar__weekday_current-day');
+        }
+    });
+}
 
-    const date = JSON.parse(calendar.attr('data-render-date'));
-    const month = target.html() === 'arrow_back' ? date.month - 1 : date.month + 1;
-    const newDate = new Date(date.year, month, 1);
-
-    updateCalendar(newDate);
-
-    calendar.attr('data-render-date', JSON.stringify({
-        year: newDate.getFullYear(),
-        month: newDate.getMonth()
-    }));
-    const calendarDateText = `${monthNames[newDate.getMonth()]} ${newDate.getFullYear()}`;
-    calendar.find('.calendar__head .text.text_h2_m').text(calendarDateText);
-
-    calendar.trigger('calendar-update', [
-        newDate
-    ]);
-});
+export {
+    updateCalendar,
+    renderCurrentDate
+};
