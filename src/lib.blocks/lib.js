@@ -1,11 +1,11 @@
 import $ from 'jquery';
 
-function countValueOfCounters(selector) {
+function countValueOfCounters(dropdown) {
     const counter = {
         all: 0
     };
 
-    $(selector).find('.dropdown-item-counter').each(function() {
+    dropdown.find('.dropdown-item-counter').each(function() {
         const itemCounter = $(this);
         const value = Number(itemCounter.find('.dropdown-item-counter__counter-value').text());
         const valueName = itemCounter.attr('data-name');
@@ -43,16 +43,13 @@ function getIndexGraduation(number) {
 }
 
 function resetCounter(counter) {
-    counter = $(counter);
     counter.find('.dropdown-item-counter__counter-value').text('0');
     counter.find('.dropdown-item-counter__button-minus').addClass('button_disable');
 }
 
-function clearDropdown(selector, defaultText = '') {
-    const dropdown = $(selector);
-    
+function clearDropdown(dropdown, defaultText = '') {    
     dropdown.find('.dropdown-item-counter').each(function() {
-        resetCounter(this);
+        resetCounter($(this));
     });
 
     dropdown.find('.dropdown-head__text').text(defaultText);

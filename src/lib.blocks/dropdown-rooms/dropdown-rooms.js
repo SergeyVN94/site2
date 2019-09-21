@@ -37,7 +37,7 @@ $('.dropdown-rooms').click(function(event) {
         target.hasClass('dropdown-item-counter__button-minus') ||
         target.hasClass('dropdown-item-counter__button-plus')
     ) {
-        const rooms = countValueOfCounters('.dropdown-rooms');
+        const rooms = countValueOfCounters(dropdown);
         
         if (rooms.all === 0) {
             return false;

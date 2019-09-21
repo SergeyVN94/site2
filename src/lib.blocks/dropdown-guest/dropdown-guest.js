@@ -30,12 +30,12 @@ $('.dropdown-guest').click(function(event) {
     const target = $(event.target);
 
     if (target.hasClass('dropdown-guest__button-clear')) {
-        clearDropdown('.dropdown-guest', 'Сколько гостей');
+        clearDropdown(dropdown, 'Сколько гостей');
         return true;
     }
 
     if (target.hasClass('dropdown-guest__button-inter')) {
-        const guests = countValueOfCounters('.dropdown-guest');
+        const guests = countValueOfCounters(dropdown);
         dropdown.find('.dropdown-head__text').text(getTextGuests(guests));
         return true;
     }
@@ -44,7 +44,7 @@ $('.dropdown-guest').click(function(event) {
         target.hasClass('dropdown-item-counter__button-minus') ||
         target.hasClass('dropdown-item-counter__button-plus')
     ) {        
-        if (countValueOfCounters('.dropdown-guest').all) {
+        if (countValueOfCounters(dropdown).all) {
             dropdown.find('.dropdown-guest__button-clear').removeClass('button_hide');
         } else {
             dropdown.find('.dropdown-guest__button-clear').addClass('button_hide');
