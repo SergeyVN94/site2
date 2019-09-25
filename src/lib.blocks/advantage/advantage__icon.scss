@@ -1,4 +1,4 @@
-.advantage__logo {
+.advantage__icon {
     width: 48px;
     height: 48px;
     font-family: Material Icons;
@@ -6,11 +6,10 @@
     font-weight: normal;
     font-size: 48px;
     line-height: 41px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     text-align: center;
     background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    float: left;
 }

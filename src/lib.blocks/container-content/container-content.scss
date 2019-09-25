@@ -1,11 +1,15 @@
-.container-content {
-    @include flex;
+@mixin container-content {
+    @include flex-column;
     width: 100%;
     min-width: 320px;
     max-width: 1160px;
     margin: 0 auto;
 }
 
-@import './container-content-horizontal.scss';
+.container-content {
+    @include container-content;
+}
+
 @import './container-content_content_start.scss';
 @import './container-content_items_top.scss';
+@import './container-content_horizontal.scss';

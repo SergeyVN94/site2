@@ -1,0 +1,29 @@
+mixin room-details__info(params={})
+    .room-details__info(class=params.classes)
+        +room-advantages({
+            items: [
+                {
+                    icon: 'insert_emoticon',
+                    title: 'Комфорт',
+                    text: 'Шумопоглощающие стены'
+                },
+                {
+                    icon: 'location_city',
+                    title: 'Удобство',
+                    text: 'Окно в каждой из спален'
+                },
+                {
+                    icon: 'whatshot',
+                    title: 'Уют',
+                    text: 'Номер оснащён камином'
+                }
+            ]
+        })
+        +room-impressions({
+            values: {
+                veryGood: 520,
+                good: 260,
+                fine: 260,
+                bad: 0
+            }
+        })

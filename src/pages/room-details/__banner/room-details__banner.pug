@@ -1,0 +1,7 @@
+mixin room-details__banner(params={})
+    .room-details__banner(class=params.classes)
+        -params.images = params.images || ['','',''];
+        img(src=params.images[0], class="room-details__banner-main-img")
+        .room-details__banner-column
+            img(src=params.images[1], class="room-details__banner-img")
+            img(src=params.images[2], class="room-details__banner-img")

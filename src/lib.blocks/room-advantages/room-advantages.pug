@@ -1,0 +1,10 @@
+mixin room-advantages(params={})
+    .room-advantages(class=params.classes)
+        .form-element-title.room-advantages__title Сведения о номере
+        -const items = params.items || [];
+        -for(let i = 0; i < items.length; i++) {
+            -const item = items[i];
+            -item.classes = (item.classes || '') + ' room-advantages__item';
+            -if(i !== items.length - 1) item.classes += ' advantage_bottom-line';
+            +advantage(items[i])
+        -}

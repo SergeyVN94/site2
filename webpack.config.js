@@ -43,7 +43,7 @@ function getConfig(page) {
     entry[name + '_style'] = `./index.scss`;
 
     return {
-        context: `${__dirname}/src/${page}`,
+        context: `${__dirname}/src/pages/${page}`,
         entry: entry,
         output: {
             path: `${__dirname}/app/${page}`,
@@ -51,7 +51,7 @@ function getConfig(page) {
         },
         plugins: [
             new HtmlWebpackPlugin({
-                template: `${__dirname}/src/${page}/index.pug`
+                template: `${__dirname}/src/pages/${page}/index.pug`
             })
         ],
         module: _module,
@@ -65,5 +65,6 @@ function getConfig(page) {
 module.exports = [
     // getConfig('ui-kit'),
     // getConfig('landing-page'),
-    getConfig('search-room')
+    // getConfig('search-room'),
+    getConfig('room-details')
 ];

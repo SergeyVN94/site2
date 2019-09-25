@@ -1,0 +1,10 @@
+@mixin container-content_horizontal {
+    @include flex-row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.container-content_horizontal {
+    @include container-content_horizontal;
+}

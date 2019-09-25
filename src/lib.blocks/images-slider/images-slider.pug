@@ -2,9 +2,10 @@ mixin images-slider(params={})
     .images-slider(class=params.classes)
         .images-slider__container
             -const images = params.images;
-            -if(images && Array.isArray(images)) {
-                -for(let i = 0; i < images.length; i++){
-                    img(src=images[i], class='images-slider__image')
+            -if(images && Array.isArray(images) && images.length) {
+                img(src=images[0], class='images-slider__image image-slider__top-image')
+                -for(let i = 1; i < images.length; i++){
+                    img(src=images[0], class='images-slider__image')
                 -}
             -}
         .images-slider__button-left-container

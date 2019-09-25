@@ -1,9 +1,11 @@
 .advantage {
-    padding-bottom: 20px;
-    border-bottom: 1px solid $color-dark-10;
+    @include flex-row;
+    flex-wrap: nowrap;
+    max-width: 280px;
 }
 
-@import './advantage__logo.scss';
+@import './advantage__icon.scss';
 @import './advantage__description.scss';
 @import './advantage__title.scss';
 @import './advantage__text.scss';
+@import './advantage_bottom-line.scss';

@@ -1,0 +1,24 @@
+extends ../../template/landing.pug
+
+block pageTitle
+    title Room details
+
+
+include ./__banner/room-details__banner.pug
+include ./__info/room-details__info.pug
+block content
+    main.room-details
+        +room-details__banner({
+            images: [
+                '888_0.png',
+                '888_1.png',
+                '888_2.png'
+            ].map(item => `/images/hotel-rooms/${item}`)
+        })
+        .container-content.container-content_horizontal
+            +room-details__info()
+            +room-reservation-form({
+                roomNumber: 888,
+                luxury: true,
+                price: '9 990'
+            })
