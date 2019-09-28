@@ -1,0 +1,35 @@
+.room-impressions__help-item {
+    min-width: 161px;
+    &::before {
+        content: '';
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50px;
+        margin-right: 5px;
+    }
+
+    &:nth-child(1) {
+        &:before {
+            background: $color1;
+        }
+    }
+
+    &:nth-child(2) {
+        &:before {
+            background: $color2;
+        }
+    }
+
+    &:nth-child(3) {
+        &:before {
+            background: $color3;
+        }
+    }
+
+    &:nth-child(4) {
+        &:before {
+            background: $color4;
+        }
+    }
+}

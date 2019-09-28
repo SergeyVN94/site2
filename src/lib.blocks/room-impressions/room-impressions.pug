@@ -1,3 +1,74 @@
 mixin room-impressions(params={})
-    .room-impressions(class=params.classes)
+    .room-impressions(class=params.classes, style="margin-left: 10px;")
         .form-element-title.room-impressions__title Впечатления от номера
+        .room-impressions__container
+            .room-impressions__container-diagram
+                -const keys = ['bad', 'fine', 'good', 'veryGood'];
+                -const values = params.values || {};
+                -let sum = 0;
+                -for(let i = 0; i < keys.length; i++) {
+                    -const key = keys[i];
+                    -values[key] = values[key] || 0;
+                    -sum += values[key];
+                -}
+                -const paths = {};
+                -if(sum){
+                    -let lastPos = {};
+                    -lastPos.x = 60 + (58 * Math.cos((Math.PI / 180)));
+                    -lastPos.y = 60 + (58 * Math.sin((Math.PI / 180)));
+                    -let sumDegrees = 0;
+                    -for(let i = 0; i < keys.length; i++) {
+                        -const key = keys[i];
+                        -let degrees = Math.floor((values[key] / sum) * 360);
+
+                        -if(degrees > 3) {
+                            -sumDegrees += degrees;
+
+                            -const rad = ((Math.PI * (sumDegrees - 1)) / 180);
+                            -let x = 60 + (58 * Math.cos(rad));
+                            -let y = 60 + (58 * Math.sin(rad));
+
+                            -let path = `M${lastPos.x} ${lastPos.y} A 58 58 0 0 1 ${x} ${y}`;
+                            -paths[key] = path;
+
+                            -sumDegrees++;
+                            -const nRad = ((Math.PI * (sumDegrees)) / 180);
+                            -lastPos.x = 60 + (58 * Math.cos(nRad));
+                            -lastPos.y = 60 + (58 * Math.sin(nRad));
+                        -}
+                    -}
+                -}
+                -valuesStr = JSON.stringify(values);
+                svg(class="room-impressions__diagram", width="100%", height="100%", fill="none", xmlns="http://www.w3.org/2000/svg", data-values=valuesStr)
+                    -for(let i = 0; i < keys.length; i++) {
+                        -const key = keys[i];
+                        -if(paths[key]) {
+                            -const stroke = `url(#linear-gradient-${key})`;
+                            path(d=paths[key], stroke-width="4", fill="none", stroke=stroke)
+                        -}
+                    -}
+                    <linearGradient id="linear-gradient-bad">
+                        <stop stop-color="#919191"/>
+                        <stop offset="1" stop-color="#3D4975"/>
+                    </linearGradient>
+                    <linearGradient id="linear-gradient-fine">
+                        <stop stop-color="#BC9CFF"/>
+                        <stop offset="1" stop-color="#8BA4F9"/>
+                    </linearGradient>
+                    <linearGradient id="linear-gradient-good">
+                        <stop stop-color="#6FCF97"/>
+                        <stop offset="1" stop-color="#66D2EA"/>
+                    </linearGradient>
+                    <linearGradient id="linear-gradient-veryGood">
+                        <stop stop-color="#FFBA9C"/>
+                        <stop offset="1" stop-color="#FFE39C"/>
+                    </linearGradient>
+
+                .room-impressions__diagram-text
+                    .text.text_h1.room-impressions__diagram-text-counter 260
+                    .text.text_h3.room-impressions__diagram-text-counter-sign голосов
+            .room-impressions__help
+                .text.text_body.room-impressions__help-item Великолепно
+                .text.text_body.room-impressions__help-item Хорошо
+                .text.text_body.room-impressions__help-item Удовлетворительно
+                .text.text_body.room-impressions__help-item Разочарован

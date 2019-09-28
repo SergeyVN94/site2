@@ -10,6 +10,6 @@
     @include container-content;
 }
 
-@import './container-content_content_start.scss';
-@import './container-content_items_top.scss';
 @import './container-content_horizontal.scss';
+@import './container-content_content_start.scss';
+@import './container-content_items_center.scss';
