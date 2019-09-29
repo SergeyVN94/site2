@@ -1,0 +1,8 @@
+.comments-list__head {
+    @include flex-row;
+    flex-wrap: nowrap;
+    align-items: baseline;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+}

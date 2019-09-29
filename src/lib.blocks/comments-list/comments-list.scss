@@ -1,0 +1,8 @@
+.comments-list {
+    width: 100%;
+}
+
+
+@import './comments-list__comment.scss';
+@import './comments-list__head.scss';
+@import './comments-list__counter.scss';

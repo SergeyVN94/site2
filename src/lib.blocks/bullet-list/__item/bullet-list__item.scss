@@ -1,0 +1,19 @@
+.bullet-list__item {
+    width: 266px;
+    color: $color-dark-75;
+    padding-left: 21px;
+    position: relative;
+
+    &::before {
+        content: '';
+        display: block;
+        float: left;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: $color-dark-25;
+        position: absolute;
+        left: 0;
+        top: 7px;
+    }
+}

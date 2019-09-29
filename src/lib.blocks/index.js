@@ -6,3 +6,4 @@ import './checkbox-list-expend/checkbox-list-expend';
 import './dropdown-guest/dropdown-guest';
 import './dropdown-rooms/dropdown-rooms';
 import './pagination/pagination';
+import './room-impressions/room-impressions';

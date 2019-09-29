@@ -2,6 +2,8 @@
 @import '../../lib.blocks/index.scss';
 @import '../../common.blocks/index.scss';
 @import './__banner/room-details__banner.scss';
+@import './__info/room-details__info.scss';
+@import './room-details__room-reservation-form.scss';
 
 .room-details {
     padding-bottom: 70px;

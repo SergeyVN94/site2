@@ -1,0 +1,10 @@
+.room-details__info {
+    @include flex-column;
+    flex: auto;
+}
+
+@import './room-details__info-head.scss';
+@import './room-details__info-head-impressions.scss';
+@import './room-details__info-comments-list.scss';
+@import './room-details__info-additional.scss';
+@import './room-details__info-additional-text.scss';

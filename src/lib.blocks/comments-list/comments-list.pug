@@ -1,0 +1,12 @@
+mixin comments-list(params={})
+    .comments-list(class=params.classes)
+        .comments-list__head
+            .text.text_h2_m.comments-list__title Отзывы посетителей номера
+            .text.text_body.comments-list__counter #{params.counter || '0 отзывов'}
+
+        -const list = params.comments || [];
+        -for(let i = 0; i < list.length; i++){
+            -const comment = list[i];
+            -comment.classes = (comment.classes || '') + ' comments-list__comment';
+            +comment(comment)
+        -}

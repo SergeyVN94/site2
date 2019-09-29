@@ -1,6 +1,6 @@
 mixin room-impressions(params={})
-    .room-impressions(class=params.classes, style="margin-left: 10px;")
-        .form-element-title.room-impressions__title Впечатления от номера
+    .room-impressions(class=params.classes)
+        .text.text_h2_m.room-impressions__title Впечатления от номера
         .room-impressions__container
             .room-impressions__container-diagram
                 -const keys = ['bad', 'fine', 'good', 'veryGood'];
@@ -65,7 +65,7 @@ mixin room-impressions(params={})
                     </linearGradient>
 
                 .room-impressions__diagram-text
-                    .text.text_h1.room-impressions__diagram-text-counter 260
+                    .text.text_h1.room-impressions__diagram-text-counter #{sum}
                     .text.text_h3.room-impressions__diagram-text-counter-sign голосов
             .room-impressions__help
                 .text.text_body.room-impressions__help-item Великолепно
