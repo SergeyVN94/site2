@@ -1,0 +1,9 @@
+.sign-in__banner {
+    height: 683px;
+    width: 100%;
+    background-position: 100% 100%;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+
+@import './sign-in__banner-content.scss';

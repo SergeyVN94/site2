@@ -1,0 +1,12 @@
+extends ../../template/landing.pug
+
+block pageTitle
+    title Sign in
+
+
+include ./__banner/sign-in__banner.pug
+block content
+    main.sign-in
+        +sign-in__banner({
+            image: '/images/sign-in/banner.png'
+        })

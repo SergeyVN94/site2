@@ -67,5 +67,6 @@ module.exports = [
     // getConfig('landing-page'),
     // getConfig('search-room'),
     // getConfig('room-details'),
-    getConfig('registration')
+    // getConfig('registration'),
+    getConfig('sign-in')
 ];
