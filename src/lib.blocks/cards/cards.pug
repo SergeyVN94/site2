@@ -1,7 +1,6 @@
 mixin cards(params={})
     .cards(class=params.classes)
         .container-content.cards__container-content
-            include ../../lib.blocks/index.pug
             +form-pick-number()
             +form-create-account()
             +room-reservation-form({

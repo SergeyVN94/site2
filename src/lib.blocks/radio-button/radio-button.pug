@@ -1,6 +1,5 @@
 mixin radio-button(params={})
     .radio-button(class=params.classes)
-        include ../radio-input/radio-input.pug
         +radio-input({
             checked: params.checked,
             classes: 'radio-button__input',

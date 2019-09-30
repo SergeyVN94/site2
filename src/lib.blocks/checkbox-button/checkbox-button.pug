@@ -1,6 +1,5 @@
 mixin checkbox-button(params={})
     .checkbox-button(class=params.classes)
-        include ../checkbox-input/checkbox-input.pug
         +checkbox-input({
             checked: params.checked
         })

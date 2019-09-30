@@ -1,67 +1,64 @@
 extends ../template/page.pug
 
 block page
-    .page
-        include ../lib.blocks/index.pug
-        include ../common.blocks/index.pug
-        +header({
-            menu: [
-                {
-                    text: 'О нас'
-                },
-                {
-                    text: 'Услуги',
-                    expend: true
-                },
-                {
-                    text: 'Вакансии'
-                },
-                {
-                    text: 'Новости'
-                },
-                {
-                    text: 'Соглашения',
-                    expend: true
-                }
-            ],
-            login: 'войти',
-            register: 'зарегистрироваться'
-        })
-        block content
-        +footer({
-            siteDescription: 'Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»',
-            navigation: {
-                title: 'Навигация',
-                items: [
-                    'О нас',
-                    'Новости',
-                    'Служба поддержки',
-                    'Услуги'
-                ]
+    +header({
+        menu: [
+            {
+                text: 'О нас'
             },
-            aboutUs: {
-                title: 'О нас',
-                items: [
-                    'О сервисе',
-                    'Наша команда',
-                    'Вакансии',
-                    'Инвесторы'
-                ]
+            {
+                text: 'Услуги',
+                expend: true
             },
-            support: {
-                title: 'Служба поддержки',
-                items: [
-                    'Соглашения',
-                    'Сообщества',
-                    'Связь с нами'
-                ]
+            {
+                text: 'Вакансии'
             },
-            subscribe: {
-                title: 'Подписка',
-                text: 'Получайте специальные предложения и новости сервиса'
+            {
+                text: 'Новости'
+            },
+            {
+                text: 'Соглашения',
+                expend: true
             }
-        })
-        +copyright-bar({
-            classes: 'page__copyright-bar',
-            text: 'Copyright © 2018 Toxin отель. Все права зачищены.'
-        })
+        ],
+        login: 'войти',
+        register: 'зарегистрироваться'
+    })
+    block content
+    +footer({
+        siteDescription: 'Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»',
+        navigation: {
+            title: 'Навигация',
+            items: [
+                'О нас',
+                'Новости',
+                'Служба поддержки',
+                'Услуги'
+            ]
+        },
+        aboutUs: {
+            title: 'О нас',
+            items: [
+                'О сервисе',
+                'Наша команда',
+                'Вакансии',
+                'Инвесторы'
+            ]
+        },
+        support: {
+            title: 'Служба поддержки',
+            items: [
+                'Соглашения',
+                'Сообщества',
+                'Связь с нами'
+            ]
+        },
+        subscribe: {
+            title: 'Подписка',
+            text: 'Получайте специальные предложения и новости сервиса'
+        }
+    })
+    +copyright-bar({
+        classes: 'page__copyright-bar',
+        text: 'Copyright © 2018 Toxin отель. Все права зачищены.'
+    })
