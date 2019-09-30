@@ -1,0 +1,12 @@
+extends ../../template/landing.pug
+
+block pageTitle
+    title Registration
+
+
+include ./__banner/registration__banner.pug
+block content
+    main.registration
+        +registration__banner({
+            image: '/images/registration/banner.png'
+        })

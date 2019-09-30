@@ -1,0 +1,10 @@
+.registration__banner {
+    height: 702px;
+    width: 100%;
+    background-position: 0 0;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+@import './registration__banner-content.scss';
+@import './registration__banner-form.scss';

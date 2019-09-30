@@ -66,5 +66,6 @@ module.exports = [
     // getConfig('ui-kit'),
     // getConfig('landing-page'),
     // getConfig('search-room'),
-    getConfig('room-details')
+    // getConfig('room-details'),
+    getConfig('registration')
 ];
