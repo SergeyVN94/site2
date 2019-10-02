@@ -1,15 +1,14 @@
 .dropdown {
     display: block;
-    width: 320px;
-    min-width: 266px;
-    max-width: 100%;
-    height: auto;
+    width: 100%;
+    height: 44px;
     background-color: #fff;
-    min-height: 65px;
-    position: relative;
+    border: 1px solid $color-dark-25;
+    box-sizing: border-box;
+    border-radius: 4px;
+    color: $color-dark-75;
 }
 
+@import './dropdown__text.scss';
 @import './dropdown__button-expend.scss';
-@import './dropdown__body.scss';
-@import './dropdown_expend.scss';
-@import './dropdown__item.scss';
+@import './dropdown_theme_expend-body.scss';

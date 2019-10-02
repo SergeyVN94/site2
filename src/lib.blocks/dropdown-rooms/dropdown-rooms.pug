@@ -4,20 +4,20 @@ mixin dropdown-rooms(params={})
         text: params.text || 'Сколько комнат',
         classes: 'dropdown-rooms ' + (params.classes || '')
     })
-        +dropdown-item-counter({
-            name: 'bedrooms',
-            classes: 'dropdown-rooms__item-counter',
-            text: 'Спальни',
-            value: 0
-        })
-        +dropdown-item-counter({
-            name: 'beds',
-            classes: 'dropdown-rooms__item-counter',
-            text: 'Кровати',
-            value: 0
-        })
-        +dropdown-item-counter({
-            name: 'bathrooms',
-            text: 'Ванные комнаты',
-            value: 0
-        })
+    +dropdown-item-counter({
+        name: 'bedrooms',
+        classes: 'dropdown-rooms__item-counter',
+        text: 'Спальни',
+        value: 0
+    })
+    +dropdown-item-counter({
+        name: 'beds',
+        classes: 'dropdown-rooms__item-counter',
+        text: 'Кровати',
+        value: 0
+    })
+    +dropdown-item-counter({
+        name: 'bathrooms',
+        text: 'Ванные комнаты',
+        value: 0
+    })

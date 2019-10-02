@@ -1,26 +1,32 @@
 mixin dropdown-guest(params={})
-    +dropdown({
-        title: params.title || 'Гости',
-        text: params.text || 'Сколько гостей',
-        classes: 'dropdown-guest ' + params.classes
-    })
-        +dropdown-item-counter({
-            name: 'grown',
-            classes: 'dropdown-guest__item-counter',
-            text: 'Взрослые',
-            value: 0
+    .dropdown-guest
+        +block-head({
+            title: params.title || 'Гости',
+            help: params.help,
+            classes: 'dropdown-guest__block-head'
         })
-        +dropdown-item-counter({
-            name: 'grown',
-            classes: 'dropdown-guest__item-counter',
-            text: 'Дети',
-            value: 0
+        +dropdown({
+            text: params.text || 'Сколько гостей'
         })
-        +dropdown-item-counter({
-            name: 'babies',
-            text: 'Младенцы',
-            value: 0
-        })
-        .dropdown-guest__buttons
-            .button.button_theme_text-dark.dropdown-guest__button-clear.button_hide очистить
-            .button.button_theme_text.dropdown-guest__button-inter применить
+        .dropdown-guest__body
+            .dropdown-guest__body-content
+                +dropdown-item-counter({
+                    name: 'grown',
+                    classes: 'dropdown-guest__item-counter',
+                    text: 'Взрослые',
+                    value: 0
+                })
+                +dropdown-item-counter({
+                    name: 'grown',
+                    classes: 'dropdown-guest__item-counter',
+                    text: 'Дети',
+                    value: 0
+                })
+                +dropdown-item-counter({
+                    name: 'babies',
+                    text: 'Младенцы',
+                    value: 0
+                })
+                .dropdown-guest__buttons
+                    .button.button_theme_text-dark.dropdown-guest__button-clear.button_hide очистить
+                    .button.button_theme_text.dropdown-guest__button-inter применить

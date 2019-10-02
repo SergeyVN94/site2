@@ -1,14 +1,4 @@
-include ../dropdown-head/dropdown-head.pug
-
 mixin dropdown(params={})
     .dropdown(class=params.classes)
-        .form-element-title #{params.title}
-        if params.help
-            .form-element-help #{params.help}
-        +dropdown-head({
-            text: params.text,
-            classes: 'dropdown__head'
-        })
-        .dropdown__body
-            if block
-                block
+        .dropdown__text #{params.text}
+        .button.button_theme_form-element.dropdown__button-expend expand_more

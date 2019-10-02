@@ -1,4 +1,11 @@
+.dropdown-guest {
+    width: 320px;
+}
+
 @import './dropdown-guest__buttons.scss';
 @import './dropdown-guest__button-clear.scss';
 @import './dropdown-guest__button-inter.scss';
 @import './dropdown-guest__item-counter.scss';
+@import './dropdown-guest__body.scss';
+@import './dropdown-guest__body-content.scss';
+@import './dropdown-guest__block-head.scss';

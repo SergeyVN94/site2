@@ -1,11 +1,9 @@
-include ../dropdown-head/dropdown-head.pug
 mixin dropdown-date(params={})
     .dropdown-date(class=params.classes)
         .form-element-title #{params.title}
         if params.help
             .form-element-help #{params.help}
-        +dropdown-head({
-            text: params.date || 'ДД.ММ.ГГГГ',
-            classes: 'dropdown-date__head'
+        +dropdown({
+            text: params.date || 'ДД.ММ.ГГГГ'
         })
         
