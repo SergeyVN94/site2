@@ -33,7 +33,7 @@ import jQuery from 'jquery';
                         throw 'Wrong argument type! expected string.';
                     }
 
-                    dropdown.text(value);
+                    dropdown.find('.dropdown__text').text(value);
                     return dropdown;
 
                 case 'theme':

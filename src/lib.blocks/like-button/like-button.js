@@ -1,5 +1,5 @@
 import $ from "jquery";
-import './like-button-plagin';
+import './like-button-plugin';
 
 $('.like-button').click(function() {
     const button = $(this);

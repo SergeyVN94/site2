@@ -1,27 +1,5 @@
 import $ from 'jquery';
 
-function countValueOfCounters(dropdown) {
-    const counter = {
-        all: 0
-    };
-
-    dropdown.find('.dropdown-item-counter').each(function() {
-        const itemCounter = $(this);
-        const value = Number(itemCounter.find('.dropdown-item-counter__counter-value').text());
-        const valueName = itemCounter.attr('data-name');
-
-        if (counter[valueName] === undefined) {
-            counter[valueName] = 0;
-        }
-
-        counter[valueName] += value;
-
-        counter.all += value;
-    });
-
-    return counter;
-}
-
 function getIndexGraduation(number) {
     const ost10 = number % 10;
     const ost100 = number % 100;
@@ -42,22 +20,6 @@ function getIndexGraduation(number) {
     return grad;
 }
 
-function resetCounter(counter) {
-    counter.find('.dropdown-item-counter__counter-value').text('0');
-    counter.find('.dropdown-item-counter__button-minus').addClass('button_disable');
-}
-
-function clearDropdown(dropdown, defaultText = '') {    
-    dropdown.find('.dropdown-item-counter').each(function() {
-        resetCounter($(this));
-    });
-
-    dropdown.find('.dropdown-head__text').text(defaultText);
-}
-
 export {
-    countValueOfCounters,
-    getIndexGraduation,
-    resetCounter,
-    clearDropdown
+    getIndexGraduation
 }

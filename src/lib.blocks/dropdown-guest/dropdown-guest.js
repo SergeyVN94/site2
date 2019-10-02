@@ -1,13 +1,14 @@
 import $ from 'jquery';
 import {
-    countValueOfCounters,
     getIndexGraduation
 } from '../lib';
+import './dropdown-guest-plugin';
 
 function getTextGuests(guests) {
     if (guests.all === 0) {
         return 'Сколько гостей';
     }
+
 
     const result = [];
 
@@ -30,13 +31,8 @@ $('.dropdown-guest').each(function () {
     const body = dropdownGuest.find('.dropdown-guest__body-content');
 
     dropdown.dropdown('click', function () {
-        if (body.css('display') === 'none') {
-            body.css('display', 'block');
-            dropdown.addClass('dropdown_theme_expend-body');
-        } else {
-            body.css('display', 'none');
-            dropdown.removeClass('dropdown_theme_expend-body');
-        }
+        const isExpend = dropdownGuest.dropdownGuest('expend');
+        dropdownGuest.dropdownGuest('expend', !isExpend);
     });
 
     dropdownGuest.click(function (event) {
@@ -44,12 +40,15 @@ $('.dropdown-guest').each(function () {
 
         if (target.hasClass('dropdown-guest__button-clear')) {
             dropdown.dropdown('text', 'Сколько гостей');
+            dropdownGuest.dropdownGuest('reset');
+            dropdownGuest.dropdownGuest('expend', false);
             return true;
         }
 
         if (target.hasClass('dropdown-guest__button-inter')) {
-            const guests = countValueOfCounters();
+            const guests = dropdownGuest.dropdownGuest('guests');
             dropdown.dropdown('text', getTextGuests(guests));
+            dropdownGuest.dropdownGuest('expend', false);
             return true;
         }
 
@@ -57,7 +56,7 @@ $('.dropdown-guest').each(function () {
             target.hasClass('dropdown-item-counter__button-minus') ||
             target.hasClass('dropdown-item-counter__button-plus')
         ) {
-            if (countValueOfCounters(dropdown).all) {
+            if (dropdownGuest.dropdownGuest('guests').all) {
                 dropdownGuest.find('.dropdown-guest__button-clear').removeClass('button_hide');
             } else {
                 dropdownGuest.find('.dropdown-guest__button-clear').addClass('button_hide');
