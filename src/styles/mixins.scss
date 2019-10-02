@@ -38,3 +38,10 @@
     border-radius: 4px;
     padding: 40px 30px 30px 30px;
 }
+
+@mixin placeholder {
+    &::-webkit-input-placeholder { @content; }
+    &:-moz-placeholder           { @content; }
+    &::-moz-placeholder          { @content; }
+    &:-ms-input-placeholder      { @content; }  
+  }

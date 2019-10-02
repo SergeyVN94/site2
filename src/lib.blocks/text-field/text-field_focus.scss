@@ -1,6 +1,3 @@
 .text-field_focus .text-field__input {
-    border-color: $color-dark-50;
-    line-height: 24px;
-    color: $color-dark-75;
-    outline: none;
+    @include focus;
 }

@@ -1,0 +1,5 @@
+.form-elements-col1 {
+    @include flex-column;
+}
+
+@import './form-elements-col1__text-field.scss';

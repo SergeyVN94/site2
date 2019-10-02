@@ -8,7 +8,9 @@
     margin-bottom: 50px;
 }
 
-@import './text-demo__item_h1.scss';
-@import './text-demo__item_h2.scss';
-@import './text-demo__item_h3.scss';
-@import './text-demo__item_body.scss';
+.text-demo__item:last-child {
+    margin-top: -3px;
+}
+
+@import './text-demo__item-title.scss';
+@import './text-demo__item-text.scss';

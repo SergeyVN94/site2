@@ -1,0 +1,16 @@
+mixin form-elements-col1(params={})
+    .form-elements-col1(class=params.classes)
+        +text-field({
+            title: 'Text Field',
+            help: 'Default',
+            placeholder: 'Email',
+            classes: 'form-elements-col1__text-field'
+        })
+        +text-field({
+            title: 'Text Field',
+            help: 'Hover / Focus',
+            placeholder: 'Email',
+            value: 'This is pretty awesome',
+            focus: true,
+            classes: 'form-elements-col1__text-field'
+        })

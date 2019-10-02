@@ -1,2 +1,14 @@
+.text-field {
+    width: 320px;
+}
+
+@mixin focus {
+    border-color: $color-dark-50;
+    line-height: 24px;
+    color: $color-dark-75;
+    outline: none;
+}
+
 @import './text-field__input.scss';
 @import './text-field_focus.scss';
+@import './text-field__block-head.scss';

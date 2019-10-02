@@ -1,23 +1,17 @@
 mixin text-demo(classes)
     .text-demo(class=classes)
-        include ./__item/text-demo__item.pug
-        +text-demo__item({
-            head: 'H1',
-            text: 'This one is the sub-section or widget title',
-            classes: 'text-demo__item_h1'
-        })
-        +text-demo__item({
-            head: 'H2',
-            text: 'Next one is the item title inside widgets',
-            classes: 'text-demo__item_h2'
-        })
-        +text-demo__item({
-            head: 'H3',
-            text: 'This is a label or CTA text',
-            classes: 'text-demo__item_h3'
-        })
-        +text-demo__item({
-            head: 'Body',
-            text: 'This is the body text which is used for most of the design, like paragraphs, lists, etc.',
-            classes: 'text-demo__item_body'
-        })
+        .text-demo__item
+            .text.text_h1.text-demo__item-title H1
+            .text.text_h1.text-demo__item-text  This one is the sub-section or widget title
+
+        .text-demo__item
+            .text.text_h2.text-demo__item-title H2
+            .text.text_h2.text-demo__item-text  Next one is the item title inside widgets
+
+        .text-demo__item
+            .text.text_h3.text-demo__item-title H3
+            .text.text_h3.text-demo__item-text  This is a label or CTA text
+
+        .text-demo__item
+            .text.text_body.text-demo__item-title Body
+            .text.text_body.text-demo__item-text  This is the body text which is used for most of the design, like paragraphs, lists, etc.

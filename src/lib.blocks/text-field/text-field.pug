@@ -1,7 +1,10 @@
 mixin text-field(params={})
-    .text-field(class=params.classes)
-        if params.title
-        .form-element-title #{params.title}
-        if params.help
-            .form-element-help #{params.help}
-        input.input.text-field__input(placeholder=params.placeholder, value=params.value)
+    -let classes = (params.classes || '');
+    -if(params.focus) classes += ' text-field_focus';
+    .text-field(class=classes)
+        +block-head({
+            classes: 'text-field__block-head',
+            title: params.title,
+            help: params.help
+        })
+        input.text-field__input(placeholder=params.placeholder, value=params.value)
