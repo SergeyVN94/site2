@@ -2,15 +2,14 @@ mixin date-range(params={})
     .date-range(class=params.classes)
         +dropdown-date({
             classes: 'start',
-            title: 'прибытие',
-            date: params.start
+            title: params.dropdown1.title ||'прибытие',
+            date: params.dropdown1.date
         })
         +dropdown-date({
             classes: 'end',
-            title: 'выезд',
-            date: params.end
+            title: params.dropdown2.title || 'выезд',
+            date: params.dropdown2.date
         })
         +calendar({
-            classes: 'date-range__calendar',
-            date: params.currentDate
+            classes: 'date-range__calendar'
         })

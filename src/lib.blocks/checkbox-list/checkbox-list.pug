@@ -1,5 +1,9 @@
 mixin checkbox-list(params={})
     .checkbox-list(class=params.classes)
-        .form-element-title.checkbox-list__title #{params.title}
+        +block-head({
+            title: params.title,
+            help: params.help,
+            classes: 'checkbox-list__block-head'
+        })
         .checkbox-list__container
             +checkbox-list-items(params.items, 'checkbox-list__checkbox')

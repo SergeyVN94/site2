@@ -1,9 +1,10 @@
 mixin dropdown-date(params={})
     .dropdown-date(class=params.classes)
-        .form-element-title #{params.title}
-        if params.help
-            .form-element-help #{params.help}
+        +block-head({
+            title: params.title,
+            help: params.help,
+            classes: 'dropdown-date__block-head'
+        })
         +dropdown({
             text: params.date || 'ДД.ММ.ГГГГ'
         })
-        

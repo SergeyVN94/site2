@@ -1,7 +1,8 @@
 mixin text-field(params={})
     -let classes = (params.classes || '');
     -if(params.focus) classes += ' text-field_focus';
-    .text-field(class=classes)
+    -const template = params.template || '';
+    .text-field(class=classes, data-template=template)
         +block-head({
             classes: 'text-field__block-head',
             title: params.title,

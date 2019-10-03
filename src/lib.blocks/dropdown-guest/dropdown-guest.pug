@@ -1,5 +1,5 @@
 mixin dropdown-guest(params={})
-    .dropdown-guest
+    .dropdown-guest(class=params.classes)
         +block-head({
             title: params.title || 'Гости',
             help: params.help,

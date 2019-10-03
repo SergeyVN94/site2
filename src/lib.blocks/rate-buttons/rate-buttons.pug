@@ -1,0 +1,14 @@
+mixin rate-buttons(params={})
+    .rate-buttons(class=params.classes)
+        +block-head({
+            title: params.title,
+            help: params.help,
+            classes: 'rate-buttons__block-head'
+        })
+        .rate-buttons__container
+            -const items = params.items || [];
+            -for(let i = 0; i < items.length; i++){
+                -const item = items[i];
+                -item.classes = (item.classes || '') + ' rate-buttons__rating';
+                +rating(item)
+            -}

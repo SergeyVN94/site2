@@ -13,10 +13,8 @@
     font-weight: normal;
     font-size: 14px;
     font-weight: bold;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
     color: white;
+    @include no-select;
 }
 
 .checkbox-input__input:checked + .checkbox-input__new-input {

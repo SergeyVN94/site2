@@ -1,6 +1,16 @@
 mixin radio-buttons(params={})
     .radio-buttons(class=params.classes)
-        .form-element-title.radio-buttons__title Radio Buttons
+        -if(params.title || params.help){
+            +block-head({
+                title: params.title,
+                help: params.help,
+                classes: 'radio-buttons__block-head'
+            })
+        -}
         .radio-buttons__container
-            if block
-                block
+            -const items = params.items || [];
+            -for(let i = 0; i < items.length; i++){
+                -const item = items[i];
+                -item.classes = (item.classes || '') + ' radio-buttons__radio-button';
+                +radio-button(item)
+            -}

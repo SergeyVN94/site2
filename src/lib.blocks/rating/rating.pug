@@ -1,0 +1,8 @@
+mixin rating(params={})
+    .rating(class=params.classes)
+        -const stars = params.stars ? params.stars : 0;
+        -for (let i = 0, j = 0; i < 5; i++, j++) 
+            if j < stars
+                .rating__star star
+            else
+                .rating__star star_border

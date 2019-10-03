@@ -1,6 +1,5 @@
 import $ from 'jquery';
 import {
-    countValueOfCounters,
     getIndexGraduation
 } from '../lib';
 

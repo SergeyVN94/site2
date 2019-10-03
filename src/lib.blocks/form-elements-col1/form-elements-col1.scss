@@ -1,5 +1,10 @@
 .form-elements-col1 {
     @include flex-column;
+    width: 320px;
 }
 
 @import './form-elements-col1__text-field.scss';
+@import './form-elements-col1__dropdown-guest.scss';
+@import './form-elements-col1__text-field-masked.scss';
+@import './form-elements-col1__date-range.scss';
+@import './form-elements-col1__dropdown-date-filter.scss';

@@ -17,5 +17,31 @@ mixin form-elements-col1(params={})
         +dropdown-guest({
             title: 'Dropdown',
             help: 'Default',
-            classes: ''
+            classes: 'form-elements-col1__dropdown-guest'
+        })
+        +text-field({
+            title: 'masked text field',
+            help: 'Default',
+            value: 'ДД.ММ.ГГГГ',
+            template: '%D.%M.%Y',
+            classes: 'form-elements-col1__text-field-masked'
+        })
+        +date-range({
+            dropdown1: {
+                title: 'date Dropdown'
+            },
+            dropdown2: {
+                title: 'date Dropdown',
+                date: '19.12.2019'
+            },
+            classes: 'form-elements-col1__date-range'
+        })
+        +dropdown-date-filter({
+            title: 'filter date dropdown',
+            dateRange: '19 авг - 23 авг',
+            classes: 'form-elements-col1__dropdown-date-filter'
+        })
+        +text-field-subscription({
+            title: 'subscription text field',
+            placeholder: 'Email'
         })

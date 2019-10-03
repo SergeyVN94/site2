@@ -1,9 +1,8 @@
 mixin toggle-input(params={})
-    .toggle-input(class=params.classes)
-        label.toggle-input__label
-            if params.checked
-                input.toggle-input__input(type='checkbox', checked)
-            else
-                input.toggle-input__input(type='checkbox')
-            .toggle-input__switch
-                .toggle-input__switch-indicator 
+    label.toggle-input(class=params.classes)
+        if params.checked
+            input.toggle-input__input(type='checkbox', checked)
+        else
+            input.toggle-input__input(type='checkbox')
+        .toggle-input__switch
+            .toggle-input__switch-indicator

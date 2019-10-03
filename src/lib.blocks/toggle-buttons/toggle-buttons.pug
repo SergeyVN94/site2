@@ -1,6 +1,14 @@
 mixin toggle-buttons(params={})
     .toggle-buttons(class=params.classes)
-        .form-element-title.toggle-buttons__title toggle
+        +block-head({
+            classes: 'toggle-buttons__block-head',
+            title: params.title,
+            help: params.help
+        })
         .toggle-buttons__container
-            if block
-                block
+            -const items = params.items || [];
+            -for(let i = 0; i < items.length; i++){
+                -const item = items[i];
+                -item.classes = (item.classes || '') + ' toggle-buttons__toggle-button';
+                +toggle-button(item)
+            -}

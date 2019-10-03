@@ -1,0 +1,10 @@
+mixin dropdown-date-filter(params={})
+    .dropdown-date-filter(class=params.classes)
+        +block-head({
+            title: params.title,
+            help: params.help,
+            classes: 'dropdown-date-filter__block-head'
+        })
+        +dropdown({
+            text: params.dateRange || ''
+        })

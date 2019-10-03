@@ -1,3 +1,15 @@
+.text-field-subscription {
+    width: 266px;
+}
+
+@mixin focus {
+    border-color: $color-dark-50;
+    line-height: 24px;
+    color: $color-dark-75;
+    outline: none;
+}
+
 @import './text-field-subscription__container.scss';
 @import './text-field-subscription__input.scss';
 @import './text-field-subscription__button-subscription.scss';
+@import './text-field-subscription__block-head.scss';

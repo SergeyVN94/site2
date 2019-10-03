@@ -1,0 +1,14 @@
+mixin like-buttons(params={})
+    .like-buttons(class=params.classes)
+        +block-head({
+            title: params.title,
+            help: params.help,
+            classes: 'like-buttons__block-head'
+        })
+        .like-buttons__container
+            -const items = params.items || [];
+            -for(let i = 0; i < items.length; i++){
+                -const item = items[i];
+                -item.classes = (item.classes || '') + ' like-buttons__like-button';
+                +like-button(item)
+            -}

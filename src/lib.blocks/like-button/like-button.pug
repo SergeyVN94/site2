@@ -3,4 +3,4 @@ mixin like-button(params={})
     -if (params.checked) params.classes += ' like-button_active'
     .like-button(class=params.classes)
         .like-button__icon #{(params.checked ? 'favorite' : 'favorite_border')}
-        .like-button__counter #{params.likes}
+        .like-button__counter #{params.likes || '0'}

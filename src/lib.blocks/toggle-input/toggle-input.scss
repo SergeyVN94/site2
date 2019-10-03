@@ -1,4 +1,8 @@
+.toggle-input {
+    display: block;
+    cursor: pointer;
+}
+
 @import './toggle-input__input.scss';
-@import './toggle-input__label.scss';
 @import './toggle-input__switch.scss';
 @import './toggle-input__switch-indicator.scss';

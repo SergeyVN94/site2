@@ -1,8 +1,0 @@
-mixin rate-button(params={})
-    .rate-button(class=params.classes)
-        -const stars = params.stars ? params.stars : 0;
-        -for (let i = 0, j = 0; i < 5; i++, j++) 
-            if j < stars
-                .rate-button__star star
-            else
-                .rate-button__star star_border
