@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 
-$('.range-slider').each(function() {
+$('.range-slider').each(function () {
     const slider = $(this);
     const moveContainer = slider.find('.range-slider__move-container');
     const pointLeft = slider.find('.range-slider__point-left');
@@ -17,28 +17,48 @@ $('.range-slider').each(function() {
     slider.attr('data-min-value', min);
     slider.attr('data-max-value', max);
 
-    function getMousePosition(event) {
-        return event.clientX - moveContainer.offset().left;
-    }
+    function splitValue(num) {
+        let arr = String(num).split('');
+        let value = [];
+        let i = 0;
+        while (arr.length) {
+            if (i === 3) {
+                value.push(' ');
+                i = 0;
+            }
 
-    function getPointPosition(point) {
-        return (point.offset().left - moveContainer.offset().left) +
-        (pointLeft.outerWidth() / 2);
-    }
+            value.push(arr.pop());
+            i++;
+        }
 
-    function offsetToNearestStep(mousePosition) {    
-        const pixelsInStep = moveContainer.width() / steps;
-        const currentStep = Math.round(mousePosition / pixelsInStep);
-
-        return currentStep * pixelsInStep;
+        return value.reverse().join('');
     }
 
     function printRange(minValue, maxValue) {
         slider.attr('data-min-value', minValue);
         slider.attr('data-max-value', maxValue);
         let result = slider.attr('data-format') || defaultFormat;
-        result = result.replace('{min}', minValue).replace('{max}', maxValue);    
+
+        result = result.replace('{min}', splitValue(minValue)).replace('{max}', splitValue(maxValue));
         slider.find('.range-slider__value').text(result);
+    }
+
+    printRange(Number(slider.attr('data-min-value')) || min, Number(slider.attr('data-max-value')) || max);
+
+    function getMousePosition(event) {
+        return event.clientX - moveContainer.offset().left;
+    }
+
+    function getPointPosition(point) {
+        return (point.offset().left - moveContainer.offset().left) +
+            (pointLeft.outerWidth() / 2);
+    }
+
+    function offsetToNearestStep(mousePosition) {
+        const pixelsInStep = moveContainer.width() / steps;
+        const currentStep = Math.round(mousePosition / pixelsInStep);
+
+        return currentStep * pixelsInStep;
     }
 
     function updateNewRangeValues() {
@@ -55,18 +75,18 @@ $('.range-slider').each(function() {
         printRange(minValue, maxValue);
     }
 
-    function handleMouseMove(event) {   
+    function handleMouseMove(event) {
         const mousePosition = getMousePosition(event);
-        
+
         const posPointLeft = getPointPosition(pointLeft);
         const posPointRight = getPointPosition(pointRight);
 
         const distanceToLeft = Math.abs(posPointLeft - mousePosition);
         const distanceToRight = Math.abs(posPointRight - mousePosition);
-        
+
         const offset = offsetToNearestStep(mousePosition);
-        
-        if (distanceToLeft < distanceToRight) {    
+
+        if (distanceToLeft < distanceToRight) {
             if (Math.round(offset) !== Math.round(posPointLeft)) {
                 sliderLine.css('margin-left', offset);
             }

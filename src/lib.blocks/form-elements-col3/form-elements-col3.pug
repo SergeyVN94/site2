@@ -1,0 +1,19 @@
+mixin form-elements-col3(params={})
+    .form-elements-col3(class=params.classes)
+        +range-slider({
+            classes: 'form-elements-col3__range-slider',
+            title: 'Range Slider',
+            valueFormat: '{min}₽ - {max}₽',
+            min: 0,
+            max: 15000,
+            step: 1000,
+            minValue: 5000,
+            maxValue: 10000
+        })
+        +buttons-demo({
+            classes: 'form-elements-col3__buttons-demo'
+        })
+        +pagination({
+            title: 'pagination',
+            bottomText: '1 – 12 из 100+ вариантов аренды'
+        })

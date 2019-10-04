@@ -1,5 +1,7 @@
+.pagination {
+    width: 240px;
+}
 
-
-@import './pagination__title.scss';
+@import './pagination__block-head.scss';
 @import './pagination__bottom-text.scss';
 @import './pagination__button-container.scss';

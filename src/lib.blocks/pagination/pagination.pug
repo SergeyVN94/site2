@@ -1,7 +1,10 @@
 mixin pagination(params={})
     .pagination(class=params.classes)
         if params.title
-            .form-element-title.pagination__title #{params.title}
+            +block-head({
+                title: params.title,
+                classes: 'pagination__block-head'
+            })
         .pagination__button-container
             .button.button_theme_round 1
             .button.button_theme_form-element-text 2

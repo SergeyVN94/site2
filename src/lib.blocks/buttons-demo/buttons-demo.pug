@@ -1,0 +1,18 @@
+mixin buttons-demo(params={})
+    .buttons-demo(class=params.classes)
+        +block-head({
+            title: 'buttons',
+            classes: 'buttons-demo__block-head'
+        })
+        .buttons-demo__item
+            .button.button_theme_default.buttons-demo__button CLICK ME
+            .button.button_theme_default.button_disable CLICK ME
+        .buttons-demo__item
+            .button.button_theme_default-light.buttons-demo__button CLICK ME
+            .button.button_theme_default-light.button_disable CLICK ME
+        .buttons-demo__item
+            .button.button_theme_text.buttons-demo__button CLICK ME
+            .button.button_theme_text-dark CLICK ME
+        +button-go-to({
+            text: 'перейти к оплате'
+        })
