@@ -5,4 +5,29 @@ mixin form-elements(params={})
                 +form-elements-col1()
                 +form-elements-col2()
                 +form-elements-col3()
-            
+            .form-elements__block2
+                +form-elements-col4()
+                +form-elements-col5()
+            .form-elements__block3
+                +room-advantages({
+                    items: [
+                        {
+                            icon: 'insert_emoticon',
+                            title: 'Комфорт',
+                            text: 'Шумопоглощающие стены'
+                        },
+                        {
+                            icon: 'location_city',
+                            title: 'Удобство',
+                            text: 'Окно в каждой из спален'
+                        }
+                    ]
+                })
+                +comment({
+                    image: '/images/avatars/user1.png',
+                    user: 'Мурад Сарафанов',
+                    date: '5 дней назад',
+                    likes: '12',
+                    checked: true,
+                    text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'
+                })

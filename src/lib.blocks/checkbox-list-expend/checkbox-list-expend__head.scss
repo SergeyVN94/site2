@@ -1,0 +1,9 @@
+.checkbox-list-expend__head {
+    &::after,
+    &::before {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    height: 44px;
+}

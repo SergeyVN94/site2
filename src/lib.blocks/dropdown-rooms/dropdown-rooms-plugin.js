@@ -1,36 +1,38 @@
 import jQuery from 'jquery';
 
-(function($){
-    $.fn.dropdownGuest = function() {
-        const dropdownGuest = this;
+(function ($) {
+    $.fn.dropdownRooms = function () {
+        const dropdownRooms = this;
         const args = Array.from(arguments);
 
         if (args.length === 1) {
             switch (args[0]) {
-                case 'guests':
-                    let guests = {all: 0};
-                    dropdownGuest.find('.dropdown-item-counter').each(function() {
+                case 'rooms':
+                    let rooms = {
+                        all: 0
+                    };
+                    dropdownRooms.find('.dropdown-item-counter').each(function () {
                         const counter = $(this);
                         const name = counter.dropdownItemCounter('name') || counter.dropdownItemCounter('text');
                         const value = counter.dropdownItemCounter('value');
-                        if(!guests[name]) guests[name] = 0;
-                        guests[name] += value;
-                        guests.all += value;
+                        if (!rooms[name]) rooms[name] = 0;
+                        rooms[name] += value;
+                        rooms.all += value;
                     });
-                    
-                    return guests;
+
+                    return rooms;
 
                 case 'reset':
-                    dropdownGuest.find('.dropdown-item-counter').each(function() {
+                    dropdownRooms.find('.dropdown-item-counter').each(function () {
                         const counter = $(this);
                         counter.dropdownItemCounter('value', 0);
                     });
-                    
-                    return dropdownGuest;
 
-                case 'expend':                    
-                    return dropdownGuest.hasClass('dropdown-guest_expend');
-            
+                    return dropdownRooms;
+
+                case 'expend':
+                    return dropdownRooms.hasClass('dropdown-rooms_expend');
+
                 default:
                     throw `The command "${args[0]}" is unknown.`;
             }
@@ -44,10 +46,10 @@ import jQuery from 'jquery';
                         throw 'Wrong argument type! expected string.';
                     }
 
-                    dropdownGuest.find('.dropdown').dropdown('text', value);
-                    return dropdownGuest;
+                    dropdownRooms.find('.dropdown').dropdown('text', value);
+                    return dropdownRooms;
 
-            
+
                 case 'expend':
                     const expend = args[1];
                     if (typeof expend !== 'boolean') {
@@ -55,12 +57,13 @@ import jQuery from 'jquery';
                     }
 
                     if (expend) {
-                        dropdownGuest.addClass('dropdown-guest_expend');
+                        dropdownRooms.addClass('dropdown-rooms_expend');
                     } else {
-                        dropdownGuest.removeClass('dropdown-guest_expend');
+                        dropdownRooms.removeClass('dropdown-rooms_expend');
                     }
 
-                    return dropdownGuest;
+                    return dropdownRooms;
+
                 default:
                     throw `The command "${args[0]}" is unknown.`;
             }

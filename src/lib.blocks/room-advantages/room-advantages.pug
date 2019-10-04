@@ -1,6 +1,11 @@
 mixin room-advantages(params={})
     .room-advantages(class=params.classes)
-        .text.text_h2_m.room-advantages__title Сведения о номере
+        -if(params.title || params.head) {
+            +block-head({
+                title: params.title,
+                help: params.help
+            })
+        -}
         -const items = params.items || [];
         -for(let i = 0; i < items.length; i++) {
             -const item = items[i];

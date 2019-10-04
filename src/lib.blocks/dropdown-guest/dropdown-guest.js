@@ -28,7 +28,6 @@ function getTextGuests(guests) {
 $('.dropdown-guest').each(function () {
     const dropdownGuest = $(this);
     const dropdown = dropdownGuest.find('.dropdown');
-    const body = dropdownGuest.find('.dropdown-guest__body-content');
 
     dropdown.dropdown('click', function () {
         const isExpend = dropdownGuest.dropdownGuest('expend');

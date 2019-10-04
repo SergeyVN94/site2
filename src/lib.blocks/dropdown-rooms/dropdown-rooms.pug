@@ -1,23 +1,31 @@
 mixin dropdown-rooms(params={})
-    +dropdown({
-        title: params.title || '',
-        text: params.text || 'Сколько комнат',
-        classes: 'dropdown-rooms ' + (params.classes || '')
-    })
-    +dropdown-item-counter({
-        name: 'bedrooms',
-        classes: 'dropdown-rooms__item-counter',
-        text: 'Спальни',
-        value: 0
-    })
-    +dropdown-item-counter({
-        name: 'beds',
-        classes: 'dropdown-rooms__item-counter',
-        text: 'Кровати',
-        value: 0
-    })
-    +dropdown-item-counter({
-        name: 'bathrooms',
-        text: 'Ванные комнаты',
-        value: 0
-    })
+    -let classes = (params.classes || ''); 
+    -if(params.expend) classes += ' dropdown-rooms_expend';
+    .dropdown-rooms(class=classes)
+        +block-head({
+            title: params.title,
+            help: params.help,
+            classes: 'dropdown-rooms__block-head'
+        })
+        +dropdown({
+            text: params.text || 'Сколько комнат'
+        })
+        .dropdown-rooms__body
+            .dropdown-rooms__body-content
+                +dropdown-item-counter({
+                    name: 'bedrooms',
+                    classes: 'dropdown-rooms__item-counter',
+                    text: 'Спальни',
+                    value: params.bedrooms || '0'
+                })
+                +dropdown-item-counter({
+                    name: 'beds',
+                    classes: 'dropdown-rooms__item-counter',
+                    text: 'Кровати',
+                    value: params.beds || '0'
+                })
+                +dropdown-item-counter({
+                    name: 'bathrooms',
+                    text: 'Ванные комнаты',
+                    value: params.bathrooms || '0'
+                })

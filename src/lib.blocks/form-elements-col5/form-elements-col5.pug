@@ -1,0 +1,40 @@
+mixin form-elements-col5(params={})
+    .form-elements-col5(class=params.classes)
+        .form-elements-col5__col1
+            +dropdown-guest({
+                title: 'Dropdown',
+                help: 'Default',
+                classes: 'form-elements-col5__dropdown-guest',
+                expend: true
+            })
+            +checkbox-list({
+                title: 'rich Checkbox Buttons',
+                items: [
+                    {
+                        text: 'Широкий коридор',
+                        bottomText: 'Ширина коридоров в номере не менее 91 см.',
+                        type: 'rich-checkbox'
+                    },
+                    {
+                        text: 'Помощник для инвалидов',
+                        bottomText: 'На 1 этаже вас встретит специалист  и проводит до номера.',
+                        type: 'rich-checkbox'
+                    }
+                ],
+                classes: 'form-elements-col2__checkbox-list'
+            })    
+        .form-elements-col5__col2
+            +dropdown-guest({
+                title: 'Dropdown',
+                help: 'Default',
+                classes: 'form-elements-col5__dropdown-guest',
+                expend: true
+            })
+            +bullet-list({
+                title: 'bullet list',
+                items: [
+                    'Нельзя с питомцами',
+                    'Без вечеринок и мероприятий',
+                    'Время прибытия — после 13:00, а выезд до 12:00'
+                ]
+            })  

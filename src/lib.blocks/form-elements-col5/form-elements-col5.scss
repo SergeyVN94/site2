@@ -1,0 +1,6 @@
+.form-elements-col5 {
+    @include flex;
+}
+
+@import './form-elements-col5__dropdown-guest.scss';
+@import './form-elements-col5__col2.scss';

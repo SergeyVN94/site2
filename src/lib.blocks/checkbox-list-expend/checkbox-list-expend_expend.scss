@@ -1,7 +1,9 @@
-.checkbox-list-expend_expend .checkbox-list-expend__body {
-    display: block;
-}
+.checkbox-list-expend_expend {
+    .checkbox-list-expend__body {
+        display: block;
+    }
 
-.checkbox-list-expend_expend .checkbox-list-expend__expend-button {
-    transform: rotate(180deg);
+    .checkbox-list-expend__expend-button {
+        transform: rotate(180deg);
+    }
 }

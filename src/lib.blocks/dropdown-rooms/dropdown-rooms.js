@@ -2,6 +2,7 @@ import $ from 'jquery';
 import {
     getIndexGraduation
 } from '../lib';
+import './dropdown-rooms-plugin';
 
 function getRoomsAsText(counter) {
     const result = [];
@@ -25,31 +26,44 @@ function getRoomsAsText(counter) {
         result.push(str);
     }
 
-    return result.join(', ');
+    if (result.length) {
+        return result.join(', ');
+    }
+
+    return 'Сколько комнат';
 }
 
-$('.dropdown-rooms').click(function(event) {
-    const dropdown = $(this);
-    const target = $(event.target);
-
-    if (
-        target.hasClass('dropdown-item-counter__button-minus') ||
-        target.hasClass('dropdown-item-counter__button-plus')
-    ) {
-        const rooms = countValueOfCounters(dropdown);
-        
-        if (rooms.all === 0) {
-            return false;
-        }
-
-        let text = getRoomsAsText(rooms);        
-
-        if (text.length > 21) {
-            text = text.slice(0, 20) + '...';
-        } else {
-            text = text.split(', ').slice(0, 2).join(', ') + '...';
-        }
-        
-        dropdown.find('.dropdown-head__text').text(text);
+function sliceText(text) {
+    if (text.length > 21) {
+        return text.slice(0, 20) + '...';
+    } else {
+        return text.split(', ').slice(0, 2).join(', ') + '...';
     }
+}
+
+$('.dropdown-rooms').each(function() {
+    const dropdownRooms = $(this);
+    const dropdown = dropdownRooms.find('.dropdown');
+
+    dropdown.dropdown('click', function () {
+        const isExpend = dropdownRooms.dropdownRooms('expend');
+        dropdownRooms.dropdownRooms('expend', !isExpend);
+    });
+
+    dropdownRooms.click(function(event) {
+        const target = $(event.target);
+    
+        if (
+            target.hasClass('dropdown-item-counter__button-minus') ||
+            target.hasClass('dropdown-item-counter__button-plus')
+        ) {
+            const rooms = dropdownRooms.dropdownRooms('rooms');    
+            const text = sliceText(getRoomsAsText(rooms));                    
+            dropdown.dropdown('text', text);
+        }
+    });
+
+    const rooms = dropdownRooms.dropdownRooms('rooms');
+    const text = sliceText(getRoomsAsText(rooms));                    
+    dropdown.dropdown('text', text);
 });

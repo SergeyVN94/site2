@@ -1,1 +1,9 @@
+.dropdown-rooms {
+    width: 266px;
+}
+
+@import './dropdown-rooms__block-head.scss';
+@import './dropdown-rooms__body.scss';
+@import './dropdown-rooms__body-content.scss';
 @import './dropdown-rooms__item-counter.scss';
+@import './dropdown-rooms_expend.scss';
