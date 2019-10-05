@@ -7,7 +7,7 @@ mixin header(params={})
             })
             -if(params.user) {
                 .header__user.text.text_body #{params.user}
-            -} else {
+            -} else if(params.login && params.register){
                 .button.button_theme_default-light.button_height_smile.header__button-login #{params.login}
                 .button.button_theme_default.button_height_smile #{params.register}
             -}
