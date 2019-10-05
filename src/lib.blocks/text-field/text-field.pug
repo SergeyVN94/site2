@@ -3,9 +3,11 @@ mixin text-field(params={})
     -if(params.focus) classes += ' text-field_focus';
     -const template = params.template || '';
     .text-field(class=classes, data-template=template)
-        +block-head({
-            classes: 'text-field__block-head',
-            title: params.title,
-            help: params.help
-        })
+        -if(params.title || params.help) {
+            +block-head({
+                classes: 'text-field__block-head',
+                title: params.title,
+                help: params.help
+            })
+        -}
         input.text-field__input(placeholder=params.placeholder, value=params.value)

@@ -11,7 +11,7 @@ mixin hotel-number(params={})
                 price: params.price
             }) 
             .hotel-number__description-any
-                +rate-button({
+                +rating({
                     stars: params.stars ? params.stars : 0
                 })
                 if params.comments

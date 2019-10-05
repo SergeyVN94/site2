@@ -1,9 +1,9 @@
 .cards {
-    display: flex;
-    justify-content: space-around;
     background: #F4F4F6;
     height: auto;
     width: 100%;
     padding-top: 150px;
-    flex-wrap: wrap;
 }
+
+@import './cards__column.scss';
+@import './cards__item.scss';

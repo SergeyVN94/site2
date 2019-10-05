@@ -64,6 +64,30 @@ import jQuery from 'jquery';
 
                     return dropdownRooms;
 
+                case 'init':
+                    const init = args[1];
+                    if (typeof init !== 'object') {
+                        throw 'Wrong argument type! expected object.';
+                    }
+
+                    const keys = Object.keys(init);
+                    const nInit = {};
+                    for (let i = 0; i < keys.length; i++) {
+                        const name = keys[i];
+                        nInit[name.toLowerCase()] = init[name];
+                    }
+                    
+                    dropdownRooms.find('.dropdown-item-counter').each(function () {
+                        const counter = $(this);
+                        const name = counter.dropdownItemCounter('text').toLowerCase();
+                        
+                        if (init[name]) {
+                            counter.dropdownItemCounter('value', Number(init[name]));
+                        }
+                    });
+
+                    return dropdownRooms;
+
                 default:
                     throw `The command "${args[0]}" is unknown.`;
             }

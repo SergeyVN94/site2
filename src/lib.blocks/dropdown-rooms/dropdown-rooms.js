@@ -66,4 +66,17 @@ $('.dropdown-rooms').each(function() {
     const rooms = dropdownRooms.dropdownRooms('rooms');
     const text = sliceText(getRoomsAsText(rooms));                    
     dropdown.dropdown('text', text);
+
+    // init
+    const init = dropdownRooms.attr('data-init');
+    if(typeof init === 'string' && init.length > 2) { 
+        try {
+            dropdownRooms.dropdownRooms('init', JSON.parse(init));
+            const rooms = dropdownRooms.dropdownRooms('rooms');
+            const text = sliceText(getRoomsAsText(rooms));                    
+            dropdown.dropdown('text', text);
+        } catch (error) {
+            throw "Invalid 'init' format attribute! JSON format expected."
+        }
+    }
 });

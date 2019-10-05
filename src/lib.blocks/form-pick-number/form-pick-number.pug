@@ -2,8 +2,7 @@ mixin form-pick-number(params={})
     .form-pick-number(class=params.classes)
         .form-pick-number__title.text.text_h1_m Найдём номера под ваши пожелания
         +date-range({
-            classes: 'form-pick-number__date-range',
-            currentDate: params.currentDate
+            classes: 'form-pick-number__date-range'
         })
         +dropdown-guest({
             classes: 'form-pick-number__dropdown-guests'

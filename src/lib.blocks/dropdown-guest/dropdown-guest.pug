@@ -1,7 +1,8 @@
 mixin dropdown-guest(params={})
     -let classes = (params.classes || ''); 
     -if(params.expend) classes += ' dropdown-guest_expend';
-    .dropdown-guest(class=classes)
+    -let init = params.init ? JSON.stringify(params.init) : '{}';
+    .dropdown-guest(class=classes, data-init=init)
         +block-head({
             title: params.title || 'Гости',
             help: params.help,

@@ -28,7 +28,11 @@ mixin form-elements-col5(params={})
                 title: 'Dropdown',
                 help: 'Default',
                 classes: 'form-elements-col5__dropdown-guest',
-                expend: true
+                expend: true,
+                init: {
+                    'взрослые': 2,
+                    'дети': 1
+                }
             })
             +bullet-list({
                 title: 'bullet list',

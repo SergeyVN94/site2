@@ -9,8 +9,10 @@ mixin form-elements-col4(params={})
             title: 'dropdown',
             help: 'expanded',
             expend: true,
-            bedrooms: 2,
-            beds: 2,
+            init: {
+                'спальни': 2,
+                'кровати': 2
+            },
             classes: 'form-elements-col4__dropdown-rooms2'
         })
         +checkbox-list-expend({

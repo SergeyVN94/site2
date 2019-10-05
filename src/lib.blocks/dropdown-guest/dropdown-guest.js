@@ -9,7 +9,6 @@ function getTextGuests(guests) {
         return 'Сколько гостей';
     }
 
-
     const result = [];
 
     if (guests.grown) {
@@ -64,4 +63,16 @@ $('.dropdown-guest').each(function () {
             return true;
         }
     });
+
+    // init
+    const init = dropdownGuest.attr('data-init');
+    if(typeof init === 'string' && init.length > 2) { 
+        try {
+            dropdownGuest.dropdownGuest('init', JSON.parse(init));
+            const guests = dropdownGuest.dropdownGuest('guests');
+            dropdown.dropdown('text', getTextGuests(guests));
+        } catch (error) {
+            throw "Invalid 'init' format attribute! JSON format expected."
+        }
+    }
 });

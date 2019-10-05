@@ -1,42 +1,44 @@
 mixin cards(params={})
     .cards(class=params.classes)
-        .container-content.cards__container-content
-            +form-pick-number()
-            +form-create-account()
-            +room-reservation-form({
-                roomNumber: 888,
-                luxury: true,
-                price: '9 990'
-            })
-            +form-log-in()
-            +calendar({
-                date: '2019-08-08',
-                startDay: '2019-08-19',
-                endDay: '2019-08-23'
-            })
-            +hotel-number({
-                images: [
-                    '../images/hotels/888.png',
-                    '',
-                    '',
-                    ''
-                ],
-                sliderButton: true,
-                roomNumber: 888,
-                luxury: true,
-                price: '9 990',
-                stars: 5,
-                comments: 145
-            })
-            +hotel-number({
-                images: [
-                    '../images/hotels/840.png',
-                    '',
-                    '',
-                    ''
-                ],
-                roomNumber: 840,
-                price: '9 900',
-                stars: 4,
-                comments: 65
-            })
+        .container-content.container-content_horizontal
+            .cards__column
+                +form-pick-number({
+                    classes: 'cards__item'
+                })
+                +form-create-account()
+            .cards__column
+                +room-reservation-form({
+                    classes: 'cards__item',
+                    roomNumber: 888,
+                    luxury: true,
+                    price: '9 990'
+                })
+                +form-log-in()
+            .cards__column   
+                +calendar({
+                    classes: 'cards__item',
+                    date: '2019-08-08',
+                    startDay: '2019-08-19',
+                    endDay: '2019-08-23'
+                })
+                +hotel-number({
+                    classes: 'cards__item',
+                    images: [
+                        '888.png','','',''
+                    ].map(item => `/images/hotel-rooms/${item}`),
+                    sliderButton: true,
+                    roomNumber: 888,
+                    luxury: true,
+                    price: '9 990',
+                    stars: 5,
+                    comments: 145
+                })
+                +hotel-number({
+                    images: [
+                        '840.png','','',''
+                    ].map(item => `/images/hotel-rooms/${item}`),
+                    roomNumber: 840,
+                    price: '9 900',
+                    stars: 4,
+                    comments: 65
+                })
