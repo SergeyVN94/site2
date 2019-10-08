@@ -71,6 +71,9 @@ $('.dropdown-guest').each(function () {
             dropdownGuest.dropdownGuest('init', JSON.parse(init));
             const guests = dropdownGuest.dropdownGuest('guests');
             dropdown.dropdown('text', getTextGuests(guests));
+            if (guests.all) {
+                dropdownGuest.find('.dropdown-guest__button-clear').removeClass('button_hide');
+            }
         } catch (error) {
             throw "Invalid 'init' format attribute! JSON format expected."
         }

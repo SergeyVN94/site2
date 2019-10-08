@@ -1,2 +1,11 @@
+.radio-button {
+    height: 20px;
+    &::after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+}
+
 @import './radio-button__text.scss';
 @import './radio-button__input.scss';

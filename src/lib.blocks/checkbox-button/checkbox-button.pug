@@ -1,6 +1,7 @@
 mixin checkbox-button(params={})
     .checkbox-button(class=params.classes)
         +checkbox-input({
+            classes: 'checkbox-button__checkbox-input',
             checked: params.checked
         })
         .checkbox-button__text-container

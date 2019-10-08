@@ -1,11 +1,13 @@
 .button_theme_form-element {
-    width: 44px;
-    height: 44px;
+    width: 42px;
+    max-width: 100%;
+    height: 42px;
+    max-height: 100%;
     font-family: Material Icons;
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
     line-height: 24px;
     color: $color-dark-50;
-    padding: 0;
+    padding: 1px 0px 0px 0px;
 }

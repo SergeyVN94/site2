@@ -3,5 +3,10 @@
 @import './checkbox-button__text-container.scss';
 
 .checkbox-button {
-    display: flex;
+    display: block;
+    &::after {
+        content: '';
+        display: block;
+        clear: both;
+    }
 }

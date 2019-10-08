@@ -1,10 +1,6 @@
 .checkbox-button__text-container {
-    margin-left: 10px;
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 18px;
-    color: $color-dark-50;
+    display: block;
+    margin: 1px 0px 0px 10px;
     max-width: 200px;
+    float: left;
 }
