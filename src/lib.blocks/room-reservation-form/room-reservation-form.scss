@@ -3,6 +3,7 @@
     width: 380px;
     height: 511px;
     max-height: 511px;
+    padding: 40px 30px 30px 28px;
 }
 
 @import './room-reservation-form__head.scss';
@@ -11,4 +12,4 @@
 @import './__service-cost/room-reservation__service-cost.scss';
 @import './room-reservation-form__total-cost.scss';
 @import './room-reservation-form__total-cost-line.scss';
-@import './room-reservation__service-cost_additional-services.scss';
+@import './room-reservation__service-cost_last.scss';

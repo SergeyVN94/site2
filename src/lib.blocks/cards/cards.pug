@@ -16,13 +16,13 @@ mixin cards(params={})
                 +form-log-in()
             .cards__column   
                 +calendar({
-                    classes: 'cards__item',
+                    classes: 'cards__calendar',
                     date: '2019-08-08',
                     startDay: '2019-08-19',
                     endDay: '2019-08-23'
                 })
                 +hotel-number({
-                    classes: 'cards__item',
+                    classes: 'cards__hotel-number1',
                     images: [
                         '888.png','','',''
                     ].map(item => `/images/hotel-rooms/${item}`),
