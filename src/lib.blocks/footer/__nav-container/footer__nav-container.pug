@@ -1,14 +1,14 @@
 mixin footer__nav-container(params={})
     .footer__nav-container(class=params.classes)
         .text.text_h3.footer__container-title #{params.title}
+        -const menuItems = [];
+        -for(let i = 0; i < params.items.length; i++){
+            -const item = params.items[i];
+            -menuItems.push({text:item,classes:'footer__nav-container-item'});
+        -}
         +menu({
-            classes: 'menu_theme_vertical'
+            classes: 'menu_theme_vertical',
+            items: menuItems
         })
-        -const items = params.items || [];
-            -for(let i = 0; i < items.length; i++){
-                +menu-item({
-                    text: items[i],
-                    classes: 'footer__nav-container__menu-item'
-                })
-            -}
+        
                 
