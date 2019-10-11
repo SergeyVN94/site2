@@ -16,22 +16,22 @@ mixin room-impressions(params={})
                     -let lastPos = {};
                     -lastPos.x = 60 + (58 * Math.cos((Math.PI / 180)));
                     -lastPos.y = 60 + (58 * Math.sin((Math.PI / 180)));
-                    -let sumDegrees = 0;
+                    -let sumDegrees = 1;
                     -for(let i = 0; i < keys.length; i++) {
                         -const key = keys[i];
                         -let degrees = Math.floor((values[key] / sum) * 360);
 
                         -if(degrees > 3) {
                             -sumDegrees += degrees;
-
-                            -const rad = ((Math.PI * (sumDegrees - 1)) / 180);
+                            
+                            -const rad = ((Math.PI * (sumDegrees - 2)) / 180);
                             -let x = 60 + (58 * Math.cos(rad));
                             -let y = 60 + (58 * Math.sin(rad));
 
-                            -let path = `M${lastPos.x} ${lastPos.y} A 58 58 0 0 1 ${x} ${y}`;
+                            -magicNumber = degrees > 180 ? 1 : 0;
+                            -let path = `M${lastPos.x} ${lastPos.y} A 58 58 0 ${magicNumber} 1 ${x} ${y}`;
                             -paths[key] = path;
 
-                            -sumDegrees++;
                             -const nRad = ((Math.PI * (sumDegrees)) / 180);
                             -lastPos.x = 60 + (58 * Math.cos(nRad));
                             -lastPos.y = 60 + (58 * Math.sin(nRad));

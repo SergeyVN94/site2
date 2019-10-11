@@ -63,10 +63,10 @@ function getConfig(page) {
 }
 
 module.exports = [
-    // getConfig('landing-page'),
+    getConfig('landing-page')
     // getConfig('search-room'),
     // getConfig('room-details'),
     // getConfig('registration'),
     // getConfig('sign-in'),
-    getConfig('ui-kit')
+    // getConfig('ui-kit')
 ];
