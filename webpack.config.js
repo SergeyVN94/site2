@@ -63,11 +63,11 @@ function getConfig(page) {
 }
 
 const configList = [];
-// configList.push(getConfig('landing-page'));
+configList.push(getConfig('landing-page'));
 configList.push(getConfig('search-room'));
-// configList.push(getConfig('room-details'));
-// configList.push(getConfig('registration'));
-// configList.push(getConfig('sign-in'));
-// configList.push(getConfig('ui-kit'));
+configList.push(getConfig('room-details'));
+configList.push(getConfig('registration'));
+configList.push(getConfig('sign-in'));
+configList.push(getConfig('ui-kit'));
 
 module.exports = configList;
