@@ -3,7 +3,8 @@ mixin header(params={})
         .container-content.container-content_horizontal.container-content_items_center
             +logo('logo_theme_main header__logo')
             +menu({
-                items: params.menu
+                items: params.menu,
+                classes: 'header__menu'
             })
             -if(params.user) {
                 .header__user.text.text_body #{params.user}

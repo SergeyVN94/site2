@@ -1,5 +1,8 @@
 .room-impressions__help-item {
     min-width: 161px;
+    line-height: 20px;
+    margin-top: 4px;
+    
     &::before {
         content: '';
         display: inline-block;

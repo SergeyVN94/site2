@@ -1,6 +1,9 @@
 mixin block-head(params={})
     .block-head(class=params.classes)
         if params.title
-            .text.text_h3.block-head__title #{params.title}
+            -let classes = [];
+            -classes.push(`text_${params.titleSize || 'h3'}`);
+            -classes = classes.join(',');
+            .text.block-head__title(class=classes) #{params.title}
         if params.help
             .text.text_h3.text_fw_n.text_color_dark-50.block-head__help #{params.help}

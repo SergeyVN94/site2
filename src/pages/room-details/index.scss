@@ -2,8 +2,10 @@
 @import './__banner/room-details__banner.scss';
 @import './__info/room-details__info.scss';
 @import './room-details__room-reservation-form.scss';
+@import './room-details__container-content.scss';
+@import './room-details__rules-title.scss';
 
 .room-details {
-    padding-bottom: 70px;
+    padding-bottom: 62px;
     border-bottom: 1px solid #1f204140;
 }

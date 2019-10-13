@@ -1,6 +1,7 @@
 .room-details__info {
     @include flex-column;
     flex: auto;
+    max-width: 711px;
 }
 
 @import './room-details__info-head.scss';

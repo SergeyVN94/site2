@@ -2,6 +2,9 @@ mixin room-details__info(params={})
     .room-details__info(class=params.classes)
         .room-details__info-head
             +room-advantages({
+                title: 'Сведенья о номере',
+                titleSize: 'h2_m',
+                headMargin: 'bg',
                 items: [
                     {
                         icon: 'insert_emoticon',
@@ -53,14 +56,15 @@ mixin room-details__info(params={})
             })
         })
         .room-details__info-additional
-            +bullet-list({
-                title: 'Правила',
-                list: [
-                    'Нельзя с питомцами',
-                    'Без вечеринок и мероприятий',
-                    'Время прибытия — после 13:00, а выезд до 12:00'
-                ]
-            })
+            .room-details__rules
+                .text.text_h2_m.room-details__rules-title Правила
+                +bullet-list({
+                    items: [
+                        'Нельзя с питомцами',
+                        'Без вечеринок и мероприятий',
+                        'Время прибытия — после 13:00, а выезд до 12:00'
+                    ]
+                })
             +text-block({
                 classes: 'room-details__info-additional-text',
                 title: 'Отмена',

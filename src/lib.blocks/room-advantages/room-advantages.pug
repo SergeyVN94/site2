@@ -3,7 +3,9 @@ mixin room-advantages(params={})
         -if(params.title || params.head) {
             +block-head({
                 title: params.title,
-                help: params.help
+                help: params.help,
+                titleSize: params.titleSize,
+                classes: params.headMargin === 'bg' ? 'room-advantages__block-head' : ''
             })
         -}
         -const items = params.items || [];

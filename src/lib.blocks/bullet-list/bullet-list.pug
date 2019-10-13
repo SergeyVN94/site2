@@ -1,10 +1,14 @@
 mixin bullet-list(params={})
     .bullet-list(class=params.classes)
-        +block-head({
-            title: params.title,
-            help: params.help,
-            classes: 'bullet-list__block-head'
-        })
+        -if(params.title || params.help) {
+            +block-head({
+                title: params.title,
+                help: params.help,
+                classes: 'bullet-list__block-head',
+                titleSize: params.titleSize
+            })
+        -}
+        
         ul.bullet-list__container
             include ./__item/bullet-list__item.pug
             -const items = params.items || [];
