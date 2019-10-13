@@ -62,11 +62,12 @@ function getConfig(page) {
     }
 }
 
-module.exports = [
-    // getConfig('landing-page'),
-    // getConfig('search-room'),
-    getConfig('room-details')
-    // getConfig('registration'),
-    // getConfig('sign-in')
-    // getConfig('ui-kit')
-];
+const configList = [];
+// configList.push(getConfig('landing-page'));
+configList.push(getConfig('search-room'));
+// configList.push(getConfig('room-details'));
+// configList.push(getConfig('registration'));
+// configList.push(getConfig('sign-in'));
+// configList.push(getConfig('ui-kit'));
+
+module.exports = configList;

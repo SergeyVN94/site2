@@ -1,10 +1,12 @@
 mixin text-field-subscription(params={})
     .text-field-subscription(class=params.classes)
-        +block-head({
-            classes: 'text-field-subscription__block-head',
-            title: params.title,
-            help: params.help
-        })
+        -if(params.title || params.help) {
+            +block-head({
+                classes: 'text-field-subscription__block-head',
+                title: params.title,
+                help: params.help
+            })
+        -}
         .text-field-subscription__container
             input.input.text-field-subscription__input(placeholder=params.placeholder)
             .button.button_theme_form-element.text-field-subscription__button-subscription arrow_forward

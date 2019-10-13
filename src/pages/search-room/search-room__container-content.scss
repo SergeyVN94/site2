@@ -1,0 +1,10 @@
+.search-room__container-content {
+    flex-wrap: nowrap;
+}
+
+@media (max-width: 615px) {
+    .search-room__container-content {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

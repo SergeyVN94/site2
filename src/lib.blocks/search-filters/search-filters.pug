@@ -1,12 +1,12 @@
 mixin search-filters(params={})
     .search-filters(class=params.classes)
-        +dropdown({
+        +dropdown-date-filter({
             title: 'даты пребывания в отеле',
-            text: '19 авг - 23 авг',
-            classes: 'search-filters__item search-filters__item_mb21'
+            dateRange: '19 авг - 23 авг',
+            classes: 'search-filters__date-filter'
         })
         +dropdown-guest({
-            classes: 'search-filters__item search-filters__item_mb30'
+            classes: 'search-filters__dropdown-guest'
         })
         +range-slider({
             title: 'Диапазон цены',
@@ -15,7 +15,7 @@ mixin search-filters(params={})
             step: 1000,
             valueFormat: "{min}₽ - {max}₽",
             bottomText: 'Стоимость за сутки пребывания в номере',
-            classes: 'search-filters__item search-filters__item_mb30'
+            classes: 'search-filters__range-slider'
         })
         +checkbox-list({
             title: 'Checkbox Buttons',
@@ -30,7 +30,7 @@ mixin search-filters(params={})
                     text: 'Можно пригласить гостей (до 10 человек)'
                 }
             ],
-            classes: 'search-filters__item search-filters__item_mb30'
+            classes: 'search-filters__checkbox-list'
         })
         +checkbox-list({
             title: 'Доступность',
@@ -46,11 +46,11 @@ mixin search-filters(params={})
                     bottomText: 'На 1 этаже вас встретит специалист  и проводит до номера.'
                 }
             ],
-            classes: 'search-filters__item search-filters__item_mb30'
+            classes: 'search-filters__checkbox-list2'
         })
         +dropdown-rooms({
             title: 'Удобства номера',
-            classes: 'search-filters__item search-filters__item_mb16'
+            classes: 'search-filters__dropdown-rooms'
         })
         +checkbox-list-expend({
             title: 'Дополнительные удобства',
