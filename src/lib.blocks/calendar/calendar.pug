@@ -1,16 +1,15 @@
 mixin calendar(params={})
     -const date = new Date();
     -const year = date.getFullYear();
-    -const monthNumber = date.getMonth();
-    -const currentDay = date.getDate();
-    -const dateStr = `${year}-${monthNumber}-${currentDay}`;
+    -const month = date.getMonth();
+    -const day = date.getDate();
     -const monthNames = ["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"];
     -const daysWeek = ['Пн','Вт','Ср','Чт','Пт','Сб','Вс'];
-    -const renderDate = JSON.stringify({year: year, month: monthNumber});
-    .calendar(class=params.classes, data-range-day-start="", data-range-day-end="", data-render-date=renderDate)
+    -const drawnDate = JSON.stringify({year: year, month: month});
+    .calendar(class=params.classes, data-range-start="", data-range-end="", data-drawn-date=drawnDate)
         .calendar__head
             .button.button_theme_form-element.calendar__head-btn-arrow arrow_back
-            .text.text_h2_m #{monthNames[monthNumber]} #{year}
+            .text.text_h2_m #{monthNames[month]} #{year}
             .button.button_theme_form-element.calendar__head-btn-arrow arrow_forward
 
         .calendar__week-days-names
@@ -19,22 +18,22 @@ mixin calendar(params={})
             -}
 
         .calendar__body
-            -const daysInPreviousMonth = (new Date(year, monthNumber, 0)).getDate();
-            -const numberDayOfWeek = ((new Date(year, monthNumber, 1)).getDay() || 7) - 1; // 0 - Monday ... 6 - Sunday
+            -const daysInPreviousMonth = (new Date(year, month, 0)).getDate();
+            -const numberDayOfWeek = ((new Date(year, month, 1)).getDay() || 7) - 1; // 0 - Monday ... 6 - Sunday
             if numberDayOfWeek > 0
                 -for(let i = daysInPreviousMonth - numberDayOfWeek + 1; i <= daysInPreviousMonth; i++){
                     .button.button_theme_form-element-text.calendar__weekday.calendar__weekday_another-month #{i}
                 -}
 
-            -const daysInMonth = (new Date(year, monthNumber + 1, 0)).getDate();
+            -const daysInMonth = (new Date(year, month + 1, 0)).getDate();
             -for(let i = 1; i <= daysInMonth; i++) {
-                if i !== currentDay
+                if i !== day
                     .button.button_theme_form-element-text.calendar__weekday #{i}
                 else
                     .button.button_theme_form-element-text.calendar__weekday.calendar__weekday_current-day #{i}
             -}
             
-            -const numberDayOfWeekLastDay = ((new Date(year, monthNumber, daysInMonth)).getDay() || 7) - 1; // 0 - Monday ... 6 - Sunday 
+            -const numberDayOfWeekLastDay = ((new Date(year, month, daysInMonth)).getDay() || 7) - 1; // 0 - Monday ... 6 - Sunday 
             -for(let i = numberDayOfWeekLastDay + 1, d = 1; i <= 6; i++, d++) {
                 .button.button_theme_form-element-text.calendar__weekday.calendar__weekday_another-month #{d}
             -}

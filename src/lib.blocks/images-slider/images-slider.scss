@@ -41,13 +41,13 @@
     display: flex;
 }
 
-@import '.site2/images-slider__button-back.scss';
-@import '.site2/images-slider__button-forward.scss';
-@import '.site2/images-slider__button-left-container.scss';
-@import '.site2/images-slider__button-right-container.scss';
-@import '.site2/images-slider__slide-nav.scss';
-@import '.site2/images-slider__slide-nav-item.scss';
-@import '.site2/images-slider__slide-nav-item_current-image.scss';
-@import '.site2/images-slider__image.scss';
-@import '.site2/images-slider__container.scss';
+@import '/images-slider__button-back.scss';
+@import '/images-slider__button-forward.scss';
+@import '/images-slider__button-left-container.scss';
+@import '/images-slider__button-right-container.scss';
+@import '/images-slider__slide-nav.scss';
+@import '/images-slider__slide-nav-item.scss';
+@import '/images-slider__slide-nav-item_current-image.scss';
+@import '/images-slider__image.scss';
+@import '/images-slider__container.scss';
 @import './image-slider__top-image.scss';

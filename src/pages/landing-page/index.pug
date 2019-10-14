@@ -6,4 +6,6 @@ block pageTitle
 block content
     main.landing-page_
         include ./__banner/landing-page__banner.pug
-        +landing-page__banner()
+        +landing-page__banner({
+            image: 'images/banner.png'
+        })
