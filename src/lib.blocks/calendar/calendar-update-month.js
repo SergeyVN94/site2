@@ -10,18 +10,40 @@ function createDaysItem(dayNumber) {
     return day;
 }
 
-function updateCalendarHead(calendar) {
-    const rangeDate = JSON.parse(calendar.attr('data-render-date'));
+function redrawCalendarHead(calendar) {
+    const date = calendar.calendar('drawn-date');
 
-    const month = Number(rangeDate.month);
-    const calendarDateText = `${monthNames[month]} ${rangeDate.year}`;
-    calendar.find('.calendar__head .text.text_h2_m').text(calendarDateText);
+    const month = date.getMonth();
+    const year = date.getFullYear();
+    const headText = `${monthNames[month]} ${year}`;
+    calendar.find('.calendar__head .text.text_h2_m').text(headText);
 }
 
-function updateCalendar(calendar, date) {
+function drawCurrentDay(calendar) {
+    const drawnDate = calendar.calendar('drawn-date');
+    const currentDate = new Date();
+
+    if (
+        currentDate.getMonth() !== Number(drawnDate.getMonth()) ||
+        currentDate.getFullYear() !== Number(drawnDate.getFullYear())
+    ) {
+        return;
+    }
+
+    calendar.find('.calendar__weekday:not(.calendar__weekday_another-month)')
+        .each(function () {
+            const day = $(this);
+            if (Number(day.html()) === currentDate.getDate()) {
+                day.addClass('calendar__weekday_current-day');
+            }
+        });
+}
+
+function redrawCalendar(calendar) {
     const calendarBody = calendar.find('.calendar__body');
     calendarBody.html('');
 
+    const date = calendar.calendar('drawn-date');
     const year = date.getFullYear();
     const month = date.getMonth();
 
@@ -36,41 +58,42 @@ function updateCalendar(calendar, date) {
     });
 
     const daysInMonth = (new Date(year, month + 1, 0)).getDate();
-    for(let i = 1; i <= daysInMonth; i++) {
+    for (let i = 1; i <= daysInMonth; i++) {
         calendarBody.append(createDaysItem(i));
     }
-    
+
     const numberDayOfWeekLastDay = ((new Date(year, month, daysInMonth)).getDay() || 7) - 1; // 0 - Monday ... 6 - Sunday 
-    for(let i = numberDayOfWeekLastDay + 1, d = 1; i <= 6; i++, d++) {
+    for (let i = numberDayOfWeekLastDay + 1, d = 1; i <= 6; i++, d++) {
         const item = createDaysItem(d);
         item.classList.add('calendar__weekday_another-month');
         calendarBody.append(item);
     }
-    
-    updateCalendarHead(calendar);
+
+    redrawCalendarHead(calendar);
+    drawCurrentDay(calendar);
 }
 
-function renderCurrentDate(calendar) {
-    const rangeDate = JSON.parse(calendar.attr('data-render-date'));
-    const currentDate = new Date();
-
-    if (
-        currentDate.getMonth() !== Number(rangeDate.month) ||
-        currentDate.getFullYear() !== Number(rangeDate.year)
-    ) {
-        return;
+function drawnDate(calendar, date = null) {
+    if (date) {
+        try {
+            calendar.attr('data-drawn-date', JSON.stringify({
+                year: date.getFullYear(),
+                month: date.getMonth()
+            }));
+            redrawCalendar(calendar);
+        } catch (error) {
+            throw error;
+        }
     }
 
-    calendar.find('.calendar__weekday:not(.calendar__weekday_another-month)')
-    .each(function() {
-        const day = $(this);
-        if (Number(day.html()) === currentDate.getDate()) {
-            day.addClass('calendar__weekday_current-day');
-        }
-    });
+    try {
+        const opt = JSON.parse(calendar.attr('data-drawn-date'));
+        return new Date(opt.year, opt.month);
+    } catch (error) {
+        throw error;
+    }
 }
 
 export {
-    updateCalendar,
-    renderCurrentDate
+    drawnDate
 };
