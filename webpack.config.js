@@ -1,73 +1,103 @@
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const NODE_ENV = process.env.NODE_ENV || 'development';
-const isDevelopment = NODE_ENV === 'development';
-const devtool = isDevelopment ? "source-map" : null;
-const watchOptions = {
-    aggregateTimeout: 100
-}
-const _module = {
-    rules: [{
-            test: /\.pug$/,
-            use: {
-                loader: 'pug-loader'
-            }
-        },
-        {
-            test: /\.scss$/,
-            use: [
-                "style-loader", // creates style nodes from JS strings
-                "css-loader", // translates CSS into CommonJS
-                "sass-loader" // compiles Sass to CSS, using Node Sass by default
-            ]
-        },
-        {
-            test: /\.js$/,
-            use: {
-                loader: 'babel-loader'
-            }
-        }
-    ]
-}
-const optimization = {
-    splitChunks: {
-        chunks: 'all'
-    }
-}
+const PATHS = {
+    build: `${__dirname}/dist`,
+    src: `${__dirname}/src`,
+};
 
-function getConfig(page) {
-    const entry = {};
-    const name = page.replace(/[\ -]/i, '_');
-    entry[name] = `./index.js`;
-    entry[name + '_style'] = `./index.scss`;
-
-    return {
-        context: `${__dirname}/src/pages/${page}`,
-        entry: entry,
-        output: {
-            path: `${__dirname}/app/${page}`,
-            filename: '[name].js'
-        },
-        plugins: [
-            new HtmlWebpackPlugin({
-                template: `${__dirname}/src/pages/${page}/index.pug`
-            })
+const rules = [
+    {
+        test: /\.pug$/,
+        loader: 'pug-loader',
+    },
+    {
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+            "style-loader",
+            "css-loader",
+            "sass-loader",
         ],
-        module: _module,
-        devtool: devtool,
-        watch: isDevelopment,
-        watchOptions: watchOptions,
-        optimization: optimization
-    }
-}
+    },
+    {
+        test: /\.js$/,
+        loader: 'babel-loader',
+    },
+    {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'file-loader',
+        options: {
+            name: '[name].[ext]',
+            outputPath: `${PATHS.build}/fonts/`,
+        },
+    },
+    {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'file-loader',
+        options: {
+            name: '[name].[ext]',
+            outputPath: 'fonts/',
+        },
+    },
+]
 
-const configList = [];
-configList.push(getConfig('landing-page'));
-configList.push(getConfig('search-room'));
-configList.push(getConfig('room-details'));
-configList.push(getConfig('registration'));
-configList.push(getConfig('sign-in'));
-configList.push(getConfig('ui-kit'));
+const pageList = [
+    'landing-page',
+    'search-room',
+    'room-details',
+    'registration',
+    'sign-in',
+    'ui-kit',
+];
 
-module.exports = configList;
+const configTemplate = {
+    module: {
+        rules
+    },
+    context: PATHS.src,
+    output: {
+        path: PATHS.build,
+        filename: '[name].js',
+    },
+    devtool: 'inline-source-map',
+    watchOptions: {
+        aggregateTimeout: 100,
+    },
+};
+
+const fontsConfig = {
+    context: PATHS.src,
+    entry: {
+        fonts: './fonts/fonts.css',
+    },
+    module: {
+        rules,
+    },
+    output: {
+        path: PATHS.build,
+        filename: 'fonts/[name].js'
+    },
+};
+
+module.exports = [
+    fontsConfig,
+    ...pageList.map((page) => {
+        return ({
+            ...configTemplate,
+            plugins: [
+                new HtmlWebpackPlugin({
+                    template: `${PATHS.src}/pages/${page}/index.pug`,
+                    filename: `${PATHS.build}/${page}/index.html`,
+                    
+                }),
+            ],
+            entry: {
+                [`${page}/index`]: `./pages/${page}/index.js`,
+                [`${page}/index-style`]: `./pages/${page}/index.scss`,
+            },
+            output: {
+                path: PATHS.build,
+                filename: '[name].js',
+            },
+        });
+    }),
+];

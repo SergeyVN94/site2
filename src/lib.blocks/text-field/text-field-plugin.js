@@ -1,6 +1,6 @@
 import jQuery from 'jquery';
 
-(function($){
+(function($) {
     $.fn.textField = function() {
         const textField = this;
         const args = Array.from(arguments);
@@ -8,7 +8,7 @@ import jQuery from 'jquery';
         if (args.length === 1) {
             switch (args[0]) {
                 case 'value':
-                    return textField.find('input').val();            
+                    return textField.find('input').val();
                 default:
                     throw `The command "${args[0]}" is unknown.`;
             }
@@ -23,7 +23,7 @@ import jQuery from 'jquery';
                     }
 
                     textField.find('input').val(text);
-                    return textField;            
+                    return textField;
                 default:
                     throw `The command "${args[0]}" is unknown.`;
             }

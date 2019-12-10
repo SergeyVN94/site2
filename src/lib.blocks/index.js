@@ -1,3 +1,5 @@
+"use strict";
+
 import './like-button/like-button';
 import './dropdown/dropdown';
 import './range-slider/range-slider';

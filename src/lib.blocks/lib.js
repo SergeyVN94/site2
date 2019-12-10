@@ -20,6 +20,4 @@ function getIndexGraduation(number) {
     return grad;
 }
 
-export {
-    getIndexGraduation
-}
+export { getIndexGraduation }

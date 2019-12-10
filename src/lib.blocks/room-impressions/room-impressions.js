@@ -5,16 +5,14 @@ $('.room-impressions .room-impressions__container-diagram').each(function() {
 
     containerDiagram.find('.room-impressions__diagram path').each(function() {
         const path = $(this);
-        path.mouseover(function(event) {
+        path.mouseover((event) => {
             const target = $(event.target);
             const d = target.attr('d');
-            
         });
 
-        path.mouseleave(function(event) {
+        path.mouseleave((event) => {
             const target = $(event.target);
             const d = target.attr('d');
-            
         });
-    }); 
+    });
 });

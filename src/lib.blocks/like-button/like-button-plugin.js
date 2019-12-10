@@ -1,7 +1,7 @@
 import jQuery from 'jquery';
 
-(function ($) {
-    $.fn.likeButton = function () {
+(function($) {
+    $.fn.likeButton = function() {
         const args = Array.from(arguments);
         const button = this;
 
@@ -14,7 +14,6 @@ import jQuery from 'jquery';
                     return;
             }
         }
-
 
         // Команда с параметрами
         if (args.length > 1) {
@@ -31,8 +30,7 @@ import jQuery from 'jquery';
 
                     button.find('.like-button__counter').text(likes);
                 default:
-                    return;
             }
         }
     };
-})(jQuery);
+}(jQuery));

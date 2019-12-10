@@ -1,7 +1,5 @@
 import $ from 'jquery';
-import {
-    getIndexGraduation
-} from '../lib';
+import { getIndexGraduation } from '../lib';
 import './dropdown-guest-plugin';
 
 function getTextGuests(guests) {
@@ -24,16 +22,16 @@ function getTextGuests(guests) {
     return result.join(', ');
 }
 
-$('.dropdown-guest').each(function () {
+$('.dropdown-guest').each(function() {
     const dropdownGuest = $(this);
     const dropdown = dropdownGuest.find('.dropdown');
 
-    dropdown.dropdown('click', function () {
+    dropdown.dropdown('click', () => {
         const isExpend = dropdownGuest.dropdownGuest('expend');
         dropdownGuest.dropdownGuest('expend', !isExpend);
     });
 
-    dropdownGuest.click(function (event) {
+    dropdownGuest.click((event) => {
         const target = $(event.target);
 
         if (target.hasClass('dropdown-guest__button-clear')) {
@@ -66,7 +64,7 @@ $('.dropdown-guest').each(function () {
 
     // init
     const init = dropdownGuest.attr('data-init');
-    if(typeof init === 'string' && init.length > 2) { 
+    if (typeof init === 'string' && init.length > 2) {
         try {
             dropdownGuest.dropdownGuest('init', JSON.parse(init));
             const guests = dropdownGuest.dropdownGuest('guests');

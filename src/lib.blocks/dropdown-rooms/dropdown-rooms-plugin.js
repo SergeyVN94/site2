@@ -1,21 +1,23 @@
 import jQuery from 'jquery';
 
-(function ($) {
-    $.fn.dropdownRooms = function () {
+(function($) {
+    $.fn.dropdownRooms = function() {
         const dropdownRooms = this;
         const args = Array.from(arguments);
 
         if (args.length === 1) {
             switch (args[0]) {
                 case 'rooms':
-                    let rooms = {
-                        all: 0
+                    const rooms = {
+                        all: 0,
                     };
-                    dropdownRooms.find('.dropdown-item-counter').each(function () {
+                    dropdownRooms.find('.dropdown-item-counter').each(function() {
                         const counter = $(this);
                         const name = counter.dropdownItemCounter('name') || counter.dropdownItemCounter('text');
                         const value = counter.dropdownItemCounter('value');
-                        if (!rooms[name]) rooms[name] = 0;
+                        if (!rooms[name]) {
+ rooms[name] = 0;
+}
                         rooms[name] += value;
                         rooms.all += value;
                     });
@@ -23,7 +25,7 @@ import jQuery from 'jquery';
                     return rooms;
 
                 case 'reset':
-                    dropdownRooms.find('.dropdown-item-counter').each(function () {
+                    dropdownRooms.find('.dropdown-item-counter').each(function() {
                         const counter = $(this);
                         counter.dropdownItemCounter('value', 0);
                     });
@@ -48,7 +50,6 @@ import jQuery from 'jquery';
 
                     dropdownRooms.find('.dropdown').dropdown('text', value);
                     return dropdownRooms;
-
 
                 case 'expend':
                     const expend = args[1];
@@ -76,11 +77,11 @@ import jQuery from 'jquery';
                         const name = keys[i];
                         nInit[name.toLowerCase()] = init[name];
                     }
-                    
-                    dropdownRooms.find('.dropdown-item-counter').each(function () {
+
+                    dropdownRooms.find('.dropdown-item-counter').each(function() {
                         const counter = $(this);
                         const name = counter.dropdownItemCounter('text').toLowerCase();
-                        
+
                         if (init[name]) {
                             counter.dropdownItemCounter('value', Number(init[name]));
                         }
@@ -93,4 +94,4 @@ import jQuery from 'jquery';
             }
         }
     }
-})(jQuery)
+}(jQuery))

@@ -1,7 +1,7 @@
 import jQuery from 'jquery';
 
-(function ($) {
-    $.fn.dropdown = function () {
+(function($) {
+    $.fn.dropdown = function() {
         const dropdown = this;
         const args = Array.from(arguments);
 
@@ -20,7 +20,7 @@ import jQuery from 'jquery';
         if (args.length === 2) {
             switch (args[0]) {
                 case 'click':
-                    let clickHandler = args[1];
+                    const clickHandler = args[1];
                     if (typeof clickHandler !== 'function') {
                         throw 'Wrong argument type! expected function.';
                     }
@@ -49,4 +49,4 @@ import jQuery from 'jquery';
             }
         }
     };
-})(jQuery);
+}(jQuery));

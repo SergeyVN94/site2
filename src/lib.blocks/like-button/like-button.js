@@ -4,7 +4,7 @@ import './like-button-plugin';
 $('.like-button').click(function() {
     const button = $(this);
     let likes = button.likeButton('likes');
-    
+
     button.toggleClass('like-button_active');
 
     const icon = button.find('.like-button__icon');

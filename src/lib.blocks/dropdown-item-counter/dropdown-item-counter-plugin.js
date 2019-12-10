@@ -34,7 +34,7 @@ import jQuery from 'jquery';
                     }
 
                     Number(counter.find('.dropdown-item-counter__counter-value').text(value));
-                    
+
                     return counter;
 
                 case 'text':
@@ -52,10 +52,10 @@ import jQuery from 'jquery';
                     }
 
                     return counter.attr('data-name', name);
-            
+
                 default:
                     throw `The command "${args[0]}" is unknown.`;
             }
         }
     }
-})(jQuery);
+}(jQuery));

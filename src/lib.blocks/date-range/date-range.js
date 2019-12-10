@@ -14,15 +14,15 @@ $('.date-range').each(function() {
     const dateMask = 'ДД.ММ.ГГГГ';
     const dropdownDateStart = dateRange.find('.dropdown-date.start .dropdown__text');
     const dropdownDateEnd = dateRange.find('.dropdown-date.end .dropdown__text');
-    
-    dateRange.find('.dropdown-date').click(function () {
+
+    dateRange.find('.dropdown-date').click(function() {
         const dropdown = $(this);
-        
+
         // hide or show calendar
         const dMode = dropdown.hasClass('start') ? 'start' : 'end';
         const selectMode = calendar.calendar('mode');
-        const isCalendarHide = calendar.css('display') === 'none';        
-        
+        const isCalendarHide = calendar.css('display') === 'none';
+
         if (isCalendarHide) {
             calendar.css('display', 'block');
             calendar.calendar('mode', dMode);
@@ -37,15 +37,15 @@ $('.date-range').each(function() {
         }
     });
 
-    calendar.calendar('on-inter', function() {
+    calendar.calendar('on-inter', () => {
         const range = calendar.calendar('range');
 
         dropdownDateStart.text(dateMask);
-        dropdownDateEnd.text(dateMask);                
+        dropdownDateEnd.text(dateMask);
 
         if (range.start) {
             dropdownDateStart.text(dateToString(range.start));
-        } 
+        }
 
         if (range.end) {
             dropdownDateEnd.text(dateToString(range.end));
@@ -55,10 +55,10 @@ $('.date-range').each(function() {
         calendar.css('display', 'none');
     });
 
-    calendar.calendar('on-clear', function() {
+    calendar.calendar('on-clear', () => {
         dropdownDateStart.text(dateMask);
         dropdownDateEnd.text(dateMask);
-        
+
         dateRange.find('.dropdown-date').removeClass('dropdown-date_focus');
         calendar.css('display', 'none');
     });

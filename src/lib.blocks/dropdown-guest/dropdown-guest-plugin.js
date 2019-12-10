@@ -1,21 +1,23 @@
 import jQuery from 'jquery';
 
-(function ($) {
-    $.fn.dropdownGuest = function () {
+(function($) {
+    $.fn.dropdownGuest = function() {
         const dropdownGuest = this;
         const args = Array.from(arguments);
 
         if (args.length === 1) {
             switch (args[0]) {
                 case 'guests':
-                    let guests = {
-                        all: 0
+                    const guests = {
+                        all: 0,
                     };
-                    dropdownGuest.find('.dropdown-item-counter').each(function () {
+                    dropdownGuest.find('.dropdown-item-counter').each(function() {
                         const counter = $(this);
                         const name = counter.dropdownItemCounter('name') || counter.dropdownItemCounter('text');
                         const value = counter.dropdownItemCounter('value');
-                        if (!guests[name]) guests[name] = 0;
+                        if (!guests[name]) {
+ guests[name] = 0;
+}
                         guests[name] += value;
                         guests.all += value;
                     });
@@ -23,7 +25,7 @@ import jQuery from 'jquery';
                     return guests;
 
                 case 'reset':
-                    dropdownGuest.find('.dropdown-item-counter').each(function () {
+                    dropdownGuest.find('.dropdown-item-counter').each(function() {
                         const counter = $(this);
                         counter.dropdownItemCounter('value', 0);
                     });
@@ -48,7 +50,6 @@ import jQuery from 'jquery';
 
                     dropdownGuest.find('.dropdown').dropdown('text', value);
                     return dropdownGuest;
-
 
                 case 'expend':
                     const expend = args[1];
@@ -76,11 +77,11 @@ import jQuery from 'jquery';
                         const name = keys[i];
                         nInit[name.toLowerCase()] = init[name];
                     }
-                    
-                    dropdownGuest.find('.dropdown-item-counter').each(function () {
+
+                    dropdownGuest.find('.dropdown-item-counter').each(function() {
                         const counter = $(this);
                         const name = counter.dropdownItemCounter('text').toLowerCase();
-                        
+
                         if (init[name]) {
                             counter.dropdownItemCounter('value', Number(init[name]));
                         }
@@ -92,4 +93,4 @@ import jQuery from 'jquery';
             }
         }
     }
-})(jQuery)
+}(jQuery))

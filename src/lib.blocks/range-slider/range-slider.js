@@ -1,7 +1,6 @@
 import $ from 'jquery';
 
-
-$('.range-slider').each(function () {
+$('.range-slider').each(function() {
     const slider = $(this);
     const moveContainer = slider.find('.range-slider__move-container');
     const pointLeft = slider.find('.range-slider__point-left');
@@ -18,8 +17,8 @@ $('.range-slider').each(function () {
     slider.attr('data-max-value', max);
 
     function splitValue(num) {
-        let arr = String(num).split('');
-        let value = [];
+        const arr = String(num).split('');
+        const value = [];
         let i = 0;
         while (arr.length) {
             if (i === 3) {
@@ -90,16 +89,14 @@ $('.range-slider').each(function () {
             if (Math.round(offset) !== Math.round(posPointLeft)) {
                 sliderLine.css('margin-left', offset);
             }
-        } else {
-            if (Math.round(offset) !== Math.round(posPointRight)) {
+        } else if (Math.round(offset) !== Math.round(posPointRight)) {
                 sliderLine.css('margin-right', moveContainer.width() - offset);
             }
-        }
 
         updateNewRangeValues();
     }
 
-    moveContainer.mousedown(event => {
+    moveContainer.mousedown((event) => {
         if (event.button !== 0) {
             return false;
         }
@@ -108,7 +105,7 @@ $('.range-slider').each(function () {
         moveContainer.mousemove(handleMouseMove);
     });
 
-    moveContainer.mouseover(event => {
+    moveContainer.mouseover((event) => {
         if (event.buttons !== 1) {
             return false;
         }
