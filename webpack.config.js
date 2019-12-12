@@ -27,25 +27,17 @@ const rules = [
         loader: 'file-loader',
         options: {
             name: '[name].[ext]',
-            outputPath: `${PATHS.build}/fonts/`,
-        },
-    },
-    {
-        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'file-loader',
-        options: {
-            name: '[name].[ext]',
-            outputPath: 'fonts/',
+            outputPath: `./fonts/`,
         },
     },
 ]
 
 const pageList = [
-    'landing-page',
-    'search-room',
-    'room-details',
-    'registration',
-    'sign-in',
+    // 'landing-page',
+    // 'search-room',
+    // 'room-details',
+    // 'registration',
+    // 'sign-in',
     'ui-kit',
 ];
 
