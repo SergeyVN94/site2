@@ -1,0 +1,21 @@
+mixin text(options={})
+    -const {
+    -   classes = []
+    -   theme = 'body',
+    -   fweight = '',
+    -   color = '',
+    -   inline = false
+    -} = options;
+    
+    -const classList = [
+    -   '.text',
+    -   `text_theme_${theme}`, 
+    -   ...classes
+    -];
+
+
+    -const classListStr = classList.join(',');
+    if inline
+        span(class=classListStr) 
+    else
+        p(class=classListStr)

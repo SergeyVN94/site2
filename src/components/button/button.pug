@@ -1,0 +1,15 @@
+mixin button(options={})
+    - const {
+    -   theme='', 
+    -   bgColor='', 
+    -   size='', 
+    -   textColor='', 
+    -   classes=[],
+    -} = options;
+    -const classList = ['.button', ...classes];
+
+    -if(theme !== '') classes.push(`.button_theme_${theme}`);
+
+    -const classListStr = classList.join(',');
+
+    div(class=classListStr)

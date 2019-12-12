@@ -1,3 +1,8 @@
+@import '../color-demo/color-demo.scss';
+
+@import './colors-and-type__colors-demo.scss';
+@import './colors-and-type__text-demo.scss';
+
 .colors-and-type {
     width: 100%;
     background-color: #fff;
@@ -6,5 +11,3 @@
     display: flex;
 }
 
-@import './colors-and-type__colors-demo.scss';
-@import './colors-and-type__text-demo.scss';

@@ -5,14 +5,14 @@
     color: $color-dark-100;
 }
 
-@import './text_h1.scss';
-@import './text_h2.scss';
-@import './text_h3.scss';
-@import './text_body.scss';
-@import './text_h1m.scss';
-@import './text_h2m.scss';
-@import './text_fw_n.scss';
-@import './text_fw_b.scss';
+@import './text_theme_h1.scss';
+@import './text_theme_h2.scss';
+@import './text_theme_h3.scss';
+@import './text_theme_body.scss';
+
+@import './text_fweight_normal.scss';
+@import './text_fweight_bold.scss';
+
 @import './text_color_purple.scss';
 @import './text_color_dark-50.scss';
 @import './text_color_dark-75.scss';

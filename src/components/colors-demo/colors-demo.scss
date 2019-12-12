@@ -1,0 +1,7 @@
+@import '../color-demo/color-demo.scss';
+
+.colors-demo {
+  @include reset-css;
+  width: 100%;
+  min-width: 320px;
+}

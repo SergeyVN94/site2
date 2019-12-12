@@ -1,0 +1,8 @@
+.color-demo__color-description {
+    @include reset-css;
+    width: 100%;
+    margin-left: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

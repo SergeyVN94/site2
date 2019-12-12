@@ -1,1 +1,1 @@
-import '../../lib.blocks/index';
+import '../../components/index';

@@ -1,0 +1,12 @@
+mixin color-demo(options={})
+    -const {
+    -   color = '', 
+    -   name = '',
+    -   bgColor = '',
+    -} = options;
+
+    .color-demo
+        .color-demo__color-block(style=`background-color: ${bgColor};`)
+        .color-demo__color-description
+            .color-demo__color-name #{name}
+            .color-demo__color-value #{color}
