@@ -13,9 +13,10 @@ include ../color-demo/color-demo.pug
 mixin colors-demo(classes)
     .colors-demo(class=classes)
         -colors.forEach((color) => {
-            +color-demo({
-                name: color[1],
-                color: color[0],
-                bgColor: color[2],
-            })
+            .colors-demo__color-demo
+                +color-demo({
+                    name: color[0],
+                    color: color[1],
+                    bgColor: color[2],
+                })
         -});

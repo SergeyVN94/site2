@@ -1,8 +1,6 @@
 @import './color-demo__color-block.scss';
 @import './color-demo__color-description.scss';
 
-$width: 70px;
-
 .color-demo {
   @include reset-css;
   width: 100%;

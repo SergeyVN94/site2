@@ -1,21 +1,25 @@
 mixin text(options={})
     -const {
-    -   classes = []
+    -   classes = [],
     -   theme = 'body',
     -   fweight = '',
+    -   lheight = '',
     -   color = '',
-    -   inline = false
+    -   inline = false,
+    -   value = '',
     -} = options;
     
     -const classList = [
-    -   '.text',
+    -   'text',
     -   `text_theme_${theme}`, 
     -   ...classes
     -];
 
+    -if(fweight !== '') classList.push(`text_fweight_${fweight}`);
+    -if(lheight !== '') classList.push(`text_lheight_${lheight}`);
 
-    -const classListStr = classList.join(',');
+    -const classListStr = classList.join(' ');
     if inline
-        span(class=classListStr) 
+        span(class=classListStr) #{value}
     else
-        p(class=classListStr)
+        p(class=classListStr) #{value}

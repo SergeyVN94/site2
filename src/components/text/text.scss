@@ -1,7 +1,8 @@
 .text {
+    @include reset-css;
     font-family: Quicksand;
-    font-weight: bold;
     font-style: normal;
+    font-weight: bold;
     color: $color-dark-100;
 }
 
@@ -16,3 +17,5 @@
 @import './text_color_purple.scss';
 @import './text_color_dark-50.scss';
 @import './text_color_dark-75.scss';
+
+@import './text_lheight_bg.scss'

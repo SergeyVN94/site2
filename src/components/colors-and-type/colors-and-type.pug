@@ -5,7 +5,7 @@ mixin colors-and-type(options={})
     -   classes = [],    
     -} = options;
     -const classList = [...classes];
-    -const classListStr = classList.join(',');
+    -const classListStr = classList.join(' ');
     .colors-and-type(class=classListStr)
         .container-content.container-content_horizontal.container-content_content_sp-bt
             +colors-demo()

@@ -6,10 +6,13 @@ mixin button(options={})
     -   textColor='', 
     -   classes=[],
     -} = options;
-    -const classList = ['.button', ...classes];
+    -const classList = [
+    -   'button',
+    -   ...classes
+    -];
 
     -if(theme !== '') classes.push(`.button_theme_${theme}`);
 
-    -const classListStr = classList.join(',');
+    -const classListStr = classList.join(' ');
 
     div(class=classListStr)
