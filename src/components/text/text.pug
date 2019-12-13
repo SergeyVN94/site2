@@ -17,6 +17,7 @@ mixin text(options={})
 
     -if(fweight !== '') classList.push(`text_fweight_${fweight}`);
     -if(lheight !== '') classList.push(`text_lheight_${lheight}`);
+    -if(color !== '') classList.push(`text_color_${color}`);
 
     -const classListStr = classList.join(' ');
     if inline

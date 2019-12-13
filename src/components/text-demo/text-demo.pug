@@ -1,17 +1,56 @@
-mixin text-demo(classes)
-    .text-demo(class=classes)
+include ../text-demo-item/text-demo-item.pug
+
+mixin text-demo()
+    .text-demo()
         .text-demo__item
-            .text.text_h1.text-demo__item-title H1
-            .text.text_h1.text-demo__item-text  This one is the sub-section or widget title
+            +text-demo-item({
+                name: {
+                    value: 'H1',
+                    theme: 'h1',
+                    fweight: 'normal',
+                    color: 'dark-25',
+                },
+                value: {
+                    value: 'This one is the sub-section or widget title',
+                    theme: 'h1',
+                },
+            })
 
         .text-demo__item
-            .text.text_h2.text-demo__item-title H2
-            .text.text_h2.text-demo__item-text  Next one is the item title inside widgets
+            +text-demo-item({
+                name: {
+                    value: 'H2',
+                    theme: 'h2',
+                    fweight: 'normal',
+                    color: 'dark-25',
+                },
+                value: {
+                    value: 'Next one is the item title inside widgets',
+                    theme: 'h2',
+                },
+            })
 
         .text-demo__item
-            .text.text_h3.text-demo__item-title H3
-            .text.text_h3.text-demo__item-text  This is a label or CTA text
+            +text-demo-item({
+                name: {
+                    value: 'H3',
+                    theme: 'h3',
+                    fweight: 'normal',
+                    color: 'dark-25',
+                },
+                value: {
+                    value: 'This is a label or CTA text',
+                    theme: 'h3',
+                },
+            })
 
         .text-demo__item
-            .text.text_body.text-demo__item-title Body
-            .text.text_body.text-demo__item-text  This is the body text which is used for most of the design, like paragraphs, lists, etc.
+            +text-demo-item({
+                name: {
+                    value: 'Body',
+                    color: 'dark-25',
+                },
+                value: {
+                    value: 'This is the body text which is used for most of the design, like paragraphs, lists, etc.',
+                },
+            })
