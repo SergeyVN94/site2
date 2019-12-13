@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -29,7 +30,7 @@ const rules = [
         loader: 'file-loader',
         options: {
             name: '[name].[ext]',
-            outputPath: `./fonts/`,
+            outputPath: `/fonts/`,
         },
     },
 ]
@@ -59,22 +60,7 @@ const configTemplate = {
     mode: isProduction ? 'production' : 'development',
 };
 
-const fontsConfig = {
-    context: PATHS.src,
-    entry: {
-        fonts: './fonts/fonts.css',
-    },
-    module: {
-        rules,
-    },
-    output: {
-        path: PATHS.build,
-        filename: 'fonts/[name].js'
-    },
-};
-
 module.exports = [
-    fontsConfig,
     ...pageList.map((page) => {
         return ({
             ...configTemplate,
@@ -82,8 +68,13 @@ module.exports = [
                 new HtmlWebpackPlugin({
                     template: `${PATHS.src}/pages/${page}/index.pug`,
                     filename: `${PATHS.build}/${page}/index.html`,
-                    
                 }),
+                new CopyWebpackPlugin([
+                    {
+                        from: `${PATHS.src}/fonts`,
+                        to: `${PATHS.build}/fonts`,
+                    },
+                ]),
             ],
             entry: {
                 [`${page}/index`]: `./pages/${page}/index.js`,
