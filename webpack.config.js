@@ -1,7 +1,9 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 const PATHS = {
-    build: `${__dirname}/dist`,
+    build: `${__dirname}/${isProduction ? 'app' : 'dist'}`,
     src: `${__dirname}/src`,
 };
 
@@ -54,6 +56,7 @@ const configTemplate = {
     watchOptions: {
         aggregateTimeout: 100,
     },
+    mode: isProduction ? 'production' : 'development',
 };
 
 const fontsConfig = {
