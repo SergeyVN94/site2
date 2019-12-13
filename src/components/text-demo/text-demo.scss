@@ -1,2 +1,7 @@
 @import './text-demo__item.scss';
 @import '../text-demo-item/text-demo-item.scss';
+
+.text-demo {
+  width: auto;
+  min-width: 320px;
+}

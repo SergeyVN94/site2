@@ -1,23 +1,23 @@
 .text {
-    @include reset-css;
-    font-family: Quicksand;
-    font-style: normal;
-    font-weight: bold;
-    color: $color-dark-100;
+  @include reset-css;
+  font-family: Quicksand;
+  font-style: normal;
+  font-weight: bold;
+  color: $color-dark-100;
 }
 
-@import './text_theme_h1.scss';
-@import './text_theme_h2.scss';
-@import './text_theme_h3.scss';
-@import './text_theme_body.scss';
+@import "./text_theme_h1.scss";
+@import "./text_theme_h2.scss";
+@import "./text_theme_h3.scss";
+@import "./text_theme_body.scss";
 
-@import './text_fweight_normal.scss';
-@import './text_fweight_bold.scss';
+@import "./text_fweight_normal.scss";
+@import "./text_fweight_bold.scss";
 
-@import './text_color_purple.scss';
-@import './text_color_dark-50.scss';
-@import './text_color_dark-75.scss';
-@import './text_color_dark-25.scss';
-@import './text_color_dark-5.scss';
+@import "./text_color_purple.scss";
+@import "./text_color_dark-50.scss";
+@import "./text_color_dark-75.scss";
+@import "./text_color_dark-25.scss";
+@import "./text_color_dark-5.scss";
 
-@import './text_lheight_bg.scss'
+@import "./text_lheight_bg.scss";

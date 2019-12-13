@@ -1,14 +1,16 @@
 @import "../colors-demo/colors-demo.scss";
+@import "../text-demo/text-demo.scss";
 
-@import "./colors-and-type__colors-demo.scss";
+@import "./colors-and-type__container-content.scss";
 @import "./colors-and-type__text-demo.scss";
 
 .colors-and-type {
   width: 100%;
+  max-width: 1440px;
+  min-width: 320px;
   background-color: #fff;
   -ms-flex-pack: distribute;
   justify-content: space-around;
-  padding-top: 145px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

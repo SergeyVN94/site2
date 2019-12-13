@@ -1,11 +1,5 @@
 .colors-and-type__text-demo {
-    display: inline-block;
-    vertical-align: top;
-    margin-left: 120px;
-}
-
-@media screen and (max-width: 320px) {
-    .colors-and-type__text-demo {
-        margin: 55px 0px 0px 30px;
-    }
+  @media screen and (max-width: 660px) {
+    margin-top: 30px;
+  }  
 }

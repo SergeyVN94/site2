@@ -1,4 +1,5 @@
 include ../colors-demo/colors-demo.pug
+include ../text-demo/text-demo.pug
 
 mixin colors-and-type(options={})
     -const {
@@ -6,7 +7,10 @@ mixin colors-and-type(options={})
     -} = options;
     -const classList = [...classes];
     -const classListStr = classList.join(' ');
-    .colors-and-type(class=classListStr)
-        .container-content.container-content_horizontal.container-content_content_sp-bt
-            +colors-demo()
-            //- +text-demo()
+
+    article.colors-and-type(class=classListStr)
+        .colors-and-type__container-content
+            .colors-and-type__colors-demo
+                +colors-demo()
+            .colors-and-type__text-demo
+                +text-demo()

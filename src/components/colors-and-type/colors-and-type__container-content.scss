@@ -1,0 +1,21 @@
+.colors-and-type__container-content {
+  @include reset-css;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 145px 194px 0px 150px;
+
+  @media screen and (max-width: 955px) {
+    padding: 145px 50px 0px 50px;
+  }
+
+  @media screen and (max-width: 800px) {
+    padding: 145px 0px 0px 0px;
+  }
+
+  @media screen and (max-width: 660px) {
+    flex-direction: column;
+    align-items: center;
+    padding: 145px 0px 0px 0px;
+  }
+}

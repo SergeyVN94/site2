@@ -1,10 +1,12 @@
-@import './text-demo-item__name.scss';
-@import './text-demo-item__value.scss';
+@import "./text-demo-item__name.scss";
+@import "./text-demo-item__value.scss";
 
 .text-demo-item {
-    @include reset-css;
-    width: 100%;
-    min-width: 320px;
-    max-width: 400px;
-    display: flex;
+  @include reset-css;
+  width: 100%;
+  min-width: 320px;
+  max-width: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
