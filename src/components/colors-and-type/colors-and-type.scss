@@ -1,13 +1,15 @@
-@import '../colors-demo/colors-demo.scss';
+@import "../colors-demo/colors-demo.scss";
 
-@import './colors-and-type__colors-demo.scss';
-@import './colors-and-type__text-demo.scss';
+@import "./colors-and-type__colors-demo.scss";
+@import "./colors-and-type__text-demo.scss";
 
 .colors-and-type {
-    width: 100%;
-    background-color: #fff;
-    justify-content: space-around;
-    padding-top: 145px;
-    display: flex;
+  width: 100%;
+  background-color: #fff;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  padding-top: 145px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
-

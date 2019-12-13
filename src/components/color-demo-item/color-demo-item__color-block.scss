@@ -1,0 +1,10 @@
+$size: 70px;
+
+.color-demo-item__color-block {
+  @include reset-css;
+  width: 100%;
+  min-width: $size;
+  max-width: $size;
+  min-height: $size;
+  border-radius: 6px;
+}

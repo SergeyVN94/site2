@@ -1,4 +1,4 @@
-include ../color-demo/color-demo.pug
+include ../color-demo-item/color-demo-item.pug
 
 -const colors = [
 -   ['Dark Shade 100%', '#1F2041', '#1F2041'],
@@ -14,7 +14,7 @@ mixin colors-demo(classes)
     .colors-demo(class=classes)
         -colors.forEach((color) => {
             .colors-demo__color-demo
-                +color-demo({
+                +color-demo-item({
                     name: color[0],
                     color: color[1],
                     bgColor: color[2],

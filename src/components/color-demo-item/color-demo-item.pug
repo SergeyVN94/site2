@@ -1,0 +1,25 @@
+include ../text/text.pug
+
+mixin color-demo-item(options={})
+    -const {
+    -   color = '', 
+    -   name = '',
+    -   bgColor = '',
+    -} = options;
+
+    .color-demo-item
+        .color-demo-item__color-block(style=`background-color: ${bgColor};`)
+        .color-demo-item__color-description
+            .color-demo-item__color-name
+                +text({
+                    value: name,
+                    theme: 'h2',
+                    lheight: 'bg',
+                })
+            .color-demo-item__color-value
+                +text({
+                    value: color,
+                    theme: 'h2',
+                    fweight: 'normal',
+                    lheight: 'bg',
+                })
