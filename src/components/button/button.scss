@@ -1,29 +1,32 @@
 .button {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    text-align: center;
-    padding: 0px 19.7px;
-    color: $color-dark-75;
-    user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    cursor: pointer;
+  @include reset-css;
+  @include no-select;
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  cursor: pointer;
+
+  &:after {
+    content: "";
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+  }
 }
 
-@import './button_theme_form-element.scss';
-@import './button_theme_default.scss';
-@import './button_disable.scss';
-@import './button_theme_default-light.scss';
-@import './button_theme_text.scss';
-@import './button_theme_text-dark.scss';
-@import './button_theme_round.scss';
-@import './button_theme_form-element-text.scss';
-@import './button_theme_round-green.scss';
-@import './button_theme_round-light.scss';
-@import './button_hide.scss';
-@import './button_theme_round-green-text.scss';
-@import './button_height_smile.scss';
-@import './button_theme_social-icon.scss';
-@import './button_pd_bg.scss';
+@import "./button_theme_default.scss";
+@import "./button_theme_form-element.scss";
+@import "./button_theme_default-light.scss";
+@import "./button_theme_text.scss";
+@import "./button_theme_text-dark.scss";
+@import "./button_theme_round.scss";
+@import "./button_theme_form-element-text.scss";
+@import "./button_theme_round-green.scss";
+@import "./button_theme_round-light.scss";
+@import "./button_theme_round-green-text.scss";
+@import "./button_theme_social-icon.scss";
+
+@import "./button_disable.scss";
+@import "./button_hide.scss";
+@import "./button_height_smile.scss";
+@import "./button_pd_bg.scss";

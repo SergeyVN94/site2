@@ -7,6 +7,7 @@ mixin text(options={})
     -   color = '',
     -   inline = false,
     -   value = '',
+    -   uppercase = false,
     -} = options;
     
     -const classList = [
@@ -18,6 +19,7 @@ mixin text(options={})
     -if(fweight !== '') classList.push(`text_fweight_${fweight}`);
     -if(lheight !== '') classList.push(`text_lheight_${lheight}`);
     -if(color !== '') classList.push(`text_color_${color}`);
+    -if(uppercase) classList.push('text_uppercase');
 
     -const classListStr = classList.join(' ');
     if inline

@@ -1,18 +1,20 @@
 mixin button(options={})
     - const {
-    -   theme='', 
-    -   bgColor='', 
-    -   size='', 
-    -   textColor='', 
-    -   classes=[],
+    -   theme = 'default', 
+    -   bgColor = '', 
+    -   size = '', 
+    -   textColor = '', 
+    -   classes = [],
+    -   text = '',
     -} = options;
+
     -const classList = [
     -   'button',
     -   ...classes
     -];
 
-    -if(theme !== '') classes.push(`.button_theme_${theme}`);
+    -if(theme !== '') classList.push(`button_theme_${theme}`);
 
     -const classListStr = classList.join(' ');
 
-    div(class=classListStr)
+    div(class=classListStr) #{text}

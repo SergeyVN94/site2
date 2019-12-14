@@ -1,13 +1,26 @@
-mixin text-field(params={})
-    -let classes = (params.classes || '');
-    -if(params.focus) classes += ' text-field_focus';
-    -const template = params.template || '';
-    .text-field(class=classes, data-template=template)
-        -if(params.title || params.help) {
-            +block-head({
-                classes: 'text-field__block-head',
-                title: params.title,
-                help: params.help
-            })
-        -}
-        input.text-field__input(placeholder=params.placeholder, value=params.value)
+include ../block-head/block-head.pug
+include ../input-text/input-text.pug
+
+mixin text-field(options={})
+    -const {
+    -   placeholder = '',
+    -   value = '',
+    -   title = '',
+    -   help = '',
+    -   type = 'text',
+    -} = options;
+
+    -const isUseHead = (title !== '' || help !== '');
+
+    .text-field(class='js-text-field', class=classListStr)
+        .text-field__block-head
+            if isUseHead
+                +block-head({
+                    title,
+                    help,
+                })
+        +input-text({
+            placeholder,
+            value,
+            type
+        })        

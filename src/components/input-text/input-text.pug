@@ -1,0 +1,12 @@
+mixin input-text(options={})
+    -const {
+    -   type = 'text',
+    -   placeholder = '',
+    -   value = '',
+    -   theme = '',
+    -} = options;
+
+    -const classList = ['input-text'];
+    -const classListStr = classList.join(' ');
+
+    input(type=type, class=classListStr, placeholder=placeholder, value=value)

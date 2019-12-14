@@ -1,12 +1,15 @@
+$height: 44px;
+
 .button_theme_default {
-    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    height: $height;
     border-radius: 22px;
+    padding: 0px 19.7px;
+    font-size: 12px;
+    line-height: 15px;
+    background: $color-gradient-1;
     font-family: Montserrat;
     font-style: normal;
     font-weight: bold;
-    font-size: 12px;
-    line-height: 15px;
     text-transform: uppercase;
-    height: 44px;
     color: white;
 }

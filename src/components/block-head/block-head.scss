@@ -1,12 +1,11 @@
+@import './block-head__title.scss';
+@import './block-head__help.scss';
+
 .block-head {
     width: 100%;
-    &::after,
-    &::before {
+    &::after {
         display: block;
         content: '';
         clear: both;
     }
 }
-
-@import './block-head__title.scss';
-@import './block-head__help.scss';

@@ -1,33 +1,19 @@
-mixin form-elements(params={})
-    .form-elements(class=params.classes)
-        .container-content.form-elements__container-content
-            .form-elements__block1
-                +form-elements-col1()
-                +form-elements-col2()
-                +form-elements-col3()
-            .form-elements__block2
-                +form-elements-col4()
-                +form-elements-col5()
-            .form-elements__block3
-                +room-advantages({
-                    items: [
-                        {
-                            icon: 'insert_emoticon',
-                            title: 'Комфорт',
-                            text: 'Шумопоглощающие стены'
-                        },
-                        {
-                            icon: 'location_city',
-                            title: 'Удобство',
-                            text: 'Окно в каждой из спален'
-                        }
-                    ]
+include ../text-field/text-field.pug
+include ../button/button.pug
+
+mixin form-elements()
+    .form-elements
+        .form-elements__container-content
+            .form-elements__item
+                +text-field({
+                    title: 'text field',
+                    help: 'default',
+                    placeholder: 'Email'
                 })
-                +comment({
-                    image: 'images/avatars/user1.png',
-                    user: 'Мурад Сарафанов',
-                    date: '5 дней назад',
-                    likes: '12',
-                    checked: true,
-                    text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'
-                })
+            .form-elements__item
+                +text-field({
+                    title: 'subscription text field',
+                    help: 'default',
+                    placeholder: 'Email',
+                    rightButton: 'arrow_forward'
+                }) 
