@@ -1,12 +1,30 @@
-mixin text-field-subscription(params={})
-    .text-field-subscription(class=params.classes)
-        -if(params.title || params.help) {
-            +block-head({
-                classes: 'text-field-subscription__block-head',
-                title: params.title,
-                help: params.help
+include ../block-head/block-head.pug
+include ../input-text/input-text.pug
+
+mixin text-field-subscription(options={})
+    -const {
+    -   placeholder = 'Email',
+    -   value = '',
+    -   title = '',
+    -   help = '',
+    -   type = 'text',
+    -   icon = 'arrow_forward'
+    -} = options;
+
+    -const isUseHead = (title !== '' || help !== '');
+
+    .text-field-subscription(class='js-text-field-subscription')
+        .text-field-subscription__block-head
+            if isUseHead
+                +block-head({
+                    title,
+                    help,
+                })
+        .text-field-subscription__body
+            +input-text({
+                placeholder,
+                value,
+                type,
+                indentRight: '44',
             })
-        -}
-        .text-field-subscription__container
-            input.input.text-field-subscription__input(placeholder=params.placeholder)
-            .button.button_theme_form-element.text-field-subscription__button-subscription arrow_forward
+            .text-field-subscription__icon #{icon}

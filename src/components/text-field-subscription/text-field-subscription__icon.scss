@@ -1,0 +1,32 @@
+$size: 44px;
+
+.text-field-subscription__icon {
+  @include reset-css;
+  @include no-select;
+  font-family: Material Icons;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  color: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+  background: $color-gradient-1;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  width: 100%;
+  max-width: $size;
+  min-width: $size;
+  height: 100%;
+  max-height: $size;
+  position: absolute;
+  right: 0;
+  top: 0;
+}

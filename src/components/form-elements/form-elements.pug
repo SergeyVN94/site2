@@ -1,5 +1,6 @@
 include ../text-field/text-field.pug
 include ../button/button.pug
+include ../text-field-subscription/text-field-subscription.pug
 
 mixin form-elements()
     .form-elements
@@ -8,12 +9,11 @@ mixin form-elements()
                 +text-field({
                     title: 'text field',
                     help: 'default',
-                    placeholder: 'Email'
+                    placeholder: 'Email',
                 })
             .form-elements__item
-                +text-field({
+                +text-field-subscription({
                     title: 'subscription text field',
                     help: 'default',
                     placeholder: 'Email',
-                    rightButton: 'arrow_forward'
                 }) 

@@ -5,7 +5,7 @@ $height: 44px;
     width: 100%;
     min-width: 0;
     height: $height;
-    padding: 0px 14px 1px 14px;
+    padding: 0px 14px 2px 14px;
     font-family: Montserrat;
     font-style: normal;
     font-weight: normal;
@@ -28,3 +28,5 @@ $height: 44px;
         border-color: $color-dark-50;
     }
 }
+
+@import './input-text_indent-right_44.scss';

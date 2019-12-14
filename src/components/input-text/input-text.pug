@@ -4,9 +4,13 @@ mixin input-text(options={})
     -   placeholder = '',
     -   value = '',
     -   theme = '',
+    -   indentRight = '',
     -} = options;
 
     -const classList = ['input-text'];
+
+    -if(indentRight !== '') classList.push(`input-text_indent-right_${indentRight}`);
+
     -const classListStr = classList.join(' ');
 
     input(type=type, class=classListStr, placeholder=placeholder, value=value)
