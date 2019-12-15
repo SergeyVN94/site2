@@ -8,6 +8,9 @@ mixin text(options={})
     -   inline = false,
     -   value = '',
     -   uppercase = false,
+    -   wspace = '',
+    -   noSelect = false,
+    -   verticalMiddle = false,
     -} = options;
     
     -const classList = [
@@ -19,10 +22,13 @@ mixin text(options={})
     -if(fweight !== '') classList.push(`text_fweight_${fweight}`);
     -if(lheight !== '') classList.push(`text_lheight_${lheight}`);
     -if(color !== '') classList.push(`text_color_${color}`);
+    -if(wspace !== '') classList.push(`text_wspace_${wspace}`);
     -if(uppercase) classList.push('text_uppercase');
+    -if(noSelect) classList.push('text_no-select');
+    -if(verticalMiddle) classList.push('text_vertical-middle');
 
     -const classListStr = classList.join(' ');
-    if inline
+    if inline || verticalMiddle
         span(class=classListStr) #{value}
     else
         p(class=classListStr) #{value}

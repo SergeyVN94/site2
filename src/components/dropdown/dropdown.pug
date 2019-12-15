@@ -1,4 +1,31 @@
-mixin dropdown(params={})
-    .dropdown(class=params.classes)
-        .dropdown__text #{params.text}
-        .button.button_theme_form-element.dropdown__button-expend expand_more
+include ../block-head/block-head.pug
+include ../dropdown-head/dropdown-head.pug
+
+mixin dropdown(options={})
+    -const {
+    -   title = '',
+    -   help = '',
+    -   value = '',
+    -   icon = 'expand_more',
+    -   valueOptions = {},
+    -   items = [],
+    -} = options;
+
+    -const isUseHead = (title !== '' || help !== '');
+
+    .dropdown
+        if isUseHead
+            .dropdown__block-head
+                +block-head({
+                    title,
+                    help,
+                })
+
+        .dropdown__container
+            +dropdown-head({
+                value,
+            })
+            .dropdown__body
+                -items.forEach((item) => {
+
+                -});

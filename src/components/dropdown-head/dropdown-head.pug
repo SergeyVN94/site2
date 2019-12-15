@@ -1,0 +1,19 @@
+include ../text/text.pug
+
+mixin dropdown-head(options={})
+    -const {
+    -   value = '',
+    -   icon = 'expand_more',
+    -} = options;
+
+    -const textOptions = {
+    -   value,
+    -   wspace: 'nowrap',
+    -   noSelect: true,
+    -   verticalMiddle: true,
+    -};
+
+    .dropdown-head.js-dropdown-head
+        .dropdown-head__text
+            +text(textOptions)
+        .dropdown-head__icon #{icon}
