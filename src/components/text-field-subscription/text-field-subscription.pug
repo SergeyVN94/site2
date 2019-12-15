@@ -8,7 +8,6 @@ mixin text-field-subscription(options={})
     -   title = '',
     -   help = '',
     -   type = 'text',
-    -   icon = 'arrow_forward'
     -} = options;
 
     -const isUseHead = (title !== '' || help !== '');
@@ -20,11 +19,9 @@ mixin text-field-subscription(options={})
                     title,
                     help,
                 })
-        .text-field-subscription__body
-            +input-text({
-                placeholder,
-                value,
-                type,
-                indentRight: '44',
-            })
-            .text-field-subscription__icon #{icon}
+        +input-text({
+            placeholder,
+            value,
+            type,
+            iconRight: 'arrow_forward',
+        })

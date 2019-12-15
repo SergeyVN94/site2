@@ -4,13 +4,17 @@ mixin input-text(options={})
     -   placeholder = '',
     -   value = '',
     -   theme = '',
-    -   indentRight = '',
+    -   iconRight = '',
     -} = options;
 
-    -const classList = ['input-text'];
+    -const classList = [];
 
-    -if(indentRight !== '') classList.push(`input-text_indent-right_${indentRight}`);
+    -if(iconRight !== '') classList.push('input-text_use-icon-right');
 
     -const classListStr = classList.join(' ');
 
-    input(type=type, class=classListStr, placeholder=placeholder, value=value)
+    .input-text(class=classListStr)
+        .input-text__container
+            input.input-text__input(type=type, placeholder=placeholder, value=value)
+            if iconRight !== ''
+                .input-text__icon-right #{iconRight}

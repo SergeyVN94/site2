@@ -1,32 +1,8 @@
-$height: 44px;
+@import './input-text__input.scss';
+@import './input-text__container.scss';
+@import './input-text__icon-right.scss';
+@import './input-text_use-icon-right.scss';
 
 .input-text {
-    @include reset-css;
-    width: 100%;
-    min-width: 0;
-    height: $height;
-    padding: 0px 14px 2px 14px;
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 0.9786rem;
-    line-height: 1.2857rem;
-    color: $color-dark-25;
-    background-color: #fff;
-    border: 1px solid $color-dark-25;
-    border-radius: 4px;
-
-    &::placeholder {
-        color: $color-dark-25;
-        opacity: 1;
-    }
-
-    &:hover,
-    &:focus {
-        line-height: 1.7143rem;
-        color: $color-dark-75;
-        border-color: $color-dark-50;
-    }
+  width: 100%;
 }
-
-@import './input-text_indent-right_44.scss';
