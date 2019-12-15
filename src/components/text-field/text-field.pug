@@ -8,11 +8,13 @@ mixin text-field(options={})
     -   title = '',
     -   help = '',
     -   type = 'text',
+    -   iconRight = '',
+    -   mask = '',
     -} = options;
 
     -const isUseHead = (title !== '' || help !== '');
 
-    .text-field(class='js-text-field')
+    .text-field(class='js-text-field', data-mask=mask)
         .text-field__block-head
             if isUseHead
                 +block-head({
@@ -23,4 +25,5 @@ mixin text-field(options={})
             placeholder,
             value,
             type,
+            iconRight,
         })        

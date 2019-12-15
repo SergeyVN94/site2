@@ -12,8 +12,17 @@ mixin form-elements()
                     placeholder: 'Email',
                 })
             .form-elements__item
-                +text-field-subscription({
+                +text-field({
                     title: 'subscription text field',
                     help: 'default',
                     placeholder: 'Email',
-                }) 
+                    iconRight: 'arrow_forward',
+                })
+            .form-elements__item
+                +text-field({
+                    title: 'masked text field',
+                    help: 'default',
+                    placeholder: 'ДД.ММ.ГГГГ',
+                    mask: '%D.%M.%Y',
+                })
+                
