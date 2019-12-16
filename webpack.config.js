@@ -16,24 +16,25 @@ const rules = [
     {
         test: /\.(sa|sc|c)ss$/,
         use: [
-            "style-loader",
-            "css-loader",
-            "sass-loader",
+            'style-loader',
+            'css-loader',
+            'sass-loader',
         ],
-    },
-    {
-        test: /\.js$/,
-        loader: 'babel-loader',
     },
     {
         test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'file-loader',
         options: {
             name: '[name].[ext]',
-            outputPath: `/fonts/`,
+            outputPath: '/fonts/',
         },
     },
-]
+    {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+    },
+];
 
 const pageList = [
     // 'landing-page',
@@ -46,7 +47,7 @@ const pageList = [
 
 const configTemplate = {
     module: {
-        rules
+        rules,
     },
     context: PATHS.src,
     output: {
@@ -58,6 +59,9 @@ const configTemplate = {
         aggregateTimeout: 100,
     },
     mode: isProduction ? 'production' : 'development',
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js'],
+    },
 };
 
 module.exports = [
@@ -77,7 +81,7 @@ module.exports = [
                 ]),
             ],
             entry: {
-                [`${page}/index`]: `./pages/${page}/index.js`,
+                [`${page}/index`]: `./pages/${page}/index.ts`,
                 [`${page}/index-style`]: `./pages/${page}/index.scss`,
             },
             output: {

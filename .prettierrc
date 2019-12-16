@@ -1,10 +1,11 @@
 {
+  "tabWidth": 4,
+  "singleQuote": true,
   "overrides": [
     {
       "files": ["*.scss", "*.css"],
       "options": {
-        "tabWidth": 2,
-        "singleQuote": true
+        "tabWidth": 2
       }
     }
   ]

@@ -4,12 +4,17 @@
         "es6": true
     },
     "extends": [
-        "eslint:recommended"
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking"
     ],
-    "plugins": ["promise"],
+    "parser": "@typescript-eslint/parser",
     "parserOptions": {
-        "sourceType": "module"
+        "project": "tsconfig.json",
+        "tsconfigRootDir": "."
     },
+    "plugins": ["@typescript-eslint", "promise"],
     "rules": {
         "arrow-spacing": "error",
         "array-bracket-newline": ["error", { "multiline": true }],
@@ -146,6 +151,46 @@
             }
         ],
         "template-curly-spacing": "error",
-        "wrap-iife": "error"
+        "wrap-iife": "error",
+
+        "@typescript-eslint/semi": ["error", "always"],
+        "@typescript-eslint/member-ordering": "error",
+        "@typescript-eslint/brace-style": ["error", "1tbs"],
+        "@typescript-eslint/indent": ["error", 4],
+        "@typescript-eslint/quotes": ["error", "single", { "avoidEscape": true }],
+        "@typescript-eslint/func-call-spacing": ["error", "never"],
+        "@typescript-eslint/no-useless-constructor": "error",
+        "@typescript-eslint/prefer-for-of": "warn",
+        "@typescript-eslint/no-parameter-properties": "error",
+        "@typescript-eslint/no-unnecessary-type-arguments": "warn",
+        "@typescript-eslint/prefer-function-type": "warn",
+        "@typescript-eslint/prefer-readonly": "error",
+        "@typescript-eslint/no-explicit-any": "error",
+        "@typescript-eslint/camelcase": ["error", { "properties": "always" }],
+        "@typescript-eslint/explicit-function-return-type": ["error", { "allowExpressions": true }],
+        "@typescript-eslint/interface-name-prefix": ["error", "never"],
+        "@typescript-eslint/no-extra-parens": ["error", "functions"],
+        "@typescript-eslint/no-unused-vars": [
+            "error",
+            { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_$" }
+        ],
+        "@typescript-eslint/no-magic-numbers": [
+            "off",
+            {
+                "ignoreArrayIndexes": true,
+                "ignoreNumericLiteralTypes": true,
+                "ignoreEnums": true,
+                "enforceConst": false,
+                "ignoreReadonlyClassProperties": true
+            }
+        ],
+        "@typescript-eslint/member-delimiter-style": [
+            "error",
+            {
+                "multiline": {
+                    "delimiter": "semi"
+                }
+            }
+        ]
     }
 }
