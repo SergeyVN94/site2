@@ -1,4 +1,9 @@
+type CounterValue = {
+    text: string,
+    value?: number,
+}
+
 type DropdownCounterPlugin = (
-    command: 'value' | 'reset',
+    command: 'value' | 'reset' | 'text',
     args?: number,
-) => void | number;
+) => void | number | string;

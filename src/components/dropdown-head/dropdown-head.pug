@@ -6,14 +6,15 @@ mixin dropdown-head(options={})
     -   icon = 'expand_more',
     -} = options;
 
-    -const textOptions = {
-    -   text,
-    -   wspace: 'nowrap',
-    -   noSelect: true,
-    -   verticalMiddle: true,
-    -};
-
     .dropdown-head.js-dropdown-head
-        .dropdown-head__text.js-dropdown-head__text
-            +text(textOptions)
+        .dropdown-head__text
+            +text({
+                text,
+                wspace: 'nowrap',
+                noSelect: true,
+                verticalMiddle: true,
+                classes: [
+                    'js-dropdown-head__text',
+                ],
+            })
         .dropdown-head__icon #{icon}

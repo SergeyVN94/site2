@@ -1,13 +1,7 @@
 .dropdown-guest {
-    width: 320px;
-    max-width: 100%;
+  width: 320px;
+  max-width: 100%;
 }
 
-@import './dropdown-guest__buttons.scss';
-@import './dropdown-guest__button-clear.scss';
-@import './dropdown-guest__button-inter.scss';
-@import './dropdown-guest__item-counter.scss';
-@import './dropdown-guest__body.scss';
-@import './dropdown-guest__body-content.scss';
-@import './dropdown-guest__block-head.scss';
-@import './dropdown-guest_expend.scss';
+@import './dropdown-guest__counter.scss';
+@import './dropdown-guest__btn-container.scss';

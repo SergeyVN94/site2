@@ -1,4 +1,4 @@
 type ButtonPlugin = (
-    command: 'disable',
+    command: 'disable' | 'hidden',
     args?: boolean,
 ) => void | boolean;

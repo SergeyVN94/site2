@@ -6,13 +6,14 @@ mixin dropdown-counter(options={})
     -   text = '',
     -} = options;
 
-    -const textOptions = {
-    -   text,
-    -   theme: 'h3',
-    -};
-
     .dropdown-counter.js-dropdown-counter
-        +text(textOptions)
+        +text({
+            text,
+            theme: 'h3',
+            classes: [
+                'js-dropdown-counter__label'
+            ],
+        })
         .dropdown-counter__control
             .dropdown-counter__btn-minus
                 +button({

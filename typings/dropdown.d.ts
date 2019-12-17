@@ -1,4 +1,4 @@
 type DropdownPlugin = (
-    command: 'expand',
-    state?: boolean,
-) => void | boolean;
+    command: 'expand' | 'counters',
+    args?: boolean | CounterValue,
+) => void | boolean | CounterValue[];

@@ -54,3 +54,12 @@
   border-radius: 4px;
   padding: 40px 30px 30px 30px;
 }
+
+@mixin inner-float {
+  &::after {
+    content: '';
+    display: block;
+    width: 100%;
+    clear: both;
+  }
+}

@@ -8,11 +8,18 @@ mixin dropdown(options={})
     -   text = '',
     -   icon = 'expand_more',
     -   valueOptions = {},
+    -   classes = [],
     -} = options;
 
     -const isUseHead = (title !== '' || help !== '');
 
-    .dropdown.js-dropdown
+    -const classList = [
+    -   ...classes,
+    -];
+
+    -const classListStr = classList.join(' ');
+
+    .dropdown.js-dropdown(class=classListStr)
         if isUseHead
             .dropdown__block-head
                 +block-head({

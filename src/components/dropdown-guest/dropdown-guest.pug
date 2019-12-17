@@ -1,5 +1,6 @@
 include ../dropdown/dropdown.pug
 include ../dropdown-counter/dropdown-counter.pug
+include ../button/button.pug
 
 mixin dropdown-guest(options={})
     -const {
@@ -10,13 +11,38 @@ mixin dropdown-guest(options={})
     +dropdown({
         title,
         text,
+        classes: [
+            'js-dropdown-guest',
+        ],
     })
-        +dropdown-counter({
-            text: 'взрослые',
-        })
-        +dropdown-counter({
-            text: 'дети',
-        })
-        +dropdown-counter({
-            text: 'младенцы',
-        })
+        .dropdown-guest__counter
+            +dropdown-counter({
+                text: 'взрослые',
+            })
+        .dropdown-guest__counter
+            +dropdown-counter({
+                text: 'дети',
+            })
+        .dropdown-guest__counter
+            +dropdown-counter({
+                text: 'младенцы',
+            })
+        .dropdown-guest__btn-container
+            .dropdown-guest__btn-clear
+                +button({
+                    classes: [
+                        'js-dropdown-guest__btn-clear'
+                    ],
+                    text: 'очистить',
+                    theme: 'text',
+                    textColor: 'dark-50',
+                    hidden: true,
+                })
+            .dropdown-guest__btn-inter
+                +button({
+                    classes: [
+                        'js-dropdown-guest__btn-inter'
+                    ],
+                    text: 'применить',
+                    theme: 'text',
+                })

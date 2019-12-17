@@ -18,10 +18,10 @@ const handler = function pluginHandler(
 
         case 'value':
             if (args === null) {
-                return this.find(CLASSES.TEXT_ELEMENT).text();
+                return this.find(`.${CLASSES.TEXT_ELEMENT}`).text();
             }
 
-            this.find(CLASSES.TEXT_ELEMENT).text(args);
+            this.find(`.${CLASSES.TEXT_ELEMENT}`).text(args);
 
             break;
 
