@@ -2,18 +2,18 @@ include ../text/text.pug
 
 mixin dropdown-head(options={})
     -const {
-    -   value = '',
+    -   text = '',
     -   icon = 'expand_more',
     -} = options;
 
     -const textOptions = {
-    -   value,
+    -   text,
     -   wspace: 'nowrap',
     -   noSelect: true,
     -   verticalMiddle: true,
     -};
 
     .dropdown-head.js-dropdown-head
-        .dropdown-head__text
+        .dropdown-head__text.js-dropdown-head__text
             +text(textOptions)
         .dropdown-head__icon #{icon}

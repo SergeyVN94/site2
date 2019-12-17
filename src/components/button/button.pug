@@ -6,6 +6,7 @@ mixin button(options={})
     -   textColor = '', 
     -   classes = [],
     -   text = '',
+    -   disable = false,
     -} = options;
 
     -const classList = [
@@ -14,6 +15,7 @@ mixin button(options={})
     -];
 
     -if(theme !== '') classList.push(`button_theme_${theme}`);
+    -if(disable) classList.push('button_disable');
 
     -const classListStr = classList.join(' ');
 

@@ -1,7 +1,6 @@
 include ../text-field/text-field.pug
 include ../button/button.pug
-include ../text-field-subscription/text-field-subscription.pug
-include ../dropdown/dropdown.pug
+include ../dropdown-guest/dropdown-guest.pug
 
 mixin form-elements()
     .form-elements
@@ -27,22 +26,5 @@ mixin form-elements()
                     mask: '%D.%M.%Y',
                 })
             .form-elements__item
-                +dropdown({
-                    title: 'dropdown',
-                    help: 'default',
-                    value: 'Сколько гостей',
-                    items: [
-                        {
-                            type: 'counter',
-                            value: 'взрослые',
-                        },
-                        {
-                            type: 'counter',
-                            value: 'дети',
-                        },
-                        {
-                            type: 'counter',
-                            value: 'младенцы',
-                        },
-                    ],
-                })                   
+                +dropdown-guest()
+                    

@@ -1,5 +1,6 @@
 @import './dropdown__block-head.scss';
 @import './dropdown__body.scss';
+@import './dropdown_expanded.scss';
 
 .dropdown {
   @include reset-css;

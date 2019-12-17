@@ -5,15 +5,14 @@ mixin dropdown(options={})
     -const {
     -   title = '',
     -   help = '',
-    -   value = '',
+    -   text = '',
     -   icon = 'expand_more',
     -   valueOptions = {},
-    -   items = [],
     -} = options;
 
     -const isUseHead = (title !== '' || help !== '');
 
-    .dropdown
+    .dropdown.js-dropdown
         if isUseHead
             .dropdown__block-head
                 +block-head({
@@ -23,9 +22,8 @@ mixin dropdown(options={})
 
         .dropdown__container
             +dropdown-head({
-                value,
+                text,
             })
             .dropdown__body
-                -items.forEach((item) => {
-
-                -});
+                if block
+                    block

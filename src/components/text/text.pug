@@ -6,11 +6,12 @@ mixin text(options={})
     -   lheight = '',
     -   color = '',
     -   inline = false,
-    -   value = '',
+    -   text = '',
     -   uppercase = false,
     -   wspace = '',
     -   noSelect = false,
     -   verticalMiddle = false,
+    -   horizontal = '',
     -} = options;
     
     -const classList = [
@@ -26,9 +27,10 @@ mixin text(options={})
     -if(uppercase) classList.push('text_uppercase');
     -if(noSelect) classList.push('text_no-select');
     -if(verticalMiddle) classList.push('text_vertical-middle');
+    -if(horizontal !== '') classList.push(`text_horizontal_${horizontal}`);
 
     -const classListStr = classList.join(' ');
     if inline || verticalMiddle
-        span(class=classListStr) #{value}
+        span(class=classListStr) #{text}
     else
-        p(class=classListStr) #{value}
+        p(class=classListStr) #{text}

@@ -1,35 +1,22 @@
-mixin dropdown-guest(params={})
-    -let classes = (params.classes || ''); 
-    -if(params.expend) classes += ' dropdown-guest_expend';
-    -let init = params.init ? JSON.stringify(params.init) : '{}';
-    .dropdown-guest(class=classes, data-init=init)
-        +block-head({
-            title: params.title || 'Гости',
-            help: params.help,
-            classes: 'dropdown-guest__block-head'
+include ../dropdown/dropdown.pug
+include ../dropdown-counter/dropdown-counter.pug
+
+mixin dropdown-guest(options={})
+    -const {
+    -   title = 'Гости',
+    -   text = 'Сколько гостей',
+    -} = options;
+
+    +dropdown({
+        title,
+        text,
+    })
+        +dropdown-counter({
+            text: 'взрослые',
         })
-        +dropdown({
-            text: params.text || 'Сколько гостей'
+        +dropdown-counter({
+            text: 'дети',
         })
-        .dropdown-guest__body
-            .dropdown-guest__body-content
-                +dropdown-item-counter({
-                    name: 'grown',
-                    classes: 'dropdown-guest__item-counter',
-                    text: 'Взрослые',
-                    value: 0
-                })
-                +dropdown-item-counter({
-                    name: 'grown',
-                    classes: 'dropdown-guest__item-counter',
-                    text: 'Дети',
-                    value: 0
-                })
-                +dropdown-item-counter({
-                    name: 'babies',
-                    text: 'Младенцы',
-                    value: 0
-                })
-                .dropdown-guest__buttons
-                    .button.button_theme_text-dark.dropdown-guest__button-clear.button_hide очистить
-                    .button.button_theme_text.dropdown-guest__button-inter применить
+        +dropdown-counter({
+            text: 'младенцы',
+        })
