@@ -1,4 +1,4 @@
-.radio-buttons__container {
+.radio-button__container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8,4 +8,7 @@
   flex-direction: row;
   -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }

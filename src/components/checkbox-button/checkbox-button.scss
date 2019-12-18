@@ -1,12 +1,6 @@
+@import './checkbox-button__container.scss';
 @import './checkbox-button__text.scss';
-@import './checkbox-button__checkbox-input.scss';
-@import './checkbox-button__text-container.scss';
 
 .checkbox-button {
-    display: block;
-    &::after {
-        content: '';
-        display: block;
-        clear: both;
-    }
+    @include reset-css;
 }

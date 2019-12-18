@@ -1,0 +1,22 @@
+include ../block-head/block-head.pug
+include ../checkbox-button/checkbox-button.pug
+
+mixin list-checkbox-buttons(options={})
+    -const {
+    -   head = '',
+    -   items = [],
+    -} = options;
+
+    .list-checkbox-buttons
+        if head !== ''
+            .list-checkbox-buttons__head
+                +block-head({
+                    title: head,
+                })
+        .list-checkbox-buttons__container
+            for buttonText in items
+                .list-checkbox-buttons__button
+                    +checkbox-button({
+                        text: buttonText,
+                    })
+

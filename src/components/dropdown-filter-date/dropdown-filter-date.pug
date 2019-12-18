@@ -1,0 +1,19 @@
+include ../block-head/block-head.pug
+include ../dropdown-head/dropdown-head.pug
+
+mixin dropdown-filter-date(options={})
+    -const {
+    -   head = '',
+    -   text = '',
+    -} = options;
+
+    .dropdown-filter-date
+        if head !== ''
+            .dropdown-filter-date__head
+                +block-head({
+                    title: head,
+                })
+        .dropdown-filter-date__dropdown-head
+            +dropdown-head({
+                text,
+            })

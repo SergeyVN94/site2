@@ -1,9 +1,20 @@
-mixin radio-button(params={})
-    .radio-button(class=params.classes)
-        +radio-input({
-            checked: params.checked,
-            classes: 'radio-button__input',
-            name: params.name,
-            value: params.value
-        })
-        .radio-button__text #{params.text}
+include ../input-radio/input-radio.pug
+include ../text/text.pug
+
+mixin radio-button(options={})
+    -const {
+    -   text = '',
+    -   group = '',
+    -   checked = false,
+    -} = options;
+
+    .radio-button
+        .radio-button__container
+            +input-radio({
+                checked,
+                group,
+            })
+            .radio-button__text
+                +text({
+                    text,
+                })

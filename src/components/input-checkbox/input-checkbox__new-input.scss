@@ -1,4 +1,4 @@
-.checkbox-input__new-input {
+.input-checkbox__new-input {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,7 +17,7 @@
     @include no-select;
 }
 
-.checkbox-input__input:checked + .checkbox-input__new-input {
+.input-checkbox__input:checked + .input-checkbox__new-input {
     border-color: $color-purple;
     background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
     -webkit-background-clip: text;

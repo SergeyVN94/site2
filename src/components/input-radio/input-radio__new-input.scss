@@ -1,4 +1,4 @@
-.radio-input__new-input {
+.input-radio__new-input {
     display: flex;
     width: 18px;
     height: 18px;
@@ -9,10 +9,10 @@
     justify-content: center;
 }
 
-.radio-input__input:checked + .radio-input__new-input {
+.input-radio__input:checked + .input-radio__new-input {
     border-color: $color-purple;
 }
 
-.radio-input__input:checked + .radio-input__new-input > .radio-input__input-indicator {
+.input-radio__input:checked + .input-radio__new-input > .input-radio__input-indicator {
     display: block;
 }

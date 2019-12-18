@@ -1,8 +1,18 @@
-mixin checkbox-button(params={})
-    .checkbox-button(class=params.classes)
-        +checkbox-input({
-            classes: 'checkbox-button__checkbox-input',
-            checked: params.checked
-        })
-        .checkbox-button__text-container
-            .checkbox-button__text #{params.text}
+include ../input-checkbox/input-checkbox.pug
+include ../text/text.pug
+
+mixin checkbox-button(options={})
+    -const {
+    -   text = '',
+    -} = options;
+
+    .checkbox-button
+        .checkbox-button__container
+            +input-checkbox()
+            .checkbox-button__text
+                +text({
+                    text,
+                    theme: 'body',
+                    lheight: 'sm',
+                    color: 'dark-50',
+                })

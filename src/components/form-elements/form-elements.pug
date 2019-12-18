@@ -2,6 +2,9 @@ include ../text-field/text-field.pug
 include ../button/button.pug
 include ../dropdown-guest/dropdown-guest.pug
 include ../date-range/date-range.pug
+include ../dropdown-filter-date/dropdown-filter-date.pug
+include ../list-checkbox-buttons/list-checkbox-buttons.pug
+include ../radio-buttons/radio-buttons.pug
 
 mixin form-elements()
     .form-elements
@@ -37,4 +40,28 @@ mixin form-elements()
                             textLeft: 'ДД.ММ.ГГГГ',
                             textRight: 'ДД.ММ.ГГГГ',
                         })
-            .form-elements__column
+                    .form-elements__item
+                        +dropdown-filter-date({
+                            head: 'filter date dropdown',
+                            text: '19 авг - 23 авг',
+                        })
+                .form-elements__column
+                    .form-elements__item
+                        +list-checkbox-buttons({
+                            head: 'checkbox buttons',
+                            items: [
+                                'Можно курить',
+                                'Можно с питомцами',
+                                'Можно пригласить гостей (до 10 человек)',
+                            ]
+                        })
+                    .form-elements__item
+                        +radio-buttons({
+                            head: 'Radio Buttons',
+                            group: 'gender',
+                            items: [
+                                'Мужчина',
+                                'Женщина',
+                            ],
+                        })
+

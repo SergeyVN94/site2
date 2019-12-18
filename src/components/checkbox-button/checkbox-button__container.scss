@@ -1,4 +1,4 @@
-.radio-buttons__container {
+.checkbox-button__container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8,4 +8,6 @@
   flex-direction: row;
   -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
+  align-items: flex-start;
+  min-width: 320px;
 }

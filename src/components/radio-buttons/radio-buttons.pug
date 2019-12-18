@@ -1,16 +1,29 @@
-mixin radio-buttons(params={})
-    .radio-buttons(class=params.classes)
-        -if(params.title || params.help){
-            +block-head({
-                title: params.title,
-                help: params.help,
-                classes: 'radio-buttons__block-head'
-            })
-        -}
+include ../block-head/block-head.pug
+include ../radio-button/radio-button.pug
+
+mixin radio-buttons(options={})
+    -const {
+    -   head = '',
+    -   group = '',
+    -   items = [],
+    -   selectedItem = 0,
+    -} = options;
+
+    .radio-buttons
+        if head !== ''
+            .radio-buttons__head
+                +block-head({
+                    title: head,
+                })
         .radio-buttons__container
-            -const items = params.items || [];
-            -for(let i = 0; i < items.length; i++){
-                -const item = items[i];
-                -item.classes = (item.classes || '') + ' radio-buttons__radio-button';
-                +radio-button(item)
-            -}
+            -items.forEach((item, index) => {
+                -let checked = false;
+                -if(index === selectedItem) checked = true;
+
+                .radio-buttons__button
+                    +radio-button({
+                        group,
+                        checked,
+                        text: item,
+                    })
+            -})
