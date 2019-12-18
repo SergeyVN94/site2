@@ -1,14 +1,22 @@
-mixin toggle-buttons(params={})
-    .toggle-buttons(class=params.classes)
-        +block-head({
-            classes: 'toggle-buttons__block-head',
-            title: params.title,
-            help: params.help
-        })
+include ../toggle-button/toggle-button.pug
+
+mixin toggle-buttons(options={})
+    -const {
+    -   head = '',
+    -   items = [],
+    -} = options;
+
+    .toggle-buttons
+        if head !== ''
+            .toggle-buttons__head
+                +block-head({
+                    title: head,
+                })
         .toggle-buttons__container
-            -const items = params.items || [];
-            -for(let i = 0; i < items.length; i++){
-                -const item = items[i];
-                -item.classes = (item.classes || '') + ' toggle-buttons__toggle-button';
-                +toggle-button(item)
-            -}
+            -items.forEach(({text, checked}) => {
+                .toggle-buttons__button
+                    +toggle-button({
+                        text,
+                        checked,
+                    })
+            -});

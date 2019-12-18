@@ -5,6 +5,7 @@ include ../date-range/date-range.pug
 include ../dropdown-filter-date/dropdown-filter-date.pug
 include ../list-checkbox-buttons/list-checkbox-buttons.pug
 include ../radio-buttons/radio-buttons.pug
+include ../toggle-buttons/toggle-buttons.pug
 
 mixin form-elements()
     .form-elements
@@ -64,4 +65,16 @@ mixin form-elements()
                                 'Женщина',
                             ],
                         })
-
+                    .form-elements__item
+                        +toggle-buttons({
+                            head: 'toggle',
+                            items: [
+                                {
+                                    text: 'Получать спецпредложения',
+                                    checked: true,
+                                },
+                                {
+                                    text: 'Получать спецпредложения',
+                                },
+                            ],
+                        })

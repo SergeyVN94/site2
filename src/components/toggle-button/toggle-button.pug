@@ -1,7 +1,17 @@
-mixin toggle-button(params={})
-    .toggle-button(class=params.classes)
-        +toggle-input({
-            checked: params.checked,
-            classes: 'toggle-button__input'
+include ../input-toggle/input-toggle.pug
+include ../text/text.pug
+
+mixin toggle-button(options={})
+    -const {
+    -   text = '',
+    -   checked = false,
+    -} = options;
+
+    .toggle-button
+        +input-toggle({
+            checked,
         })
-        .toggle-input__text #{params.text}
+        .toggle-input__text
+            +text({
+                text,
+            })
