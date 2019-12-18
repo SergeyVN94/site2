@@ -34,7 +34,7 @@ const getIndexGraduation = function calcIndexGraduation(index: number): number {
 const createGuestText = function createGuestTextEntry(
     adults: number, babies: number
 ): string {
-    let guestText: string[] = [];
+    const guestText: string[] = [];
 
     if (adults > 0) {
         const wordEnding = ['ь', 'я', 'ей'];
@@ -51,13 +51,19 @@ const createGuestText = function createGuestTextEntry(
     return guestText.join(', ');
 };
 
-const getNewTextHead = function getTextForHead($dropdown: JQuery): string {
-    const counterStates = $dropdown.dropdown('counters') as CounterValue[];
+const getCounterValues = function getDropdownCounterValues($dropdown: JQuery): CounterValue[] {
+    return $dropdown.dropdown('counters') as CounterValue[];
+};
 
+const groupingElementValues = function groupingElementValues(values: CounterValue[]): {
+    allGuests: number;
+    adults: number;
+    babies: number;
+} {
     let allGuests = 0;
     let adults = 0;
     let babies = 0;
-    counterStates.forEach((currentValue) => {
+    values.forEach((currentValue) => {
         const text = currentValue.text.toLowerCase();
         if (text === 'взрослые' || text === 'дети') {
             adults += currentValue.value;
@@ -68,56 +74,56 @@ const getNewTextHead = function getTextForHead($dropdown: JQuery): string {
         allGuests += currentValue.value;
     });
 
-    if (allGuests === 0) {
-        return DEFAULT_TEXT;
-    }
-
-    return createGuestText(adults, babies);
-};
-
-const isNeedHideClearBtn = function getNewStateForClearBtn($dropdown: JQuery): boolean {
-    const counterStates = $dropdown.dropdown('counters') as CounterValue[];
-
-    let allGuests = 0;
-    counterStates.forEach((currentValue) => {
-        allGuests += currentValue.value;
-    });
-
-    if (allGuests === 0) {
-        return true;
-    }
-
-    return false;
-};
-
-const resetCounters = function resetAllCounters($dropdown: JQuery, $btn: JQuery) {
-    $dropdown.find(`.${CLASSES.COUNTER}`).each(function() {
-        $(this).dropdownCounter('reset');
-    });
-
-    $btn.button('hidden', true);
-    $dropdown.find(`.${CLASSES.HEAD}`).dropdownHead('value', DEFAULT_TEXT);
+    return {
+        allGuests,
+        adults,
+        babies,
+    };
 };
 
 $('.js-dropdown-guest').on(
-    'click.dropdown-guest.update-counters',
+    'click.dropdown-guest.update',
     `.${CLASSES.BTN_INTER}, .${CLASSES.BTN_CLEAR}, .${CLASSES.BTN_PLUS}, .${CLASSES.BTN_MINUS}`,
     (e: JQuery.MouseEventBase) => {
         const $dropdown = $(e.delegateTarget);
         const $btn = $(e.target);
 
         if ($btn.hasClass(CLASSES.BTN_INTER)) {
-            const newText = getNewTextHead($dropdown);
-            $dropdown.find(`.${CLASSES.HEAD}`).dropdownHead('value', newText);
+            const counterValues = getCounterValues($dropdown);
+            const {
+                allGuests,
+                adults,
+                babies,
+            } = groupingElementValues(counterValues);
+
+            if (allGuests === 0) {
+                $dropdown.find(`.${CLASSES.HEAD}`).dropdownHead('value', DEFAULT_TEXT);
+            } else {
+                const newText = createGuestText(adults, babies);
+                $dropdown.find(`.${CLASSES.HEAD}`).dropdownHead('value', newText);
+            }
         }
 
         if ($btn.hasClass(CLASSES.BTN_PLUS) || $btn.hasClass(CLASSES.BTN_MINUS)) {
-            const isHidden = isNeedHideClearBtn($dropdown);
-            $dropdown.find(`.${CLASSES.BTN_CLEAR}`).button('hidden', isHidden);
+            const counterValues = getCounterValues($dropdown);
+            const { allGuests } = groupingElementValues(counterValues);
+
+            let isNeedHidden = false;
+
+            if (allGuests === 0) {
+                isNeedHidden = true;
+            }
+
+            $dropdown.find(`.${CLASSES.BTN_CLEAR}`).button('hidden', isNeedHidden);
         }
 
         if ($btn.hasClass(CLASSES.BTN_CLEAR)) {
-            resetCounters($dropdown, $btn);
+            $dropdown.find(`.${CLASSES.COUNTER}`).each(function() {
+                $(this).dropdownCounter('reset');
+            });
+
+            $btn.button('hidden', true);
+            $dropdown.find(`.${CLASSES.HEAD}`).dropdownHead('value', DEFAULT_TEXT);
         }
     }
 );
