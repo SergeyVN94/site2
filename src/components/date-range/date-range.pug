@@ -1,17 +1,33 @@
-mixin date-range(params={})
-    .date-range(class=params.classes)
-        -const dropdown1 = params.dropdown1 || {};
-        -const dropdown2 = params.dropdown2 || {};
-        +dropdown-date({
-            classes: 'start',
-            title: dropdown1.title ||'прибытие',
-            date: dropdown1.date
-        })
-        +dropdown-date({
-            classes: 'end',
-            title: dropdown2.title || 'выезд',
-            date: dropdown2.date
-        })
-        +calendar({
-            classes: 'date-range__calendar'
-        })
+include ../dropdown-head/dropdown-head.pug
+include ../block-head/block-head.pug
+
+mixin date-range(options={})
+    -const {
+    -   classes = [],
+    -   textLeft = '',
+    -   textRight = '',
+    -   headLeft = '',
+    -   headRight = '',
+    -} = options;
+
+    .date-range
+        .date-range__dropdowns
+            .date-range__dropdown-left
+                if headLeft !== ''
+                    .date-range__head
+                        +block-head({
+                            title: headLeft,
+                        })
+                +dropdown-head({
+                    text: textLeft,
+                })
+            .date-range__dropdown-right
+                if headRight !== ''
+                    .date-range__head
+                        +block-head({
+                            title: headRight,
+                        })
+                +dropdown-head({
+                    text: textRight,
+                })
+        

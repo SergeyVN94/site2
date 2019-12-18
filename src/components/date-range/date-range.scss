@@ -1,9 +1,9 @@
-.date-range {
-    width: 320px;
-    height: 65px;
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-}
+@import './date-range__dropdowns.scss';
+@import './date-range__dropdown-left.scss';
+@import './date-range__dropdown-right.scss';
+@import './date-range__head.scss';
 
-@import './date-range__calendar.scss';
+.date-range {
+    width: 100%;
+    min-width: 320px;
+}
