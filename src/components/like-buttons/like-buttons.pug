@@ -1,14 +1,21 @@
-mixin like-buttons(params={})
-    .like-buttons(class=params.classes)
-        +block-head({
-            title: params.title,
-            help: params.help,
-            classes: 'like-buttons__block-head'
-        })
+include ../block-head/block-head.pug
+include ../like-button/like-button.pug
+
+mixin like-buttons(options={})
+    -const {
+    -   head = '',
+    -   items = [],
+    -} = options;
+
+    .like-buttons
+        if head !== ''
+            .like-buttons__head
+                +block-head({
+                    title: head,
+                })
         .like-buttons__container
-            -const items = params.items || [];
-            -for(let i = 0; i < items.length; i++){
-                -const item = items[i];
-                -item.classes = (item.classes || '') + ' like-buttons__like-button';
-                +like-button(item)
-            -}
+            for item in items
+                .like-buttons__button
+                    +like-button({
+                        likes: item
+                    })

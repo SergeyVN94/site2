@@ -1,16 +1,19 @@
-.like-button {
-    width: 40px;
-    height: 20px;
-    background: white;
-    border: 1px solid $color-dark-25;
-    box-sizing: border-box;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    cursor: pointer;
-}
-
 @import './like-button__icon.scss';
 @import './like-button__counter.scss';
 @import './like-button_active.scss';
+
+.like-button {
+  @include reset-css;
+  @include no-select;
+  width: 40px;
+  height: 20px;
+  background: white;
+  border: 1px solid $color-dark-25;
+  box-sizing: border-box;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  cursor: pointer;
+}

@@ -1,13 +1,12 @@
 .like-button_active {
-    border-color: $color-purple;
-}
+  border-color: $color-purple;
 
-.like-button_active .like-button__icon {
+  .like-button__icon {
     background: $color-purple;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-
-.like-button_active .like-button__counter {
+  }
+  .like-button__counter {
     color: $color-purple;
+  }
 }

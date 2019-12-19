@@ -6,6 +6,7 @@ include ../dropdown-filter-date/dropdown-filter-date.pug
 include ../list-checkbox-buttons/list-checkbox-buttons.pug
 include ../radio-buttons/radio-buttons.pug
 include ../toggle-buttons/toggle-buttons.pug
+include ../like-buttons/like-buttons.pug
 
 mixin form-elements()
     article.form-elements
@@ -79,4 +80,10 @@ mixin form-elements()
                             ],
                         })
                     .form-elements__item
-
+                        +like-buttons({
+                            head: 'like button',
+                            items: [
+                                2,
+                                12,
+                            ],
+                        })
