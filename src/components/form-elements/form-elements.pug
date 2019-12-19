@@ -7,6 +7,7 @@ include ../list-checkbox-buttons/list-checkbox-buttons.pug
 include ../radio-buttons/radio-buttons.pug
 include ../toggle-buttons/toggle-buttons.pug
 include ../like-buttons/like-buttons.pug
+include ../rating-buttons/rating-buttons.pug
 
 mixin form-elements()
     article.form-elements
@@ -85,5 +86,13 @@ mixin form-elements()
                             items: [
                                 2,
                                 12,
+                            ],
+                        })
+                    .form-elements__item
+                        +rating-buttons({
+                            head: 'rate button',
+                            items: [
+                                4,
+                                5,
                             ],
                         })

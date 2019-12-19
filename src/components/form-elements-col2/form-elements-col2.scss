@@ -1,9 +1,0 @@
-.form-elements-col2 {
-    @include flex-column;
-    width: 266px;
-}
-
-@import './form-elements-col2__checkbox-list.scss';
-@import './form-elements-col2__radio-buttons.scss';
-@import './form-elements-col2__toggle-buttons.scss';
-@import './form-elements-col2__like-buttons.scss';
