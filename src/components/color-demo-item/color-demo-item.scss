@@ -4,7 +4,6 @@
 .color-demo-item {
   @include reset-css;
   width: 100%;
-  min-width: 320px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

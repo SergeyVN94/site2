@@ -6,5 +6,13 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  min-width: 320px;
+
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  @media (max-width: $breackpoint3) {
+    width: 100%;
+    margin-right: 0px;
+  }
 }

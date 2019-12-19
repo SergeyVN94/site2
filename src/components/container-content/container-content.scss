@@ -1,17 +1,13 @@
-@mixin container-content {
-    @include flex-column;
-    width: 100%;
-    min-width: 320px;
-    max-width: 1160px;
-    margin: 0 auto;
-    height: 100%;
-}
-
 .container-content {
-    @include container-content;
-}
+  @include reset-css;
+  width: 100%;
+  min-width: 320px;
+  max-width: 1190px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 10px;
 
-@import './container-content_horizontal.scss';
-@import './container-content_content_start.scss';
-@import './container-content_items_center.scss';
-@import './container-content_content_sp-bt.scss';
+  @media (max-width: $breackpoint3) {
+    padding: 0;
+  }
+}

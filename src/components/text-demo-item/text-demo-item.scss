@@ -4,7 +4,6 @@
 .text-demo-item {
   @include reset-css;
   width: 100%;
-  min-width: 320px;
   max-width: 400px;
   display: -webkit-box;
   display: -ms-flexbox;

@@ -1,5 +1,5 @@
 .colors-and-type__text-demo {
-  @media screen and (max-width: 660px) {
-    margin-top: 30px;
+  @media (max-width: $breackpoint3) {
+    margin-top: 40px;
   }  
 }

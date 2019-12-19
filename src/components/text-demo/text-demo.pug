@@ -5,13 +5,13 @@ mixin text-demo()
         .text-demo__item
             +text-demo-item({
                 name: {
-                    value: 'H1',
+                    text: 'H1',
                     theme: 'h1',
                     fweight: 'normal',
                     color: 'dark-25',
                 },
                 value: {
-                    value: 'This one is the sub-section or widget title',
+                    text: 'This one is the sub-section or widget title',
                     theme: 'h1',
                 },
             })
@@ -19,13 +19,13 @@ mixin text-demo()
         .text-demo__item
             +text-demo-item({
                 name: {
-                    value: 'H2',
+                    text: 'H2',
                     theme: 'h2',
                     fweight: 'normal',
                     color: 'dark-25',
                 },
                 value: {
-                    value: 'Next one is the item title inside widgets',
+                    text: 'Next one is the item title inside widgets',
                     theme: 'h2',
                 },
             })
@@ -33,13 +33,13 @@ mixin text-demo()
         .text-demo__item
             +text-demo-item({
                 name: {
-                    value: 'H3',
+                    text: 'H3',
                     theme: 'h3',
                     fweight: 'normal',
                     color: 'dark-25',
                 },
                 value: {
-                    value: 'This is a label or CTA text',
+                    text: 'This is a label or CTA text',
                     theme: 'h3',
                 },
             })
@@ -47,10 +47,10 @@ mixin text-demo()
         .text-demo__item
             +text-demo-item({
                 name: {
-                    value: 'Body',
+                    text: 'Body',
                     color: 'dark-25',
                 },
                 value: {
-                    value: 'This is the body text which is used for most of the design, like paragraphs, lists, etc.',
+                    text: 'This is the body text which is used for most of the design, like paragraphs, lists, etc.',
                 },
             })

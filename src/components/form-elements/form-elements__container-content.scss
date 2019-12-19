@@ -1,5 +1,13 @@
 .form-elements__container-content {
   display: flex;
   flex-direction: column;
-  padding: 140px;
+  padding-top: 140px;
+
+  @media (max-width: $breackpoint1) {
+    padding-top: 70px;
+  }
+
+  @media (max-width: $breackpoint3) {
+    padding-top: 20px;
+  }
 }
