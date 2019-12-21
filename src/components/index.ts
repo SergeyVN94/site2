@@ -3,3 +3,4 @@ import './dropdown/dropdown';
 import './dropdown-counter/dropdown-counter';
 import './button/button';
 import './dropdown-guest/dropdown-guest';
+import './dropdown-room-amenities/dropdown-room-amenities';

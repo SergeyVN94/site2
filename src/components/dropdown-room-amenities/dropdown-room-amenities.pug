@@ -1,0 +1,28 @@
+include ../dropdown/dropdown.pug
+include ../dropdown-counter/dropdown-counter.pug
+
+mixin dropdown-room-amenities(options={})
+    -const {
+    -   title = 'Удобства номера',
+    -   text = 'Удобства номера',
+    -} = options;
+
+    +dropdown({
+        title,
+        text,
+        classes: [
+            'js-dropdown-room-amenities',
+        ],
+    })
+        .dropdown-room-amenities__counter
+            +dropdown-counter({
+                text: 'спальни',
+            })
+        .dropdown-room-amenities__counter
+            +dropdown-counter({
+                text: 'кровати',
+            })
+        .dropdown-room-amenities__counter
+            +dropdown-counter({
+                text: 'ванные комнаты',
+            })

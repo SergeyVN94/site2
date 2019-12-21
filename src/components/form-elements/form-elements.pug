@@ -11,6 +11,7 @@ include ../rating-buttons/rating-buttons.pug
 include ../range-slider/range-slider.pug
 include ../buttons-demo/buttons-demo.pug
 include ../pagination/pagination.pug
+include ../dropdown-room-amenities/dropdown-room-amenities.pug
 
 mixin form-elements()
     article.form-elements
@@ -116,4 +117,7 @@ mixin form-elements()
                             head: 'pagination',
                             bottomText: '1 – 12 из 100+ вариантов аренды',
                         })
-
+            .form-elements__row
+                .form-elements__column         
+                    .form-elements__item
+                        +dropdown-room-amenities()
