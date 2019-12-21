@@ -3,7 +3,7 @@ include ../button/button.pug
 include ../dropdown-guest/dropdown-guest.pug
 include ../date-range/date-range.pug
 include ../dropdown-filter-date/dropdown-filter-date.pug
-include ../list-checkbox-buttons/list-checkbox-buttons.pug
+include ../checkbox-list/checkbox-list.pug
 include ../radio-buttons/radio-buttons.pug
 include ../toggle-buttons/toggle-buttons.pug
 include ../like-buttons/like-buttons.pug
@@ -54,7 +54,7 @@ mixin form-elements()
                         })
                 .form-elements__column
                     .form-elements__item
-                        +list-checkbox-buttons({
+                        +checkbox-list({
                             head: 'checkbox buttons',
                             items: [
                                 'Можно курить',
@@ -121,3 +121,5 @@ mixin form-elements()
                 .form-elements__column         
                     .form-elements__item
                         +dropdown-room-amenities()
+                    .form-elements__item
+

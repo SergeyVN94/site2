@@ -1,9 +1,22 @@
-mixin checkbox-list(params={})
-    .checkbox-list(class=params.classes)
-        +block-head({
-            title: params.title,
-            help: params.help,
-            classes: 'checkbox-list__block-head'
-        })
+include ../block-head/block-head.pug
+include ../checkbox-button/checkbox-button.pug
+
+mixin checkbox-list(options={})
+    -const {
+    -   head = '',
+    -   items = [],
+    -} = options;
+
+    .checkbox-list
+        if head !== ''
+            .checkbox-list__head
+                +block-head({
+                    title: head,
+                })
         .checkbox-list__container
-            +checkbox-list-items(params.items, 'checkbox-list__checkbox')
+            for buttonText in items
+                .checkbox-list__button
+                    +checkbox-button({
+                        text: buttonText,
+                    })
+

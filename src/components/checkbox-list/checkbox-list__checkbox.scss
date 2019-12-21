@@ -1,9 +1,0 @@
-.checkbox-list__checkbox {
-    &:not(:last-child) {
-        margin-bottom: 10px;
-    }
-    &:first-child {
-        position: relative;
-        top: -1px;
-    }
-}

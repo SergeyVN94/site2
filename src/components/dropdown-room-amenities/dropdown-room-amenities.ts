@@ -77,7 +77,7 @@ const cropTextToDesiredLength = function cropTextToDesiredLength(
         }
     });
 
-    return `${newText.join(' ')}...`;
+    return `${newText.join(', ')}...`;
 };
 
 const addCounterValues = function addCounterValues(values: CounterValue[]): number {
