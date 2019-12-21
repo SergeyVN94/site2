@@ -1,16 +1,55 @@
-mixin pagination(params={})
-    .pagination(class=params.classes)
-        if params.title
-            +block-head({
-                title: params.title,
-                classes: 'pagination__block-head'
-            })
-        .pagination__button-container
-            .button.button_theme_round 1
-            .button.button_theme_form-element-text 2
-            .button.button_theme_form-element-text 3
-            .button.button_theme_form-element-text ...
-            .button.button_theme_form-element-text 15
-            .button.button_theme_round-green arrow_forward
-        if params.bottomText
-            .pagination__bottom-text #{params.bottomText}  
+include ../block-head/block-head.pug
+include ../text/text.pug
+include ../button/button.pug
+
+mixin pagination(options={})
+    -const {
+    -   head = '',
+    -   bottomText = '',
+    -} = options;
+
+    .pagination
+        if head !== ''
+            .pagination__head
+                +block-head({
+                    title: head,
+                })
+        .pagination__container
+            .pagination__buttons
+                .pagination__nav-button
+                    +button({
+                        text: '1',
+                        theme: 'round',
+                    })
+                .pagination__nav-button
+                    +button({
+                        text: '2',
+                        theme: 'square',
+                    })
+                .pagination__nav-button
+                    +button({
+                        text: '3',
+                        theme: 'square',
+                    })
+                .pagination__nav-button
+                    +button({
+                        text: '...',
+                        theme: 'square',
+                    })
+                .pagination__nav-button
+                    +button({
+                        text: '15',
+                        theme: 'square',
+                    })
+                .pagination__nav-button
+                    +button({
+                        text: 'arrow_forward',
+                        theme: 'round-icon',
+                        background: 'gradient-green',
+                    })
+            if bottomText !== ''
+                .pagination__bottom-text
+                    +text({
+                        text: bottomText,
+                        horizontal: 'middle',
+                    }) 

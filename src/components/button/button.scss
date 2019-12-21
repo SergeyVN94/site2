@@ -15,10 +15,18 @@
 }
 
 @import './button_theme_default.scss';
-@import './button_theme_circle.scss';
+@import './button_theme_round-little.scss';
 @import './button_theme_text.scss';
+@import './button_theme_light.scss';
+@import './button_theme_default-long.scss';
+@import './button_theme_round.scss';
+@import './button_theme_round-icon.scss';
+@import './button_theme_square.scss';
 
 @import './button_disable.scss';
 @import './button_hidden.scss';
 
 @import './button_text-color_dark-50.scss';
+@import './button_background_gradient-green.scss';
+
+@import './button__icon.scss';

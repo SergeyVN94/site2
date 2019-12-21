@@ -8,6 +8,9 @@ include ../radio-buttons/radio-buttons.pug
 include ../toggle-buttons/toggle-buttons.pug
 include ../like-buttons/like-buttons.pug
 include ../rating-buttons/rating-buttons.pug
+include ../range-slider/range-slider.pug
+include ../buttons-demo/buttons-demo.pug
+include ../pagination/pagination.pug
 
 mixin form-elements()
     article.form-elements
@@ -96,3 +99,21 @@ mixin form-elements()
                                 5,
                             ],
                         })
+                .form-elements__column
+                    .form-elements__item
+                        +range-slider({
+                            min: 0,
+                            max: 15000,
+                            step: 1000,
+                            title: 'range slider',
+                        })
+                    .form-elements__item
+                        +buttons-demo({
+                            head: 'buttons',
+                        })
+                    .form-elements__item
+                        +pagination({
+                            head: 'pagination',
+                            bottomText: '1 – 12 из 100+ вариантов аренды',
+                        })
+

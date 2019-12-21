@@ -8,10 +8,11 @@ mixin button(options={})
     -   text = '',
     -   disable = false,
     -   hidden = false,
+    -   icon = '',
+    -   background = '',
     -} = options;
 
     -const classList = [
-    -   'button',
     -   ...classes
     -];
 
@@ -19,7 +20,10 @@ mixin button(options={})
     -if (disable) classList.push('button_disable');
     -if (textColor !== '') classList.push(`button_text-color_${textColor}`);
     -if (hidden) classList.push('button_hidden');
+    -if (background !== '') classList.push(`button_background_${background}`);
 
     -const classListStr = classList.join(' ');
 
-    div(class=classListStr) #{text}
+    .button(class=classListStr) #{text}
+        if icon !== ''
+            .button__icon #{icon}

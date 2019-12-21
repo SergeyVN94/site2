@@ -1,7 +1,8 @@
-.pagination {
-    width: 240px;
-}
-
-@import './pagination__block-head.scss';
+@import './pagination__head.scss';
 @import './pagination__bottom-text.scss';
-@import './pagination__button-container.scss';
+@import './pagination__buttons.scss';
+
+.pagination {
+    width: 100%;
+    max-width: 240px;
+}

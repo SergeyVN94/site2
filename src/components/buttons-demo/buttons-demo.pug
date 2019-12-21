@@ -1,18 +1,56 @@
-mixin buttons-demo(params={})
-    .buttons-demo(class=params.classes)
-        +block-head({
-            title: 'buttons',
-            classes: 'buttons-demo__block-head'
-        })
-        .buttons-demo__item
-            .button.button_theme_default.buttons-demo__button CLICK ME
-            .button.button_theme_default.button_disable CLICK ME
-        .buttons-demo__item
-            .button.button_theme_default-light.buttons-demo__button CLICK ME
-            .button.button_theme_default-light.button_disable CLICK ME
-        .buttons-demo__item
-            .button.button_theme_text.buttons-demo__button CLICK ME
-            .button.button_theme_text-dark CLICK ME
-        +button-go-to({
-            text: 'перейти к оплате'
-        })
+include ../block-head/block-head.pug
+include ../button/button.pug
+
+mixin buttons-demo(options={})
+    -const {
+    -   head = '',
+    -} = options;
+
+    .buttons-demo
+        if head !== ''
+            .buttons-demo__head
+                +block-head({
+                    title: head,
+                })
+        .buttons-demo__container
+            .buttons-demo__row
+                .buttons-demo__button
+                    +button({
+                        text: 'click me',
+                    })
+                .buttons-demo__button
+                    +button({
+                        text: 'click me',
+                        disable: true,
+                    })
+            .buttons-demo__row
+                .buttons-demo__button
+                    +button({
+                        text: 'click me',
+                        theme: 'light',
+                    })
+                .buttons-demo__button
+                    +button({
+                        text: 'click me',
+                        disable: true,
+                        theme: 'light',
+                    })
+            .buttons-demo__row
+                .buttons-demo__button
+                    +button({
+                        text: 'click me',
+                        theme: 'text',
+                    })
+                .buttons-demo__button
+                    +button({
+                        text: 'click me',
+                        theme: 'text',
+                        textColor: 'dark-50',
+                    })
+            .buttons-demo__row
+                +button({
+                    text: 'перейти к оплате',
+                    theme: 'default-long',
+                    icon: 'arrow_forward',
+                })
+        

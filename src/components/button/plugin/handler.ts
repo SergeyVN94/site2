@@ -1,6 +1,6 @@
 const CLASSES = {
     DISABLE: 'button_disable',
-    HIDDEN: 'button_hidden'
+    HIDDEN: 'button_hidden',
 };
 
 const handler = function buttonPlugin(

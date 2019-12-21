@@ -5,6 +5,7 @@ $size: 44px;
   @include no-select;
   width: $size;
   height: $size;
+  min-width: $size;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
