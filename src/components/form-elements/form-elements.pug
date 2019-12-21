@@ -12,6 +12,7 @@ include ../range-slider/range-slider.pug
 include ../buttons-demo/buttons-demo.pug
 include ../pagination/pagination.pug
 include ../dropdown-room-amenities/dropdown-room-amenities.pug
+include ../expandable-checkbox-list/expandable-checkbox-list.pug
 
 mixin form-elements()
     article.form-elements
@@ -122,4 +123,16 @@ mixin form-elements()
                     .form-elements__item
                         +dropdown-room-amenities()
                     .form-elements__item
-
+                        +expandable-checkbox-list({
+                            text: 'expandable checkbox list',
+                            items: [
+                                'Завтрак',
+                                'Письменный стол',
+                                'Стул для кормления',
+                                'Кроватка',
+                                'Телевизор',
+                                'Шампунь',
+                                'Телевизор',
+                                'Шампунь',
+                            ],
+                        })

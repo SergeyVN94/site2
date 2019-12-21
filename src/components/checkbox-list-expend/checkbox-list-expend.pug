@@ -1,9 +1,0 @@
-mixin checkbox-list-expend(params={})
-    -let classes = params.classes || '';
-    -if(params.expend) classes += ' checkbox-list-expend_expend';
-    .checkbox-list-expend(class=classes)
-        .checkbox-list-expend__head
-            .checkbox-list-expend__title #{params.title}
-            .button.button_theme_form-element.checkbox-list-expend__expend-button expand_more
-        .checkbox-list-expend__body
-            +checkbox-list-items(params.items, 'checkbox-list-expend__checkbox')

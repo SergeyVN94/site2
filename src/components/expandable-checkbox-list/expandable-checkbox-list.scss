@@ -1,0 +1,10 @@
+@import './checkbox-list-expend__head.scss';
+@import './expandable-checkbox-list__icon.scss';
+@import './expandable-checkbox-list__body.scss';
+@import './expandable-checkbox-list__checkbox.scss';
+@import './expandable-checkbox-list_expanded.scss';
+
+.expandable-checkbox-list {
+  width: 100%;
+  max-width: 266px;
+}
