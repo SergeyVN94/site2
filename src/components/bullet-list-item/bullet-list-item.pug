@@ -1,0 +1,14 @@
+include ../text/text.pug
+
+mixin bullet-list-item(options={})
+    -const {
+    -   text = '',
+    -} = options;
+
+    .bullet-list-item
+        .bullet-list-item__maker-container
+            .bullet-list-item__marker
+        .bullet-list-item__text
+            +text({
+                text,
+            })

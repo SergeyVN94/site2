@@ -14,6 +14,7 @@ include ../pagination/pagination.pug
 include ../dropdown-room-amenities/dropdown-room-amenities.pug
 include ../expandable-checkbox-list/expandable-checkbox-list.pug
 include ../rich-checkbox-buttons/rich-checkbox-buttons.pug
+include ../bullet-list/bullet-list.pug
 
 mixin form-elements()
     article.form-elements
@@ -149,5 +150,14 @@ mixin form-elements()
                                     text: 'Помощник для инвалидов',
                                     description: 'На 1 этаже вас встретит специалист  и проводит до номера.',
                                 },
+                            ],
+                        })
+                    .form-elements__item
+                        +bullet-list({
+                            head: 'bullet list',
+                            items: [
+                                'Нельзя с питомцами',
+                                'Без вечеринок и мероприятий',
+                                'Время прибытия — после 13:00, а выезд до 12:00',
                             ],
                         })

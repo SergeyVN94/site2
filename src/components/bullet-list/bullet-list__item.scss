@@ -1,0 +1,8 @@
+.bullet-list__item {
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  width: 100%;
+  max-width: 270px;
+}
