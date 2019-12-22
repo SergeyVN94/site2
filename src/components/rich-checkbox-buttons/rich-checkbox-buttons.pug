@@ -1,0 +1,18 @@
+include ../block-head/block-head.pug
+include ../rich-checkbox-button/rich-checkbox-button.pug
+
+mixin rich-checkbox-buttons(options={})
+    -const {
+    -   head = '',
+    -   items = [],
+    -} = options;
+
+    .rich-checkbox-buttons
+        .rich-checkbox-buttons__head
+            +block-head({
+                title: head,
+            })
+        .rich-checkbox-buttons__container
+            for item in items
+                .rich-checkbox-buttons__button
+                    +rich-checkbox-button(item)

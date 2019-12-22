@@ -1,8 +1,23 @@
-mixin rich-checkbox-button(params={})
-    .rich-checkbox-button(class=params.classes)
-        +checkbox-input({
-            checked: params.checked
-        })
-        .rich-checkbox-button__text-container
-            .rich-checkbox-button__text #{params.text}
-            .rich-checkbox-button__bottom-text #{params.bottomText}
+include ../text/text.pug
+include ../input-checkbox/input-checkbox.pug
+
+mixin rich-checkbox-button(options={})
+    -const {
+    -   text = '',
+    -   description = '',
+    -} = options;
+
+    .rich-checkbox-button
+        +input-checkbox()
+        .rich-checkbox-button__container
+            .rich-checkbox-button__text
+                +text({
+                    text,
+                    fweight: 'bold',
+                    lheight: 'middle-1',
+                })
+            .rich-checkbox-button__description
+                +text({
+                    text: description,
+                    lheight: 'small',
+                })

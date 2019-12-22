@@ -1,7 +1,14 @@
-.rich-checkbox-button {
-    display: flex;
-}
-
-@import './rich-checkbox-button__text-container.scss';
+@import './rich-checkbox-button__container.scss';
 @import './rich-checkbox-button__text.scss';
-@import './rich-checkbox-button__bottom-text.scss';
+
+.rich-checkbox-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+}

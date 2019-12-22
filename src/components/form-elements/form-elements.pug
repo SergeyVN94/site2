@@ -13,6 +13,7 @@ include ../buttons-demo/buttons-demo.pug
 include ../pagination/pagination.pug
 include ../dropdown-room-amenities/dropdown-room-amenities.pug
 include ../expandable-checkbox-list/expandable-checkbox-list.pug
+include ../rich-checkbox-buttons/rich-checkbox-buttons.pug
 
 mixin form-elements()
     article.form-elements
@@ -134,5 +135,19 @@ mixin form-elements()
                                 'Шампунь',
                                 'Телевизор',
                                 'Шампунь',
+                            ],
+                        })
+                    .form-elements__item
+                        +rich-checkbox-buttons({
+                            head: 'rich checkbox buttons',
+                            items: [
+                                {
+                                    text: 'Широкий коридор',
+                                    description: 'Ширина коридоров в номере не менее 91 см.',
+                                },
+                                {
+                                    text: 'Помощник для инвалидов',
+                                    description: 'На 1 этаже вас встретит специалист  и проводит до номера.',
+                                },
                             ],
                         })
