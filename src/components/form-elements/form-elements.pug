@@ -15,6 +15,7 @@ include ../dropdown-room-amenities/dropdown-room-amenities.pug
 include ../expandable-checkbox-list/expandable-checkbox-list.pug
 include ../rich-checkbox-buttons/rich-checkbox-buttons.pug
 include ../bullet-list/bullet-list.pug
+include ../room-advantages/room-advantages.pug
 
 mixin form-elements()
     article.form-elements
@@ -138,6 +139,22 @@ mixin form-elements()
                                 'Шампунь',
                             ],
                         })
+                    .form-elements__item
+                        +room-advantages({
+                            items: [
+                                {
+                                    title: 'Комфорт',
+                                    description: 'Шумопоглощающие стены',
+                                    icon: 'insert_emoticon',
+                                },
+                                {
+                                    title: 'Удобство',
+                                    description: 'Окно в каждой из спален',
+                                    icon: 'location_city',
+                                },
+                            ],
+                        })
+                .form-elements__column
                     .form-elements__item
                         +rich-checkbox-buttons({
                             head: 'rich checkbox buttons',

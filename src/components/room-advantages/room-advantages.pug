@@ -1,17 +1,19 @@
-mixin room-advantages(params={})
-    .room-advantages(class=params.classes)
-        -if(params.title || params.head) {
-            +block-head({
-                title: params.title,
-                help: params.help,
-                titleSize: params.titleSize,
-                classes: params.headMargin === 'bg' ? 'room-advantages__block-head' : ''
-            })
-        -}
-        -const items = params.items || [];
-        -for(let i = 0; i < items.length; i++) {
-            -const item = items[i];
-            -item.classes = (item.classes || '') + ' room-advantages__item';
-            -if(i !== items.length - 1) item.classes += ' advantage_bottom-line';
-            +advantage(items[i])
-        -}
+include ../block-head/block-head.pug
+include ../room-advantage/room-advantage.pug
+
+mixin room-advantages(options={})
+    -const {
+    -   head = '',
+    -   items = [],
+    -} = options;
+
+    .room-advantages
+        if head !== ''
+            .room-advantages__head
+                +block-head({
+                    title: head,
+                })
+        .room-advantages__container
+            for item in items
+                .room-advantages__room-advantage
+                    +room-advantage(item)

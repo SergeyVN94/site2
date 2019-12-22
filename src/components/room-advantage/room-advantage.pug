@@ -1,0 +1,21 @@
+include ../text/text.pug
+
+mixin room-advantage(options={})
+    -const {
+    -   icon = '',
+    -   title = '',
+    -   description = '',
+    -} = options;
+
+    .room-advantage
+        .room-advantage__icon #{icon}
+        .room-advantage__text
+            .room-advantage__title
+                +text({
+                    text: title,
+                    fweight: 'bold',
+                })
+            .room-advantage__description
+                +text({
+                    text: description,
+                })
