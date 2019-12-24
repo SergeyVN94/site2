@@ -16,6 +16,7 @@ include ../expandable-checkbox-list/expandable-checkbox-list.pug
 include ../rich-checkbox-buttons/rich-checkbox-buttons.pug
 include ../bullet-list/bullet-list.pug
 include ../room-advantages/room-advantages.pug
+include ../comment/comment.pug
 
 mixin form-elements()
     article.form-elements
@@ -140,20 +141,6 @@ mixin form-elements()
                             ],
                         })
                     .form-elements__item
-                        +room-advantages({
-                            items: [
-                                {
-                                    title: 'Комфорт',
-                                    description: 'Шумопоглощающие стены',
-                                    icon: 'insert_emoticon',
-                                },
-                                {
-                                    title: 'Удобство',
-                                    description: 'Окно в каждой из спален',
-                                    icon: 'location_city',
-                                },
-                            ],
-                        })
                 .form-elements__column
                     .form-elements__item
                         +rich-checkbox-buttons({
@@ -168,13 +155,37 @@ mixin form-elements()
                                     description: 'На 1 этаже вас встретит специалист  и проводит до номера.',
                                 },
                             ],
-                        })
-                    .form-elements__item
-                        +bullet-list({
-                            head: 'bullet list',
-                            items: [
-                                'Нельзя с питомцами',
-                                'Без вечеринок и мероприятий',
-                                'Время прибытия — после 13:00, а выезд до 12:00',
-                            ],
-                        })
+                        })                        
+                .form-elements__column
+                    +bullet-list({
+                        head: 'bullet list',
+                        items: [
+                            'Нельзя с питомцами',
+                            'Без вечеринок и мероприятий',
+                            'Время прибытия — после 13:00, а выезд до 12:00',
+                        ],
+                    })
+            .form-elements__row
+                .form-elements__column
+                    +room-advantages({
+                        items: [
+                            {
+                                title: 'Комфорт',
+                                description: 'Шумопоглощающие стены',
+                                icon: 'insert_emoticon',
+                            },
+                            {
+                                title: 'Удобство',
+                                description: 'Окно в каждой из спален',
+                                icon: 'location_city',
+                            },
+                        ],
+                    })
+                .form-elements__column.form-elements__comment
+                    +comment({
+                        avatar: 'images/avatars/user1.jpg',
+                        name: 'Мурад Сарафанов',
+                        publicationDate: '5 дней назад',
+                        likes: 12,
+                        text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
+                    })

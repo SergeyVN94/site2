@@ -1,13 +1,35 @@
-mixin comment(params={})
-    .comment(class=params.classes)
-        .comment__head
-            image.comment__head-image(src=params.image)
-            .comment__head-text
-                .comment__head-user #{params.user}
-                .comment__head-date #{params.date}
-        .comment__body
-            +like-button({
-                checked: params.checked,
-                likes: params.likes || '0'
-            })
-            .comment__body-text #{params.text}
+include ../text/text.pug
+include ../like-button/like-button.pug
+
+mixin comment(options={})
+    -const {
+    -   avatar = '',
+    -   name = '',
+    -   publicationDate = '',
+    -   likes = 0,
+    -   text = '',
+    -} = options;
+    
+    .comment
+        .comment__avatar-likes
+            .comment__avatar
+                image.comment__avatar-image(src=avatar)
+            .comment__like-button
+                +like-button({
+                    likes,
+                })
+        .comment__head-body
+            .comment__head
+                .comment__user-name
+                    +text({
+                        text: name,
+                        fweight: 'bold',
+                    })
+                .comment__publication-date
+                    +text({
+                        text: publicationDate,
+                    })
+            .comment__body
+                +text({
+                    text,
+                })

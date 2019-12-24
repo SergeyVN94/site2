@@ -1,0 +1,7 @@
+.form-elements__comment {
+  max-width: 63%;
+
+  @media (max-width: $breackpoint3) {
+    max-width: 100%;
+  }
+}

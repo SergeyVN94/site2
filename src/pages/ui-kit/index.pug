@@ -6,7 +6,9 @@ block pageTitle
 block page
     main.ui-kit
         .container-content
-            +logo('ui-kit__logo')
+            +logo({
+                theme: 'minimal',
+            })
             //- +colors-and-type()
             +form-elements()
             //- +cards()

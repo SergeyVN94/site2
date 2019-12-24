@@ -1,8 +1,18 @@
-mixin logo(classes)
-    .logo(class=classes)
-        -if(!/logo_theme_main/i.test(classes)) {
-            include ./icon.svg
-        -} else {
-            include ./icon-main.svg
-            include ./text.svg
-        -}
+mixin logo(options={})
+    -const {
+    -   theme = 'default',
+    -} = options;
+
+    -const classList = [];
+
+    -classList.push(`logo_theme_${theme}`);
+
+    -const classListStr = classList.join(' ');
+
+    .logo(class=classListStr)
+        case theme
+            when 'minimal'
+                include ./icon.svg
+            default
+                include ./icon-main.svg
+                include ./text.svg  

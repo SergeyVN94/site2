@@ -10,4 +10,7 @@
   -ms-flex-pack: justify;
   justify-content: space-between;
   flex-wrap: wrap;
+  &:not(:last-child) {
+    margin-bottom: 100px;
+  }
 }

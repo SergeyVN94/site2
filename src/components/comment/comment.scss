@@ -1,11 +1,20 @@
-.comment {
-    max-width: 705px;
-}
-
+@import './comment__avatar-likes.scss';
+@import './comment__avatar.scss';
+@import './comment__avatar-image.scss';
+@import './comment__like-button.scss';
+@import './comment__head-body.scss';
 @import './comment__head.scss';
-@import './comment__head-image.scss';
-@import './comment__head-text.scss';
-@import './comment__head-user.scss';
-@import './comment__head-date.scss';
-@import './comment__body.scss';
-@import './comment__body-text.scss';
+
+.comment {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  width: 100%;
+  min-width: 300px;
+}
