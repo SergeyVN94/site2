@@ -1,5 +1,9 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+
+const os = require('os');
+const cores = os.cpus().length;
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -7,6 +11,16 @@ const PATHS = {
     build: `${__dirname}/${isProduction ? 'app' : 'dist'}`,
     src: `${__dirname}/src`,
 };
+
+const optimization = {
+    minimizer: [
+        new TerserPlugin({
+            terserOptions: {},
+            cache: true,
+            parallel: true,
+        }),
+    ],
+}
 
 const rules = [
     {
@@ -46,6 +60,7 @@ const pageList = [
 ];
 
 const configTemplate = {
+    optimization,
     module: {
         rules,
     },
@@ -77,6 +92,10 @@ module.exports = [
                     {
                         from: `${PATHS.src}/fonts`,
                         to: `${PATHS.build}/fonts`,
+                    },
+                    {
+                        from: `${PATHS.src}/images/${page}`,
+                        to: `${PATHS.build}/${page}/images`,
                     },
                 ]),
             ],
