@@ -1,0 +1,14 @@
+mixin card-container(options={})
+    -const {
+    -   size = '',
+    -} = options;
+
+    -const classList = [];
+
+    -if (size !== '') classList.push(`card-container_size_${size}`);
+
+    -const classListStr = classList.join(' ');
+
+    .card-container(class=classListStr)
+        if block
+            block

@@ -1,11 +1,7 @@
-.cards {
-    background: #F4F4F6;
-    height: auto;
-    width: 100%;
-    padding-top: 150px;
-}
-
 @import './cards__column.scss';
 @import './cards__item.scss';
-@import './cards__calendar.scss';
-@import './cards__hotel-number1.scss';
+@import './cards__container-content.scss';
+
+.cards {
+  padding-top: 150px;
+}

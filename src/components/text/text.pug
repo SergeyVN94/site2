@@ -13,6 +13,7 @@ mixin text(options={})
     -   verticalMiddle = false,
     -   horizontal = '',
     -   fsize = '',
+    -   fname = '',
     -} = options;
     
     -const classList = [
@@ -30,6 +31,7 @@ mixin text(options={})
     -if(verticalMiddle) classList.push('text_vertical-middle');
     -if(horizontal !== '') classList.push(`text_horizontal_${horizontal}`);
     -if(fsize !== '') classList.push(`text_fsize_${fsize}`);
+    -if(fname !== '') classList.push(`text_fname_${fname}`);
 
     -const classListStr = classList.join(' ');
     if inline || verticalMiddle

@@ -1,4 +1,6 @@
 extends ../../template/page.pug
+include ../../components/logo/logo.pug
+include ../../components/cards/cards.pug
 
 block pageTitle
     title ui-kit
@@ -10,6 +12,6 @@ block page
                 theme: 'minimal',
             })
             //- +colors-and-type()
-            +form-elements()
-            //- +cards()
+            //- +form-elements()
+            +cards()
             //- +header-footer() 

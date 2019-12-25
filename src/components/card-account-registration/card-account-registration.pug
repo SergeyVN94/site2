@@ -1,0 +1,67 @@
+include ../card-container/card-container.pug
+include ../text/text.pug
+include ../input-text/input-text.pug
+include ../radio-buttons/radio-buttons.pug
+include ../text-field/text-field.pug
+include ../toggle-button/toggle-button.pug
+include ../button/button.pug
+
+mixin card-account-registration()
+    .card-account-registration
+        +card-container()
+            .card-account-registration__title
+                +text({
+                    text: 'Регистрация аккаунта',
+                    theme: 'h1',
+                    fname: 'montserrat',
+                })
+            form(action="", method="post", class='card-account-registration__form')
+                .card-account-registration__input-name
+                    +input-text({
+                        placeholder: 'Имя',
+                    })
+                .card-account-registration__input-surname
+                    +input-text({
+                        placeholder: 'Фамилия',
+                    })
+                .card-account-registration__select-gender
+                    +radio-buttons({
+                        group: 'gender',
+                        items: [
+                            'Мужчина',
+                            'Женщина',
+                        ],
+                    })
+                .card-account-registration__date-of-birth
+                    +text-field({
+                        title: 'дата рождения',
+                        placeholder: 'ДД.ММ.ГГГГ',
+                    })
+                .card-account-registration__email
+                    +text-field({
+                        title: 'данные для входа в сервис',
+                        placeholder: 'Email',
+                    })
+                .card-account-registration__password
+                    +input-text({
+                        placeholder: 'Пароль',
+                    })
+                .card-account-registration__special-offers
+                    +toggle-button({
+                        text: 'Получать спецпредложения',
+                    })
+                .card-account-registration__payment-button
+                    +button({
+                        text: 'перейти к оплате',
+                        theme: 'default-long',
+                        icon: 'arrow_forward',
+                    })
+            .card-account-registration__have-account
+                +text({
+                    text: 'Уже есть аккаунт на Toxin',
+                    color: 'black',
+                })
+                +button({
+                    text: 'войти',
+                    theme: 'light',
+                })

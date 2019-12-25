@@ -1,3 +1,5 @@
 .cards__item {
+  &:not(:last-child) {
     margin-bottom: 40px;
+  }
 }

@@ -15,8 +15,8 @@ mixin text-field(options={})
     -const isUseHead = (title !== '' || help !== '');
 
     .text-field(class='js-text-field', data-mask=mask)
-        .text-field__block-head
-            if isUseHead
+        if isUseHead
+            .text-field__block-head
                 +block-head({
                     title,
                     help,

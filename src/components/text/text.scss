@@ -6,27 +6,30 @@
   color: $color-dark-100;
 }
 
-@import "./text_theme_h1.scss";
-@import "./text_theme_h2.scss";
-@import "./text_theme_h3.scss";
-@import "./text_theme_body.scss";
+@import "./_theme/text_theme_h1.scss";
+@import "./_theme/text_theme_h2.scss";
+@import "./_theme/text_theme_h3.scss";
+@import "./_theme/text_theme_body.scss";
 
-@import "./text_fweight_normal.scss";
-@import "./text_fweight_bold.scss";
+@import "./__fweight/text_fweight_normal.scss";
+@import "./__fweight/text_fweight_bold.scss";
 
-@import "./text_color_purple.scss";
-@import "./text_color_dark-50.scss";
-@import "./text_color_dark-75.scss";
-@import "./text_color_dark-25.scss";
-@import "./text_color_dark-5.scss";
+@import "./_color/text_color_purple.scss";
+@import "./_color/text_color_dark-50.scss";
+@import "./_color/text_color_dark-75.scss";
+@import "./_color/text_color_dark-25.scss";
+@import "./_color/text_color_dark-5.scss";
+@import './_color/text_color_black.scss';
+
+@import './_lheight/text_lheight_small.scss';
+@import './_lheight/text_lheight_middle-1.scss';
+@import './_lheight/text_lheight_middle.scss';
+@import './_lheight/text_lheight_big.scss';
 
 @import './text_uppercase.scss';
 @import './text_wspace_nowrap.scss';
 @import './text_no-select.scss';
 @import './text_vertical-middle.scss';
 @import './text_horizontal_middle.scss';
-@import './text_lheight_small.scss';
-@import './text_lheight_middle-1.scss';
-@import './text_lheight_middle.scss';
-@import './text_lheight_big.scss';
 @import './text_fsize_small.scss';
+@import './text_fname_montserrat.scss';

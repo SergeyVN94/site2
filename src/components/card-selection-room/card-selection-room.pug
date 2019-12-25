@@ -1,0 +1,32 @@
+include ../card-container/card-container.pug
+include ../text/text.pug
+include ../date-range/date-range.pug
+include ../dropdown-guest/dropdown-guest.pug
+include ../button/button.pug
+
+mixin card-selection-room()
+    .card-selection-room
+        +card-container()
+            .card-selection-room__title
+                +text({
+                    text: 'Найдём номера под ваши пожелания',
+                    theme: 'h1',
+                    fname: 'montserrat',
+                })
+            .card-selection-room__date-range
+                +date-range({
+                    headLeft: 'прибытие',
+                    headRight: 'выезд',
+                    textLeft: 'ДД.ММ.ГГГГ',
+                    textRight: 'ДД.ММ.ГГГГ',
+                })
+            .card-selection-room__dropdown-guest
+                +dropdown-guest({
+                    head: 'гости',
+                })
+            .card-selection-room__button-find
+                +button({
+                    text: 'подобрать номер',
+                    theme: 'default-long',
+                    icon: 'arrow_forward',
+                })
