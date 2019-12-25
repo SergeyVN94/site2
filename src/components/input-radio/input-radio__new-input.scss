@@ -1,7 +1,10 @@
+$size: 20px;
+
 .input-radio__new-input {
+    @include reset-css;
     display: flex;
-    width: 18px;
-    height: 18px;
+    width: $size;
+    height: $size;
     background: #fff;
     border: 1px solid $color-dark-25;
     border-radius: 10px;
