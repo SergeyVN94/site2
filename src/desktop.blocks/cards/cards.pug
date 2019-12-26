@@ -1,8 +1,9 @@
 include ../card-selection-room/card-selection-room.pug
 include ../card-account-registration/card-account-registration.pug
+include ../card-book-room/card-book-room.pug
 
 mixin cards()
-    .cards
+    article.cards
         .container-content
             .cards__container-content
                 .cards__column
@@ -10,3 +11,6 @@ mixin cards()
                         +card-selection-room()
                     .cards__item    
                         +card-account-registration()
+                .cards__column
+                    .cards__item
+                        +card-book-room()

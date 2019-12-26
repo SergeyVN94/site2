@@ -1,0 +1,11 @@
+include ../colors-demo/colors-demo.pug
+include ../text-demo/text-demo.pug
+
+mixin colors-and-type()
+    article.colors-and-type
+        .container-content
+            .colors-and-type__container-content
+                .colors-and-type__colors-demo
+                    +colors-demo()
+                .colors-and-type__text-demo
+                    +text-demo()
