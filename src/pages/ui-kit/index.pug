@@ -1,5 +1,8 @@
 extends ../../template/page.pug
+
 include ../../components/logo/logo.pug
+include ../../components/colors-and-type/colors-and-type.pug
+include ../../components/form-elements/form-elements.pug
 include ../../components/cards/cards.pug
 
 block pageTitle
@@ -7,11 +10,11 @@ block pageTitle
 
 block page
     main.ui-kit
-        .container-content
+        .ui-kit__head
             +logo({
                 theme: 'minimal',
             })
-            //- +colors-and-type()
-            //- +form-elements()
-            +cards()
-            //- +header-footer() 
+        //- +colors-and-type()
+        //- +form-elements()
+        +cards()
+        //- +header-footer() 
