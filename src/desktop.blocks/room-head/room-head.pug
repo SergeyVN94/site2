@@ -1,0 +1,49 @@
+include ../text/text.pug
+
+mixin room-head(options={})
+    -const {
+    -   roomNumber = 0,
+    -   roomPrice = 0,
+    -   luxury = false,
+    -} = options;
+
+    -let price = String(roomPrice);
+
+    -if (price.length > 3 && price.length <= 6) {
+        -price = price.split('');
+        -const left = price.slice(0, price.length - 3);
+        -const right = price.slice(price.length - 3);
+        -price = `${left.join('')} ${right.join('')}`;
+    -}
+
+    -const roomPriceRes = `${price}₽`;
+
+    .room-head
+        .room-head__room-number
+            +text({
+                text: '№ ',
+                fweight: 'bold',
+                color: 'dark-100',
+                wspace: 'pre',
+            })
+            +text({
+                text: roomNumber,
+                theme: 'h1',
+            })
+            if luxury
+                .room-head__luxury
+                    +text({
+                        text: 'люкс',
+                        theme: 'h3',
+                        color: 'purple',
+                    })
+        .room-head__room-price
+            +text({
+                text: roomPriceRes,
+                fweight: 'bold',
+                color: 'dark-50',
+            })
+            +text({
+                text: ' в сутки',
+                wspace: 'pre',
+            })

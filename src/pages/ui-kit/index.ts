@@ -1,1 +1,1 @@
-import '../../components/index';
+import '../../desktop.blocks/index';

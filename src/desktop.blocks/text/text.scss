@@ -11,8 +11,8 @@
 @import "./_theme/text_theme_h3.scss";
 @import "./_theme/text_theme_body.scss";
 
-@import "./__fweight/text_fweight_normal.scss";
-@import "./__fweight/text_fweight_bold.scss";
+@import "./_fweight/text_fweight_normal.scss";
+@import "./_fweight/text_fweight_bold.scss";
 
 @import "./_color/text_color_purple.scss";
 @import "./_color/text_color_dark-50.scss";
@@ -20,16 +20,22 @@
 @import "./_color/text_color_dark-25.scss";
 @import "./_color/text_color_dark-5.scss";
 @import './_color/text_color_black.scss';
+@import './_color/text_color_dark-100.scss';
 
 @import './_lheight/text_lheight_small.scss';
 @import './_lheight/text_lheight_middle-1.scss';
 @import './_lheight/text_lheight_middle.scss';
 @import './_lheight/text_lheight_big.scss';
+@import './_lheight/text_lheight_middle-2.scss';
+
+@import './_wspace/text_wspace_nowrap.scss';
+@import './_wspace/text_wspace_pre.scss';
+
+@import './_horizontal/text_horizontal_middle.scss';
+@import './_horizontal/text_horizontal_right.scss';
 
 @import './text_uppercase.scss';
-@import './text_wspace_nowrap.scss';
 @import './text_no-select.scss';
 @import './text_vertical-middle.scss';
-@import './text_horizontal_middle.scss';
 @import './text_fsize_small.scss';
 @import './text_fname_montserrat.scss';

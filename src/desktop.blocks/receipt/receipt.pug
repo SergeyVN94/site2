@@ -1,0 +1,50 @@
+include ../text/text.pug
+
+mixin receipt(options={})
+    -const {
+    -   total = 0,
+    -   items = [],
+    -} = options;
+
+    -totalRes = `${total}₽`;
+
+    .receipt
+        for item in items
+            -const {
+            -   text = '',
+            -   price = '',
+            -   icon = false,
+            -} = item;
+
+            -priceRes = `${price}₽`;
+
+            .receipt__item
+                .receipt__text-container
+                    +text({
+                        text,
+                        color: 'dark-75',
+                        lheight: 'middle-2',
+                    })
+                if icon
+                    .receipt__icon i
+                .receipt__price
+                    +text({
+                        text: priceRes,
+                        color: 'dark-75',
+                        lheight: 'middle-2',
+                        horizontal: 'right', 
+                    })
+                    
+        .receipt__total-sum
+            +text({
+                text: 'Итого',
+                theme: 'h2',
+                fname: 'montserrat',
+            })
+            .receipt__separate-line
+            +text({
+                text: totalRes,
+                theme: 'h2',
+                fname: 'montserrat',
+                wspace: 'nowrap',
+            })

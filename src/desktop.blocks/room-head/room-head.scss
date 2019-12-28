@@ -1,0 +1,11 @@
+@import './room-head__room-number.scss';
+@import './room-head__luxury.scss';
+@import './room-head__room-price.scss';
+
+.room-head {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: baseline;
+}

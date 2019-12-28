@@ -13,4 +13,27 @@ mixin cards()
                         +card-account-registration()
                 .cards__column
                     .cards__item
-                        +card-book-room()
+                        +card-book-room({
+                            roomNumber: 888,
+                            roomPrice: 9990,
+                            luxury: true,
+                            receipt: {
+                                total:  '38 081',
+                                items: [
+                                    {
+                                        text: '9 990₽ х 4 суток',
+                                        price: '39 960',
+                                    },
+                                    {
+                                        text: 'Сбор за услуги: скидка 2 179₽',
+                                        price: '0',
+                                        icon: true,
+                                    },
+                                    {
+                                        text: 'Сбор за дополнительные услуги',
+                                        price: '300',
+                                        icon: true,
+                                    },
+                                ],
+                            },
+                        })

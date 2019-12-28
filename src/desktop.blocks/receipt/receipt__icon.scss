@@ -1,0 +1,15 @@
+$size: 20px;
+
+.receipt__icon {
+  @include reset-css;
+  @include no-select;
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $color-dark-25;
+  color: $color-dark-25;
+  cursor: pointer;
+}
