@@ -1,0 +1,40 @@
+include ../card-container/card-container.pug
+include ../text/text.pug
+include ../input-text/input-text.pug
+include ../button/button.pug
+
+mixin card-authentication()
+    .card-authentication
+        +card-container()
+            .card-authentication__head
+                +text({
+                    text: 'Войти',
+                    theme: 'h1',
+                    fname: 'montserrat',
+                })
+            .card-authentication__form
+                form
+                    .card-authentication__email
+                        +input-text({
+                            placeholder: 'Email',
+                        })
+                    .card-authentication__password
+                        +input-text({
+                            placeholder: 'Пароль',
+                            type: 'password',
+                        })
+                    .card-authentication__btn-auth
+                        +button({
+                            text: 'войти',
+                            icon: 'arrow_forward',
+                            theme: 'default-long',
+                        })
+            .card-authentication__no-account
+                +text({
+                    text: 'Нет аккаунта на Toxin?',
+                    color: 'black',
+                })
+                +button({
+                    text: 'создать',
+                    theme: 'light',
+                })

@@ -1,6 +1,7 @@
 include ../card-selection-room/card-selection-room.pug
 include ../card-account-registration/card-account-registration.pug
 include ../card-book-room/card-book-room.pug
+include ../card-authentication/card-authentication.pug
 
 mixin cards()
     article.cards
@@ -37,3 +38,5 @@ mixin cards()
                                 ],
                             },
                         })
+                    .cards__item
+                        +card-authentication()
