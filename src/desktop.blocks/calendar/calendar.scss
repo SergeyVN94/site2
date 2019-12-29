@@ -1,50 +1,23 @@
-.calendar {
-    @include form;
-    width: 320px;
-    border-color: #1f204140;
-    box-shadow: 0px 10px 20px #1f20410d;
-    padding: 20px 20px;
-}
-
-@mixin calendar__range-day-out {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    width: 100% / 7;
-    height: 40px;
-    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
-    border-radius: 50%;
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 15px;
-    color: white;
-    position: relative;
-}
-
-@mixin calendar__range-day-out-bg {
-    content: "";
-    display: block;
-    height: 100%;
-    width: 50%;
-    position: absolute;
-    top: 0;
-    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
-    opacity: 0.25;
-    z-index: -1;
-}
-
-@import './calendar__head.scss';
-@import './calendar__head-btn-arrow.scss';
+@import './calendar__date-navigation.scss';
+@import './__btn-change-month/calendar__btn-change-month.scss';
+@import './calendar__weekday-names.scss';
 @import './calendar__weekday-name.scss';
-@import './calendar__weekday.scss';
-@import './calendar__weekday_another-month.scss';
-@import './calendar__weekday_current-day';
-@import './calendar__buttons.scss';
-@import './calendar__range-day-middle.scss';
-@import './calendar__range-day-start.scss';
-@import './calendar__range-day-end.scss';
-@import './calendar__range-day_only.scss';
-@import './calendar__body.scss';
+@import './calendar__days-container.scss';
+@import './__day-week/calendar__day-week.scss';
+@import './__day-week/calendar__day-week_theme_another-month.scss';
+@import './__day-week/calendar__day-week_theme_today.scss';
+@import './calendar__btn-control.scss';
+
+.calendar {
+  @include reset-css;
+  @include no-select;
+  width: 320px;
+  padding: 20px 20px;
+  background: #ffffff;
+  border: 1px solid $color-dark-25;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-shadow: 0px 10px 20px $color-dark-5;
+  box-shadow: 0px 10px 20px $color-dark-5;
+  border-radius: 4px;
+}

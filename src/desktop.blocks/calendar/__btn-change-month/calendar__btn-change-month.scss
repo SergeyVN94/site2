@@ -1,0 +1,13 @@
+$size: 24px;
+
+.calendar__btn-change-month {
+  width: $size;
+  height: $size;
+  font-family: Material Icons;
+  font-style: normal;
+  font-weight: normal;
+  font-size: $size;
+  line-height: $size;
+  text-align: center;
+  color: $color-purple;
+}

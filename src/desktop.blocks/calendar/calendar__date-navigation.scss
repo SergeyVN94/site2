@@ -1,4 +1,5 @@
-.cards__container-content {
+.calendar__date-navigation {
+  margin-bottom: 30px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11,12 +12,7 @@
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-
-  @media (max-width: $breackpoint2) {
-    justify-content: space-around;
-  }
-
-  @media (max-width: $breackpoint3) {
-    justify-content: center;
-  }
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }

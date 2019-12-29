@@ -2,6 +2,7 @@ include ../card-selection-room/card-selection-room.pug
 include ../card-account-registration/card-account-registration.pug
 include ../card-book-room/card-book-room.pug
 include ../card-authentication/card-authentication.pug
+include ../calendar/calendar.pug
 
 mixin cards()
     article.cards
@@ -40,3 +41,8 @@ mixin cards()
                         })
                     .cards__item
                         +card-authentication()
+                .cards__column
+                    .cards__item
+                        +calendar({
+                            date: '28.12.2019'
+                        })

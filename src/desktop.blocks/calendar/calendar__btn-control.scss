@@ -1,4 +1,4 @@
-.cards__container-content {
+.calendar__btn-control {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6,17 +6,9 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
   flex-direction: row;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-
-  @media (max-width: $breackpoint2) {
-    justify-content: space-around;
-  }
-
-  @media (max-width: $breackpoint3) {
-    justify-content: center;
-  }
 }
