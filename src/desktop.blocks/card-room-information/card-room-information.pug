@@ -1,0 +1,41 @@
+include ../image-slider/image-slider.pug
+include ../room-head/room-head.pug
+include ../rating/rating.pug
+include ../text/text.pug
+
+mixin card-room-information(options={})
+    -const {
+    -   roomNumber = 0,
+    -   roomPrice = 0,
+    -   images = [],
+    -   luxury = false,
+    -   stars = 0,
+    -   comments = 0,
+    -} = options;
+
+    .card-room-information
+        .card-room-information__image-slider
+            +image-slider({
+                images,
+            })
+        .card-room-information__body
+            .card-room-information__head
+                +room-head({
+                    roomNumber,
+                    roomPrice,
+                    luxury,
+                })
+            .card-room-information__rating-comments
+                +rating({
+                    stars,
+                })
+                .card-room-information__comments
+                    +text({
+                        text: comments,
+                        fweight: 'bold',
+                        color: 'dark-50',
+                    })
+                    +text({
+                        text: ' Отзывов',
+                        wspace: 'pre',
+                    })

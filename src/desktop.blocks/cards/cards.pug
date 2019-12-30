@@ -3,6 +3,7 @@ include ../card-account-registration/card-account-registration.pug
 include ../card-book-room/card-book-room.pug
 include ../card-authentication/card-authentication.pug
 include ../calendar/calendar.pug
+include ../card-room-information/card-room-information.pug
 
 mixin cards()
     article.cards
@@ -45,4 +46,47 @@ mixin cards()
                     .cards__item
                         +calendar({
                             date: '28.12.2019'
+                        })
+                    .cards__item
+                        +card-room-information({
+                            images: [
+                                {
+                                    src: 'images/rooms/room-888.jpg',
+                                },
+                                {
+                                    src: 'images/rooms/room-840.jpg',
+                                },
+                                {
+                                    src: 'images/rooms/room-888.jpg',
+                                },
+                                {
+                                    src: 'images/rooms/room-840.jpg',
+                                },
+                            ],
+                            roomNumber: 888,
+                            roomPrice: 9990,
+                            luxury: true,
+                            stars: 5,
+                            comments: 145,
+                        })
+                    .cards__item
+                        +card-room-information({
+                            images: [
+                                {
+                                    src: 'images/rooms/room-840.jpg',
+                                },
+                                {
+                                    src: 'images/rooms/room-840.jpg',
+                                },
+                                {
+                                    src: 'images/rooms/room-840.jpg',
+                                },
+                                {
+                                    src: 'images/rooms/room-840.jpg',
+                                },
+                            ],
+                            roomNumber: 840,
+                            roomPrice: 9900,
+                            stars: 4,
+                            comments: 65,
                         })

@@ -1,0 +1,30 @@
+mixin image-slider(options={})
+    -const {
+    -   images = [],
+    -} = options;
+
+    .image-slider.js-image-slider(data-selected-image=0)
+        .image-slider__container
+            -for(let i = 0; i < images.length; i += 1) {
+                -const {
+                -   src = '',
+                -   alt = '',
+                -} = images[i];
+
+                if i === 0
+                    img.image-slider__image.js-image-slider__image.image-slider__image_selected(src=src, alt=alt)
+                else
+                    img.image-slider__image.js-image-slider__image(src=src, alt=alt)
+            -}
+
+            .image-slider__items
+                .image-slider__item.js-image-slider__item.image-slider__item_theme_selected
+                -for(let i = 1; i < images.length; i += 1) {
+                    .image-slider__item.js-image-slider__item
+                -}
+
+            .image-slider__nav-button.js-image-slider__nav-button.js-image-slider__nav-button-prev
+                .image-slider__nav-button-icon expand_more
+            
+            .image-slider__nav-button.image-slider__nav-button_right.js-image-slider__nav-button.js-image-slider__nav-button-next
+                .image-slider__nav-button-icon expand_more
