@@ -3,6 +3,7 @@ include ../text/text.pug
 mixin room-head(options={})
     -const {
     -   roomNumber = 0,
+    -   roomNumberSize = 'h1',
     -   roomPrice = 0,
     -   luxury = false,
     -} = options;
@@ -28,7 +29,7 @@ mixin room-head(options={})
             })
             +text({
                 text: roomNumber,
-                theme: 'h1',
+                theme: roomNumberSize,
             })
             if luxury
                 .room-head__luxury
@@ -46,4 +47,5 @@ mixin room-head(options={})
             +text({
                 text: ' в сутки',
                 wspace: 'pre',
+                color: 'dark-50',
             })
