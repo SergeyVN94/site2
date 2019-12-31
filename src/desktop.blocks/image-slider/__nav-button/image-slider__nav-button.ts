@@ -2,21 +2,29 @@ import * as $ from 'jquery';
 
 import CLASSES from '../classes';
 
-const clickHandler = function sliderClickEventHandler(e: JQuery.MouseEventBase): boolean {
-    const $slider = $(e.delegateTarget);
-    const $btn = $(e.target);
-    const selectedImage = $slider.attr('data-selected-image');
-
-    if (selectedImage.length === 0) {
-        return false;
+const parseIndexImage = function parseIndexImage(selectedImageAttr: string): number {
+    if (selectedImageAttr.length === 0) {
+        return -1;
     }
 
-    let indexImage = 0;
-
     try {
-        indexImage = parseInt(selectedImage, 10);
+        return parseInt(selectedImageAttr, 10);
     } catch (error) {
         console.error(error);
+        return -1;
+    }
+};
+
+const clickHandler = function sliderClickEventHandler(
+    this: HTMLElement,
+    e: JQuery.MouseEventBase
+): boolean {
+    const $slider = $(e.delegateTarget);
+    const $btn = $(e.currentTarget);
+
+    let indexImage = parseIndexImage($slider.attr('data-selected-image'));
+
+    if (indexImage === -1) {
         return false;
     }
 

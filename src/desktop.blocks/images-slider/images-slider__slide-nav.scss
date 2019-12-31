@@ -1,9 +1,0 @@
-.images-slider__slide-nav {
-    @include flex-row;
-    flex-wrap: nowrap;
-    justify-content: flex-end;
-    position: absolute;
-    right: 15px;
-    bottom: 15px;
-    z-index: 200;
-}
