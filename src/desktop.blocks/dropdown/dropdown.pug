@@ -13,11 +13,7 @@ mixin dropdown(options={})
 
     -const isUseHead = (title !== '' || help !== '');
 
-    -const classList = [
-    -   ...classes,
-    -];
-
-    -const classListStr = classList.join(' ');
+    -const classListStr = classes.join(' ');
 
     .dropdown.js-dropdown(class=classListStr)
         if isUseHead
@@ -32,5 +28,6 @@ mixin dropdown(options={})
                 text,
             })
             .dropdown__body
-                if block
-                    block
+                .dropdown__content
+                    if block
+                        block
