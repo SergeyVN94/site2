@@ -3,4 +3,6 @@ interface JQuery {
     dropdown: DropdownPlugin;
     dropdownCounter: DropdownCounterPlugin;
     button: ButtonPlugin;
+    calendar: CalendarPlugin;
+    likeButton: LikeButtonPlugin;
 }
