@@ -1,7 +1,9 @@
 @import './date-range__dropdowns.scss';
-@import './date-range__dropdown-left.scss';
-@import './date-range__dropdown-right.scss';
+@import './__dropdown/date-range__dropdown.scss';
 @import './date-range__head.scss';
+@import './date-range__container.scss';
+@import './date-range__calendar.scss';
+@import './date-range_range-select.scss';
 
 .date-range {
     width: 100%;

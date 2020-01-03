@@ -15,4 +15,5 @@
   color: $color-dark-75;
 }
 
-@import './dropdown-head_theme_expanded.scss';
+@import './_theme/dropdown-head_theme_expanded.scss';
+@import './_theme/dropdown-head_theme_select-date.scss';

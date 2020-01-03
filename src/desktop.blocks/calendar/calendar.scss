@@ -7,6 +7,10 @@
 @import './__day-week/calendar__day-week_theme_another-month.scss';
 @import './__day-week/calendar__day-week_theme_today.scss';
 @import './calendar__btn-control.scss';
+@import './__day-week/calendar__day-week_theme_range-day.scss';
+@import './__day-week/calendar__day-week_theme_range-day-middle.scss';
+@import './__day-week/calendar__day-week_range-day-start.scss';
+@import './__day-week/calendar__day-week_range-day-end.scss';
 
 .calendar {
   @include reset-css;

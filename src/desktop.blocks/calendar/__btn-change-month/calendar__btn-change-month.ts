@@ -5,6 +5,7 @@ import CLASSES from '../classes';
 import {
     getRenderedDate,
     updateCalendar,
+    redrawRange,
 } from '../view/view';
 
 const handler = function btnChangeMonthHandler(e: JQuery.MouseEventBase): void {
@@ -23,6 +24,7 @@ const handler = function btnChangeMonthHandler(e: JQuery.MouseEventBase): void {
     }
 
     updateCalendar($calendar, renderedDate);
+    redrawRange($calendar);
 };
 
 $(`.${CLASSES.CALENDAR}`).on(

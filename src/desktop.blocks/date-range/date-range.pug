@@ -1,5 +1,6 @@
 include ../dropdown-head/dropdown-head.pug
 include ../block-head/block-head.pug
+include ../calendar/calendar.pug
 
 mixin date-range(options={})
     -const {
@@ -10,9 +11,9 @@ mixin date-range(options={})
     -   headRight = '',
     -} = options;
 
-    .date-range
+    .date-range.js-date-range
         .date-range__dropdowns
-            .date-range__dropdown-left
+            .date-range__dropdown
                 if headLeft !== ''
                     .date-range__head
                         +block-head({
@@ -20,8 +21,12 @@ mixin date-range(options={})
                         })
                 +dropdown-head({
                     text: textLeft,
+                    classes: [
+                        'js-date-range__dropdown-head',
+                        'js-date-range__dropdown-head-left',
+                    ],
                 })
-            .date-range__dropdown-right
+            .date-range__dropdown
                 if headRight !== ''
                     .date-range__head
                         +block-head({
@@ -29,5 +34,11 @@ mixin date-range(options={})
                         })
                 +dropdown-head({
                     text: textRight,
+                    classes: [
+                        'js-date-range__dropdown-head',
+                        'js-date-range__dropdown-head-right',
+                    ],
                 })
-        
+        .date-range__container
+            .date-range__calendar
+                +calendar()

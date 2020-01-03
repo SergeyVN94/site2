@@ -12,17 +12,13 @@ mixin button(options={})
     -   background = '',
     -} = options;
 
-    -const classList = [
-    -   ...classes
-    -];
+    -if (theme !== '') classes.push(`button_theme_${theme}`);
+    -if (disable) classes.push('button_disable');
+    -if (textColor !== '') classes.push(`button_text-color_${textColor}`);
+    -if (hidden) classes.push('button_hidden');
+    -if (background !== '') classes.push(`button_background_${background}`);
 
-    -if (theme !== '') classList.push(`button_theme_${theme}`);
-    -if (disable) classList.push('button_disable');
-    -if (textColor !== '') classList.push(`button_text-color_${textColor}`);
-    -if (hidden) classList.push('button_hidden');
-    -if (background !== '') classList.push(`button_background_${background}`);
-
-    -const classListStr = classList.join(' ');
+    -const classListStr = classes.join(' ');
 
     .button(class=classListStr) #{text}
         if icon !== ''

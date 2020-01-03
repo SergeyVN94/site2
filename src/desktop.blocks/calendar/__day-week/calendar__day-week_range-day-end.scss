@@ -1,0 +1,17 @@
+.calendar__day-week_range-day-end {
+  position: relative;
+  z-index: 1;
+
+  &::after {
+    content: '';
+    left: 0;
+    top: 0;
+    z-index: -1;
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    display: block;
+    background: $color-gradient-1;
+    opacity: 0.25;
+  }
+}

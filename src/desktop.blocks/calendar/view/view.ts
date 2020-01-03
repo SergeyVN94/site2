@@ -1,4 +1,13 @@
+import * as $ from 'jquery';
+
 import CLASSES from '../classes';
+import {
+    dateToString,
+    isCorrectDateStr,
+    parseDateString,
+    getStartAndEndRange,
+    xor,
+} from '../lib';
 
 const MONTH_NAMES = [
     'Январь',
@@ -17,18 +26,9 @@ const MONTH_NAMES = [
 
 const getRenderedDate = function getRenderedDateFromCalendar($calendar: JQuery): Date {
     const dateStr = $calendar.attr('data-date');
-    const isValidDate = /\d{1,2}\.\d{1,2}\.\d{4}/.test(dateStr);
 
-    if (isValidDate) {
-        const [
-            day,
-            month,
-            year,
-        ] = dateStr.split('.').map<number>((itemDate): number => {
-            return parseInt(itemDate, 10);
-        });
-
-        return new Date(year, month - 1, day);
+    if (isCorrectDateStr(dateStr)) {
+        return parseDateString(dateStr);
     }
 
     return new Date();
@@ -38,10 +38,6 @@ const updateCalendarHead = function updateCalendarHead($calendar: JQuery, date: 
     const calendarHead = `${MONTH_NAMES[date.getMonth()]} ${date.getFullYear()}`;
 
     $calendar.find(`.${CLASSES.DRAWN_DATE}`).text(calendarHead);
-};
-
-const dateToString = function dateToString(date: Date): string {
-    return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
 };
 
 const getDaysInMonth = function getDaysInMonth(month: number, year: number): number {
@@ -55,16 +51,24 @@ const createCalendarDay = function createCalendarDay(
     const day = document.createElement('div');
     day.innerHTML = String(dayNumber);
 
-    day.classList.add('calendar__day-week');
+    const classes: string[] = [
+        'calendar__day-week',
+        'js-calendar__day-week',
+    ];
 
     if (!isCurrentMonth) {
-        day.classList.add('calendar__day-week_theme_another-month');
+        classes.push(...[
+            'calendar__day-week_theme_another-month',
+            'js-calendar__day-week_theme_another-month',
+        ]);
     }
+
+    day.classList.add(...classes);
 
     return day;
 };
 
-const getCalendarDays = function getCalendarDays(renderDate: Date): DocumentFragment {
+const createCalendarDays = function createCalendarDays(renderDate: Date): DocumentFragment {
     const calendarDays = document.createDocumentFragment();
 
     const daysInMonth = getDaysInMonth(renderDate.getMonth(), renderDate.getFullYear());
@@ -112,7 +116,7 @@ const updateCalendar = function updateCalendar($calendar: JQuery, renderDate: Da
 
     updateCalendarHead($calendar, renderDate);
 
-    const calendarDays = getCalendarDays(renderDate);
+    const calendarDays = createCalendarDays(renderDate);
     markCurrentDay(calendarDays, renderDate);
 
     $calendar
@@ -121,7 +125,108 @@ const updateCalendar = function updateCalendar($calendar: JQuery, renderDate: Da
         .append(calendarDays);
 };
 
+const eraseRange = function eraseRange($calendar: JQuery): void {
+    $calendar.find(`.${CLASSES.DAY_WEEK}`).removeClass([
+        CLASSES.RANGE_DAY,
+        CLASSES.RANGE_DAY_MIDDLE,
+        CLASSES.RANGE_DAY_START,
+        CLASSES.RANGE_DAY_END,
+    ]);
+};
+
+const drawRange = function drawRange($calendar: JQuery): boolean {
+    const renderDate = getRenderedDate($calendar);
+    const {
+        start: rangeStart = null,
+        end: rangeEnd = null,
+    } = getStartAndEndRange($calendar);
+
+    const rangeStartIsNull = rangeStart === null;
+    const rangeEndIsNull = rangeEnd === null;
+
+    if (rangeEndIsNull && rangeStartIsNull) {
+        return true;
+    }
+
+    if (xor(rangeEndIsNull, rangeStartIsNull)) {
+        let tmpDate = rangeStart;
+
+        if (rangeStartIsNull) {
+            tmpDate = rangeEnd;
+        }
+
+        if (
+            tmpDate.getMonth() === renderDate.getMonth() &&
+            tmpDate.getFullYear() === renderDate.getFullYear()
+        ) {
+            $calendar
+                .find(`.${CLASSES.DAY_WEEK}:not(.${CLASSES.DAY_WEEK_ANOTHER_MONTH})`)
+                .each(function() {
+                    const $day = $(this);
+                    const dayNumber = parseInt($day.text(), 10);
+
+                    if (dayNumber === tmpDate.getDate()) {
+                        $day.addClass(CLASSES.RANGE_DAY);
+                    }
+                });
+        }
+
+        return true;
+    }
+
+    const isRenderRangeStart = rangeStart.getMonth() === renderDate.getMonth() &&
+        rangeStart.getFullYear() === renderDate.getFullYear();
+    const isRenderRangeEnd = rangeEnd.getMonth() === renderDate.getMonth() &&
+        rangeEnd.getFullYear() === renderDate.getFullYear();
+    const isRenderRangeMiddle = rangeStart.getFullYear() <= renderDate.getFullYear() &&
+        rangeStart.getMonth() <= renderDate.getMonth() &&
+        rangeEnd.getFullYear() >= renderDate.getFullYear() &&
+        rangeEnd.getMonth() >= renderDate.getMonth();
+
+    if (!isRenderRangeStart && !isRenderRangeMiddle && !isRenderRangeEnd) {
+        return true;
+    }
+
+    $calendar
+        .find(`.${CLASSES.DAY_WEEK}:not(.${CLASSES.DAY_WEEK_ANOTHER_MONTH})`)
+        .each(function() {
+            const $day = $(this);
+            const dayNumber = parseInt($day.text(), 10);
+
+            if (isRenderRangeStart && dayNumber === rangeStart.getDate()) {
+                $day.addClass([
+                    CLASSES.RANGE_DAY,
+                    CLASSES.RANGE_DAY_START,
+                ]);
+            }
+
+            if (isRenderRangeEnd && dayNumber === rangeEnd.getDate()) {
+                $day.addClass([
+                    CLASSES.RANGE_DAY,
+                    CLASSES.RANGE_DAY_END,
+                ]);
+            }
+
+            if (isRenderRangeMiddle) {
+                if (
+                    (!isRenderRangeStart || dayNumber > rangeStart.getDate()) &&
+                    (!isRenderRangeEnd || dayNumber < rangeEnd.getDate())
+                ) {
+                    $day.addClass(CLASSES.RANGE_DAY_MIDDLE);
+                }
+            }
+        });
+
+    return true;
+};
+
+const redrawRange = function redrawRange($calendar: JQuery): void {
+    eraseRange($calendar);
+    drawRange($calendar);
+};
+
 export {
     getRenderedDate,
     updateCalendar,
+    redrawRange,
 };

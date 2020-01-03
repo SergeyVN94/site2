@@ -2,15 +2,21 @@ include ../text/text.pug
 include ../button/button.pug
 
 mixin calendar(options={})
+    -const {
+    -   classes = [],
+    -} = options;
+
+    -const classList = classes.join(' ');
+
     -const currentDate = new Date();
 
     -const {
-    -   date = `${currentDate.getDate()}.${currentDate.getMonth()}.${currentDate.getFullYear()}`,
+    -   date = `${currentDate.getDate()}.${currentDate.getMonth() + 1}.${currentDate.getFullYear()}`,
     -} = options;
 
     -const weekdayNames = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
 
-    .calendar.js-calendar(data-date=date)
+    .calendar.js-calendar(data-date=date, classes=classList)
         .calendar__date-navigation
             .calendar__btn-change-month.js-calendar__btn-prev-month arrow_back
             .calendar__drawn-date
@@ -38,9 +44,15 @@ mixin calendar(options={})
                     text: 'очистить',
                     theme: 'text',
                     textColor: 'dark-50',
+                    classes: [
+                        'js-calendar__btn-clear',
+                    ],
                 })
             .calendar__btn-apply
                 +button({
                     text: 'применить',
                     theme: 'text',
+                    classes: [
+                        'js-calendar__btn-apply',
+                    ],
                 })
