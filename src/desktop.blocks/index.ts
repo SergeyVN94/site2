@@ -8,3 +8,4 @@ import './expandable-checkbox-list/expandable-checkbox-list';
 import './calendar/calendar';
 import './image-slider/image-slider';
 import './date-range/date-range';
+import './like-button/like-button';
