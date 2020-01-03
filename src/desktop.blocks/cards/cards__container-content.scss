@@ -12,11 +12,12 @@
   -ms-flex-pack: justify;
   justify-content: space-between;
 
-  @media (max-width: $breackpoint2) {
+  @media (max-width: 1100px) {
     justify-content: space-around;
   }
 
   @media (max-width: $breackpoint3) {
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
 }

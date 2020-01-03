@@ -7,4 +7,14 @@
   -ms-flex-direction: column;
   flex-direction: column;
   max-width: 380px;
+  align-items: center;
+
+  @media (max-width: $breackpoint3) {
+    flex-direction: column;
+  }
+
+  @media (max-width: 380px) {
+    max-width: 100%;
+    width: 100%;
+  }
 }
