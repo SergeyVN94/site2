@@ -1,12 +1,13 @@
 @import './header__container-content.scss';
 @import './header__head.scss';
 @import './header__logo.scss';
-@import './header__menu-mobile-btn.scss';
-@import './header__mobile-body.scss';
+@import './__menu-mobile-btn/header__menu-mobile-btn.scss';
+@import './header__nav-container.scss';
 @import './header__personal-area.scss';
 @import './header__login.scss';
 @import './header__login-register.scss';
 @import './header__user-name.scss';
+@import './header_extended.scss';
 
 .header {
   background-color: #fff;

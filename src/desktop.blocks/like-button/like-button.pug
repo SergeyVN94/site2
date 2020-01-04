@@ -4,10 +4,6 @@ mixin like-button(options={})
     -   selected = false,
     -} = options;
 
-    -const classes = [];
-
-    -if (selected) classes.push('')
-
     .like-button.js-like-button
         .like-button__icon.js-like-button__icon favorite_border
         .like-button__counter.js-like-button__counter #{likes}

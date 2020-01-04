@@ -16,6 +16,7 @@
   align-items: center;
 
   @media (max-width: $breackpoint2) {
+    padding-left: 10px;
     flex: auto;
     flex-direction: column;
     height: auto;

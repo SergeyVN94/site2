@@ -1,4 +1,4 @@
-.header__mobile-body {
+.header__nav-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -14,5 +14,6 @@
 
   @media (max-width: $breackpoint2) {
     display: none;
+    width: 100%;
   }
 }

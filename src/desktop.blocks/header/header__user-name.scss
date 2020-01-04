@@ -2,4 +2,10 @@
   @include reset-css;
   padding-left: 20px;
   border-left: 1px solid $color-dark-10;
+
+  @media (max-width: $breackpoint2) {
+    padding: 20px 0px 0px 0px;
+    border-left: none;
+    border-top: 1px solid $color-dark-10;
+  }
 }

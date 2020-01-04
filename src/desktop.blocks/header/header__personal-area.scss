@@ -1,3 +1,7 @@
 .header__personal-area {
   margin-left: 20px;
+
+  @media (max-width: $breackpoint2) {
+    margin: 20px 0px 20px 0px;
+  }
 }
