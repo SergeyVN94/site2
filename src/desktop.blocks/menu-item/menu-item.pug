@@ -1,6 +1,18 @@
-mixin menu-item(params={})
-    -if(params.current) {
-        -params.classes = params.classes || '';
-        -params.classes += ' menu-item__current'
-    -}
-    .menu-item.text.text_body(class=params.classes) #{params.text}
+include ../text/text.pug
+
+mixin menu-item(options={})
+    -const {
+    -   active = false,
+    -   text = '',
+    -   href = '',
+    -   theme = '',
+    -} = options;
+
+    -let fweight = 'normal';
+    -if(theme === 'main') fweight = 'bold';
+
+    a.menu-item(class=classList, href=href)
+        +text({
+            text,
+            fweight,
+        })

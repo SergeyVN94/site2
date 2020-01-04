@@ -1,52 +1,33 @@
-mixin header-footer(params={})
-    .header-footer(class=params.classes)
-        -const menu = [{text:'Home',current:true},{text:'About Us'},{text:'Services',expend: true},{text:'Careers'},{text:'News'},{text:'Documentation'}];
-        +header({
-            classes: 'header-footer__header',
-            menu: menu,
-            login: 'Login',
-            register: 'register'
-        })
-        +header({
-            classes: 'header-footer__header',
-            menu: menu,
-            user: 'Cosmin Negoita'
-        })
-        +footer({
-            siteDescription: 'Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.',
-            navigation: {
-                title: 'Navigation',
-                items: [
-                    'About Us',
-                    'News',
-                    'Support',
-                    'Products'
-                ]
-            },
-            aboutUs: {
-                title: 'About Us',
-                items: [
-                    'Who we are',
-                    'Our team',
-                    'Careers',
-                    'Investors'
-                ]
-            },
-            support: {
-                title: 'Support',
-                items: [
-                    'Documentation',
-                    'Community',
-                    'Get in Touch'
-                ]
-            },
-            subscribe: {
-                title: 'Subscribe to our newsletter',
-                text: 'Receive our latest news and promotions in your inbox!'
-            }
-        })
-        +copyright-bar({
-            text: 'Copyright © 2018 Toxin UI Kit. All rights reserved.',
-            classes: 'header-footer__copyright-bar'
-        })
-        +footer-creative()
+include ../logo/logo.pug
+include ../header/header.pug
+
+mixin header-footer()
+    .header-footer
+        -const menu = {
+        -   items: [
+        -       {text: 'Home', theme: 'main'},
+        -       {text: 'About Us'},
+        -       {
+        -           text: 'Services',
+        -           expandable: true,
+        -           items: [
+        -               {text: 'example1'},
+        -               {text: 'example2'},
+        -               {text: 'example3'},
+        -           ],
+        -       },
+        -       {text: 'Careers'},
+        -       {text: 'News'},
+        -       {text: 'Documentation'}
+        -   ]
+        -};
+
+        .header-footer__header1
+            +header({
+                menu,
+            })
+        .header-footer__header2
+            +header({
+                menu,
+                user: 'Cosmin Negoita',
+            })

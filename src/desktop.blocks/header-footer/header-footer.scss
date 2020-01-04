@@ -1,7 +1,6 @@
-.header-footer {
-    background: #f4f4f6;
-    padding: 150px 0px 130px 0px;
-}
+@import './header-footer__header1.scss';
 
-@import './header-footer__header.scss';
-@import './header-footer__copyright-bar.scss';
+.header-footer {
+  background: #e5e5e5;
+  padding: 150px 0;
+}

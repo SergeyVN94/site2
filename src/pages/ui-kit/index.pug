@@ -4,6 +4,7 @@ include ../../desktop.blocks/logo/logo.pug
 include ../../desktop.blocks/colors-and-type/colors-and-type.pug
 include ../../desktop.blocks/form-elements/form-elements.pug
 include ../../desktop.blocks/cards/cards.pug
+include ../../desktop.blocks/header-footer/header-footer.pug
 
 block pageTitle
     title ui-kit
@@ -14,7 +15,7 @@ block page
             +logo({
                 theme: 'minimal',
             })
-        +colors-and-type()
-        +form-elements()
-        +cards()
-        //- +header-footer() 
+        //- +colors-and-type()
+        //- +form-elements()
+        //- +cards()
+        +header-footer() 

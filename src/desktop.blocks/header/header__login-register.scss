@@ -1,8 +1,4 @@
-@import './menu__item.scss';
-
-.menu {
-  @include reset-css;
-  width: 100%;
+.header__login-register {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -12,7 +8,4 @@
   flex-direction: row;
   -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
 }

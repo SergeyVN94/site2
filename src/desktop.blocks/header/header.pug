@@ -1,14 +1,46 @@
-mixin header(params={})
-    .header(class=params.classes)
-        .container-content.container-content_horizontal.container-content_items_center
-            +logo('logo_theme_main header__logo')
-            +menu({
-                items: params.menu,
-                classes: 'header__menu'
-            })
-            -if(params.user) {
-                .header__user.text.text_body #{params.user}
-            -} else if(params.login && params.register){
-                .button.button_theme_default-light.button_height_smile.header__button-login #{params.login}
-                .button.button_theme_default.button_height_smile #{params.register}
-            -}
+include ../logo/logo.pug
+include ../menu/menu.pug
+include ../button/button.pug
+
+mixin header(options={})
+    -const {    
+    -   menu = {},
+    -   user = '',
+    -   btnLoginText = 'login',
+    -   btnRegisterText = 'register',
+    -} = options;
+
+    header.header
+        .container-content
+            .header__container-content
+                .header__head
+                    .header__logo
+                        +logo()
+                    .header__menu-mobile-btn
+                        +button({
+                            text: 'view_headline',
+                            theme: 'icon',
+                        })
+                .header__mobile-body 
+                    .header__menu
+                        +menu(menu)
+                    .header__personal-area
+                        if user !== ''
+                            .header__user-name
+                                +text({
+                                    text: user,
+                                    color: 'dark-50',
+                                })
+                        else
+                            .header__login-register
+                                .header__login
+                                    +button({
+                                        text: btnLoginText,
+                                        size: 'sm',
+                                        theme: 'light',
+                                    })
+                                .header__register
+                                    +button({
+                                        text: btnRegisterText,
+                                        size: 'sm',
+                                    })

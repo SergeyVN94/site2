@@ -3,7 +3,7 @@ import CLASSES from '../classes';
 const handler = function likeButtonPlugin(
     this: JQuery,
     command: 'selected' | 'likes',
-    args: boolean | number = null,
+    args: boolean | number = null
 ): void | boolean | number | JQuery {
     switch (command) {
         case 'selected':
@@ -33,7 +33,7 @@ const handler = function likeButtonPlugin(
 
             this.find(`.${CLASSES.COUNTER}`).text(args);
             return this;
-    
+
         default:
             throw new Error(`Unknown command '${command}'`);
     }

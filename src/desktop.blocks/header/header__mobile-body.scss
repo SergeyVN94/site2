@@ -1,8 +1,4 @@
-@import './menu__item.scss';
-
-.menu {
-  @include reset-css;
-  width: 100%;
+.header__mobile-body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -15,4 +11,8 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+
+  @media (max-width: $breackpoint2) {
+    display: none;
+  }
 }

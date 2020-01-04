@@ -1,7 +1,4 @@
 .menu-item {
-    color: $color-dark-50;
-    cursor: pointer;
     @include no-select;
+    text-decoration: none;
 }
-
-@import './menu-item__current.scss';

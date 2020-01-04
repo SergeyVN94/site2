@@ -1,0 +1,7 @@
+.header__menu-mobile-btn {
+  display: none;
+
+  @media (max-width: $breackpoint2) {
+    display: block;
+  }
+}

@@ -1,0 +1,5 @@
+.header__user-name {
+  @include reset-css;
+  padding-left: 20px;
+  border-left: 1px solid $color-dark-10;
+}

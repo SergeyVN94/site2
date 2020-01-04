@@ -1,8 +1,4 @@
-@import './menu__item.scss';
-
-.menu {
-  @include reset-css;
-  width: 100%;
+.menu-item-expandable__head {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

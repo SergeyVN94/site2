@@ -3,7 +3,7 @@ import * as $ from 'jquery';
 import './plugin/plugin';
 import CLASSES from './classes';
 
-const likeButtonClickHandler = function likeButtonClickHandler(e: JQuery.MouseEventBase) {
+const likeButtonClickHandler = function likeButtonClickHandler(e: JQuery.MouseEventBase): void {
     const $btn = $(e.delegateTarget);
     const selected = $btn.likeButton('selected');
     let likes = $btn.likeButton('likes') as number;

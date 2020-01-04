@@ -1,0 +1,14 @@
+@import './menu-item-expandable__head.scss';
+@import './__btn-expand/menu-item-expandable__btn-expand.scss';
+@import './menu-item-expandable__body.scss';
+@import './menu-item-expandable__list.scss';
+@import './menu-item-expandable__list-item.scss';
+@import './menu-item-expandable__link.scss';
+@import './menu-item-expandable_expanded.scss';
+
+.menu-item-expandable {
+  @include reset-css;
+  @include no-select;
+  display: block;
+  cursor: pointer;
+}

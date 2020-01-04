@@ -17,6 +17,7 @@ mixin button(options={})
     -if (textColor !== '') classes.push(`button_text-color_${textColor}`);
     -if (hidden) classes.push('button_hidden');
     -if (background !== '') classes.push(`button_background_${background}`);
+    -if (size !== '') classes.push(`button_size_${size}`);
 
     -const classListStr = classes.join(' ');
 

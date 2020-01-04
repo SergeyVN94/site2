@@ -1,0 +1,37 @@
+mixin menu-item-expandable(options={})
+    -const {
+    -   classes = [],
+    -   expanded = false,
+    -   text = '',
+    -   theme = '',
+    -   items = [],
+    -} = options;
+
+    -if (expanded) classes.push('menu-item-expandable_expanded');
+
+    -const classList = classes.join(' ');
+
+    -let fweight = 'normal';
+    -if(theme === 'main') fweight = 'bold';
+
+    .menu-item-expandable.js-menu-item-expandable(href=href)
+        .menu-item-expandable__head
+            .menu-item-expandable__title   
+                +text({
+                    text,
+                    fweight,
+                })
+            .menu-item-expandable__btn-expand.js-menu-item-expandable__btn-expand expand_more
+        .menu-item-expandable__body
+            ul.menu-item-expandable__list 
+                for item in items
+                    -const {
+                    -   text: linkText = '',
+                    -   href = '',
+                    -} = item;
+
+                    li.menu-item-expandable__list-item
+                        a.menu-item-expandable__link(href=href) 
+                            +text({
+                                text: linkText
+                            })

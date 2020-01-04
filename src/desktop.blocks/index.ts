@@ -9,3 +9,4 @@ import './calendar/calendar';
 import './image-slider/image-slider';
 import './date-range/date-range';
 import './like-button/like-button';
+import './menu-item-expandable/menu-item-expandable';
