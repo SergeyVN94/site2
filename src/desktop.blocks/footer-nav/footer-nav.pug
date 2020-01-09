@@ -1,0 +1,20 @@
+include ../text/text.pug
+include ../menu/menu.pug
+
+mixin footer-nav(options={})
+    -const {
+    -   title = '',
+    -   items = [],
+    -} = options;
+
+    .footer-nav
+        .footer-nav__title
+            +text({
+                text: title,
+                theme: 'h3',
+            })
+        .footer-nav__menu
+            +menu({
+                items,
+                theme: 'vertical',
+            })

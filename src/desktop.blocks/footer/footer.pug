@@ -1,20 +1,49 @@
-mixin footer(params={})
-    .footer(class=params.classes)
-        include ./__nav-container/footer__nav-container.pug
-        .container-content.container-content_horizontal.container-content_items_center.footer__container-content
-            .footer__site-info
-                +logo('logo_theme_main footer__site-info-logo')
-                .text.text_body #{params.siteDescription}
-            if params.navigation
-                +footer__nav-container(params.navigation)
-            if params.aboutUs
-                +footer__nav-container(params.aboutUs)
-            if params.support
-                +footer__nav-container(params.support)
-            if params.subscribe
-                .footer__subscribe
-                    .text.text_h3.footer__container-title #{params.subscribe.title}
-                    .text.text_body.footer__subscribe-text #{params.subscribe.text}
-                    +text-field-subscription({
-                        placeholder: 'Your email address'
-                    })
+include ../logo/logo.pug
+include ../text/text.pug
+include ../footer-nav/footer-nav.pug
+include ../text-field/text-field.pug
+
+mixin footer(options={})
+    -const {
+    -   siteDescription = '',
+    -   navList = [],
+    -   subscribe = {},
+    -   copyright = '',
+    -} = options;
+
+    footer.footer
+        .container-content
+            .footer__container-content
+                .footer__site-description
+                    .footer__logo
+                        +logo()
+                    .footer__description
+                        +text({
+                            text: siteDescription,
+                        })
+                
+                for nav in navList
+                    .footer__nav
+                        +footer-nav(nav)
+                
+                .footer__subscribe-container
+                    -const {
+                    -   title = '',
+                    -   description = '',
+                    -   placeholder = '',
+                    -} = subscribe;
+
+                    .footer__subscribe-title
+                        +text({
+                            text: title,
+                            theme: 'h3',
+                        })
+                    .footer__subscribe-description
+                        +text({
+                            text: description,
+                        })
+                    .footer__subscribe-text-field
+                        +text-field({
+                            placeholder,
+                            iconRight: 'arrow_forward',
+                        })

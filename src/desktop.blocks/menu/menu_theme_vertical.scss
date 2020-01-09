@@ -1,8 +1,11 @@
 .menu_theme_vertical {
-    justify-content: flex-start;
-    flex-direction: column;
-    align-items: flex-start;
-    .menu__item {
-        margin: 0px 0px 14px 0px;
-    }
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  align-items: flex-start;
+
+  .menu__item {
+    margin: 0px 0px 21px 0px;
+  }
 }

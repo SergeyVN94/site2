@@ -15,7 +15,8 @@
 .calendar {
   @include reset-css;
   @include no-select;
-  width: 320px;
+  width: 100%;
+  max-width: 320px;
   padding: 20px 20px;
   background: #ffffff;
   border: 1px solid $color-dark-25;

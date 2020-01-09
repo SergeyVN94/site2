@@ -10,12 +10,13 @@ block pageTitle
     title ui-kit
 
 block page
-    main.ui-kit
-        .ui-kit__head
-            +logo({
-                theme: 'minimal',
-            })
-        //- +colors-and-type()
-        //- +form-elements()
-        //- +cards()
-        +header-footer() 
+    body.ui-kit
+        main
+            .ui-kit__head
+                +logo({
+                    theme: 'minimal',
+                })
+            +colors-and-type()
+            +form-elements()
+            +cards()
+            +header-footer() 

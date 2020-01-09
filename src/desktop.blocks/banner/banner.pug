@@ -1,0 +1,12 @@
+mixin banner(options={})
+    -
+        const {
+            bgImage = '',
+        } = options;
+
+        const bgStyle = `background-image: url(${bgImage})`;
+
+    .banner
+        .banner__container(style=bgStyle)
+            if block
+                block

@@ -1,9 +1,33 @@
-mixin footer-creative(params={})
-    .footer-creative(class=params.classes)
-        +logo('logo_theme_main footer-creative__site-info-logo')
-        .text.text_body.footer-creative__text Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.
-        .footer-creative__social-buttons
-            .button.button_theme_social-icon.footer-creative__social-icon &#xf099;
-            .button.button_theme_social-icon.footer-creative__social-icon &#xf082;
-            .button.button_theme_social-icon.footer-creative__social-icon &#xf16d;
+include ../logo/logo.pug
+include ../text/text.pug
+include ../button/button.pug
+
+mixin footer-creative(options={})
+    -const {
+    -   siteDescription = '',
+    -   socialButtons,
+    -} = options;
+
+    .footer-creative
+        .container-content
+            .footer-creative__container-content
+                .footer-creative__logo
+                    +logo()
+                .footer-creative__site-description
+                    +text({
+                        text: siteDescription,
+                    })
+                .footer-creative__social-buttons
+                    for button in socialButtons
+                        -const {
+                        -   text = '',
+                        -   href = '',
+                        -} = button;
+
+                        .footer-creative__social-button
+                            +button({
+                                text,
+                                href,
+                                theme: 'social',
+                            })
             

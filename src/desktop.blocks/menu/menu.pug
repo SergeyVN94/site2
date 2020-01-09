@@ -5,7 +5,10 @@ mixin menu(options={})
     -const {
     -   items = [],
     -   classes = [],
+    -   theme = '',
     -} = options;
+
+    -if (theme !== '') classes.push(`menu_theme_${theme}`);
 
     -const classListStr = classes.join(' ');
 

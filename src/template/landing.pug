@@ -1,64 +1,91 @@
 extends ../template/page.pug
 
+include ../desktop.blocks/header/header.pug
+include ../desktop.blocks/footer/footer.pug
+include ../desktop.blocks/copyright-bar/copyright-bar.pug
+
 block page
-    +header({
-        menu: [
-            {
-                text: 'О нас'
-            },
-            {
-                text: 'Услуги',
-                expend: true
-            },
-            {
-                text: 'Вакансии'
-            },
-            {
-                text: 'Новости'
-            },
-            {
-                text: 'Соглашения',
-                expend: true
-            }
-        ],
-        login: 'войти',
-        register: 'зарегистрироваться'
-    })
-    block content
-    +footer({
-        siteDescription: 'Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»',
-        navigation: {
-            title: 'Навигация',
-            items: [
-                'О нас',
-                'Новости',
-                'Служба поддержки',
-                'Услуги'
-            ]
-        },
-        aboutUs: {
-            title: 'О нас',
-            items: [
-                'О сервисе',
-                'Наша команда',
-                'Вакансии',
-                'Инвесторы'
-            ]
-        },
-        support: {
-            title: 'Служба поддержки',
-            items: [
-                'Соглашения',
-                'Сообщества',
-                'Связь с нами'
-            ]
-        },
-        subscribe: {
-            title: 'Подписка',
-            text: 'Получайте специальные предложения и новости сервиса'
-        }
-    })
-    +copyright-bar({
-        classes: 'page__copyright-bar',
-        text: 'Copyright © 2018 Toxin отель. Все права зачищены.'
-    })
+    body.page-container
+        -
+            const headerConfig = {
+                menu: {
+                    items: [
+                        {text: 'О нас'},
+                        {
+                            text: 'Услуги',
+                            expandable: true,
+                            items: [
+                                {text: 'example1'},
+                                {text: 'example2'},
+                                {text: 'example3'},
+                            ],
+                        },
+                        {text: 'Вакансии'},
+                        {text: 'Новости'},
+                        {
+                            text: 'Соглашения',
+                            expandable: true,
+                            items: [
+                                {text: 'example1'},
+                                {text: 'example2'},
+                                {text: 'example3'},
+                            ],
+                        },
+                    ],
+                },
+            };
+
+            const footerConfig = {
+                siteDescription: 'Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»',
+                subscribe: {
+                    title: 'Подписка',
+                    description: 'Получайте специальные предложения и новости сервиса',
+                    placeholder: 'Email',
+                },
+                navList: [
+                    {
+                        title: 'навигация',
+                        items: [
+                            {text: 'О нас', href: ''},
+                            {text: 'Новости', href: ''},
+                            {text: 'Служба поддержки', href: ''},
+                            {text: 'Услуги', href: ''},
+                        ],
+                    },
+                    {
+                        title: 'о нас',
+                        items: [
+                            {text: 'О сервисе', href: ''},
+                            {text: 'Наша команда', href: ''},
+                            {text: 'Вакансии', href: ''},
+                            {text: 'Инвесторы', href: ''},
+                        ],
+                    },
+                    {
+                        title: 'Служба поддержки',
+                        items: [
+                            {text: 'Соглашения', href: ''},
+                            {text: 'Сообщества', href: ''},
+                            {text: 'Связь с нами', href: ''},
+                        ],
+                    },
+                ],
+            };
+
+            const copyrightBarConfig = {
+                text: 'Copyright © 2018 Toxin отель. Все права зачищены.',
+                socialButtons: [
+                    {text: 'twitter', href: ''},
+                    {text: 'facebook-square', href: ''},
+                    {text: 'instagram', href: ''},
+                ],
+            };
+
+        +header(headerConfig)
+        
+        .page-container__main
+            block main
+
+        +footer(footerConfig)
+        .page-container__copyright-bar
+            +copyright-bar(copyrightBarConfig)

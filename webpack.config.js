@@ -51,7 +51,7 @@ const rules = [
 ];
 
 const pageList = [
-    // 'landing-page',
+    'landing-page',
     // 'search-room',
     // 'room-details',
     // 'registration',

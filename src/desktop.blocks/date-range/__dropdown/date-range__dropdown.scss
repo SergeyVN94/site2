@@ -3,5 +3,9 @@
 
   &:first-child {
     margin-right: 20px;
+
+    @media (max-width: 380px) {
+      margin-right: 0;
+    }
   }
 }

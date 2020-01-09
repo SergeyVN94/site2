@@ -1,3 +1,5 @@
 .cards__item {
+  @include reset-css;
   margin-bottom: 40px;
+  width: 100%;
 }

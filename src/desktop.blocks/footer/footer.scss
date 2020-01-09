@@ -1,13 +1,12 @@
-.footer {
-    background: #fff;
-    box-shadow: 0px 1px 0px #1f20411a;
-    height: 372px;
-}
-
 @import './footer__container-content.scss';
-@import './footer__site-info.scss';
-@import './footer__site-info-logo.scss';
-@import './__nav-container/footer__nav-container.scss';
-@import './footer__subscribe.scss';
-@import './footer__container-title.scss';
-@import './footer__subscribe-text.scss';
+@import './footer__logo.scss';
+@import './footer__site-description.scss';
+@import './footer__nav.scss';
+@import './footer__subscribe-container.scss';
+@import './footer__subscribe-title.scss';
+@import './footer__subscribe-description.scss';
+
+.footer {
+  background-color: #fff;
+  box-shadow: 0px 1px 0px $color-dark-10;
+}

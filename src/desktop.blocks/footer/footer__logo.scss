@@ -1,0 +1,7 @@
+.footer__logo {
+  margin-bottom: 17px;
+
+  @media (max-width: $breackpoint2) {
+    margin: 0 auto 17px auto;
+  }
+}

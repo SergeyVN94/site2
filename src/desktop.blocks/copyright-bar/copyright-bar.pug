@@ -1,8 +1,29 @@
-mixin copyright-bar(params={})
-    .copyright-bar(class=params.classes)
-        .container-content.container-content_horizontal.container-content_items_center.copyright-bar__container-content
-            .text.text_body #{params.text}
-            .copyright-bar__social-buttons
-                .button.button_theme_social-icon.copyright-bar__social-icon &#xf099;
-                .button.button_theme_social-icon.copyright-bar__social-icon &#xf082;
-                .button.button_theme_social-icon.copyright-bar__social-icon &#xf16d;
+include ../text/text.pug
+include ../button/button.pug
+
+mixin copyright-bar(options={})
+    -const {
+    -   text: copyright = '',
+    -   socialButtons = [],
+    -} = options;
+
+    .copyright-bar
+        .container-content
+            .copyright-bar__container-content
+                .copyright-bar__text
+                    +text({
+                        text: copyright,
+                    })
+                .copyright-bar__social-buttons
+                    for button in socialButtons
+                        -const {
+                        -   text = '',
+                        -   href = '',
+                        -} = button;
+
+                        .copyright-bar__social-button
+                            +button({
+                                text,
+                                href,
+                                theme: 'social',
+                            })

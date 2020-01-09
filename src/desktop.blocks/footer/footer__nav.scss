@@ -1,0 +1,9 @@
+.footer__nav {
+  margin-top: 5px;
+  width: 100%;
+  max-width: 160px;
+
+  @media (max-width: $breackpoint2) {
+    display: none;
+  }
+}
