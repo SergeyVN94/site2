@@ -7,11 +7,5 @@
 
 .date-range {
   width: 100%;
-  min-width: 320px;
-  max-width: 320px;
-
-  @media (max-width: 380px) {
-    max-width: 100%;
-    min-width: 100%;
-  }
+  max-width: 100%;
 }

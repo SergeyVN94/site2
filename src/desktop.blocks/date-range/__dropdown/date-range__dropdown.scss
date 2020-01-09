@@ -1,11 +1,8 @@
 .date-range__dropdown {
   width: 100%;
+  max-width: 150px;
 
-  &:first-child {
-    margin-right: 20px;
-
-    @media (max-width: 380px) {
-      margin-right: 0;
-    }
+  @media (max-width: 330px) {
+    max-width: 50%;
   }
 }
