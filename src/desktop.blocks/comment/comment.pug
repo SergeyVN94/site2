@@ -2,13 +2,14 @@ include ../text/text.pug
 include ../like-button/like-button.pug
 
 mixin comment(options={})
-    -const {
-    -   avatar = '',
-    -   name = '',
-    -   publicationDate = '',
-    -   likes = 0,
-    -   text = '',
-    -} = options;
+    -
+        const {
+            avatar = '',
+            name = '',
+            publicationDate = '',
+            likes = 0,
+            text = '',
+        } = options;
     
     .comment
         .comment__avatar-likes

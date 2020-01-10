@@ -184,8 +184,9 @@ mixin form-elements()
                             ],
                         })
                     .form-elements__column.form-elements__comment
+                        -const avatar = require('../../chunks/images/avatars/user1.jpg').default;
                         +comment({
-                            avatar: 'images/avatars/user1.jpg',
+                            avatar,
                             name: 'Мурад Сарафанов',
                             publicationDate: '5 дней назад',
                             likes: 12,

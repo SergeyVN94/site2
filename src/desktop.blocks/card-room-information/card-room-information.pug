@@ -4,14 +4,15 @@ include ../rating/rating.pug
 include ../text/text.pug
 
 mixin card-room-information(options={})
-    -const {
-    -   roomNumber = 0,
-    -   roomPrice = 0,
-    -   images = [],
-    -   luxury = false,
-    -   stars = 0,
-    -   comments = 0,
-    -} = options;
+    -
+        const {
+           roomNumber = 0,
+           roomPrice = 0,
+           images = [],
+           luxury = false,
+           stars = 0,
+           comments = 0,
+        } = options;
 
     .card-room-information
         .card-room-information__image-slider
