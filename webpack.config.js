@@ -48,13 +48,21 @@ const rules = [
         use: 'ts-loader',
         exclude: /node_modules/,
     },
+    {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loader: 'file-loader',
+        options: {
+            name: '[folder]/[name].[ext]',
+            outputPath: '/images/',
+        },
+    },
 ];
 
 const pageList = [
     'landing-page',
     // 'search-room',
     // 'room-details',
-    // 'registration',
+    'registration',
     // 'sign-in',
     'ui-kit',
 ];
@@ -90,13 +98,9 @@ module.exports = [
                 }),
                 new CopyWebpackPlugin([
                     {
-                        from: `${PATHS.src}/fonts`,
+                        from: `${PATHS.src}/chunks/fonts`,
                         to: `${PATHS.build}/fonts`,
-                    },
-                    {
-                        from: `${PATHS.src}/images/${page}`,
-                        to: `${PATHS.build}/${page}/images`,
-                    },
+                    }
                 ]),
             ],
             entry: {
