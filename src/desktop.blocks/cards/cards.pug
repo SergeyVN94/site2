@@ -57,7 +57,7 @@ mixin cards()
                                     src: require(`../../chunks/images/rooms/${src}`).default,
                                 };
                             });
-                            const images2 = images1.reverse();
+                            const images2 = [...images1].reverse();
 
                         +card-room-information({
                             images: images1,

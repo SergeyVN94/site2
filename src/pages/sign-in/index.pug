@@ -1,12 +1,15 @@
 extends ../../template/landing.pug
 
+include ../../desktop.blocks/card-authentication/card-authentication.pug
+include ../../desktop.blocks/text/text.pug
+
 block pageTitle
     title Sign in
 
-
-include ./__banner/sign-in__banner.pug
-block content
+block main
     main.sign-in
-        +sign-in__banner({
-            image: 'images/banner.png'
-        })
+        .sign-in__banner
+            .container-content
+                .sign-in__banner-content
+                    .sign-in__selection-room
+                        +card-authentication()

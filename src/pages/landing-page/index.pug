@@ -1,6 +1,5 @@
 extends ../../template/landing.pug
 
-include ../../desktop.blocks/banner/banner.pug
 include ../../desktop.blocks/card-selection-room/card-selection-room.pug
 include ../../desktop.blocks/text/text.pug
 
@@ -10,14 +9,11 @@ block pageTitle
 block main
     main.landing-page
         .landing-page__banner
-            +banner({
-                bgImage: 'images/banner.jpg',
-            })
-                .container-content
-                    .landing-page__banner-content
-                        .landing-page__selection-room
-                            +card-selection-room() 
-                        .landing-page__description
-                            +text({
-                                text: 'Лучшие номера для вашей работы, отдыха и просто вдохновения',
-                            })
+            .container-content
+                .landing-page__banner-content
+                    .landing-page__selection-room
+                        +card-selection-room() 
+                    .landing-page__description
+                        +text({
+                            text: 'Лучшие номера для вашей работы, отдыха и просто вдохновения',
+                        })

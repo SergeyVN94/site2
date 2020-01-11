@@ -1,12 +1,15 @@
 extends ../../template/landing.pug
 
+include ../../desktop.blocks/card-account-registration/card-account-registration.pug
+include ../../desktop.blocks/text/text.pug
+
 block pageTitle
     title Registration
 
-
-include ./__banner/registration__banner.pug
-block content
+block main
     main.registration
-        +registration__banner({
-            image: 'images/banner.png'
-        })
+        .registration__banner
+            .container-content
+                .registration__banner-content
+                    .registration__selection-room
+                        +card-account-registration()

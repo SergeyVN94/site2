@@ -1,6 +1,0 @@
-mixin registration__banner(params={})
-    .registration__banner(class=params.classes, style=`background-image: url('${params.image}');`)
-        .container-content.registration__banner-content
-            +form-create-account({
-                classes: 'registration__banner-form'
-            })
