@@ -1,83 +1,134 @@
-mixin search-filters(params={})
-    .search-filters(class=params.classes)
-        +dropdown-date-filter({
-            title: 'даты пребывания в отеле',
-            dateRange: '19 авг - 23 авг',
-            classes: 'search-filters__date-filter'
-        })
-        +dropdown-guest({
-            classes: 'search-filters__dropdown-guest'
-        })
-        +range-slider({
-            title: 'Диапазон цены',
-            max: 15000,
-            min: 0,
-            step: 1000,
-            valueFormat: "{min}₽ - {max}₽",
-            bottomText: 'Стоимость за сутки пребывания в номере',
-            classes: 'search-filters__range-slider'
-        })
-        +checkbox-list({
-            title: 'Checkbox Buttons',
-            items: [
-                {
-                    text: 'Можно курить'
-                },
-                {
-                    text: 'Можно с питомцами'
-                },
-                {
-                    text: 'Можно пригласить гостей (до 10 человек)'
-                }
-            ],
-            classes: 'search-filters__checkbox-list'
-        })
-        +checkbox-list({
-            title: 'Доступность',
-            items: [
-                {
-                    type: 'rich-checkbox',
-                    text: 'Широкий коридор',
-                    bottomText: 'Ширина коридоров в номере не менее 91 см.'
-                },
-                {
-                    type: 'rich-checkbox',
-                    text: 'Помощник для инвалидов',
-                    bottomText: 'На 1 этаже вас встретит специалист  и проводит до номера.'
-                }
-            ],
-            classes: 'search-filters__checkbox-list2'
-        })
-        +dropdown-rooms({
-            title: 'Удобства номера',
-            classes: 'search-filters__dropdown-rooms'
-        })
-        +checkbox-list-expend({
-            title: 'Дополнительные удобства',
-            items: [
-                {
-                    text: 'Завтрак'
-                },
-                {
-                    text: 'Письменный стол'
-                },
-                {
-                    text: 'Стул для кормления'
-                },
-                {
-                    text: 'Кроватка'
-                },
-                {
-                    text: 'Телевизор'
-                },
-                {
-                    text: 'Шампунь'
-                },
-                {
-                    text: 'Телевизор'
-                },
-                {
-                    text: 'Шампунь'
-                }
-            ]
-        })
+include ../dropdown-filter-date/dropdown-filter-date.pug
+include ../dropdown-guest/dropdown-guest.pug
+include ../range-slider/range-slider.pug
+include ../checkbox-list/checkbox-list.pug
+include ../rich-checkbox-buttons/rich-checkbox-buttons.pug
+include ../dropdown-room-amenities/dropdown-room-amenities.pug
+include ../expandable-checkbox-list/expandable-checkbox-list.pug
+
+mixin search-filters(options={})
+    -
+        const {
+            filterDate = {
+                head: 'даты пребывания в отеле',
+                text: '19 авг - 23 авг',
+            },
+            dropdownGuest = {},
+            rangeSlider = {
+                title: 'диапазон цены',
+                min: 0,
+                max: 15000,
+                bottomText: 'Стоимость за сутки пребывания в номере',
+                value: '0₽ - 15 000₽',
+            },
+            checkboxList = {
+                head: 'Checkbox Buttons',
+                items: [
+                    'Можно курить',
+                    'Можно с питомцами',
+                    'Можно пригласить гостей (до 10 человек)',
+                ],
+            },
+            richCheckboxButtons = {
+                head: 'доступность',
+                items: [
+                    {
+                        text: 'Широкий коридор',
+                        description: 'Ширина коридоров в номере не менее 91 см.',
+                    },
+                    {
+                        text: 'Помощник для инвалидов',
+                        description: 'На 1 этаже вас встретит специалист  и проводит до номера.',
+                    },
+                ],
+            },
+            dropdownRoomAmenities = {
+                head: 'удобства номера',
+            },
+            expandableCheckboxList = {
+                title: 'дополнительные удобства',
+                items: [
+                    'Завтрак',
+                    'Письменный стол',
+                    'Стул для кормления',
+                    'Кроватка',
+                    'Телевизор',
+                    'Шампунь',
+                    'Телевизор',
+                    'Шампунь',
+                ],
+            },
+        } = options;
+
+    aside.search-filters
+        .search-filters__dropdown-filter-date
+            +dropdown-filter-date(filterDate)
+        .search-filters__dropdown-guest
+            +dropdown-guest(dropdownGuest)
+        .search-filters__range-slider
+            +range-slider(rangeSlider)
+        .search-filters__checkbox-list
+            +checkbox-list(checkboxList)
+        .search-filters__rich-checkbox-buttons
+            +rich-checkbox-buttons(richCheckboxButtons)    
+        .search-filters__dropdown-room-amenities
+            +dropdown-room-amenities(dropdownRoomAmenities)
+        .search-filters__expandable-checkbox-list
+            +expandable-checkbox-list(expandableCheckboxList)
+
+        //- +dropdown-date-filter({
+        //-     title: 'даты пребывания в отеле',
+        //-     dateRange: '19 авг - 23 авг',
+        //-     classes: 'search-filters__date-filter'
+        //- })
+        //- +dropdown-guest({
+        //-     classes: 'search-filters__dropdown-guest'
+        //- })
+        //- +range-slider({
+        //-     title: 'Диапазон цены',
+        //-     max: 15000,
+        //-     min: 0,
+        //-     step: 1000,
+        //-     valueFormat: "{min}₽ - {max}₽",
+        //-     bottomText: 'Стоимость за сутки пребывания в номере',
+        //-     classes: 'search-filters__range-slider'
+        //- })
+        //- +checkbox-list({
+        //-     title: 'Checkbox Buttons',
+        //-     items: [
+        //-         {
+        //-             text: 'Можно курить'
+        //-         },
+        //-         {
+        //-             text: 'Можно с питомцами'
+        //-         },
+        //-         {
+        //-             text: 'Можно пригласить гостей (до 10 человек)'
+        //-         }
+        //-     ],
+        //-     classes: 'search-filters__checkbox-list'
+        //- })
+        //- +checkbox-list({
+        //-     title: 'Доступность',
+        //-     items: [
+        //-         {
+        //-             type: 'rich-checkbox',
+        //-             text: 'Широкий коридор',
+        //-             bottomText: 'Ширина коридоров в номере не менее 91 см.'
+        //-         },
+        //-         {
+        //-             type: 'rich-checkbox',
+        //-             text: 'Помощник для инвалидов',
+        //-             bottomText: 'На 1 этаже вас встретит специалист  и проводит до номера.'
+        //-         }
+        //-     ],
+        //-     classes: 'search-filters__checkbox-list2'
+        //- })
+        //- +dropdown-rooms({
+        //-     title: 'Удобства номера',
+        //-     classes: 'search-filters__dropdown-rooms'
+        //- })
+        //- +checkbox-list-expend({
+        //-     title: 'Дополнительные удобства',
+        //-     
+        //- })

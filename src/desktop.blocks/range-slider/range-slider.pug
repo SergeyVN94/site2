@@ -2,14 +2,15 @@ include ../text/text.pug
 include ../block-head/block-head.pug
 
 mixin range-slider(options={})
-    -const {
-    -   step = 1,    
-    -   min = 0,
-    -   max = step * 100,
-    -   title = '',
-    -   bottomText = '',
-    -   value = '',
-    -} = options;
+    -
+        const {
+            step = 1,    
+            min = 0,
+            max = step * 100,
+            title = '',
+            bottomText = '',
+            value = '',
+        } = options;
 
     .range-slider(data-min=min, data-max=max, data-step=step)
         .range-slider__head
@@ -26,4 +27,6 @@ mixin range-slider(options={})
             .range-slider__bottom-text
                 +text({
                     text: bottomText,
+                    fsize: 'small',
+                    color: 'dark-50',
                 })

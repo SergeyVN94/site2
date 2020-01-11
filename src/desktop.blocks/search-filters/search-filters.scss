@@ -1,10 +1,10 @@
-.search-filters {
-    width: 266px;
-}
-
-@import './search-filters__date-filter.scss';
+@import './search-filters__dropdown-filter-date.scss';
 @import './search-filters__dropdown-guest.scss';
 @import './search-filters__range-slider.scss';
 @import './search-filters__checkbox-list.scss';
-@import './search-filters__checkbox-list2.scss';
-@import './search-filters__dropdown-rooms.scss';
+@import './search-filters__rich-checkbox-buttons.scss';
+@import './search-filters__dropdown-room-amenities.scss';
+
+.search-filters {
+  width: 266px;
+}

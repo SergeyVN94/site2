@@ -2,10 +2,11 @@ include ../block-head/block-head.pug
 include ../checkbox-button/checkbox-button.pug
 
 mixin checkbox-list(options={})
-    -const {
-    -   head = '',
-    -   items = [],
-    -} = options;
+    -
+        const {
+            head = '',
+            items = [],
+        } = options;
 
     .checkbox-list
         if head !== ''

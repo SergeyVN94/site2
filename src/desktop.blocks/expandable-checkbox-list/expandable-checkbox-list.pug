@@ -2,25 +2,18 @@ include ../text/text.pug
 include ../checkbox-button/checkbox-button.pug
 
 mixin expandable-checkbox-list(options={})
-    -const {
-    -   text = '',
-    -   items = '',
-    -   classes = [],
-    -   icon = 'expand_more',
-    -} = options;
+    -
+        const {
+            title = '',
+            items = '',
+            icon = 'expand_more',
+        } = options;
 
-    -const classList = [
-    -   'js-expandable-checkbox-list',
-    -   ...classes,
-    -];
-
-    -const classListStr = classList.join(' ');
-
-    .expandable-checkbox-list(class=classListStr)
+    .expandable-checkbox-list.js-expandable-checkbox-list(class=classList)
         .expandable-checkbox-list__head
-            .expandable-checkbox-list__text
+            .expandable-checkbox-list__title
                 +text({
-                    text,
+                    text: title,
                     theme: 'h3',
                 })
             .expandable-checkbox-list__icon.js-expandable-checkbox-list__icon #{icon}
