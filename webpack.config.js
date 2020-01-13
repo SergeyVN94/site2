@@ -2,9 +2,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
-const os = require('os');
-const cores = os.cpus().length;
-
 const isProduction = process.env.NODE_ENV === 'production';
 
 const PATHS = {
@@ -60,10 +57,10 @@ const rules = [
 
 const pageList = [
     'landing-page',
-    // 'search-room',
-    // 'room-details',
+    'search-room',
+    'room-details',
     'registration',
-    // 'sign-in',
+    'sign-in',
     'ui-kit',
 ];
 

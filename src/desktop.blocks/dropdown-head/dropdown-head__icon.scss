@@ -1,4 +1,4 @@
-$size: 44px;
+$size: 3.1429rem;
 
 .dropdown-head__icon {
   @include reset-css;
@@ -6,6 +6,7 @@ $size: 44px;
   width: $size;
   height: $size;
   min-width: $size;
+  padding-left: 0.1429rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

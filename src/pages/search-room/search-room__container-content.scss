@@ -1,10 +1,16 @@
 .search-room__container-content {
-    flex-wrap: nowrap;
-}
-
-@media (max-width: 615px) {
-    .search-room__container-content {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+  @include reset-css;
+  padding: 31px 0px 73px 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }

@@ -1,26 +1,28 @@
 mixin button(options={})
-    -const {
-    -   theme = 'default', 
-    -   bgColor = '', 
-    -   size = '', 
-    -   textColor = '', 
-    -   classes = [],
-    -   text = '',
-    -   disable = false,
-    -   hidden = false,
-    -   icon = '',
-    -   background = '',
-    -} = options;
+    -
+        const {
+           theme = 'default', 
+           size = null,
+           hsize = null,
+           textColor = null, 
+           classes = [],
+           text = '',
+           disable = false,
+           hidden = false,
+           icon = null,
+           background = null,
+        } = options;
 
-    -if (theme !== '') classes.push(`button_theme_${theme}`);
-    -if (disable) classes.push('button_disable');
-    -if (textColor !== '') classes.push(`button_text-color_${textColor}`);
-    -if (hidden) classes.push('button_hidden');
-    -if (background !== '') classes.push(`button_background_${background}`);
-    -if (size !== '') classes.push(`button_size_${size}`);
+        if (theme !== null) classes.push(`button_theme_${theme}`);
+        if (disable) classes.push('button_disable');
+        if (textColor !== null) classes.push(`button_text-color_${textColor}`);
+        if (hidden) classes.push('button_hidden');
+        if (background !== null) classes.push(`button_background_${background}`);
+        if (size !== null) classes.push(`button_size_${size}`);
+        if (hsize !== null) classes.push(`button_hsize_${hsize}`);
 
-    -const classListStr = classes.join(' ');
+    -const classList = classes.join(' ');
 
-    .button(class=classListStr) #{text}
-        if icon !== ''
+    .button(class=classList) #{text}
+        if icon !== null
             .button__icon #{icon}

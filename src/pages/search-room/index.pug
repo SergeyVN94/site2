@@ -1,135 +1,127 @@
 extends ../../template/landing.pug
 
+include ../../desktop.blocks/search-filters/search-filters.pug
+include ../../desktop.blocks/hotel-rooms/hotel-rooms.pug
+
 block pageTitle
     title Search page
 
-block content
+block main
     main.search-room
-        .container-content.container-content_horizontal.search-room__container-content
-            +search-filters()
-            -const imagesPath = 'images/hotel-rooms'
-            +found-rooms({
-                classes: 'search-room__found-rooms',
-                rooms: [
-                    {
-                        images: [
-                            '888.png','','',''
-                        ].map(item => `${imagesPath}/${item}`),
-                        roomNumber: 888,
-                        luxury: true,
-                        price: 9990,
-                        stars: 5,
-                        comments: 145
-                    },
-                    {
-                        images: [
-                            '840.png','','',''
-                        ].map(item => `${imagesPath}/${item}`),
-                        roomNumber: 840,
-                        luxury: false,
-                        price: 9000,
-                        stars: 4,
-                        comments: 65
-                    },
-                    {
-                        images: [
-                            '980.png','','',''
-                        ].map(item => `${imagesPath}/${item}`),
-                        roomNumber: 980,
-                        luxury: true,
-                        price: 8500,
-                        stars: 3,
-                        comments: 35
-                    },
-                    {
-                        images: [
-                            '856.png','','',''
-                        ].map(item => `${imagesPath}/${item}`),
-                        roomNumber: 856,
-                        luxury: false,
-                        price: 7300,
-                        stars: 5,
-                        comments: 19
-                    },
-                    {
-                        images: [
-                            '740.png','','',''
-                        ].map(item => `${imagesPath}/${item}`),
-                        roomNumber: 740,
-                        luxury: false,
-                        price: 6000,
-                        stars: 4,
-                        comments: 44
-                    },
-                    {
-                        images: [
-                            '982.png','','',''
-                        ].map(item => `${imagesPath}/${item}`),
-                        roomNumber: 982,
-                        luxury: false,
-                        price: 5800,
-                        stars: 3,
-                        comments: 56
-                    },
-                    {
-                        images: [
-                            '678.png','','',''
-                        ].map(item => `${imagesPath}/${item}`),
-                        roomNumber: 678,
-                        luxury: false,
-                        price: 5500,
-                        stars: 5,
-                        comments: 45
-                    },
-                    {
-                        images: [
-                            '450.png','','',''
-                        ].map(item => `${imagesPath}/${item}`),
-                        roomNumber: 450,
-                        luxury: false,
-                        price: 5300,
-                        stars: 4,
-                        comments: 39
-                    },
-                    {
-                        images: [
-                            '350.png','','',''
-                        ].map(item => `${imagesPath}/${item}`),
-                        roomNumber: 350,
-                        luxury: false,
-                        price: 5000,
-                        stars: 3,
-                        comments: 77
-                    },
-                    {
-                        images: [
-                            '666.png','','',''
-                        ].map(item => `${imagesPath}/${item}`),
-                        roomNumber: 666,
-                        luxury: false,
-                        price: 5000,
-                        stars: 5,
-                        comments: 25
-                    },
-                    {
-                        images: [
-                            '444.png','','',''
-                        ].map(item => `${imagesPath}/${item}`),
-                        roomNumber: 444,
-                        luxury: false,
-                        price: 5000,
-                        stars: 3,
-                        comments: 15
-                    },
-                    {
-                        images: [
-                            '352.png','','',''
-                        ].map(item => `${imagesPath}/${item}`),
-                        roomNumber: 352,
-                        luxury: false,
-                        price: 5000,
-                        stars: 3,
-                        comments: 55
-                    }
-                ]
-            })
+        .container-content
+            .search-room__container-content
+                -
+                    const getImages = function(img) {
+                        return [img, img, img, img].map((src) => {
+                            return {
+                                src: require(`../../chunks/images/rooms/${src}`).default,
+                            };
+                        });
+                    };
+
+                    rooms = [
+                        {
+                            images: getImages('888.png'),
+                            roomNumber: 888,
+                            luxury: true,
+                            roomPrice: 9990,
+                            stars: 5,
+                            comments: 145,
+                        },
+                        {
+                            images:getImages('840.png'),
+                            roomNumber: 840,
+                            luxury: false,
+                            roomPrice: 9900,
+                            stars: 4,
+                            comments: 65,
+                        },
+                        {
+                            images:getImages('980.png'),
+                            roomNumber: 980,
+                            luxury: true,
+                            roomPrice: 8500,
+                            stars: 3,
+                            comments: 35,
+                        },
+                        {
+                            images:getImages('856.png'),
+                            roomNumber: 856,
+                            luxury: false,
+                            roomPrice: 7300,
+                            stars: 5,
+                            comments: 19,
+                        },
+                        {
+                            images:getImages('740.png'),
+                            roomNumber: 740,
+                            luxury: false,
+                            roomPrice: 6000,
+                            stars: 4,
+                            comments: 44,
+                        },
+                        {
+                            images:getImages('982.png'),
+                            roomNumber: 982,
+                            luxury: false,
+                            roomPrice: 5800,
+                            stars: 3,
+                            comments: 56,
+                        },
+                        {
+                            images:getImages('678.png'),
+                            roomNumber: 678,
+                            luxury: false,
+                            roomPrice: 5500,
+                            stars: 5,
+                            comments: 45,
+                        },
+                        {
+                            images:getImages('450.png'),
+                            roomNumber: 450,
+                            luxury: false,
+                            roomPrice: 5300,
+                            stars: 4,
+                            comments: 39,
+                        },
+                        {
+                            images:getImages('350.png'),
+                            roomNumber: 350,
+                            luxury: false,
+                            roomPrice: 5000,
+                            stars: 3,
+                            comments: 77,
+                        },
+                        {
+                            images:getImages('666.png'),
+                            roomNumber: 666,
+                            luxury: false,
+                            roomPrice: 5000,
+                            stars: 5,
+                            comments: 25,
+                        },
+                        {
+                            images:getImages('444.png'),
+                            roomNumber: 444,
+                            luxury: false,
+                            roomPrice: 5000,
+                            stars: 3,
+                            comments: 15,
+                        },
+                        {
+                            images:getImages('352.png'),
+                            roomNumber: 352,
+                            luxury: false,
+                            roomPrice: 5000,
+                            stars: 3,
+                            comments: 55,
+                        },
+                    ];
+
+                .search-room__search-filters
+                    +search-filters()
+                .search-room__hotel-rooms
+                    +hotel-rooms({
+                        rooms,
+                        title: 'Номера, которые мы для вас подобрали',
+                    })

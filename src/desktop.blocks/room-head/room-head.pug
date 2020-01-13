@@ -1,23 +1,24 @@
 include ../text/text.pug
 
 mixin room-head(options={})
-    -const {
-    -   roomNumber = 0,
-    -   roomNumberSize = 'h1',
-    -   roomPrice = 0,
-    -   luxury = false,
-    -} = options;
+    -
+        const {
+           roomNumber = 0,
+           roomNumberSize = 'h1',
+           roomPrice = 0,
+           luxury = false,
+        } = options;
 
-    -let price = String(roomPrice);
+        let price = String(roomPrice);
 
-    -if (price.length > 3 && price.length <= 6) {
-        -price = price.split('');
-        -const left = price.slice(0, price.length - 3);
-        -const right = price.slice(price.length - 3);
-        -price = `${left.join('')} ${right.join('')}`;
-    -}
+        if (price.length > 3 && price.length <= 6) {
+            price = price.split('');
+            const left = price.slice(0, price.length - 3);
+            const right = price.slice(price.length - 3);
+            price = `${left.join('')} ${right.join('')}`;
+        }
 
-    -const roomPriceRes = `${price}₽`;
+        const roomPriceRes = `${price}₽`;
 
     .room-head
         .room-head__room-number
@@ -39,13 +40,15 @@ mixin room-head(options={})
                         color: 'purple',
                     })
         .room-head__room-price
+            .room-head__price-number
+                +text({
+                    text: roomPriceRes,
+                    fweight: 'bold',
+                    color: 'dark-50',
+                })
             +text({
-                text: roomPriceRes,
-                fweight: 'bold',
-                color: 'dark-50',
-            })
-            +text({
-                text: ' в сутки',
+                fsize: 'small',
+                text: 'в сутки',
                 wspace: 'pre',
                 color: 'dark-50',
             })

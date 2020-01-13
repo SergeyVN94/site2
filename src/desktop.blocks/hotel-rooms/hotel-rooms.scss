@@ -1,0 +1,8 @@
+@import './hotel-rooms__body.scss';
+@import './hotel-rooms__room-information.scss';
+@import './hotel-rooms__pagination.scss';
+
+.hotel-rooms {
+  @include reset-css;
+  width: 100%;
+}

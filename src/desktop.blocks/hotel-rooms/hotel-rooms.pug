@@ -1,0 +1,26 @@
+include ../text/text.pug
+include ../pagination/pagination.pug
+include ../card-room-information/card-room-information.pug
+
+mixin hotel-rooms(options={})
+    -
+        const {
+            title = '',
+            rooms = [],
+        } = options;
+
+    .hotel-rooms
+        .hotel-rooms__title
+            +text({
+                text: title,
+                theme: 'h1',
+                fname: 'montserrat',
+            })
+        .hotel-rooms__body
+            for room in rooms
+                .hotel-rooms__room-information
+                    +card-room-information(room)
+        .hotel-rooms__pagination
+            +pagination({
+                bottomText: '1 – 12 из 100+ вариантов аренды',
+            })
