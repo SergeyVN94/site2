@@ -2,17 +2,21 @@ include ../block-head/block-head.pug
 include ../bullet-list-item/bullet-list-item.pug
 
 mixin bullet-list(options={})
-    -const {
-    -   head = '',
-    -   items = [],
-    -} = options;
+    -
+        const {
+           head = {},
+           items = [],
+        } = options;
+
+        const {bottom = ''} = head;
+
+        let headClassList = '';
+        if (bottom !== '') headClassList += 'bullet-list__head_bottom_bg';
 
     .bullet-list
         if head !== ''
-            .bullet-list__head
-                +block-head({
-                    title: head
-                })
+            .bullet-list__head(class=headClassList)
+                +block-head(head)
         
         .bullet-list__container
             for text in items

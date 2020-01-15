@@ -1,14 +1,13 @@
-$color1: linear-gradient(180deg, #FFE39C 0%, #FFBA9C 100%);
-$color2: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
-$color3: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
-$color4: linear-gradient(180deg, #919191 0%, #3D4975 100%);
-
-@import './room-impressions__title.scss';
-@import './room-impressions__container.scss';
-@import './room-impressions__help.scss';
-@import './room-impressions__help-item.scss';
-@import './room-impressions__container-diagram.scss';
+@import './room-impressions__head.scss';
+@import './room-impressions__body.scss';
 @import './room-impressions__diagram.scss';
-@import './room-impressions__diagram-text.scss';
-@import './room-impressions__diagram-text-counter.scss';
-@import './room-impressions__diagram-text-counter-sign.scss';
+@import './room-impressions__diagram-image.scss';
+@import './room-impressions__diagram-counter.scss';
+@import './room-impressions__help-list.scss';
+@import './room-impressions__help-item.scss';
+@import './room-impressions__marker-container.scss';
+@import './room-impressions__help-marker.scss';
+@import './room-impressions__help-marker_color_g1.scss';
+@import './room-impressions__help-marker_color_g2.scss';
+@import './room-impressions__help-marker_color_g3.scss';
+@import './room-impressions__help-marker_color_g4.scss';

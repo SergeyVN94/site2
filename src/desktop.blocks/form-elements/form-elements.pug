@@ -160,7 +160,9 @@ mixin form-elements()
                             })                        
                     .form-elements__column
                         +bullet-list({
-                            head: 'bullet list',
+                            head: {
+                                title: 'bullet list',
+                            },
                             items: [
                                 'Нельзя с питомцами',
                                 'Без вечеринок и мероприятий',

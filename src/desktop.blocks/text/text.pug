@@ -1,40 +1,42 @@
 mixin text(options={})
-    -const {
-    -   classes = [],
-    -   theme = 'body',
-    -   fweight = '',
-    -   lheight = '',
-    -   color = '',
-    -   inline = false,
-    -   text = '',
-    -   uppercase = false,
-    -   wspace = '',
-    -   noSelect = false,
-    -   verticalMiddle = false,
-    -   horizontal = '',
-    -   fsize = '',
-    -   fname = '',
-    -} = options;
+    -
+        const {
+           classes = [],
+           theme = 'body',
+           fweight = '',
+           lheight = '',
+           color = '',
+           inline = false,
+           text = '',
+           uppercase = false,
+           wspace = '',
+           noSelect = false,
+           verticalMiddle = false,
+           horizontal = '',
+           fsize = '',
+           fname = '',
+           ttransform = '',
+           wbreak = '',
+        } = options;
     
-    -const classList = [
-    -   'text',
-    -   `text_theme_${theme}`, 
-    -   ...classes
-    -];
+        classes.unshift('text');
+        classes.unshift(`text_theme_${theme}`);
 
-    -if (fweight !== '') classList.push(`text_fweight_${fweight}`);
-    -if (lheight !== '') classList.push(`text_lheight_${lheight}`);
-    -if (color !== '') classList.push(`text_color_${color}`);
-    -if (wspace !== '') classList.push(`text_wspace_${wspace}`);
-    -if (uppercase) classList.push('text_uppercase');
-    -if (noSelect) classList.push('text_no-select');
-    -if (verticalMiddle) classList.push('text_vertical-middle');
-    -if (horizontal !== '') classList.push(`text_horizontal_${horizontal}`);
-    -if (fsize !== '') classList.push(`text_fsize_${fsize}`);
-    -if (fname !== '') classList.push(`text_fname_${fname}`);
+        if (fweight !== '') classes.push(`text_fweight_${fweight}`);
+        if (lheight !== '') classes.push(`text_lheight_${lheight}`);
+        if (color !== '') classes.push(`text_color_${color}`);
+        if (wspace !== '') classes.push(`text_wspace_${wspace}`);
+        if (noSelect) classes.push('text_no-select');
+        if (verticalMiddle) classes.push('text_vertical-middle');
+        if (horizontal !== '') classes.push(`text_horizontal_${horizontal}`);
+        if (fsize !== '') classes.push(`text_fsize_${fsize}`);
+        if (fname !== '') classes.push(`text_fname_${fname}`);
+        if (ttransform !== '') classes.push(`text_ttransform_${ttransform}`);
+        if (wbreak !== '') classes.push(`text_wbreak_${wbreak}`);
 
-    -const classListStr = classList.join(' ');
+        const classList = classes.join(' ');
+
     if inline || verticalMiddle
-        span(class=classListStr) #{text}
+        span(class=classList) #{text}
     else
-        p(class=classListStr) #{text}
+        p(class=classList) #{text}

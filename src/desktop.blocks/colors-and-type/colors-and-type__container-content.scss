@@ -3,10 +3,14 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding-top: 145px;
+  padding: 67px 54px 0px 10px;
   margin: 0 auto;
 
-  @media screen and (max-width: $breakpoint3) {
+  @media (max-width: $breakpoint2) {
+    padding: 67px 0px 0px 0px;
+  }
+
+  @media (max-width: $breakpoint3) {
     flex-direction: column;
     align-items: center;
   }

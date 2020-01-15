@@ -1,0 +1,7 @@
+.room-details-banner__main-img-container {
+  width: 68%;
+
+  @media (max-width: $breakpoint3) {
+    width: 100%;
+  }
+}

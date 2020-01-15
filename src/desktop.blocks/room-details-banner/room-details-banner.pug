@@ -1,0 +1,14 @@
+mixin room-details-banner(options={})
+    -
+        const {
+            images = [],
+        } = options;
+
+    .room-details-banner
+        .room-details-banner__main-img-container
+            img.room-details-banner__main-img(src=images[0], alt="")
+        .room-details-banner__img-column
+            .room-details-banner__img-item-container
+                img.room-details-banner__img-item(src=images[1], alt="")
+            .room-details-banner__img-item-container  
+                img.room-details-banner__img-item(src=images[2], alt="")

@@ -1,0 +1,7 @@
+.room-details-banner__img-item-container {
+  height: 50%;
+
+  @media (max-width: $breakpoint3) {
+    height: auto;
+  }
+}

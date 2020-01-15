@@ -21,6 +21,10 @@
 @import "./_color/text_color_dark-5.scss";
 @import './_color/text_color_black.scss';
 @import './_color/text_color_dark-100.scss';
+@import './_color/text_color_gradient-1.scss';
+@import './_color/text_color_gradient-2.scss';
+@import './_color/text_color_gradient-3.scss';
+@import './_color/text_color_gradient-4.scss';
 
 @import './_lheight/text_lheight_small.scss';
 @import './_lheight/text_lheight_middle-1.scss';
@@ -34,8 +38,11 @@
 @import './_horizontal/text_horizontal_middle.scss';
 @import './_horizontal/text_horizontal_right.scss';
 
-@import './text_uppercase.scss';
+@import './_ttransform/text_ttransform_uppercase.scss';
+@import './_ttransform/text_ttransform_none.scss';
+
 @import './text_no-select.scss';
 @import './text_vertical-middle.scss';
 @import './text_fsize_small.scss';
 @import './text_fname_montserrat.scss';
+@import './text_wbreak_break-all.scss';

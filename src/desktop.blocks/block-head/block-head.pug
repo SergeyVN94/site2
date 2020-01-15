@@ -1,23 +1,24 @@
 include ../text/text.pug
 
 mixin block-head(options={})
-    -const {
-    -   title = '',
-    -   titleOptions = {
-    -       theme: 'h3',
-    -       uppercase: true,    
-    -   },
-    -   help = '',
-    -   helpOptions = {
-    -       theme: 'h3',
-    -       color: 'dark-50',
-    -       fweight: 'normal',
-    -       uppercase: true, 
-    -   }
-    -} = options;
+    -
+        const {
+           title = '',
+           titleOptions = {
+               theme: 'h3',
+               uppercase: true,    
+           },
+           help = '',
+           helpOptions = {
+               theme: 'h3',
+               color: 'dark-50',
+               fweight: 'normal',
+               ttransform: 'uppercase', 
+           }
+        } = options;
 
-    -titleOptions.text = title;
-    -helpOptions.text = help;
+        titleOptions.text = title;
+        helpOptions.text = help;
 
     .block-head
         .block-head__title

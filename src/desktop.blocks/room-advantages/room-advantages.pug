@@ -12,6 +12,10 @@ mixin room-advantages(options={})
             .room-advantages__head
                 +block-head({
                     title: head,
+                    titleOptions: {
+                        theme: 'h2',
+                        fname: 'montserrat',
+                    },
                 })
         .room-advantages__container
             for item in items
