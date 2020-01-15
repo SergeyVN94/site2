@@ -1,25 +1,144 @@
 extends ../../template/landing.pug
 
+include ../../desktop.blocks/room-details-banner/room-details-banner.pug
+include ../../desktop.blocks/card-book-room/card-book-room.pug
+include ../../desktop.blocks/room-advantages/room-advantages.pug
+include ../../desktop.blocks/room-impressions/room-impressions.pug
+include ../../desktop.blocks/comments/comments.pug
+include ../../desktop.blocks/bullet-list/bullet-list.pug
+include ../../desktop.blocks/text/text.pug
+
 block pageTitle
     title Room details
 
-
-include ./__banner/room-details__banner.pug
-include ./__info/room-details__info.pug
-block content
+block main
     main.room-details
-        +room-details__banner({
-            images: [
-                '888_0.png',
-                '888_1.png',
-                '888_2.png'
-            ].map(item => `images/hotel-rooms/${item}`)
-        })
-        .container-content.container-content_horizontal.room-details__container-content
-            +room-details__info()
-            +room-reservation-form({
-                classes: 'room-details__room-reservation-form',
-                roomNumber: 888,
-                luxury: true,
-                price: '9 990'
+        .room-details__banner
+            -
+                const images = [
+                    '1.png',
+                    '2.png',
+                    '3.png',
+                ].map((img) => {
+                    return require(`../../chunks/images/room-details/888/${img}`).default;
+                });
+            +room-details-banner({
+                images,
             })
+        .container-content
+            .room-details__container-content
+                .room-details__main-info
+                    .room-details__info-item
+                        .room-details__room-advantages
+                            +room-advantages({
+                                head: 'Сведения о номере',
+                                items: [
+                                    {
+                                        title: 'Комфорт',
+                                        description: 'Шумопоглощающие стены',
+                                        icon: 'insert_emoticon',
+                                    },
+                                    {
+                                        title: 'Удобство',
+                                        description: 'Окно в каждой из спален',
+                                        icon: 'location_city',
+                                    },
+                                    {
+                                        title: 'Уют',
+                                        description: 'Номер оснащён камином',
+                                        icon: 'whatshot',
+                                    },
+                                ],
+                            })
+                        +room-impressions({
+                            items: {
+                                veryGood: 520,
+                                good: 260,
+                                fine: 260,
+                            },
+                        })
+                    .room-details__comments
+                        -
+                            const items = [
+                                {
+                                    avatar: require('../../chunks/images/avatars/user1.jpg').default,
+                                    name: 'Мурад Сарафанов',
+                                    publicationDate: '5 дней назад',
+                                    likes: 12,
+                                    text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
+                                },
+                                {
+                                    avatar: require('../../chunks/images/avatars/user2.jpg').default,
+                                    name: 'Патрисия Стёклышкова',
+                                    publicationDate: 'Неделю назад',
+                                    likes: 2,
+                                    text: 'Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент',
+                                },
+                            ];
+                        +comments({
+                            items,
+                            head: {
+                                title: 'Отзывы посетителей номера',
+                                titleOptions: {
+                                    theme: 'h2',
+                                    fname: 'montserrat',
+                                },
+                                help: '2 отзыва',
+                                helpOptions: {
+                                    ttransform: 'none',
+                                    color: 'dark-50',
+                                },
+                            },
+                        })
+                    .room-details__info-item
+                        .room-details__rules
+                            +bullet-list({
+                                head: {
+                                    title: 'Правила',
+                                    titleOptions: {
+                                        theme: 'h2',
+                                        fname: 'montserrat',
+                                    },
+                                    bottom: 'bg',
+                                },
+                                items: [
+                                    'Нельзя с питомцами',
+                                    'Без вечеринок и мероприятий',
+                                    'Время прибытия — после 13:00, а выезд до 12:00',
+                                ],
+                            })
+                        .room-details__cancel-reservation
+                            .room-details__cancel-reservation-head
+                                +text({
+                                    text: 'Отмена',
+                                    theme: 'h2',
+                                    fname: 'montserrat',
+                                })
+                            +text({
+                                text: 'Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.',
+                            })
+                .room-details__book-room
+                    +card-book-room({
+                        roomNumber: 888,
+                        roomPrice: 9990,
+                        luxury: true,
+                        receipt: {
+                            total:  '38 081',
+                            items: [
+                                {
+                                    text: '9 990₽ х 4 суток',
+                                    price: '39 960',
+                                },
+                                {
+                                    text: 'Сбор за услуги: скидка 2 179₽',
+                                    price: '0',
+                                    icon: true,
+                                },
+                                {
+                                    text: 'Сбор за дополнительные услуги',
+                                    price: '300',
+                                    icon: true,
+                                },
+                            ],
+                        },
+                    })

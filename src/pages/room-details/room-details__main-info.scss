@@ -1,0 +1,10 @@
+.room-details__main-info {
+  @include reset-css;
+  padding-top: 2px;
+  width: 100%;
+  margin-right: 70px;
+
+  @media (max-width: $breakpoint1) {
+    margin: 0px 0px 40px 0px;
+  }
+}

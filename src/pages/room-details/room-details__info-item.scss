@@ -1,6 +1,4 @@
-.room-details__container-content {
-  @include reset-css;
-  padding: 68px 0px 72px 0px;
+.room-details__info-item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11,13 +9,14 @@
   -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
 
+  &:not(:last-child) {
+    margin-bottom: 16px;
+  }
+
   @media (max-width: $breakpoint1) {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
   }
 }

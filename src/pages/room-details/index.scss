@@ -1,11 +1,14 @@
 @import '../../styles/index.scss';
-@import './__banner/room-details__banner.scss';
-@import './__info/room-details__info.scss';
-@import './room-details__room-reservation-form.scss';
+@import './room-details__banner.scss';
 @import './room-details__container-content.scss';
-@import './room-details__rules-title.scss';
+@import './room-details__main-info.scss';
+@import './room-details__info-item.scss';
+@import './room-details__room-advantages.scss';
+@import './room-details__comments.scss';
+@import './room-details__rules.scss';
+@import './room-details__cancel-reservation.scss';
+@import './room-details__cancel-reservation-head.scss';
 
 .room-details {
-    padding-bottom: 62px;
-    border-bottom: 1px solid #1f204140;
+  border-bottom: 1px solid #e5e5e5;
 }
