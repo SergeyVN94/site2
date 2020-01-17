@@ -11,3 +11,4 @@ import './date-range/date-range';
 import './like-button/like-button';
 import './menu-item-expandable/menu-item-expandable';
 import './header/header';
+import './range-slider/range-slider';

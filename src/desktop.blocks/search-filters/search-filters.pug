@@ -16,10 +16,11 @@ mixin search-filters(options={})
             dropdownGuest = {},
             rangeSlider = {
                 title: 'диапазон цены',
-                min: 0,
-                max: 15000,
+                range: [0, 16000],
+                start: [5000, 10000],
                 bottomText: 'Стоимость за сутки пребывания в номере',
                 value: '0₽ - 15 000₽',
+                step: 1000,
             },
             checkboxList = {
                 head: 'Checkbox Buttons',

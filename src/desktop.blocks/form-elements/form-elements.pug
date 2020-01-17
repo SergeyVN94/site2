@@ -109,8 +109,8 @@ mixin form-elements()
                     .form-elements__column
                         .form-elements__item
                             +range-slider({
-                                min: 0,
-                                max: 15000,
+                                range: [0, 16000],
+                                start: [5000, 10000],
                                 step: 1000,
                                 title: 'range slider',
                                 value: '0₽ - 15 000₽',

@@ -5,24 +5,33 @@ mixin range-slider(options={})
     -
         const {
             step = 1,    
-            min = 0,
-            max = step * 100,
+            range = [0, step * 100],
+            start = [],
             title = '',
             bottomText = '',
             value = '',
         } = options;
 
-    .range-slider(data-min=min, data-max=max, data-step=step)
+        const [
+            rangeMin = 0,
+            rangeMax = step * 100,
+        ] = range;
+
+        const [
+            startMin = rangeMin,
+            startMax = rangeMax,
+        ] = start;
+
+    .range-slider.js-range-slider(data-range-min=rangeMin, data-range-max=rangeMax, data-step=step,data-start-min=startMin, data-start-max=startMax)
         .range-slider__head
             +block-head({
                 title,
                 help: value,
             })
-        .range-slider__slider
-            .range-slider__line
-                .range-slider__point-left
-                .range-slider__point-right
-            .range-slider__move-container
+        .range-slider__line.js-range-slider__line
+            .range-slider__point.js-range-slider__point(data-type='min')
+            .range-slider__point.js-range-slider__point(data-type='max')
+            .range-slider__bg-line.js-range-slider__bg-line
         if bottomText !== ''
             .range-slider__bottom-text
                 +text({
