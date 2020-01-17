@@ -1,5 +1,4 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
@@ -37,7 +36,7 @@ const rules = [
         loader: 'file-loader',
         options: {
             name: '[name].[ext]',
-            outputPath: '/fonts/',
+            outputPath: '../fonts/',
         },
     },
     {
@@ -50,7 +49,7 @@ const rules = [
         loader: 'file-loader',
         options: {
             name: '[folder]/[name].[ext]',
-            outputPath: '/images/',
+            outputPath: '../images/',
         },
     },
 ];
@@ -93,19 +92,13 @@ module.exports = [
                     template: `${PATHS.src}/pages/${page}/index.pug`,
                     filename: `${PATHS.build}/${page}/index.html`,
                 }),
-                new CopyWebpackPlugin([
-                    {
-                        from: `${PATHS.src}/chunks/fonts`,
-                        to: `${PATHS.build}/fonts`,
-                    }
-                ]),
             ],
             entry: {
-                [`${page}/index`]: `./pages/${page}/index.ts`,
-                [`${page}/index-style`]: `./pages/${page}/index.scss`,
+                [`index`]: `./pages/${page}/index.ts`,
+                [`index-style`]: `./pages/${page}/index.scss`,
             },
             output: {
-                path: PATHS.build,
+                path: `${PATHS.build}/${page}`,
                 filename: '[name].js',
             },
         });
