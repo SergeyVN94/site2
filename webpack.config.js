@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -92,6 +93,12 @@ module.exports = [
                     template: `${PATHS.src}/pages/${page}/index.pug`,
                     filename: `${PATHS.build}/${page}/index.html`,
                 }),
+                new CopyPlugin([
+                    {
+                        from: `${PATHS.src}/chunks/favicons`,
+                        to: PATHS.build,
+                    },
+                ]),
             ],
             entry: {
                 [`index`]: `./pages/${page}/index.ts`,
