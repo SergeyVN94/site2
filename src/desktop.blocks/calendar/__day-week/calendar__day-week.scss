@@ -1,4 +1,4 @@
-$size: 40px;
+$size: 2.8571rem;
 
 .calendar__day-week {
   @include reset-css;
@@ -10,6 +10,6 @@ $size: 40px;
   font-family: Montserrat;
   font-style: normal;
   font-weight: normal;
-  font-size: 12px;
+  font-size: 0.8571rem;
   color: $color-dark-50;
 }

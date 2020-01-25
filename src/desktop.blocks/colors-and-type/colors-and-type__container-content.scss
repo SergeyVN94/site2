@@ -3,11 +3,11 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 67px 54px 0px 10px;
+  padding: 4.7857rem 3.8571rem 0rem 0.7143rem;
   margin: 0 auto;
 
   @media (max-width: $breakpoint2) {
-    padding: 67px 0px 0px 0px;
+    padding: 4.7857rem 0rem 0rem 0rem;
   }
 
   @media (max-width: $breakpoint3) {

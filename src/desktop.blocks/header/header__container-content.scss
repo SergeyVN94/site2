@@ -1,7 +1,7 @@
 .header__container-content {
   @include reset-css;
   width: 100%;
-  height: 70px;
+  height: 5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -16,7 +16,7 @@
   align-items: center;
 
   @media (max-width: $breakpoint2) {
-    padding-left: 10px;
+    padding-left: 0.7143rem;
     flex: auto;
     flex-direction: column;
     height: auto;

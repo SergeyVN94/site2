@@ -1,11 +1,11 @@
 .input-toggle__switch {
-    width: 40px;
-    height: 20px;
+    width: 2.8571rem;
+    height: 1.4286rem;
     background: white;
-    border: 1px solid $color-dark-25;
+    border: 0.0714rem solid $color-dark-25;
     box-sizing: border-box;
-    border-radius: 10px;
-    padding: 3px;
+    border-radius: 0.7143rem;
+    padding: 0.2143rem;
 }
 
 .input-toggle__input:checked + .input-toggle__switch {

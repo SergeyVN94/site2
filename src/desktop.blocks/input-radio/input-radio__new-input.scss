@@ -1,4 +1,4 @@
-$size: 20px;
+$size: 1.4286rem;
 
 .input-radio__new-input {
     @include reset-css;
@@ -6,8 +6,8 @@ $size: 20px;
     width: $size;
     height: $size;
     background: #fff;
-    border: 1px solid $color-dark-25;
-    border-radius: 10px;
+    border: 0.0714rem solid $color-dark-25;
+    border-radius: 0.7143rem;
     align-items: center;
     justify-content: center;
 }

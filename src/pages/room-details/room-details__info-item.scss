@@ -10,7 +10,7 @@
   flex-wrap: nowrap;
 
   &:not(:last-child) {
-    margin-bottom: 16px;
+    margin-bottom: 1.1429rem;
   }
 
   @media (max-width: $breakpoint1) {

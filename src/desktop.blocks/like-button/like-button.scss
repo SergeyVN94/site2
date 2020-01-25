@@ -4,12 +4,12 @@
 .like-button {
   @include reset-css;
   @include no-select;
-  width: 40px;
-  height: 20px;
+  width: 2.8571rem;
+  height: 1.4286rem;
   background: white;
-  border: 1px solid $color-dark-25;
+  border: 0.0714rem solid $color-dark-25;
   box-sizing: border-box;
-  border-radius: 10px;
+  border-radius: 0.7143rem;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;

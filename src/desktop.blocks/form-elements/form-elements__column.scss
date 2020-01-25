@@ -8,11 +8,11 @@
   flex-direction: column;
 
   &:not(:last-child) {
-    margin-right: 10px;
+    margin-right: 0.7143rem;
   }
 
   @media (max-width: $breakpoint3) {
     width: 100%;
-    margin-right: 0px;
+    margin-right: 0rem;
   }
 }

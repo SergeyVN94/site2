@@ -1,4 +1,4 @@
-$size: 20px;
+$size: 1.4286rem;
 
 .receipt__icon {
   @include reset-css;
@@ -9,7 +9,7 @@ $size: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid $color-dark-25;
+  border: 0.0714rem solid $color-dark-25;
   color: $color-dark-25;
   cursor: pointer;
 }
