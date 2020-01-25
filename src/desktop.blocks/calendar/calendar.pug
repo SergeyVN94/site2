@@ -2,19 +2,20 @@ include ../text/text.pug
 include ../button/button.pug
 
 mixin calendar(options={})
-    -const {
-    -   classes = [],
-    -} = options;
+    -
+        const {
+           classes = [],
+        } = options;
 
-    -const classList = classes.join(' ');
+        const classList = classes.join(' ');
 
-    -const currentDate = new Date();
+        const currentDate = new Date();
 
-    -const {
-    -   date = `${currentDate.getDate()}.${currentDate.getMonth() + 1}.${currentDate.getFullYear()}`,
-    -} = options;
+        const {
+           date = `${currentDate.getDate()}.${currentDate.getMonth() + 1}.${currentDate.getFullYear()}`,
+        } = options;
 
-    -const weekdayNames = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+        const weekdayNames = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
 
     .calendar.js-calendar(data-date=date, classes=classList)
         .calendar__date-navigation

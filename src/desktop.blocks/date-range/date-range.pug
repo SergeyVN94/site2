@@ -3,13 +3,14 @@ include ../block-head/block-head.pug
 include ../calendar/calendar.pug
 
 mixin date-range(options={})
-    -const {
-    -   classes = [],
-    -   textLeft = '',
-    -   textRight = '',
-    -   headLeft = '',
-    -   headRight = '',
-    -} = options;
+    -
+        const {
+           classes = [],
+           textLeft = '',
+           textRight = '',
+           headLeft = '',
+           headRight = '',
+        } = options;
 
     .date-range.js-date-range
         .date-range__dropdowns

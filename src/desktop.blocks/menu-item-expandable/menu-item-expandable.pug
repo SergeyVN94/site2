@@ -1,13 +1,14 @@
 mixin menu-item-expandable(options={})
-    -const {
-    -   expanded = false,
-    -   text = '',
-    -   theme = '',
-    -   items = [],
-    -} = options;
+    -
+        const {
+           expanded = false,
+           text = '',
+           theme = '',
+           items = [],
+        } = options;
 
-    -let fweight = 'normal';
-    -if(theme === 'main') fweight = 'bold';
+        let fweight = 'normal';
+        if(theme === 'main') fweight = 'bold';
 
     .menu-item-expandable.js-menu-item-expandable(href=href)
         .menu-item-expandable__head

@@ -1,17 +1,14 @@
 include ../text/text.pug
 
 mixin dropdown-head(options={})
-    -const {
-    -   text = '',
-    -   icon = 'expand_more',
-    -   classes = [],
-    -} = options;
+    -
+        const {
+           text = '',
+           icon = 'expand_more',
+           classes = [],
+        } = options;
 
-    -const classList = [
-    -   ...classes,
-    -];
-
-    -const classListStr = classList.join(' ');
+        const classListStr = classes.join(' ');
 
     .dropdown-head.js-dropdown-head(class=classListStr)
         .dropdown-head__text

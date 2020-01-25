@@ -2,18 +2,19 @@ include ../block-head/block-head.pug
 include ../dropdown-head/dropdown-head.pug
 
 mixin dropdown(options={})
-    -const {
-    -   title = '',
-    -   help = '',
-    -   text = '',
-    -   icon = 'expand_more',
-    -   valueOptions = {},
-    -   classes = [],
-    -} = options;
+    -
+        const {
+           title = '',
+           help = '',
+           text = '',
+           icon = 'expand_more',
+           valueOptions = {},
+           classes = [],
+        } = options;
 
-    -const isUseHead = (title !== '' || help !== '');
+        const isUseHead = (title !== '' || help !== '');
 
-    -const classListStr = classes.join(' ');
+        const classListStr = classes.join(' ');
 
     .dropdown.js-dropdown(class=classListStr)
         if isUseHead

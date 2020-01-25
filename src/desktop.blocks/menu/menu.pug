@@ -2,15 +2,16 @@ include ../menu-item/menu-item.pug
 include ../menu-item-expandable/menu-item-expandable.pug
 
 mixin menu(options={})
-    -const {
-    -   items = [],
-    -   classes = [],
-    -   theme = '',
-    -} = options;
+    -
+        const {
+           items = [],
+           classes = [],
+           theme = '',
+        } = options;
 
-    -if (theme !== '') classes.push(`menu_theme_${theme}`);
+        if (theme !== '') classes.push(`menu_theme_${theme}`);
 
-    -const classListStr = classes.join(' ');
+        const classListStr = classes.join(' ');
 
     nav.menu(class=classListStr)
         for item in items

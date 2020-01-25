@@ -2,17 +2,18 @@ include ../block-head/block-head.pug
 include ../input-text/input-text.pug
 
 mixin text-field(options={})
-    -const {
-    -   placeholder = '',
-    -   value = '',
-    -   title = '',
-    -   help = '',
-    -   type = 'text',
-    -   iconRight = '',
-    -   mask = '',
-    -} = options;
+    -
+        const {
+           placeholder = '',
+           value = '',
+           title = '',
+           help = '',
+           type = 'text',
+           iconRight = '',
+           mask = '',
+        } = options;
 
-    -const isUseHead = (title !== '' || help !== '');
+        const isUseHead = (title !== '' || help !== '');
 
     .text-field(class='js-text-field', data-mask=mask)
         if isUseHead

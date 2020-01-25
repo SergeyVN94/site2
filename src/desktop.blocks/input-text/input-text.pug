@@ -1,17 +1,18 @@
 mixin input-text(options={})
-    -const {
-    -   type = 'text',
-    -   placeholder = '',
-    -   value = '',
-    -   theme = '',
-    -   iconRight = '',
-    -} = options;
+    -
+        const {
+           type = 'text',
+           placeholder = '',
+           value = '',
+           theme = '',
+           iconRight = '',
+        } = options;
 
-    -const classList = [];
+        const classList = [];
 
-    -if(iconRight !== '') classList.push('input-text_use-icon-right');
+        if(iconRight !== '') classList.push('input-text_use-icon-right');
 
-    -const classListStr = classList.join(' ');
+        const classListStr = classList.join(' ');
 
     .input-text(class=classListStr)
         .input-text__container

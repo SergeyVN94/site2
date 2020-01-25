@@ -2,10 +2,10 @@
 @import './block-head__help.scss';
 
 .block-head {
-    width: 100%;
-    &::after {
-        display: block;
-        content: '';
-        clear: both;
-    }
+  width: 100%;
+  &::after {
+    display: block;
+    content: '';
+    clear: both;
+  }
 }

@@ -1,11 +1,12 @@
 include ../text/text.pug
 
 mixin color-demo-item(options={})
-    -const {
-    -   color = '', 
-    -   name = '',
-    -   bgColor = '',
-    -} = options;
+    -
+        const {
+           color = '', 
+           name = '',
+           bgColor = '',
+        } = options;
 
     .color-demo-item
         .color-demo-item__color-block(style=`background-color: ${bgColor};`)

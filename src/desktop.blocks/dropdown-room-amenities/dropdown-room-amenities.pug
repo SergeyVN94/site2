@@ -2,10 +2,11 @@ include ../dropdown/dropdown.pug
 include ../dropdown-counter/dropdown-counter.pug
 
 mixin dropdown-room-amenities(options={})
-    -const {
-    -   title = 'Удобства номера',
-    -   text = 'Удобства номера',
-    -} = options;
+    -
+        const {
+           title = 'Удобства номера',
+           text = 'Удобства номера',
+        } = options;
 
     +dropdown({
         title,

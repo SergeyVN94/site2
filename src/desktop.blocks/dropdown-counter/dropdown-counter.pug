@@ -2,9 +2,10 @@ include ../text/text.pug
 include ../button/button.pug
 
 mixin dropdown-counter(options={})
-    -const {
-    -   text = '',
-    -} = options;
+    -
+        const {
+           text = '',
+        } = options;
 
     .dropdown-counter.js-dropdown-counter
         +text({

@@ -4,12 +4,13 @@ include ../footer-nav/footer-nav.pug
 include ../text-field/text-field.pug
 
 mixin footer(options={})
-    -const {
-    -   siteDescription = '',
-    -   navList = [],
-    -   subscribe = {},
-    -   copyright = '',
-    -} = options;
+    -
+        const {
+           siteDescription = '',
+           navList = [],
+           subscribe = {},
+           copyright = '',
+        } = options;
 
     footer.footer
         .container-content
@@ -27,11 +28,12 @@ mixin footer(options={})
                         +footer-nav(nav)
                 
                 .footer__subscribe-container
-                    -const {
-                    -   title = '',
-                    -   description = '',
-                    -   placeholder = '',
-                    -} = subscribe;
+                    -
+                        const {
+                           title = '',
+                           description = '',
+                           placeholder = '',
+                        } = subscribe;
 
                     .footer__subscribe-title
                         +text({

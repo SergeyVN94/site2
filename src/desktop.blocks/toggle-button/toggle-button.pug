@@ -2,10 +2,11 @@ include ../input-toggle/input-toggle.pug
 include ../text/text.pug
 
 mixin toggle-button(options={})
-    -const {
-    -   text = '',
-    -   checked = false,
-    -} = options;
+    -
+        const {
+           text = '',
+           checked = false,
+        } = options;
 
     .toggle-button
         +input-toggle({

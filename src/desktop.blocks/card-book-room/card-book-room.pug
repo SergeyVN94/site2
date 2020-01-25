@@ -6,12 +6,13 @@ include ../button/button.pug
 include ../dropdown-guest/dropdown-guest.pug
 
 mixin card-book-room(options={})
-    -const {
-    -   roomNumber = 0,
-    -   roomPrice = '',
-    -   luxury = false,
-    -   receipt = {},
-    -} = options;
+    -
+        const {
+           roomNumber = 0,
+           roomPrice = '',
+           luxury = false,
+           receipt = {},
+        } = options;
 
     .card-book-room
         +card-container()

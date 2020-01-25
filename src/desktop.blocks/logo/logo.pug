@@ -1,13 +1,14 @@
 mixin logo(options={})
-    -const {
-    -   theme = 'default',
-    -} = options;
+    -
+        const {
+           theme = 'default',
+        } = options;
 
-    -const classList = [];
+        const classList = [];
 
-    -classList.push(`logo_theme_${theme}`);
+        classList.push(`logo_theme_${theme}`);
 
-    -const classListStr = classList.join(' ');
+        const classListStr = classList.join(' ');
 
     .logo(class=classListStr)
         case theme

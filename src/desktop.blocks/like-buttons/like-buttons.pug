@@ -2,10 +2,11 @@ include ../block-head/block-head.pug
 include ../like-button/like-button.pug
 
 mixin like-buttons(options={})
-    -const {
-    -   head = '',
-    -   items = [],
-    -} = options;
+    -
+        const {
+           head = '',
+           items = [],
+        } = options;
 
     .like-buttons
         if head !== ''

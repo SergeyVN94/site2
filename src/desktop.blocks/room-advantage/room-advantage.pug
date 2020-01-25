@@ -1,11 +1,12 @@
 include ../text/text.pug
 
 mixin room-advantage(options={})
-    -const {
-    -   icon = '',
-    -   title = '',
-    -   description = '',
-    -} = options;
+    -
+        const {
+           icon = '',
+           title = '',
+           description = '',
+        } = options;
 
     .room-advantage
         .room-advantage__icon #{icon}

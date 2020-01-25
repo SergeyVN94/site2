@@ -2,10 +2,11 @@ include ../block-head/block-head.pug
 include ../room-advantage/room-advantage.pug
 
 mixin room-advantages(options={})
-    -const {
-    -   head = '',
-    -   items = [],
-    -} = options;
+    -
+        const {
+           head = '',
+           items = [],
+        } = options;
 
     .room-advantages
         if head !== ''

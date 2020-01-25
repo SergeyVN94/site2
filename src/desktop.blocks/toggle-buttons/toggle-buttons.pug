@@ -1,10 +1,11 @@
 include ../toggle-button/toggle-button.pug
 
 mixin toggle-buttons(options={})
-    -const {
-    -   head = '',
-    -   items = [],
-    -} = options;
+    -
+        const {
+           head = '',
+           items = [],
+        } = options;
 
     .toggle-buttons
         if head !== ''

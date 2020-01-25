@@ -1,15 +1,16 @@
 include ../text/text.pug
 
 mixin menu-item(options={})
-    -const {
-    -   active = false,
-    -   text = '',
-    -   href = '',
-    -   theme = '',
-    -} = options;
+    -
+        const {
+           active = false,
+           text = '',
+           href = '',
+           theme = '',
+        } = options;
 
-    -let fweight = 'normal';
-    -if(theme === 'main') fweight = 'bold';
+        let fweight = 'normal';
+        if(theme === 'main') fweight = 'bold';
 
     a.menu-item(class=classList, href=href)
         +text({

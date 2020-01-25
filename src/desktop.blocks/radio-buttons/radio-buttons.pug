@@ -2,12 +2,13 @@ include ../block-head/block-head.pug
 include ../radio-button/radio-button.pug
 
 mixin radio-buttons(options={})
-    -const {
-    -   head = '',
-    -   group = '',
-    -   items = [],
-    -   selectedItem = 0,
-    -} = options;
+    -
+        const {
+           head = '',
+           group = '',
+           items = [],
+           selectedItem = 0,
+        } = options;
 
     .radio-buttons
         if head !== ''

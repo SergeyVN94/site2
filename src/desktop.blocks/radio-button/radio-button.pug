@@ -2,11 +2,12 @@ include ../input-radio/input-radio.pug
 include ../text/text.pug
 
 mixin radio-button(options={})
-    -const {
-    -   text = '',
-    -   group = '',
-    -   checked = false,
-    -} = options;
+    -
+        const {
+           text = '',
+           group = '',
+           checked = false,
+        } = options;
 
     .radio-button
         .radio-button__container

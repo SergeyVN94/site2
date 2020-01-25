@@ -2,10 +2,11 @@ include ../text/text.pug
 include ../button/button.pug
 
 mixin copyright-bar(options={})
-    -const {
-    -   text: copyright = '',
-    -   socialButtons = [],
-    -} = options;
+    -
+        const {
+           text: copyright = '',
+           socialButtons = [],
+        } = options;
 
     .copyright-bar
         .container-content

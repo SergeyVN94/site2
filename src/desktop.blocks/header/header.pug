@@ -3,12 +3,13 @@ include ../menu/menu.pug
 include ../button/button.pug
 
 mixin header(options={})
-    -const {    
-    -   menu = {},
-    -   user = '',
-    -   btnLoginText = 'login',
-    -   btnRegisterText = 'register',
-    -} = options;
+    -
+        const {    
+           menu = {},
+           user = '',
+           btnLoginText = 'login',
+           btnRegisterText = 'register',
+        } = options;
 
     header.header.js-header
         .container-content

@@ -2,10 +2,11 @@ include ../block-head/block-head.pug
 include ../dropdown-head/dropdown-head.pug
 
 mixin dropdown-filter-date(options={})
-    -const {
-    -   head = '',
-    -   text = '',
-    -} = options;
+    -
+        const {
+           head = '',
+           text = '',
+        } = options;
 
     .dropdown-filter-date
         if head !== ''

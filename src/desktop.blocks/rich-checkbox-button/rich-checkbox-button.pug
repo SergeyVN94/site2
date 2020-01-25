@@ -2,10 +2,11 @@ include ../text/text.pug
 include ../input-checkbox/input-checkbox.pug
 
 mixin rich-checkbox-button(options={})
-    -const {
-    -   text = '',
-    -   description = '',
-    -} = options;
+    -
+        const {
+           text = '',
+           description = '',
+        } = options;
 
     .rich-checkbox-button
         +input-checkbox()

@@ -1,22 +1,24 @@
 include ../text/text.pug
 
 mixin receipt(options={})
-    -const {
-    -   total = 0,
-    -   items = [],
-    -} = options;
+    -
+        const {
+           total = 0,
+           items = [],
+        } = options;
 
-    -totalRes = `${total}₽`;
+        totalRes = `${total}₽`;
 
     .receipt
         for item in items
-            -const {
-            -   text = '',
-            -   price = '',
-            -   icon = false,
-            -} = item;
+            -
+                const {
+                   text = '',
+                   price = '',
+                   icon = false,
+                } = item;
 
-            -priceRes = `${price}₽`;
+                priceRes = `${price}₽`;
 
             .receipt__item
                 .receipt__text-container

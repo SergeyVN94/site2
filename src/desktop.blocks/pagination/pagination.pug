@@ -3,10 +3,11 @@ include ../text/text.pug
 include ../button/button.pug
 
 mixin pagination(options={})
-    -const {
-    -   head = '',
-    -   bottomText = '',
-    -} = options;
+    -
+        const {
+           head = '',
+           bottomText = '',
+        } = options;
 
     .pagination
         if head !== ''
