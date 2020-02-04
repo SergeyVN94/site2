@@ -20,6 +20,4 @@
 .input-checkbox__input:checked + .input-checkbox__new-input {
   border-color: $color-purple;
   background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }

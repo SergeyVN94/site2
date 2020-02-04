@@ -6,15 +6,11 @@
   font-weight: normal;
   font-size: 3.4286rem;
   line-height: 3.4286rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   text-align: center;
   background: $color-gradient-1;
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-right: 0.7143rem;
 }

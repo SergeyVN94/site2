@@ -1,8 +1,5 @@
 .calendar__days-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
   justify-content: space-around;
   flex-wrap: wrap;
   margin-bottom: 1.4286rem;

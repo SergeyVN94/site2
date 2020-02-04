@@ -1,14 +1,8 @@
 .footer__container-content {
   @include reset-css;
   padding: 7.1429rem 0rem 5.7143rem 0rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
   flex-direction: row;
-  -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
   justify-content: space-between;
 

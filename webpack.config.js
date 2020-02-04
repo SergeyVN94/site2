@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const AutoprefixerPlugin = require('autoprefixer');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -26,9 +27,19 @@ const rules = [
     },
     {
         test: /\.(sa|sc|c)ss$/,
+        exclude: /node_modules/,
         use: [
             'style-loader',
             'css-loader',
+            {
+                loader: 'postcss-loader',
+                options: {
+                    plugins: [
+                        AutoprefixerPlugin(),
+                    ],
+                    sourceMap: true,
+                },
+            },
             'sass-loader',
         ],
     },
