@@ -17,10 +17,11 @@ mixin copyright-bar(options={})
                     })
                 .copyright-bar__social-buttons
                     for button in socialButtons
-                        -const {
-                        -   text = '',
-                        -   href = '',
-                        -} = button;
+                        -
+                            const {
+                                text = '',
+                                href = '',
+                            } = button;
 
                         .copyright-bar__social-button
                             +button({

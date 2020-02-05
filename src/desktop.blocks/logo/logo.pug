@@ -2,6 +2,7 @@ mixin logo(options={})
     -
         const {
            theme = 'default',
+           href = '',
         } = options;
 
         const classList = [];
@@ -10,7 +11,7 @@ mixin logo(options={})
 
         const classListStr = classList.join(' ');
 
-    .logo(class=classListStr)
+    a.logo(class=classListStr, href=href)
         case theme
             when 'minimal'
                 include ./icon.svg

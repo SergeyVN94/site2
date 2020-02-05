@@ -26,12 +26,13 @@ mixin card-room-information(options={})
                     roomPrice,
                     luxury,
                     roomNumberSize: 'h2',
+                    href: '../room-details/index.html',
                 })
             .card-room-information__rating-comments
                 +rating({
                     stars,
                 })
-                .card-room-information__comments
+                a.card-room-information__comments(href='../room-details/index.html#comments')
                     +text({
                         text: comments,
                         fweight: 'bold',

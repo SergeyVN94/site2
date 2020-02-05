@@ -8,6 +8,9 @@ block page
     body.page-container
         -
             const headerConfig = {
+                logo: {
+                    href: '../landing-page/index.html'
+                },
                 menu: {
                     items: [
                         {text: 'О нас'},
@@ -20,6 +23,7 @@ block page
                                 {text: 'example3'},
                             ],
                         },
+                        {text: 'ui-kit', href: '../ui-kit/index.html'},
                         {text: 'Вакансии'},
                         {text: 'Новости'},
                         {
@@ -33,8 +37,14 @@ block page
                         },
                     ],
                 },
-                btnLoginText: 'войти',
-                btnRegisterText: 'зарегистрироваться',
+                btnLogin: {
+                    text: 'войти',
+                    href: '../sign-in/index.html',
+                },
+                btnRegister: {
+                    text: 'зарегистрироваться',
+                    href: '../registration/index.html',
+                },
             };
 
             const footerConfig = {
@@ -48,7 +58,7 @@ block page
                     {
                         title: 'навигация',
                         items: [
-                            {text: 'О нас', href: ''},
+                            {text: 'О нас', href: '../landing-page/index.html'},
                             {text: 'Новости', href: ''},
                             {text: 'Служба поддержки', href: ''},
                             {text: 'Услуги', href: ''},
@@ -77,9 +87,9 @@ block page
             const copyrightBarConfig = {
                 text: 'Copyright © 2018 Toxin отель. Все права зачищены.',
                 socialButtons: [
-                    {text: 'twitter', href: ''},
-                    {text: 'facebook-square', href: ''},
-                    {text: 'instagram', href: ''},
+                    {text: 'twitter', href: 'https://twitter.com'},
+                    {text: 'facebook-square', href: 'https://ru-ru.facebook.com'},
+                    {text: 'instagram', href: 'https://www.instagram.com'},
                 ],
             };
 

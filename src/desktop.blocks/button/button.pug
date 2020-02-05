@@ -1,16 +1,17 @@
 mixin button(options={})
     -
         const {
-           theme = 'default', 
-           size = null,
-           hsize = null,
-           textColor = null, 
-           classes = [],
-           text = '',
-           disable = false,
-           hidden = false,
-           icon = null,
-           background = null,
+            theme = 'default', 
+            size = null,
+            hsize = null,
+            textColor = null, 
+            classes = [],
+            text = '',
+            disable = false,
+            hidden = false,
+            icon = null,
+            background = null,
+            href = '',
         } = options;
 
         if (theme !== null) classes.push(`button_theme_${theme}`);
@@ -23,6 +24,11 @@ mixin button(options={})
 
     -const classList = classes.join(' ');
 
-    .button(class=classList) #{text}
-        if icon !== null
-            .button__icon #{icon}
+    if href !== ''
+        a.button(class=classList, href=href) #{text}
+            if icon !== null
+                .button__icon #{icon}
+    else
+        .button(class=classList) #{text}
+            if icon !== null
+                .button__icon #{icon}

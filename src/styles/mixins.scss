@@ -5,6 +5,22 @@
   text-decoration: none;
 }
 
+@mixin reset-link($visited-color: #000) {
+  text-decoration: none;
+
+  &:active,
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    outline: none;
+  }
+
+  &:visited {
+    color: $visited-color;
+    text-decoration: none;
+  }
+}
+
 @mixin no-select {
   user-select: none;
 }

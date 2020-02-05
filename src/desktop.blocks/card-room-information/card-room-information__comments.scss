@@ -1,6 +1,12 @@
 .card-room-information__comments {
+  @include reset-link;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: baseline;
+
+  &:hover,
+  &:active {
+    text-decoration: underline $color-dark-25;
+  }
 }

@@ -17,7 +17,9 @@ mixin footer(options={})
             .footer__container-content
                 .footer__site-description
                     .footer__logo
-                        +logo()
+                        +logo({
+                            href: '../landing-page/index.html',
+                        })
                     .footer__description
                         +text({
                             text: siteDescription,
@@ -30,9 +32,9 @@ mixin footer(options={})
                 .footer__subscribe-container
                     -
                         const {
-                           title = '',
-                           description = '',
-                           placeholder = '',
+                            title = '',
+                            description = '',
+                            placeholder = '',
                         } = subscribe;
 
                     .footer__subscribe-title

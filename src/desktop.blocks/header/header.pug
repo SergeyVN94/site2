@@ -4,11 +4,12 @@ include ../button/button.pug
 
 mixin header(options={})
     -
-        const {    
-           menu = {},
-           user = '',
-           btnLoginText = 'login',
-           btnRegisterText = 'register',
+        const {
+            logo = {},
+            menu = {},
+            user = '',
+            btnLogin = {},
+            btnRegister = {},
         } = options;
 
     header.header.js-header
@@ -16,7 +17,7 @@ mixin header(options={})
             .header__container-content
                 .header__head
                     .header__logo
-                        +logo()
+                        +logo(logo)
                     .header__menu-mobile-btn
                         +button({
                             classes: [
@@ -38,13 +39,29 @@ mixin header(options={})
                         else
                             .header__login-register
                                 .header__login
-                                    +button({
-                                        text: btnLoginText,
-                                        size: 'sm',
-                                        theme: 'light',
-                                    })
+                                    -
+                                        const {
+                                            text: textLog = 'login',
+                                            href: hrefLog = '',
+                                        } = btnLogin;
+
+                                        const configLogin = {
+                                            text: textLog,
+                                            href: hrefLog,
+                                            size: 'sm',
+                                            theme: 'light',
+                                        }
+                                    +button(configLogin)
                                 .header__register
-                                    +button({
-                                        text: btnRegisterText,
-                                        size: 'sm',
-                                    })
+                                    -
+                                        const {
+                                            text: textReg = 'register',
+                                            href: hrefReg = '',
+                                        } = btnRegister;
+
+                                        const configRegister = {
+                                            text: textReg,
+                                            href: hrefReg,
+                                            size: 'sm',
+                                        }
+                                    +button(configRegister)

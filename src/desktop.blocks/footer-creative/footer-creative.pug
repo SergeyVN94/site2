@@ -5,25 +5,28 @@ include ../button/button.pug
 mixin footer-creative(options={})
     -
         const {
-           siteDescription = '',
-           socialButtons,
+            siteDescription = '',
+            socialButtons,
         } = options;
 
     .footer-creative
         .container-content
             .footer-creative__container-content
                 .footer-creative__logo
-                    +logo()
+                    +logo({
+                        href: '../landing-page/index.html',
+                    })
                 .footer-creative__site-description
                     +text({
                         text: siteDescription,
                     })
                 .footer-creative__social-buttons
                     for button in socialButtons
-                        -const {
-                        -   text = '',
-                        -   href = '',
-                        -} = button;
+                        -
+                            const {
+                                text = '',
+                                href = '',
+                            } = button;
 
                         .footer-creative__social-button
                             +button({

@@ -3,6 +3,7 @@
 @import './logo__text.scss';
 
 .logo {
+  @include reset-link;
   display: flex;
   align-items: center;
   flex-wrap: nowrap;

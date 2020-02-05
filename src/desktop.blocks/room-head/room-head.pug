@@ -3,10 +3,11 @@ include ../text/text.pug
 mixin room-head(options={})
     -
         const {
-           roomNumber = 0,
-           roomNumberSize = 'h1',
-           roomPrice = 0,
-           luxury = false,
+            roomNumber = 0,
+            roomNumberSize = 'h1',
+            roomPrice = 0,
+            luxury = false,
+            href = '',
         } = options;
 
         let price = String(roomPrice);
@@ -21,7 +22,7 @@ mixin room-head(options={})
         const roomPriceRes = `${price}₽`;
 
     .room-head
-        .room-head__room-number
+        a.room-head__room-number(href=href)
             +text({
                 text: '№ ',
                 fweight: 'bold',

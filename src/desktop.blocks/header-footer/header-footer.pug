@@ -29,10 +29,22 @@ mixin header-footer()
         .header-footer__header
             +header({
                 menu,
+                logo: {
+                    href: '../landing-page/index.html'
+                },
+                btnLogin: {
+                    href: '../sign-in/index.html',
+                },
+                btnRegister: {
+                    href: '../registration/index.html',
+                },
             })
         .header-footer__header
             +header({
                 menu,
+                logo: {
+                    href: '../landing-page/index.html'
+                },
                 user: 'Cosmin Negoita',
             })
         .header-footer__footer
@@ -76,17 +88,17 @@ mixin header-footer()
             +copyright-bar({
                 text: 'Copyright © 2018 Toxin UI Kit. All rights reserved.',
                 socialButtons: [
-                    {text: 'twitter', href: ''},
-                    {text: 'facebook-square', href: ''},
-                    {text: 'instagram', href: ''},
+                    {text: 'twitter', href: 'https://twitter.com'},
+                    {text: 'facebook-square', href: 'https://ru-ru.facebook.com'},
+                    {text: 'instagram', href: 'https://www.instagram.com'},
                 ],
             })
         .header-footer__footer
             +footer-creative({
                 siteDescription: 'Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.',
                 socialButtons: [
-                    {text: 'twitter', href: ''},
-                    {text: 'facebook-square', href: ''},
-                    {text: 'instagram', href: ''},
+                    {text: 'twitter', href: 'https://twitter.com'},
+                    {text: 'facebook-square', href: 'https://ru-ru.facebook.com'},
+                    {text: 'instagram', href: 'https://www.instagram.com'},
                 ],
             })
