@@ -3,6 +3,8 @@
 
   .like-button__icon {
     background: $color-purple;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   .like-button__counter {
     color: $color-purple;
