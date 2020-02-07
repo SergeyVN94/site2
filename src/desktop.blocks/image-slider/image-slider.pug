@@ -7,16 +7,27 @@ mixin image-slider(options={})
     .image-slider.js-image-slider(data-selected-image=0)
         .image-slider__container
             -for(let i = 0; i < images.length; i += 1) {
-                -const {
-                -   src = '',
-                -   alt = '',
-                -} = images[i];
+                -
+                    const {
+                        src = '',
+                        alt = '',
+                    } = images[i];
 
-                if i === 0
-                    img.image-slider__image.js-image-slider__image.image-slider__image_selected(src=src, alt=alt)
-                else
-                    img.image-slider__image.js-image-slider__image(src=src, alt=alt)
+                    const imgClasses = [
+                        'image-slider__image',
+                        'js-image-slider__image',
+                    ];
+
+                    if(i === 0) {
+                        imgClasses.push('image-slider__image_selected');
+                    }
+
+                    const imgClassesStr = imgClasses.join(' ');
+
+                img(src=src, alt=alt, class = imgClassesStr)
             -}
+
+            .image-slider__image_index-item.js-image-slider__image_index-item 0
 
             .image-slider__items
                 .image-slider__item.js-image-slider__item.image-slider__item_theme_selected

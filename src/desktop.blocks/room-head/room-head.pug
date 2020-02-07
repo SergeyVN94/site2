@@ -22,7 +22,7 @@ mixin room-head(options={})
         const roomPriceRes = `${price}₽`;
 
     .room-head
-        a.room-head__room-number(href=href)
+        a.room-head__room-number(href=href, tabindex='-1')
             +text({
                 text: '№ ',
                 fweight: 'bold',

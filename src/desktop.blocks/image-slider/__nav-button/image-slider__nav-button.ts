@@ -53,6 +53,7 @@ const clickHandler = function sliderClickEventHandler(
         }
     }
 
+    $slider.find(`.${CLASSES.INDEX_ITEM}`).text(indexImage);
     $slider.attr('data-selected-image', indexImage);
 
     $images

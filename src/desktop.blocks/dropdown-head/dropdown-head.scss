@@ -10,6 +10,11 @@
   box-sizing: border-box;
   border-radius: 0.2857rem;
   color: $color-dark-75;
+  cursor: pointer;
+
+  &:hover {
+    border-color: $color-dark-50;
+  }
 }
 
 @import './_theme/dropdown-head_theme_expanded.scss';

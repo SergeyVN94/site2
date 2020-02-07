@@ -21,3 +21,15 @@ $size: 1.4286rem;
   > .input-radio__input-indicator {
   display: block;
 }
+
+.input-radio__input:hover + .input-radio__new-input {
+  box-shadow: 0px 0px 10px $color-purple;
+}
+
+.input-radio__input:active + .input-radio__new-input {
+  box-shadow: 0px 0px 5px $color-dark-50;
+}
+
+.input-radio__input:focus + .input-radio__new-input {
+  border-color: $color-dark-50;
+}

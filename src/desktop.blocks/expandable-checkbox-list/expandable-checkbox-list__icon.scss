@@ -16,4 +16,13 @@ $size: 3.1429rem;
   line-height: 1.7143rem;
   color: $color-dark-75;
   cursor: pointer;
+
+  &:hover,
+  &:active {
+    color: $color-purple;
+  }
+
+  &:active {
+    font-size: 2rem;
+  }
 }

@@ -1,3 +1,9 @@
 .button_disable {
   opacity: 0.5;
+
+  &:hover,
+  &:focus {
+    box-shadow: none;
+    text-shadow: none;
+  }
 }

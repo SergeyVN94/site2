@@ -11,7 +11,7 @@ $size: 3.1429rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+  color: $color-gradient-1;
   background: $color-gradient-1;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -23,4 +23,13 @@ $size: 3.1429rem;
   position: absolute;
   right: 0;
   top: 0;
+  cursor: pointer;
+
+  &:hover {
+    text-shadow: 0px 0px 10px $color-purple;
+  }
+
+  &:active {
+    text-shadow: 0px 0px 10px $color-dark-50;
+  }
 }

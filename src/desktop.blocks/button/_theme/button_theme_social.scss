@@ -10,4 +10,22 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
   padding: 0;
+
+  &:hover {
+    opacity: 0.86;
+  }
+
+  &:active {
+    background: $color-purple;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 1;
+  }
+
+  &:focus {
+    background: $color-dark-50;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 1;
+  }
 }

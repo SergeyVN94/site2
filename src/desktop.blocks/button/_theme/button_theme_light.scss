@@ -10,4 +10,20 @@
   color: $color-purple;
   text-transform: uppercase;
   padding: 0rem 1.2857rem;
+
+  &:visited {
+    color: $color-purple;
+  }
+
+  &:hover {
+    box-shadow: 0px 0px 10px $color-purple;
+  }
+
+  &:active {
+    box-shadow: 0px 0px 10px $color-dark-50;
+  }
+
+  &:focus {
+    box-shadow: 0px 0px 10px $color-dark-50;
+  }
 }

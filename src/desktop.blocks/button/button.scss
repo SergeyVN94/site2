@@ -1,6 +1,7 @@
 .button {
   @include reset-css;
   @include no-select;
+  @include reset-link(#fff);
   height: 100%;
   max-height: 3.1429rem;
   display: inline-block;
@@ -31,8 +32,15 @@
 @import './button_hidden.scss';
 
 @import './button_text-color_dark-50.scss';
-@import './button_background_gradient-green.scss';
+
+@import './_hover-theme/button_hover-theme_gradient-1.scss';
+@import './_hover-theme/button_hover-theme_gradient-2.scss';
+
+@import './_background/button_background_gradient-1.scss';
+@import './_background/button_background_gradient-2.scss';
+@import './_background/button_background_none.scss';
 
 @import './button__icon.scss';
 @import './button_size_sm.scss';
 @import './button_hsize_big.scss';
+@import './button_fweight_bold.scss';

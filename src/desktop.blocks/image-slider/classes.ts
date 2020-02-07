@@ -7,6 +7,7 @@ const CLASSES = {
     NAV_BTN: 'js-image-slider__nav-button',
     BTN_PREV: 'js-image-slider__nav-button-prev',
     BTN_NEXT: 'js-image-slider__nav-button-next',
+    INDEX_ITEM: 'js-image-slider__image_index-item',
 };
 
 export default CLASSES;

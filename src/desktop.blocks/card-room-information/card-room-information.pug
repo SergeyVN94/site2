@@ -32,7 +32,7 @@ mixin card-room-information(options={})
                 +rating({
                     stars,
                 })
-                a.card-room-information__comments(href='../room-details/index.html#comments')
+                a.card-room-information__comments(href='../room-details/index.html#comments', tabindex='-1')
                     +text({
                         text: comments,
                         fweight: 'bold',
