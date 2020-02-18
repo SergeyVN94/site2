@@ -41,10 +41,12 @@ mixin card-account-registration()
                     +text-field({
                         title: 'данные для входа в сервис',
                         placeholder: 'Email',
+                        type: 'email',
                     })
                 .card-account-registration__password
                     +input-text({
                         placeholder: 'Пароль',
+                        type: 'password',
                     })
                 .card-account-registration__special-offers
                     +toggle-button({

@@ -35,6 +35,7 @@ mixin footer(options={})
                             title = '',
                             description = '',
                             placeholder = '',
+                            type = '',
                         } = subscribe;
 
                     .footer__subscribe-title
@@ -48,6 +49,7 @@ mixin footer(options={})
                         })
                     .footer__subscribe-text-field
                         +text-field({
+                            type,
                             placeholder,
                             iconRight: 'arrow_forward',
                         })
