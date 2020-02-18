@@ -14,6 +14,8 @@ mixin button(options={})
             fweight = null,
             hoverTheme = null,
             href = '',
+            target = '',
+            rel = '',
         } = options;
 
         if (theme !== null) classes.push(`button_theme_${theme}`);
@@ -29,7 +31,7 @@ mixin button(options={})
     -const classList = classes.join(' ');
 
     if href !== ''
-        a.button(class=classList, href=href) #{text}
+        a.button(class=classList, href=href, target=target, rel=rel) #{text}
             if icon !== null
                 .button__icon #{icon}
     else
