@@ -1,1 +1,3 @@
-import '../../desktop.blocks/index';
+import importAll from '../import';
+
+importAll();

@@ -41,6 +41,16 @@ const rules = [
                 },
             },
             'sass-loader',
+            {
+                loader: 'sass-resources-loader',
+                options: {
+                    resources: [
+                        `${PATHS.src}/styles/colors.scss`,
+                        `${PATHS.src}/styles/mixins.scss`,
+                        `${PATHS.src}/styles/breakpoints.scss`,
+                    ],
+                },
+            },
         ],
     },
     {
@@ -113,7 +123,6 @@ module.exports = [
             ],
             entry: {
                 [`index`]: `./pages/${page}/index.ts`,
-                [`index-style`]: `./pages/${page}/index.scss`,
             },
             output: {
                 path: `${PATHS.build}/${page}`,
