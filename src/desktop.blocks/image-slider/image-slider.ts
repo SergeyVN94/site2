@@ -1,1 +1,1 @@
-import './__nav-button/image-slider__nav-button';
+import './image-slider__nav-button';

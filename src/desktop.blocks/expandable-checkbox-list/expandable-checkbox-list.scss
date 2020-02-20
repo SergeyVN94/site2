@@ -1,10 +1,60 @@
-@import './checkbox-list-expend__head.scss';
-@import './expandable-checkbox-list__icon.scss';
-@import './expandable-checkbox-list__body.scss';
-@import './expandable-checkbox-list__checkbox.scss';
-@import './expandable-checkbox-list_expanded.scss';
-
 .expandable-checkbox-list {
   width: 100%;
   max-width: 266px;
+}
+
+.expandable-checkbox-list_expanded {
+  .expandable-checkbox-list__body {
+    display: block;
+  }
+
+  .expandable-checkbox-list__icon {
+    transform: rotate(180deg);
+    padding: 0rem 0rem 0.1429rem 0.1429rem;
+  }
+}
+
+.expandable-checkbox-list__head {
+  height: 3.1429rem;
+  margin-bottom: 0.1429rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.expandable-checkbox-list__body {
+  display: none;
+}
+
+.expandable-checkbox-list__checkbox:not(:last-child) {
+  margin-bottom: 0.7143rem;
+}
+
+.expandable-checkbox-list__icon {
+  @include reset-css;
+  @include no-select;
+  width: 3.1429rem;
+  height: 3.1429rem;
+  min-width: 3.1429rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Material Icons;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.7143rem;
+  line-height: 1.7143rem;
+  color: $color-dark-75;
+  cursor: pointer;
+
+  &:hover,
+  &:active {
+    color: $color-purple;
+  }
+
+  &:active {
+    font-size: 2rem;
+  }
 }

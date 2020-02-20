@@ -1,9 +1,28 @@
-@import './hotel-rooms__title.scss';
-@import './hotel-rooms__body.scss';
-@import './hotel-rooms__room-information.scss';
-@import './hotel-rooms__pagination.scss';
-
 .hotel-rooms {
   @include reset-css;
   width: 100%;
+}
+
+.hotel-rooms__body {
+  @include reset-css;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.hotel-rooms__pagination {
+  margin-top: 2.8571rem;
+  padding-right: 1.1429rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.hotel-rooms__room-information {
+  margin-top: 1.2857rem;
+}
+
+.hotel-rooms__title {
+  margin-bottom: 0.1429rem;
 }

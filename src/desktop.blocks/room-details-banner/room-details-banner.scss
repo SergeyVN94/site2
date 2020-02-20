@@ -1,9 +1,3 @@
-@import './room-details-banner__main-img-container.scss';
-@import './room-details-banner__main-img.scss';
-@import './room-details-banner__img-column.scss';
-@import './room-details-banner__img-item-container.scss';
-@import './room-details-banner__img-item.scss';
-
 .room-details-banner {
   width: 100%;
   display: flex;
@@ -13,4 +7,40 @@
   @media (max-width: $breakpoint3) {
     flex-direction: column;
   }
+}
+
+.room-details-banner__img-column {
+  width: 32%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: $breakpoint3) {
+    width: 100%;
+  }
+}
+
+.room-details-banner__img-item-container {
+  height: 50%;
+
+  @media (max-width: $breakpoint3) {
+    height: auto;
+  }
+}
+
+.room-details-banner__img-item {
+  width: 100%;
+}
+
+.room-details-banner__main-img-container {
+  width: 68%;
+
+  @media (max-width: $breakpoint3) {
+    width: 100%;
+  }
+}
+
+.room-details-banner__main-img {
+  width: 100%;
+  height: 100%;
 }

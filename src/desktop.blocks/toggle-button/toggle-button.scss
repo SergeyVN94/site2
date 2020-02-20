@@ -1,8 +1,10 @@
-@import './toggle-input__text.scss';
-
 .toggle-button {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
+}
+
+.toggle-input__text {
+  margin-left: 0.7143rem;
 }

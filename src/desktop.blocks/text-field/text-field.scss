@@ -1,6 +1,8 @@
-@import './text-field__block-head.scss';
-
 .text-field {
   @include reset-css;
   width: 100%;
+}
+
+.text-field__block-head {
+  margin-bottom: 0.2857rem;
 }

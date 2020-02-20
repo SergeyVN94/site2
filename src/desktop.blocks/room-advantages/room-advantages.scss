@@ -1,2 +1,9 @@
-@import './room-advantages__head.scss';
-@import './room-advantages__room-advantage.scss';
+.room-advantages__head {
+  margin-bottom: 1.3571rem;
+}
+
+.room-advantages__room-advantage {
+  &:not(:last-child) {
+    margin-bottom: 1.6429rem;
+  }
+}

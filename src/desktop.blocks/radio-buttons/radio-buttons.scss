@@ -1,3 +1,13 @@
-@import './radio-buttons__head.scss';
-@import './radio-buttons__container.scss';
-@import './radio-buttons__button.scss';
+.radio-buttons__button:not(:last-child) {
+  margin-right: 1.4286rem;
+}
+
+.radio-buttons__container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.radio-buttons__head {
+  margin-bottom: 1.1429rem;
+}

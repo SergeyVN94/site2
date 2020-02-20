@@ -1,6 +1,18 @@
-@import './checkbox-button__container.scss';
-@import './checkbox-button__text.scss';
-
 .checkbox-button {
   @include reset-css;
+}
+
+.checkbox-button__text {
+  margin-left: 0.7143rem;
+  word-break: normal;
+  width: 100%;
+  max-width: 200px;
+}
+
+.checkbox-button__container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  min-width: 320px;
 }

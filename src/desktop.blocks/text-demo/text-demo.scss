@@ -1,6 +1,7 @@
-@import './text-demo__item.scss';
-@import '../text-demo-item/text-demo-item.scss';
-
 .text-demo {
   width: auto;
+}
+
+.text-demo__item:not(:last-child) {
+  margin-bottom: 3.5714rem;
 }

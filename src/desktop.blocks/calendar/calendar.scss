@@ -1,17 +1,3 @@
-@import './calendar__date-navigation.scss';
-@import './__btn-change-month/calendar__btn-change-month.scss';
-@import './calendar__weekday-names.scss';
-@import './calendar__weekday-name.scss';
-@import './calendar__days-container.scss';
-@import './__day-week/calendar__day-week.scss';
-@import './__day-week/calendar__day-week_theme_another-month.scss';
-@import './__day-week/calendar__day-week_theme_today.scss';
-@import './calendar__btn-control.scss';
-@import './__day-week/calendar__day-week_theme_range-day.scss';
-@import './__day-week/calendar__day-week_theme_range-day-middle.scss';
-@import './__day-week/calendar__day-week_range-day-start.scss';
-@import './__day-week/calendar__day-week_range-day-end.scss';
-
 .calendar {
   @include reset-css;
   @include no-select;
@@ -23,4 +9,148 @@
   box-sizing: border-box;
   box-shadow: 0rem 0.7143rem 1.4286rem $color-dark-5;
   border-radius: 0.2857rem;
+}
+
+.calendar__btn-change-month {
+  width: 1.7143rem;
+  height: 1.7143rem;
+  font-family: Material Icons;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.7143rem;
+  line-height: 1.7143rem;
+  text-align: center;
+  color: $color-purple;
+  cursor: pointer;
+
+  &:hover {
+    text-shadow: 0px 0px 2px $color-purple;
+  }
+}
+
+.calendar__btn-control {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.calendar__date-navigation {
+  margin-bottom: 2.0714rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calendar__days-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 1.4286rem;
+}
+
+.calendar__day-week {
+  @include reset-css;
+  width: 100%;
+  max-width: (100% / 7);
+  height: 2.8571rem;
+  line-height: 2.8571rem;
+  text-align: center;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.8571rem;
+  color: $color-dark-50;
+  cursor: pointer;
+}
+
+.calendar__day-week_range-day-end {
+  position: relative;
+  z-index: 1;
+
+  &::after {
+    content: '';
+    left: 0;
+    top: 0;
+    z-index: -1;
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    display: block;
+    background: $color-gradient-1;
+    opacity: 0.25;
+  }
+}
+
+.calendar__day-week_range-day-start {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+
+  &::after {
+    content: '';
+    right: 0;
+    top: 0;
+    z-index: -1;
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    display: block;
+    background: $color-gradient-1;
+    opacity: 0.25;
+  }
+}
+
+.calendar__day-week_theme_another-month {
+  color: $color-dark-25;
+}
+
+.calendar__day-week_theme_range-day-middle {
+  position: relative;
+  z-index: 2;
+
+  &::after {
+    content: '';
+    left: 0;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: block;
+    background: $color-gradient-1;
+    opacity: 0.25;
+  }
+}
+
+.calendar__day-week_theme_range-day {
+  background: $color-gradient-1;
+  border-radius: 1.5714rem;
+  color: #fff;
+  font-weight: bold;
+}
+
+.calendar__day-week_theme_today {
+  background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+  border-radius: 50%;
+  font-weight: bold;
+  color: #fff;
+}
+
+.calendar__weekday-name {
+  @include reset-css;
+  height: 2.8571rem;
+  width: 100%;
+  max-width: 2.8571rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar__weekday-names {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }

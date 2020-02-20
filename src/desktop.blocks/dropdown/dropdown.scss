@@ -1,9 +1,33 @@
-@import './dropdown__block-head.scss';
-@import './dropdown__body.scss';
-@import './dropdown_expanded.scss';
-@import './dropdown__content.scss';
-
 .dropdown {
   @include reset-css;
   width: 100%;
+}
+
+.dropdown_expanded {
+  .dropdown__body {
+    display: block;
+  }
+}
+
+.dropdown__block-head {
+  margin-bottom: 0.2857rem;
+}
+
+.dropdown__body {
+  position: relative;
+  display: none;
+}
+
+.dropdown__content {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  background: #fff;
+  border: 0.0714rem solid $color-dark-50;
+  border-top: 0;
+  box-sizing: border-box;
+  box-shadow: 0rem 0.7143rem 1.4286rem $color-dark-5;
+  border-radius: 0rem 0rem 0.2857rem 0.2857rem;
 }

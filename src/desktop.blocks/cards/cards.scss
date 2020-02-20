@@ -1,8 +1,42 @@
-@import './cards__column.scss';
-@import './cards__item.scss';
-@import './cards__container-content.scss';
-
 .cards {
   padding-top: 150px;
   background-color: $color-gray;
+}
+
+.cards__column {
+  display: flex;
+  flex-direction: column;
+  max-width: 380px;
+  align-items: center;
+
+  @media (max-width: $breakpoint3) {
+    flex-direction: column;
+  }
+
+  @media (max-width: 380px) {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+.cards__container-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  @media (max-width: 1100px) {
+    justify-content: space-around;
+  }
+
+  @media (max-width: $breakpoint3) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.cards__item {
+  @include reset-css;
+  margin-bottom: 2.8571rem;
+  width: 100%;
 }

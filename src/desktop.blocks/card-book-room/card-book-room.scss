@@ -1,5 +1,23 @@
-@import './card-book-room__head.scss';
-@import './card-book-room__date-range.scss';
-@import './card-book-room__dropdown-guest.scss';
-@import './card-book-room__receipt.scss';
-@import './card-book-room__booking-button.scss';
+.card-book-room__booking-button {
+  width: 100%;
+}
+
+.card-book-room__date-range {
+  margin-bottom: 1.5714rem;
+  width: 100%;
+}
+
+.card-book-room__dropdown-guest {
+  margin-bottom: 1.5714rem;
+  width: 100%;
+}
+
+.card-book-room__head {
+  margin-bottom: 1.4286rem;
+  width: 100%;
+}
+
+.card-book-room__receipt {
+  margin-bottom: 1.3571rem;
+  width: 100%;
+}

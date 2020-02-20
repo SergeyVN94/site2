@@ -6,43 +6,151 @@
   color: $color-dark-100;
 }
 
-@import "./_theme/text_theme_h1.scss";
-@import "./_theme/text_theme_h2.scss";
-@import "./_theme/text_theme_h3.scss";
-@import "./_theme/text_theme_body.scss";
+.text_theme_h1 {
+  font-size: 1.7143rem;
+  line-height: 2.1429rem;
+}
 
-@import "./_fweight/text_fweight_normal.scss";
-@import "./_fweight/text_fweight_bold.scss";
+.text_theme_h2 {
+  font-size: 1.3571rem;
+  line-height: 1.7143rem;
+}
 
-@import "./_color/text_color_purple.scss";
-@import "./_color/text_color_dark-50.scss";
-@import "./_color/text_color_dark-75.scss";
-@import "./_color/text_color_dark-25.scss";
-@import "./_color/text_color_dark-5.scss";
-@import './_color/text_color_black.scss';
-@import './_color/text_color_dark-100.scss';
-@import './_color/text_color_gradient-1.scss';
-@import './_color/text_color_gradient-2.scss';
-@import './_color/text_color_gradient-3.scss';
-@import './_color/text_color_gradient-4.scss';
+.text_theme_h3 {
+  font-family: Montserrat;
+  font-size: 0.8571rem;
+  line-height: 1.0714rem;
+  text-transform: uppercase;
+}
 
-@import './_lheight/text_lheight_small.scss';
-@import './_lheight/text_lheight_middle-1.scss';
-@import './_lheight/text_lheight_middle.scss';
-@import './_lheight/text_lheight_big.scss';
-@import './_lheight/text_lheight_middle-2.scss';
+.text_theme_body {
+  font-family: Montserrat;
+  font-weight: normal;
+  font-size: 1rem;
+  line-height: 1.7143rem;
+  color: $color-dark-75;
+}
 
-@import './_wspace/text_wspace_nowrap.scss';
-@import './_wspace/text_wspace_pre.scss';
+.text_wspace_nowrap {
+  white-space: nowrap;
+}
 
-@import './_horizontal/text_horizontal_middle.scss';
-@import './_horizontal/text_horizontal_right.scss';
+.text_wspace_pre {
+  white-space: pre;
+}
 
-@import './_ttransform/text_ttransform_uppercase.scss';
-@import './_ttransform/text_ttransform_none.scss';
+.text_ttransform_none {
+  text-transform: none;
+}
 
-@import './text_no-select.scss';
-@import './text_vertical-middle.scss';
-@import './text_fsize_small.scss';
-@import './text_fname_montserrat.scss';
-@import './text_wbreak_break-all.scss';
+.text_uppercase {
+  text-transform: uppercase;
+}
+
+.text_lheight_big {
+  line-height: 2.1429rem;
+}
+
+.text_lheight_middle-1 {
+  line-height: 1.4286rem;
+}
+
+.text_lheight_middle-2 {
+  line-height: 1.2857rem;
+}
+
+.text_lheight_middle {
+  line-height: 1.7143rem;
+}
+
+.text_lheight_small {
+  line-height: 1.0714rem;
+}
+
+.text_horizontal_middle {
+  width: 100%;
+  text-align: center;
+}
+
+.text_horizontal_right {
+  text-align: right;
+}
+
+.text_fweight_bold {
+  font-weight: bold;
+}
+
+.text_fweight_normal {
+  font-weight: normal;
+}
+
+.text_color_black {
+  color: #000000;
+}
+
+.text_color_dark-100 {
+  color: $color-dark-100;
+}
+
+.text_color_dark-25 {
+  color: $color-dark-25;
+}
+
+.text_color_dark-50 {
+  color: $color-dark-50;
+}
+
+.text_color_dark-5 {
+  color: $color-dark-5;
+}
+
+.text_color_dark-75 {
+  color: $color-dark-75;
+}
+
+.text_color_gradient-1 {
+  color: $color-gradient-1;
+}
+
+.text_color_gradient-2 {
+  color: $color-gradient-2;
+}
+
+.text_color_gradient-3 {
+  color: $color-gradient-3;
+}
+
+.text_color_gradient-4 {
+  color: $color-gradient-4;
+}
+
+.text_color_purple {
+  color: $color-purple;
+}
+
+.text_fname_montserrat {
+  font-family: Montserrat;
+}
+
+.text_fsize_small {
+  font-size: 0.8571rem;
+}
+
+.text_no-select {
+  @include no-select;
+}
+
+.text_vertical-middle {
+  vertical-align: middle;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+}
+
+.text_wbreak_break-all {
+  word-break: break-all;
+}

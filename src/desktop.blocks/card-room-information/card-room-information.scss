@@ -1,12 +1,42 @@
-@import './card-room-information__image-slider.scss';
-@import './card-room-information__body.scss';
-@import './card-room-information__head.scss';
-@import './card-room-information__rating-comments.scss';
-@import './card-room-information__comments.scss';
-
 .card-room-information {
   width: 270px;
   background: #fff;
   box-shadow: 0rem 0.7143rem 1.4286rem $color-dark-5;
   border-radius: 0.2857rem;
+}
+
+.card-room-information__body {
+  padding: 1.4286rem 1.2143rem 1.4286rem 1.4286rem;
+}
+
+.card-room-information__comments {
+  @include reset-link;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: baseline;
+
+  &:hover,
+  &:active {
+    text-decoration: underline $color-dark-25;
+  }
+}
+
+.card-room-information__head {
+  padding-bottom: 0.5rem;
+  border-bottom: 0.0714rem solid $color-dark-10;
+}
+
+.card-room-information__image-slider {
+  height: 151px; 
+  border-radius: 0.2857rem 0.2857rem 0rem 0rem;
+}
+
+.card-room-information__rating-comments {
+  padding: 0.5714rem 0.2143rem 0rem 0rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  align-items: baseline;
 }

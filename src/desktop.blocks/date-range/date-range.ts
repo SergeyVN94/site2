@@ -1,7 +1,7 @@
 import * as $ from 'jquery';
 
 import CLASSES from './classes';
-import './__dropdown/date-range__dropdown';
+import './date-range__dropdown';
 import { dateToString } from './lib';
 
 const DEFAULT_DATE_TEXT = 'ДД.ММ.ГГГГ';

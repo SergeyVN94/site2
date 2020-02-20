@@ -1,3 +1,12 @@
-@import './rating-buttons__head.scss';
-@import './rating-buttons__container.scss';
-@import './rating-buttons__rating.scss';
+.rating-buttons__container {
+  display: flex;
+  flex-direction: row;
+}
+
+.rating-buttons__head {
+  margin-bottom: 1.0714rem;
+}
+
+.rating-buttons__rating:not(:last-child) {
+  margin-right: 1.4286rem;
+}

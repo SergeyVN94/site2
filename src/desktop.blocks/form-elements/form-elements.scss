@@ -1,9 +1,58 @@
-@import './form-elements__container-content.scss';
-@import './form-elements__item.scss';
-@import './form-elements__column.scss';
-@import './form-elements__row.scss';
-@import './form-elements__comment.scss';
-
 .form-elements {
     width: 100%;
+}
+
+.form-elements__column {
+  display: flex;
+  flex-direction: column;
+
+  &:not(:last-child) {
+    margin-right: 0.7143rem;
+  }
+
+  @media (max-width: $breakpoint3) {
+    width: 100%;
+    margin-right: 0rem;
+  }
+}
+
+.form-elements__comment {
+  max-width: 63%;
+
+  @media (max-width: $breakpoint3) {
+    max-width: 100%;
+  }
+}
+
+.form-elements__container-content {
+  display: flex;
+  flex-direction: column;
+  padding-top: 140px;
+
+  @media (max-width: $breakpoint1) {
+    padding-top: 5rem;
+  }
+
+  @media (max-width: $breakpoint3) {
+    padding-top: 1.4286rem;
+  }
+}
+
+.form-elements__item {
+  margin-bottom: 1.4286rem;
+  min-width: 320px;
+
+  @media (max-width: 400px) {
+    min-width: auto;
+  }
+}
+
+.form-elements__row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  &:not(:last-child) {
+    margin-bottom: 7.1429rem;
+  }
 }

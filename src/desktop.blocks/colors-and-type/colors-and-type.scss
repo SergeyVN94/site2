@@ -1,12 +1,30 @@
-@import "../colors-demo/colors-demo.scss";
-@import "../text-demo/text-demo.scss";
-
-@import "./colors-and-type__container-content.scss";
-@import "./colors-and-type__text-demo.scss";
-
 .colors-and-type {
   width: 100%;
   background-color: #fff;
   justify-content: space-around;
   display: flex;
+}
+
+.colors-and-type__container-content {
+  @include reset-css;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 4.7857rem 3.8571rem 0rem 0.7143rem;
+  margin: 0 auto;
+
+  @media (max-width: $breakpoint2) {
+    padding: 4.7857rem 0rem 0rem 0rem;
+  }
+
+  @media (max-width: $breakpoint3) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.colors-and-type__text-demo {
+  @media (max-width: $breakpoint3) {
+    margin-top: 2.8571rem;
+  }  
 }

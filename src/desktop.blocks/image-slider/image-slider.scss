@@ -1,14 +1,3 @@
-@import './image-slider__container.scss';
-@import './__image/image-slider__image.scss';
-@import './__image/image-slider__image_selected.scss';
-@import './image-slider__items.scss';
-@import './__item/image-slider__item.scss';
-@import './__item/image-slider__item_theme_selected.scss';
-@import './__nav-button/image-slider__nav-button.scss';
-@import './__nav-button/image-slider__nav-button_right.scss';
-@import './__nav-button-icon/image-slider__nav-button-icon.scss';
-@import './image-slider__image_index-item.scss';
-
 .image-slider{
   width: 100%;
   max-height: 100%;
@@ -18,4 +7,93 @@
       display: flex;
     }
   }
+}
+
+.image-slider__container {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.image-slider__items {
+  position: absolute;
+  right: 1.0714rem;
+  bottom: 1.0714rem;
+  z-index: 1000;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.image-slider__nav-button-icon {
+  font-family: Material Icons;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.7143rem;
+  color: #fff;
+  transform: rotate(90deg);
+}
+
+.image-slider__nav-button {
+  @include reset-css;
+  @include no-select;
+  position: absolute;
+  top: 0;
+  width: 3rem;
+  height: 100%;
+  z-index: 999;
+  border-radius: 0.2857rem 0rem 0rem 0rem;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
+  cursor: pointer;
+}
+
+.image-slider__nav-button_right {
+  right: 0;
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+
+.image-slider__item {
+  @include reset-css;
+  width: 0.5357rem;
+  height: 0.5357rem;
+  border-radius: 50%;
+  border: 0.0714rem solid #ffffff;
+  box-shadow: 0rem 0.3571rem 0.3571rem $color-dark-30;
+
+  &:not(:last-child) {
+    margin-right: 3.75px;
+  }
+}
+
+.image-slider__item_theme_selected {
+  background-color: #fff;
+}
+
+.image-slider__image {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  z-index: -1;
+  display: none;
+}
+
+.image-slider__image_selected {
+  border-radius: 0.2857rem 0.2857rem 0rem 0rem;
+  z-index: 2;
+  display: block;
+}
+
+.image-slider__image_index-item {
+  display: block;
+  position: absolute;
+  left: 40px;
+  top: 20px;
+  color: $color-green;
+  font-size: 2rem;
+  font-weight: bold;
+  z-index: 2;
 }

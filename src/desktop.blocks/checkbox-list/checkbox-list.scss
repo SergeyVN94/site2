@@ -1,2 +1,7 @@
-@import './checkbox-list__head.scss';
-@import './checkbox-list__button.scss';
+.checkbox-list__button:not(:last-child) {
+  margin-bottom: 0.7143rem;
+}
+
+.checkbox-list__head {
+  margin-bottom: 1.2143rem;
+}

@@ -1,7 +1,8 @@
-@import '../color-demo-item/color-demo-item.scss';
-@import './colors-demo__color-demo.scss';
-
 .colors-demo {
   @include reset-css;
   width: auto;
+}
+
+.colors-demo__color-demo:not(:last-child) {
+  margin-bottom: 1.4286rem;
 }

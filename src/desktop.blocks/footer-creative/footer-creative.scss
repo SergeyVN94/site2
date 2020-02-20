@@ -1,11 +1,36 @@
-@import './footer-creative__container-content.scss';
-@import './footer-creative__logo.scss';
-@import './footer-creative__site-description.scss';
-@import './footer-creative__social-buttons.scss';
-@import './footer-creative__social-button.scss';
-
 .footer-creative {
   @include reset-css;
   background: #fff;
   box-shadow: 0rem 0.7143rem 1.4286rem $color-dark-5;
+}
+
+.footer-creative__container-content {
+  @include reset-css;
+  padding: 7.1429rem 0rem 110px 0rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-creative__logo {
+  margin-bottom: 1.2143rem;
+}
+
+.footer-creative__site-description {
+  margin-bottom: 1.9286rem;
+  width: 100%;
+  max-width: 560px;
+  text-align: center;
+}
+
+.footer-creative__social-button {
+  &:not(:last-child) {
+    margin-right: 1.4286rem;
+  }
+}
+
+.footer-creative__social-buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }

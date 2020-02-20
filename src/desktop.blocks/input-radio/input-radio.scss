@@ -1,8 +1,50 @@
-@import './input-radio__input-indicator.scss';
-@import './input-radio__input.scss';
-@import './input-radio__new-input.scss';
-
 .input-radio {
   display: block;
   cursor: pointer;
+}
+
+.input-radio__input-indicator {
+  display: none;
+  width: 0.8571rem;
+  height: 0.8571rem;
+  background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+  border-radius: 0.7143rem;
+}
+
+.input-radio__input {
+  display: none;
+}
+
+.input-radio__new-input {
+  @include reset-css;
+  display: flex;
+  width: 1.4286rem;
+  height: 1.4286rem;
+  background: #fff;
+  border: 0.0714rem solid $color-dark-25;
+  border-radius: 0.7143rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-radio__input:checked + .input-radio__new-input {
+  border-color: $color-purple;
+}
+
+.input-radio__input:checked
+  + .input-radio__new-input
+  > .input-radio__input-indicator {
+  display: block;
+}
+
+.input-radio__input:hover + .input-radio__new-input {
+  box-shadow: 0px 0px 10px $color-purple;
+}
+
+.input-radio__input:active + .input-radio__new-input {
+  box-shadow: 0px 0px 5px $color-dark-50;
+}
+
+.input-radio__input:focus + .input-radio__new-input {
+  border-color: $color-dark-50;
 }

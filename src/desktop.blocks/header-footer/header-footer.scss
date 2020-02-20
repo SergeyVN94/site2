@@ -1,7 +1,12 @@
-@import './header-footer__header.scss';
-@import './header-footer__copyright-bar.scss';
-
 .header-footer {
   background: #e5e5e5;
   padding: 150px 0;
+}
+
+.header-footer__header {
+  margin-bottom: 2.8571rem;
+}
+
+.header-footer__copyright-bar {
+  margin: 0.0714rem 0rem 2.8571rem 0rem;
 }

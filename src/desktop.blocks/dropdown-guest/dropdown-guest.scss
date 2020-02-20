@@ -3,5 +3,15 @@
   max-width: 100%;
 }
 
-@import './dropdown-guest__counter.scss';
-@import './dropdown-guest__btn-container.scss';
+.dropdown-guest__counter {
+  padding: 0.5rem 0.5rem 0rem 1.0714rem;
+}
+
+.dropdown-guest__btn-container {
+  @include reset-css;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding: 1.3571rem 0.5rem 0.9286rem 1.0714rem;
+}

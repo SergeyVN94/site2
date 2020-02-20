@@ -1,9 +1,0 @@
-.form-elements__row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  &:not(:last-child) {
-    margin-bottom: 7.1429rem;
-  }
-}

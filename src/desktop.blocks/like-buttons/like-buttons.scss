@@ -1,3 +1,12 @@
-@import './like-buttons__head.scss';
-@import './like-buttons__container.scss';
-@import './like-buttons__button.scss';
+.like-buttons__button:not(:last-child) {
+  margin-right: 0.7143rem;
+}
+
+.like-buttons__container {
+  display: flex;
+  flex-direction: row;
+}
+
+.like-buttons__head {
+  margin-bottom: 1.0714rem;
+}

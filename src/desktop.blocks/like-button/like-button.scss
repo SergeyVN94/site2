@@ -1,6 +1,3 @@
-@import './like-button__icon.scss';
-@import './like-button__counter.scss';
-
 .like-button {
   @include reset-css;
   @include no-select;
@@ -25,4 +22,49 @@
   }
 }
 
-@import './like-button_selected.scss';
+.like-button_selected {
+  border-color: $color-purple;
+
+  .like-button__icon {
+    background: $color-purple;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .like-button__counter {
+    color: $color-purple;
+  }
+
+  &:hover {
+    box-shadow: 0px 0px 10px $color-purple;
+  }
+}
+
+.like-button__counter {
+  width: 0.8571rem;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.7143rem;
+  line-height: 1.2143rem;
+  text-align: center;
+  color: $color-dark-25;
+  user-select: none;
+}
+
+.like-button__icon {
+  width: 1.2857rem;
+  height: 1.2857rem;
+  font-family: Material Icons;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.7143rem;
+  line-height: 0.6429rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: $color-dark-25;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}

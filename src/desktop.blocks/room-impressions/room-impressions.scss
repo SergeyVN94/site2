@@ -1,13 +1,82 @@
-@import './room-impressions__head.scss';
-@import './room-impressions__body.scss';
-@import './room-impressions__diagram.scss';
-@import './room-impressions__diagram-image.scss';
-@import './room-impressions__diagram-counter.scss';
-@import './room-impressions__help-list.scss';
-@import './room-impressions__help-item.scss';
-@import './room-impressions__marker-container.scss';
-@import './room-impressions__help-marker.scss';
-@import './room-impressions__help-marker_color_g1.scss';
-@import './room-impressions__help-marker_color_g2.scss';
-@import './room-impressions__help-marker_color_g3.scss';
-@import './room-impressions__help-marker_color_g4.scss';
+.room-impressions__body {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+}
+
+.room-impressions__diagram-counter {
+  @include reset-css;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-top: 2.5rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.room-impressions__diagram-image {
+  transform: rotate(-90deg);
+}
+
+.room-impressions__diagram {
+  @include reset-css;
+  margin-bottom: 0.1429rem;
+  width: 120px;
+  height: 120px;
+  display: block;
+  position: relative;
+}
+
+.room-impressions__head {
+  margin-bottom: 1.4286rem;
+}
+
+.room-impressions__help-item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+}
+
+.room-impressions__help-list {
+  @include reset-css;
+  list-style: none;
+  margin-left: 2.1429rem;
+}
+
+.room-impressions__help-marker_color_g1 {
+  background: $color-gradient-1;
+}
+
+.room-impressions__help-marker_color_g2 {
+  background: $color-gradient-2;
+}
+
+.room-impressions__help-marker_color_g3 {
+  background: $color-gradient-3;
+}
+
+.room-impressions__help-marker_color_g4 {
+  background: $color-gradient-4;
+}
+
+.room-impressions__help-marker {
+  width: 0.7143rem;
+  min-width: 0.7143rem;
+  height: 0.7143rem;
+  display: block;
+  border-radius: 50%;
+}
+
+.room-impressions__marker-container {
+  margin-right: 0.3571rem;
+  width: 0.7143rem;
+  min-width: 0.7143rem;
+  height: 1.7143rem;
+  display: flex;
+  align-items: center;
+}

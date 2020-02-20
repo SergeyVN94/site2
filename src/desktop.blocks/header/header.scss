@@ -1,15 +1,105 @@
-@import './header__container-content.scss';
-@import './header__head.scss';
-@import './header__logo.scss';
-@import './__menu-mobile-btn/header__menu-mobile-btn.scss';
-@import './header__nav-container.scss';
-@import './header__personal-area.scss';
-@import './header__login.scss';
-@import './header__login-register.scss';
-@import './header__user-name.scss';
-@import './header_extended.scss';
-
 .header {
   background-color: #fff;
   box-shadow: 0rem 0.7143rem 1.4286rem $color-dark-5;
+}
+
+.header_extended {
+  .header__nav-container {
+    display: block;
+  }
+}
+
+.header__container-content {
+  @include reset-css;
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+
+  @media (max-width: $breakpoint2) {
+    padding-left: 0.7143rem;
+    flex: auto;
+    flex-direction: column;
+    height: auto;
+  }
+}
+
+.header__head {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  flex: auto;
+  align-items: center;
+
+  @media (max-width: $breakpoint2) {
+    width: 100%;
+    height: 5rem;
+  }
+}
+
+.header__login-register {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  @media (max-width: $breakpoint3) {
+    width: 100%;
+    max-width: 300px;
+    justify-content: space-between;
+  }
+}
+
+.header__login {
+  margin-right: 1.4286rem;
+
+  @media (max-width: $breakpoint3) {
+    margin-right: 0;
+  }
+}
+
+.header__logo {
+  flex: auto;
+}
+
+.header__nav-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+
+  @media (max-width: $breakpoint2) {
+    display: none;
+    width: 100%;
+  }
+}
+
+.header__personal-area {
+  margin-left: 1.5714rem;
+
+  @media (max-width: $breakpoint2) {
+    margin: 1.4286rem 0rem 1.4286rem 0rem;
+  }
+}
+
+.header__user-name {
+  @include reset-css;
+  padding-left: 1.4286rem;
+  border-left: 0.0714rem solid $color-dark-10;
+
+  @media (max-width: $breakpoint2) {
+    padding: 1.4286rem 0rem 0rem 0rem;
+    border-left: none;
+    border-top: 0.0714rem solid $color-dark-10;
+  }
+}
+
+.header__menu-mobile-btn {
+  display: none;
+
+  @media (max-width: $breakpoint2) {
+    display: block;
+  }
 }

@@ -1,12 +1,36 @@
-@import './room-head__room-number.scss';
-@import './room-head__luxury.scss';
-@import './room-head__room-price.scss';
-@import './room-head__price-number.scss';
-
 .room-head {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
+  align-items: baseline;
+}
+
+.room-head__luxury {
+  margin-left: 0.3571rem;
+}
+
+.room-head__price-number {
+  margin-right: 0.2857rem;
+}
+
+.room-head__room-number {
+  @include reset-link;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  cursor: pointer;
+
+  &:hover,
+  &:active {
+    text-decoration: underline $color-dark-25;
+  }
+}
+
+.room-head__room-price {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   align-items: baseline;
 }

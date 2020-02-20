@@ -1,9 +1,17 @@
-@import "./text-demo-item__name.scss";
-@import "./text-demo-item__value.scss";
-
 .text-demo-item {
   @include reset-css;
   width: 100%;
   max-width: 400px;
   display: flex;
+}
+
+.text-demo-item__value {
+  margin-left: 2.2143rem;
+}
+
+.text-demo-item__name {
+  width: 100%;
+  min-width: 2.6429rem;
+  max-width: 2.6429rem;
+  text-align: right;
 }

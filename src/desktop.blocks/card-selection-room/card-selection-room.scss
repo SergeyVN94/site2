@@ -1,4 +1,18 @@
-@import './card-selection-room__title.scss';
-@import './card-selection-room__date-range.scss';
-@import './card-selection-room__dropdown-guest.scss';
-@import './card-selection-room__button-find.scss';
+.card-selection-room__button-find {
+  width: 100%;
+}
+
+.card-selection-room__date-range {
+  @include reset-css;
+  margin-bottom: 1.6429rem;
+  width: 100%;
+}
+
+.card-selection-room__dropdown-guest {
+  margin-bottom: 2.2857rem;
+  width: 100%;
+}
+
+.card-selection-room__title {
+  margin-bottom: 1.5rem;
+}

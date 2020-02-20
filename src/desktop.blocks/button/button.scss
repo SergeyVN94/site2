@@ -17,30 +17,307 @@
   }
 }
 
-@import './_theme/button_theme_default.scss';
-@import './_theme/button_theme_round-little.scss';
-@import './_theme/button_theme_text.scss';
-@import './_theme/button_theme_light.scss';
-@import './_theme/button_theme_default-long.scss';
-@import './_theme/button_theme_round.scss';
-@import './_theme/button_theme_round-icon.scss';
-@import './_theme/button_theme_square.scss';
-@import './_theme/button_theme_icon.scss';
-@import './_theme/button_theme_social.scss';
+.button.button_theme_default-long {
+  display: block;
+  width: 100%;
+  height: 3.1429rem;
+  border-radius: 1.5714rem;
+  padding: 0rem 19.7px;
+  font-size: 0.8571rem;
+  line-height: 1.0714rem;
+  background: $color-gradient-1;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+  position: relative;
 
-@import './button_disable.scss';
-@import './button_hidden.scss';
+  &:hover {
+    box-shadow: 0px 0px 10px $color-purple;
+  }
 
-@import './button_text-color_dark-50.scss';
+  &:active {
+    background: $color-purple;
+  }
 
-@import './_hover-theme/button_hover-theme_gradient-1.scss';
-@import './_hover-theme/button_hover-theme_gradient-2.scss';
+  &:focus {
+    box-shadow: 0px 0px 10px $color-dark-50;
+  }
+}
 
-@import './_background/button_background_gradient-1.scss';
-@import './_background/button_background_gradient-2.scss';
-@import './_background/button_background_none.scss';
+.button.button_theme_default {
+  height: 3.1429rem;
+  border-radius: 1.5714rem;
+  padding: 0rem 19.7px;
+  font-size: 0.8571rem;
+  line-height: 1.0714rem;
+  background: $color-gradient-1;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+  padding-top: 0.1429rem;
 
-@import './button__icon.scss';
-@import './button_size_sm.scss';
-@import './button_hsize_big.scss';
-@import './button_fweight_bold.scss';
+  &:hover {
+    box-shadow: 0px 0px 10px $color-purple;
+  }
+
+  &:active {
+    background: $color-purple;
+  }
+
+  &:focus {
+    box-shadow: 0px 0px 10px $color-dark-50;
+  }
+}
+
+.button.button_theme_icon {
+  width: 3.1429rem;
+  height: 3.1429rem;
+  font-family: Material Icons;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.7143rem;
+  line-height: 1.7143rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-dark-50;
+}
+
+.button.button_theme_light {
+  height: 3.1429rem;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 0.8571rem;
+  line-height: 1.0714rem;
+  border-radius: 1.5714rem;
+  border: 0.1429rem solid $color-purple;
+  color: $color-purple;
+  text-transform: uppercase;
+  padding: 0rem 1.2857rem;
+
+  &:visited {
+    color: $color-purple;
+  }
+
+  &:hover {
+    box-shadow: 0px 0px 10px $color-purple;
+  }
+
+  &:active {
+    box-shadow: 0px 0px 10px $color-dark-50;
+  }
+
+  &:focus {
+    box-shadow: 0px 0px 10px $color-dark-50;
+  }
+}
+
+.button.button_theme_round-icon {
+  width: 2.8571rem;
+  height: 2.8571rem;
+  background: $color-gradient-1;
+  border-radius: 1.5714rem;
+  font-family: Material Icons;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.7143rem;
+  line-height: 1.4286rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.button.button_theme_round-little{
+  width: 2.1429rem;
+  height: 2.1429rem;
+  border: 0.0714rem solid rgba(31, 32, 65, 0.25);
+  border-radius: 1.5714rem;
+  color: $color-dark-50;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.2857rem;
+  line-height: 2.1429rem;
+}
+
+.button.button_theme_round {
+  width: 2.8571rem;
+  height: 2.8571rem;
+  border-radius: 1.5714rem;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.8571rem;
+  line-height: 1.0714rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.button.button_theme_social {
+  width: 1.7143rem;
+  height: 1.7143rem;
+  font-family: 'Font Awesome 5 Brands';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.7143rem;
+  line-height: 1.6429rem;
+  background: $color-gradient-1;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 0;
+
+  &:hover {
+    opacity: 0.86;
+  }
+
+  &:active {
+    background: $color-purple;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 1;
+  }
+
+  &:focus {
+    background: $color-dark-50;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 1;
+  }
+}
+
+.button.button_theme_square {
+  width: 2.8571rem;
+  height: 2.8571rem;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.8571rem;
+  line-height: 1.0714rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-dark-50;
+}
+
+.button.button_theme_text {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 0.8571rem;
+  line-height: 1.0714rem;
+  text-transform: uppercase;
+  color: $color-purple;
+
+  &:hover {
+    text-shadow: 0px 0px 10px $color-purple;
+  }
+
+  &:active {
+    text-shadow: 0px 0px 10px $color-dark-50;
+  }
+
+  &:focus {
+    text-shadow: 0px 0px 10px $color-dark-50;
+  }
+}
+
+.button.button_background_gradient-1 {
+  background: $color-gradient-1;
+}
+
+.button.button_background_gradient-2 {
+  background: $color-gradient-2;
+}
+
+.button.button_background_none {
+  background: none;
+}
+
+.button.button_hover-theme_gradient-1 {
+  &:hover {
+    background: $color-gradient-1;
+    box-shadow: 0px 0px 10px $color-purple;
+    color: #ffffff;
+    font-weight: bold;
+  }
+
+  &:active {
+    background: $color-gradient-1;
+    box-shadow: 0px 0px 10px $color-green;
+    color: #ffffff;
+    font-weight: bold;
+  }
+}
+
+.button.button_hover-theme_gradient-2 {
+  &:hover {
+    background: $color-gradient-2;
+    box-shadow: 0px 0px 10px $color-green;
+    color: #ffffff;
+    font-weight: bold;
+  }
+
+  &:active {
+    background: $color-gradient-2;
+    box-shadow: 0px 0px 10px $color-purple;
+    color: #ffffff;
+    font-weight: bold;
+  }
+}
+
+.button.button_disable {
+  opacity: 0.5;
+
+  &:hover,
+  &:focus {
+    box-shadow: none;
+    text-shadow: none;
+  }
+}
+
+.button.button_fweight_bold {
+  font-weight: bold;
+}
+
+.button.button_hidden {
+  display: none;
+}
+
+.button.button_hsize_big {
+  padding: 0rem 1.6429rem;
+}
+
+.button.button_size_sm {
+  height: 2.4286rem;
+}
+
+.button.button_text-color_dark-50 {
+  color: $color-dark-50;
+}
+
+.button__icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 3.1429rem;
+  height: 100%;
+  font-family: Material Icons;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.7143rem;
+  line-height: 1.7143rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff;
+  text-transform: none;
+}

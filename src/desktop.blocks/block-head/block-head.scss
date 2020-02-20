@@ -1,6 +1,3 @@
-@import './block-head__title.scss';
-@import './block-head__help.scss';
-
 .block-head {
   width: 100%;
   &::after {
@@ -8,4 +5,12 @@
     content: '';
     clear: both;
   }
+}
+
+.block-head__help {
+  float: right;
+}
+
+.block-head__title {
+  float: left;
 }

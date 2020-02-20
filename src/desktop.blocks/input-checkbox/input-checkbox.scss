@@ -1,7 +1,46 @@
-@import './input-checkbox__input.scss';
-@import './input-checkbox__new-input.scss';
-
 .input-checkbox {
   display: block;
   cursor: pointer;
+}
+
+.input-checkbox__input {
+  display: none;
+}
+
+.input-checkbox__new-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.4286rem;
+  height: 1.4286rem;
+  background: #fff;
+  border: 0.0714rem solid $color-dark-25;
+  box-sizing: border-box;
+  border-radius: 0.2857rem;
+  font-family: Material Icons;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  @include no-select;
+}
+
+.input-checkbox__input:checked + .input-checkbox__new-input {
+  border-color: $color-purple;
+  background: $color-gradient-1;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.input-checkbox__input:hover + .input-checkbox__new-input {
+  box-shadow: 0px 0px 10px $color-purple;
+}
+
+.input-checkbox__input:active + .input-checkbox__new-input {
+  box-shadow: 0px 0px 5px $color-dark-50;
+}
+
+.input-checkbox__input:focus + .input-checkbox__new-input {
+  border-color: $color-dark-50;
 }

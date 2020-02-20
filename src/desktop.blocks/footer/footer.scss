@@ -1,12 +1,62 @@
-@import './footer__container-content.scss';
-@import './footer__logo.scss';
-@import './footer__site-description.scss';
-@import './footer__nav.scss';
-@import './footer__subscribe-container.scss';
-@import './footer__subscribe-title.scss';
-@import './footer__subscribe-description.scss';
-
 .footer {
   background-color: #fff;
   box-shadow: 0rem 0.0714rem 0rem $color-dark-10;
+}
+
+.footer__container-content {
+  @include reset-css;
+  padding: 7.1429rem 0rem 5.7143rem 0rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+
+  @media (max-width: $breakpoint2) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.footer__logo {
+  margin-bottom: 1.2143rem;
+
+  @media (max-width: $breakpoint2) {
+    margin: 0 auto 1.2143rem auto;
+  }
+}
+
+.footer__nav {
+  margin-top: 0.3571rem;
+  width: 100%;
+  max-width: 160px;
+
+  @media (max-width: $breakpoint2) {
+    display: none;
+  }
+}
+
+.footer__site-description {
+  width: 100%;
+  max-width: 260px;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__subscribe-container {
+  @include reset-css;
+  margin-top: 0.3571rem;
+  width: 100%;
+  max-width: 260px;
+
+  @media (max-width: $breakpoint2) {
+    margin-top: 1.4286rem;
+  }
+}
+
+.footer__subscribe-description {
+  margin-bottom: 1.6429rem;
+}
+
+.footer__subscribe-title {
+  margin-bottom: 1.2857rem;
 }

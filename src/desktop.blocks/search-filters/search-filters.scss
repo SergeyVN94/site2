@@ -1,10 +1,27 @@
-@import './search-filters__dropdown-filter-date.scss';
-@import './search-filters__dropdown-guest.scss';
-@import './search-filters__range-slider.scss';
-@import './search-filters__checkbox-list.scss';
-@import './search-filters__rich-checkbox-buttons.scss';
-@import './search-filters__dropdown-room-amenities.scss';
-
 .search-filters {
   width: 266px;
+}
+
+.search-filters__checkbox-list {
+  margin-bottom: 2.0714rem;
+}
+
+.search-filters__dropdown-filter-date {
+  margin-bottom: 1.5714rem;
+}
+
+.search-filters__dropdown-guest {
+  margin-bottom: 2.2857rem;
+}
+
+.search-filters__dropdown-room-amenities {
+  margin-bottom: 1.1429rem;
+}
+
+.search-filters__range-slider {
+  margin-bottom: 1.7857rem;
+}
+
+.search-filters__rich-checkbox-buttons {
+  margin-bottom: 2.2143rem;
 }

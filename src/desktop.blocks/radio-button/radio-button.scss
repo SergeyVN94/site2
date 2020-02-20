@@ -1,7 +1,15 @@
-@import './radio-button__container.scss';
-@import './radio-button__text.scss';
-
 .radio-button {
   @include reset-css;
   width: 100%;
+}
+
+.radio-button__text {
+  margin-left: 0.7143rem;
+}
+
+.radio-button__container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
 }

@@ -1,2 +1,7 @@
-@import './toggle-buttons__head.scss';
-@import './toggle-buttons__button.scss';
+.toggle-buttons__button:not(:last-child) {
+  margin-bottom: 0.7143rem;
+}
+
+.toggle-buttons__head {
+  margin-bottom: 0.9286rem;
+}

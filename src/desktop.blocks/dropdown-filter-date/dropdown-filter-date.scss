@@ -1,6 +1,8 @@
-@import './dropdown-filter-date__head.scss';
-
 .dropdown-filter-date {
-    @include reset-css;
-    width: 100%;
+  @include reset-css;
+  width: 100%;
+}
+
+.dropdown-filter-date__head {
+  margin-bottom: 0.3571rem;
 }
