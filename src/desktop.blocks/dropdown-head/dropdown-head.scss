@@ -3,24 +3,24 @@
   height: 3.1429rem;
   display: flex;
   background-color: #fff;
-  border: 0.0714rem solid $color-dark-25;
+  border: 0.0714rem solid $light-title;
   box-sizing: border-box;
   border-radius: 0.2857rem;
-  color: $color-dark-75;
+  color: $text-primary;
   cursor: pointer;
 
   &:hover {
-    border-color: $color-dark-50;
+    border-color: $text-secondary;
   }
 }
 
 .dropdown-head_theme_expanded {
   border-radius: 0.2857rem 0.2857rem 0rem 0rem;
-  border-color: $color-dark-50;
+  border-color: $text-secondary;
 }
 
 .dropdown-head_theme_select-date {
-  border-color: $color-dark-50;
+  border-color: $text-secondary;
 }
 
 .dropdown-head__icon {
@@ -38,7 +38,7 @@
   font-weight: normal;
   font-size: 1.7143rem;
   line-height: 1.7143rem;
-  color: $color-dark-75;
+  color: $text-primary;
 }
 
 .dropdown-head__text {

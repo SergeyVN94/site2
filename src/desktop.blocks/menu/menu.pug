@@ -1,23 +1,24 @@
 include ../menu-item/menu-item.pug
 include ../menu-item-expandable/menu-item-expandable.pug
 
-mixin menu(options={})
+mixin menu(options = {})
     -
         const {
-           items = [],
-           classes = [],
-           theme = '',
+            items = [],
+            classes = [],
+            theme = '',
         } = options;
 
+        classes.push('menu');
         if (theme !== '') classes.push(`menu_theme_${theme}`);
 
-        const classListStr = classes.join(' ');
+        const classesStr = classes.join(' ');
 
-    nav.menu(class=classListStr)
+    nav(class=classesStr)
         for item in items
-            -const { expandable = false } = item;
+            -const { items = null } = item;
             .menu__item
-                if expandable
+                if items !== null
                     +menu-item-expandable(item)
                 else
                     +menu-item(item)

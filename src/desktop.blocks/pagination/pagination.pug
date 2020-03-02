@@ -2,67 +2,67 @@ include ../block-head/block-head.pug
 include ../text/text.pug
 include ../button/button.pug
 
-mixin pagination(options={})
+mixin pagination(options = {})
     -
         const {
-           head = '',
-           bottomText = '',
+            head = null,
+            bottomText = '',
         } = options;
 
     .pagination
-        if head !== ''
+        if head !== null
             .pagination__head
-                +block-head({
-                    title: head,
-                })
+                +block-head(head)
         .pagination__container
             .pagination__buttons
-                .pagination__nav-button
-                    +button({
-                        text: '1',
-                        theme: 'round',
-                        fweight: 'bold',
-                        background: 'gradient-1',
-                        hoverTheme: 'gradient-1',
-                    })
-                .pagination__nav-button
-                    +button({
-                        text: '2',
-                        theme: 'round',
-                        textColor: 'dark-50',
-                        hoverTheme: 'gradient-1',
-                    })
-                .pagination__nav-button
-                    +button({
-                        text: '3',
-                        theme: 'round',
-                        textColor: 'dark-50',
-                        hoverTheme: 'gradient-1',
-                    })
-                .pagination__nav-button
-                    +button({
-                        text: '...',
-                        theme: 'round',
-                        textColor: 'dark-50',
-                        hoverTheme: 'gradient-1',
-                    })
-                .pagination__nav-button
-                    +button({
-                        text: '15',
-                        theme: 'round',
-                        textColor: 'dark-50',
-                        hoverTheme: 'gradient-1',
-                    })
-                .pagination__nav-button
-                    +button({
-                        text: 'arrow_forward',
-                        theme: 'round-icon',
-                        background: 'gradient-2',
-                        hoverTheme: 'gradient-2',
-                    })
+                -
+                    const buttonConfigs = [
+                        {
+                            text: '1',
+                            theme: 'round',
+                            fontWeight: 'bold',
+                            background: 'gradient-primary',
+                            hoverTheme: 'gradient-primary',
+                        },
+                        {
+                            text: '2',
+                            theme: 'round',
+                            textColor: 'text-secondary',
+                            hoverTheme: 'gradient-primary',
+                        },
+                        {
+                            text: '3',
+                            theme: 'round',
+                            textColor: 'text-secondary',
+                            hoverTheme: 'gradient-primary',
+                        },
+                        {
+                            text: '...',
+                            theme: 'round',
+                            textColor: 'text-secondary',
+                            hoverTheme: 'gradient-primary',
+                        },
+                        {
+                            text: '15',
+                            theme: 'round',
+                            textColor: 'text-secondary',
+                            hoverTheme: 'gradient-primary',
+                        },
+                        {
+                            text: 'arrow_forward',
+                            theme: 'round-icon',
+                            background: 'gradient-success',
+                            hoverTheme: 'gradient-success',
+                        },
+                    ];
+
+                for config in buttonConfigs
+                    .pagination__nav-button
+                        +button(config)
+
             if bottomText !== ''
                 .pagination__bottom-text
                     +text({
                         text: bottomText,
                         horizontal: 'middle',
-                    }) 
+                    })

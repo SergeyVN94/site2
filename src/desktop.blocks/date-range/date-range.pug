@@ -2,39 +2,34 @@ include ../dropdown-head/dropdown-head.pug
 include ../block-head/block-head.pug
 include ../calendar/calendar.pug
 
-mixin date-range(options={})
+mixin date-range(options = {})
     -
         const {
-           classes = [],
-           textLeft = '',
-           textRight = '',
-           headLeft = '',
-           headRight = '',
+            textDropdownLeft = '',
+            textDropdownRight = '',
+            headDropdownLeft = null,
+            headDropdownRight = null,
         } = options;
 
     .date-range.js-date-range
         .date-range__dropdowns
             .date-range__dropdown
-                if headLeft !== ''
+                if headDropdownLeft !== null
                     .date-range__head
-                        +block-head({
-                            title: headLeft,
-                        })
+                        +block-head(headDropdownLeft)
                 +dropdown-head({
-                    text: textLeft,
+                    text: textDropdownLeft,
                     classes: [
                         'js-date-range__dropdown-head',
                         'js-date-range__dropdown-head-left',
                     ],
                 })
             .date-range__dropdown
-                if headRight !== ''
+                if headDropdownRight !== null
                     .date-range__head
-                        +block-head({
-                            title: headRight,
-                        })
+                        +block-head(headDropdownRight)
                 +dropdown-head({
-                    text: textRight,
+                    text: textDropdownRight,
                     classes: [
                         'js-date-range__dropdown-head',
                         'js-date-range__dropdown-head-right',

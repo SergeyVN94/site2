@@ -1,9 +1,4 @@
-mixin room-details-banner(options={})
-    -
-        const {
-            images = [],
-        } = options;
-
+mixin room-details-banner(images = [])
     .room-details-banner
         .room-details-banner__main-img-container
             img.room-details-banner__main-img(src=images[0], alt="")

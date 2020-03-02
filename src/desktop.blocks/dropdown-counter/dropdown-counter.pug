@@ -1,12 +1,7 @@
 include ../text/text.pug
 include ../button/button.pug
 
-mixin dropdown-counter(options={})
-    -
-        const {
-           text = '',
-        } = options;
-
+mixin dropdown-counter(text = '', value = 0)
     .dropdown-counter.js-dropdown-counter
         +text({
             text,
@@ -17,17 +12,18 @@ mixin dropdown-counter(options={})
         })
         .dropdown-counter__control
             .dropdown-counter__btn-minus
+                -const btnMinusDisable = (value === 0);
                 +button({
                     classes: [
                         'js-dropdown-counter__btn-minus',
                     ],
                     text: '-',
                     theme: 'round-little',
-                    disable: true,
+                    disable: btnMinusDisable,
                 })
             .dropdown-counter__value
                 +text({
-                    text: '0',
+                    text: value,
                     classes: [
                         'js-dropdown-counter__value',
                     ],

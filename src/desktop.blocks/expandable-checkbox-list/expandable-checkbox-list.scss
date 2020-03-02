@@ -46,12 +46,12 @@
   font-weight: normal;
   font-size: 1.7143rem;
   line-height: 1.7143rem;
-  color: $color-dark-75;
+  color: $text-primary;
   cursor: pointer;
 
   &:hover,
   &:active {
-    color: $color-purple;
+    color: $primary;
   }
 
   &:active {

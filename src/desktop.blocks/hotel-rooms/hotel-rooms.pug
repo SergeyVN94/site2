@@ -2,7 +2,7 @@ include ../text/text.pug
 include ../pagination/pagination.pug
 include ../card-room-information/card-room-information.pug
 
-mixin hotel-rooms(options={})
+mixin hotel-rooms(options = {})
     -
         const {
             title = '',
@@ -14,7 +14,7 @@ mixin hotel-rooms(options={})
             +text({
                 text: title,
                 theme: 'h1',
-                fname: 'montserrat',
+                fontName: 'montserrat',
             })
         .hotel-rooms__body
             for room in rooms

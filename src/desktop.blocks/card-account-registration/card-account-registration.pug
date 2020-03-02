@@ -13,9 +13,9 @@ mixin card-account-registration()
                 +text({
                     text: 'Регистрация аккаунта',
                     theme: 'h1',
-                    fname: 'montserrat',
+                    fontName: 'montserrat',
                 })
-            form(action="", method="post", class='card-account-registration__form')
+            form(action="/mock-address/change-me", method="post", class='card-account-registration__form')
                 .card-account-registration__input-name
                     +input-text({
                         placeholder: 'Имя',
@@ -28,18 +28,22 @@ mixin card-account-registration()
                     +radio-buttons({
                         group: 'gender',
                         items: [
-                            'Мужчина',
-                            'Женщина',
+                            {text: 'Мужчина', group: 'gender', checked: true},
+                            {text: 'Женщина', group: 'gender'},
                         ],
                     })
                 .card-account-registration__date-of-birth
                     +text-field({
-                        title: 'дата рождения',
+                        head: {
+                            title: 'дата рождения',
+                        },
                         placeholder: 'ДД.ММ.ГГГГ',
                     })
                 .card-account-registration__email
                     +text-field({
-                        title: 'данные для входа в сервис',
+                        head: {
+                            title: 'данные для входа в сервис',
+                        },
                         placeholder: 'Email',
                         type: 'email',
                     })
@@ -49,9 +53,7 @@ mixin card-account-registration()
                         type: 'password',
                     })
                 .card-account-registration__special-offers
-                    +toggle-button({
-                        text: 'Получать спецпредложения',
-                    })
+                    +toggle-button('Получать спецпредложения')
                 .card-account-registration__payment-button
                     +button({
                         text: 'перейти к оплате',
@@ -61,11 +63,11 @@ mixin card-account-registration()
             .card-account-registration__have-account
                 +text({
                     text: 'Уже есть аккаунт на Toxin',
-                    color: 'black',
+                    color: 'important-text',
                 })
                 +button({
                     href: '../sign-in/index.html',
                     text: 'войти',
                     theme: 'light',
-                    hsize: 'big',
+                    horizontalSize: 'big',
                 })

@@ -11,18 +11,24 @@ mixin card-selection-room()
                 +text({
                     text: 'Найдём номера под ваши пожелания',
                     theme: 'h1',
-                    fname: 'montserrat',
+                    fontName: 'montserrat',
                 })
             .card-selection-room__date-range
                 +date-range({
-                    headLeft: 'прибытие',
-                    headRight: 'выезд',
-                    textLeft: 'ДД.ММ.ГГГГ',
-                    textRight: 'ДД.ММ.ГГГГ',
+                    headDropdownLeft: {
+                        title: 'прибытие',
+                    },
+                    headDropdownRight: {
+                        title: 'выезд',
+                    },
+                    textDropdownLeft: 'ДД.ММ.ГГГГ',
+                    textDropdownRight: 'ДД.ММ.ГГГГ',
                 })
             .card-selection-room__dropdown-guest
                 +dropdown-guest({
-                    head: 'гости',
+                    head: {
+                        title: 'гости',
+                    },
                 })
             .card-selection-room__button-find
                 +button({

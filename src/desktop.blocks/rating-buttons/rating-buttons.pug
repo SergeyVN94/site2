@@ -1,22 +1,19 @@
 include ../block-head/block-head.pug
 include ../rating/rating.pug
 
-mixin rating-buttons(options={})
+mixin rating-buttons(options = {})
     -
         const {
-           head = '',
-           items = [],
+            head = null,
+            items = [],
         } = options;
 
     .rating-buttons
-        if head !== ''
+        if head !== null
             .rating-buttons__head
-                +block-head({
-                    title: head,
-                })
+                +block-head(head)
         .rating-buttons__container
             for stars in items
                 .rating-buttons__rating
-                    +rating({
-                        stars, 
-                    })
+                    +rating(stars)
+

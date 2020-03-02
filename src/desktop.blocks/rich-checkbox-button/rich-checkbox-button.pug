@@ -1,11 +1,11 @@
 include ../text/text.pug
 include ../input-checkbox/input-checkbox.pug
 
-mixin rich-checkbox-button(options={})
+mixin rich-checkbox-button(options = {})
     -
         const {
-           text = '',
-           description = '',
+            text = '',
+            description = '',
         } = options;
 
     .rich-checkbox-button
@@ -14,12 +14,12 @@ mixin rich-checkbox-button(options={})
             .rich-checkbox-button__text
                 +text({
                     text,
-                    fweight: 'bold',
-                    lheight: 'middle-1',
+                    fontWeight: 'bold',
+                    lineHeight: 'middle',
                 })
             .rich-checkbox-button__description
                 +text({
                     text: description,
-                    lheight: 'small',
-                    fsize: 'small',
+                    lineHeight: 'very-small',
+                    size: 'small',
                 })

@@ -1,27 +1,21 @@
 include ../block-head/block-head.pug
 include ../input-text/input-text.pug
 
-mixin text-field(options={})
+mixin text-field(options = {})
     -
         const {
-           placeholder = '',
-           value = '',
-           title = '',
-           help = '',
-           type = 'text',
-           iconRight = '',
-           mask = '',
+            head = null,
+            placeholder = '',
+            value = '',
+            type = 'text',
+            iconRight = '',
+            mask = '',
         } = options;
 
-        const isUseHead = (title !== '' || help !== '');
-
     .text-field(class='js-text-field', data-mask=mask)
-        if isUseHead
-            .text-field__block-head
-                +block-head({
-                    title,
-                    help,
-                })
+        if head !== null
+            .text-field__head
+                +block-head(head)
         +input-text({
             placeholder,
             value,

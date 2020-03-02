@@ -3,13 +3,13 @@ include ../text/text.pug
 include ../footer-nav/footer-nav.pug
 include ../text-field/text-field.pug
 
-mixin footer(options={})
+mixin footer(options = {})
     -
         const {
-           siteDescription = '',
-           navList = [],
-           subscribe = {},
-           copyright = '',
+            siteDescription = '',
+            navList = [],
+            subscribe = {},
+            copyright = '',
         } = options;
 
     footer.footer
@@ -17,9 +17,7 @@ mixin footer(options={})
             .footer__container-content
                 .footer__site-description
                     .footer__logo
-                        +logo({
-                            href: '../landing-page/index.html',
-                        })
+                        +logo()
                     .footer__description
                         +text({
                             text: siteDescription,
@@ -35,7 +33,6 @@ mixin footer(options={})
                             title = '',
                             description = '',
                             placeholder = '',
-                            type = '',
                         } = subscribe;
 
                     .footer__subscribe-title
@@ -49,7 +46,7 @@ mixin footer(options={})
                         })
                     .footer__subscribe-text-field
                         +text-field({
-                            type,
                             placeholder,
+                            type: 'email',
                             iconRight: 'arrow_forward',
                         })

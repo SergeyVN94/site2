@@ -10,39 +10,31 @@ interface ModelInterface {
 }
 
 class Model implements ModelInterface {
-    private callback: modelUpdateCallback;
-    private pointMinStep: number;
-    private pointMaxStep: number;
-    private readonly rangeMin: number;
-    private readonly rangeMax: number;
-    private readonly range: number;
-    private readonly stepSize: number;
-    private readonly steps: number;
+    private _callback: modelUpdateCallback;
+    private _pointMinStep: number;
+    private _pointMaxStep: number;
+    private readonly _rangeMin: number;
+    private readonly _range: number;
+    private readonly _stepSize: number;
+    private readonly _steps: number;
 
     constructor(config: {
         range: [number, number];
         step: number;
-        start?: [number, number];
     }) {
         const {
             range,
             step,
-            start = null,
         } = config;
 
-        this.stepSize = step;
+        this._stepSize = step;
         const [rangeMin, rangeMax] = range;
-        this.rangeMin = rangeMin;
-        this.rangeMax = rangeMax;
-        this.range = rangeMax - rangeMin;
-        this.steps = Math.floor(this.range / step);
-        this.callback = null;
-        this.pointMinStep = 0;
-        this.pointMaxStep = this.steps;
-
-        if (start !== null) {
-            this.initModel(start);
-        }
+        this._rangeMin = rangeMin;
+        this._range = rangeMax - rangeMin;
+        this._steps = Math.floor(this._range / step);
+        this._callback = null;
+        this._pointMinStep = 0;
+        this._pointMaxStep = this._steps;
     }
 
     public update(targetPosition: number, type: 'min' | 'max' | null): void {
@@ -56,37 +48,37 @@ class Model implements ModelInterface {
     }
 
     public onUpdate(callback: modelUpdateCallback): void {
-        this.callback = callback;
+        this._callback = callback;
     }
 
     public initModel(start: [number, number]): void {
         const [startMin, startMax] = start;
-        this.pointMinStep = this.valueToPointStep(startMin);
-        this.pointMaxStep = this.valueToPointStep(startMax);
+        this._pointMinStep = this.valueToPointStep(startMin);
+        this._pointMaxStep = this.valueToPointStep(startMax);
         this.toggleUpdateEvent();
     }
 
     private updatePointSteps(targetPosition: number): void {
         const targetStep = this.positionToStep(targetPosition);
-        const pointMinPosition = this.stepToPointPosition(this.pointMinStep);
-        const pointMaxPosition = this.stepToPointPosition(this.pointMaxStep);
+        const pointMinPosition = this.stepToPointPosition(this._pointMinStep);
+        const pointMaxPosition = this.stepToPointPosition(this._pointMaxStep);
 
         const distanceToMinPoint = Math.abs(pointMinPosition - targetPosition);
         const distanceToMaxPoint = Math.abs(pointMaxPosition - targetPosition);
 
         if (distanceToMinPoint < distanceToMaxPoint) {
-            if (targetStep <= this.pointMaxStep) {
-                this.pointMinStep = targetStep;
+            if (targetStep <= this._pointMaxStep) {
+                this._pointMinStep = targetStep;
             }
         } else if (distanceToMaxPoint < distanceToMinPoint) {
-            if (targetStep >= this.pointMinStep) {
-                this.pointMaxStep = targetStep;
+            if (targetStep >= this._pointMinStep) {
+                this._pointMaxStep = targetStep;
             }
         } else if (distanceToMaxPoint === distanceToMinPoint) {
             if (targetPosition < pointMinPosition) {
-                this.pointMinStep = targetStep;
+                this._pointMinStep = targetStep;
             } else if (targetPosition > pointMaxPosition) {
-                this.pointMaxStep = targetStep;
+                this._pointMaxStep = targetStep;
             }
         }
     }
@@ -95,39 +87,35 @@ class Model implements ModelInterface {
         const targetStep = this.positionToStep(targetPosition);
 
         if (type === 'min') {
-            if (targetStep <= this.pointMaxStep) {
-                this.pointMinStep = targetStep;
+            if (targetStep <= this._pointMaxStep) {
+                this._pointMinStep = targetStep;
             }
         }
 
         if (type === 'max') {
-            if (targetStep >= this.pointMinStep) {
-                this.pointMaxStep = targetStep;
+            if (targetStep >= this._pointMinStep) {
+                this._pointMaxStep = targetStep;
             }
         }
     }
 
     private toggleUpdateEvent(): void {
-        if (this.callback !== null) {
+        if (this._callback !== null) {
             const positions = [
-                this.stepToPointPosition(this.pointMinStep),
-                this.stepToPointPosition(this.pointMaxStep),
+                this.stepToPointPosition(this._pointMinStep),
+                this.stepToPointPosition(this._pointMaxStep),
             ] as [number, number];
             const values = this.getValuesStr();
-            this.callback(positions, values);
+            this._callback(positions, values);
         }
     }
 
     private getValuesStr(): string {
-        const valMin = this.stepToValue(this.pointMinStep);
-        const valMax = this.stepToValue(this.pointMaxStep);
+        const valMin = this.stepToValue(this._pointMinStep);
+        const valMax = this.stepToValue(this._pointMaxStep);
         const min = this.divideNumberByDigits(valMin);
         const max = this.divideNumberByDigits(valMax);
         return `${min}₽ - ${max}₽`;
-    }
-
-    private getValueByPointPosition(pos: number): number {
-        return (Math.round(pos * this.steps) * this.stepSize) + this.rangeMin;
     }
 
     private divideNumberByDigits(val: number): string {
@@ -159,19 +147,19 @@ class Model implements ModelInterface {
     }
 
     private valueToPointStep(value: number): number {
-        return Math.round(value / this.stepSize);
+        return Math.round(value / this._stepSize);
     }
 
     private stepToPointPosition(step: number): number {
-        return step / this.steps;
+        return step / this._steps;
     }
 
     private stepToValue(step: number): number {
-        return (step * this.stepSize) + this.rangeMin;
+        return (step * this._stepSize) + this._rangeMin;
     }
 
     private positionToStep(position: number): number {
-        return Math.round(position * this.steps);
+        return Math.round(position * this._steps);
     }
 }
 

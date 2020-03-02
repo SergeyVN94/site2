@@ -2,25 +2,23 @@ include ../logo/logo.pug
 include ../text/text.pug
 include ../button/button.pug
 
-mixin footer-creative(options={})
-    -
-        const {
-            siteDescription = '',
-            socialButtons,
-        } = options;
-
+mixin footer-creative(siteDescription = '')
     .footer-creative
         .container-content
             .footer-creative__container-content
                 .footer-creative__logo
-                    +logo({
-                        href: '../landing-page/index.html',
-                    })
+                    +logo()
                 .footer-creative__site-description
                     +text({
                         text: siteDescription,
                     })
                 .footer-creative__social-buttons
+                    -
+                        const socialButtons = [
+                            {text: 'twitter', href: 'https://twitter.com'},
+                            {text: 'facebook-square', href: 'https://ru-ru.facebook.com'},
+                            {text: 'instagram', href: 'https://www.instagram.com'},
+                        ];
                     for button in socialButtons
                         -
                             const {

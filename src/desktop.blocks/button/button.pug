@@ -1,40 +1,40 @@
-mixin button(options={})
+mixin button(options = {})
     -
         const {
             theme = 'default', 
-            size = null,
-            hsize = null,
-            textColor = null, 
+            size = '',
+            horizontalSize = '',
+            textColor = '', 
             classes = [],
             text = '',
             disable = false,
             hidden = false,
-            icon = null,
-            background = null,
-            fweight = null,
-            hoverTheme = null,
+            icon = '',
+            background = '',
+            fontWeight = '',
+            hoverTheme = '',
             href = '',
             target = '',
             rel = '',
         } = options;
 
-        if (theme !== null) classes.push(`button_theme_${theme}`);
+        classes.push(`button button_theme_${theme}`);
         if (disable) classes.push('button_disable');
-        if (textColor !== null) classes.push(`button_text-color_${textColor}`);
+        if (textColor !== '') classes.push(`button_text-color_${textColor}`);
         if (hidden) classes.push('button_hidden');
-        if (background !== null) classes.push(`button_background_${background}`);
-        if (size !== null) classes.push(`button_size_${size}`);
-        if (hsize !== null) classes.push(`button_hsize_${hsize}`);
-        if (fweight !== null) classes.push(`button_fweight_${fweight}`);
-        if (hoverTheme !== null) classes.push(`button_hover-theme_${hoverTheme}`);
+        if (background !== '') classes.push(`button_background_${background}`);
+        if (size !== '') classes.push(`button_size_${size}`);
+        if (horizontalSize !== '') classes.push(`button_horizontal-size_${horizontalSize}`);
+        if (fontWeight !== '') classes.push(`button_font-weight_${fontWeight}`);
+        if (hoverTheme !== '') classes.push(`button_hover-theme_${hoverTheme}`);
 
-    -const classList = classes.join(' ');
+    -const classesStr = classes.join(' ');
 
     if href !== ''
-        a.button(class=classList, href=href, target=target, rel=rel) #{text}
-            if icon !== null
+        a(class=classesStr, href=href, target=target, rel=rel) #{text}
+            if icon !== ''
                 .button__icon #{icon}
     else
-        .button(class=classList) #{text}
-            if icon !== null
+        div(class=classesStr) #{text}
+            if icon !== ''
                 .button__icon #{icon}

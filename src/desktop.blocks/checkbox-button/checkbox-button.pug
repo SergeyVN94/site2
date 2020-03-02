@@ -1,19 +1,20 @@
 include ../input-checkbox/input-checkbox.pug
 include ../text/text.pug
 
-mixin checkbox-button(options={})
+mixin checkbox-button(options = {})
     -
         const {
-           text = '',
+            text = '',
+            checked = false,
         } = options;
 
     .checkbox-button
         .checkbox-button__container
-            +input-checkbox()
+            +input-checkbox(checked)
             .checkbox-button__text
                 +text({
                     text,
                     theme: 'body',
-                    lheight: 'middle-1',
-                    color: 'dark-50',
+                    lineHeight: 'middle',
+                    color: 'text-secondary',
                 })

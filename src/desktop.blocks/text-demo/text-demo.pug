@@ -2,55 +2,55 @@ include ../text-demo-item/text-demo-item.pug
 
 mixin text-demo()
     .text-demo()
-        .text-demo__item
-            +text-demo-item({
-                name: {
-                    text: 'H1',
-                    theme: 'h1',
-                    fweight: 'normal',
-                    color: 'dark-25',
+        -
+            const itemConfigs = [
+                {
+                    name: {
+                        text: 'H1',
+                        theme: 'h1',
+                        fontWeight: 'normal',
+                        color: 'light-title',
+                    },
+                    value: {
+                        text: 'This one is the sub-section or widget title',
+                        theme: 'h1',
+                    },
                 },
-                value: {
-                    text: 'This one is the sub-section or widget title',
-                    theme: 'h1',
+                {
+                    name: {
+                        text: 'H2',
+                        theme: 'h2',
+                        fontWeight: 'normal',
+                        color: 'light-title',
+                    },
+                    value: {
+                        text: 'Next one is the item title inside widgets',
+                        theme: 'h2',
+                    },
                 },
-            })
+                {
+                    name: {
+                        text: 'H3',
+                        theme: 'h3',
+                        fontWeight: 'normal',
+                        color: 'light-title',
+                    },
+                    value: {
+                        text: 'This is a label or CTA text',
+                        theme: 'h3',
+                    },
+                },
+                {
+                    name: {
+                        text: 'Body',
+                        color: 'light-title',
+                    },
+                    value: {
+                        text: 'This is the body text which is used for most of the design, like paragraphs, lists, etc.',
+                    },
+                },
+            ];
 
-        .text-demo__item
-            +text-demo-item({
-                name: {
-                    text: 'H2',
-                    theme: 'h2',
-                    fweight: 'normal',
-                    color: 'dark-25',
-                },
-                value: {
-                    text: 'Next one is the item title inside widgets',
-                    theme: 'h2',
-                },
-            })
-
-        .text-demo__item
-            +text-demo-item({
-                name: {
-                    text: 'H3',
-                    theme: 'h3',
-                    fweight: 'normal',
-                    color: 'dark-25',
-                },
-                value: {
-                    text: 'This is a label or CTA text',
-                    theme: 'h3',
-                },
-            })
-
-        .text-demo__item
-            +text-demo-item({
-                name: {
-                    text: 'Body',
-                    color: 'dark-25',
-                },
-                value: {
-                    text: 'This is the body text which is used for most of the design, like paragraphs, lists, etc.',
-                },
-            })
+        for config in itemConfigs
+            .text-demo__item
+                +text-demo-item(config)

@@ -1,10 +1,10 @@
 include ../text/text.pug
 
-mixin receipt(options={})
+mixin receipt(options = {})
     -
         const {
-           total = 0,
-           items = [],
+            total = 0,
+            items = [],
         } = options;
 
         totalRes = `${total}₽`;
@@ -24,16 +24,16 @@ mixin receipt(options={})
                 .receipt__text-container
                     +text({
                         text,
-                        color: 'dark-75',
-                        lheight: 'middle-2',
+                        color: 'text-primary',
+                        lineHeight: 'small',
                     })
                 if icon
                     .receipt__icon i
                 .receipt__price
                     +text({
                         text: priceRes,
-                        color: 'dark-75',
-                        lheight: 'middle-2',
+                        color: 'text-primary',
+                        lineHeight: 'small',
                         horizontal: 'right', 
                     })
                     
@@ -41,12 +41,12 @@ mixin receipt(options={})
             +text({
                 text: 'Итого',
                 theme: 'h2',
-                fname: 'montserrat',
+                fontName: 'montserrat',
             })
             .receipt__separate-line
             +text({
                 text: totalRes,
                 theme: 'h2',
-                fname: 'montserrat',
-                wspace: 'nowrap',
+                fontName: 'montserrat',
+                whiteSpace: 'nowrap',
             })

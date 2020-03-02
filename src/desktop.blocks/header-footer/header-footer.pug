@@ -9,42 +9,29 @@ mixin header-footer()
         -
             const menu = {
                items: [
-                   {text: 'Home', theme: 'main'},
-                   {text: 'About Us'},
-                   {
-                       text: 'Services',
-                       expandable: true,
-                       items: [
-                           {text: 'example1'},
-                           {text: 'example2'},
-                           {text: 'example3'},
-                       ],
-                   },
-                   {text: 'Careers'},
-                   {text: 'News'},
-                   {text: 'Documentation'}
+                    {text: 'Home', selected: true},
+                    {text: 'About Us'},
+                    {
+                        text: 'Services',
+                        items: [
+                            {text: 'example1'},
+                            {text: 'example2'},
+                            {text: 'example3'},
+                        ],
+                    },
+                    {text: 'Careers'},
+                    {text: 'News'},
+                    {text: 'Documentation'}
                ]
             };
 
         .header-footer__header
             +header({
                 menu,
-                logo: {
-                    href: '../landing-page/index.html'
-                },
-                btnLogin: {
-                    href: '../sign-in/index.html',
-                },
-                btnRegister: {
-                    href: '../registration/index.html',
-                },
             })
         .header-footer__header
             +header({
                 menu,
-                logo: {
-                    href: '../landing-page/index.html'
-                },
                 user: 'Cosmin Negoita',
             })
         .header-footer__footer
@@ -54,52 +41,37 @@ mixin header-footer()
                     title: 'Subscribe to our newsletter',
                     description: 'Receive our latest news and promotions in your inbox!',
                     placeholder: 'Your email address',
-                    type: 'email',
                 },
                 navList: [
                     {
                         title: 'navigation',
                         items: [
-                            {text: 'About Us', href: ''},
-                            {text: 'News', href: ''},
-                            {text: 'Support', href: ''},
-                            {text: 'Products', href: ''},
+                            {text: 'About Us'},
+                            {text: 'News'},
+                            {text: 'Support'},
+                            {text: 'Products'},
                         ],
                     },
                     {
                         title: 'about us',
                         items: [
-                            {text: 'Who we are', href: ''},
-                            {text: 'Our team', href: ''},
-                            {text: 'Careers', href: ''},
-                            {text: 'Investors', href: ''},
+                            {text: 'Who we are'},
+                            {text: 'Our team'},
+                            {text: 'Careers'},
+                            {text: 'Investors'},
                         ],
                     },
                     {
                         title: 'Support',
                         items: [
-                            {text: 'Documentation', href: ''},
-                            {text: 'Community', href: ''},
-                            {text: 'Get in Touch', href: ''},
+                            {text: 'Documentation'},
+                            {text: 'Community'},
+                            {text: 'Get in Touch'},
                         ],
                     },
                 ],
             })
         .header-footer__copyright-bar
-            +copyright-bar({
-                text: 'Copyright © 2018 Toxin UI Kit. All rights reserved.',
-                socialButtons: [
-                    {text: 'twitter', href: 'https://twitter.com'},
-                    {text: 'facebook-square', href: 'https://ru-ru.facebook.com'},
-                    {text: 'instagram', href: 'https://www.instagram.com'},
-                ],
-            })
+            +copyright-bar('Copyright © 2018 Toxin UI Kit. All rights reserved.')
         .header-footer__footer
-            +footer-creative({
-                siteDescription: 'Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.',
-                socialButtons: [
-                    {text: 'twitter', href: 'https://twitter.com'},
-                    {text: 'facebook-square', href: 'https://ru-ru.facebook.com'},
-                    {text: 'instagram', href: 'https://www.instagram.com'},
-                ],
-            })
+            +footer-creative('Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.')

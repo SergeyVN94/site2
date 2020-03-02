@@ -1,30 +1,29 @@
 include ../text/text.pug
 include ../like-button/like-button.pug
 
-mixin comment(options={})
+mixin comment(options = {})
     -
         const {
             avatar = '',
-            name = '',
+            userName = '',
             publicationDate = '',
             likes = 0,
             text = '',
+            likeBtnChecked = false,
         } = options;
     
     .comment
-        .comment__avatar-likes
-            .comment__avatar
-                image.comment__avatar-image(src=avatar)
+        .comment__aside
+            .comment__avatar-container
+                img(src=avatar, alt="", class="comment__avatar-image")
             .comment__like-button
-                +like-button({
-                    likes,
-                })
+                +like-button(likes, likeBtnChecked)
         .comment__head-body
             .comment__head
                 .comment__user-name
                     +text({
-                        text: name,
-                        fweight: 'bold',
+                        text: userName,
+                        fontWeight: 'bold',
                     })
                 .comment__publication-date
                     +text({

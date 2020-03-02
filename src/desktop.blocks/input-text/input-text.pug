@@ -1,16 +1,15 @@
-mixin input-text(options={})
+mixin input-text(options = {})
     -
         const {
-           type = 'text',
-           placeholder = '',
-           value = '',
-           theme = '',
-           iconRight = '',
+            type = 'text',
+            placeholder = '',
+            value = '',
+            iconRight = '',
         } = options;
 
         const classList = [];
 
-        if(iconRight !== '') classList.push('input-text_use-icon-right');
+        if (iconRight !== '') classList.push('input-text_use-icon-right');
 
         const classListStr = classList.join(' ');
 

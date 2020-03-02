@@ -1,6 +1,6 @@
 .header {
   background-color: #fff;
-  box-shadow: 0rem 0.7143rem 1.4286rem $color-dark-5;
+  box-shadow: 0rem 0.7143rem 1.4286rem $dim-shadow;
 }
 
 .header_extended {
@@ -40,7 +40,7 @@
   }
 }
 
-.header__login-register {
+.header__personal-area-buttons {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -52,7 +52,7 @@
   }
 }
 
-.header__login {
+.header__btn-login {
   margin-right: 1.4286rem;
 
   @media (max-width: $breakpoint3) {
@@ -87,12 +87,12 @@
 .header__user-name {
   @include reset-css;
   padding-left: 1.4286rem;
-  border-left: 0.0714rem solid $color-dark-10;
+  border-left: 0.0714rem solid $dim-border;
 
   @media (max-width: $breakpoint2) {
     padding: 1.4286rem 0rem 0rem 0rem;
     border-left: none;
-    border-top: 0.0714rem solid $color-dark-10;
+    border-top: 0.0714rem solid $dim-border;
   }
 }
 

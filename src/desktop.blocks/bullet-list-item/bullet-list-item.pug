@@ -1,11 +1,6 @@
 include ../text/text.pug
 
-mixin bullet-list-item(options={})
-    -
-        const {
-            text = '',
-        } = options;
-
+mixin bullet-list-item(text = '')
     .bullet-list-item
         .bullet-list-item__maker-container
             .bullet-list-item__marker
@@ -13,3 +8,4 @@ mixin bullet-list-item(options={})
             +text({
                 text,
             })
+

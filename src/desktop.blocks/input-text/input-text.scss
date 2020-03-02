@@ -24,8 +24,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $color-gradient-1;
-  background: $color-gradient-1;
+  color: $bg-gradient-primary;
+  background: $bg-gradient-primary;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   width: 100%;
@@ -39,11 +39,11 @@
   cursor: pointer;
 
   &:hover {
-    text-shadow: 0px 0px 10px $color-purple;
+    text-shadow: 0px 0px 10px $primary;
   }
 
   &:active {
-    text-shadow: 0px 0px 10px $color-dark-50;
+    text-shadow: 0px 0px 10px $text-secondary;
   }
 }
 
@@ -58,20 +58,20 @@
   font-weight: normal;
   font-size: 0.9786rem;
   line-height: 1.2857rem;
-  color: $color-dark-25;
+  color: $light-title;
   background-color: #fff;
-  border: 0.0714rem solid $color-dark-25;
+  border: 0.0714rem solid $light-title;
   border-radius: 0.2857rem;
 
   &::placeholder {
-    color: $color-dark-25;
+    color: $light-title;
     opacity: 1;
   }
 
   &:hover,
   &:focus {
     line-height: 1.7143rem;
-    color: $color-dark-75;
-    border-color: $color-dark-50;
+    color: $text-primary;
+    border-color: $text-secondary;
   }
 }

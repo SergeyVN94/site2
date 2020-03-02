@@ -6,32 +6,46 @@ include ../rich-checkbox-buttons/rich-checkbox-buttons.pug
 include ../dropdown-room-amenities/dropdown-room-amenities.pug
 include ../expandable-checkbox-list/expandable-checkbox-list.pug
 
-mixin search-filters(options={})
-    -
-        const {
-            filterDate = {
-                head: 'даты пребывания в отеле',
+mixin search-filters()
+    aside.search-filters
+        .search-filters__dropdown-filter-date
+            +dropdown-filter-date({
+                head: {
+                    title: 'даты пребывания в отеле',
+                },
                 text: '19 авг - 23 авг',
-            },
-            dropdownGuest = {},
-            rangeSlider = {
+            })
+        .search-filters__dropdown-guest
+            +dropdown-guest({
+                head: {
+                    title: 'гости',
+                },
+            })
+        .search-filters__range-slider
+            +range-slider({
                 title: 'диапазон цены',
                 range: [0, 16000],
                 start: [5000, 10000],
                 bottomText: 'Стоимость за сутки пребывания в номере',
                 value: '0₽ - 15 000₽',
                 step: 1000,
-            },
-            checkboxList = {
-                head: 'Checkbox Buttons',
+            })
+        .search-filters__checkbox-list
+            +checkbox-list({
+                head: {
+                    title: 'Checkbox Buttons',
+                },
                 items: [
-                    'Можно курить',
-                    'Можно с питомцами',
-                    'Можно пригласить гостей (до 10 человек)',
+                    {text: 'Можно курить'},
+                    {text: 'Можно с питомцами'},
+                    {text: 'Можно пригласить гостей (до 10 человек)'},
                 ],
-            },
-            richCheckboxButtons = {
-                head: 'доступность',
+            })
+        .search-filters__rich-checkbox-buttons
+            +rich-checkbox-buttons({
+                head: {
+                    title: 'доступность',
+                },
                 items: [
                     {
                         text: 'Широкий коридор',
@@ -42,37 +56,20 @@ mixin search-filters(options={})
                         description: 'На 1 этаже вас встретит специалист  и проводит до номера.',
                     },
                 ],
-            },
-            dropdownRoomAmenities = {
-                head: 'удобства номера',
-            },
-            expandableCheckboxList = {
+            })    
+        .search-filters__dropdown-room-amenities
+            +dropdown-room-amenities()
+        .search-filters__expandable-checkbox-list
+            +expandable-checkbox-list({
                 title: 'дополнительные удобства',
                 items: [
-                    'Завтрак',
-                    'Письменный стол',
-                    'Стул для кормления',
-                    'Кроватка',
-                    'Телевизор',
-                    'Шампунь',
-                    'Телевизор',
-                    'Шампунь',
+                    {text: 'Завтрак'},
+                    {text: 'Письменный стол'},
+                    {text: 'Стул для кормления'},
+                    {text: 'Кроватка'},
+                    {text: 'Телевизор'},
+                    {text: 'Шампунь'},
+                    {text: 'Телевизор'},
+                    {text: 'Шампунь'},
                 ],
-            },
-        } = options;
-
-    aside.search-filters
-        .search-filters__dropdown-filter-date
-            +dropdown-filter-date(filterDate)
-        .search-filters__dropdown-guest
-            +dropdown-guest(dropdownGuest)
-        .search-filters__range-slider
-            +range-slider(rangeSlider)
-        .search-filters__checkbox-list
-            +checkbox-list(checkboxList)
-        .search-filters__rich-checkbox-buttons
-            +rich-checkbox-buttons(richCheckboxButtons)    
-        .search-filters__dropdown-room-amenities
-            +dropdown-room-amenities(dropdownRoomAmenities)
-        .search-filters__expandable-checkbox-list
-            +expandable-checkbox-list(expandableCheckboxList)
+            })

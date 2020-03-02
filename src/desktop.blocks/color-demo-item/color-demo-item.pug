@@ -1,26 +1,26 @@
 include ../text/text.pug
 
-mixin color-demo-item(options={})
+mixin color-demo-item(options = {})
     -
         const {
-           color = '', 
-           name = '',
-           bgColor = '',
+            colorName = '', 
+            colorValue = '',
+            squareBgColor = '',
         } = options;
 
     .color-demo-item
-        .color-demo-item__color-block(style=`background-color: ${bgColor};`)
-        .color-demo-item__color-description
+        .color-demo-item__color-square(style=`background-color: ${squareBgColor};`)
+        .color-demo-item__description
             .color-demo-item__color-name
                 +text({
-                    text: name,
+                    text: colorName,
                     theme: 'h2',
-                    lheight: 'big',
+                    lineHeight: 'big',
                 })
             .color-demo-item__color-value
                 +text({
-                    text: color,
+                    text: colorValue,
                     theme: 'h2',
-                    fweight: 'normal',
-                    lheight: 'big',
+                    fontWeight: 'normal',
+                    lineHeight: 'big',
                 })

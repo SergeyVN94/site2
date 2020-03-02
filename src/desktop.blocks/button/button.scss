@@ -17,7 +17,7 @@
   }
 }
 
-.button.button_theme_default-long {
+.button_theme_default-long {
   display: block;
   width: 100%;
   height: 3.1429rem;
@@ -25,7 +25,7 @@
   padding: 0rem 19.7px;
   font-size: 0.8571rem;
   line-height: 1.0714rem;
-  background: $color-gradient-1;
+  background: $bg-gradient-primary;
   font-family: Montserrat;
   font-style: normal;
   font-weight: bold;
@@ -34,25 +34,25 @@
   position: relative;
 
   &:hover {
-    box-shadow: 0px 0px 10px $color-purple;
+    box-shadow: 0px 0px 10px $primary;
   }
 
   &:active {
-    background: $color-purple;
+    background: $primary;
   }
 
   &:focus {
-    box-shadow: 0px 0px 10px $color-dark-50;
+    box-shadow: 0px 0px 10px $text-secondary;
   }
 }
 
-.button.button_theme_default {
+.button_theme_default {
   height: 3.1429rem;
   border-radius: 1.5714rem;
   padding: 0rem 19.7px;
   font-size: 0.8571rem;
   line-height: 1.0714rem;
-  background: $color-gradient-1;
+  background: $bg-gradient-primary;
   font-family: Montserrat;
   font-style: normal;
   font-weight: bold;
@@ -61,19 +61,19 @@
   padding-top: 0.1429rem;
 
   &:hover {
-    box-shadow: 0px 0px 10px $color-purple;
+    box-shadow: 0px 0px 10px $primary;
   }
 
   &:active {
-    background: $color-purple;
+    background: $primary;
   }
 
   &:focus {
-    box-shadow: 0px 0px 10px $color-dark-50;
+    box-shadow: 0px 0px 10px $text-secondary;
   }
 }
 
-.button.button_theme_icon {
+.button_theme_icon {
   width: 3.1429rem;
   height: 3.1429rem;
   font-family: Material Icons;
@@ -84,10 +84,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $color-dark-50;
+  color: $text-secondary;
 }
 
-.button.button_theme_light {
+.button_theme_light {
   height: 3.1429rem;
   font-family: Montserrat;
   font-style: normal;
@@ -95,32 +95,32 @@
   font-size: 0.8571rem;
   line-height: 1.0714rem;
   border-radius: 1.5714rem;
-  border: 0.1429rem solid $color-purple;
-  color: $color-purple;
+  border: 0.1429rem solid $primary;
+  color: $primary;
   text-transform: uppercase;
   padding: 0rem 1.2857rem;
 
   &:visited {
-    color: $color-purple;
+    color: $primary;
   }
 
   &:hover {
-    box-shadow: 0px 0px 10px $color-purple;
+    box-shadow: 0px 0px 10px $primary;
   }
 
   &:active {
-    box-shadow: 0px 0px 10px $color-dark-50;
+    box-shadow: 0px 0px 10px $text-secondary;
   }
 
   &:focus {
-    box-shadow: 0px 0px 10px $color-dark-50;
+    box-shadow: 0px 0px 10px $text-secondary;
   }
 }
 
-.button.button_theme_round-icon {
+.button_theme_round-icon {
   width: 2.8571rem;
   height: 2.8571rem;
-  background: $color-gradient-1;
+  background: $bg-gradient-primary;
   border-radius: 1.5714rem;
   font-family: Material Icons;
   font-style: normal;
@@ -133,12 +133,12 @@
   color: #ffffff;
 }
 
-.button.button_theme_round-little{
+.button_theme_round-little {
   width: 2.1429rem;
   height: 2.1429rem;
   border: 0.0714rem solid rgba(31, 32, 65, 0.25);
   border-radius: 1.5714rem;
-  color: $color-dark-50;
+  color: $text-secondary;
   font-family: Montserrat;
   font-style: normal;
   font-weight: normal;
@@ -146,7 +146,7 @@
   line-height: 2.1429rem;
 }
 
-.button.button_theme_round {
+.button_theme_round {
   width: 2.8571rem;
   height: 2.8571rem;
   border-radius: 1.5714rem;
@@ -161,7 +161,7 @@
   color: #ffffff;
 }
 
-.button.button_theme_social {
+.button_theme_social {
   width: 1.7143rem;
   height: 1.7143rem;
   font-family: 'Font Awesome 5 Brands';
@@ -169,7 +169,7 @@
   font-weight: normal;
   font-size: 1.7143rem;
   line-height: 1.6429rem;
-  background: $color-gradient-1;
+  background: $bg-gradient-primary;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   padding: 0;
@@ -179,101 +179,87 @@
   }
 
   &:active {
-    background: $color-purple;
+    background: $primary;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     opacity: 1;
   }
 
   &:focus {
-    background: $color-dark-50;
+    background: $text-secondary;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     opacity: 1;
   }
 }
 
-.button.button_theme_square {
-  width: 2.8571rem;
-  height: 2.8571rem;
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 0.8571rem;
-  line-height: 1.0714rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: $color-dark-50;
-}
-
-.button.button_theme_text {
+.button_theme_text {
   font-family: Montserrat;
   font-style: normal;
   font-weight: bold;
   font-size: 0.8571rem;
   line-height: 1.0714rem;
   text-transform: uppercase;
-  color: $color-purple;
+  color: $primary;
 
   &:hover {
-    text-shadow: 0px 0px 10px $color-purple;
+    text-shadow: 0px 0px 10px $primary;
   }
 
   &:active {
-    text-shadow: 0px 0px 10px $color-dark-50;
+    text-shadow: 0px 0px 10px $text-secondary;
   }
 
   &:focus {
-    text-shadow: 0px 0px 10px $color-dark-50;
+    text-shadow: 0px 0px 10px $text-secondary;
   }
 }
 
-.button.button_background_gradient-1 {
-  background: $color-gradient-1;
+.button_background_gradient-primary {
+  background: $bg-gradient-primary;
 }
 
-.button.button_background_gradient-2 {
-  background: $color-gradient-2;
+.button_background_gradient-success {
+  background: $bg-gradient-success;
 }
 
-.button.button_background_none {
+.button_background_none {
   background: none;
 }
 
-.button.button_hover-theme_gradient-1 {
+.button_hover-theme_gradient-primary {
   &:hover {
-    background: $color-gradient-1;
-    box-shadow: 0px 0px 10px $color-purple;
+    background: $bg-gradient-primary;
+    box-shadow: 0px 0px 10px $primary;
     color: #ffffff;
     font-weight: bold;
   }
 
   &:active {
-    background: $color-gradient-1;
-    box-shadow: 0px 0px 10px $color-green;
+    background: $bg-gradient-primary;
+    box-shadow: 0px 0px 10px $bg-good;
     color: #ffffff;
     font-weight: bold;
   }
 }
 
-.button.button_hover-theme_gradient-2 {
+.button_hover-theme_gradient-success {
   &:hover {
-    background: $color-gradient-2;
-    box-shadow: 0px 0px 10px $color-green;
+    background: $bg-gradient-success;
+    box-shadow: 0px 0px 10px $bg-good;
     color: #ffffff;
     font-weight: bold;
   }
 
   &:active {
-    background: $color-gradient-2;
-    box-shadow: 0px 0px 10px $color-purple;
+    background: $bg-gradient-success;
+    box-shadow: 0px 0px 10px $primary;
     color: #ffffff;
     font-weight: bold;
   }
 }
 
-.button.button_disable {
+.button_disable {
   opacity: 0.5;
 
   &:hover,
@@ -283,24 +269,24 @@
   }
 }
 
-.button.button_fweight_bold {
+.button_font-weight_bold {
   font-weight: bold;
 }
 
-.button.button_hidden {
+.button_hidden {
   display: none;
 }
 
-.button.button_hsize_big {
+.button_horizontal-size_big {
   padding: 0rem 1.6429rem;
 }
 
-.button.button_size_sm {
+.button_size_sm {
   height: 2.4286rem;
 }
 
-.button.button_text-color_dark-50 {
-  color: $color-dark-50;
+.button_text-color_text-secondary {
+  color: $text-secondary;
 }
 
 .button__icon {

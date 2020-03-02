@@ -5,20 +5,17 @@ import CLASSES from './classes';
 
 const likeButtonClickHandler = function likeButtonClickHandler(e: JQuery.MouseEventBase): void {
     const $btn = $(e.delegateTarget);
-    const selected = $btn.likeButton('selected');
+    const checked = $btn.likeButton('checked');
     let likes = $btn.likeButton('likes') as number;
 
-    if (!selected) {
-        likes += 1;
-    } else {
-        likes -= 1;
-        if (likes < 0) {
-            likes = 0;
-        }
+    likes = checked ? likes -= 1 : likes += 1;
+
+    if (likes < 0) {
+        likes = 0;
     }
 
     $btn.likeButton('likes', likes);
-    $btn.likeButton('selected', !selected);
+    $btn.likeButton('checked', !checked);
 };
 
 $(`.${CLASSES.LIKE_BTN}`).on('click.like-button.checked', likeButtonClickHandler);

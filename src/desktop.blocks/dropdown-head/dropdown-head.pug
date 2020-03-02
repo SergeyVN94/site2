@@ -1,24 +1,25 @@
 include ../text/text.pug
 
-mixin dropdown-head(options={})
+mixin dropdown-head(options = {})
     -
         const {
-           text = '',
-           icon = 'expand_more',
-           classes = [],
+            text = '',
+            classes = [],
         } = options;
 
-        const classListStr = classes.join(' ');
+        classes.push('dropdown-head js-dropdown-head');
+        const classesStr = classes.join(' ');
 
-    .dropdown-head.js-dropdown-head(class=classListStr)
+    div(class=classesStr)
         .dropdown-head__text
             +text({
                 text,
-                wspace: 'nowrap',
+                whiteSpace: 'nowrap',
                 noSelect: true,
                 verticalMiddle: true,
                 classes: [
                     'js-dropdown-head__text',
                 ],
             })
-        .dropdown-head__icon #{icon}
+        .dropdown-head__icon expand_more
+

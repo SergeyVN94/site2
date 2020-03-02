@@ -1,33 +1,23 @@
 include ../text/text.pug
 
-mixin room-head(options={})
+mixin room-head(options = {})
     -
         const {
             roomNumber = 0,
             roomNumberSize = 'h1',
-            roomPrice = 0,
+            roomPrice = '0',
             luxury = false,
-            href = '',
         } = options;
 
-        let price = String(roomPrice);
-
-        if (price.length > 3 && price.length <= 6) {
-            price = price.split('');
-            const left = price.slice(0, price.length - 3);
-            const right = price.slice(price.length - 3);
-            price = `${left.join('')} ${right.join('')}`;
-        }
-
-        const roomPriceRes = `${price}₽`;
+        const roomPriceRes = `${roomPrice}₽`;
 
     .room-head
-        a.room-head__room-number(href=href, tabindex='-1')
+        a.room-head__room-number(href='../room-details/index.html', tabindex='-1')
             +text({
                 text: '№ ',
-                fweight: 'bold',
-                color: 'dark-100',
-                wspace: 'pre',
+                fontWeight: 'bold',
+                color: 'text-title',
+                whiteSpace: 'pre',
             })
             +text({
                 text: roomNumber,
@@ -38,18 +28,18 @@ mixin room-head(options={})
                     +text({
                         text: 'люкс',
                         theme: 'h3',
-                        color: 'purple',
+                        color: 'primary',
                     })
         .room-head__room-price
             .room-head__price-number
                 +text({
                     text: roomPriceRes,
-                    fweight: 'bold',
-                    color: 'dark-50',
+                    fontWeight: 'bold',
+                    color: 'text-secondary',
                 })
             +text({
-                fsize: 'small',
+                size: 'small',
                 text: 'в сутки',
-                wspace: 'pre',
-                color: 'dark-50',
+                whiteSpace: 'pre',
+                color: 'text-secondary',
             })

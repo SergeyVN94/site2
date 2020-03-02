@@ -3,22 +3,20 @@ include ../room-head/room-head.pug
 include ../rating/rating.pug
 include ../text/text.pug
 
-mixin card-room-information(options={})
+mixin card-room-information(options = {})
     -
         const {
-           roomNumber = 0,
-           roomPrice = 0,
-           images = [],
-           luxury = false,
-           stars = 0,
-           comments = 0,
+            roomNumber = 0,
+            roomPrice = '',
+            images = [],
+            luxury = false,
+            stars = 0,
+            comments = 0,
         } = options;
 
     .card-room-information
         .card-room-information__image-slider
-            +image-slider({
-                images,
-            })
+            +image-slider(images)
         .card-room-information__body
             .card-room-information__head
                 +room-head({
@@ -26,19 +24,16 @@ mixin card-room-information(options={})
                     roomPrice,
                     luxury,
                     roomNumberSize: 'h2',
-                    href: '../room-details/index.html',
                 })
             .card-room-information__rating-comments
-                +rating({
-                    stars,
-                })
+                +rating(stars)
                 a.card-room-information__comments(href='../room-details/index.html#comments', tabindex='-1')
                     +text({
                         text: comments,
-                        fweight: 'bold',
-                        color: 'dark-50',
+                        fontWeight: 'bold',
+                        color: 'text-secondary',
                     })
                     +text({
                         text: ' Отзывов',
-                        wspace: 'pre',
+                        whiteSpace: 'pre',
                     })

@@ -1,28 +1,21 @@
 include ../block-head/block-head.pug
 include ../dropdown-head/dropdown-head.pug
 
-mixin dropdown(options={})
+mixin dropdown(options = {})
     -
         const {
-           title = '',
-           help = '',
-           text = '',
-           icon = 'expand_more',
-           valueOptions = {},
-           classes = [],
+            head = null,
+            text = '',
+            classes = [],
         } = options;
 
-        const isUseHead = (title !== '' || help !== '');
+        classes.push('dropdown js-dropdown');
+        const classesStr = classes.join(' ');
 
-        const classListStr = classes.join(' ');
-
-    .dropdown.js-dropdown(class=classListStr)
-        if isUseHead
+    div(class=classesStr)
+        if head !== null
             .dropdown__block-head
-                +block-head({
-                    title,
-                    help,
-                })
+                +block-head(head)
 
         .dropdown__container
             +dropdown-head({

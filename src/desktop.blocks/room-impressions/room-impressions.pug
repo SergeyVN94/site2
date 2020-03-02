@@ -1,14 +1,14 @@
 include ../block-head/block-head.pug
 include ../text/text.pug
 
-mixin room-impressions(options={})
+mixin room-impressions(options = {})
     .room-impressions
         .room-impressions__head
             +block-head({
                 title: 'Впечатления от номера',
                 titleOptions: {
                     theme: 'h2',
-                    fname: 'montserrat',
+                    fontName: 'montserrat',
                 },
             })   
         .room-impressions__body
@@ -33,7 +33,7 @@ mixin room-impressions(options={})
                     let sum = 0;
 
                     KEYS.forEach((key) => {
-                        if(isCorrectPropertyItem(key)) {
+                        if (isCorrectPropertyItem(key)) {
                             sum += items[key];
                         } else {
                             items[key] = 0;
@@ -42,7 +42,7 @@ mixin room-impressions(options={})
 
                     const paths = {};
 
-                    if(sum){
+                    if (sum){
                         let lastPos = {
                             x: 60 + (58 * Math.cos((Math.PI / 180))),
                             y: 60 + (58 * Math.sin((Math.PI / 180))),
@@ -53,7 +53,7 @@ mixin room-impressions(options={})
                         KEYS.forEach((key) => {
                             let degrees = Math.floor((items[key] / sum) * 360);
 
-                            if(degrees > 3) {
+                            if (degrees > 3) {
                                 sumDegrees += degrees;
                             
                                 const rad = ((Math.PI * (sumDegrees - 2)) / 180);
@@ -77,7 +77,7 @@ mixin room-impressions(options={})
                     svg.room-impressions__diagram-image(width="100%", height="100%", fill="none", xmlns="http://www.w3.org/2000/svg", data-items=itemsStr)
                         -
                             KEYS.forEach((key) => {
-                                if(isPropertyExists(paths, key)) {
+                                if (isPropertyExists(paths, key)) {
                                     const stroke = `url(#linear-gradient-${key})`;
                         path(d=paths[key], stroke-width="4", fill="none", stroke=stroke)
                         -
@@ -107,13 +107,13 @@ mixin room-impressions(options={})
                                 text: items['fine'],
                                 theme: 'h1',
                                 horizontal: 'middle',
-                                color: 'purple',
+                                color: 'primary',
                             })
                         +text({
                             text: 'голосов',
                             theme: 'h3',
                             horizontal: 'middle',
-                            color: 'purple',
+                            color: 'primary',
                         })
             ul.room-impressions__help-list
                 -
@@ -132,5 +132,5 @@ mixin room-impressions(options={})
                             .room-impressions__help-marker(class=`room-impressions__help-marker_color_${bg}`)
                         +text({
                             text,
-                            wbreak: 'break-all',
+                            wordBreak: 'break-all',
                         })

@@ -3,7 +3,7 @@
   font-family: Quicksand;
   font-style: normal;
   font-weight: bold;
-  color: $color-dark-100;
+  color: $text-title;
 }
 
 .text_theme_h1 {
@@ -28,42 +28,38 @@
   font-weight: normal;
   font-size: 1rem;
   line-height: 1.7143rem;
-  color: $color-dark-75;
+  color: $text-primary;
 }
 
-.text_wspace_nowrap {
+.text_white-space_nowrap {
   white-space: nowrap;
 }
 
-.text_wspace_pre {
+.text_white-space_pre {
   white-space: pre;
 }
 
-.text_ttransform_none {
+.text_transform_none {
   text-transform: none;
 }
 
-.text_uppercase {
+.text_transform_uppercase {
   text-transform: uppercase;
 }
 
-.text_lheight_big {
+.text_line-height_big {
   line-height: 2.1429rem;
 }
 
-.text_lheight_middle-1 {
+.text_line-height_middle {
   line-height: 1.4286rem;
 }
 
-.text_lheight_middle-2 {
+.text_line-height_small {
   line-height: 1.2857rem;
 }
 
-.text_lheight_middle {
-  line-height: 1.7143rem;
-}
-
-.text_lheight_small {
+.text_line-height_very-small {
   line-height: 1.0714rem;
 }
 
@@ -76,63 +72,43 @@
   text-align: right;
 }
 
-.text_fweight_bold {
+.text_font-weight_bold {
   font-weight: bold;
 }
 
-.text_fweight_normal {
+.text_font-weight_normal {
   font-weight: normal;
 }
 
-.text_color_black {
+.text_color_important-text {
   color: #000000;
 }
 
-.text_color_dark-100 {
-  color: $color-dark-100;
+.text_color_text-title {
+  color: $text-title;
 }
 
-.text_color_dark-25 {
-  color: $color-dark-25;
+.text_color_text-primary {
+  color: $text-primary;
 }
 
-.text_color_dark-50 {
-  color: $color-dark-50;
+.text_color_text-secondary{
+  color: $text-secondary;
 }
 
-.text_color_dark-5 {
-  color: $color-dark-5;
+.text_color_light-title {
+  color: $light-title;
 }
 
-.text_color_dark-75 {
-  color: $color-dark-75;
+.text_color_primary {
+  color: $primary;
 }
 
-.text_color_gradient-1 {
-  color: $color-gradient-1;
-}
-
-.text_color_gradient-2 {
-  color: $color-gradient-2;
-}
-
-.text_color_gradient-3 {
-  color: $color-gradient-3;
-}
-
-.text_color_gradient-4 {
-  color: $color-gradient-4;
-}
-
-.text_color_purple {
-  color: $color-purple;
-}
-
-.text_fname_montserrat {
+.text_font-name_montserrat {
   font-family: Montserrat;
 }
 
-.text_fsize_small {
+.text_size_small {
   font-size: 0.8571rem;
 }
 
@@ -151,6 +127,6 @@
   }
 }
 
-.text_wbreak_break-all {
+.text_word-break_break-all {
   word-break: break-all;
 }

@@ -1,21 +1,19 @@
 include ../text/text.pug
 
-mixin menu-item(options={})
+mixin menu-item(options = {})
     -
         const {
-           active = false,
-           text = '',
-           href = '',
-           theme = '',
+            text = '',
+            href = '/mock-address/change-me',
+            selected = false,
         } = options;
 
-        let fweight = 'normal';
-        if(theme === 'main') fweight = 'bold';
+        const fontWeight = selected ? 'bold' : 'normal';
 
-    a.menu-item(class=classList, href=href)
+    a.menu-item(href=href)
         +text({
             text,
-            fweight,
-            lheight: 'middle-2',
-            wspace: 'nowrap',
+            fontWeight,
+            lineHeight: 'small',
+            whiteSpace: 'nowrap',
         })

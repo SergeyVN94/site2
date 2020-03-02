@@ -1,7 +1,7 @@
 include ../text/text.pug
 include ../block-head/block-head.pug
 
-mixin range-slider(options={})
+mixin range-slider(options = {})
     -
         const {
             step = 1,    
@@ -9,7 +9,6 @@ mixin range-slider(options={})
             start = [],
             title = '',
             bottomText = '',
-            value = '',
         } = options;
 
         const [
@@ -24,9 +23,15 @@ mixin range-slider(options={})
 
     .range-slider.js-range-slider(data-range-min=rangeMin, data-range-max=rangeMax, data-step=step,data-start-min=startMin, data-start-max=startMax)
         .range-slider__head
-            +block-head({
-                title,
-                help: value,
+            +text({
+                text: title,
+                theme: 'h3',
+            })
+            +text({
+                theme: 'h3',
+                color: 'text-secondary',
+                fontWeight: 'normal',
+                classes: ['js-range-slider__head-value'],
             })
         .range-slider__line.js-range-slider__line
             .range-slider__point.js-range-slider__point(data-type='min')
@@ -36,6 +41,6 @@ mixin range-slider(options={})
             .range-slider__bottom-text
                 +text({
                     text: bottomText,
-                    fsize: 'small',
-                    color: 'dark-50',
+                    size: 'small',
+                    color: 'text-secondary',
                 })

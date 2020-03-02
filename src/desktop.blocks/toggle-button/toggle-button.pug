@@ -1,17 +1,9 @@
 include ../input-toggle/input-toggle.pug
 include ../text/text.pug
 
-mixin toggle-button(options={})
-    -
-        const {
-           text = '',
-           checked = false,
-        } = options;
-
+mixin toggle-button(text = '', checked = false)
     .toggle-button
-        +input-toggle({
-            checked,
-        })
+        +input-toggle(checked)
         .toggle-input__text
             +text({
                 text,

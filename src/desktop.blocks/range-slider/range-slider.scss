@@ -21,6 +21,10 @@
 
 .range-slider__head {
   margin-bottom: 1.6429rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
 }
 
 .range-slider__line{
@@ -30,7 +34,7 @@
   height: 0.4286rem;
   border-radius: 0.2143rem;
   position: relative;
-  border: 0.0714rem solid $color-dark-25;
+  border: 0.0714rem solid $light-title;
 }
 
 .range-slider__point {

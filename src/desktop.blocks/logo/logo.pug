@@ -1,20 +1,7 @@
-mixin logo(options={})
-    -
-        const {
-           theme = 'default',
-           href = '',
-        } = options;
-
-        const classList = [];
-
-        classList.push(`logo_theme_${theme}`);
-
-        const classListStr = classList.join(' ');
-
-    a.logo(class=classListStr, href=href)
-        case theme
-            when 'minimal'
-                include ./icon.svg
-            default
-                include ./icon-main.svg
-                include ./text.svg  
+mixin logo(isMinimality = false)
+    a.logo(href='../landing-page/index.html')
+        if isMinimality
+            include ./icon.svg
+        else
+            include ./icon-main.svg
+            include ./text.svg  

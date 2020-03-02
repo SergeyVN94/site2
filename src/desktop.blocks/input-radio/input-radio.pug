@@ -1,10 +1,4 @@
-mixin input-radio(options={})
-    -
-        const {
-           checked = false,
-           group = '',
-        } = options;
-
+mixin input-radio(group = '', checked = false)
     label.input-radio
         input.input-radio__input(type="radio", name=group, checked=checked)
         .input-radio__new-input

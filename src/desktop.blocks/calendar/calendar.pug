@@ -1,42 +1,45 @@
 include ../text/text.pug
 include ../button/button.pug
 
-mixin calendar(options={})
+mixin calendar(options = {})
     -
         const {
-           classes = [],
+            renderDate,
+            classes = [],
         } = options;
 
-        const classList = classes.join(' ');
+        classes.push('calendar js-calendar');
+        const classesStr = classes.join(' ');
 
         const currentDate = new Date();
+        const currentDateStr = `${currentDate.getDate()}.${currentDate.getMonth() + 1}.${currentDate.getFullYear()}`;
 
-        const {
-           date = `${currentDate.getDate()}.${currentDate.getMonth() + 1}.${currentDate.getFullYear()}`,
-        } = options;
+        const isCorrectRenderDate = renderDate && (typeof renderDate === 'string') && (/\d{1,2}\.\d{1,2}\.\d{4}/.test(renderDate));
 
-        const weekdayNames = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+        const renderDateStr = isCorrectDate ? date : currentDateStr;
 
-    .calendar.js-calendar(data-date=date, classes=classList)
+    div(class=classesStr, data-date=renderDateStr)
         .calendar__date-navigation
             .calendar__btn-change-month.js-calendar__btn-prev-month arrow_back
             .calendar__drawn-date
                 +text({
                     theme: 'h2',
-                    fname: 'montserrat',
+                    fontName: 'montserrat',
                     classes: [
                         'js-calendar__drawn-date',
                     ],
                 })
             .calendar__btn-change-month.js-calendar__btn-next-month arrow_forward
         .calendar__weekday-names
+            -const weekdayNames = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+
             for name in weekdayNames
                 .calendar__weekday-name
                     +text({
                         text: name,
-                        color: 'purple',
-                        fweight: 'bold',
-                        fsize: 'small',
+                        color: 'primary',
+                        fontWeight: 'bold',
+                        size: 'small',
                     })
         .calendar__days-container.js-calendar__days-container
         .calendar__btn-control
@@ -44,7 +47,7 @@ mixin calendar(options={})
                 +button({
                     text: 'очистить',
                     theme: 'text',
-                    textColor: 'dark-50',
+                    textColor: 'text-secondary{',
                     classes: [
                         'js-calendar__btn-clear',
                     ],

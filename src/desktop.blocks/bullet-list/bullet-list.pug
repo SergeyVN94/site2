@@ -1,26 +1,27 @@
 include ../block-head/block-head.pug
 include ../bullet-list-item/bullet-list-item.pug
 
-mixin bullet-list(options={})
+mixin bullet-list(options = {})
     -
         const {
-           head = {},
-           items = [],
+            head = null,
+            items = [],
         } = options;
 
-        const {bottom = ''} = head;
-
-        let headClassList = '';
-        if (bottom !== '') headClassList += 'bullet-list__head_bottom_bg';
-
     .bullet-list
-        if head !== ''
-            .bullet-list__head(class=headClassList)
+        if head !== null
+            -
+                const { bottom = '' } = head;
+                const headClasses = ['bullet-list__head'];
+
+                if (bottom && bottom !== 'false') headClasses.push(`bullet-list__head_bottom_${bottom}`);
+
+                const headClassesStr = headClasses.join(' ');
+
+            div(class=headClassesStr)
                 +block-head(head)
         
         .bullet-list__container
             for text in items
                 .bullet-list__item
-                    +bullet-list-item({
-                        text,
-                    })
+                    +bullet-list-item(text)

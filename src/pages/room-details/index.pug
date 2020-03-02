@@ -22,34 +22,29 @@ block main
                 ].map((img) => {
                     return require(`../../chunks/images/room-details/888/${img}`).default;
                 });
-            +room-details-banner({
-                images,
-            })
+            +room-details-banner(images)
         .container-content
             .room-details__container-content
                 .room-details__main-info
                     .room-details__info-item
                         .room-details__room-advantages
-                            +room-advantages({
-                                head: 'Сведения о номере',
-                                items: [
-                                    {
-                                        title: 'Комфорт',
-                                        description: 'Шумопоглощающие стены',
-                                        icon: 'insert_emoticon',
-                                    },
-                                    {
-                                        title: 'Удобство',
-                                        description: 'Окно в каждой из спален',
-                                        icon: 'location_city',
-                                    },
-                                    {
-                                        title: 'Уют',
-                                        description: 'Номер оснащён камином',
-                                        icon: 'whatshot',
-                                    },
-                                ],
-                            })
+                            +room-advantages([
+                                {
+                                    title: 'Комфорт',
+                                    description: 'Шумопоглощающие стены',
+                                    icon: 'insert_emoticon',
+                                },
+                                {
+                                    title: 'Удобство',
+                                    description: 'Окно в каждой из спален',
+                                    icon: 'location_city',
+                                },
+                                {
+                                    title: 'Уют',
+                                    description: 'Номер оснащён камином',
+                                    icon: 'whatshot',
+                                },
+                            ], 'Сведения о номере')
                         +room-impressions({
                             items: {
                                 veryGood: 520,
@@ -82,12 +77,12 @@ block main
                                 title: 'Отзывы посетителей номера',
                                 titleOptions: {
                                     theme: 'h2',
-                                    fname: 'montserrat',
+                                    fontName: 'montserrat',
                                 },
                                 help: '2 отзыва',
                                 helpOptions: {
-                                    ttransform: 'none',
-                                    color: 'dark-50',
+                                    transform: 'none',
+                                    color: 'text-secondary',
                                 },
                             },
                         })
@@ -98,9 +93,9 @@ block main
                                     title: 'Правила',
                                     titleOptions: {
                                         theme: 'h2',
-                                        fname: 'montserrat',
+                                        fontName: 'montserrat',
                                     },
-                                    bottom: 'bg',
+                                    bottom: 'big',
                                 },
                                 items: [
                                     'Нельзя с питомцами',
@@ -113,7 +108,7 @@ block main
                                 +text({
                                     text: 'Отмена',
                                     theme: 'h2',
-                                    fname: 'montserrat',
+                                    fontName: 'montserrat',
                                 })
                             +text({
                                 text: 'Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.',
@@ -121,7 +116,7 @@ block main
                 .room-details__book-room
                     +card-book-room({
                         roomNumber: 888,
-                        roomPrice: 9990,
+                        roomPrice: '9 990',
                         luxury: true,
                         receipt: {
                             total:  '38 081',

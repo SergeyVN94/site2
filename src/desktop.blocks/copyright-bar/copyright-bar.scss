@@ -1,7 +1,7 @@
 .copyright-bar {
   height: 5rem;
   background: #fff;
-  box-shadow: 0rem 0.7143rem 1.4286rem $color-dark-5;
+  box-shadow: 0rem 0.7143rem 1.4286rem $dim-shadow;
 }
 
 .copyright-bar__container-content {
@@ -26,7 +26,7 @@
   flex-wrap: nowrap;
 }
 
-.copyright-bar__text {
+.copyright-bar__copyright-text {
   @media (max-width: $breakpoint3) {
     margin-right: 0.7143rem;
   }

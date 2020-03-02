@@ -1,30 +1,20 @@
 include ../block-head/block-head.pug
 include ../radio-button/radio-button.pug
 
-mixin radio-buttons(options={})
+mixin radio-buttons(options = {})
     -
         const {
-           head = '',
-           group = '',
-           items = [],
-           selectedItem = 0,
+            head = null,
+            items = [],
         } = options;
 
     .radio-buttons
-        if head !== ''
+        if head !== null
             .radio-buttons__head
-                +block-head({
-                    title: head,
-                })
+                +block-head(head)
         .radio-buttons__container
-            -items.forEach((item, index) => {
-                -let checked = false;
-                -if(index === selectedItem) checked = true;
-
+            for item in items
                 .radio-buttons__button
-                    +radio-button({
-                        group,
-                        checked,
-                        text: item,
-                    })
-            -})
+                    +radio-button(item)
+
+

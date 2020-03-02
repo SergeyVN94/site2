@@ -2,14 +2,13 @@ include ../logo/logo.pug
 include ../menu/menu.pug
 include ../button/button.pug
 
-mixin header(options={})
+mixin header(options = {})
     -
         const {
-            logo = {},
             menu = {},
             user = '',
-            btnLogin = {},
-            btnRegister = {},
+            btnLogin = 'login',
+            btnRegister = 'register',
         } = options;
 
     header.header.js-header
@@ -17,7 +16,7 @@ mixin header(options={})
             .header__container-content
                 .header__head
                     .header__logo
-                        +logo(logo)
+                        +logo()
                     .header__menu-mobile-btn
                         +button({
                             classes: [
@@ -34,34 +33,20 @@ mixin header(options={})
                             .header__user-name
                                 +text({
                                     text: user,
-                                    color: 'dark-50',
+                                    color: 'text-secondary',
                                 })
                         else
-                            .header__login-register
-                                .header__login
-                                    -
-                                        const {
-                                            text: textLog = 'login',
-                                            href: hrefLog = '',
-                                        } = btnLogin;
-
-                                        const configLogin = {
-                                            text: textLog,
-                                            href: hrefLog,
-                                            size: 'sm',
-                                            theme: 'light',
-                                        }
-                                    +button(configLogin)
-                                .header__register
-                                    -
-                                        const {
-                                            text: textReg = 'register',
-                                            href: hrefReg = '',
-                                        } = btnRegister;
-
-                                        const configRegister = {
-                                            text: textReg,
-                                            href: hrefReg,
-                                            size: 'sm',
-                                        }
-                                    +button(configRegister)
+                            .header__personal-area-buttons
+                                .header__btn-login
+                                    +button({
+                                        text: btnLogin,
+                                        href: '../sign-in/index.html',
+                                        size: 'sm',
+                                        theme: 'light',
+                                    })
+                                .header__btn-register
+                                    +button({
+                                        text: btnRegister,
+                                        href: '../registration/index.html',
+                                        size: 'sm',
+                                    })

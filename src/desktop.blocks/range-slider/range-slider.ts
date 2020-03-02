@@ -13,9 +13,12 @@ $(`.${CLASSES.SLIDER}`).each(function() {
         ] as [number, number];
         const step = parseInt($slider.attr('data-step') || '1', 10);
 
-        new View($slider, new Model({
-            range,
-            step,
-        }));
+        new View(
+            $slider,
+            new Model({
+                range,
+                step,
+            })
+        );
     });
 });

@@ -1,21 +1,19 @@
 include ../text/text.pug
 
-mixin block-head(options={})
+mixin block-head(options = {})
     -
         const {
-           title = '',
-           titleOptions = {
-               theme: 'h3',
-               uppercase: true,    
-           },
-           help = '',
-           helpOptions = {
-               classes: ['js-block-head__help'],
-               theme: 'h3',
-               color: 'dark-50',
-               fweight: 'normal',
-               ttransform: 'uppercase', 
-           }
+            title = '',
+            titleOptions = {
+                theme: 'h3',   
+            },
+            help = '',
+            helpOptions = {
+                classes: [],
+                theme: 'h3',
+                color: 'text-secondary',
+                fontWeight: 'normal',
+            }
         } = options;
 
         titleOptions.text = title;

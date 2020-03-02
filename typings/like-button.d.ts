@@ -1,4 +1,4 @@
 type LikeButtonPlugin = (
-    command: 'selected' | 'likes',
+    command: 'checked' | 'likes',
     args?: boolean | number,
 ) => void | boolean | number | JQuery;

@@ -62,7 +62,7 @@
   height: 0.5357rem;
   border-radius: 50%;
   border: 0.0714rem solid #ffffff;
-  box-shadow: 0rem 0.3571rem 0.3571rem $color-dark-30;
+  box-shadow: 0rem 0.3571rem 0.3571rem #1f20414d;
 
   &:not(:last-child) {
     margin-right: 3.75px;
@@ -92,7 +92,7 @@
   position: absolute;
   left: 40px;
   top: 20px;
-  color: $color-green;
+  color: $bg-good;
   font-size: 2rem;
   font-weight: bold;
   z-index: 2;

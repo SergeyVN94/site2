@@ -5,35 +5,30 @@ include ../receipt/receipt.pug
 include ../button/button.pug
 include ../dropdown-guest/dropdown-guest.pug
 
-mixin card-book-room(options={})
-    -
-        const {
-           roomNumber = 0,
-           roomPrice = '',
-           luxury = false,
-           receipt = {},
-        } = options;
-
+mixin card-book-room(options = {})
     .card-book-room
         +card-container()
             .card-book-room__head
-                +room-head({
-                    roomNumber,
-                    roomPrice,
-                    luxury,
-                })
+                +room-head(options)
             .card-book-room__date-range
                 +date-range({
-                    headLeft: 'прибытие',
-                    headRight: 'выезд',
-                    textLeft: 'ДД.ММ.ГГГГ',
-                    textRight: 'ДД.ММ.ГГГГ',
+                    headDropdownLeft: {
+                        title: 'прибытие',
+                    },
+                    headDropdownRight: {
+                        title: 'выезд',
+                    },
+                    textDropdownLeft: 'ДД.ММ.ГГГГ',
+                    textDropdownRight: 'ДД.ММ.ГГГГ',
                 })
             .card-book-room__dropdown-guest
                 +dropdown-guest({
-                    head: 'гости',
+                    head: {
+                        title: 'гости',
+                    },
                 })
             .card-book-room__receipt
+                -const { receipt = {} } = options;
                 +receipt(receipt)
             .card-book-room__booking-button
                 +button({

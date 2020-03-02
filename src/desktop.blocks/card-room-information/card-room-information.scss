@@ -1,7 +1,7 @@
 .card-room-information {
   width: 270px;
   background: #fff;
-  box-shadow: 0rem 0.7143rem 1.4286rem $color-dark-5;
+  box-shadow: 0rem 0.7143rem 1.4286rem $dim-shadow;
   border-radius: 0.2857rem;
 }
 
@@ -18,13 +18,13 @@
 
   &:hover,
   &:active {
-    text-decoration: underline $color-dark-25;
+    text-decoration: underline $light-title;
   }
 }
 
 .card-room-information__head {
   padding-bottom: 0.5rem;
-  border-bottom: 0.0714rem solid $color-dark-10;
+  border-bottom: 0.0714rem solid $dim-border;
 }
 
 .card-room-information__image-slider {

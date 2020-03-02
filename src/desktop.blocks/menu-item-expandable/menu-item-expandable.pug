@@ -1,32 +1,27 @@
-mixin menu-item-expandable(options={})
+mixin menu-item-expandable(options = {})
     -
         const {
-           expanded = false,
-           text = '',
-           theme = '',
-           items = [],
+            text = '',
+            items = [],
         } = options;
 
-        let fweight = 'normal';
-        if(theme === 'main') fweight = 'bold';
-
-    .menu-item-expandable.js-menu-item-expandable(href=href)
+    .menu-item-expandable.js-menu-item-expandable
         .menu-item-expandable__head
             .menu-item-expandable__title   
                 +text({
                     text,
-                    fweight,
-                    lheight: 'middle-2',
-                    wspace: 'nowrap',
+                    lineHeight: 'small',
+                    whiteSpace: 'nowrap',
                 })
             .menu-item-expandable__btn-expand.js-menu-item-expandable__btn-expand expand_more
         .menu-item-expandable__body
             ul.menu-item-expandable__list 
                 for item in items
-                    -const {
-                    -   text: linkText = '',
-                    -   href = '',
-                    -} = item;
+                    -
+                        const {
+                            text: linkText = '',
+                            href = '/mock-address/change-me',
+                        } = item;
 
                     li.menu-item-expandable__list-item
                         a.menu-item-expandable__link(href=href) 

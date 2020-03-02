@@ -1,23 +1,19 @@
 include ../block-head/block-head.pug
 include ../checkbox-button/checkbox-button.pug
 
-mixin checkbox-list(options={})
+mixin checkbox-list(options = {})
     -
         const {
-            head = '',
+            head = null,
             items = [],
         } = options;
 
     .checkbox-list
-        if head !== ''
+        if head !== null
             .checkbox-list__head
-                +block-head({
-                    title: head,
-                })
+                +block-head(head)
         .checkbox-list__container
-            for buttonText in items
+            for item in items
                 .checkbox-list__button
-                    +checkbox-button({
-                        text: buttonText,
-                    })
+                    +checkbox-button(item)
 

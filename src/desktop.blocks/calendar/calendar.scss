@@ -5,9 +5,9 @@
   max-width: 320px;
   padding: 1.4286rem 1.4286rem;
   background: #ffffff;
-  border: 0.0714rem solid $color-dark-25;
+  border: 0.0714rem solid $light-title;
   box-sizing: border-box;
-  box-shadow: 0rem 0.7143rem 1.4286rem $color-dark-5;
+  box-shadow: 0rem 0.7143rem 1.4286rem $dim-shadow;
   border-radius: 0.2857rem;
 }
 
@@ -20,11 +20,11 @@
   font-size: 1.7143rem;
   line-height: 1.7143rem;
   text-align: center;
-  color: $color-purple;
+  color: $primary;
   cursor: pointer;
 
   &:hover {
-    text-shadow: 0px 0px 2px $color-purple;
+    text-shadow: 0px 0px 2px $primary;
   }
 }
 
@@ -62,7 +62,7 @@
   font-style: normal;
   font-weight: normal;
   font-size: 0.8571rem;
-  color: $color-dark-50;
+  color: $text-secondary;
   cursor: pointer;
 }
 
@@ -79,7 +79,7 @@
     height: 100%;
     position: absolute;
     display: block;
-    background: $color-gradient-1;
+    background: $bg-gradient-primary;
     opacity: 0.25;
   }
 }
@@ -98,13 +98,13 @@
     height: 100%;
     position: absolute;
     display: block;
-    background: $color-gradient-1;
+    background: $bg-gradient-primary;
     opacity: 0.25;
   }
 }
 
 .calendar__day-week_theme_another-month {
-  color: $color-dark-25;
+  color: $light-title;
 }
 
 .calendar__day-week_theme_range-day-middle {
@@ -120,13 +120,13 @@
     height: 100%;
     position: absolute;
     display: block;
-    background: $color-gradient-1;
+    background: $bg-gradient-primary;
     opacity: 0.25;
   }
 }
 
 .calendar__day-week_theme_range-day {
-  background: $color-gradient-1;
+  background: $bg-gradient-primary;
   border-radius: 1.5714rem;
   color: #fff;
   font-weight: bold;

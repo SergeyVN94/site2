@@ -1,10 +1,6 @@
 import * as $ from 'jquery';
 
-const CLASSES = {
-    EXPANDED: 'dropdown_expanded',
-    HEAD: 'js-dropdown-head',
-    COUNTER: 'js-dropdown-counter',
-};
+import CLASSES from '../classes';
 
 const handler: DropdownPlugin = function pluginHandler(
     this: JQuery,

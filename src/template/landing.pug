@@ -8,9 +8,6 @@ block page
     body.page-container
         -
             const headerConfig = {
-                logo: {
-                    href: '../landing-page/index.html'
-                },
                 menu: {
                     items: [
                         {text: 'О нас'},
@@ -37,14 +34,8 @@ block page
                         },
                     ],
                 },
-                btnLogin: {
-                    text: 'войти',
-                    href: '../sign-in/index.html',
-                },
-                btnRegister: {
-                    text: 'зарегистрироваться',
-                    href: '../registration/index.html',
-                },
+                btnLogin: 'войти',
+                btnRegister: 'зарегистрироваться',
             };
 
             const footerConfig = {
@@ -53,46 +44,38 @@ block page
                     title: 'Подписка',
                     description: 'Получайте специальные предложения и новости сервиса',
                     placeholder: 'Email',
-                    type: 'email',
                 },
                 navList: [
                     {
                         title: 'навигация',
                         items: [
                             {text: 'О нас', href: '../landing-page/index.html'},
-                            {text: 'Новости', href: ''},
-                            {text: 'Служба поддержки', href: ''},
-                            {text: 'Услуги', href: ''},
+                            {text: 'Новости'},
+                            {text: 'Служба поддержки'},
+                            {text: 'Услуги'},
                         ],
                     },
                     {
                         title: 'о нас',
                         items: [
-                            {text: 'О сервисе', href: ''},
-                            {text: 'Наша команда', href: ''},
-                            {text: 'Вакансии', href: ''},
-                            {text: 'Инвесторы', href: ''},
+                            {text: 'О сервисе'},
+                            {text: 'Наша команда'},
+                            {text: 'Вакансии'},
+                            {text: 'Инвесторы'},
                         ],
                     },
                     {
                         title: 'Служба поддержки',
                         items: [
-                            {text: 'Соглашения', href: ''},
-                            {text: 'Сообщества', href: ''},
-                            {text: 'Связь с нами', href: ''},
+                            {text: 'Соглашения'},
+                            {text: 'Сообщества'},
+                            {text: 'Связь с нами'},
                         ],
                     },
                 ],
             };
 
-            const copyrightBarConfig = {
-                text: 'Copyright © 2018 Toxin отель. Все права зачищены.',
-                socialButtons: [
-                    {text: 'twitter', href: 'https://twitter.com'},
-                    {text: 'facebook-square', href: 'https://ru-ru.facebook.com'},
-                    {text: 'instagram', href: 'https://www.instagram.com'},
-                ],
-            };
+            const copyright = 'Copyright © 2018 Toxin отель. Все права зачищены.';
 
         +header(headerConfig)
         
@@ -101,4 +84,4 @@ block page
 
         +footer(footerConfig)
         .page-container__copyright-bar
-            +copyright-bar(copyrightBarConfig)
+            +copyright-bar(copyright)

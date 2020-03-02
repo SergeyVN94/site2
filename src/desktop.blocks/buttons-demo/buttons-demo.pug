@@ -1,18 +1,11 @@
 include ../block-head/block-head.pug
 include ../button/button.pug
 
-mixin buttons-demo(options={})
-    -
-        const {
-           head = '',
-        } = options;
-
+mixin buttons-demo(head = null)
     .buttons-demo
-        if head !== ''
+        if head !== null
             .buttons-demo__head
-                +block-head({
-                    title: head,
-                })
+                +block-head(head)
         .buttons-demo__container
             .buttons-demo__row
                 .buttons-demo__button
@@ -46,7 +39,7 @@ mixin buttons-demo(options={})
                     +button({
                         text: 'click me',
                         theme: 'text',
-                        textColor: 'dark-50',
+                        textColor: 'text-secondary{',
                     })
             .buttons-demo__row
                 +button({

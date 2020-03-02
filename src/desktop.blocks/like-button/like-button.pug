@@ -1,10 +1,16 @@
-mixin like-button(options={})
+mixin like-button(likes = 0, checked = false)
     -
-        const {
-           likes = 0,
-           selected = false,
-        } = options;
+        const classes = [
+            'like-button',
+            'js-like-button',
+        ];
 
-    .like-button.js-like-button
-        .like-button__icon.js-like-button__icon favorite_border
+        if (checked) classes.push('like-button_checked');
+        
+        const classesStr = classes.join(' ');
+
+        const icon = checked ? 'favorite' : 'favorite_border';
+
+    div(class=classesStr)
+        .like-button__icon.js-like-button__icon #{icon}
         .like-button__counter.js-like-button__counter #{likes}

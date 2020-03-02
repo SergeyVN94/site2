@@ -2,26 +2,23 @@ import CLASSES from '../classes';
 
 const handler = function likeButtonPlugin(
     this: JQuery,
-    command: 'selected' | 'likes',
+    command: 'checked' | 'likes',
     args: boolean | number = null
 ): void | boolean | number | JQuery {
     switch (command) {
-        case 'selected':
+        case 'checked':
             if (args === null) {
-                return this.hasClass(CLASSES.SELECTED);
+                return this.hasClass(CLASSES.CHECKED);
             }
 
             if (typeof args !== 'boolean') {
                 throw new TypeError('Expected boolean type parameter.');
             }
 
-            this.toggleClass(CLASSES.SELECTED, args);
-
-            if (args) {
-                this.find(`.${CLASSES.ICON}`).text('favorite');
-            } else {
-                this.find(`.${CLASSES.ICON}`).text('favorite_border');
-            }
+            this.toggleClass(CLASSES.CHECKED, args);
+            this
+                .find(`.${CLASSES.ICON}`)
+                .text(args ? 'favorite' : 'favorite_border');
 
             return this;
 
@@ -29,6 +26,10 @@ const handler = function likeButtonPlugin(
             if (args === null) {
                 const likes = this.find(`.${CLASSES.COUNTER}`).text();
                 return parseInt(likes, 10);
+            }
+
+            if (typeof args !== 'number') {
+                throw new TypeError('Expected number parameter.');
             }
 
             this.find(`.${CLASSES.COUNTER}`).text(args);

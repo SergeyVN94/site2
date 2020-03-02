@@ -1,21 +1,15 @@
 include ../block-head/block-head.pug
 include ../room-advantage/room-advantage.pug
 
-mixin room-advantages(options={})
-    -
-        const {
-           head = '',
-           items = [],
-        } = options;
-
+mixin room-advantages(items = [], title = '')
     .room-advantages
-        if head !== ''
+        if title !== ''
             .room-advantages__head
                 +block-head({
-                    title: head,
+                    title,
                     titleOptions: {
                         theme: 'h2',
-                        fname: 'montserrat',
+                        fontName: 'montserrat',
                     },
                 })
         .room-advantages__container
