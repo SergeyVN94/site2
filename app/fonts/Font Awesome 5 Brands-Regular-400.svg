@@ -1,1 +1,1 @@
-export default __webpack_public_path__ + "../images/fonts/Font Awesome 5 Brands-Regular-400.svg";
+export default __webpack_public_path__ + "images/fonts/Font Awesome 5 Brands-Regular-400.svg";

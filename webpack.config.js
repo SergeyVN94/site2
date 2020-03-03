@@ -58,7 +58,7 @@ const rules = [
         loader: 'file-loader',
         options: {
             name: '[name].[ext]',
-            outputPath: '../fonts/',
+            outputPath: './fonts',
         },
     },
     {
@@ -71,7 +71,7 @@ const rules = [
         loader: 'file-loader',
         options: {
             name: '[folder]/[name].[ext]',
-            outputPath: '../images/',
+            outputPath: './images',
         },
     },
 ];
@@ -87,6 +87,11 @@ const pageList = [
 
 const configTemplate = {
     optimization,
+    entry: './index.ts',
+    output: {
+        path: `${PATHS.build}`,
+        filename: '[name].js',
+    },
     module: {
         rules,
     },
@@ -112,7 +117,7 @@ module.exports = [
             plugins: [
                 new HtmlWebpackPlugin({
                     template: `${PATHS.src}/pages/${page}/index.pug`,
-                    filename: `${PATHS.build}/${page}/index.html`,
+                    filename: `${PATHS.build}/${page}.html`,
                 }),
                 new CopyPlugin([
                     {
@@ -121,13 +126,6 @@ module.exports = [
                     },
                 ]),
             ],
-            entry: {
-                [`index`]: `./pages/${page}/index.ts`,
-            },
-            output: {
-                path: `${PATHS.build}/${page}`,
-                filename: '[name].js',
-            },
         });
     }),
 ];
