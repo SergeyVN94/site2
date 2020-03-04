@@ -1,7 +1,7 @@
 .button {
   @include reset-css;
   @include no-select;
-  @include reset-link(#fff);
+  @include reset-link;
   height: 100%;
   max-height: 3.1429rem;
   display: inline-block;
@@ -15,295 +15,299 @@
     display: inline-block;
     vertical-align: middle;
   }
-}
 
-.button_theme_default-long {
-  display: block;
-  width: 100%;
-  height: 3.1429rem;
-  border-radius: 1.5714rem;
-  padding: 0rem 19.7px;
-  font-size: 0.8571rem;
-  line-height: 1.0714rem;
-  background: $bg-gradient-primary;
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: white;
-  position: relative;
+  &_theme {
+    &_default-long {
+      display: block;
+      width: 100%;
+      height: 3.1429rem;
+      border-radius: 1.5714rem;
+      padding: 0rem 19.7px;
+      font-size: 0.8571rem;
+      line-height: 1.0714rem;
+      background: $bg-gradient-primary;
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: white;
+      position: relative;
 
-  &:hover {
-    box-shadow: 0px 0px 10px $primary;
+      &:hover {
+        box-shadow: 0px 0px 10px $primary;
+      }
+
+      &:active {
+        background: $primary;
+      }
+
+      &:focus {
+        box-shadow: 0px 0px 10px $text-secondary;
+      }
+    }
+
+    &_default {
+      height: 3.1429rem;
+      border-radius: 1.5714rem;
+      padding: 0rem 19.7px;
+      font-size: 0.8571rem;
+      line-height: 1.0714rem;
+      background: $bg-gradient-primary;
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: white;
+      padding-top: 0.1429rem;
+
+      &:hover {
+        box-shadow: 0px 0px 10px $primary;
+      }
+
+      &:active {
+        background: $primary;
+      }
+
+      &:focus {
+        box-shadow: 0px 0px 10px $text-secondary;
+      }
+    }
+
+    &_icon {
+      width: 3.1429rem;
+      height: 3.1429rem;
+      font-family: Material Icons;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 1.7143rem;
+      line-height: 1.7143rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $text-secondary;
+    }
+
+    &_light {
+      height: 3.1429rem;
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 0.8571rem;
+      line-height: 1.0714rem;
+      border-radius: 1.5714rem;
+      border: 0.1429rem solid $primary;
+      color: $primary;
+      text-transform: uppercase;
+      padding: 0rem 1.1786rem;
+
+      &:hover {
+        box-shadow: 0px 0px 10px $primary;
+      }
+
+      &:active {
+        box-shadow: 0px 0px 10px $text-secondary;
+      }
+
+      &:focus {
+        box-shadow: 0px 0px 10px $text-secondary;
+      }
+    }
+
+    &_round-icon {
+      width: 2.8571rem;
+      height: 2.8571rem;
+      background: $bg-gradient-primary;
+      border-radius: 1.5714rem;
+      font-family: Material Icons;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 1.7143rem;
+      line-height: 1.4286rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+    }
+
+    &_round-little {
+      width: 2.1429rem;
+      height: 2.1429rem;
+      border: 0.0714rem solid rgba(31, 32, 65, 0.25);
+      border-radius: 1.5714rem;
+      color: $text-secondary;
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 1.2857rem;
+      line-height: 2.1429rem;
+    }
+
+    &_round {
+      width: 2.8571rem;
+      height: 2.8571rem;
+      border-radius: 1.5714rem;
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 0.8571rem;
+      line-height: 1.0714rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+    }
+
+    &_social {
+      width: 1.7143rem;
+      height: 1.7143rem;
+      font-family: 'Font Awesome 5 Brands';
+      font-style: normal;
+      font-weight: normal;
+      font-size: 1.7143rem;
+      line-height: 1.6429rem;
+      background: $bg-gradient-primary;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      padding: 0;
+
+      &:hover {
+        opacity: 0.86;
+      }
+
+      &:active {
+        background: $primary;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        opacity: 1;
+      }
+
+      &:focus {
+        background: $text-secondary;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        opacity: 1;
+      }
+    }
+
+    &_text {
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 0.8571rem;
+      line-height: 1.0714rem;
+      text-transform: uppercase;
+      color: $primary;
+
+      &:hover {
+        text-shadow: 0px 0px 10px $primary;
+      }
+
+      &:active {
+        text-shadow: 0px 0px 10px $text-secondary;
+      }
+
+      &:focus {
+        text-shadow: 0px 0px 10px $text-secondary;
+      }
+    }
   }
 
-  &:active {
-    background: $primary;
+  &_background {
+    &_gradient-primary {
+      background: $bg-gradient-primary;
+    }
+
+    &_gradient-success {
+      background: $bg-gradient-success;
+    }
+
+    &_none {
+      background: none;
+    }
   }
 
-  &:focus {
-    box-shadow: 0px 0px 10px $text-secondary;
-  }
-}
+  &_hover-theme {
+    &_gradient-primary {
+      &:hover {
+        background: $bg-gradient-primary;
+        box-shadow: 0px 0px 10px $primary;
+        color: #ffffff;
+        font-weight: bold;
+      }
 
-.button_theme_default {
-  height: 3.1429rem;
-  border-radius: 1.5714rem;
-  padding: 0rem 19.7px;
-  font-size: 0.8571rem;
-  line-height: 1.0714rem;
-  background: $bg-gradient-primary;
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: white;
-  padding-top: 0.1429rem;
+      &:active {
+        background: $bg-gradient-primary;
+        box-shadow: 0px 0px 10px $bg-good;
+        color: #ffffff;
+        font-weight: bold;
+      }
+    }
 
-  &:hover {
-    box-shadow: 0px 0px 10px $primary;
-  }
+    &_gradient-success {
+      &:hover {
+        background: $bg-gradient-success;
+        box-shadow: 0px 0px 10px $bg-good;
+        color: #ffffff;
+        font-weight: bold;
+      }
 
-  &:active {
-    background: $primary;
-  }
-
-  &:focus {
-    box-shadow: 0px 0px 10px $text-secondary;
-  }
-}
-
-.button_theme_icon {
-  width: 3.1429rem;
-  height: 3.1429rem;
-  font-family: Material Icons;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.7143rem;
-  line-height: 1.7143rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: $text-secondary;
-}
-
-.button_theme_light {
-  height: 3.1429rem;
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 0.8571rem;
-  line-height: 1.0714rem;
-  border-radius: 1.5714rem;
-  border: 0.1429rem solid $primary;
-  color: $primary;
-  text-transform: uppercase;
-  padding: 0rem 1.2857rem;
-
-  &:visited {
-    color: $primary;
+      &:active {
+        background: $bg-gradient-success;
+        box-shadow: 0px 0px 10px $primary;
+        color: #ffffff;
+        font-weight: bold;
+      }
+    }
   }
 
-  &:hover {
-    box-shadow: 0px 0px 10px $primary;
+  &_disable {
+    opacity: 0.5;
+
+    &:active,
+    &:hover,
+    &:focus {
+      box-shadow: none;
+      text-shadow: none;
+    }
   }
 
-  &:active {
-    box-shadow: 0px 0px 10px $text-secondary;
-  }
-
-  &:focus {
-    box-shadow: 0px 0px 10px $text-secondary;
-  }
-}
-
-.button_theme_round-icon {
-  width: 2.8571rem;
-  height: 2.8571rem;
-  background: $bg-gradient-primary;
-  border-radius: 1.5714rem;
-  font-family: Material Icons;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.7143rem;
-  line-height: 1.4286rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-}
-
-.button_theme_round-little {
-  width: 2.1429rem;
-  height: 2.1429rem;
-  border: 0.0714rem solid rgba(31, 32, 65, 0.25);
-  border-radius: 1.5714rem;
-  color: $text-secondary;
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.2857rem;
-  line-height: 2.1429rem;
-}
-
-.button_theme_round {
-  width: 2.8571rem;
-  height: 2.8571rem;
-  border-radius: 1.5714rem;
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 0.8571rem;
-  line-height: 1.0714rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-}
-
-.button_theme_social {
-  width: 1.7143rem;
-  height: 1.7143rem;
-  font-family: 'Font Awesome 5 Brands';
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.7143rem;
-  line-height: 1.6429rem;
-  background: $bg-gradient-primary;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  padding: 0;
-
-  &:hover {
-    opacity: 0.86;
-  }
-
-  &:active {
-    background: $primary;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    opacity: 1;
-  }
-
-  &:focus {
-    background: $text-secondary;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    opacity: 1;
-  }
-}
-
-.button_theme_text {
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 0.8571rem;
-  line-height: 1.0714rem;
-  text-transform: uppercase;
-  color: $primary;
-
-  &:hover {
-    text-shadow: 0px 0px 10px $primary;
-  }
-
-  &:active {
-    text-shadow: 0px 0px 10px $text-secondary;
-  }
-
-  &:focus {
-    text-shadow: 0px 0px 10px $text-secondary;
-  }
-}
-
-.button_background_gradient-primary {
-  background: $bg-gradient-primary;
-}
-
-.button_background_gradient-success {
-  background: $bg-gradient-success;
-}
-
-.button_background_none {
-  background: none;
-}
-
-.button_hover-theme_gradient-primary {
-  &:hover {
-    background: $bg-gradient-primary;
-    box-shadow: 0px 0px 10px $primary;
-    color: #ffffff;
+  &_font-weight_bold {
     font-weight: bold;
   }
 
-  &:active {
-    background: $bg-gradient-primary;
-    box-shadow: 0px 0px 10px $bg-good;
+  &_hidden {
+    display: none;
+  }
+
+  &_horizontal-size_big {
+    padding: 0rem 1.6429rem;
+  }
+
+  &_size_sm {
+    height: 2.4286rem;
+    padding: 0 1.3571rem;
+  }
+
+  &_text-color_text-secondary {
+    color: $text-secondary;
+  }
+
+  &__icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 3.1429rem;
+    height: 100%;
+    font-family: Material Icons;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.7143rem;
+    line-height: 1.7143rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     color: #ffffff;
-    font-weight: bold;
+    text-transform: none;
   }
-}
-
-.button_hover-theme_gradient-success {
-  &:hover {
-    background: $bg-gradient-success;
-    box-shadow: 0px 0px 10px $bg-good;
-    color: #ffffff;
-    font-weight: bold;
-  }
-
-  &:active {
-    background: $bg-gradient-success;
-    box-shadow: 0px 0px 10px $primary;
-    color: #ffffff;
-    font-weight: bold;
-  }
-}
-
-.button_disable {
-  opacity: 0.5;
-
-  &:hover,
-  &:focus {
-    box-shadow: none;
-    text-shadow: none;
-  }
-}
-
-.button_font-weight_bold {
-  font-weight: bold;
-}
-
-.button_hidden {
-  display: none;
-}
-
-.button_horizontal-size_big {
-  padding: 0rem 1.6429rem;
-}
-
-.button_size_sm {
-  height: 2.4286rem;
-}
-
-.button_text-color_text-secondary {
-  color: $text-secondary;
-}
-
-.button__icon {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 3.1429rem;
-  height: 100%;
-  font-family: Material Icons;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.7143rem;
-  line-height: 1.7143rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #ffffff;
-  text-transform: none;
 }

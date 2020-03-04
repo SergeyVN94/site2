@@ -1,9 +1,11 @@
-.comments__comment {
-  &:not(:last-child) {
-    margin-bottom: 1.6429rem;
+.comments {
+  &__head {
+    margin-bottom: 1.3571rem;
   }
-}
 
-.comments__head {
-  margin-bottom: 1.3571rem;
+  &__comment {
+    &:not(:last-child) {
+      margin-bottom: 1.6429rem;
+    }
+  }
 }

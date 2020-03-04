@@ -4,129 +4,143 @@
   font-style: normal;
   font-weight: bold;
   color: $text-title;
-}
 
-.text_theme_h1 {
-  font-size: 1.7143rem;
-  line-height: 2.1429rem;
-}
-
-.text_theme_h2 {
-  font-size: 1.3571rem;
-  line-height: 1.7143rem;
-}
-
-.text_theme_h3 {
-  font-family: Montserrat;
-  font-size: 0.8571rem;
-  line-height: 1.0714rem;
-  text-transform: uppercase;
-}
-
-.text_theme_body {
-  font-family: Montserrat;
-  font-weight: normal;
-  font-size: 1rem;
-  line-height: 1.7143rem;
-  color: $text-primary;
-}
-
-.text_white-space_nowrap {
-  white-space: nowrap;
-}
-
-.text_white-space_pre {
-  white-space: pre;
-}
-
-.text_transform_none {
-  text-transform: none;
-}
-
-.text_transform_uppercase {
-  text-transform: uppercase;
-}
-
-.text_line-height_big {
-  line-height: 2.1429rem;
-}
-
-.text_line-height_middle {
-  line-height: 1.4286rem;
-}
-
-.text_line-height_small {
-  line-height: 1.2857rem;
-}
-
-.text_line-height_very-small {
-  line-height: 1.0714rem;
-}
-
-.text_horizontal_middle {
-  width: 100%;
-  text-align: center;
-}
-
-.text_horizontal_right {
-  text-align: right;
-}
-
-.text_font-weight_bold {
-  font-weight: bold;
-}
-
-.text_font-weight_normal {
-  font-weight: normal;
-}
-
-.text_color_important-text {
-  color: #000000;
-}
-
-.text_color_text-title {
-  color: $text-title;
-}
-
-.text_color_text-primary {
-  color: $text-primary;
-}
-
-.text_color_text-secondary{
-  color: $text-secondary;
-}
-
-.text_color_light-title {
-  color: $light-title;
-}
-
-.text_color_primary {
-  color: $primary;
-}
-
-.text_font-name_montserrat {
-  font-family: Montserrat;
-}
-
-.text_size_small {
-  font-size: 0.8571rem;
-}
-
-.text_no-select {
-  @include no-select;
-}
-
-.text_vertical-middle {
-  vertical-align: middle;
-
-  &::before {
-    content: '';
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;
+  &_theme {
+    &_h1 {
+      font-size: 1.7143rem;
+      line-height: 2.1429rem;
+    }
+    
+    &_h2 {
+      font-size: 1.3571rem;
+      line-height: 1.7143rem;
+    }
+    
+    &_h3 {
+      font-family: Montserrat;
+      font-size: 0.8571rem;
+      line-height: 1.0714rem;
+      text-transform: uppercase;
+    }
+    
+    &_body {
+      font-family: Montserrat;
+      font-weight: normal;
+      font-size: 1rem;
+      line-height: 1.7143rem;
+      color: $text-primary;
+    }
   }
-}
+  
+  &_white-space {
+    &_nowrap {
+      white-space: nowrap;
+    }
 
-.text_word-break_break-all {
-  word-break: break-all;
+    &_pre {
+      white-space: pre;
+    }
+  }
+  
+  &_transform {
+    &_none {
+      text-transform: none;
+    }
+
+    &_uppercase {
+      text-transform: uppercase;
+    }
+  }
+  
+  &_line-height {
+    &_big {
+      line-height: 2.1429rem;
+    }
+
+    &_middle {
+      line-height: 1.4286rem;
+    }
+    
+    &_small {
+      line-height: 1.2857rem;
+    }
+    
+    &_very-small {
+      line-height: 1.0714rem;
+    }
+  }
+  
+  &_horizontal {
+    &_middle {
+      width: 100%;
+      text-align: center;
+    }
+
+    &_right {
+      text-align: right;
+    }
+  }
+  
+  &_font-weight {
+    &_bold {
+      font-weight: bold;
+    }
+
+    &_normal {
+      font-weight: normal;
+    }
+  }
+
+  &_color {
+    &_important-text {
+      color: #000000;
+    }
+
+    &_text-title {
+      color: $text-title;
+    }
+    
+    &_text-primary {
+      color: $text-primary;
+    }
+    
+    &_text-secondary {
+      color: $text-secondary;
+    }
+    
+    &_light-title {
+      color: $light-title;
+    }
+    
+    &_primary {
+      color: $primary;
+    }
+  }
+  
+  &_font-name_montserrat {
+    font-family: Montserrat;
+  }
+  
+  &_size_small {
+    font-size: 0.8571rem;
+  }
+  
+  &_no-select {
+    @include no-select;
+  }
+  
+  &_vertical-middle {
+    vertical-align: middle;
+  
+    &::before {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+  }
+  
+  &_word-break_break-all {
+    word-break: break-all;
+  }  
 }

@@ -1,7 +1,9 @@
 .text-demo {
   width: auto;
-}
 
-.text-demo__item:not(:last-child) {
-  margin-bottom: 3.5714rem;
+  &__item {
+    :not(:last-child) {
+      margin-bottom: 3.5714rem;
+    }
+  }
 }

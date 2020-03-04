@@ -1,8 +1,8 @@
 .dropdown-filter-date {
   @include reset-css;
   width: 100%;
-}
 
-.dropdown-filter-date__head {
-  margin-bottom: 0.3571rem;
+  &__head {
+    margin-bottom: 0.3571rem;
+  }
 }

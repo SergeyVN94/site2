@@ -6,12 +6,12 @@
     content: '';
     clear: both;
   }
-}
 
-.block-head__help {
-  float: right;
-}
+  &__help {
+    float: right;
+  }
 
-.block-head__title {
-  float: left;
+  &__title {
+    float: left;
+  }
 }

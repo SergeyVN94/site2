@@ -20,51 +20,51 @@
   &:active {
     box-shadow: 0px 0px 5px $text-secondary;
   }
-}
 
-.like-button_checked {
-  border-color: $primary;
+  &_checked {
+    border-color: $primary;
 
-  .like-button__icon {
-    background: $primary;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    .like-button__icon {
+      background: $primary;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .like-button__counter {
+      color: $primary;
+    }
+
+    &:hover {
+      box-shadow: 0px 0px 10px $primary;
+    }
   }
-  .like-button__counter {
-    color: $primary;
+
+  &__counter {
+    width: 0.8571rem;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.7143rem;
+    line-height: 1.2143rem;
+    text-align: center;
+    color: $light-title;
+    user-select: none;
   }
 
-  &:hover {
-    box-shadow: 0px 0px 10px $primary;
+  &__icon {
+    width: 1.2857rem;
+    height: 1.2857rem;
+    font-family: Material Icons;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.7143rem;
+    line-height: 0.6429rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: $light-title;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
   }
-}
-
-.like-button__counter {
-  width: 0.8571rem;
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 0.7143rem;
-  line-height: 1.2143rem;
-  text-align: center;
-  color: $light-title;
-  user-select: none;
-}
-
-.like-button__icon {
-  width: 1.2857rem;
-  height: 1.2857rem;
-  font-family: Material Icons;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 0.7143rem;
-  line-height: 0.6429rem;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  color: $light-title;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  user-select: none;
 }

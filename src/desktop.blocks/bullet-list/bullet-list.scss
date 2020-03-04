@@ -1,16 +1,16 @@
-.bullet-list__item {
+.bullet-list {
   &:not(:last-child) {
     margin-bottom: 0.7143rem;
   }
 
   width: 100%;
   max-width: 270px;
-}
 
-.bullet-list__head {
-  margin: 0rem 0rem 0.8571rem 1.4286rem;
-}
+  &__head {
+    margin: 0rem 0rem 0.8571rem 1.4286rem;
 
-.bullet-list__head_bottom_big {
-  margin-bottom: 1.2143rem;
+    &_bottom_big {
+      margin-bottom: 1.2143rem;
+    }
+  }
 }

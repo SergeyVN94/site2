@@ -1,7 +1,11 @@
-.checkbox-list__button:not(:last-child) {
-  margin-bottom: 0.7143rem;
-}
-
-.checkbox-list__head {
-  margin-bottom: 1.2143rem;
+.checkbox-list {
+  &__button {
+    &:not(:last-child) {
+      margin-bottom: 0.7143rem;
+    }
+  }
+  
+  &__head {
+    margin-bottom: 1.2143rem;
+  }
 }

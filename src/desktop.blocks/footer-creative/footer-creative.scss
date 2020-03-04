@@ -2,35 +2,35 @@
   @include reset-css;
   background: #fff;
   box-shadow: 0rem 0.7143rem 1.4286rem $dim-shadow;
-}
 
-.footer-creative__container-content {
-  @include reset-css;
-  padding: 7.1429rem 0rem 110px 0rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.footer-creative__logo {
-  margin-bottom: 1.2143rem;
-}
-
-.footer-creative__site-description {
-  margin-bottom: 1.9286rem;
-  width: 100%;
-  max-width: 560px;
-  text-align: center;
-}
-
-.footer-creative__social-button {
-  &:not(:last-child) {
-    margin-right: 1.4286rem;
+  &__container-content {
+    @include reset-css;
+    padding: 7.1429rem 0rem 110px 0rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-}
-
-.footer-creative__social-buttons {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  
+  &__logo {
+    margin-bottom: 1.2143rem;
+  }
+  
+  &__site-description {
+    margin-bottom: 1.9286rem;
+    width: 100%;
+    max-width: 560px;
+    text-align: center;
+  }
+  
+  &__social-button {
+    &:not(:last-child) {
+      margin-right: 1.4286rem;
+    }
+  }
+  
+  &__social-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
 }

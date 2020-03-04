@@ -5,7 +5,7 @@
   text-decoration: none;
 }
 
-@mixin reset-link($visited-color: #000) {
+@mixin reset-link {
   text-decoration: none;
 
   &:active,
@@ -16,7 +16,6 @@
   }
 
   &:visited {
-    color: $visited-color;
     text-decoration: none;
   }
 }

@@ -1,13 +1,15 @@
-.buttons-demo__button {
-  margin-right: 1.4286rem;
-}
+.buttons-demo {
+  &__head {
+    margin-bottom: 1.1429rem;
+  }
 
-.buttons-demo__head {
-  margin-bottom: 1.1429rem;
-}
+  &__row {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2.1429rem;
+  }
 
-.buttons-demo__row {
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 2.1429rem;
+  &__button {
+    margin-right: 1.4286rem;
+  }
 }

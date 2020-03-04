@@ -10,25 +10,25 @@
     flex-direction: column;
     align-items: flex-start;
   }
-}
 
-.menu_theme_vertical {
-  flex-direction: column;
-  align-items: flex-start;
-
-  .menu__item {
-    margin: 0rem 0rem 1.5rem 0rem;
-  }
-}
-
-.menu__item {
-  &:not(:last-child) {
-    margin-right: 1.5rem;
-  }
-
-  @media (max-width: $breakpoint2) {
-    &:not(:last-child) {
+  &_theme_vertical {
+    flex-direction: column;
+    align-items: flex-start;
+  
+    .menu__item {
       margin: 0rem 0rem 1.5rem 0rem;
+    }
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 1.5rem;
+    }
+  
+    @media (max-width: $breakpoint2) {
+      &:not(:last-child) {
+        margin: 0rem 0rem 1.5rem 0rem;
+      }
     }
   }
 }

@@ -1,8 +1,10 @@
 .colors-demo {
   @include reset-css;
   width: auto;
-}
 
-.colors-demo__color-demo:not(:last-child) {
-  margin-bottom: 1.4286rem;
+  &__color-demo {
+    &:not(:last-child) {
+      margin-bottom: 1.4286rem;
+    }
+  }
 }

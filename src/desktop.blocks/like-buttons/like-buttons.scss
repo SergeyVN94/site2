@@ -1,12 +1,16 @@
-.like-buttons__button:not(:last-child) {
-  margin-right: 0.7143rem;
-}
+.like-buttons {
+  &__button {
+    &:not(:last-child) {
+      margin-right: 0.7143rem;
+    }
+  }
 
-.like-buttons__container {
-  display: flex;
-  flex-direction: row;
-}
+  &__container {
+    display: flex;
+    flex-direction: row;
+  }
 
-.like-buttons__head {
-  margin-bottom: 1.0714rem;
+  &__head {
+    margin-bottom: 1.0714rem;
+  }
 }

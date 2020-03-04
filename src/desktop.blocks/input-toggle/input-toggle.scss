@@ -1,46 +1,44 @@
 .input-toggle {
   display: block;
   cursor: pointer;
-}
 
-.input-toggle__input {
-  display: none;
-}
+  &__input {
+    display: none;
 
-.input-toggle__switch-indicator {
-  display: block;
-  float: left;
-  width: 0.8571rem;
-  height: 0.8571rem;
-  background: $light-title;
-  border-radius: 0.7143rem;
-}
+    &:checked + .input-toggle__switch {
+      border-color: $primary;
+    }
 
-.input-toggle__switch {
-  width: 2.8571rem;
-  height: 1.4286rem;
-  background: white;
-  border: 0.0714rem solid $light-title;
-  box-sizing: border-box;
-  border-radius: 0.7143rem;
-  padding: 0.2143rem;
-
-  &:hover {
-    box-shadow: 0px 0px 10px $primary;
+    &:checked + .input-toggle__switch .input-toggle__switch-indicator {
+      background: $bg-gradient-primary;
+      float: right;
+    }
   }
-  
-  &:active {
-    box-shadow: 0px 0px 5px $text-secondary;
+
+  &__switch-indicator {
+    display: block;
+    float: left;
+    width: 0.8571rem;
+    height: 0.8571rem;
+    background: $light-title;
+    border-radius: 0.7143rem;
   }
-}
 
-.input-toggle__input:checked + .input-toggle__switch {
-  border-color: $primary;
-}
+  &__switch {
+    width: 2.8571rem;
+    height: 1.4286rem;
+    background: white;
+    border: 0.0714rem solid $light-title;
+    box-sizing: border-box;
+    border-radius: 0.7143rem;
+    padding: 0.2143rem;
 
-.input-toggle__input:checked
-  + .input-toggle__switch
-  .input-toggle__switch-indicator {
-  background: $bg-gradient-primary;
-  float: right;
+    &:hover {
+      box-shadow: 0px 0px 10px $primary;
+    }
+
+    &:active {
+      box-shadow: 0px 0px 5px $text-secondary;
+    }
+  }
 }

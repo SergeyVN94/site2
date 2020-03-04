@@ -1,0 +1,29 @@
+.landing-page {
+  &__banner {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    height: 830px;
+    display: block;
+    background-image: url('../../chunks/images/banners/landing-page.jpg');
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &__banner-content {
+    @include reset-css;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-top: 5rem;
+  }
+
+  &__description {
+    width: 100%;
+    max-width: 290px;
+    position: absolute;
+    right: -0.4286rem;
+    bottom: 1.5rem;
+  }
+}

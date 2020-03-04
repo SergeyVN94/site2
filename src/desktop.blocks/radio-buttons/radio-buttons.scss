@@ -1,13 +1,17 @@
-.radio-buttons__button:not(:last-child) {
-  margin-right: 1.4286rem;
-}
+.radio-buttons {
+  &__head {
+    margin-bottom: 1.1429rem;
+  }
 
-.radio-buttons__container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-}
+  &__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
 
-.radio-buttons__head {
-  margin-bottom: 1.1429rem;
+  &__button {
+    &:not(:last-child) {
+      margin-right: 1.4286rem;
+    }
+  }
 }

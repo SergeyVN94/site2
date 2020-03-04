@@ -12,38 +12,40 @@
   &:hover {
     border-color: $text-secondary;
   }
-}
 
-.dropdown-head_theme_expanded {
-  border-radius: 0.2857rem 0.2857rem 0rem 0rem;
-  border-color: $text-secondary;
-}
+  &__text {
+    @include reset-css;
+    width: 100%;
+    padding-left: 1rem;
+    overflow: hidden;
+  }
 
-.dropdown-head_theme_select-date {
-  border-color: $text-secondary;
-}
+  &__icon {
+    @include reset-css;
+    @include no-select;
+    width: 3.1429rem;
+    height: 3.1429rem;
+    min-width: 3.1429rem;
+    padding-left: 0.1429rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Material Icons;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.7143rem;
+    line-height: 1.7143rem;
+    color: $text-primary;
+  }
 
-.dropdown-head__icon {
-  @include reset-css;
-  @include no-select;
-  width: 3.1429rem;
-  height: 3.1429rem;
-  min-width: 3.1429rem;
-  padding-left: 0.1429rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: Material Icons;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.7143rem;
-  line-height: 1.7143rem;
-  color: $text-primary;
-}
-
-.dropdown-head__text {
-  @include reset-css;
-  width: 100%;
-  padding-left: 1rem;
-  overflow: hidden;
+  &_theme {
+    &_expanded {
+      border-radius: 0.2857rem 0.2857rem 0rem 0rem;
+      border-color: $text-secondary;
+    }
+    
+    &_select-date {
+      border-color: $text-secondary;
+    }
+  }
 }

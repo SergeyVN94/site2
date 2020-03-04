@@ -1,18 +1,18 @@
 .pagination {
   width: 100%;
   max-width: 240px;
-}
 
-.pagination__head {
-  margin-bottom: 1.0714rem;
-}
+  &__head {
+    margin-bottom: 1.0714rem;
+  }
 
-.pagination__buttons {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-}
+  &__buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
 
-.pagination__bottom-text {
-  margin-top: 0.5714rem;
+  &__bottom-text {
+    margin-top: 0.5714rem;
+  }
 }

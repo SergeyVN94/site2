@@ -1,50 +1,52 @@
-.receipt__icon {
-  @include reset-css;
-  @include no-select;
-  width: 1.4286rem;
-  height: 1.4286rem;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 0.0714rem solid $light-title;
-  color: $light-title;
-  cursor: pointer;
-}
+.receipt {
+  &__item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    margin-bottom: 1.1429rem;
+  }
 
-.receipt__item {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  margin-bottom: 1.1429rem;
-}
+  &__text-container {
+    width: 100%;
+    max-width: 215px;
+    margin-right: 0.3571rem;
+  }
 
-.receipt__price {
-  flex: auto;
-}
+  &__icon {
+    @include reset-css;
+    @include no-select;
+    width: 1.4286rem;
+    height: 1.4286rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0.0714rem solid $light-title;
+    color: $light-title;
+    cursor: pointer;
+  }
 
-.receipt__separate-line {
-  @include reset-css;
-  width: 100%;
-  margin: 0 0.3571rem;
-  height: 0.0714rem;
-  border-bottom: 0.0714rem dotted $light-title;
-}
+  &__price {
+    flex: auto;
+  }
 
-.receipt__text-container {
-  width: 100%;
-  max-width: 215px;
-  margin-right: 0.3571rem;
-}
+  &__total-sum {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: baseline;
+  
+    &:not(:only-child) {
+      margin-top: 2.2143rem;
+    }
+  }
 
-.receipt__total-sum {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: baseline;
-
-  &:not(:only-child) {
-    margin-top: 2.2143rem;
+  &__separate-line {
+    @include reset-css;
+    width: 100%;
+    margin: 0 0.3571rem;
+    height: 0.0714rem;
+    border-bottom: 0.0714rem dotted $light-title;
   }
 }

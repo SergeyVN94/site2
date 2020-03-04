@@ -1,3 +1,11 @@
 .ui-kit {
-    padding-bottom: 3.5714rem;
+  padding-bottom: 3.5714rem;
+
+  &__head {
+    @include reset-css;
+    padding: 2.1429rem 0rem 0rem 2.1429rem;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
 }

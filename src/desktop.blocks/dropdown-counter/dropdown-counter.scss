@@ -5,16 +5,16 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-}
 
-.dropdown-counter__value {
-  width: 100%;
-  max-width: 2.2857rem;
-  min-width: 2.2857rem;
-}
+  &__value {
+    width: 100%;
+    max-width: 2.2857rem;
+    min-width: 2.2857rem;
+  }
 
-.dropdown-counter__control {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  &__control {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 }

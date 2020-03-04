@@ -1,18 +1,20 @@
-.card-selection-room__button-find {
-  width: 100%;
-}
+.card-selection-room {
+  &__title {
+    margin-bottom: 1.5rem;
+  }
 
-.card-selection-room__date-range {
-  @include reset-css;
-  margin-bottom: 1.6429rem;
-  width: 100%;
-}
+  &__date-range {
+    @include reset-css;
+    margin-bottom: 1.6429rem;
+    width: 100%;
+  }
 
-.card-selection-room__dropdown-guest {
-  margin-bottom: 2.2857rem;
-  width: 100%;
-}
+  &__dropdown-guest {
+    margin-bottom: 2.2857rem;
+    width: 100%;
+  }
 
-.card-selection-room__title {
-  margin-bottom: 1.5rem;
+  &__button-find {
+    width: 100%;
+  }
 }

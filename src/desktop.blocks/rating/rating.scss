@@ -1,31 +1,31 @@
 .rating {
   width: 120px;
-}
 
-.rating__star {
-  display: inline-block;
-  vertical-align: middle;
-  width: 1.7143rem;
-  height: 1.7143rem;
-  font-family: Material Icons;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.7143rem;
-  line-height: 1.7143rem;
-  text-align: center;
-  background: $bg-gradient-primary;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  user-select: none;
-  cursor: pointer;
-
-  &:hover {
-    background: $bg-good;
+  &__star {
+    display: inline-block;
+    vertical-align: middle;
+    width: 1.7143rem;
+    height: 1.7143rem;
+    font-family: Material Icons;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.7143rem;
+    line-height: 1.7143rem;
+    text-align: center;
+    background: $bg-gradient-primary;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-  }
+    user-select: none;
+    cursor: pointer;
 
-  &:active {
-    text-shadow: 0px 0px 10px $bg-good;
+    &:hover {
+      background: $bg-good;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    &:active {
+      text-shadow: 0px 0px 10px $bg-good;
+    }
   }
 }

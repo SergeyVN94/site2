@@ -1,77 +1,77 @@
 .input-text {
   width: 100%;
-}
 
-.input-text_use-icon-right {
-  .input-text__input {
-    padding-right: 3.1429rem;
-  }
-}
-
-.input-text__container {
-  width: 100%;
-  position: relative;
-}
-
-.input-text__icon-right {
-  @include reset-css;
-  @include no-select;
-  font-family: Material Icons;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.7143rem;
-  line-height: 1.7143rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: $bg-gradient-primary;
-  background: $bg-gradient-primary;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  width: 100%;
-  max-width: 3.1429rem;
-  min-width: 3.1429rem;
-  height: 100%;
-  max-height: 3.1429rem;
-  position: absolute;
-  right: 0;
-  top: 0;
-  cursor: pointer;
-
-  &:hover {
-    text-shadow: 0px 0px 10px $primary;
+  &_use-icon-right {
+    .input-text__input {
+      padding-right: 3.1429rem;
+    }
   }
 
-  &:active {
-    text-shadow: 0px 0px 10px $text-secondary;
-  }
-}
-
-.input-text__input {
-  @include reset-css;
-  width: 100%;
-  min-width: 0;
-  height: 3.1429rem;
-  padding: 0rem 1rem 0.1429rem 1rem;
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 0.9786rem;
-  line-height: 1.2857rem;
-  color: $light-title;
-  background-color: #fff;
-  border: 0.0714rem solid $light-title;
-  border-radius: 0.2857rem;
-
-  &::placeholder {
-    color: $light-title;
-    opacity: 1;
+  &__container {
+    width: 100%;
+    position: relative;
   }
 
-  &:hover,
-  &:focus {
+  &__icon-right {
+    @include reset-css;
+    @include no-select;
+    font-family: Material Icons;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.7143rem;
     line-height: 1.7143rem;
-    color: $text-primary;
-    border-color: $text-secondary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $bg-gradient-primary;
+    background: $bg-gradient-primary;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: 100%;
+    max-width: 3.1429rem;
+    min-width: 3.1429rem;
+    height: 100%;
+    max-height: 3.1429rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+  
+    &:hover {
+      text-shadow: 0px 0px 10px $primary;
+    }
+  
+    &:active {
+      text-shadow: 0px 0px 10px $text-secondary;
+    }
+  }
+
+  &__input {
+    @include reset-css;
+    width: 100%;
+    min-width: 0;
+    height: 3.1429rem;
+    padding: 0rem 1rem 0.1429rem 1rem;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.9786rem;
+    line-height: 1.2857rem;
+    color: $light-title;
+    background-color: #fff;
+    border: 0.0714rem solid $light-title;
+    border-radius: 0.2857rem;
+  
+    &::placeholder {
+      color: $light-title;
+      opacity: 1;
+    }
+  
+    &:hover,
+    &:focus {
+      line-height: 1.7143rem;
+      color: $text-primary;
+      border-color: $text-secondary;
+    }
   }
 }

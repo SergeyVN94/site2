@@ -3,40 +3,40 @@
   background: #fff;
   box-shadow: 0rem 0.7143rem 1.4286rem $dim-shadow;
   border-radius: 0.2857rem;
-}
 
-.card-room-information__body {
-  padding: 1.4286rem 1.2143rem 1.4286rem 1.4286rem;
-}
-
-.card-room-information__comments {
-  @include reset-link;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: baseline;
-
-  &:hover,
-  &:active {
-    text-decoration: underline $light-title;
+  &__image-slider {
+    height: 151px; 
+    border-radius: 0.2857rem 0.2857rem 0rem 0rem;
   }
-}
 
-.card-room-information__head {
-  padding-bottom: 0.5rem;
-  border-bottom: 0.0714rem solid $dim-border;
-}
+  &__body {
+    padding: 1.4286rem 1.2143rem 1.4286rem 1.4286rem;
+  }
+  
+  &__head {
+    padding-bottom: 0.5rem;
+    border-bottom: 0.0714rem solid $dim-border;
+  }
 
-.card-room-information__image-slider {
-  height: 151px; 
-  border-radius: 0.2857rem 0.2857rem 0rem 0rem;
-}
+  &__rating-comments {
+    padding: 0.5714rem 0.2143rem 0rem 0rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-items: baseline;
+  }
 
-.card-room-information__rating-comments {
-  padding: 0.5714rem 0.2143rem 0rem 0rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: nowrap;
-  align-items: baseline;
+  &__comments {
+    @include reset-link;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: baseline;
+  
+    &:hover,
+    &:active {
+      text-decoration: underline $light-title;
+    }
+  }
 }

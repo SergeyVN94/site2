@@ -7,40 +7,40 @@
   @media (max-width: $breakpoint3) {
     flex-direction: column;
   }
-}
 
-.room-details-banner__img-column {
-  width: 32%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+  &__img-column {
+    width: 32%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  
+    @media (max-width: $breakpoint3) {
+      width: 100%;
+    }
+  }
 
-  @media (max-width: $breakpoint3) {
+  &__img-item-container {
+    height: 50%;
+  
+    @media (max-width: $breakpoint3) {
+      height: auto;
+    }
+  }
+
+  &__img-item {
     width: 100%;
   }
-}
 
-.room-details-banner__img-item-container {
-  height: 50%;
-
-  @media (max-width: $breakpoint3) {
-    height: auto;
+  &__main-img-container {
+    width: 68%;
+  
+    @media (max-width: $breakpoint3) {
+      width: 100%;
+    }
   }
-}
 
-.room-details-banner__img-item {
-  width: 100%;
-}
-
-.room-details-banner__main-img-container {
-  width: 68%;
-
-  @media (max-width: $breakpoint3) {
+  &__main-img {
     width: 100%;
+    height: 100%;
   }
-}
-
-.room-details-banner__main-img {
-  width: 100%;
-  height: 100%;
 }

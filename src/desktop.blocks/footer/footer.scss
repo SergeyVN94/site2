@@ -1,62 +1,62 @@
 .footer {
   background-color: #fff;
   box-shadow: 0rem 0.0714rem 0rem $dim-border;
-}
 
-.footer__container-content {
-  @include reset-css;
-  padding: 7.1429rem 0rem 5.7143rem 0rem;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-
-  @media (max-width: $breakpoint2) {
+  &__container-content {
+    @include reset-css;
+    padding: 7.1429rem 0rem 5.7143rem 0rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  
+    @media (max-width: $breakpoint2) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
+  &__logo {
+    margin-bottom: 1.2143rem;
+  
+    @media (max-width: $breakpoint2) {
+      margin: 0 auto 1.2143rem auto;
+    }
+  }
+  
+  &__nav {
+    margin-top: 0.3571rem;
+    width: 100%;
+    max-width: 160px;
+  
+    @media (max-width: $breakpoint2) {
+      display: none;
+    }
+  }
+  
+  &__site-description {
+    width: 100%;
+    max-width: 260px;
+    display: flex;
     flex-direction: column;
-    align-items: center;
   }
-}
-
-.footer__logo {
-  margin-bottom: 1.2143rem;
-
-  @media (max-width: $breakpoint2) {
-    margin: 0 auto 1.2143rem auto;
+  
+  &__subscribe-container {
+    @include reset-css;
+    margin-top: 0.3571rem;
+    width: 100%;
+    max-width: 260px;
+  
+    @media (max-width: $breakpoint2) {
+      margin-top: 1.4286rem;
+    }
   }
-}
-
-.footer__nav {
-  margin-top: 0.3571rem;
-  width: 100%;
-  max-width: 160px;
-
-  @media (max-width: $breakpoint2) {
-    display: none;
+  
+  &__subscribe-description {
+    margin-bottom: 1.6429rem;
   }
-}
-
-.footer__site-description {
-  width: 100%;
-  max-width: 260px;
-  display: flex;
-  flex-direction: column;
-}
-
-.footer__subscribe-container {
-  @include reset-css;
-  margin-top: 0.3571rem;
-  width: 100%;
-  max-width: 260px;
-
-  @media (max-width: $breakpoint2) {
-    margin-top: 1.4286rem;
+  
+  &__subscribe-title {
+    margin-bottom: 1.2857rem;
   }
-}
-
-.footer__subscribe-description {
-  margin-bottom: 1.6429rem;
-}
-
-.footer__subscribe-title {
-  margin-bottom: 1.2857rem;
 }

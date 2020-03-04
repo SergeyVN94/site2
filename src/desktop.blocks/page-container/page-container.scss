@@ -4,12 +4,12 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-}
 
-.page-container__main {
-  flex: auto;
-}
+  &__main {
+    flex: auto;
+  }
 
-.page-container__copyright-bar {
-  border-top: 0.0714rem solid #e5e5e5;
+  &__copyright-bar {
+    border-top: 0.0714rem solid #e5e5e5;
+  }
 }

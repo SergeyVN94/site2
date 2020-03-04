@@ -3,8 +3,8 @@
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
-}
 
-.toggle-input__text {
-  margin-left: 0.7143rem;
+  &__text {
+    margin-left: 0.7143rem;
+  }
 }

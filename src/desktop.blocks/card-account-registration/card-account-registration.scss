@@ -1,50 +1,48 @@
-.card-account-registration__date-of-birth {
-  margin-bottom: 1.6429rem;
-}
-
-.card-account-registration__email {
-  margin-bottom: 0.7143rem;
-}
-
-.card-account-registration__form {
-  margin: 0;
-  width: 100%;
-}
-
-.card-account-registration__have-account {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.card-account-registration__input-name {
-  margin-bottom: 0.7143rem;
-}
-
-.card-account-registration__input-surname {
-  margin-bottom: 0.7143rem;
-}
-
-.card-account-registration__password {
-  margin-bottom: 0.5rem;
-}
-
-.card-account-registration__payment-button {
-  margin-bottom: 2rem;
-}
-
-.card-account-registration__select-gender {
-  margin-bottom: 1.7857rem;
-}
-
-.card-account-registration__special-offers {
-  margin-bottom: 1.7143rem;
-}
-
-.card-account-registration__title {
-  margin-bottom: 1.3571rem;
-  width: 100%;
+.card-account-registration {
+  &__date-of-birth {
+    margin-bottom: 1.6429rem;
+  }
+  
+  &__email {
+    margin-bottom: 0.7143rem;
+  }
+  
+  &__form {
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+  
+  &__have-account {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  &__input-name {
+    margin-bottom: 0.7143rem;
+  }
+  
+  &__input-surname {
+    margin-bottom: 0.7143rem;
+  }
+  
+  &__password {
+    margin-bottom: 0.5rem;
+  }
+  
+  &__select-gender {
+    margin-bottom: 1.7857rem;
+  }
+  
+  &__special-offers {
+    margin-bottom: 1.7143rem;
+  }
+  
+  &__title {
+    margin-bottom: 1.3571rem;
+    width: 100%;
+  }
 }
