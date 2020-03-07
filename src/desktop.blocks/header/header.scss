@@ -10,6 +10,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
+    justify-content: space-between;
 
     @media (max-width: $breakpoint2) {
       padding-left: 0.7143rem;
@@ -24,7 +25,6 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
-    flex: auto;
     align-items: center;
 
     @media (max-width: $breakpoint2) {
