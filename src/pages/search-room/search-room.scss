@@ -6,6 +6,11 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
+
+    @media (max-width: $breakpoint3) {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
   }
 
   &__hotel-rooms {
@@ -15,5 +20,9 @@
 
   &__search-filters {
     margin-right: 4.3571rem;
+
+    @media (max-width: $breakpoint3) {
+      margin-right: 0;
+    }
   }
 }
