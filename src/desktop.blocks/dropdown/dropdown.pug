@@ -5,12 +5,12 @@ mixin dropdown(options = {})
     -
         const {
             head = null,
-            text = '',
+            text = "",
             classes = [],
         } = options;
 
-        classes.push('dropdown js-dropdown');
-        const classesStr = classes.join(' ');
+        classes.push("dropdown js-dropdown");
+        const classesStr = classes.join(" ");
 
     div(class=classesStr)
         if head !== null

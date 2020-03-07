@@ -5,14 +5,14 @@ mixin text-field(options = {})
     -
         const {
             head = null,
-            placeholder = '',
-            value = '',
-            type = 'text',
-            iconRight = '',
-            mask = '',
+            placeholder = "",
+            value = "",
+            type = "text",
+            iconRight = "",
+            mask = "",
         } = options;
 
-    .text-field(class='js-text-field', data-mask=mask)
+    .text-field(class="js-text-field", data-mask=mask)
         if head !== null
             .text-field__head
                 +block-head(head)

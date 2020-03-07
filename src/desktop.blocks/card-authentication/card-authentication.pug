@@ -8,34 +8,34 @@ mixin card-authentication()
         +card-container()
             .card-authentication__head
                 +text({
-                    text: 'Войти',
-                    theme: 'h1',
-                    fontName: 'montserrat',
+                    text: "Войти",
+                    theme: "h1",
+                    fontName: "montserrat",
                 })
             form(action="/mock-address/change-me", method="post", class="card-authentication__form")
                 .card-authentication__email
                     +input-text({
-                        placeholder: 'Email',
-                        type: 'email',
+                        placeholder: "Email",
+                        type: "email",
                     })
                 .card-authentication__password
                     +input-text({
-                        placeholder: 'Пароль',
-                        type: 'password',
+                        placeholder: "Пароль",
+                        type: "password",
                     })
                 .card-authentication__btn-auth
                     +button({
-                        text: 'войти',
-                        icon: 'arrow_forward',
-                        theme: 'default-long',
+                        text: "войти",
+                        icon: "arrow_forward",
+                        theme: "default-long",
                     })
             .card-authentication__no-account
                 +text({
-                    text: 'Нет аккаунта на Toxin?',
-                    color: 'important-text',
+                    text: "Нет аккаунта на Toxin?",
+                    color: "important-text",
                 })
                 +button({
-                    href: './registration.html',
-                    text: 'создать',
-                    theme: 'light',
+                    href: "./registration.html",
+                    text: "создать",
+                    theme: "light",
                 })

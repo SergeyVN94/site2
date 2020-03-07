@@ -11,63 +11,63 @@ mixin card-account-registration()
         +card-container()
             .card-account-registration__title
                 +text({
-                    text: 'Регистрация аккаунта',
-                    theme: 'h1',
-                    fontName: 'montserrat',
+                    text: "Регистрация аккаунта",
+                    theme: "h1",
+                    fontName: "montserrat",
                 })
-            form(action="/mock-address/change-me", method="post", class='card-account-registration__form')
+            form(action="/mock-address/change-me", method="post", class="card-account-registration__form")
                 .card-account-registration__input-name
                     +input-text({
-                        placeholder: 'Имя',
+                        placeholder: "Имя",
                     })
                 .card-account-registration__input-surname
                     +input-text({
-                        placeholder: 'Фамилия',
+                        placeholder: "Фамилия",
                     })
                 .card-account-registration__select-gender
                     +radio-buttons({
-                        group: 'gender',
+                        group: "gender",
                         items: [
-                            {text: 'Мужчина', group: 'gender', checked: true},
-                            {text: 'Женщина', group: 'gender'},
+                            {text: "Мужчина", group: "gender", checked: true},
+                            {text: "Женщина", group: "gender"},
                         ],
                     })
                 .card-account-registration__date-of-birth
                     +text-field({
                         head: {
-                            title: 'дата рождения',
+                            title: "дата рождения",
                         },
-                        placeholder: 'ДД.ММ.ГГГГ',
+                        placeholder: "ДД.ММ.ГГГГ",
                     })
                 .card-account-registration__email
                     +text-field({
                         head: {
-                            title: 'данные для входа в сервис',
+                            title: "данные для входа в сервис",
                         },
-                        placeholder: 'Email',
-                        type: 'email',
+                        placeholder: "Email",
+                        type: "email",
                     })
                 .card-account-registration__password
                     +input-text({
-                        placeholder: 'Пароль',
-                        type: 'password',
+                        placeholder: "Пароль",
+                        type: "password",
                     })
                 .card-account-registration__special-offers
-                    +toggle-button('Получать спецпредложения')
+                    +toggle-button("Получать спецпредложения")
                 .card-account-registration__payment-button
                     +button({
-                        text: 'перейти к оплате',
-                        theme: 'default-long',
-                        icon: 'arrow_forward',
+                        text: "перейти к оплате",
+                        theme: "default-long",
+                        icon: "arrow_forward",
                     })
             .card-account-registration__have-account
                 +text({
-                    text: 'Уже есть аккаунт на Toxin',
-                    color: 'important-text',
+                    text: "Уже есть аккаунт на Toxin",
+                    color: "important-text",
                 })
                 +button({
-                    href: './sign-in.html',
-                    text: 'войти',
-                    theme: 'light',
-                    horizontalSize: 'big',
+                    href: "./sign-in.html",
+                    text: "войти",
+                    theme: "light",
+                    horizontalSize: "big",
                 })

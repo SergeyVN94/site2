@@ -3,17 +3,17 @@ include ../text/text.pug
 mixin menu-item(options = {})
     -
         const {
-            text = '',
-            href = '/mock-address/change-me',
+            text = "",
+            href = "/mock-address/change-me",
             selected = false,
         } = options;
 
-        const fontWeight = selected ? 'bold' : 'normal';
+        const fontWeight = selected ? "bold" : "normal";
 
     a.menu-item(href=href)
         +text({
             text,
             fontWeight,
-            lineHeight: 'small',
-            whiteSpace: 'nowrap',
+            lineHeight: "small",
+            whiteSpace: "nowrap",
         })

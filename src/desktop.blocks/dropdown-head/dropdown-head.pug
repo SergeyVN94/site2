@@ -3,22 +3,22 @@ include ../text/text.pug
 mixin dropdown-head(options = {})
     -
         const {
-            text = '',
+            text = "",
             classes = [],
         } = options;
 
-        classes.push('dropdown-head js-dropdown-head');
-        const classesStr = classes.join(' ');
+        classes.push("dropdown-head js-dropdown-head");
+        const classesStr = classes.join(" ");
 
     div(class=classesStr)
         .dropdown-head__text
             +text({
                 text,
-                whiteSpace: 'nowrap',
+                whiteSpace: "nowrap",
                 noSelect: true,
                 verticalMiddle: true,
                 classes: [
-                    'js-dropdown-head__text',
+                    "js-dropdown-head__text",
                 ],
             })
         .dropdown-head__icon expand_more

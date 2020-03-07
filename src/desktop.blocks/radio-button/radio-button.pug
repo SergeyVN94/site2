@@ -4,8 +4,8 @@ include ../text/text.pug
 mixin radio-button(options = {})
     -
         const {
-            text = '',
-            group = '',
+            text = "",
+            group = "",
             checked = false,
         } = options;
 
@@ -15,5 +15,5 @@ mixin radio-button(options = {})
             .radio-button__text
                 +text({
                     text,
-                    lineHeight: 'middle',
+                    lineHeight: "middle",
                 })

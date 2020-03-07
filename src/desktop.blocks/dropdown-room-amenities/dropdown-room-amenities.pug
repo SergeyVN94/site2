@@ -4,17 +4,17 @@ include ../dropdown-counter/dropdown-counter.pug
 mixin dropdown-room-amenities()
     +dropdown({
         head: {
-            title: 'Удобства номера',
+            title: "Удобства номера",
         },
-        text: 'Удобства номера',
+        text: "Удобства номера",
         classes: [
-            'js-dropdown-room-amenities',
+            "js-dropdown-room-amenities",
         ],
     })
         .dropdown-room-amenities__counter
-            +dropdown-counter('спальни')
+            +dropdown-counter("спальни")
         .dropdown-room-amenities__counter
-            +dropdown-counter('кровати')
+            +dropdown-counter("кровати")
         .dropdown-room-amenities__counter
-            +dropdown-counter('ванные комнаты')
+            +dropdown-counter("ванные комнаты")
 

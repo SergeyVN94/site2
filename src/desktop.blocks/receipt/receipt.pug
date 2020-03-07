@@ -13,8 +13,8 @@ mixin receipt(options = {})
         for item in items
             -
                 const {
-                   text = '',
-                   price = '',
+                   text = "",
+                   price = "",
                    icon = false,
                 } = item;
 
@@ -24,29 +24,29 @@ mixin receipt(options = {})
                 .receipt__text-container
                     +text({
                         text,
-                        color: 'text-primary',
-                        lineHeight: 'small',
+                        color: "text-primary",
+                        lineHeight: "small",
                     })
                 if icon
                     .receipt__icon i
                 .receipt__price
                     +text({
                         text: priceRes,
-                        color: 'text-primary',
-                        lineHeight: 'small',
-                        horizontal: 'right', 
+                        color: "text-primary",
+                        lineHeight: "small",
+                        horizontal: "right", 
                     })
                     
         .receipt__total-sum
             +text({
-                text: 'Итого',
-                theme: 'h2',
-                fontName: 'montserrat',
+                text: "Итого",
+                theme: "h2",
+                fontName: "montserrat",
             })
             .receipt__separate-line
             +text({
                 text: totalRes,
-                theme: 'h2',
-                fontName: 'montserrat',
-                whiteSpace: 'nowrap',
+                theme: "h2",
+                fontName: "montserrat",
+                whiteSpace: "nowrap",
             })

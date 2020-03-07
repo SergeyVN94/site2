@@ -10,33 +10,33 @@ mixin dropdown-guest(options = {})
 
     +dropdown({
         head,
-        text: 'Сколько гостей',
+        text: "Сколько гостей",
         classes: [
-            'js-dropdown-guest',
+            "js-dropdown-guest",
         ],
     })
         .dropdown-guest__counter
-            +dropdown-counter('взрослые')
+            +dropdown-counter("взрослые")
         .dropdown-guest__counter
-            +dropdown-counter('дети')
+            +dropdown-counter("дети")
         .dropdown-guest__counter
-            +dropdown-counter('младенцы')
+            +dropdown-counter("младенцы")
         .dropdown-guest__btn-container
             .dropdown-guest__btn-clear
                 +button({
                     classes: [
-                        'js-dropdown-guest__btn-clear'
+                        "js-dropdown-guest__btn-clear"
                     ],
-                    text: 'очистить',
-                    theme: 'text',
-                    textColor: 'text-secondary',
+                    text: "очистить",
+                    theme: "text",
+                    textColor: "text-secondary",
                     hidden: true,
                 })
             .dropdown-guest__btn-apply
                 +button({
                     classes: [
-                        'js-dropdown-guest__btn-apply'
+                        "js-dropdown-guest__btn-apply"
                     ],
-                    text: 'применить',
-                    theme: 'text',
+                    text: "применить",
+                    theme: "text",
                 })

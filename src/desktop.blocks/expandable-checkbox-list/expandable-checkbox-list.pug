@@ -4,7 +4,7 @@ include ../checkbox-button/checkbox-button.pug
 mixin expandable-checkbox-list(options = {})
     -
         const {
-            title = '',
+            title = "",
             items = [],
         } = options;
 
@@ -13,7 +13,7 @@ mixin expandable-checkbox-list(options = {})
             .expandable-checkbox-list__title
                 +text({
                     text: title,
-                    theme: 'h3',
+                    theme: "h3",
                 })
             .expandable-checkbox-list__icon.js-expandable-checkbox-list__icon expand_more
         .expandable-checkbox-list__body

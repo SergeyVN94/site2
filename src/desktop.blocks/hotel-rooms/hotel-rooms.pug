@@ -5,7 +5,7 @@ include ../card-room-information/card-room-information.pug
 mixin hotel-rooms(options = {})
     -
         const {
-            title = '',
+            title = "",
             rooms = [],
         } = options;
 
@@ -13,8 +13,8 @@ mixin hotel-rooms(options = {})
         .hotel-rooms__title
             +text({
                 text: title,
-                theme: 'h1',
-                fontName: 'montserrat',
+                theme: "h1",
+                fontName: "montserrat",
             })
         .hotel-rooms__body
             for room in rooms
@@ -22,5 +22,5 @@ mixin hotel-rooms(options = {})
                     +card-room-information(room)
         .hotel-rooms__pagination
             +pagination({
-                bottomText: '1 – 12 из 100+ вариантов аренды',
+                bottomText: "1 – 12 из 100+ вариантов аренды",
             })

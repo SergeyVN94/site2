@@ -13,18 +13,18 @@ mixin card-book-room(options = {})
             .card-book-room__date-range
                 +date-range({
                     headDropdownLeft: {
-                        title: 'прибытие',
+                        title: "прибытие",
                     },
                     headDropdownRight: {
-                        title: 'выезд',
+                        title: "выезд",
                     },
-                    textDropdownLeft: 'ДД.ММ.ГГГГ',
-                    textDropdownRight: 'ДД.ММ.ГГГГ',
+                    textDropdownLeft: "ДД.ММ.ГГГГ",
+                    textDropdownRight: "ДД.ММ.ГГГГ",
                 })
             .card-book-room__dropdown-guest
                 +dropdown-guest({
                     head: {
-                        title: 'гости',
+                        title: "гости",
                     },
                 })
             .card-book-room__receipt
@@ -32,7 +32,7 @@ mixin card-book-room(options = {})
                 +receipt(receipt)
             .card-book-room__booking-button
                 +button({
-                    text: 'забронировать',
-                    theme: 'default-long',
-                    icon: 'arrow_forward',
+                    text: "забронировать",
+                    theme: "default-long",
+                    icon: "arrow_forward",
                 })

@@ -4,7 +4,7 @@ include ../text/text.pug
 mixin checkbox-button(options = {})
     -
         const {
-            text = '',
+            text = "",
             checked = false,
         } = options;
 
@@ -14,7 +14,7 @@ mixin checkbox-button(options = {})
             .checkbox-button__text
                 +text({
                     text,
-                    theme: 'body',
-                    lineHeight: 'middle',
-                    color: 'text-secondary',
+                    theme: "body",
+                    lineHeight: "middle",
+                    color: "text-secondary",
                 })

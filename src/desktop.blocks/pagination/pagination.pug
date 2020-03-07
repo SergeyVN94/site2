@@ -6,7 +6,7 @@ mixin pagination(options = {})
     -
         const {
             head = null,
-            bottomText = '',
+            bottomText = "",
         } = options;
 
     .pagination
@@ -18,41 +18,41 @@ mixin pagination(options = {})
                 -
                     const buttonConfigs = [
                         {
-                            text: '1',
-                            theme: 'round',
-                            fontWeight: 'bold',
-                            background: 'gradient-primary',
-                            hoverTheme: 'gradient-primary',
+                            text: "1",
+                            theme: "round",
+                            fontWeight: "bold",
+                            background: "gradient-primary",
+                            hoverTheme: "gradient-primary",
                         },
                         {
-                            text: '2',
-                            theme: 'round',
-                            textColor: 'text-secondary',
-                            hoverTheme: 'gradient-primary',
+                            text: "2",
+                            theme: "round",
+                            textColor: "text-secondary",
+                            hoverTheme: "gradient-primary",
                         },
                         {
-                            text: '3',
-                            theme: 'round',
-                            textColor: 'text-secondary',
-                            hoverTheme: 'gradient-primary',
+                            text: "3",
+                            theme: "round",
+                            textColor: "text-secondary",
+                            hoverTheme: "gradient-primary",
                         },
                         {
-                            text: '...',
-                            theme: 'round',
-                            textColor: 'text-secondary',
-                            hoverTheme: 'gradient-primary',
+                            text: "...",
+                            theme: "round",
+                            textColor: "text-secondary",
+                            hoverTheme: "gradient-primary",
                         },
                         {
-                            text: '15',
-                            theme: 'round',
-                            textColor: 'text-secondary',
-                            hoverTheme: 'gradient-primary',
+                            text: "15",
+                            theme: "round",
+                            textColor: "text-secondary",
+                            hoverTheme: "gradient-primary",
                         },
                         {
-                            text: 'arrow_forward',
-                            theme: 'round-icon',
-                            background: 'gradient-success',
-                            hoverTheme: 'gradient-success',
+                            text: "arrow_forward",
+                            theme: "round-icon",
+                            background: "gradient-success",
+                            hoverTheme: "gradient-success",
                         },
                     ];
 
@@ -60,9 +60,9 @@ mixin pagination(options = {})
                     .pagination__nav-button
                         +button(config)
 
-            if bottomText !== ''
+            if bottomText !== ""
                 .pagination__bottom-text
                     +text({
                         text: bottomText,
-                        horizontal: 'middle',
+                        horizontal: "middle",
                     })

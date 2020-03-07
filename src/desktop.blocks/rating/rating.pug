@@ -1,5 +1,5 @@
 mixin rating(stars = 0, allStars = 5)
     .rating
         -for (let i = 0, j = 0; i < allStars; i++, j++) 
-            -const icon = (j < stars) ? 'star' : 'star_border';
+            -const icon = (j < stars) ? "star" : "star_border";
                 .rating__star #{icon}

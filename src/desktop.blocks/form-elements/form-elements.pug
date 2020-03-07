@@ -27,105 +27,105 @@ mixin form-elements()
                         .form-elements__item
                             +text-field({
                                 head: {
-                                    title: 'text field',
-                                    help: 'default',
+                                    title: "text field",
+                                    help: "default",
                                 },
-                                placeholder: 'Email',
-                                type: 'email',
+                                placeholder: "Email",
+                                type: "email",
                             })
                         .form-elements__item
                             +text-field({
                                 head: {
-                                    title: 'subscription text field',
-                                    help: 'default',
+                                    title: "subscription text field",
+                                    help: "default",
                                 },
-                                placeholder: 'Email',
-                                iconRight: 'arrow_forward',
-                                type: 'email',
+                                placeholder: "Email",
+                                iconRight: "arrow_forward",
+                                type: "email",
                             })
                         .form-elements__item
                             +text-field({
                                 head: {
-                                    title: 'masked text field',
-                                    help: 'default',
+                                    title: "masked text field",
+                                    help: "default",
                                 },
-                                placeholder: 'ДД.ММ.ГГГГ',
-                                mask: '%D.%M.%Y',
+                                placeholder: "ДД.ММ.ГГГГ",
+                                mask: "%D.%M.%Y",
                             })
                         .form-elements__item
                             +dropdown-guest({
                                 head: {
-                                    title: 'dropdown',
-                                    help: 'default',
+                                    title: "dropdown",
+                                    help: "default",
                                 },
                             })
                         .form-elements__item
                             +date-range({
                                 headDropdownLeft: {
-                                    title: 'date dropdown',
+                                    title: "date dropdown",
                                 },
                                 headDropdownRight: {
-                                    title: 'date dropdown',
+                                    title: "date dropdown",
                                 },
-                                textDropdownLeft: 'ДД.ММ.ГГГГ',
-                                textDropdownRight: 'ДД.ММ.ГГГГ',
+                                textDropdownLeft: "ДД.ММ.ГГГГ",
+                                textDropdownRight: "ДД.ММ.ГГГГ",
                             })
                         .form-elements__item
                             +dropdown-filter-date({
                                 head: {
-                                    title: 'filter date dropdown',
+                                    title: "filter date dropdown",
                                 },
-                                text: '19 авг - 23 авг',
+                                text: "19 авг - 23 авг",
                             })
                     .form-elements__column
                         .form-elements__item
                             +checkbox-list({
                                 head: {
-                                    title: 'checkbox buttons',
+                                    title: "checkbox buttons",
                                 },
                                 items: [
-                                    {text: 'Можно курить'},
-                                    {text: 'Можно с питомцами'},
-                                    {text: 'Можно пригласить гостей (до 10 человек)'},
+                                    {text: "Можно курить"},
+                                    {text: "Можно с питомцами"},
+                                    {text: "Можно пригласить гостей (до 10 человек)"},
                                 ]
                             })
                         .form-elements__item
                             +radio-buttons({
                                 head: {
-                                    title: 'radio buttons',
+                                    title: "radio buttons",
                                 },
-                                group: 'gender',
+                                group: "gender",
                                 items: [
                                     {
-                                        text: 'Мужчина',
-                                        group: 'gender',
+                                        text: "Мужчина",
+                                        group: "gender",
                                         checked: true
                                     },
                                     {
-                                        text: 'Женщина',
-                                        group: 'gender'
+                                        text: "Женщина",
+                                        group: "gender"
                                     },
                                 ],
                             })
                         .form-elements__item
                             +toggle-buttons({
                                 head: {
-                                    title: 'toggle',
+                                    title: "toggle",
                                 },
                                 items: [
                                     {
-                                        text: 'Получать спецпредложения',
+                                        text: "Получать спецпредложения",
                                         checked: true,
                                     },
                                     {
-                                        text: 'Получать спецпредложения',
+                                        text: "Получать спецпредложения",
                                     },
                                 ],
                             })
                         .form-elements__item
                             +like-buttons({
                                 head: {
-                                    title: 'like button',
+                                    title: "like button",
                                 },
                                 items: [
                                     {
@@ -140,7 +140,7 @@ mixin form-elements()
                         .form-elements__item
                             +rating-buttons({
                                 head: {
-                                    title: 'rate button',
+                                    title: "rate button",
                                 },
                                 items: [
                                     4,
@@ -153,18 +153,18 @@ mixin form-elements()
                                 range: [0, 16000],
                                 start: [5000, 10000],
                                 step: 1000,
-                                title: 'range slider',
+                                title: "range slider",
                             })
                         .form-elements__item
                             +buttons-demo({
-                                title: 'buttons',
+                                title: "buttons",
                             })
                         .form-elements__item
                             +pagination({
                                 head: {
-                                    title: 'pagination',
+                                    title: "pagination",
                                 },
-                                bottomText: '1 – 12 из 100+ вариантов аренды',
+                                bottomText: "1 – 12 из 100+ вариантов аренды",
                             })
                 .form-elements__row
                     .form-elements__column         
@@ -172,66 +172,66 @@ mixin form-elements()
                             +dropdown-room-amenities()
                         .form-elements__item
                             +expandable-checkbox-list({
-                                title: 'expandable checkbox list',
+                                title: "expandable checkbox list",
                                 items: [
-                                    {text: 'Завтрак'},
-                                    {text: 'Письменный стол'},
-                                    {text: 'Стул для кормления'},
-                                    {text: 'Кроватка'},
-                                    {text: 'Телевизор'},
-                                    {text: 'Шампунь'},
-                                    {text: 'Телевизор'},
-                                    {text: 'Шампунь'},
+                                    {text: "Завтрак"},
+                                    {text: "Письменный стол"},
+                                    {text: "Стул для кормления"},
+                                    {text: "Кроватка"},
+                                    {text: "Телевизор"},
+                                    {text: "Шампунь"},
+                                    {text: "Телевизор"},
+                                    {text: "Шампунь"},
                                 ],
                             })
                     .form-elements__column
                         .form-elements__item
                             +rich-checkbox-buttons({
                                 head: {
-                                    title: 'rich checkbox buttons',
+                                    title: "rich checkbox buttons",
                                 },
                                 items: [
                                     {
-                                        text: 'Широкий коридор',
-                                        description: 'Ширина коридоров в номере не менее 91 см.',
+                                        text: "Широкий коридор",
+                                        description: "Ширина коридоров в номере не менее 91 см.",
                                     },
                                     {
-                                        text: 'Помощник для инвалидов',
-                                        description: 'На 1 этаже вас встретит специалист  и проводит до номера.',
+                                        text: "Помощник для инвалидов",
+                                        description: "На 1 этаже вас встретит специалист  и проводит до номера.",
                                     },
                                 ],
                             })                        
                     .form-elements__column
                         +bullet-list({
                             head: {
-                                title: 'bullet list',
+                                title: "bullet list",
                             },
                             items: [
-                                'Нельзя с питомцами',
-                                'Без вечеринок и мероприятий',
-                                'Время прибытия — после 13:00, а выезд до 12:00',
+                                "Нельзя с питомцами",
+                                "Без вечеринок и мероприятий",
+                                "Время прибытия — после 13:00, а выезд до 12:00",
                             ],
                         })
                 .form-elements__row
                     .form-elements__column
                         +room-advantages([
                             {
-                                title: 'Комфорт',
-                                description: 'Шумопоглощающие стены',
-                                icon: 'insert_emoticon',
+                                title: "Комфорт",
+                                description: "Шумопоглощающие стены",
+                                icon: "insert_emoticon",
                             },
                             {
-                                title: 'Удобство',
-                                description: 'Окно в каждой из спален',
-                                icon: 'location_city',
+                                title: "Удобство",
+                                description: "Окно в каждой из спален",
+                                icon: "location_city",
                             },
                         ])
                     .form-elements__column.form-elements__comment
-                        -const avatar = require('../../chunks/images/avatars/user1.jpg').default;
+                        -const avatar = require("../../chunks/images/avatars/user1.jpg").default;
                         +comment({
                             avatar,
-                            userName: 'Мурад Сарафанов',
-                            publicationDate: '5 дней назад',
+                            userName: "Мурад Сарафанов",
+                            publicationDate: "5 дней назад",
                             likes: 12,
-                            text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
+                            text: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.",
                         })

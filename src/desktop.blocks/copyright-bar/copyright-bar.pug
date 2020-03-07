@@ -1,7 +1,7 @@
 include ../text/text.pug
 include ../button/button.pug
 
-mixin copyright-bar(copyright = '')
+mixin copyright-bar(copyright = "")
     .copyright-bar
         .container-content
             .copyright-bar__container-content
@@ -12,22 +12,22 @@ mixin copyright-bar(copyright = '')
                 .copyright-bar__social-buttons
                     -
                         const socialButtons = [
-                            {text: 'twitter', href: 'https://twitter.com'},
-                            {text: 'facebook-square', href: 'https://ru-ru.facebook.com'},
-                            {text: 'instagram', href: 'https://www.instagram.com'},
+                            {text: "twitter", href: "https://twitter.com"},
+                            {text: "facebook-square", href: "https://ru-ru.facebook.com"},
+                            {text: "instagram", href: "https://www.instagram.com"},
                         ];
                     for button in socialButtons
                         -
                             const {
-                                text = '',
-                                href = '',
+                                text = "",
+                                href = "",
                             } = button;
 
                         .copyright-bar__social-button
                             +button({
                                 text,
                                 href,
-                                theme: 'social',
-                                target: '_blank',
-                                rel: 'noopener noreferrer',
+                                theme: "social",
+                                target: "_blank",
+                                rel: "noopener noreferrer",
                             })

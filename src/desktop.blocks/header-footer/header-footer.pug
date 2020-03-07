@@ -9,19 +9,19 @@ mixin header-footer()
         -
             const menu = {
                items: [
-                    {text: 'Home', selected: true},
-                    {text: 'About Us'},
+                    {text: "Home", selected: true},
+                    {text: "About Us"},
                     {
-                        text: 'Services',
+                        text: "Services",
                         items: [
-                            {text: 'example1'},
-                            {text: 'example2'},
-                            {text: 'example3'},
+                            {text: "example1"},
+                            {text: "example2"},
+                            {text: "example3"},
                         ],
                     },
-                    {text: 'Careers'},
-                    {text: 'News'},
-                    {text: 'Documentation'}
+                    {text: "Careers"},
+                    {text: "News"},
+                    {text: "Documentation"}
                ]
             };
 
@@ -32,46 +32,46 @@ mixin header-footer()
         .header-footer__header
             +header({
                 menu,
-                user: 'Cosmin Negoita',
+                user: "Cosmin Negoita",
             })
         .header-footer__footer
             +footer({
-                siteDescription: 'Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.',
+                siteDescription: "Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.",
                 subscribe: {
-                    title: 'Subscribe to our newsletter',
-                    description: 'Receive our latest news and promotions in your inbox!',
-                    placeholder: 'Your email address',
+                    title: "Subscribe to our newsletter",
+                    description: "Receive our latest news and promotions in your inbox!",
+                    placeholder: "Your email address",
                 },
                 navList: [
                     {
-                        title: 'navigation',
+                        title: "navigation",
                         items: [
-                            {text: 'About Us'},
-                            {text: 'News'},
-                            {text: 'Support'},
-                            {text: 'Products'},
+                            {text: "About Us"},
+                            {text: "News"},
+                            {text: "Support"},
+                            {text: "Products"},
                         ],
                     },
                     {
-                        title: 'about us',
+                        title: "about us",
                         items: [
-                            {text: 'Who we are'},
-                            {text: 'Our team'},
-                            {text: 'Careers'},
-                            {text: 'Investors'},
+                            {text: "Who we are"},
+                            {text: "Our team"},
+                            {text: "Careers"},
+                            {text: "Investors"},
                         ],
                     },
                     {
-                        title: 'Support',
+                        title: "Support",
                         items: [
-                            {text: 'Documentation'},
-                            {text: 'Community'},
-                            {text: 'Get in Touch'},
+                            {text: "Documentation"},
+                            {text: "Community"},
+                            {text: "Get in Touch"},
                         ],
                     },
                 ],
             })
         .header-footer__copyright-bar
-            +copyright-bar('Copyright © 2018 Toxin UI Kit. All rights reserved.')
+            +copyright-bar("Copyright © 2018 Toxin UI Kit. All rights reserved.")
         .header-footer__footer
-            +footer-creative('Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.')
+            +footer-creative("Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.")

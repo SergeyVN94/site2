@@ -2,7 +2,7 @@ include ../logo/logo.pug
 include ../text/text.pug
 include ../button/button.pug
 
-mixin footer-creative(siteDescription = '')
+mixin footer-creative(siteDescription = "")
     .footer-creative
         .container-content
             .footer-creative__container-content
@@ -15,23 +15,23 @@ mixin footer-creative(siteDescription = '')
                 .footer-creative__social-buttons
                     -
                         const socialButtons = [
-                            {text: 'twitter', href: 'https://twitter.com'},
-                            {text: 'facebook-square', href: 'https://ru-ru.facebook.com'},
-                            {text: 'instagram', href: 'https://www.instagram.com'},
+                            {text: "twitter", href: "https://twitter.com"},
+                            {text: "facebook-square", href: "https://ru-ru.facebook.com"},
+                            {text: "instagram", href: "https://www.instagram.com"},
                         ];
                     for button in socialButtons
                         -
                             const {
-                                text = '',
-                                href = '',
+                                text = "",
+                                href = "",
                             } = button;
 
                         .footer-creative__social-button
                             +button({
                                 text,
                                 href,
-                                theme: 'social',
-                                target: '_blank',
-                                rel: 'noopener noreferrer',
+                                theme: "social",
+                                target: "_blank",
+                                rel: "noopener noreferrer",
                             })
             

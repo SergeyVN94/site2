@@ -16,9 +16,9 @@ block main
         .room-details__banner
             -
                 const images = [
-                    '1.png',
-                    '2.png',
-                    '3.png',
+                    "1.png",
+                    "2.png",
+                    "3.png",
                 ].map((img) => {
                     return require(`../../chunks/images/room-details/888/${img}`).default;
                 });
@@ -30,21 +30,21 @@ block main
                         .room-details__room-advantages
                             +room-advantages([
                                 {
-                                    title: 'Комфорт',
-                                    description: 'Шумопоглощающие стены',
-                                    icon: 'insert_emoticon',
+                                    title: "Комфорт",
+                                    description: "Шумопоглощающие стены",
+                                    icon: "insert_emoticon",
                                 },
                                 {
-                                    title: 'Удобство',
-                                    description: 'Окно в каждой из спален',
-                                    icon: 'location_city',
+                                    title: "Удобство",
+                                    description: "Окно в каждой из спален",
+                                    icon: "location_city",
                                 },
                                 {
-                                    title: 'Уют',
-                                    description: 'Номер оснащён камином',
-                                    icon: 'whatshot',
+                                    title: "Уют",
+                                    description: "Номер оснащён камином",
+                                    icon: "whatshot",
                                 },
-                            ], 'Сведения о номере')
+                            ], "Сведения о номере")
                         +room-impressions({
                             items: {
                                 veryGood: 520,
@@ -56,33 +56,33 @@ block main
                         -
                             const items = [
                                 {
-                                    avatar: require('../../chunks/images/avatars/user1.jpg').default,
-                                    name: 'Мурад Сарафанов',
-                                    publicationDate: '5 дней назад',
+                                    avatar: require("../../chunks/images/avatars/user1.jpg").default,
+                                    name: "Мурад Сарафанов",
+                                    publicationDate: "5 дней назад",
                                     likes: 12,
-                                    text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
+                                    text: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.",
                                 },
                                 {
-                                    avatar: require('../../chunks/images/avatars/user2.jpg').default,
-                                    name: 'Патрисия Стёклышкова',
-                                    publicationDate: 'Неделю назад',
+                                    avatar: require("../../chunks/images/avatars/user2.jpg").default,
+                                    name: "Патрисия Стёклышкова",
+                                    publicationDate: "Неделю назад",
                                     likes: 2,
-                                    text: 'Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент',
+                                    text: "Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент",
                                 },
                             ];
-                        a(name='comments')
+                        a(name="comments")
                         +comments({
                             items,
                             head: {
-                                title: 'Отзывы посетителей номера',
+                                title: "Отзывы посетителей номера",
                                 titleOptions: {
-                                    theme: 'h2',
-                                    fontName: 'montserrat',
+                                    theme: "h2",
+                                    fontName: "montserrat",
                                 },
-                                help: '2 отзыва',
+                                help: "2 отзыва",
                                 helpOptions: {
-                                    transform: 'none',
-                                    color: 'text-secondary',
+                                    transform: "none",
+                                    color: "text-secondary",
                                 },
                             },
                         })
@@ -90,49 +90,49 @@ block main
                         .room-details__rules
                             +bullet-list({
                                 head: {
-                                    title: 'Правила',
+                                    title: "Правила",
                                     titleOptions: {
-                                        theme: 'h2',
-                                        fontName: 'montserrat',
+                                        theme: "h2",
+                                        fontName: "montserrat",
                                     },
-                                    bottom: 'big',
+                                    bottom: "big",
                                 },
                                 items: [
-                                    'Нельзя с питомцами',
-                                    'Без вечеринок и мероприятий',
-                                    'Время прибытия — после 13:00, а выезд до 12:00',
+                                    "Нельзя с питомцами",
+                                    "Без вечеринок и мероприятий",
+                                    "Время прибытия — после 13:00, а выезд до 12:00",
                                 ],
                             })
                         .room-details__cancel-reservation
                             .room-details__cancel-reservation-head
                                 +text({
-                                    text: 'Отмена',
-                                    theme: 'h2',
-                                    fontName: 'montserrat',
+                                    text: "Отмена",
+                                    theme: "h2",
+                                    fontName: "montserrat",
                                 })
                             +text({
-                                text: 'Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.',
+                                text: "Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.",
                             })
                 .room-details__book-room
                     +card-book-room({
                         roomNumber: 888,
-                        roomPrice: '9 990',
+                        roomPrice: "9 990",
                         luxury: true,
                         receipt: {
-                            total:  '38 081',
+                            total:  "38 081",
                             items: [
                                 {
-                                    text: '9 990₽ х 4 суток',
-                                    price: '39 960',
+                                    text: "9 990₽ х 4 суток",
+                                    price: "39 960",
                                 },
                                 {
-                                    text: 'Сбор за услуги: скидка 2 179₽',
-                                    price: '0',
+                                    text: "Сбор за услуги: скидка 2 179₽",
+                                    price: "0",
                                     icon: true,
                                 },
                                 {
-                                    text: 'Сбор за дополнительные услуги',
-                                    price: '300',
+                                    text: "Сбор за дополнительные услуги",
+                                    price: "300",
                                     icon: true,
                                 },
                             ],

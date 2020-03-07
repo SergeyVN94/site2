@@ -1,7 +1,7 @@
 mixin menu-item-expandable(options = {})
     -
         const {
-            text = '',
+            text = "",
             items = [],
         } = options;
 
@@ -10,8 +10,8 @@ mixin menu-item-expandable(options = {})
             .menu-item-expandable__title   
                 +text({
                     text,
-                    lineHeight: 'small',
-                    whiteSpace: 'nowrap',
+                    lineHeight: "small",
+                    whiteSpace: "nowrap",
                 })
             .menu-item-expandable__btn-expand.js-menu-item-expandable__btn-expand expand_more
         .menu-item-expandable__body
@@ -19,8 +19,8 @@ mixin menu-item-expandable(options = {})
                 for item in items
                     -
                         const {
-                            text: linkText = '',
-                            href = '/mock-address/change-me',
+                            text: linkText = "",
+                            href = "/mock-address/change-me",
                         } = item;
 
                     li.menu-item-expandable__list-item

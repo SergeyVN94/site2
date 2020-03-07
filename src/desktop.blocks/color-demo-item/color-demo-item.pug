@@ -3,9 +3,9 @@ include ../text/text.pug
 mixin color-demo-item(options = {})
     -
         const {
-            colorName = '', 
-            colorValue = '',
-            squareBgColor = '',
+            colorName = "", 
+            colorValue = "",
+            squareBgColor = "",
         } = options;
 
     .color-demo-item
@@ -14,13 +14,13 @@ mixin color-demo-item(options = {})
             .color-demo-item__color-name
                 +text({
                     text: colorName,
-                    theme: 'h2',
-                    lineHeight: 'big',
+                    theme: "h2",
+                    lineHeight: "big",
                 })
             .color-demo-item__color-value
                 +text({
                     text: colorValue,
-                    theme: 'h2',
-                    fontWeight: 'normal',
-                    lineHeight: 'big',
+                    theme: "h2",
+                    fontWeight: "normal",
+                    lineHeight: "big",
                 })

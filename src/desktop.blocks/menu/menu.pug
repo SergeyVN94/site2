@@ -6,13 +6,13 @@ mixin menu(options = {})
         const {
             items = [],
             classes = [],
-            theme = '',
+            theme = "",
         } = options;
 
-        classes.push('menu');
-        if (theme !== '') classes.push(`menu_theme_${theme}`);
+        classes.push("menu");
+        if (theme !== "") classes.push(`menu_theme_${theme}`);
 
-        const classesStr = classes.join(' ');
+        const classesStr = classes.join(" ");
 
     nav(class=classesStr)
         for item in items

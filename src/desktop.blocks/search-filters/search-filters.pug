@@ -11,49 +11,49 @@ mixin search-filters()
         .search-filters__dropdown-filter-date
             +dropdown-filter-date({
                 head: {
-                    title: 'даты пребывания в отеле',
+                    title: "даты пребывания в отеле",
                 },
-                text: '19 авг - 23 авг',
+                text: "19 авг - 23 авг",
             })
         .search-filters__dropdown-guest
             +dropdown-guest({
                 head: {
-                    title: 'гости',
+                    title: "гости",
                 },
             })
         .search-filters__range-slider
             +range-slider({
-                title: 'диапазон цены',
+                title: "диапазон цены",
                 range: [0, 16000],
                 start: [5000, 10000],
-                bottomText: 'Стоимость за сутки пребывания в номере',
-                value: '0₽ - 15 000₽',
+                bottomText: "Стоимость за сутки пребывания в номере",
+                value: "0₽ - 15 000₽",
                 step: 1000,
             })
         .search-filters__checkbox-list
             +checkbox-list({
                 head: {
-                    title: 'Checkbox Buttons',
+                    title: "Checkbox Buttons",
                 },
                 items: [
-                    {text: 'Можно курить'},
-                    {text: 'Можно с питомцами'},
-                    {text: 'Можно пригласить гостей (до 10 человек)'},
+                    {text: "Можно курить"},
+                    {text: "Можно с питомцами"},
+                    {text: "Можно пригласить гостей (до 10 человек)"},
                 ],
             })
         .search-filters__rich-checkbox-buttons
             +rich-checkbox-buttons({
                 head: {
-                    title: 'доступность',
+                    title: "доступность",
                 },
                 items: [
                     {
-                        text: 'Широкий коридор',
-                        description: 'Ширина коридоров в номере не менее 91 см.',
+                        text: "Широкий коридор",
+                        description: "Ширина коридоров в номере не менее 91 см.",
                     },
                     {
-                        text: 'Помощник для инвалидов',
-                        description: 'На 1 этаже вас встретит специалист  и проводит до номера.',
+                        text: "Помощник для инвалидов",
+                        description: "На 1 этаже вас встретит специалист  и проводит до номера.",
                     },
                 ],
             })    
@@ -61,15 +61,15 @@ mixin search-filters()
             +dropdown-room-amenities()
         .search-filters__expandable-checkbox-list
             +expandable-checkbox-list({
-                title: 'дополнительные удобства',
+                title: "дополнительные удобства",
                 items: [
-                    {text: 'Завтрак'},
-                    {text: 'Письменный стол'},
-                    {text: 'Стул для кормления'},
-                    {text: 'Кроватка'},
-                    {text: 'Телевизор'},
-                    {text: 'Шампунь'},
-                    {text: 'Телевизор'},
-                    {text: 'Шампунь'},
+                    {text: "Завтрак"},
+                    {text: "Письменный стол"},
+                    {text: "Стул для кормления"},
+                    {text: "Кроватка"},
+                    {text: "Телевизор"},
+                    {text: "Шампунь"},
+                    {text: "Телевизор"},
+                    {text: "Шампунь"},
                 ],
             })

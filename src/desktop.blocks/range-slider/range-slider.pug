@@ -7,8 +7,8 @@ mixin range-slider(options = {})
             step = 1,    
             range = [0, step * 100],
             start = [],
-            title = '',
-            bottomText = '',
+            title = "",
+            bottomText = "",
         } = options;
 
         const [
@@ -25,22 +25,22 @@ mixin range-slider(options = {})
         .range-slider__head
             +text({
                 text: title,
-                theme: 'h3',
+                theme: "h3",
             })
             +text({
-                theme: 'h3',
-                color: 'text-secondary',
-                fontWeight: 'normal',
-                classes: ['js-range-slider__head-value'],
+                theme: "h3",
+                color: "text-secondary",
+                fontWeight: "normal",
+                classes: ["js-range-slider__head-value"],
             })
         .range-slider__line.js-range-slider__line
-            .range-slider__point.js-range-slider__point(data-type='min')
-            .range-slider__point.js-range-slider__point(data-type='max')
+            .range-slider__point.js-range-slider__point(data-type="min")
+            .range-slider__point.js-range-slider__point(data-type="max")
             .range-slider__bg-line.js-range-slider__bg-line
-        if bottomText !== ''
+        if bottomText !== ""
             .range-slider__bottom-text
                 +text({
                     text: bottomText,
-                    size: 'small',
-                    color: 'text-secondary',
+                    size: "small",
+                    color: "text-secondary",
                 })

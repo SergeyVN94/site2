@@ -4,11 +4,11 @@ include ../like-button/like-button.pug
 mixin comment(options = {})
     -
         const {
-            avatar = '',
-            userName = '',
-            publicationDate = '',
+            avatar = "",
+            userName = "",
+            publicationDate = "",
             likes = 0,
-            text = '',
+            text = "",
             likeBtnChecked = false,
         } = options;
     
@@ -23,7 +23,7 @@ mixin comment(options = {})
                 .comment__user-name
                     +text({
                         text: userName,
-                        fontWeight: 'bold',
+                        fontWeight: "bold",
                     })
                 .comment__publication-date
                     +text({

@@ -6,9 +6,9 @@ mixin header(options = {})
     -
         const {
             menu = {},
-            user = '',
-            btnLogin = 'login',
-            btnRegister = 'register',
+            user = "",
+            btnLogin = "login",
+            btnRegister = "register",
         } = options;
 
     header.header.js-header
@@ -20,33 +20,33 @@ mixin header(options = {})
                     .header__menu-mobile-btn
                         +button({
                             classes: [
-                                'js-header__menu-mobile-btn',
+                                "js-header__menu-mobile-btn",
                             ],
-                            text: 'view_headline',
-                            theme: 'icon',
+                            text: "view_headline",
+                            theme: "icon",
                         })
                 .header__nav-container
                     .header__menu
                         +menu(menu)
                     .header__personal-area
-                        if user !== ''
+                        if user !== ""
                             .header__user-name
                                 +text({
                                     text: user,
-                                    color: 'text-secondary',
+                                    color: "text-secondary",
                                 })
                         else
                             .header__personal-area-buttons
                                 .header__btn-login
                                     +button({
                                         text: btnLogin,
-                                        href: './sign-in.html',
-                                        size: 'sm',
-                                        theme: 'light',
+                                        href: "./sign-in.html",
+                                        size: "sm",
+                                        theme: "light",
                                     })
                                 .header__btn-register
                                     +button({
                                         text: btnRegister,
-                                        href: './registration.html',
-                                        size: 'sm',
+                                        href: "./registration.html",
+                                        size: "sm",
                                     })

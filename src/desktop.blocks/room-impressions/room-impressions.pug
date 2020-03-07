@@ -5,10 +5,10 @@ mixin room-impressions(options = {})
     .room-impressions
         .room-impressions__head
             +block-head({
-                title: 'Впечатления от номера',
+                title: "Впечатления от номера",
                 titleOptions: {
-                    theme: 'h2',
-                    fontName: 'montserrat',
+                    theme: "h2",
+                    fontName: "montserrat",
                 },
             })   
         .room-impressions__body
@@ -23,13 +23,13 @@ mixin room-impressions(options = {})
                     };
 
                     const isCorrectPropertyItem = function isCorrectPropertyItem(key) {
-                        const isNumber = typeof items[key] === 'number';
+                        const isNumber = typeof items[key] === "number";
                         const isPositive = items[key] >= 0;
                         
                         return isPropertyExists(items, key) && isNumber && isPositive;
                     };
 
-                    const KEYS = ['bad', 'fine', 'good', 'veryGood'];
+                    const KEYS = ["bad", "fine", "good", "veryGood"];
                     let sum = 0;
 
                     KEYS.forEach((key) => {
@@ -104,24 +104,24 @@ mixin room-impressions(options = {})
                     .room-impressions__diagram-counter
                         .room-impressions__value
                             +text({
-                                text: items['fine'],
-                                theme: 'h1',
-                                horizontal: 'middle',
-                                color: 'primary',
+                                text: items["fine"],
+                                theme: "h1",
+                                horizontal: "middle",
+                                color: "primary",
                             })
                         +text({
-                            text: 'голосов',
-                            theme: 'h3',
-                            horizontal: 'middle',
-                            color: 'primary',
+                            text: "голосов",
+                            theme: "h3",
+                            horizontal: "middle",
+                            color: "primary",
                         })
             ul.room-impressions__help-list
                 -
                     const helpItems = [
-                        {text: 'Великолепно', bg: 'very-good'},
-                        {text: 'Хорошо', bg: 'good'},
-                        {text: 'Удовлетворительно', bg: 'normal'},
-                        {text: 'Разочарован', bg: 'bad'},
+                        {text: "Великолепно", bg: "very-good"},
+                        {text: "Хорошо", bg: "good"},
+                        {text: "Удовлетворительно", bg: "normal"},
+                        {text: "Разочарован", bg: "bad"},
                     ];
                 
 
@@ -132,5 +132,5 @@ mixin room-impressions(options = {})
                             .room-impressions__help-marker(class=`room-impressions__help-marker_color_${bg}`)
                         +text({
                             text,
-                            wordBreak: 'break-all',
+                            wordBreak: "break-all",
                         })

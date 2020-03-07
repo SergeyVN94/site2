@@ -11,12 +11,12 @@ mixin bullet-list(options = {})
     .bullet-list
         if head !== null
             -
-                const { bottom = '' } = head;
-                const headClasses = ['bullet-list__head'];
+                const { bottom = "" } = head;
+                const headClasses = ["bullet-list__head"];
 
-                if (bottom && bottom !== 'false') headClasses.push(`bullet-list__head_bottom_${bottom}`);
+                if (bottom && bottom !== "false") headClasses.push(`bullet-list__head_bottom_${bottom}`);
 
-                const headClassesStr = headClasses.join(' ');
+                const headClassesStr = headClasses.join(" ");
 
             div(class=headClassesStr)
                 +block-head(head)

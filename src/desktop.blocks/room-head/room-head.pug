@@ -4,20 +4,20 @@ mixin room-head(options = {})
     -
         const {
             roomNumber = 0,
-            roomNumberSize = 'h1',
-            roomPrice = '0',
+            roomNumberSize = "h1",
+            roomPrice = "0",
             luxury = false,
         } = options;
 
         const roomPriceRes = `${roomPrice}₽`;
 
     .room-head
-        a.room-head__room-number(href='./room-details.html', tabindex='-1')
+        a.room-head__room-number(href="./room-details.html", tabindex="-1")
             +text({
-                text: '№ ',
-                fontWeight: 'bold',
-                color: 'text-title',
-                whiteSpace: 'pre',
+                text: "№ ",
+                fontWeight: "bold",
+                color: "text-title",
+                whiteSpace: "pre",
             })
             +text({
                 text: roomNumber,
@@ -26,20 +26,20 @@ mixin room-head(options = {})
             if luxury
                 .room-head__luxury
                     +text({
-                        text: 'люкс',
-                        theme: 'h3',
-                        color: 'primary',
+                        text: "люкс",
+                        theme: "h3",
+                        color: "primary",
                     })
         .room-head__room-price
             .room-head__price-number
                 +text({
                     text: roomPriceRes,
-                    fontWeight: 'bold',
-                    color: 'text-secondary',
+                    fontWeight: "bold",
+                    color: "text-secondary",
                 })
             +text({
-                size: 'small',
-                text: 'в сутки',
-                whiteSpace: 'pre',
-                color: 'text-secondary',
+                size: "small",
+                text: "в сутки",
+                whiteSpace: "pre",
+                color: "text-secondary",
             })

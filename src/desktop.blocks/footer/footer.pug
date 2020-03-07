@@ -6,10 +6,10 @@ include ../text-field/text-field.pug
 mixin footer(options = {})
     -
         const {
-            siteDescription = '',
+            siteDescription = "",
             navList = [],
             subscribe = {},
-            copyright = '',
+            copyright = "",
         } = options;
 
     footer.footer
@@ -30,15 +30,15 @@ mixin footer(options = {})
                 .footer__subscribe-container
                     -
                         const {
-                            title = '',
-                            description = '',
-                            placeholder = '',
+                            title = "",
+                            description = "",
+                            placeholder = "",
                         } = subscribe;
 
                     .footer__subscribe-title
                         +text({
                             text: title,
-                            theme: 'h3',
+                            theme: "h3",
                         })
                     .footer__subscribe-description
                         +text({
@@ -47,6 +47,6 @@ mixin footer(options = {})
                     .footer__subscribe-text-field
                         +text-field({
                             placeholder,
-                            type: 'email',
-                            iconRight: 'arrow_forward',
+                            type: "email",
+                            iconRight: "arrow_forward",
                         })

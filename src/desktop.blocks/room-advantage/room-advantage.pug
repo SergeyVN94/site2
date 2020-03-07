@@ -3,9 +3,9 @@ include ../text/text.pug
 mixin room-advantage(options = {})
     -
         const {
-            icon = '',
-            title = '',
-            description = '',
+            icon = "",
+            title = "",
+            description = "",
         } = options;
 
     .room-advantage
@@ -14,7 +14,7 @@ mixin room-advantage(options = {})
             .room-advantage__title
                 +text({
                     text: title,
-                    fontWeight: 'bold',
+                    fontWeight: "bold",
                 })
             .room-advantage__description
                 +text({

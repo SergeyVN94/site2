@@ -7,18 +7,18 @@ mixin image-slider(images = [])
                 if (images.length) {
                     for (let i = 0; i < images.length; i += 1) {
                         const {
-                            src = '',
-                            alt = 'Image description template.',
+                            src = "",
+                            alt = "Image description template.",
                         } = images[i];
 
                         imageConfigs.push({
                             src,
                             alt,
-                            classes: ['image-slider__image js-image-slider__image'],
+                            classes: ["image-slider__image js-image-slider__image"],
                         });
                     }
 
-                    imageConfigs[0].classes.push('image-slider__image_selected');
+                    imageConfigs[0].classes.push("image-slider__image_selected");
                 }
 
 
@@ -30,7 +30,7 @@ mixin image-slider(images = [])
                         alt,
                     } = imageConfig;
 
-                    const classesStr = classes.join(' ');
+                    const classesStr = classes.join(" ");
 
                 img(src=src, alt=alt, class=classesStr)
                 
@@ -44,15 +44,15 @@ mixin image-slider(images = [])
                     if (images.length) {
                         for (let i = 0; i < images.length; i += 1) {
                             itemsClasses.push([
-                                'image-slider__item js-image-slider__item',
+                                "image-slider__item js-image-slider__item",
                             ]);
                         }
-                        itemsClasses[0].push('image-slider__item_theme_selected');
+                        itemsClasses[0].push("image-slider__item_theme_selected");
                     }                    
                     
 
                 for itemClasses in itemsClasses
-                    -const itemClassesStr = itemClasses.join(' ');
+                    -const itemClassesStr = itemClasses.join(" ");
                     div(class=itemClassesStr)
 
             .image-slider__nav-button.js-image-slider__nav-button.js-image-slider__nav-button-prev

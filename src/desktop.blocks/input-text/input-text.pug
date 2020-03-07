@@ -1,20 +1,20 @@
 mixin input-text(options = {})
     -
         const {
-            type = 'text',
-            placeholder = '',
-            value = '',
-            iconRight = '',
+            type = "text",
+            placeholder = "",
+            value = "",
+            iconRight = "",
         } = options;
 
         const classList = [];
 
-        if (iconRight !== '') classList.push('input-text_use-icon-right');
+        if (iconRight !== "") classList.push("input-text_use-icon-right");
 
-        const classListStr = classList.join(' ');
+        const classListStr = classList.join(" ");
 
     .input-text(class=classListStr)
         .input-text__container
             input.input-text__input(type=type, placeholder=placeholder, value=value)
-            if iconRight !== ''
+            if iconRight !== ""
                 .input-text__icon-right #{iconRight}
