@@ -3,6 +3,7 @@
   min-width: 266px;
 
   &__bg-line {
+    @include no-select;
     @include reset-css;
     position: absolute;
     top: 0;
@@ -15,6 +16,7 @@
   }
   
   &__bottom-text {
+    @include no-select;
     margin-top: 0.6429rem;
   }
   
@@ -34,9 +36,11 @@
     border-radius: 0.2143rem;
     position: relative;
     border: 0.0714rem solid $light-title;
+    cursor: pointer;
   }
   
   &__point {
+    @include no-select;
     display: block;
     position: absolute;
     top: -0.4286rem;
@@ -47,5 +51,6 @@
     background: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%);
     border: 0.1429rem solid #ffffff;
     border-radius: 0.7143rem;
+    cursor: pointer;
   }
 }

@@ -26,12 +26,14 @@ mixin range-slider(options = {})
             +text({
                 text: title,
                 theme: "h3",
+                noSelect: true,
             })
             +text({
                 theme: "h3",
                 color: "text-secondary",
                 fontWeight: "normal",
                 classes: ["js-range-slider__head-value"],
+                noSelect: true,
             })
         .range-slider__line.js-range-slider__line
             .range-slider__point.js-range-slider__point(data-type="min")
