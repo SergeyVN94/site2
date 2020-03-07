@@ -1,5 +1,3 @@
-import * as $ from 'jquery';
-
 import { ModelInterface } from '../model/model';
 import CLASSES from '../classes';
 

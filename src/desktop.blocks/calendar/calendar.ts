@@ -1,5 +1,3 @@
-import * as $ from 'jquery';
-
 import './calendar__btn-change-month';
 import CLASSES from './classes';
 import {

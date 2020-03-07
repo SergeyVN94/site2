@@ -1,5 +1,3 @@
-import * as $ from 'jquery';
-
 import CASE_TABLES from './case-tables';
 
 const CLASSES = {

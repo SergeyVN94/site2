@@ -1,5 +1,3 @@
-import * as $ from 'jquery';
-
 import CLASSES from './classes';
 
 const dateRangeClickHandler = function dateRangeClickHandler(e: JQuery.MouseEventBase): boolean {

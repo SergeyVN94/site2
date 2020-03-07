@@ -1,5 +1,3 @@
-import * as $ from 'jquery';
-
 import Model from './model/model';
 import View from './view/view';
 import CLASSES from './classes';

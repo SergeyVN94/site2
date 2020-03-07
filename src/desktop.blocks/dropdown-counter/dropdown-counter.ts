@@ -1,20 +1,12 @@
-import * as $ from 'jquery';
-
-import './plugin/plugin';
-
-const CLASSES = {
-    BTN_MINUS: 'js-dropdown-counter__btn-minus',
-    BTN_PLUS: 'js-dropdown-counter__btn-plus',
-    DISPLAY: 'js-dropdown-counter__value',
-};
+import COUNTER_CLASSES from './classes';
 
 $('.js-dropdown-counter').on(
     'click.dropdown-counter.change-value',
-    `.${CLASSES.BTN_MINUS}, .${CLASSES.BTN_PLUS}`,
+    `.${COUNTER_CLASSES.BTN_MINUS}, .${COUNTER_CLASSES.BTN_PLUS}`,
     (e: JQuery.MouseEventBase): boolean => {
         const $counter = $(e.delegateTarget);
         const $btn = $(e.target);
-        const $display = $counter.find(`.${CLASSES.DISPLAY}`);
+        const $display = $counter.find(`.${COUNTER_CLASSES.DISPLAY}`);
         let count = 0;
 
         try {
@@ -24,7 +16,7 @@ $('.js-dropdown-counter').on(
             return false;
         }
 
-        if ($btn.hasClass(CLASSES.BTN_MINUS)) {
+        if ($btn.hasClass(COUNTER_CLASSES.BTN_MINUS)) {
             count -= 1;
 
             if (count < 0) {
@@ -38,7 +30,7 @@ $('.js-dropdown-counter').on(
             count += 1;
 
             if (count === 1) {
-                $counter.find(`.${CLASSES.BTN_MINUS}`).button('disable', false);
+                $counter.find(`.${COUNTER_CLASSES.BTN_MINUS}`).button('disable', false);
             }
         }
 

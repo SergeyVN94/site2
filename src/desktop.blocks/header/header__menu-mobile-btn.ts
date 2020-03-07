@@ -1,5 +1,3 @@
-import * as $ from 'jquery';
-
 const CLASSES = {
     MOBILE_BTN: 'js-header__menu-mobile-btn',
     HEADER: 'js-header',

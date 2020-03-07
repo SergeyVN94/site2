@@ -1,5 +1,3 @@
-import * as $ from 'jquery';
-
 import CLASSES from './classes';
 import { getCounterValues } from './view/view';
 import { groupingElementValues } from './lib';

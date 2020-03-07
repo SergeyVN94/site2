@@ -1,5 +1,3 @@
-import * as $ from 'jquery';
-
 import CLASSES from './classes';
 
 const DEFAULT_TEXT = 'Сколько гостей';

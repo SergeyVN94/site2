@@ -1,5 +1,3 @@
-import * as $ from 'jquery';
-
 import './plugin/plugin';
 
 $('.dropdown').on('click.dropdown.expand', '.dropdown-head', (e: JQuery.MouseEventBase) => {

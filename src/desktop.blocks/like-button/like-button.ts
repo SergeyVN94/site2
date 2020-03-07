@@ -1,5 +1,3 @@
-import * as $ from 'jquery';
-
 import './plugin/plugin';
 import CLASSES from './classes';
 

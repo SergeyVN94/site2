@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const AutoprefixerPlugin = require('autoprefixer');
+const Webpack = require('webpack');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -69,6 +70,7 @@ const rules = [
     {
         test: /\.(jpe?g|png|gif|svg)$/i,
         loader: 'file-loader',
+        exclude: /fonts/,
         options: {
             name: '[folder]/[name].[ext]',
             outputPath: './images',
@@ -125,6 +127,10 @@ module.exports = [
                         to: PATHS.build,
                     },
                 ]),
+                new Webpack.ProvidePlugin({
+                    $: 'jquery',
+                    jQuery: 'jquery',
+                }),
             ],
         });
     }),

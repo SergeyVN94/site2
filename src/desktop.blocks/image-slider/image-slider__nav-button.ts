@@ -1,5 +1,3 @@
-import * as $ from 'jquery';
-
 import CLASSES from './classes';
 
 const parseIndexImage = function parseIndexImage(selectedImageAttr: string): number {
