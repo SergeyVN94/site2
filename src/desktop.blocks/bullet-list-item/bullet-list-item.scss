@@ -1,3 +1,5 @@
+$marker-size: 0.7143rem;
+
 .bullet-list-item {
   display: flex;
   flex-direction: row;
@@ -7,10 +9,9 @@
     display: flex;
     align-items: center;
     height: 1.7143rem;
-    margin-right: 0.7143rem;
+    margin-right: $marker-size;
   }
   
-  $marker-size: 0.7143rem;
   &__marker {
     display: block;
     width: $marker-size;

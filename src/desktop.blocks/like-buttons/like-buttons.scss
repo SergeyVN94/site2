@@ -1,8 +1,6 @@
 .like-buttons {
-  &__button {
-    &:not(:last-child) {
-      margin-right: 0.7143rem;
-    }
+  &__head {
+    margin-bottom: 1.0714rem;
   }
 
   &__container {
@@ -10,7 +8,9 @@
     flex-direction: row;
   }
 
-  &__head {
-    margin-bottom: 1.0714rem;
+  &__button {
+    &:not(:last-child) {
+      margin-right: 0.7143rem;
+    }
   }
 }
