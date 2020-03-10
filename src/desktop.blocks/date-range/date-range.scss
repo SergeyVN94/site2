@@ -35,12 +35,12 @@
   &__container {
     width: 100%;
     position: relative;
-    margin-top: 0.3571rem;
     display: none;
   }
 
   &__calendar {
     position: absolute;
     z-index: 999;
+    margin-top: 0.3571rem;
   }
 }
