@@ -4,12 +4,12 @@ const CLASSES = {
     EXPANDED_MENU: 'header_extended',
 };
 
-const mobileBtnClickHandler = function mobileBtnClickHandler(e: JQuery.MouseEventBase): void {
-    $(e.delegateTarget).toggleClass(CLASSES.EXPANDED_MENU);
+const handleBtnMobileClick = function handleBtnMobileClick(ev: JQuery.MouseEventBase): void {
+    $(ev.delegateTarget).toggleClass(CLASSES.EXPANDED_MENU);
 };
 
 $(`.${CLASSES.HEADER}`).on(
     'click.header.expand-menu',
     `.${CLASSES.MOBILE_BTN}`,
-    mobileBtnClickHandler
+    handleBtnMobileClick
 );
