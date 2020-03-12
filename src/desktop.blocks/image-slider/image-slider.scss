@@ -15,25 +15,6 @@
     position: relative;
   }
 
-  &__items {
-    position: absolute;
-    right: 1.0714rem;
-    bottom: 1.0714rem;
-    z-index: 1000;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-  }
-
-  &__nav-button-icon {
-    font-family: Material Icons;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 1.7143rem;
-    color: #fff;
-    transform: rotate(90deg);
-  }
-
   &__nav-button {
     @include reset-css;
     @include no-select;
@@ -53,14 +34,33 @@
       rgba(255, 255, 255, 0) 100%
     );
     cursor: pointer;
+
+    &_right {
+      right: 0;
+      transform: matrix(-1, 0, 0, 1, 0, 0);
+    }
   }
 
-  &__nav-button_right {
-    right: 0;
-    transform: matrix(-1, 0, 0, 1, 0, 0);
+  &__nav-button-icon {
+    font-family: Material Icons;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.7143rem;
+    color: #fff;
+    transform: rotate(90deg);
   }
 
-  &__item {
+  &__indicators {
+    position: absolute;
+    right: 1.0714rem;
+    bottom: 1.0714rem;
+    z-index: 1000;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  &__indicator {
     @include reset-css;
     width: 0.5357rem;
     height: 0.5357rem;
@@ -71,10 +71,10 @@
     &:not(:last-child) {
       margin-right: 3.75px;
     }
-  }
 
-  &__item_theme_selected {
-    background-color: #fff;
+    &_theme_selected {
+      background-color: #fff;
+    }
   }
 
   &__image {
@@ -83,22 +83,22 @@
     max-height: 100%;
     z-index: -1;
     display: none;
-  }
 
-  &__image_selected {
-    border-radius: 0.2857rem 0.2857rem 0rem 0rem;
-    z-index: 2;
-    display: block;
-  }
+    &_selected {
+      border-radius: 0.2857rem 0.2857rem 0rem 0rem;
+      z-index: 2;
+      display: block;
+    }
 
-  &__image_index-item {
-    display: block;
-    position: absolute;
-    left: 40px;
-    top: 20px;
-    color: $bg-good;
-    font-size: 2rem;
-    font-weight: bold;
-    z-index: 2;
+    &_index-item {
+      display: block;
+      position: absolute;
+      left: 40px;
+      top: 20px;
+      color: $bg-good;
+      font-size: 2rem;
+      font-weight: bold;
+      z-index: 2;
+    }
   }
 }

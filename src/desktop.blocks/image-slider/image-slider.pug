@@ -37,23 +37,23 @@ mixin image-slider(images = [])
 
             .image-slider__image_index-item.js-image-slider__image_index-item 0
 
-            .image-slider__items
+            .image-slider__indicators
                 -
-                    const itemsClasses = [];
+                    const indicatorsClasses = [];
 
                     if (images.length) {
                         for (let i = 0; i < images.length; i += 1) {
-                            itemsClasses.push([
-                                "image-slider__item js-image-slider__item",
+                            indicatorsClasses.push([
+                                "image-slider__indicator js-image-slider__indicator",
                             ]);
                         }
-                        itemsClasses[0].push("image-slider__item_theme_selected");
+                        indicatorsClasses[0].push("image-slider__indicator_theme_selected");
                     }                    
                     
 
-                for itemClasses in itemsClasses
-                    -const itemClassesStr = itemClasses.join(" ");
-                    div(class=itemClassesStr)
+                for indicatorClasses in indicatorsClasses
+                    -const indicatorClassesStr = indicatorClasses.join(" ");
+                    div(class=indicatorClassesStr)
 
             .image-slider__nav-button.js-image-slider__nav-button.js-image-slider__nav-button-prev
                 .image-slider__nav-button-icon expand_more
