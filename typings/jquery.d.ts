@@ -20,10 +20,6 @@ interface JQuery {
         command: 'select-date',
         args: 'start' | 'end'
     ) => JQuery;
-    likeButton: (
-        command: 'checked' | 'likes',
-        args?: boolean | number
-    ) => boolean | number | JQuery;
     button(this: JQuery, command: 'disable'): boolean;
     button(this: JQuery, command: 'disable', state: boolean): JQuery;
     button(this: JQuery, command: 'hidden'): boolean;
