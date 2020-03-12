@@ -1,111 +1,130 @@
-import CASE_TABLES from './case-tables';
-
-const CLASSES = {
+const ROOM_AMENITIES_CLASSES = {
     DROPDOWN: 'js-dropdown-room-amenities',
-    BTN_PLUS: 'js-dropdown-counter__btn-plus',
-    BTN_MINUS: 'js-dropdown-counter__btn-minus',
-    HEAD: 'js-dropdown-head',
+    DROPDOWN_HEAD: 'js-dropdown-head',
+    COUNTER: 'js-dropdown-counter',
 };
 
-const DEFAULT_TEXT = 'Удобства номера';
-
-const getCaseNumber = function calcIndexGraduation(index: number): number {
-    const ost10 = index % 10;
-    const ost100 = index % 100;
-    let grad = 0;
-
-    if (ost10 === 1 && (ost100 > 20 || index === 1)) {
-        grad = 0;
-    }
-
-    if (ost10 >= 2 && ost10 <= 4) {
-        grad = 1;
-    }
-
-    if (ost10 >= 5 && ost10 <= 9 || ost10 === 0 || (ost100 >= 11 && ost100 <= 20)) {
-        grad = 2;
-    }
-
-    return grad;
+const CASE_TABLES = {
+    спальни: [
+        'спальня',
+        'спальни',
+        'спален',
+    ],
+    кровати: [
+        'кровать',
+        'кровати',
+        'кроватей',
+    ],
+    'ванные комнаты': [
+        'ванная комната',
+        'ванные комнаты',
+        'ванныx комнат',
+    ],
 };
 
-const createNewHeadText = function createNewHeadText(values: CounterValue[]): string {
-    const headText: string[] = [];
+interface RoomAmenitiesDomElements {
+    $dropdown: JQuery;
+    $dropdownHead: JQuery;
+    $counters: JQuery;
+}
 
-    values.forEach((item) => {
-        if (
-            item.value > 0 &&
-            Object.prototype.hasOwnProperty.apply(CASE_TABLES, [item.text])
-        ) {
-            const phraseList: string[] = CASE_TABLES[item.text];
+class RoomAmenities {
+    private readonly _domElements: RoomAmenitiesDomElements;
+    private readonly _defaultHeadText: string;
 
-            const endingIndex = getCaseNumber(item.value);
-            headText.push(`${item.value} ${phraseList[endingIndex]}`);
-        }
-    });
-
-    return headText.join(', ');
-};
-
-const cropTextToDesiredLength = function cropTextToDesiredLength(
-    text: string,
-    maxLength: number
-): string {
-    if (text.length <= maxLength) {
-        return text;
+    constructor($dropdown: JQuery) {
+        this._domElements = this._getDomElements($dropdown);
+        this._initEventListeners();
+        this._defaultHeadText = 'Удобства номера';
     }
 
-    let lenNewText = 0;
-    const newText: string[] = [];
+    private _getDomElements($dropdown: JQuery): RoomAmenitiesDomElements {
+        const $dropdownHead = $dropdown.find(`.${ROOM_AMENITIES_CLASSES.DROPDOWN_HEAD}`);
+        const $counters = $dropdown.find(`.${ROOM_AMENITIES_CLASSES.COUNTER}`);
 
-    text.split(', ').forEach((phrase) => {
-        if (lenNewText + phrase.length <= maxLength) {
-            newText.push(phrase);
-            lenNewText += phrase.length;
-        } else {
-            const phraseSlice = phrase
-                .split(' ')
-                .slice(0, 2)
-                .join(' ');
+        return {
+            $dropdown,
+            $dropdownHead,
+            $counters,
+        };
+    }
 
-            if (lenNewText + phraseSlice.length <= maxLength) {
-                newText.push(phraseSlice);
-                lenNewText += phraseSlice.length;
+    private _initEventListeners(): void {
+        this._domElements.$counters.on(
+            'click.dropdownGuest.updateBtnClear',
+            this._handleCounterUpdate.bind(this)
+        );
+    }
+
+    private _handleCounterUpdate(): void {
+        const headTextChunks: string[] = [];
+
+        this._domElements.$counters.each((index, element) => {
+            const $counter = $(element);
+            const label = String($counter.dropdownCounter('label')).toLowerCase();
+            const value = Number($counter.dropdownCounter('value'));
+            const gradation = this._getIndexGraduation(value);
+
+            if (value !== 0) {
+                if (label === 'кровати') {
+                    headTextChunks.push(`${value} ${CASE_TABLES['кровати'][gradation]}`);
+                }
+
+                if (label === 'спальни') {
+                    headTextChunks.push(`${value} ${CASE_TABLES['спальни'][gradation]}`);
+                }
+
+                if (label === 'ванные комнаты') {
+                    headTextChunks.push(`${value} ${CASE_TABLES['ванные комнаты'][gradation]}`);
+                }
             }
+        });
+
+        if (headTextChunks.length > 0) {
+            this._domElements.$dropdownHead.dropdownHead('text', this._cropHeadText(headTextChunks.join(', ')));
+        } else {
+            this._domElements.$dropdownHead.dropdownHead('text', this._defaultHeadText);
         }
-    });
-
-    return `${newText.join(', ')}...`;
-};
-
-const addCounterValues = function addCounterValues(values: CounterValue[]): number {
-    let sum = 0;
-
-    values.forEach((item) => {
-        sum += item.value;
-    });
-
-    return sum;
-};
-
-const dropdownCounterUpdateHandler = function handler(e: JQuery.MouseEventBase): void {
-    const $dropdown = $(e.delegateTarget);
-    const $dropdownHead = $dropdown.find(`.${CLASSES.HEAD}`);
-
-    const values = $dropdown.dropdown('counters') as CounterValue[];
-    const sumValues = addCounterValues(values);
-
-    if (sumValues === 0) {
-        $dropdownHead.dropdownHead('value', DEFAULT_TEXT);
-    } else {
-        const newText = createNewHeadText(values);
-        const textSlice = cropTextToDesiredLength(newText, 22);
-        $dropdownHead.dropdownHead('value', textSlice);
     }
-};
 
-$(`.${CLASSES.DROPDOWN}`).on(
-    'click.room-amenities.handler',
-    `.${CLASSES.BTN_MINUS}, .${CLASSES.BTN_PLUS}`,
-    dropdownCounterUpdateHandler
-);
+    private _cropHeadText(head: string): string {
+        const words = head.split(' ');
+
+        if (words.length < 4) {
+            return head;
+        }
+
+        const firstFourWords = words.slice(0, 4);
+        const lastWord = firstFourWords[firstFourWords.length - 1];
+
+        if (lastWord.endsWith(',')) {
+            firstFourWords[firstFourWords.length - 1] = lastWord.slice(0, -1);
+        }
+
+        return `${firstFourWords.join(' ')}...`;
+    }
+
+    private _getIndexGraduation(index: number): number {
+        const ost10 = index % 10;
+        const ost100 = index % 100;
+        let grad = 0;
+
+        if (ost10 === 1 && (ost100 > 20 || index === 1)) {
+            grad = 0;
+        }
+
+        if (ost10 >= 2 && ost10 <= 4) {
+            grad = 1;
+        }
+
+        if (ost10 >= 5 && ost10 <= 9 || ost10 === 0 || (ost100 >= 11 && ost100 <= 20)) {
+            grad = 2;
+        }
+
+        return grad;
+    }
+}
+
+$(`.${ROOM_AMENITIES_CLASSES.DROPDOWN}`).each((index, element) => {
+    new RoomAmenities($(element));
+});
