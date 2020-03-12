@@ -1,41 +1,147 @@
-import COUNTER_CLASSES from './classes';
+const COUNTER_CLASSES = {
+    OUT: 'js-dropdown-counter__out',
+    LABEL: 'js-dropdown-counter__label',
+    BTN_MINUS: 'js-dropdown-counter__btn-minus',
+    BTN_PLUS: 'js-dropdown-counter__btn-plus',
+    BUTTON: 'js-dropdown-counter__btn',
+    COUNTER: 'js-dropdown-counter',
+};
 
-$('.js-dropdown-counter').on(
-    'click.dropdown-counter.change-value',
-    `.${COUNTER_CLASSES.BTN_MINUS}, .${COUNTER_CLASSES.BTN_PLUS}`,
-    (e: JQuery.MouseEventBase): boolean => {
-        const $counter = $(e.delegateTarget);
-        const $btn = $(e.target);
-        const $display = $counter.find(`.${COUNTER_CLASSES.DISPLAY}`);
-        let count = 0;
+interface CounterDomElements {
+    $counter: JQuery;
+    $buttons: JQuery;
+    $btnPlus: JQuery;
+    $btnMinus: JQuery;
+    $out: JQuery;
+    $label: JQuery;
+}
+
+class DropdownCounter {
+    private readonly _domElements: CounterDomElements;
+    private _value: number;
+    private readonly _labelText: string;
+
+    constructor($counter: JQuery) {
+        this._domElements = this._getDomElements($counter);
 
         try {
-            count = parseInt($display.text(), 10);
+            const valueStr = this._domElements.$out.text();
+            this._value = parseInt(valueStr, 10);
         } catch (error) {
             console.error(error);
-            return false;
+            this._value = 0;
+            this._domElements.$out.text(0);
+        }
+
+        this._labelText = this._domElements.$label.text();
+
+        this._updateButtons();
+        this._initEventListeners();
+    }
+
+    public reset(): void {
+        this.setValue(0);
+    }
+
+    public getValue(): number {
+        return this._value;
+    }
+
+    public setValue(value: number): void {
+        if (value >= 0) {
+            this._value = value;
+            this._domElements.$out.text(value);
+        } else {
+            this._value = 0;
+            this._domElements.$out.text(0);
+        }
+
+        this._updateButtons();
+    }
+
+    public getLabel(): string {
+        return this._labelText;
+    }
+
+    private _getDomElements($counter: JQuery): CounterDomElements {
+        const $buttons = $counter.find(`.${COUNTER_CLASSES.BUTTON}`);
+        const $btnPlus = $counter.find(`.${COUNTER_CLASSES.BTN_PLUS}`);
+        const $btnMinus = $counter.find(`.${COUNTER_CLASSES.BTN_MINUS}`);
+        const $out = $counter.find(`.${COUNTER_CLASSES.OUT}`);
+        const $label = $counter.find(`.${COUNTER_CLASSES.LABEL}`);
+
+        return {
+            $counter,
+            $buttons,
+            $btnPlus,
+            $btnMinus,
+            $out,
+            $label,
+        };
+    }
+
+    private _updateButtons(): void {
+        const btnMinusIsDisable = this._value === 0;
+        this._domElements.$btnMinus.button('disable', btnMinusIsDisable);
+    }
+
+    private _initEventListeners(): void {
+        this._domElements.$buttons.on(
+            'click.dropdownCounter.update',
+            this._handleButtonClick.bind(this)
+        );
+    }
+
+    private _handleButtonClick(ev: JQuery.MouseEventBase): void {
+        const $btn = $(ev.currentTarget);
+
+        if ($btn.hasClass(COUNTER_CLASSES.BTN_PLUS)) {
+            this._value += 1;
         }
 
         if ($btn.hasClass(COUNTER_CLASSES.BTN_MINUS)) {
-            count -= 1;
+            this._value -= 1;
 
-            if (count < 0) {
-                count = 0;
-            }
-
-            if (count === 0) {
-                $btn.button('disable', true);
-            }
-        } else {
-            count += 1;
-
-            if (count === 1) {
-                $counter.find(`.${COUNTER_CLASSES.BTN_MINUS}`).button('disable', false);
+            if (this._value < 0) {
+                this._value = 0;
             }
         }
 
-        $display.text(String(count));
-
-        return true;
+        this._domElements.$out.text(this._value);
+        this._updateButtons();
+        this._domElements.$counter.trigger('update', [this._value]);
     }
-);
+}
+
+$.fn.dropdownCounter = function dropdownCounterPlugin(
+    this: JQuery,
+    command: 'value' | 'reset' | 'label',
+    args: number = null,
+): number | string | JQuery {
+    const counter: DropdownCounter = this.data('counter');
+
+    switch (command) {
+        case 'reset':
+            counter.reset();
+            return this;
+
+        case 'value':
+            if (args === null) {
+                return counter.getValue();
+            }
+
+            counter.setValue(args);
+            return this;
+
+        case 'label':
+            return counter.getLabel();
+
+        default:
+            throw new Error(`Unknown command '${command}'`);
+    }
+};
+
+$(`.${COUNTER_CLASSES.COUNTER}`).each(function() {
+    const $counter = $(this);
+    $counter.data('counter', new DropdownCounter($counter));
+});
