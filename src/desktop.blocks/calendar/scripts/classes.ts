@@ -1,4 +1,4 @@
-const CLASSES = {
+const CALENDAR_CLASSES = {
     CALENDAR: 'js-calendar',
     BTN_PREV_MONTH: 'js-calendar__btn-prev-month',
     BTN_NEXT_MONTH: 'js-calendar__btn-next-month',
@@ -14,4 +14,4 @@ const CLASSES = {
     BTN_CLEAR: 'js-calendar__btn-clear',
 };
 
-export default CLASSES;
+export default CALENDAR_CLASSES;

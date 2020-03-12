@@ -18,7 +18,7 @@ mixin calendar(options = {})
 
         const renderDateStr = isCorrectDate ? date : currentDateStr;
 
-    div(class=classesStr, data-date=renderDateStr)
+    div(class=classesStr, data-render-date=renderDateStr)
         .calendar__date-navigation
             .calendar__btn-change-month.js-calendar__btn-prev-month arrow_back
             .calendar__drawn-date

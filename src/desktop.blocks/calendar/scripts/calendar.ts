@@ -1,16 +1,14 @@
-const handler = function handler(
+import CALENDAR_CLASSES from './classes';
+import View from './view';
+
+$.fn.calendar = function calendarPlugin(
     this: JQuery,
     command: 'select-date',
-    args: 'start' | 'end' = null
-): void | JQuery {
+    args: 'start' | 'end'
+): JQuery {
     switch (command) {
         case 'select-date':
-            if (args === null) {
-                throw new Error("expected parameter of type 'start' | 'end'");
-            }
-
             this.attr('data-select-date', args);
-
             return this;
 
         default:
@@ -18,4 +16,6 @@ const handler = function handler(
     }
 };
 
-export default handler;
+$(`.${CALENDAR_CLASSES.CALENDAR}`).each(function(): void {
+    new View($(this)).update();
+});
