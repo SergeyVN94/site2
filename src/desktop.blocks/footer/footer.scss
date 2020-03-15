@@ -16,6 +16,13 @@
     }
   }
   
+  &__site-description {
+    width: 100%;
+    max-width: 260px;
+    display: flex;
+    flex-direction: column;
+  }
+
   &__logo {
     margin-bottom: 1.2143rem;
   
@@ -34,13 +41,6 @@
     }
   }
   
-  &__site-description {
-    width: 100%;
-    max-width: 260px;
-    display: flex;
-    flex-direction: column;
-  }
-  
   &__subscribe-container {
     @include reset-css;
     margin-top: 0.3571rem;
@@ -52,11 +52,11 @@
     }
   }
   
-  &__subscribe-description {
-    margin-bottom: 1.6429rem;
-  }
-  
   &__subscribe-title {
     margin-bottom: 1.2857rem;
+  }
+
+  &__subscribe-description {
+    margin-bottom: 1.6429rem;
   }
 }

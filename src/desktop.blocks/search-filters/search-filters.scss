@@ -1,10 +1,6 @@
 .search-filters {
   width: 266px;
 
-  &__checkbox-list {
-    margin-bottom: 2.0714rem;
-  }
-  
   &__dropdown-filter-date {
     margin-bottom: 1.5714rem;
   }
@@ -12,16 +8,20 @@
   &__dropdown-guest {
     margin-bottom: 2.2857rem;
   }
-  
-  &__dropdown-room-amenities {
-    margin-bottom: 1.1429rem;
-  }
-  
+
   &__range-slider {
     margin-bottom: 1.7857rem;
   }
-  
+
+  &__checkbox-list {
+    margin-bottom: 2.0714rem;
+  }
+
   &__rich-checkbox-buttons {
     margin-bottom: 2.2143rem;
+  }
+
+  &__dropdown-room-amenities {
+    margin-bottom: 1.1429rem;
   }
 }

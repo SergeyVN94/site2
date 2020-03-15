@@ -3,9 +3,7 @@
     margin-bottom: 1.3571rem;
   }
 
-  &__room-advantage {
-    &:not(:last-child) {
-      margin-bottom: 1.6429rem;
-    }
+  &__room-advantage:not(:last-child) {
+    margin-bottom: 1.6429rem;
   }
 }

@@ -2,6 +2,14 @@
   background-color: #fff;
   box-shadow: 0rem 0.7143rem 1.4286rem $dim-shadow;
 
+  &_extended {
+    .header__nav-container {
+      @media (max-width: $breakpoint2) {
+        display: block;
+      }
+    }
+  }
+
   &__container-content {
     @include reset-css;
     width: 100%;
@@ -33,28 +41,16 @@
     }
   }
 
-  &__personal-area-buttons {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-
-    @media (max-width: $breakpoint3) {
-      width: 100%;
-      max-width: 300px;
-      justify-content: space-between;
-    }
-  }
-
-  &__btn-login {
-    margin-right: 1.4286rem;
-
-    @media (max-width: $breakpoint3) {
-      margin-right: 0;
-    }
-  }
-
   &__logo {
     flex: auto;
+  }
+
+  &__menu-mobile-btn {
+    display: none;
+
+    @media (max-width: $breakpoint2) {
+      display: block;
+    }
   }
 
   &__nav-container {
@@ -89,17 +85,23 @@
     }
   }
 
-  &__menu-mobile-btn {
-    display: none;
+  &__personal-area-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
 
-    @media (max-width: $breakpoint2) {
-      display: block;
+    @media (max-width: $breakpoint3) {
+      width: 100%;
+      max-width: 200px;
+      justify-content: space-between;
     }
   }
 
-  &_extended {
-    .header__nav-container {
-      display: block;
+  &__btn-login {
+    margin-right: 1.4286rem;
+
+    @media (max-width: $breakpoint3) {
+      margin-right: 0;
     }
   }
 }

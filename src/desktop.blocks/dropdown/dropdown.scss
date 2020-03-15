@@ -2,6 +2,12 @@
   @include reset-css;
   width: 100%;
 
+  &_expanded {
+    .dropdown__body {
+      display: block;
+    }
+  }
+
   &__block-head {
     margin-bottom: 0.2857rem;
   }
@@ -23,11 +29,5 @@
     box-sizing: border-box;
     box-shadow: 0rem 0.7143rem 1.4286rem $dim-shadow;
     border-radius: 0rem 0rem 0.2857rem 0.2857rem;
-  }
-
-  &_expanded {
-    .dropdown__body {
-      display: block;
-    }
   }
 }

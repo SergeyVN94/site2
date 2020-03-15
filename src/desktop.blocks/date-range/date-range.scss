@@ -2,6 +2,12 @@
   width: 100%;
   max-width: 100%;
 
+  &_range-select {
+    .date-range__container {
+      display: block;
+    }
+  }
+
   &__dropdowns {
     display: flex;
     justify-content: space-between;
@@ -22,14 +28,8 @@
     }
   }
 
-  &__dropdown-head {
+  &__block-head {
     margin-bottom: 0.2857rem;
-  }
-
-  &_range-select {
-    .date-range__container {
-      display: block;
-    }
   }
   
   &__container {

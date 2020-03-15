@@ -1,4 +1,26 @@
 .card-account-registration {
+  &__title {
+    margin-bottom: 1.3571rem;
+    width: 100%;
+  }
+
+  &__form {
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+
+  &__input-name {
+    margin-bottom: 0.7143rem;
+  }
+
+  &__input-surname {
+    margin-bottom: 0.7143rem;
+  }
+
+  &__select-gender {
+    margin-bottom: 1.7857rem;
+  }
+
   &__date-of-birth {
     margin-bottom: 1.6429rem;
   }
@@ -7,11 +29,14 @@
     margin-bottom: 0.7143rem;
   }
   
-  &__form {
-    margin-bottom: 2rem;
-    width: 100%;
+  &__password {
+    margin-bottom: 0.5rem;
   }
   
+  &__special-offers {
+    margin-bottom: 1.7143rem;
+  }
+
   &__have-account {
     width: 100%;
     display: flex;
@@ -19,30 +44,5 @@
     flex-wrap: nowrap;
     align-items: center;
     justify-content: space-between;
-  }
-  
-  &__input-name {
-    margin-bottom: 0.7143rem;
-  }
-  
-  &__input-surname {
-    margin-bottom: 0.7143rem;
-  }
-  
-  &__password {
-    margin-bottom: 0.5rem;
-  }
-  
-  &__select-gender {
-    margin-bottom: 1.7857rem;
-  }
-  
-  &__special-offers {
-    margin-bottom: 1.7143rem;
-  }
-  
-  &__title {
-    margin-bottom: 1.3571rem;
-    width: 100%;
   }
 }

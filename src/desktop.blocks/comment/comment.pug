@@ -15,7 +15,7 @@ mixin comment(options = {})
     .comment
         .comment__aside
             .comment__avatar-container
-                img(src=avatar, alt="", class="comment__avatar-image")
+                img.comment__avatar-image(src=avatar, alt="")
             .comment__like-button
                 +like-button(likes, likeBtnChecked)
         .comment__head-body

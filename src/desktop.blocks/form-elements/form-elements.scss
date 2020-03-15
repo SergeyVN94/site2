@@ -1,28 +1,6 @@
 .form-elements {
   width: 100%;
 
-  &__column {
-    display: flex;
-    flex-direction: column;
-
-    &:not(:last-child) {
-      margin-right: 0.7143rem;
-    }
-
-    @media (max-width: $breakpoint3) {
-      width: 100%;
-      margin-right: 0rem;
-    }
-  }
-
-  &__comment {
-    max-width: 63%;
-
-    @media (max-width: $breakpoint3) {
-      max-width: 100%;
-    }
-  }
-
   &__container-content {
     display: flex;
     flex-direction: column;
@@ -37,6 +15,31 @@
     }
   }
 
+  &__row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    
+    &:not(:last-child) {
+      margin-bottom: 7.1429rem;
+    }
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+
+    &:not(:last-child) {
+      margin-right: 0.7143rem;
+    }
+
+    @media (max-width: $breakpoint3) {
+      width: 100%;
+      margin-right: 0rem;
+    }
+  }
+
   &__item {
     margin-bottom: 1.4286rem;
     min-width: 320px;
@@ -46,14 +49,11 @@
     }
   }
 
-  &__row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    
-    &:not(:last-child) {
-      margin-bottom: 7.1429rem;
+  &__comment {
+    max-width: 63%;
+
+    @media (max-width: $breakpoint3) {
+      max-width: 100%;
     }
   }
 }

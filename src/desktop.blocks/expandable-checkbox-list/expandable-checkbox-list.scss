@@ -2,6 +2,17 @@
   width: 100%;
   max-width: 266px;
 
+  &_expanded {
+    .expandable-checkbox-list__body {
+      display: block;
+    }
+  
+    .expandable-checkbox-list__icon {
+      transform: rotate(180deg);
+      padding: 0rem 0rem 0.1429rem 0.1429rem;
+    }
+  }
+
   &__head {
     height: 3.1429rem;
     margin-bottom: 0.1429rem;
@@ -11,17 +22,7 @@
     justify-content: space-between;
     align-items: center;
   }
-  
-  &__body {
-    display: none;
-  }
-  
-  &__checkbox {
-    &:not(:last-child) {
-      margin-bottom: 0.7143rem;
-    }
-  }
-  
+
   &__icon {
     @include reset-css;
     @include no-select;
@@ -48,15 +49,14 @@
       font-size: 2rem;
     }
   }
-
-  &_expanded {
-    .expandable-checkbox-list__body {
-      display: block;
-    }
   
-    .expandable-checkbox-list__icon {
-      transform: rotate(180deg);
-      padding: 0rem 0rem 0.1429rem 0.1429rem;
+  &__body {
+    display: none;
+  }
+  
+  &__checkbox {
+    &:not(:last-child) {
+      margin-bottom: 0.7143rem;
     }
   }
 }

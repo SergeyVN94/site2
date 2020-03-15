@@ -4,6 +4,12 @@
   display: block;
   cursor: pointer;
 
+  &_expanded {
+    .menu-item-expandable__body {
+      display: block;
+    }
+  }
+
   &__head {
     display: flex;
     flex-direction: row;
@@ -61,12 +67,6 @@
       outline: none;
       text-decoration: none;
       text-shadow: 0px 0px 5px $text-secondary;
-    }
-  }
-
-  &_expanded {
-    .menu-item-expandable__body {
-      display: block;
     }
   }
 }

@@ -15,6 +15,58 @@
     position: relative;
   }
 
+  &__image {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    z-index: -1;
+    display: none;
+
+    &_selected {
+      border-radius: 0.2857rem 0.2857rem 0rem 0rem;
+      z-index: 2;
+      display: block;
+    }
+
+    &_index-item {
+      display: block;
+      position: absolute;
+      left: 40px;
+      top: 20px;
+      color: $bg-good;
+      font-size: 2rem;
+      font-weight: bold;
+      z-index: 2;
+    }
+  }
+
+  &__indicators {
+    position: absolute;
+    right: 1.0714rem;
+    bottom: 1.0714rem;
+    z-index: 1000;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  &__indicator {
+    @include reset-css;
+    width: 0.5357rem;
+    height: 0.5357rem;
+    border-radius: 50%;
+    border: 0.0714rem solid #ffffff;
+    box-shadow: 0rem 0.3571rem 0.3571rem #1f20414d;
+
+    &:not(:last-child) {
+      margin-right: 3.75px;
+    }
+
+    &_theme_selected {
+      background-color: #fff;
+    }
+  }
+
   &__nav-button {
     @include reset-css;
     @include no-select;
@@ -48,57 +100,5 @@
     font-size: 1.7143rem;
     color: #fff;
     transform: rotate(90deg);
-  }
-
-  &__indicators {
-    position: absolute;
-    right: 1.0714rem;
-    bottom: 1.0714rem;
-    z-index: 1000;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-  }
-
-  &__indicator {
-    @include reset-css;
-    width: 0.5357rem;
-    height: 0.5357rem;
-    border-radius: 50%;
-    border: 0.0714rem solid #ffffff;
-    box-shadow: 0rem 0.3571rem 0.3571rem #1f20414d;
-
-    &:not(:last-child) {
-      margin-right: 3.75px;
-    }
-
-    &_theme_selected {
-      background-color: #fff;
-    }
-  }
-
-  &__image {
-    width: 100%;
-    height: auto;
-    max-height: 100%;
-    z-index: -1;
-    display: none;
-
-    &_selected {
-      border-radius: 0.2857rem 0.2857rem 0rem 0rem;
-      z-index: 2;
-      display: block;
-    }
-
-    &_index-item {
-      display: block;
-      position: absolute;
-      left: 40px;
-      top: 20px;
-      color: $bg-good;
-      font-size: 2rem;
-      font-weight: bold;
-      z-index: 2;
-    }
   }
 }

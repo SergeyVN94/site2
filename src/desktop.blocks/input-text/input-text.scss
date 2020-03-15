@@ -12,6 +12,35 @@
     position: relative;
   }
 
+  &__input {
+    @include reset-css;
+    width: 100%;
+    min-width: 0;
+    height: 3.1429rem;
+    padding: 0rem 1rem 0.1429rem 1rem;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.9786rem;
+    line-height: 1.2857rem;
+    color: $light-title;
+    background-color: #fff;
+    border: 0.0714rem solid $light-title;
+    border-radius: 0.2857rem;
+  
+    &::placeholder {
+      color: $light-title;
+      opacity: 1;
+    }
+  
+    &:hover,
+    &:focus {
+      line-height: 1.7143rem;
+      color: $text-primary;
+      border-color: $text-secondary;
+    }
+  }
+
   &__icon-right {
     @include reset-css;
     @include no-select;
@@ -43,35 +72,6 @@
   
     &:active {
       text-shadow: 0px 0px 10px $text-secondary;
-    }
-  }
-
-  &__input {
-    @include reset-css;
-    width: 100%;
-    min-width: 0;
-    height: 3.1429rem;
-    padding: 0rem 1rem 0.1429rem 1rem;
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 0.9786rem;
-    line-height: 1.2857rem;
-    color: $light-title;
-    background-color: #fff;
-    border: 0.0714rem solid $light-title;
-    border-radius: 0.2857rem;
-  
-    &::placeholder {
-      color: $light-title;
-      opacity: 1;
-    }
-  
-    &:hover,
-    &:focus {
-      line-height: 1.7143rem;
-      color: $text-primary;
-      border-color: $text-secondary;
     }
   }
 }

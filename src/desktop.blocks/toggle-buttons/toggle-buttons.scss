@@ -3,9 +3,7 @@
     margin-bottom: 0.9286rem;
   }
 
-  &__button {
-    &:not(:last-child) {
-      margin-bottom: 0.7143rem;
-    }
+  &__button:not(:last-child) {
+    margin-bottom: 0.7143rem;
   }
 }

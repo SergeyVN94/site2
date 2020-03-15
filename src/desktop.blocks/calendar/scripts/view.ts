@@ -74,12 +74,20 @@ class View {
 
             const isNeedDrawRangeStart = !startIsNull && tmpDate.getTime() === start.getTime();
             if (isNeedDrawRangeStart) {
-                day.classList.add(CALENDAR_CLASSES.RANGE_DAY, CALENDAR_CLASSES.RANGE_DAY_START);
+                day.classList.add(CALENDAR_CLASSES.RANGE_DAY);
+
+                if (!endIsNull) {
+                    day.classList.add(CALENDAR_CLASSES.RANGE_DAY_START);
+                }
             }
 
             const isNeedDrawRangeEnd = !endIsNull && tmpDate.getTime() === end.getTime();
             if (isNeedDrawRangeEnd) {
                 day.classList.add(CALENDAR_CLASSES.RANGE_DAY, CALENDAR_CLASSES.RANGE_DAY_END);
+
+                if (!startIsNull) {
+                    day.classList.add(CALENDAR_CLASSES.RANGE_DAY_END);
+                }
             }
 
             const isNeedDrawRangeMiddle = !startIsNull && !endIsNull;

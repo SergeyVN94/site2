@@ -15,7 +15,7 @@ mixin date-range(options = {})
         .date-range__dropdowns
             .date-range__dropdown
                 if headDropdownLeft !== null
-                    .date-range__dropdown-head
+                    .date-range__block-head
                         +block-head(headDropdownLeft)
                 +dropdown-head({
                     text: textDropdownLeft,
@@ -26,7 +26,7 @@ mixin date-range(options = {})
                 })
             .date-range__dropdown
                 if headDropdownRight !== null
-                    .date-range__dropdown-head
+                    .date-range__block-head
                         +block-head(headDropdownRight)
                 +dropdown-head({
                     text: textDropdownRight,

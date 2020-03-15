@@ -38,18 +38,6 @@
     }
   }
 
-  &__counter {
-    width: 0.8571rem;
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 0.7143rem;
-    line-height: 1.2143rem;
-    text-align: center;
-    color: $light-title;
-    user-select: none;
-  }
-
   &__icon {
     width: 1.2857rem;
     height: 1.2857rem;
@@ -65,6 +53,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    user-select: none;
+  }
+
+  &__counter {
+    width: 0.8571rem;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.7143rem;
+    line-height: 1.2143rem;
+    text-align: center;
+    color: $light-title;
     user-select: none;
   }
 }

@@ -11,6 +11,19 @@
     align-items: flex-end;
   }
 
+  &__diagram {
+    @include reset-css;
+    margin-bottom: 0.1429rem;
+    width: 120px;
+    height: 120px;
+    display: block;
+    position: relative;
+  }
+
+  &__diagram-image {
+    transform: rotate(-90deg);
+  }
+
   &__diagram-counter {
     @include reset-css;
     position: absolute;
@@ -23,17 +36,10 @@
     flex-direction: column;
   }
 
-  &__diagram-image {
-    transform: rotate(-90deg);
-  }
-
-  &__diagram {
+  &__help-list {
     @include reset-css;
-    margin-bottom: 0.1429rem;
-    width: 120px;
-    height: 120px;
-    display: block;
-    position: relative;
+    list-style: none;
+    margin-left: 2.1429rem;
   }
 
   &__help-item {
@@ -43,10 +49,13 @@
     align-items: flex-start;
   }
 
-  &__help-list {
-    @include reset-css;
-    list-style: none;
-    margin-left: 2.1429rem;
+  &__marker-container {
+    margin-right: 0.3571rem;
+    width: 0.7143rem;
+    min-width: 0.7143rem;
+    height: 1.7143rem;
+    display: flex;
+    align-items: center;
   }
 
   &__help-marker {
@@ -73,14 +82,5 @@
         background: $bg-gradient-bad;
       }
     }
-  }
-
-  &__marker-container {
-    margin-right: 0.3571rem;
-    width: 0.7143rem;
-    min-width: 0.7143rem;
-    height: 1.7143rem;
-    display: flex;
-    align-items: center;
   }
 } 

@@ -21,7 +21,6 @@ mixin image-slider(images = [])
                     imageConfigs[0].classes.push("image-slider__image_selected");
                 }
 
-
             for imageConfig in imageConfigs
                 -
                     const {
@@ -34,9 +33,7 @@ mixin image-slider(images = [])
 
                 img(src=src, alt=alt, class=classesStr)
                 
-
             .image-slider__image_index-item.js-image-slider__image_index-item 0
-
             .image-slider__indicators
                 -
                     const indicatorsClasses = [];

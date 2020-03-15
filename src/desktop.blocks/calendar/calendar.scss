@@ -10,6 +10,15 @@
   box-shadow: 0rem 0.7143rem 1.4286rem $dim-shadow;
   border-radius: 0.2857rem;
 
+  &__date-navigation {
+    margin-bottom: 2.0714rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   &__btn-change-month {
     width: 1.7143rem;
     height: 1.7143rem;
@@ -27,20 +36,20 @@
     }
   }
 
-  &__btn-control {
+  &__weekday-names {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
+    justify-content: space-around;
   }
 
-  &__date-navigation {
-    margin-bottom: 2.0714rem;
+  &__weekday-name {
+    @include reset-css;
+    height: 2.8571rem;
+    width: 100%;
+    max-width: 2.8571rem;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
     align-items: center;
+    justify-content: center;
   }
 
   &__days-container {
@@ -64,40 +73,37 @@
     color: $text-secondary;
     cursor: pointer;
 
-    &_range-day-end {
-      position: relative;
-      z-index: 1;
-
-      &::after {
-        content: '';
-        left: 0;
-        top: 0;
-        z-index: -1;
-        width: 50%;
-        height: 100%;
-        position: absolute;
-        display: block;
-        background: $bg-gradient-primary;
-        opacity: 0.25;
+    &_range-day {
+      &_end,
+      &_start {
+        position: relative;
+        z-index: 1;
+        
+        &::after {
+          content: '';
+          top: 0;
+          z-index: -1;
+          width: 50%;
+          height: 100%;
+          position: absolute;
+          display: block;
+          background: $bg-gradient-primary;
+          opacity: 0.25;
+        }
       }
-    }
 
-    &_range-day-start {
-      position: relative;
-      z-index: 1;
-      color: #fff;
+      &_end {
+        &::after {
+          left: 0;
+        }
+      }
 
-      &::after {
-        content: '';
-        right: 0;
-        top: 0;
-        z-index: -1;
-        width: 50%;
-        height: 100%;
-        position: absolute;
-        display: block;
-        background: $bg-gradient-primary;
-        opacity: 0.25;
+      &_start {
+        color: #fff;
+
+        &::after {
+          right: 0;
+        }
       }
     }
 
@@ -140,19 +146,10 @@
     }
   }
 
-  &__weekday-name {
-    @include reset-css;
-    height: 2.8571rem;
-    width: 100%;
-    max-width: 2.8571rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  &__weekday-names {
+  &__btn-control {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    flex-wrap: nowrap;
+    justify-content: space-between;
   }
 }
