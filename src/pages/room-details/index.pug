@@ -14,15 +14,7 @@ block pageTitle
 block main
     main.room-details
         .room-details__banner
-            -
-                const images = [
-                    "1.png",
-                    "2.png",
-                    "3.png",
-                ].map((img) => {
-                    return require(`../../chunks/images/room-details/888/${img}`).default;
-                });
-            +room-details-banner(images)
+            +room-details-banner()
         .container-content
             .room-details__container-content
                 .room-details__main-info
@@ -56,14 +48,14 @@ block main
                         -
                             const items = [
                                 {
-                                    avatar: require("../../chunks/images/avatars/user1.jpg").default,
+                                    avatar: require("../../desktop.blocks/comment/images/user1.jpg").default,
                                     name: "Мурад Сарафанов",
                                     publicationDate: "5 дней назад",
                                     likes: 12,
                                     text: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.",
                                 },
                                 {
-                                    avatar: require("../../chunks/images/avatars/user2.jpg").default,
+                                    avatar: require("../../desktop.blocks/comment/images/user2.jpg").default,
                                     name: "Патрисия Стёклышкова",
                                     publicationDate: "Неделю назад",
                                     likes: 2,

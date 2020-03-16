@@ -1,24 +1,3 @@
-.registration {
-  &__banner {
-    width: 100%;
-    max-width: 1920px;
-    margin: 0 auto;
-    height: 702px;
-    display: block;
-    background-image: url('../../chunks/images/banners/login-registration.png');
-    background-position: 100% 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  
-  &__banner-content {
-    @include reset-css;
-    width: 100%;
-    height: 100%;
-    padding-top: 2.1429rem;
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
+.registration__card-account-registration {
+  padding: 30px 0px 26px 0px;
 }

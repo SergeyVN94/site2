@@ -14,7 +14,7 @@ block main
                     const getImages = function(img) {
                         return [img, img, img, img].map((src) => {
                             return {
-                                src: require(`../../chunks/images/rooms/${src}`).default,
+                                src: require(`../../chunks/images/rooms/room-${src}`).default,
                             };
                         });
                     };

@@ -1,9 +1,14 @@
 mixin room-details-banner(images = [])
+    -
+        const mainImg = require("../../desktop.blocks/room-details-banner/images/room-888-1.png").default;
+        const image2 = require("../../desktop.blocks/room-details-banner/images/room-888-2.png").default;
+        const image3 = require("../../desktop.blocks/room-details-banner/images/room-888-3.png").default;
+
     .room-details-banner
         .room-details-banner__main-img-container
-            img.room-details-banner__main-img(src=images[0], alt="")
+            img.room-details-banner__main-img(src=mainImg, alt="")
         .room-details-banner__img-column
             .room-details-banner__img-item-container
-                img.room-details-banner__img-item(src=images[1], alt="")
+                img.room-details-banner__img-item(src=image2, alt="")
             .room-details-banner__img-item-container  
-                img.room-details-banner__img-item(src=images[2], alt="")
+                img.room-details-banner__img-item(src=image3, alt="")
