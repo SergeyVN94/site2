@@ -7,7 +7,7 @@ const COUNTER_CLASSES = {
     COUNTER: 'js-dropdown-counter',
 };
 
-interface CounterDomElements {
+interface ICounterDomElements {
     $counter: JQuery;
     $buttons: JQuery;
     $btnPlus: JQuery;
@@ -17,7 +17,7 @@ interface CounterDomElements {
 }
 
 class DropdownCounter {
-    private readonly _domElements: CounterDomElements;
+    private readonly _domElements: ICounterDomElements;
     private _value: number;
     private readonly _labelText: string;
 
@@ -63,7 +63,7 @@ class DropdownCounter {
         return this._labelText;
     }
 
-    private _getDomElements($counter: JQuery): CounterDomElements {
+    private _getDomElements($counter: JQuery): ICounterDomElements {
         const $buttons = $counter.find(`.${COUNTER_CLASSES.BUTTON}`);
         const $btnPlus = $counter.find(`.${COUNTER_CLASSES.BTN_PLUS}`);
         const $btnMinus = $counter.find(`.${COUNTER_CLASSES.BTN_MINUS}`);

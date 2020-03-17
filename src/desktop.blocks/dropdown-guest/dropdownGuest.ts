@@ -6,7 +6,7 @@ const DROPDOWN_GUEST_CLASSES = {
     DROPDOWN: 'js-dropdown-guest',
 };
 
-interface DropdownGuestDomElements {
+interface IDropdownGuestDomElements {
     $dropdown: JQuery;
     $dropdownHead: JQuery;
     $counters: JQuery;
@@ -15,7 +15,7 @@ interface DropdownGuestDomElements {
 }
 
 class DropdownGuest {
-    private readonly _domElements: DropdownGuestDomElements;
+    private readonly _domElements: IDropdownGuestDomElements;
     private readonly _defaultHeadText: string;
 
     constructor($dropdown: JQuery) {
@@ -24,7 +24,7 @@ class DropdownGuest {
         this._defaultHeadText = 'Сколько гостей';
     }
 
-    private _getDomElements($dropdown: JQuery): DropdownGuestDomElements {
+    private _getDomElements($dropdown: JQuery): IDropdownGuestDomElements {
         const $dropdownHead = $dropdown.find(`.${DROPDOWN_GUEST_CLASSES.DROPDOWN_HEAD}`);
         const $btnApply = $dropdown.find(`.${DROPDOWN_GUEST_CLASSES.BTN_APPLY}`);
         const $btnClear = $dropdown.find(`.${DROPDOWN_GUEST_CLASSES.BTN_CLEAR}`);

@@ -8,7 +8,7 @@ const DATE_RANGE_CLASSES = {
 };
 const DROPDOWN_HEAD_TEXT_DEFAULT = 'ДД.ММ.ГГГГ';
 
-interface DateRangeDomElements {
+interface IDateRangeDomElements {
     $dateRange: JQuery;
     $dropdownHeads: JQuery;
     $dropdownHeadLeft: JQuery;
@@ -17,14 +17,14 @@ interface DateRangeDomElements {
 }
 
 class DateRange {
-    private readonly _domElements: DateRangeDomElements;
+    private readonly _domElements: IDateRangeDomElements;
 
     constructor($dateRange: JQuery) {
         this._domElements = this._createDomElements($dateRange);
         this._initEventListeners();
     }
 
-    private _createDomElements($dateRange: JQuery): DateRangeDomElements {
+    private _createDomElements($dateRange: JQuery): IDateRangeDomElements {
         const $dropdownHeads = $dateRange.find(`.${DATE_RANGE_CLASSES.DROPDOWN_HEAD}`);
         const $dropdownHeadLeft = $dateRange.find(`.${DATE_RANGE_CLASSES.DROPDOWN_HEAD_LEFT}`);
         const $dropdownHeadRight = $dateRange.find(`.${DATE_RANGE_CLASSES.DROPDOWN_HEAD_RIGHT}`);

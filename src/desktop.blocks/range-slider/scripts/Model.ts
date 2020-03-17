@@ -3,13 +3,13 @@ type modelUpdateCallback = (
     values: string,
 ) => void;
 
-interface ModelInterface {
+interface IModelInterface {
     update: (targetPosition: number, type: 'min' | 'max' | null) => void;
     onUpdate: (callback: modelUpdateCallback) => void;
     initModel: (start: [number, number]) => void;
 }
 
-class Model implements ModelInterface {
+class Model implements IModelInterface {
     private _callback: modelUpdateCallback;
     private _pointMinStep: number;
     private _pointMaxStep: number;
@@ -164,4 +164,4 @@ class Model implements ModelInterface {
 }
 
 export default Model;
-export { ModelInterface };
+export { IModelInterface };

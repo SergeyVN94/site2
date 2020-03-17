@@ -1,5 +1,5 @@
 import CALENDAR_CLASSES from './classes';
-import View from './view';
+import View from './View';
 
 $.fn.calendar = function calendarPlugin(
     this: JQuery,

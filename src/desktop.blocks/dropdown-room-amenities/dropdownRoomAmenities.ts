@@ -22,14 +22,14 @@ const CASE_TABLES = {
     ],
 };
 
-interface RoomAmenitiesDomElements {
+interface IRoomAmenitiesDomElements {
     $dropdown: JQuery;
     $dropdownHead: JQuery;
     $counters: JQuery;
 }
 
 class RoomAmenities {
-    private readonly _domElements: RoomAmenitiesDomElements;
+    private readonly _domElements: IRoomAmenitiesDomElements;
     private readonly _defaultHeadText: string;
 
     constructor($dropdown: JQuery) {
@@ -38,7 +38,7 @@ class RoomAmenities {
         this._defaultHeadText = 'Удобства номера';
     }
 
-    private _getDomElements($dropdown: JQuery): RoomAmenitiesDomElements {
+    private _getDomElements($dropdown: JQuery): IRoomAmenitiesDomElements {
         const $dropdownHead = $dropdown.find(`.${ROOM_AMENITIES_CLASSES.DROPDOWN_HEAD}`);
         const $counters = $dropdown.find(`.${ROOM_AMENITIES_CLASSES.COUNTER}`);
 

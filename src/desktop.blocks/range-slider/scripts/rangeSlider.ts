@@ -1,5 +1,5 @@
-import Model from './model';
-import View from './view';
+import Model from './Model';
+import View from './View';
 import CLASSES from './classes';
 
 $(`.${CLASSES.SLIDER}`).each(function() {

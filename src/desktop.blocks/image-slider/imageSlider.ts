@@ -10,7 +10,7 @@ const IMAGE_SLIDER_CLASSES = {
     INDEX_ITEM: 'js-image-slider__image_index-item',
 };
 
-interface ImageSliderDomElements {
+interface IImageSliderDomElements {
     $slider: JQuery;
     $btnNext: JQuery;
     $btnPrev: JQuery;
@@ -20,7 +20,7 @@ interface ImageSliderDomElements {
 }
 
 class ImageSlider {
-    private readonly _domElements: ImageSliderDomElements;
+    private readonly _domElements: IImageSliderDomElements;
     private readonly _allImages: number;
     private _selectedImage: number;
 
@@ -33,7 +33,7 @@ class ImageSlider {
         this._initEventListeners();
     }
 
-    private _getDomElements($slider: JQuery): ImageSliderDomElements {
+    private _getDomElements($slider: JQuery): IImageSliderDomElements {
         const $btnNext = $slider.find(`.${IMAGE_SLIDER_CLASSES.BTN_NEXT}`);
         const $btnPrev = $slider.find(`.${IMAGE_SLIDER_CLASSES.BTN_PREV}`);
         const $images = $slider.find(`.${IMAGE_SLIDER_CLASSES.IMAGE}`);

@@ -1,7 +1,7 @@
-import { ModelInterface } from './model';
+import { ModelInterface } from './Model';
 import CLASSES from './classes';
 
-interface RangeSliderDomElements {
+interface IRangeSliderDomElements {
     $slider: JQuery;
     $line: JQuery;
     $point1: JQuery;
@@ -12,7 +12,7 @@ interface RangeSliderDomElements {
 }
 
 class View {
-    private readonly _domElements: RangeSliderDomElements;
+    private readonly _domElements: IRangeSliderDomElements;
     private readonly _model: ModelInterface;
     private readonly _lineBorderWidth: number;
     private _pointSelectedType: 'min' | 'max' | null;
@@ -31,7 +31,7 @@ class View {
         this._initModel();
     }
 
-    private _getDomElements($slider: JQuery): RangeSliderDomElements {
+    private _getDomElements($slider: JQuery): IRangeSliderDomElements {
         const $line = $slider.find(`.${CLASSES.LINE}`);
         const $bgLine = $slider.find(`.${CLASSES.BG_LINE}`);
         const $out = $slider.find(`.${CLASSES.VALUES_OUT}`);

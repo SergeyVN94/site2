@@ -1,4 +1,4 @@
-import Model from './model';
+import Model from './Model';
 
 import CALENDAR_CLASSES from './classes';
 
@@ -17,7 +17,7 @@ const MONTH_NAMES = [
     'Декабрь',
 ];
 
-interface CalendarDomElements {
+interface ICalendarDomElements {
     $calendar: JQuery;
     $btnNextMonth: JQuery;
     $btnPrevMonth: JQuery;
@@ -28,7 +28,7 @@ interface CalendarDomElements {
 }
 
 class View {
-    private readonly _domElements: CalendarDomElements;
+    private readonly _domElements: ICalendarDomElements;
     private readonly _model: Model;
 
     constructor($calendar: JQuery) {
@@ -196,7 +196,7 @@ class View {
         return new Model(renderDate, this.update.bind(this));
     }
 
-    private _createDomElements($calendar: JQuery): CalendarDomElements {
+    private _createDomElements($calendar: JQuery): ICalendarDomElements {
         const $btnNextMonth = $calendar.find(`.${CALENDAR_CLASSES.BTN_NEXT_MONTH}`);
         const $btnPrevMonth = $calendar.find(`.${CALENDAR_CLASSES.BTN_PREV_MONTH}`);
         const $drawnDate = $calendar.find(`.${CALENDAR_CLASSES.DRAWN_DATE}`);
