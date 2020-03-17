@@ -1,4 +1,4 @@
-import { ModelInterface } from './Model';
+import { IModelInterface } from './Model';
 import CLASSES from './classes';
 
 interface IRangeSliderDomElements {
@@ -13,11 +13,11 @@ interface IRangeSliderDomElements {
 
 class View {
     private readonly _domElements: IRangeSliderDomElements;
-    private readonly _model: ModelInterface;
+    private readonly _model: IModelInterface;
     private readonly _lineBorderWidth: number;
     private _pointSelectedType: 'min' | 'max' | null;
 
-    constructor($slider: JQuery, model: ModelInterface) {
+    constructor($slider: JQuery, model: IModelInterface) {
         this._domElements = this._getDomElements($slider);
         this._model = model;
         this._lineBorderWidth = parseInt(

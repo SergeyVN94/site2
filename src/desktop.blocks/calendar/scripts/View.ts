@@ -83,7 +83,7 @@ class View {
 
             const isNeedDrawRangeEnd = !endIsNull && tmpDate.getTime() === end.getTime();
             if (isNeedDrawRangeEnd) {
-                day.classList.add(CALENDAR_CLASSES.RANGE_DAY, CALENDAR_CLASSES.RANGE_DAY_END);
+                day.classList.add(CALENDAR_CLASSES.RANGE_DAY);
 
                 if (!startIsNull) {
                     day.classList.add(CALENDAR_CLASSES.RANGE_DAY_END);
