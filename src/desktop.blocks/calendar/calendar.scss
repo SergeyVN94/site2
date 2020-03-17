@@ -108,6 +108,11 @@
     }
 
     &_theme {
+      &_not-clickable {
+        color: $light-title;
+        cursor: default;
+      }
+
       &_another-month {
         color: $light-title;
       }
@@ -142,6 +147,7 @@
         border-radius: 50%;
         font-weight: bold;
         color: #fff;
+        cursor: default;
       }
     }
   }

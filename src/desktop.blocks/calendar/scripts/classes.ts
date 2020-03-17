@@ -12,6 +12,7 @@ const CALENDAR_CLASSES = {
     RANGE_DAY_MIDDLE: 'calendar__day-week_theme_range-day-middle',
     BTN_APPLY: 'js-calendar__btn-apply',
     BTN_CLEAR: 'js-calendar__btn-clear',
+    NOT_CLICKABLE: 'calendar__day-week_theme_not-clickable',
 };
 
 export default CALENDAR_CLASSES;

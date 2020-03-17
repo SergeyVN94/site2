@@ -128,17 +128,33 @@ class View {
     private _createCalendarBody(pageDays: number[]): DocumentFragment {
         const calendarBody = document.createDocumentFragment();
 
+        const currentDate = new Date();
+        currentDate.setHours(0, 0, 0, 0);
+        const renderDate = this._model.getRenderDate();
+        const tmpDate = new Date(
+            renderDate.getFullYear(),
+            renderDate.getMonth(),
+            1
+        );
+        tmpDate.setHours(0, 0, 0, 0);
+
         pageDays.forEach((dayNumber, index) => {
             const isFirstWeek = index < 7;
             const isLastWeek = index > pageDays.length - 7;
             const isDayFromPrevMonth = (dayNumber > 20 && isFirstWeek);
             const isDayFromNextMonth = (dayNumber < 8 && isLastWeek);
+            const isDayAnotherMonth = isDayFromPrevMonth || isDayFromNextMonth;
+            const day = this._createDayMonth(dayNumber, isDayAnotherMonth);
 
-            if (isDayFromPrevMonth || isDayFromNextMonth) {
-                calendarBody.appendChild(this._createDayMonth(dayNumber, true));
-            } else {
-                calendarBody.appendChild(this._createDayMonth(dayNumber));
+            if (!isDayAnotherMonth) {
+                tmpDate.setDate(dayNumber);
+                const isDayNotClickable = tmpDate.getTime() < currentDate.getTime();
+                if (isDayNotClickable) {
+                    day.classList.add(CALENDAR_CLASSES.NOT_CLICKABLE);
+                }
             }
+
+            calendarBody.appendChild(day);
         });
 
         return calendarBody;
