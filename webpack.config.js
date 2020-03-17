@@ -72,7 +72,7 @@ const rules = [
         loader: 'file-loader',
         exclude: /fonts/,
         options: {
-            name: '[folder]/[name].[ext]',
+            name: '[name].[ext]',
             outputPath: './images',
         },
     },
