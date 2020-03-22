@@ -26,7 +26,7 @@
       font-size: 0.8571rem;
       line-height: 1.0714rem;
       background: $bg-gradient-primary;
-      font-family: Montserrat;
+      font-family: Montserrat, Arial, sans-serif;
       font-style: normal;
       font-weight: bold;
       text-transform: uppercase;
@@ -53,7 +53,7 @@
       font-size: 0.8571rem;
       line-height: 1.0714rem;
       background: $bg-gradient-primary;
-      font-family: Montserrat;
+      font-family: Montserrat, Arial, sans-serif;
       font-style: normal;
       font-weight: bold;
       text-transform: uppercase;
@@ -89,7 +89,7 @@
 
     &_light {
       height: 3.1429rem;
-      font-family: Montserrat;
+      font-family: Montserrat, Arial, sans-serif;
       font-style: normal;
       font-weight: bold;
       font-size: 0.8571rem;
@@ -135,7 +135,7 @@
       border: 0.0714rem solid rgba(31, 32, 65, 0.25);
       border-radius: 1.5714rem;
       color: $text-secondary;
-      font-family: Montserrat;
+      font-family: Montserrat, Arial, sans-serif;
       font-style: normal;
       font-weight: normal;
       font-size: 1.2857rem;
@@ -146,7 +146,7 @@
       width: 2.8571rem;
       height: 2.8571rem;
       border-radius: 1.5714rem;
-      font-family: Montserrat;
+      font-family: Montserrat, Arial, sans-serif;
       font-style: normal;
       font-weight: normal;
       font-size: 0.8571rem;
@@ -160,7 +160,7 @@
     &_social {
       width: 1.7143rem;
       height: 1.7143rem;
-      font-family: 'Font Awesome 5 Brands';
+      font-family: 'Font Awesome 5 Brands', Arial, sans-serif;
       font-style: normal;
       font-weight: normal;
       font-size: 1.7143rem;
@@ -190,7 +190,7 @@
     }
 
     &_text {
-      font-family: Montserrat;
+      font-family: Montserrat, Arial, sans-serif;
       font-style: normal;
       font-weight: bold;
       font-size: 0.8571rem;
