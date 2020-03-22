@@ -14,7 +14,11 @@ block pageTitle
 block main
     main.room-details
         .room-details__banner
-            +room-details-banner()
+            +room-details-banner([
+                'room-888-1.png',
+                'room-888-2.png',
+                'room-888-3.png',
+            ])
         .container-content
             .room-details__container-content
                 .room-details__main-info

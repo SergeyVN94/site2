@@ -1,14 +1,14 @@
 mixin room-details-banner(images = [])
     -
-        const mainImg = require("../../desktop.blocks/room-details-banner/images/room-888-1.png").default;
-        const image2 = require("../../desktop.blocks/room-details-banner/images/room-888-2.png").default;
-        const image3 = require("../../desktop.blocks/room-details-banner/images/room-888-3.png").default;
+        const imagesSrc = images.map((src) => {
+            return require(`../../desktop.blocks/room-details-banner/images/${src}`).default;
+        });
 
     .room-details-banner
         .room-details-banner__main-img-container
-            img.room-details-banner__main-img(src=mainImg, alt="")
+            img.room-details-banner__main-img(src=imagesSrc[0], alt="")
         .room-details-banner__img-column
             .room-details-banner__img-item-container
-                img.room-details-banner__img-item(src=image2, alt="")
+                img.room-details-banner__img-item(src=imagesSrc[1], alt="")
             .room-details-banner__img-item-container  
-                img.room-details-banner__img-item(src=image3, alt="")
+                img.room-details-banner__img-item(src=imagesSrc[2], alt="")
