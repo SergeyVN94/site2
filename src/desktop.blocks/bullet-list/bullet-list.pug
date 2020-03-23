@@ -11,10 +11,10 @@ mixin bullet-list(options = {})
     .bullet-list
         if head !== null
             -
-                const { bottom = "" } = head;
+                const { marginBottom = "" } = head;
                 const headClasses = ["bullet-list__head"];
 
-                if (bottom && bottom !== "false") headClasses.push(`bullet-list__head_bottom_${bottom}`);
+                if (marginBottom && marginBottom !== "false") headClasses.push(`bullet-list__head_margin-bottom_${marginBottom}`);
 
                 const headClassesStr = headClasses.join(" ");
 
