@@ -123,6 +123,10 @@ class DropdownGuest {
     private _createGuestTextEntry(adults: number, babies: number): string {
         const guestText: string[] = [];
 
+        if ((adults + babies) === 0) {
+            return 'Сколько гостей';
+        }
+
         if (adults > 0) {
             const wordEnding = ['ь', 'я', 'ей'];
             const index = this._getIndexGraduation(adults);
