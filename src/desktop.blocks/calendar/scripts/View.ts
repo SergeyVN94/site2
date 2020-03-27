@@ -204,9 +204,15 @@ class View {
                     return Number(item);
                 });
 
-            renderDate.setDate(day);
-            renderDate.setMonth(month - 1);
-            renderDate.setFullYear(year);
+            const isCorrectMonth = month >= 1 && month <= 12;
+            const daysInMonthRenderDate = (new Date(year, month, 0)).getDate();
+            const isCorrectDay = day >= 1 && day <= daysInMonthRenderDate;
+
+            if (isCorrectMonth && isCorrectDay) {
+                renderDate.setDate(day);
+                renderDate.setMonth(month - 1);
+                renderDate.setFullYear(year);
+            }
         }
 
         return new Model(renderDate, this.update.bind(this));

@@ -11,14 +11,7 @@ mixin calendar(options = {})
         classes.push("calendar js-calendar");
         const classesStr = classes.join(" ");
 
-        const currentDate = new Date();
-        const currentDateStr = `${currentDate.getDate()}.${currentDate.getMonth() + 1}.${currentDate.getFullYear()}`;
-
-        const isCorrectRenderDate = renderDate && (typeof renderDate === "string") && (/\d{1,2}\.\d{1,2}\.\d{4}/.test(renderDate));
-
-        const renderDateStr = isCorrectDate ? date : currentDateStr;
-
-    div(class=classesStr, data-render-date=renderDateStr)
+    div(class=classesStr, data-render-date=renderDate)
         .calendar__date-navigation
             .calendar__btn-change-month.js-calendar__btn-prev-month arrow_back
             .calendar__drawn-date
