@@ -14,7 +14,9 @@ mixin bullet-list(options = {})
                 const { marginBottom = "" } = head;
                 const headClasses = ["bullet-list__head"];
 
-                if (marginBottom && marginBottom !== "false") headClasses.push(`bullet-list__head_margin-bottom_${marginBottom}`);
+                const isCorrectMarginBottom = marginBottom && marginBottom !== "false";
+
+                if (isCorrectMarginBottom) headClasses.push(`bullet-list__head_margin-bottom_${marginBottom}`);
 
                 const headClassesStr = headClasses.join(" ");
 

@@ -90,17 +90,18 @@ class Model {
     }
 
     public updateRangeDays(day: number, setRangeStart = true): boolean {
-        const newDate = new Date(
+        const targetDate = new Date(
             this._renderDate.getFullYear(),
             this._renderDate.getMonth(),
             day
         );
-        newDate.setHours(0, 0, 0, 0); // Что бы сравнивать даты без учета времени.
+        targetDate.setHours(0, 0, 0, 0); // Что бы сравнивать даты без учета времени.
+        const targetDateTime = targetDate.getTime();
 
         const currentDate = new Date();
         currentDate.setHours(0, 0, 0, 0);
 
-        if (newDate.getTime() <= currentDate.getTime()) {
+        if (targetDateTime <= currentDate.getTime()) {
             return false;
         }
 
@@ -109,9 +110,14 @@ class Model {
             end = null,
         } = this._rangeDays;
 
+        const rangeStartIsNull = start === null;
+        const rangeEndIsNull = end === null;
+        const isTargetDateCanBeSetToEnd = rangeEndIsNull || targetDateTime < end.getTime();
+        const isTargetDateCanBeSetToStart = rangeStartIsNull || targetDateTime > start.getTime();
+
         if (setRangeStart) {
-            if (end === null || newDate.getTime() < end.getTime()) {
-                this._rangeDays.start = newDate;
+            if (isTargetDateCanBeSetToEnd) {
+                this._rangeDays.start = targetDate;
                 this._updateHandler();
                 return true;
             }
@@ -119,8 +125,8 @@ class Model {
             return false;
         }
 
-        if (start === null || newDate.getTime() > start.getTime()) {
-            this._rangeDays.end = newDate;
+        if (isTargetDateCanBeSetToStart) {
+            this._rangeDays.end = targetDate;
             this._updateHandler();
             return true;
         }

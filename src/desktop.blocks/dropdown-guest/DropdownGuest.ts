@@ -100,24 +100,30 @@ class DropdownGuest {
         this._domElements.$dropdown.dropdown('expanded', false);
     }
 
-    private _getIndexGraduation(index: number): number {
-        const ost10 = index % 10;
-        const ost100 = index % 100;
-        let grad = 0;
+    private _getWordWithEnding(value: number, words: [string, string, string]): string {
+        const [
+            digitOne,
+            digitZero,
+        ] = `0${value}`
+            .slice(-2)
+            .split('')
+            .map((digit) => {
+                return parseInt(digit, 10);
+            });
 
-        if (ost10 === 1 && (ost100 > 20 || index === 1)) {
-            grad = 0;
+        const isDigitZeroIsOne = digitZero === 1;
+        const isDigitOneIsOne = digitOne === 1;
+        const isDigitZeroBetweenOneAndFive = digitZero > 1 && digitZero < 5;
+
+        if (isDigitZeroIsOne && !isDigitOneIsOne) {
+            return words[0];
         }
 
-        if (ost10 >= 2 && ost10 <= 4) {
-            grad = 1;
+        if (isDigitZeroBetweenOneAndFive && !isDigitOneIsOne) {
+            return words[1];
         }
 
-        if (ost10 >= 5 && ost10 <= 9 || ost10 === 0 || (ost100 >= 11 && ost100 <= 20)) {
-            grad = 2;
-        }
-
-        return grad;
+        return words[2];
     }
 
     private _createGuestTextEntry(adults: number, babies: number): string {
@@ -128,15 +134,27 @@ class DropdownGuest {
         }
 
         if (adults > 0) {
-            const wordEnding = ['ь', 'я', 'ей'];
-            const index = this._getIndexGraduation(adults);
-            guestText.push(`${adults} гост${wordEnding[index]}`);
+            const word = this._getWordWithEnding(
+                adults,
+                [
+                    'гость',
+                    'гостя',
+                    'гостей',
+                ]
+            );
+            guestText.push(`${adults} ${word}`);
         }
 
         if (babies > 0) {
-            const wordEnding = ['ец', 'ца', 'цев'];
-            const index = this._getIndexGraduation(babies);
-            guestText.push(`${babies} младен${wordEnding[index]}`);
+            const word = this._getWordWithEnding(
+                babies,
+                [
+                    'младенец',
+                    'младенца',
+                    'младенцев',
+                ]
+            );
+            guestText.push(`${babies} ${word}`);
         }
 
         return guestText.join(', ');

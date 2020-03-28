@@ -4,7 +4,9 @@ const ROOM_AMENITIES_CLASSES = {
     COUNTER: 'js-dropdown-counter',
 };
 
-const CASE_TABLES = {
+const CASE_TABLES: {
+    [index: string]: [string, string, string];
+} = {
     спальни: [
         'спальня',
         'спальни',
@@ -63,21 +65,8 @@ class DropdownRoomAmenities {
             const $counter = $(element);
             const label = String($counter.dropdownCounter('label')).toLowerCase();
             const value = Number($counter.dropdownCounter('value'));
-            const gradation = this._getIndexGraduation(value);
-
-            if (value !== 0) {
-                if (label === 'кровати') {
-                    headTextChunks.push(`${value} ${CASE_TABLES['кровати'][gradation]}`);
-                }
-
-                if (label === 'спальни') {
-                    headTextChunks.push(`${value} ${CASE_TABLES['спальни'][gradation]}`);
-                }
-
-                if (label === 'ванные комнаты') {
-                    headTextChunks.push(`${value} ${CASE_TABLES['ванные комнаты'][gradation]}`);
-                }
-            }
+            const words = CASE_TABLES[label];
+            headTextChunks.push(`${value} ${this._getWordWithEnding(value, words)}`);
         });
 
         if (headTextChunks.length > 0) {
@@ -104,24 +93,30 @@ class DropdownRoomAmenities {
         return `${firstFourWords.join(' ')}...`;
     }
 
-    private _getIndexGraduation(index: number): number {
-        const ost10 = index % 10;
-        const ost100 = index % 100;
-        let grad = 0;
+    private _getWordWithEnding(value: number, words: [string, string, string]): string {
+        const [
+            digitOne,
+            digitZero,
+        ] = `0${value}`
+            .slice(-2)
+            .split('')
+            .map((digit) => {
+                return parseInt(digit, 10);
+            });
 
-        if (ost10 === 1 && (ost100 > 20 || index === 1)) {
-            grad = 0;
+        const isDigitZeroIsOne = digitZero === 1;
+        const isDigitOneIsOne = digitOne === 1;
+        const isDigitZeroBetweenOneAndFive = digitZero > 1 && digitZero < 5;
+
+        if (isDigitZeroIsOne && !isDigitOneIsOne) {
+            return words[0];
         }
 
-        if (ost10 >= 2 && ost10 <= 4) {
-            grad = 1;
+        if (isDigitZeroBetweenOneAndFive && !isDigitOneIsOne) {
+            return words[1];
         }
 
-        if (ost10 >= 5 && ost10 <= 9 || ost10 === 0 || (ost100 >= 11 && ost100 <= 20)) {
-            grad = 2;
-        }
-
-        return grad;
+        return words[2];
     }
 }
 
