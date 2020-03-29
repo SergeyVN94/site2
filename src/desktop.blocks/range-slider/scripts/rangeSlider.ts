@@ -2,9 +2,9 @@ import Model from './Model';
 import View from './View';
 import CLASSES from './classes';
 
-$(`.${CLASSES.SLIDER}`).each(function() {
+$(`.${CLASSES.SLIDER}`).each((index, element) => {
     $(() => {
-        const $slider = $(this);
+        const $slider = $(element);
         const range = [
             parseInt($slider.attr('data-range-min') || '0', 10),
             parseInt($slider.attr('data-range-max') || '1000', 10),

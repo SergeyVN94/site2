@@ -141,7 +141,7 @@ $.fn.dropdownCounter = function dropdownCounterPlugin(
     }
 };
 
-$(`.${COUNTER_CLASSES.COUNTER}`).each(function() {
-    const $counter = $(this);
+$(`.${COUNTER_CLASSES.COUNTER}`).each((index, element) => {
+    const $counter = $(element);
     $counter.data('counter', new DropdownCounter($counter));
 });

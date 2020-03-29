@@ -100,9 +100,7 @@ class DropdownRoomAmenities {
         ] = `0${value}`
             .slice(-2)
             .split('')
-            .map((digit) => {
-                return parseInt(digit, 10);
-            });
+            .map((digit) => parseInt(digit, 10));
 
         const isDigitZeroIsOne = digitZero === 1;
         const isDigitOneIsOne = digitOne === 1;

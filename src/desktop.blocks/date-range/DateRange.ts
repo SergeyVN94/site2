@@ -109,6 +109,6 @@ class DateRange {
     }
 }
 
-$(`.${DATE_RANGE_CLASSES.DATE_RANGE}`).each(function() {
-    new DateRange($(this));
+$(`.${DATE_RANGE_CLASSES.DATE_RANGE}`).each((index, element) => {
+    new DateRange($(element));
 });

@@ -90,13 +90,18 @@ class View {
                     'mousemove.rangeSlider.update',
                     this._handleSliderMousemove.bind(this)
                 )
-                .one('mouseup.rangeSlider.offUpdate', () => {
-                    this._domElements.$document.off('mousemove.rangeSlider.update');
-                });
+                .one(
+                    'mouseup.rangeSlider.offUpdate',
+                    this._handleDocumentMouseup.bind(this)
+                );
         } else {
             this._pointSelectedType = null;
             this._updateModel(ev);
         }
+    }
+
+    private _handleDocumentMouseup(): void {
+        this._domElements.$document.off('mousemove.rangeSlider.update');
     }
 
     private _handleSliderMousemove(ev: JQuery.MouseEventBase): void {

@@ -16,6 +16,6 @@ $.fn.calendar = function calendarPlugin(
     }
 };
 
-$(`.${CALENDAR_CLASSES.CALENDAR}`).each(function(): void {
-    new View($(this)).update();
+$(`.${CALENDAR_CLASSES.CALENDAR}`).each((index, element) => {
+    new View($(element)).update();
 });

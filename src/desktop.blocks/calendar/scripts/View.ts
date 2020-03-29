@@ -200,9 +200,7 @@ class View {
                 year,
             ] = renderDateStr
                 .split('.')
-                .map((item) => {
-                    return Number(item);
-                });
+                .map((item) => parseInt(item, 10));
 
             const isCorrectMonth = month >= 1 && month <= 12;
             const daysInMonthRenderDate = (new Date(year, month, 0)).getDate();
