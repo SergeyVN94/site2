@@ -2,12 +2,7 @@ include ../dropdown/dropdown.pug
 include ../dropdown-counter/dropdown-counter.pug
 include ../button/button.pug
 
-mixin dropdown-guest(options = {})
-    -
-        const {
-            head,
-        } = options;
-
+mixin dropdown-guest(head)
     +dropdown({
         head,
         text: "Сколько гостей",

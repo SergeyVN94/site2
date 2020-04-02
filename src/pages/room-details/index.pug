@@ -71,15 +71,9 @@ block main
                             items,
                             head: {
                                 title: "Отзывы посетителей номера",
-                                titleOptions: {
-                                    theme: "h2",
-                                    fontName: "montserrat",
-                                },
+                                titleTheme: "big",
                                 help: "2 отзыва",
-                                helpOptions: {
-                                    transform: "none",
-                                    color: "text-secondary",
-                                },
+                                helpTheme: "main-text",
                             },
                         })
                     .room-details__info-item
@@ -87,10 +81,7 @@ block main
                             +bullet-list({
                                 head: {
                                     title: "Правила",
-                                    titleOptions: {
-                                        theme: "h2",
-                                        fontName: "montserrat",
-                                    },
+                                    titleTheme: "big",
                                     marginBottom: "big",
                                 },
                                 items: [
@@ -111,9 +102,11 @@ block main
                             })
                 .room-details__book-room
                     +card-book-room({
-                        roomNumber: 888,
-                        roomPrice: "9 990",
-                        luxury: true,
+                        roomHead: {
+                            roomNumber: 888,
+                            roomPrice: "9 990",
+                            luxury: true,
+                        },
                         receipt: {
                             total:  "38 081",
                             items: [

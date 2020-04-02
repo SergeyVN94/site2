@@ -17,9 +17,11 @@ mixin cards()
                 .cards__column
                     .cards__item
                         +card-book-room({
-                            roomNumber: 888,
-                            roomPrice: "9 990",
-                            luxury: true,
+                            roomHead: {
+                                roomNumber: 888,
+                                roomPrice: "9 990",
+                                luxury: true,
+                            },
                             receipt: {
                                 total:  "38 081",
                                 items: [

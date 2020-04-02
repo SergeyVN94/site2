@@ -4,23 +4,37 @@ mixin block-head(options = {})
     -
         const {
             title = "",
-            titleOptions = {
-                theme: "h3",   
-            },
             help = "",
-            helpOptions = {
-                classes: [],
-                theme: "h3",
-                color: "text-secondary",
-                fontWeight: "normal",
-            }
+            titleTheme = "",
+            helpTheme = "",
         } = options;
 
-        titleOptions.text = title;
-        helpOptions.text = help;
+        const titleOpt = {
+            text: title,
+            theme: "h3",
+        };
+
+        if (titleTheme === "big") {
+            titleOpt.theme = "h2";
+            titleOpt.fontName = "montserrat";
+        }
+
+        const helpOpt = {
+            text: help,
+            theme: "h3",
+            color: "text-secondary",
+            fontWeight: "normal",
+        };
+
+        if (helpTheme === "main-text") {
+            helpOpt.theme = "body";
+            helpOpt.transform = "none";
+        }
 
     .block-head
-        .block-head__title
-            +text(titleOptions)
-        .block-head__help
-            +text(helpOptions)
+        if title !== ""
+            .block-head__title
+                +text(titleOpt)
+        if help !== ""
+            .block-head__help
+                +text(helpOpt)

@@ -6,10 +6,16 @@ include ../button/button.pug
 include ../dropdown-guest/dropdown-guest.pug
 
 mixin card-book-room(options = {})
+    -
+        const {
+            roomHead = {},
+            receipt = {},
+        } = options;
+
     .card-book-room
         +card-container()
             .card-book-room__head
-                +room-head(options)
+                +room-head(roomHead)
             .card-book-room__date-range
                 +date-range({
                     headDropdownLeft: {
@@ -22,13 +28,8 @@ mixin card-book-room(options = {})
                     textDropdownRight: "ДД.ММ.ГГГГ",
                 })
             .card-book-room__dropdown-guest
-                +dropdown-guest({
-                    head: {
-                        title: "гости",
-                    },
-                })
+                +dropdown-guest({ title: "гости" })
             .card-book-room__receipt
-                -const { receipt = {} } = options;
                 +receipt(receipt)
             .card-book-room__booking-button
                 +button({

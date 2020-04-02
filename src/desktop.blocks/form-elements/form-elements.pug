@@ -54,10 +54,8 @@ mixin form-elements()
                             })
                         .form-elements__item
                             +dropdown-guest({
-                                head: {
-                                    title: "dropdown",
-                                    help: "default",
-                                },
+                                title: "dropdown",
+                                help: "default",
                             })
                         .form-elements__item
                             +date-range({
@@ -94,7 +92,6 @@ mixin form-elements()
                                 head: {
                                     title: "radio buttons",
                                 },
-                                group: "gender",
                                 items: [
                                     {
                                         text: "Мужчина",
@@ -156,9 +153,7 @@ mixin form-elements()
                                 title: "range slider",
                             })
                         .form-elements__item
-                            +buttons-demo({
-                                title: "buttons",
-                            })
+                            +buttons-demo()
                         .form-elements__item
                             +pagination({
                                 head: {

@@ -16,11 +16,7 @@ mixin search-filters()
                 text: "19 авг - 23 авг",
             })
         .search-filters__dropdown-guest
-            +dropdown-guest({
-                head: {
-                    title: "гости",
-                },
-            })
+            +dropdown-guest({ title: "гости" })
         .search-filters__range-slider
             +range-slider({
                 title: "диапазон цены",

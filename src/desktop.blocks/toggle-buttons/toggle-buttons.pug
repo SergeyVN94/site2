@@ -14,10 +14,5 @@ mixin toggle-buttons(options = {})
         .toggle-buttons__container
             for item in items
                 .toggle-buttons__button
-                    -
-                        const {
-                            text,
-                            checked = false,
-                        } = item; 
-                    +toggle-button(text, checked)
+                    +toggle-button(item)
 

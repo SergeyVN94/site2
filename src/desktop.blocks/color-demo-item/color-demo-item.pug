@@ -1,12 +1,12 @@
 include ../text/text.pug
 
-mixin color-demo-item(options = {})
+mixin color-demo-item(options = [])
     -
-        const {
-            colorName = "", 
-            colorValue = "",
-            squareBgColor = "",
-        } = options;
+        const [
+            colorName,
+            colorValue,
+            squareBgColor,
+        ] = options;
 
     .color-demo-item
         .color-demo-item__color-square(style=`background-color: ${squareBgColor};`)

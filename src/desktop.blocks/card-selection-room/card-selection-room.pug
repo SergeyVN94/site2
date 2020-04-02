@@ -25,11 +25,7 @@ mixin card-selection-room()
                     textDropdownRight: "ДД.ММ.ГГГГ",
                 })
             .card-selection-room__dropdown-guest
-                +dropdown-guest({
-                    head: {
-                        title: "гости",
-                    },
-                })
+                +dropdown-guest({ title: "гости" })
             .card-selection-room__button-find
                 +button({
                     href: "./search-room.html",

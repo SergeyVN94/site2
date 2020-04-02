@@ -16,9 +16,9 @@ mixin menu(options = {})
 
     nav(class=classesStr)
         for item in items
-            -const { items = null } = item;
+            -const { items: menuItemExpandableBody = null } = item;
             .menu__item
-                if items !== null
+                if menuItemExpandableBody !== null
                     +menu-item-expandable(item)
                 else
                     +menu-item(item)

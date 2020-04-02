@@ -9,14 +9,14 @@ class Model {
     private readonly _updateHandler: UpdateHandler;
     private _rangeDays: RangeDays;
 
-    constructor(renderDate: Date, updateHandler: UpdateHandler) {
-        this._renderDate = renderDate;
+    constructor(updateHandler: UpdateHandler) {
         this._updateHandler = updateHandler;
         this._rangeDays = {
             start: null,
             end: null,
         };
 
+        this._renderDate = new Date();
         this._renderDate.setHours(0, 0, 0, 0);
     }
 

@@ -15,14 +15,4 @@ mixin colors-demo(classes)
     .colors-demo(class=classes)
         for colorItem in colors
             .colors-demo__color-demo
-                -
-                    const [
-                        colorName,
-                        colorValue,
-                        squareBgColor,
-                    ] = colorItem;
-                +color-demo-item({
-                    colorName,
-                    colorValue,
-                    squareBgColor,
-                })
+                +color-demo-item(colorItem)

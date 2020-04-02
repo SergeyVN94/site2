@@ -1,17 +1,8 @@
 include ../text/text.pug
 include ../button/button.pug
 
-mixin calendar(options = {})
-    -
-        const {
-            renderDate,
-            classes = [],
-        } = options;
-
-        classes.push("calendar js-calendar");
-        const classesStr = classes.join(" ");
-
-    div(class=classesStr, data-render-date=renderDate)
+mixin calendar()
+    div(class="calendar js-calendar")
         .calendar__date-navigation
             .calendar__btn-change-month.js-calendar__btn-prev-month arrow_back
             .calendar__drawn-date

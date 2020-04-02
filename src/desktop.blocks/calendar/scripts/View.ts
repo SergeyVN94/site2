@@ -33,7 +33,7 @@ class View {
 
     constructor($calendar: JQuery) {
         this._domElements = this._createDomElements($calendar);
-        this._model = this._createModel();
+        this._model = new Model(this.update.bind(this));
         this._initListeners();
     }
 
@@ -186,34 +186,6 @@ class View {
         day.innerHTML = String(dayNumber);
 
         return day;
-    }
-
-    private _createModel(): Model {
-        const renderDate = new Date();
-        const renderDateStr = this._domElements.$calendar.attr('data-render-date') || '';
-        const isCorrectRenderDateStr = /^\d{1,2}\.\d{1,2}\.\d{4}$/.test(renderDateStr);
-
-        if (isCorrectRenderDateStr) {
-            const [
-                day,
-                month,
-                year,
-            ] = renderDateStr
-                .split('.')
-                .map((item) => parseInt(item, 10));
-
-            const isCorrectMonth = month >= 1 && month <= 12;
-            const daysInMonthRenderDate = (new Date(year, month, 0)).getDate();
-            const isCorrectDay = day >= 1 && day <= daysInMonthRenderDate;
-
-            if (isCorrectMonth && isCorrectDay) {
-                renderDate.setDate(day);
-                renderDate.setMonth(month - 1);
-                renderDate.setFullYear(year);
-            }
-        }
-
-        return new Model(renderDate, this.update.bind(this));
     }
 
     private _createDomElements($calendar: JQuery): ICalendarDomElements {

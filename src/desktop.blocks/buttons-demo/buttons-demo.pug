@@ -1,11 +1,10 @@
 include ../block-head/block-head.pug
 include ../button/button.pug
 
-mixin buttons-demo(head = null)
+mixin buttons-demo()
     .buttons-demo
-        if head !== null
-            .buttons-demo__head
-                +block-head(head)
+        .buttons-demo__head
+            +block-head({ title: "buttons" })
         .buttons-demo__container
             .buttons-demo__row
                 .buttons-demo__button
