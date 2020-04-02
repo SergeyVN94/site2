@@ -23,7 +23,7 @@ mixin bullet-list(options = {})
             div(class=headClassesStr)
                 +block-head(head)
         
-        .bullet-list__container
+        ul.bullet-list__container
             for text in items
-                .bullet-list__item
+                li.bullet-list__item
                     +bullet-list-item(text)

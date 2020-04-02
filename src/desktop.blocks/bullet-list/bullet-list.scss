@@ -10,7 +10,16 @@
     }
   }
 
-  &__item:not(:last-child) {
-    margin-bottom: 0.7143rem;
+  &__container {
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    list-style: none;
+
+    &:not(:last-child) {
+      margin-bottom: 0.7143rem;
+    }
   }
 }
