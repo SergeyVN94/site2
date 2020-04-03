@@ -19,15 +19,11 @@ interface ICounterDomElements {
 class DropdownCounter {
     private readonly _domElements: ICounterDomElements;
     private _value: number;
-    private readonly _label: string;
     private readonly _group: string;
 
     constructor($counter: JQuery) {
         this._domElements = this._getDomElements($counter);
-        const {
-            $label,
-            $out,
-        } = this._domElements;
+        const { $out } = this._domElements;
 
         try {
             const valueStr = $out.text();
@@ -38,7 +34,6 @@ class DropdownCounter {
             $out.text(0);
         }
 
-        this._label = $label.text();
         this._group = $counter.data('group') || '';
 
         this._updateButtons();
@@ -65,10 +60,6 @@ class DropdownCounter {
 
     public reset(): void {
         this.value = 0;
-    }
-
-    public getLabel(): string {
-        return this._label;
     }
 
     public getGroup(): string {
@@ -128,7 +119,7 @@ class DropdownCounter {
 // eslint-disable-next-line @typescript-eslint/unbound-method
 $.fn.dropdownCounter = function dropdownCounterPlugin(
     this: JQuery,
-    command: 'value' | 'reset' | 'label',
+    command: 'value' | 'reset' | 'group',
     args: number = null,
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 ): any {
@@ -147,8 +138,8 @@ $.fn.dropdownCounter = function dropdownCounterPlugin(
             counter.value = args;
             return this;
 
-        case 'label':
-            return counter.getLabel();
+        case 'group':
+            return counter.getGroup();
 
         default:
             throw new Error(`Unknown command '${command}'`);
