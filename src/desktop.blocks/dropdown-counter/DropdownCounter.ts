@@ -19,48 +19,60 @@ interface ICounterDomElements {
 class DropdownCounter {
     private readonly _domElements: ICounterDomElements;
     private _value: number;
-    private readonly _labelText: string;
+    private readonly _label: string;
+    private readonly _group: string;
 
     constructor($counter: JQuery) {
         this._domElements = this._getDomElements($counter);
+        const {
+            $label,
+            $out,
+        } = this._domElements;
 
         try {
-            const valueStr = this._domElements.$out.text();
+            const valueStr = $out.text();
             this._value = parseInt(valueStr, 10);
         } catch (error) {
             console.error(error);
             this._value = 0;
-            this._domElements.$out.text(0);
+            $out.text(0);
         }
 
-        this._labelText = this._domElements.$label.text();
+        this._label = $label.text();
+        this._group = $counter.data('group') || '';
 
         this._updateButtons();
         this._initEventListeners();
     }
 
-    public reset(): void {
-        this.setValue(0);
-    }
+    public set value(value: number) {
+        const { $out } = this._domElements;
 
-    public getValue(): number {
-        return this._value;
-    }
-
-    public setValue(value: number): void {
         if (value >= 0) {
             this._value = value;
-            this._domElements.$out.text(value);
+            $out.text(value);
         } else {
             this._value = 0;
-            this._domElements.$out.text(0);
+            $out.text(0);
         }
 
         this._updateButtons();
     }
 
+    public get value(): number {
+        return this._value;
+    }
+
+    public reset(): void {
+        this.value = 0;
+    }
+
     public getLabel(): string {
-        return this._labelText;
+        return this._label;
+    }
+
+    public getGroup(): string {
+        return this._group;
     }
 
     private _getDomElements($counter: JQuery): ICounterDomElements {
@@ -127,10 +139,10 @@ $.fn.dropdownCounter = function dropdownCounterPlugin(
 
         case 'value':
             if (args === null) {
-                return counter.getValue();
+                return counter.value;
             }
 
-            counter.setValue(args);
+            counter.value = args;
             return this;
 
         case 'label':

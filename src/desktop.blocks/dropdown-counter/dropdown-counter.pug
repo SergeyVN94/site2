@@ -1,10 +1,17 @@
 include ../text/text.pug
 include ../button/button.pug
 
-mixin dropdown-counter(text = "", value = 0)
-    -const valueRes = (value < 0) ? 0 : value;
+mixin dropdown-counter(options = {})
+    -
+        const {
+            label = "",
+            group = "",
+            value = 0,
+        } = options;
 
-    .dropdown-counter.js-dropdown-counter
+        const valueRes = (value < 0) ? 0 : value;
+
+    .dropdown-counter.js-dropdown-counter(data-group=group)
         +text({
             text,
             theme: "h3",
