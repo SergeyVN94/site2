@@ -4,10 +4,12 @@ const DROPDOWN_CLASSES = {
     DROPDOWN_EXPANDED: 'dropdown_expanded',
 };
 
+// eslint-disable-next-line @typescript-eslint/unbound-method
 $.fn.dropdown = function dropdownPlugin(
     command: 'expanded',
     args: boolean = null
-): boolean | JQuery {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+): any {
     switch (command) {
         case 'expanded':
             if (args === null) {

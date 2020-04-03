@@ -125,11 +125,13 @@ class DropdownCounter {
     }
 }
 
+// eslint-disable-next-line @typescript-eslint/unbound-method
 $.fn.dropdownCounter = function dropdownCounterPlugin(
     this: JQuery,
     command: 'value' | 'reset' | 'label',
     args: number = null,
-): number | string | JQuery {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+): any {
     const counter: DropdownCounter = this.data('counter');
 
     switch (command) {

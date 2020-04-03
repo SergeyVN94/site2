@@ -3,25 +3,21 @@ type CounterValue = {
     value?: number;
 };
 
+// eslint-disable-next-line @typescript-eslint/interface-name-prefix
 interface JQuery {
-    dropdown: (
-        command: 'expanded',
-        args?: boolean
-    ) => boolean | JQuery;
-    dropdownHead: (
-        command: 'set-theme' | 'remove-theme' | 'has-theme' | 'text',
-        args?: string | boolean | JQuery
-    ) => string | boolean | JQuery;
-    dropdownCounter: (
-        command: 'value' | 'reset' | 'label',
-        args?: number
-    ) => number | string | JQuery;
-    calendar: (
-        command: 'select-date',
-        args: 'start' | 'end'
-    ) => JQuery;
-    button(this: JQuery, command: 'disable'): boolean;
-    button(this: JQuery, command: 'disable', state: boolean): JQuery;
-    button(this: JQuery, command: 'hidden'): boolean;
-    button(this: JQuery, command: 'hidden', state: boolean): JQuery;
+    dropdown(command: 'expanded'): boolean;
+    dropdown(command: 'expanded', expanded: boolean): JQuery;
+    dropdownHead(command: 'set-theme' | 'remove-theme', theme: string): JQuery;
+    dropdownHead(command: 'has-theme', theme: string): boolean;
+    dropdownHead(command: 'text', text: string): JQuery;
+    dropdownHead(command: 'text'): string;
+    dropdownCounter(command: 'value'): number;
+    dropdownCounter(command: 'value', value: number): JQuery;
+    dropdownCounter(command: 'label'): string;
+    dropdownCounter(command: 'reset'): JQuery;
+    calendar(command: 'select-date', args: 'start' | 'end'): JQuery;
+    button(command: 'disable'): boolean;
+    button(command: 'disable', state: boolean): JQuery;
+    button(command: 'hidden'): boolean;
+    button(command: 'hidden', state: boolean): JQuery;
 }

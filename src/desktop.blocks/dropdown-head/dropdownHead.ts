@@ -2,11 +2,13 @@ const DROPDOWN_HEAD_CLASSES = {
     TEXT_ELEMENT: 'js-dropdown-head__text',
 };
 
+// eslint-disable-next-line @typescript-eslint/unbound-method
 $.fn.dropdownHead = function pluginHandler(
     this: JQuery,
     command: 'set-theme' | 'remove-theme' | 'has-theme' | 'text',
     args: string = null
-): string | boolean | JQuery {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+): any {
     switch (command) {
         case 'set-theme':
             this.addClass(`dropdown-head_theme_${args}`);

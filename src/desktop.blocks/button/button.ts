@@ -3,6 +3,7 @@ const BUTTON_CLASSES = {
     HIDDEN: 'button_hidden',
 };
 
+// eslint-disable-next-line @typescript-eslint/unbound-method
 $.fn.button = function buttonPlugin(
     this: JQuery,
     command: 'disable' | 'hidden',
