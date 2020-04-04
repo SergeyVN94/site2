@@ -6,6 +6,7 @@ mixin expandable-checkbox-list(options = {})
         const {
             title = "",
             items = [],
+            icon = "expand_more"
         } = options;
 
     .expandable-checkbox-list.js-expandable-checkbox-list
@@ -15,7 +16,7 @@ mixin expandable-checkbox-list(options = {})
                     text: title,
                     theme: "h3",
                 })
-            .expandable-checkbox-list__icon.js-expandable-checkbox-list__icon expand_more
+            .expandable-checkbox-list__icon.js-expandable-checkbox-list__icon #{icon}
         .expandable-checkbox-list__body
             for item in items
                 .expandable-checkbox-list__checkbox

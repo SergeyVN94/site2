@@ -70,6 +70,10 @@ mixin header-footer()
                 ],
             })
         .header-footer__copyright-bar
-            +copyright-bar("Copyright © 2018 Toxin UI Kit. All rights reserved.")
+            +copyright-bar({
+                copyright: "Copyright © 2018 Toxin UI Kit. All rights reserved.",
+            })
         .header-footer__footer
-            +footer-creative("Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.")
+            +footer-creative({
+                siteDescription: "Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.",
+            })

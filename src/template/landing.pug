@@ -75,8 +75,6 @@ block page
                 ],
             };
 
-            const copyright = "Copyright © 2018 Toxin отель. Все права зачищены.";
-
         +header(headerConfig)
         
         .page-container__main
@@ -84,4 +82,6 @@ block page
 
         +footer(footerConfig)
         .page-container__copyright-bar
-            +copyright-bar(copyright)
+            +copyright-bar({
+                copyright: "Copyright © 2018 Toxin отель. Все права зачищены.",
+            })

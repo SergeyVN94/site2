@@ -1,7 +1,16 @@
 include ../text/text.pug
 include ../button/button.pug
 
-mixin copyright-bar(copyright = "", socialButtons = [])
+mixin copyright-bar(options = {})
+    -
+        const {
+            copyright = "",
+            socialButtons = [
+                {text: "twitter", href: "https://twitter.com"},
+                {text: "facebook-square", href: "https://ru-ru.facebook.com"},
+                {text: "instagram", href: "https://www.instagram.com"},
+            ],
+        } = options;
     .copyright-bar
         .container-content
             .copyright-bar__container-content
@@ -10,14 +19,6 @@ mixin copyright-bar(copyright = "", socialButtons = [])
                         text: copyright,
                     })
                 .copyright-bar__social-buttons
-                    -
-                        if (socialButtons.length === 0) {
-                            socialButtons = [
-                                {text: "twitter", href: "https://twitter.com"},
-                                {text: "facebook-square", href: "https://ru-ru.facebook.com"},
-                                {text: "instagram", href: "https://www.instagram.com"},
-                            ];
-                        }
                     for button in socialButtons
                         -
                             const {

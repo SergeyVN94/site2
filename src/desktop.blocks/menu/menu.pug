@@ -16,9 +16,10 @@ mixin menu(options = {})
 
     nav(class=classesStr)
         for item in items
-            -const { items: menuItemExpandableBody = null } = item;
+            //- Если в item есть дочерние items, это menu-item-expandable
+            -const isMenuItemExpandable = Object.hasOwnProperty.apply(item, ['items']);
             .menu__item
-                if menuItemExpandableBody !== null
+                if isMenuItemExpandable
                     +menu-item-expandable(item)
                 else
                     +menu-item(item)

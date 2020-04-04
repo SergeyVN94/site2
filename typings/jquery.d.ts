@@ -5,8 +5,6 @@ type CounterValue = {
 
 // eslint-disable-next-line @typescript-eslint/interface-name-prefix
 interface JQuery {
-    dropdown(command: 'expanded'): boolean;
-    dropdown(command: 'expanded', expanded: boolean): JQuery;
     dropdownHead(command: 'set-theme' | 'remove-theme', theme: string): JQuery;
     dropdownHead(command: 'has-theme', theme: string): boolean;
     dropdownHead(command: 'text', text: string): JQuery;

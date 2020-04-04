@@ -7,6 +7,7 @@ mixin hotel-rooms(options = {})
         const {
             title = "",
             rooms = [],
+            pagination = { bottomText: "1 – 12 из 100+ вариантов аренды" },
         } = options;
 
     .hotel-rooms
@@ -21,4 +22,4 @@ mixin hotel-rooms(options = {})
                 .hotel-rooms__room-information
                     +card-room-information(room)
         .hotel-rooms__pagination
-            +pagination({ bottomText: "1 – 12 из 100+ вариантов аренды" })
+            +pagination(pagination)

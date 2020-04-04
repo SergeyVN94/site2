@@ -12,6 +12,7 @@ mixin card-room-information(options = {})
             luxury = false,
             stars = 0,
             comments = 0,
+            commentsHref = "./room-details.html#comments",
         } = options;
 
     .card-room-information
@@ -27,7 +28,7 @@ mixin card-room-information(options = {})
                 })
             .card-room-information__rating-comments
                 +rating(stars)
-                a.card-room-information__comments(href="./room-details.html#comments", tabindex="-1")
+                a.card-room-information__comments(href=commentsHref, tabindex="-1")
                     +text({
                         text: comments,
                         fontWeight: "bold",

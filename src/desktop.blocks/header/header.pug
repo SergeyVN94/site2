@@ -11,6 +11,7 @@ mixin header(options = {})
             btnRegister = "register",
             btnLoginHref = "./sign-in.html",
             btnRegisterHref = "./registration.html",
+            btnMobileIcon = "view_headline",
         } = options;
 
     header.header.js-header
@@ -21,10 +22,8 @@ mixin header(options = {})
                         +logo()
                     .header__menu-mobile-btn
                         +button({
-                            classes: [
-                                "js-header__menu-mobile-btn",
-                            ],
-                            text: "view_headline",
+                            classes: [ "js-header__menu-mobile-btn" ],
+                            text: btnMobileIcon,
                             theme: "icon",
                         })
                 .header__nav-container

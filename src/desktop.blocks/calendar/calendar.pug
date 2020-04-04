@@ -1,7 +1,14 @@
 include ../text/text.pug
 include ../button/button.pug
 
-mixin calendar()
+mixin calendar(options = {})
+    -
+        const {
+            weekdayNames = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"],
+            btnClear = "очистить",
+            btnApply = "применить",
+        } = options;
+    
     div(class="calendar js-calendar")
         .calendar__date-navigation
             .calendar__btn-change-month.js-calendar__btn-prev-month arrow_back
@@ -15,8 +22,6 @@ mixin calendar()
                 })
             .calendar__btn-change-month.js-calendar__btn-next-month arrow_forward
         .calendar__weekday-names
-            -const weekdayNames = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
-
             for name in weekdayNames
                 .calendar__weekday-name
                     +text({
@@ -29,7 +34,7 @@ mixin calendar()
         .calendar__btn-control
             .calendar__btn-clear
                 +button({
-                    text: "очистить",
+                    text: btnClear,
                     theme: "text",
                     textColor: "text-secondary",
                     classes: [
@@ -38,7 +43,7 @@ mixin calendar()
                 })
             .calendar__btn-apply
                 +button({
-                    text: "применить",
+                    text: btnApply,
                     theme: "text",
                     classes: [
                         "js-calendar__btn-apply",
