@@ -13,11 +13,12 @@ mixin dropdown-counter(options = {})
 
     .dropdown-counter.js-dropdown-counter(data-group=group)
         +text({
-            text,
+            text: label,
             theme: "h3",
             classes: [
                 "js-dropdown-counter__label"
             ],
+            noSelect: true,
         })
         .dropdown-counter__control
             .dropdown-counter__btn-minus
@@ -39,6 +40,7 @@ mixin dropdown-counter(options = {})
                     ],
                     horizontal: "middle",
                     theme: "h3",
+                    noSelect: true,
                 })
             .dropdown-counter__btn-plus
                 +button({

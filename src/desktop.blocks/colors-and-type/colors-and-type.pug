@@ -8,4 +8,25 @@ mixin colors-and-type()
                 .colors-and-type__colors-demo
                     +colors-demo()
                 .colors-and-type__text-demo
-                    +text-demo()
+                    +text-demo([
+                        {
+                            title: "H1",
+                            example: "This one is the sub-section or widget title",
+                            theme: "h1",
+                        },
+                        {
+                            title: "H2",
+                            example: "Next one is the item title inside widgets",
+                            theme: "h2",
+                        },
+                        {
+                            title: "H3",
+                            example: "This is a label or CTA text",
+                            theme: "h4",
+                        },
+                        {
+                            title: "Body",
+                            example: "This is the body text which is used for most of the design, like paragraphs, lists, etc.",
+                            theme: "body",
+                        },
+                    ])

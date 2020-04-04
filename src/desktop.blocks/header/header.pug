@@ -9,6 +9,8 @@ mixin header(options = {})
             user = "",
             btnLogin = "login",
             btnRegister = "register",
+            btnLoginHref = "./sign-in.html",
+            btnRegisterHref = "./registration.html",
         } = options;
 
     header.header.js-header
@@ -40,13 +42,13 @@ mixin header(options = {})
                                 .header__btn-login
                                     +button({
                                         text: btnLogin,
-                                        href: "./sign-in.html",
+                                        href: btnLoginHref,
                                         size: "sm",
                                         theme: "light",
                                     })
                                 .header__btn-register
                                     +button({
                                         text: btnRegister,
-                                        href: "./registration.html",
+                                        href: btnRegisterHref,
                                         size: "sm",
                                     })

@@ -5,31 +5,31 @@ include ../calendar/calendar.pug
 mixin date-range(options = {})
     -
         const {
-            textDropdownLeft = "",
-            textDropdownRight = "",
-            headDropdownLeft = null,
-            headDropdownRight = null,
+            dropdownLeftText = "ДД.ММ.ГГГГ",
+            dropdownRightText = "ДД.ММ.ГГГГ",
+            dropdownLeftHead = { title: "прибытие" },
+            dropdownRightHead = { title: "выезд" },
         } = options;
 
     .date-range.js-date-range
         .date-range__dropdowns
             .date-range__dropdown
-                if headDropdownLeft !== null
+                if dropdownLeftHead !== null
                     .date-range__block-head
-                        +block-head(headDropdownLeft)
+                        +block-head(dropdownLeftHead)
                 +dropdown-head({
-                    text: textDropdownLeft,
+                    text: dropdownLeftText,
                     classes: [
                         "js-date-range__dropdown-head",
                         "js-date-range__dropdown-head-left",
                     ],
                 })
             .date-range__dropdown
-                if headDropdownRight !== null
+                if dropdownRightHead !== null
                     .date-range__block-head
-                        +block-head(headDropdownRight)
+                        +block-head(dropdownRightHead)
                 +dropdown-head({
-                    text: textDropdownRight,
+                    text: dropdownRightText,
                     classes: [
                         "js-date-range__dropdown-head",
                         "js-date-range__dropdown-head-right",

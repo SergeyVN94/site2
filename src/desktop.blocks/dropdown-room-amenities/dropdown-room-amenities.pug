@@ -1,20 +1,53 @@
 include ../dropdown/dropdown.pug
 include ../dropdown-counter/dropdown-counter.pug
 
-mixin dropdown-room-amenities()
+mixin dropdown-room-amenities(options = {})
+    -
+        const {
+            head = { title: "удобства номера" },
+            text = "Удобства номера",
+            variations = {
+                bedrooms: [
+                    'спальня',
+                    'спальни',
+                    'спален',
+                ],
+                beds: [
+                    'кровать',
+                    'кровати',
+                    'кроватей',
+                ],
+                bathrooms: [
+                    'ванная комната',
+                    'ванные комнаты',
+                    'ванныx комнат',
+                ],
+            },
+            counters = [
+                {
+                    label: "спальни",
+                    group: "bedrooms",
+                },
+                {
+                    label: "кровати",
+                    group: "beds",
+                },
+                {
+                    label: "ванные комнаты",
+                    group: "bathrooms",
+                },
+            ],
+        } = options;
+
     +dropdown({
-        head: {
-            title: "Удобства номера",
-        },
-        text: "Удобства номера",
+        head,
+        text,
+        variations,
         classes: [
+            "dropdown-room-amenities",
             "js-dropdown-room-amenities",
         ],
     })
-        .dropdown-room-amenities__counter
-            +dropdown-counter("спальни")
-        .dropdown-room-amenities__counter
-            +dropdown-counter("кровати")
-        .dropdown-room-amenities__counter
-            +dropdown-counter("ванные комнаты")
-
+        for counter in counters
+            .dropdown-room-amenities__counter
+                +dropdown-counter(counter)

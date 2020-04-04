@@ -15,9 +15,4 @@ mixin like-buttons(options = {})
         .like-buttons__container
             for item in items
                 .like-buttons__button
-                    -
-                        const {
-                            likes,
-                            checked = false,
-                        } = item;
-                    +like-button(likes, checked)
+                    +like-button(item)

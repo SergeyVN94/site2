@@ -4,32 +4,32 @@ include ../date-range/date-range.pug
 include ../dropdown-guest/dropdown-guest.pug
 include ../button/button.pug
 
-mixin card-selection-room()
+mixin card-selection-room(options = {})
+    -
+        const {
+            title = "Найдём номера под ваши пожелания",
+            dateRange = {},
+            dropdownGuest = {},
+            btnFindRoom = "подобрать номер",
+            btnFindRoomHref = "./search-room.html",
+        } = options;
+    
     .card-selection-room
         +card-container()
             .card-selection-room__title
                 +text({
-                    text: "Найдём номера под ваши пожелания",
+                    text: title,
                     theme: "h1",
                     fontName: "montserrat",
                 })
             .card-selection-room__date-range
-                +date-range({
-                    headDropdownLeft: {
-                        title: "прибытие",
-                    },
-                    headDropdownRight: {
-                        title: "выезд",
-                    },
-                    textDropdownLeft: "ДД.ММ.ГГГГ",
-                    textDropdownRight: "ДД.ММ.ГГГГ",
-                })
+                +date-range(dateRange)
             .card-selection-room__dropdown-guest
-                +dropdown-guest({ title: "гости" })
+                +dropdown-guest(dropdownGuest)
             .card-selection-room__button-find
                 +button({
-                    href: "./search-room.html",
-                    text: "подобрать номер",
+                    href: btnFindRoomHref,
+                    text: btnFindRoom,
                     theme: "default-long",
                     icon: "arrow_forward",
                 })

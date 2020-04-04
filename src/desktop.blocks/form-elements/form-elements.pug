@@ -54,20 +54,13 @@ mixin form-elements()
                             })
                         .form-elements__item
                             +dropdown-guest({
-                                title: "dropdown",
-                                help: "default",
+                                head: {
+                                    title: "dropdown",
+                                    help: "default",
+                                },
                             })
                         .form-elements__item
-                            +date-range({
-                                headDropdownLeft: {
-                                    title: "date dropdown",
-                                },
-                                headDropdownRight: {
-                                    title: "date dropdown",
-                                },
-                                textDropdownLeft: "ДД.ММ.ГГГГ",
-                                textDropdownRight: "ДД.ММ.ГГГГ",
-                            })
+                            +date-range()
                         .form-elements__item
                             +dropdown-filter-date({
                                 head: {

@@ -1,37 +1,64 @@
 include ../dropdown/dropdown.pug
-include ../dropdown-counter/dropdown-counter.pug
 include ../button/button.pug
 
-mixin dropdown-guest(head)
+mixin dropdown-guest(options = {})
+    -
+        const {
+            head = { title: "гости" },
+            text = "Сколько гостей",
+            variations = {
+                adults:  [
+                    'гость',
+                    'гостя',
+                    'гостей',
+                ],
+                babies: [
+                    'младенец',
+                    'младенца',
+                    'младенцев',
+                ],
+            },
+            counters = [
+                {
+                    label: "взрослые",
+                    group: "adults",
+                },
+                {
+                    label: "дети",
+                    group: "adults",
+                },
+                {
+                    label: "младенцы",
+                    group: "babies",
+                },
+            ],
+            btnClear = "очистить",
+            btnApply = "применить",
+        } = options;
+
+        const variationsStr = JSON.stringify(variations);
+
     +dropdown({
         head,
-        text: "Сколько гостей",
-        classes: [
-            "js-dropdown-guest",
-        ],
+        text,
+        variations,
+        classes: [ "js-dropdown-guest" ],
     })
-        .dropdown-guest__counter
-            +dropdown-counter("взрослые")
-        .dropdown-guest__counter
-            +dropdown-counter("дети")
-        .dropdown-guest__counter
-            +dropdown-counter("младенцы")
+        for counter in counters
+            .dropdown-guest__counter
+                +dropdown-counter(counter)
         .dropdown-guest__btn-container
             .dropdown-guest__btn-clear
                 +button({
-                    classes: [
-                        "js-dropdown-guest__btn-clear"
-                    ],
-                    text: "очистить",
+                    classes: [ "js-dropdown-guest__btn-clear" ],
+                    text: btnClear,
                     theme: "text",
                     textColor: "text-secondary",
                     hidden: true,
                 })
             .dropdown-guest__btn-apply
                 +button({
-                    classes: [
-                        "js-dropdown-guest__btn-apply"
-                    ],
-                    text: "применить",
+                    classes: [ "js-dropdown-guest__btn-apply" ],
+                    text: btnApply,
                     theme: "text",
                 })

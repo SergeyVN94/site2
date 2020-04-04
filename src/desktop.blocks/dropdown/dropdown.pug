@@ -1,5 +1,6 @@
 include ../block-head/block-head.pug
 include ../dropdown-head/dropdown-head.pug
+include ../dropdown-counter/dropdown-counter.pug
 
 mixin dropdown(options = {})
     -
@@ -7,20 +8,21 @@ mixin dropdown(options = {})
             head = null,
             text = "",
             classes = [],
+            variations = {},
         } = options;
 
         classes.push("dropdown js-dropdown");
         const classesStr = classes.join(" ");
 
-    div(class=classesStr)
+        const variationsStr = JSON.stringify(variations);
+
+    div(class=classesStr, data-variations=variationsStr)
         if head !== null
             .dropdown__block-head
                 +block-head(head)
 
         .dropdown__container
-            +dropdown-head({
-                text,
-            })
+            +dropdown-head({ text })
             .dropdown__body
                 .dropdown__content
                     if block

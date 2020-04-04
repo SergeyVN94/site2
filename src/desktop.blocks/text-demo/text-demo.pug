@@ -1,56 +1,17 @@
-include ../text-demo-item/text-demo-item.pug
-
-mixin text-demo()
-    .text-demo()
-        -
-            const itemConfigs = [
-                {
-                    name: {
-                        text: "H1",
-                        theme: "h1",
-                        fontWeight: "normal",
-                        color: "light-title",
-                    },
-                    value: {
-                        text: "This one is the sub-section or widget title",
-                        theme: "h1",
-                    },
-                },
-                {
-                    name: {
-                        text: "H2",
-                        theme: "h2",
-                        fontWeight: "normal",
-                        color: "light-title",
-                    },
-                    value: {
-                        text: "Next one is the item title inside widgets",
-                        theme: "h2",
-                    },
-                },
-                {
-                    name: {
-                        text: "H3",
-                        theme: "h3",
-                        fontWeight: "normal",
-                        color: "light-title",
-                    },
-                    value: {
-                        text: "This is a label or CTA text",
-                        theme: "h3",
-                    },
-                },
-                {
-                    name: {
-                        text: "Body",
-                        color: "light-title",
-                    },
-                    value: {
-                        text: "This is the body text which is used for most of the design, like paragraphs, lists, etc.",
-                    },
-                },
-            ];
-
-        for config in itemConfigs
+mixin text-demo(items = [])
+    .text-demo
+        for item in items
+            -const {title, example, theme} = item;
             .text-demo__item
-                +text-demo-item(config)
+                .text-demo__item-name
+                    +text({
+                        text: title,
+                        theme: theme,
+                        fontWeight: "normal",
+                        color: "light-title",
+                    })
+                .text-demo__item-value
+                    +text({
+                        text: example,
+                        theme: theme,
+                    })

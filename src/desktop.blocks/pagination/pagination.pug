@@ -7,7 +7,51 @@ mixin pagination(options = {})
         const {
             head = null,
             bottomText = "",
+            buttons = [
+                {
+                    value: 1,
+                    type: "current",
+                },
+                { value: 2 },
+                { value: 3 },
+                { value: "..." },
+                { value: 15 },
+                { type: "next-page" },
+            ],
         } = options;
+
+        const buttonsConfig = buttons.map((config) => {
+            const {
+                type = "default",
+                value = "",
+            } = config;
+
+            if (type === "default") {
+                return {
+                    text: value,
+                    theme: "round",
+                    textColor: "text-secondary",
+                    hoverTheme: "gradient-primary",
+                }
+            }
+
+            if (type === "current") {
+                return {
+                    text: value,
+                    theme: "round",
+                    fontWeight: "bold",
+                    background: "gradient-primary",
+                    hoverTheme: "gradient-primary",
+                }
+            }
+
+            return {
+                text: "arrow_forward",
+                theme: "round-icon",
+                background: "gradient-success",
+                hoverTheme: "gradient-success",
+            }
+        });
 
     .pagination
         if head !== null
@@ -15,48 +59,7 @@ mixin pagination(options = {})
                 +block-head(head)
         .pagination__container
             .pagination__buttons
-                -
-                    const buttonConfigs = [
-                        {
-                            text: "1",
-                            theme: "round",
-                            fontWeight: "bold",
-                            background: "gradient-primary",
-                            hoverTheme: "gradient-primary",
-                        },
-                        {
-                            text: "2",
-                            theme: "round",
-                            textColor: "text-secondary",
-                            hoverTheme: "gradient-primary",
-                        },
-                        {
-                            text: "3",
-                            theme: "round",
-                            textColor: "text-secondary",
-                            hoverTheme: "gradient-primary",
-                        },
-                        {
-                            text: "...",
-                            theme: "round",
-                            textColor: "text-secondary",
-                            hoverTheme: "gradient-primary",
-                        },
-                        {
-                            text: "15",
-                            theme: "round",
-                            textColor: "text-secondary",
-                            hoverTheme: "gradient-primary",
-                        },
-                        {
-                            text: "arrow_forward",
-                            theme: "round-icon",
-                            background: "gradient-success",
-                            hoverTheme: "gradient-success",
-                        },
-                    ];
-
-                for config in buttonConfigs
+                for config in buttonsConfig
                     .pagination__nav-button
                         +button(config)
 

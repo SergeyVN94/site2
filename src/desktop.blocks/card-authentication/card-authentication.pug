@@ -3,39 +3,51 @@ include ../text/text.pug
 include ../input-text/input-text.pug
 include ../button/button.pug
 
-mixin card-authentication()
+mixin card-authentication(options = {})
+    -
+        const {
+            title = "Войти",
+            formAction = "/mock-address/change-me",
+            inputEmailPlaceholder = "Email",
+            inputPasswordPlaceholder = "Пароль",
+            btnSignIn = "войти",
+            noAccount =  "Нет аккаунта на Toxin?",
+            btnCreateAccount = "создать",
+            btnCreateAccountHref = "./registration.html",
+        } = options;
+
     .card-authentication
         +card-container()
             .card-authentication__head
                 +text({
-                    text: "Войти",
+                    text: title,
                     theme: "h1",
                     fontName: "montserrat",
                 })
-            form(action="/mock-address/change-me", method="post", class="card-authentication__form")
+            form(action=formAction, method="post", class="card-authentication__form")
                 .card-authentication__email
                     +input-text({
-                        placeholder: "Email",
+                        placeholder: inputEmailPlaceholder,
                         type: "email",
                     })
                 .card-authentication__password
                     +input-text({
-                        placeholder: "Пароль",
+                        placeholder: inputPasswordPlaceholder,
                         type: "password",
                     })
                 .card-authentication__btn-auth
                     +button({
-                        text: "войти",
+                        text: btnSignIn,
                         icon: "arrow_forward",
                         theme: "default-long",
                     })
             .card-authentication__no-account
                 +text({
-                    text: "Нет аккаунта на Toxin?",
+                    text: noAccount,
                     color: "important-text",
                 })
                 +button({
-                    href: "./registration.html",
-                    text: "создать",
+                    href: btnCreateAccountHref,
+                    text: btnCreateAccount,
                     theme: "light",
                 })

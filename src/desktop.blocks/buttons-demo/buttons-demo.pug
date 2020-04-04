@@ -1,48 +1,61 @@
 include ../block-head/block-head.pug
 include ../button/button.pug
 
-mixin buttons-demo()
+mixin buttons-demo(options = {})
+    -
+        const {
+            head = { title: "buttons" },
+            buttonDefault = "click me",
+            buttonDefaultDisable = "click me",
+            buttonLight = "click me",
+            buttonLightDisable = "click me",
+            buttonText = "click me",
+            buttonTextDisable = "click me",
+            buttonLong = "перейти к оплате",
+        } = options;
+
     .buttons-demo
-        .buttons-demo__head
-            +block-head({ title: "buttons" })
+        if head !== null
+            .buttons-demo__head
+                +block-head(head)
         .buttons-demo__container
             .buttons-demo__row
                 .buttons-demo__button
                     +button({
-                        text: "click me",
+                        text: buttonDefault,
                     })
                 .buttons-demo__button
                     +button({
-                        text: "click me",
+                        text: buttonDefaultDisable,
                         disable: true,
                     })
             .buttons-demo__row
                 .buttons-demo__button
                     +button({
-                        text: "click me",
+                        text: buttonLight,
                         theme: "light",
                     })
                 .buttons-demo__button
                     +button({
-                        text: "click me",
+                        text: buttonLightDisable,
                         disable: true,
                         theme: "light",
                     })
             .buttons-demo__row
                 .buttons-demo__button
                     +button({
-                        text: "click me",
+                        text: buttonText,
                         theme: "text",
                     })
                 .buttons-demo__button
                     +button({
-                        text: "click me",
+                        text: buttonTextDisable,
                         theme: "text",
                         textColor: "text-secondary",
                     })
             .buttons-demo__row
                 +button({
-                    text: "перейти к оплате",
+                    text: buttonLong,
                     theme: "default-long",
                     icon: "arrow_forward",
                 })

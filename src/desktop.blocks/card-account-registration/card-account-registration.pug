@@ -6,67 +6,86 @@ include ../text-field/text-field.pug
 include ../toggle-button/toggle-button.pug
 include ../button/button.pug
 
-mixin card-account-registration()
+mixin card-account-registration(options = {})
+    -
+        const {
+            title = "Регистрация аккаунта",
+            formAction = "/mock-address/change-me",
+            inputNamePlaceholder = "Имя",
+            inputSurnamePlaceholder = "Фамилия",
+            genderRadio = [
+                "Мужчина",
+                "Женщина",
+            ],
+            inputDateOfBirthTitle = "дата рождения",
+            inputDateOfBirthPlaceholder = "ДД.ММ.ГГГГ",
+            inputsAuthenticationTitle = "данные для входа в сервис",
+            inputEmailPlaceholder = "Email",
+            inputPasswordPlaceholder = "Пароль",
+            toggleBtnSpecialOffers = "Получать спецпредложения",
+            paymentBtn = "перейти к оплате",
+            haveAccount = "Уже есть аккаунт на Toxin",
+            btnSignIn = "войти",
+        } = options;
+
+        const radioButtonsGender = genderRadio.map((item) => ({text: item, group: "gender"}))
+        if (radioButtonsGender.length) {
+            radioButtonsGender[0].checked = true;
+        }
+
     .card-account-registration
         +card-container()
             .card-account-registration__title
                 +text({
-                    text: "Регистрация аккаунта",
+                    text: title,
                     theme: "h1",
                     fontName: "montserrat",
                 })
-            form(action="/mock-address/change-me", method="post", class="card-account-registration__form")
+            form(action=formAction, method="post", class="card-account-registration__form")
                 .card-account-registration__input-name
                     +input-text({
-                        placeholder: "Имя",
+                        placeholder: inputNamePlaceholder,
                     })
                 .card-account-registration__input-surname
                     +input-text({
-                        placeholder: "Фамилия",
+                        placeholder: inputSurnamePlaceholder,
                     })
                 .card-account-registration__select-gender
                     +radio-buttons({
-                        items: [
-                            {text: "Мужчина", group: "gender", checked: true},
-                            {text: "Женщина", group: "gender"},
-                        ],
+                        items: radioButtonsGender,
                     })
                 .card-account-registration__date-of-birth
                     +text-field({
-                        head: {
-                            title: "дата рождения",
-                        },
-                        placeholder: "ДД.ММ.ГГГГ",
+                        head: { title: inputDateOfBirthTitle },
+                        placeholder: inputDateOfBirthPlaceholder,
                     })
                 .card-account-registration__email
                     +text-field({
-                        head: {
-                            title: "данные для входа в сервис",
-                        },
-                        placeholder: "Email",
+                        head: { title: inputsAuthenticationTitle },
+                        placeholder: inputEmailPlaceholder,
                         type: "email",
                     })
                 .card-account-registration__password
                     +input-text({
-                        placeholder: "Пароль",
+                        placeholder: inputPasswordPlaceholder,
                         type: "password",
                     })
                 .card-account-registration__special-offers
-                    +toggle-button("Получать спецпредложения")
+                    +toggle-button({ text: toggleBtnSpecialOffers })
                 .card-account-registration__payment-button
                     +button({
-                        text: "перейти к оплате",
+                        text: paymentBtn,
                         theme: "default-long",
                         icon: "arrow_forward",
                     })
             .card-account-registration__have-account
                 +text({
-                    text: "Уже есть аккаунт на Toxin",
+                    text: haveAccount,
                     color: "important-text",
                 })
                 +button({
                     href: "./sign-in.html",
-                    text: "войти",
+                    text: btnSignIn,
                     theme: "light",
                     horizontalSize: "big",
                 })

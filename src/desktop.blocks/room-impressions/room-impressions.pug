@@ -2,6 +2,12 @@ include ../block-head/block-head.pug
 include ../text/text.pug
 
 mixin room-impressions(options = {})
+    -
+        const {
+            title = "Впечатления от номера",
+            items = {},
+        } = options;
+    
     .room-impressions
         .room-impressions__head
             +block-head({
@@ -13,10 +19,6 @@ mixin room-impressions(options = {})
             })   
         .room-impressions__body
             -
-                const {
-                    items = {},
-                } = options;
-
                 const isPropertyExists = function isPropertyExists(obj, key) {
                     return Object.hasOwnProperty.apply(obj, [key]);
                 };

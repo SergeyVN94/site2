@@ -1,6 +1,7 @@
 import CALENDAR_CLASSES from './classes';
 import View from './View';
 
+// eslint-disable-next-line @typescript-eslint/unbound-method
 $.fn.calendar = function calendarPlugin(
     this: JQuery,
     command: 'select-date',
