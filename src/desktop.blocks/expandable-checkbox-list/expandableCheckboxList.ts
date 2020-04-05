@@ -1,6 +1,6 @@
 const CHECKBOX_LIST_CLASSES = {
     CHECKBOX_LIST: 'js-expandable-checkbox-list',
-    EXPAND_ICON: 'js-expandable-checkbox-list__icon',
+    HEAD: 'js-expandable-checkbox-list__head',
     EXPANDED: 'expandable-checkbox-list_expanded',
 };
 
@@ -11,6 +11,6 @@ const handleExpandIconClick = function handleExpandIconClick(ev: JQuery.MouseEve
 
 $(`.${CHECKBOX_LIST_CLASSES.CHECKBOX_LIST}`).on(
     'click.expandable-checkbox-list.expand',
-    `.${CHECKBOX_LIST_CLASSES.EXPAND_ICON}`,
+    `.${CHECKBOX_LIST_CLASSES.HEAD}`,
     handleExpandIconClick
 );

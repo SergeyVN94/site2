@@ -10,13 +10,13 @@ mixin expandable-checkbox-list(options = {})
         } = options;
 
     .expandable-checkbox-list.js-expandable-checkbox-list
-        .expandable-checkbox-list__head
+        .expandable-checkbox-list__head.js-expandable-checkbox-list__head
             .expandable-checkbox-list__title
                 +text({
                     text: title,
                     theme: "h3",
                 })
-            .expandable-checkbox-list__icon.js-expandable-checkbox-list__icon #{icon}
+            .expandable-checkbox-list__icon #{icon}
         .expandable-checkbox-list__body
             for item in items
                 .expandable-checkbox-list__checkbox

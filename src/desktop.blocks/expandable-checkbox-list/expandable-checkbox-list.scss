@@ -21,6 +21,7 @@
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
   }
 
   &__icon {
@@ -38,7 +39,6 @@
     font-size: 1.7143rem;
     line-height: 1.7143rem;
     color: $text-primary;
-    cursor: pointer;
   
     &:hover,
     &:active {
