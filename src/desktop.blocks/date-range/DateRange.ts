@@ -97,13 +97,20 @@ class DateRange {
     }
 
     private _handleCalendarApply(ev: JQuery.EventBase, start: Date, end: Date): void {
-        if (start !== null) {
-            this._domElements.$dropdownHeadLeft.dropdownHead('text', this._dateToString(start));
-        }
+        const {
+            $dropdownHeadLeft,
+            $dropdownHeadRight,
+        } = this._domElements;
 
-        if (end !== null) {
-            this._domElements.$dropdownHeadRight.dropdownHead('text', this._dateToString(end));
-        }
+        $dropdownHeadLeft.dropdownHead(
+            'text',
+            start === null ? DROPDOWN_HEAD_TEXT_DEFAULT : this._dateToString(start)
+        );
+
+        $dropdownHeadRight.dropdownHead(
+            'text',
+            end === null ? DROPDOWN_HEAD_TEXT_DEFAULT : this._dateToString(end)
+        );
 
         this._deselectDateRange();
     }
