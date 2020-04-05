@@ -112,20 +112,22 @@ class Model {
 
         const rangeStartIsNull = start === null;
         const rangeEndIsNull = end === null;
-        const isTargetDateCanBeSetToEnd = rangeEndIsNull || targetDateTime < end.getTime();
-        const isTargetDateCanBeSetToStart = rangeStartIsNull || targetDateTime > start.getTime();
+        const isTargetDateCanBeSetToStart = !rangeEndIsNull && targetDateTime < end.getTime();
+        const isTargetDateCanBeSetToEnd = !rangeStartIsNull && targetDateTime > start.getTime();
+        const inNeedResetRangeForStartDay = !isTargetDateCanBeSetToStart && !rangeEndIsNull && !rangeStartIsNull;
 
         if (setRangeStart) {
-            if (isTargetDateCanBeSetToEnd) {
-                this._rangeDays.start = targetDate;
-                this._updateHandler();
-                return true;
+            this._rangeDays.start = targetDate;
+
+            if (inNeedResetRangeForStartDay) {
+                this._rangeDays.end = null;
             }
 
-            return false;
+            this._updateHandler();
+            return true;
         }
 
-        if (isTargetDateCanBeSetToStart) {
+        if (rangeStartIsNull || isTargetDateCanBeSetToEnd) {
             this._rangeDays.end = targetDate;
             this._updateHandler();
             return true;
