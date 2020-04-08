@@ -3,7 +3,6 @@ const TerserPlugin = require('terser-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const AutoprefixerPlugin = require('autoprefixer');
 const Webpack = require('webpack');
-const ghpages = require('gh-pages');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -11,8 +10,6 @@ const PATHS = {
     build: `${__dirname}/dist`,
     src: `${__dirname}/src`,
 };
-
-ghpages.publish(PATHS.build, console.error);
 
 const optimization = {
     minimizer: [
