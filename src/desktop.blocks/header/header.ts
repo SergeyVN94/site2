@@ -1,5 +1,5 @@
 const CLASSES = {
-    MOBILE_BTN: 'js-header__menu-mobile-btn',
+    MOBILE_BTN: 'js-button_action_expand-mobile-menu',
     HEADER: 'js-header',
     EXPANDED_MENU: 'header_extended',
 };

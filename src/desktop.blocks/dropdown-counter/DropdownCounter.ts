@@ -1,19 +1,16 @@
 const COUNTER_CLASSES = {
-    OUT: 'js-dropdown-counter__out',
-    LABEL: 'js-dropdown-counter__label',
-    BTN_MINUS: 'js-dropdown-counter__btn-minus',
-    BTN_PLUS: 'js-dropdown-counter__btn-plus',
-    BUTTON: 'js-dropdown-counter__btn',
+    BUTTON: 'js-button',
+    OUT: 'js-text_assignment_count-out',
+    BTN_MINUS: 'js-button_action_minus',
+    BTN_PLUS: 'js-button_action_plus',
     COUNTER: 'js-dropdown-counter',
 };
 
 interface ICounterDomElements {
     $counter: JQuery;
     $buttons: JQuery;
-    $btnPlus: JQuery;
     $btnMinus: JQuery;
     $out: JQuery;
-    $label: JQuery;
 }
 
 class DropdownCounter {
@@ -68,18 +65,14 @@ class DropdownCounter {
 
     private _getDomElements($counter: JQuery): ICounterDomElements {
         const $buttons = $counter.find(`.${COUNTER_CLASSES.BUTTON}`);
-        const $btnPlus = $counter.find(`.${COUNTER_CLASSES.BTN_PLUS}`);
         const $btnMinus = $counter.find(`.${COUNTER_CLASSES.BTN_MINUS}`);
         const $out = $counter.find(`.${COUNTER_CLASSES.OUT}`);
-        const $label = $counter.find(`.${COUNTER_CLASSES.LABEL}`);
 
         return {
             $counter,
             $buttons,
-            $btnPlus,
             $btnMinus,
             $out,
-            $label,
         };
     }
 
@@ -95,14 +88,14 @@ class DropdownCounter {
         );
     }
 
-    private _handleButtonClick(ev: JQuery.MouseEventBase): void {
-        const $btn = $(ev.currentTarget);
+    private _handleButtonClick(ev: JQuery.MouseEventBase): boolean {
+        const $target = $(ev.currentTarget);
 
-        if ($btn.hasClass(COUNTER_CLASSES.BTN_PLUS)) {
+        if ($target.hasClass(COUNTER_CLASSES.BTN_PLUS)) {
             this._value += 1;
         }
 
-        if ($btn.hasClass(COUNTER_CLASSES.BTN_MINUS)) {
+        if ($target.hasClass(COUNTER_CLASSES.BTN_MINUS)) {
             this._value -= 1;
 
             if (this._value < 0) {
@@ -113,6 +106,8 @@ class DropdownCounter {
         this._domElements.$out.text(this._value);
         this._updateButtons();
         this._domElements.$counter.trigger('update', [this._value]);
+
+        return true;
     }
 }
 

@@ -11,16 +11,17 @@ mixin calendar(options = {})
     
     div(class="calendar js-calendar")
         .calendar__date-navigation
-            .calendar__btn-change-month.js-calendar__btn-prev-month arrow_back
+            .calendar__btn-change-month.calendar__btn_action_prev-month.js-calendar__btn_action_prev-month arrow_back
             .calendar__drawn-date
                 +text({
                     theme: "h2",
                     fontName: "montserrat",
                     classes: [
-                        "js-calendar__drawn-date",
+                        "text_assignment_drawn-date",
+                        "js-text_assignment_drawn-date",
                     ],
                 })
-            .calendar__btn-change-month.js-calendar__btn-next-month arrow_forward
+            .calendar__btn-change-month.calendar__btn_action_next-month.js-calendar__btn_action_next-month arrow_forward
         .calendar__weekday-names
             for name in weekdayNames
                 .calendar__weekday-name
@@ -38,7 +39,8 @@ mixin calendar(options = {})
                     theme: "text",
                     textColor: "text-secondary",
                     classes: [
-                        "js-calendar__btn-clear",
+                        "button_action_clear",
+                        "js-button_action_clear",
                     ],
                 })
             .calendar__btn-apply
@@ -46,6 +48,7 @@ mixin calendar(options = {})
                     text: btnApply,
                     theme: "text",
                     classes: [
-                        "js-calendar__btn-apply",
+                        "button_action_apply",
+                        "js-button_action_apply",
                     ],
                 })

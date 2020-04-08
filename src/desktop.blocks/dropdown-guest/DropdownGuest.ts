@@ -1,11 +1,11 @@
 import Dropdown, { IDropdownDomElements } from '../dropdown/Dropdown';
 
 const DROPDOWN_GUEST_CLASSES = {
-    BTN_APPLY: 'js-dropdown-guest__btn-apply',
-    BTN_CLEAR: 'js-dropdown-guest__btn-clear',
+    BTN_APPLY: 'js-button_action_apply',
+    BTN_CLEAR: 'js-button_action_clear',
     DROPDOWN_HEAD: 'js-dropdown-head',
     COUNTER: 'js-dropdown-counter',
-    DROPDOWN: 'js-dropdown-guest',
+    DROPDOWN: 'js-dropdown_content_guest',
 };
 
 interface IDropdownGuestDomElements extends IDropdownDomElements {

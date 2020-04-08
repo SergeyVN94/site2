@@ -42,7 +42,10 @@ mixin dropdown-guest(options = {})
         head,
         text,
         variations,
-        classes: [ "js-dropdown-guest" ],
+        classes: [
+            "dropdown_content_guest",
+            "js-dropdown_content_guest",
+        ],
     })
         for counter in counters
             .dropdown-guest__counter
@@ -50,7 +53,10 @@ mixin dropdown-guest(options = {})
         .dropdown-guest__btn-container
             .dropdown-guest__btn-clear
                 +button({
-                    classes: [ "js-dropdown-guest__btn-clear" ],
+                    classes: [
+                        "button_action_clear",
+                        "js-button_action_clear",
+                    ],
                     text: btnClear,
                     theme: "text",
                     textColor: "text-secondary",
@@ -58,7 +64,10 @@ mixin dropdown-guest(options = {})
                 })
             .dropdown-guest__btn-apply
                 +button({
-                    classes: [ "js-dropdown-guest__btn-apply" ],
+                    classes: [
+                        "button_action_apply",
+                        "js-button_action_apply",
+                    ],
                     text: btnApply,
                     theme: "text",
                 })

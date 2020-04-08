@@ -16,7 +16,8 @@ mixin dropdown-counter(options = {})
             text: label,
             theme: "h3",
             classes: [
-                "js-dropdown-counter__label"
+                "dropdown-counter__label",
+                "js-dropdown-counter__label",
             ],
             noSelect: true,
         })
@@ -25,8 +26,8 @@ mixin dropdown-counter(options = {})
                 -const btnMinusDisable = (valueRes === 0);
                 +button({
                     classes: [
-                        "js-dropdown-counter__btn",
-                        "js-dropdown-counter__btn-minus",
+                        "button_action_minus",
+                        "js-button_action_minus",
                     ],
                     text: "-",
                     theme: "round-little",
@@ -36,7 +37,8 @@ mixin dropdown-counter(options = {})
                 +text({
                     text: valueRes,
                     classes: [
-                        "js-dropdown-counter__out",
+                        "text_assignment_count-out",
+                        "js-text_assignment_count-out",
                     ],
                     horizontal: "middle",
                     theme: "h3",
@@ -45,8 +47,8 @@ mixin dropdown-counter(options = {})
             .dropdown-counter__btn-plus
                 +button({
                     classes: [
-                        "js-dropdown-counter__btn",
-                        "js-dropdown-counter__btn-plus",
+                        "button_action_plus",
+                        "js-button_action_plus",
                     ],
                     text: "+",
                     theme: "round-little",

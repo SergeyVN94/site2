@@ -1,8 +1,8 @@
 const DATE_RANGE_CLASSES = {
     DATE_RANGE: 'js-date-range',
-    DROPDOWN_HEAD: 'js-date-range__dropdown-head',
-    DROPDOWN_HEAD_LEFT: 'js-date-range__dropdown-head-left',
-    DROPDOWN_HEAD_RIGHT: 'js-date-range__dropdown-head-right',
+    DROPDOWN_HEAD: 'js-dropdown-head',
+    DROPDOWN_HEAD_LEFT: 'js-dropdown-head_position_left',
+    DROPDOWN_HEAD_RIGHT: 'js-dropdown-head_position_right',
     RANGE_SELECT: 'date-range_range-select',
     CALENDAR: 'js-calendar',
 };

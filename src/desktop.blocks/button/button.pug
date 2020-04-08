@@ -18,7 +18,7 @@ mixin button(options = {})
             rel = "",
         } = options;
 
-        classes.push(`button button_theme_${theme}`);
+        classes.push(`button js-button button_theme_${theme}`);
         if (disable) classes.push("button_disable");
         if (textColor !== "") classes.push(`button_text-color_${textColor}`);
         if (hidden) classes.push("button_hidden");

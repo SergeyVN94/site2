@@ -99,6 +99,7 @@ class Dropdown {
 
         $dropdown.toggleClass(DROPDOWN_CLASSES.DROPDOWN_EXPANDED, state);
         $dropdownHead.dropdownHead((state ? 'set-theme' : 'remove-theme'), 'expanded');
+        this._isExpanded = state;
     }
 
     private _handleDropdownHeadClick(): void {

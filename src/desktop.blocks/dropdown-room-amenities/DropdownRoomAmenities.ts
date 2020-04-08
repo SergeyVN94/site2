@@ -53,7 +53,7 @@ class DropdownRoomAmenities extends Dropdown {
 }
 
 $(() => {
-    $('.js-dropdown-room-amenities').each((index, element) => {
+    $('.js-dropdown_content_room-amenities').each((index, element) => {
         new DropdownRoomAmenities($(element));
     });
 });

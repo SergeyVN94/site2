@@ -1,5 +1,5 @@
 const DROPDOWN_HEAD_CLASSES = {
-    TEXT_ELEMENT: 'js-dropdown-head__text',
+    MAIN_TEXT: 'js-text_assignment_main',
 };
 
 // eslint-disable-next-line @typescript-eslint/unbound-method
@@ -23,10 +23,10 @@ $.fn.dropdownHead = function pluginHandler(
 
         case 'text':
             if (args === null) {
-                return this.find(`.${DROPDOWN_HEAD_CLASSES.TEXT_ELEMENT}`).text();
+                return this.find(`.${DROPDOWN_HEAD_CLASSES.MAIN_TEXT}`).text();
             }
 
-            this.find(`.${DROPDOWN_HEAD_CLASSES.TEXT_ELEMENT}`).text(args);
+            this.find(`.${DROPDOWN_HEAD_CLASSES.MAIN_TEXT}`).text(args);
             return this;
 
         default:
