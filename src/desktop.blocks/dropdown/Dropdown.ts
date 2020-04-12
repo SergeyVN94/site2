@@ -15,19 +15,19 @@ interface ICounterValuesTable {
 }
 
 class Dropdown {
-    protected _domElements: IDropdownDomElements;
-    protected readonly _defaultHeadText: string;
-    protected readonly _variationsTable: {
+    protected domElements: IDropdownDomElements;
+    protected readonly defaultHeadText: string;
+    protected readonly variationsTable: {
         [index: string]: [string, string, string];
     };
-    private _isExpanded: boolean;
+    private isExpanded: boolean;
 
     constructor($dropdown: JQuery) {
-        this._domElements = this._getDomElements($dropdown);
-        const { $dropdownHead } = this._domElements;
-        this._defaultHeadText = $dropdownHead.dropdownHead('text');
-        this._variationsTable = $dropdown.data('variations');
-        this._isExpanded = $dropdown.hasClass(DROPDOWN_CLASSES.DROPDOWN_EXPANDED);
+        this.domElements = this._getDomElements($dropdown);
+        const { $dropdownHead } = this.domElements;
+        this.defaultHeadText = $dropdownHead.dropdownHead('text');
+        this.variationsTable = $dropdown.data('variations');
+        this.isExpanded = $dropdown.hasClass(DROPDOWN_CLASSES.DROPDOWN_EXPANDED);
     }
 
     protected _getDomElements($dropdown: JQuery): IDropdownDomElements {
@@ -44,7 +44,7 @@ class Dropdown {
     protected _getCounterValuesTable(): ICounterValuesTable {
         const counterValuesTable: ICounterValuesTable = {};
 
-        this._domElements.$counters.each((index, element) => {
+        this.domElements.$counters.each((index, element) => {
             const $counter = $(element);
             const group = $counter.dropdownCounter('group');
             const value = $counter.dropdownCounter('value');
@@ -59,7 +59,7 @@ class Dropdown {
     }
 
     protected _initEventListeners(): void {
-        const { $dropdownHead } = this._domElements;
+        const { $dropdownHead } = this.domElements;
 
         $dropdownHead.on(
             'click.dropdown.expanded',
@@ -95,16 +95,16 @@ class Dropdown {
         const {
             $dropdown,
             $dropdownHead,
-        } = this._domElements;
+        } = this.domElements;
 
         $dropdown.toggleClass(DROPDOWN_CLASSES.DROPDOWN_EXPANDED, state);
         $dropdownHead.dropdownHead((state ? 'set-theme' : 'remove-theme'), 'expanded');
-        this._isExpanded = state;
+        this.isExpanded = state;
     }
 
     private _handleDropdownHeadClick(): void {
-        this._isExpanded = !this._isExpanded;
-        this._expanded(this._isExpanded);
+        this.isExpanded = !this.isExpanded;
+        this._expanded(this.isExpanded);
     }
 }
 

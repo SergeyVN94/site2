@@ -17,10 +17,10 @@ interface IDateRangeDomElements {
 }
 
 class DateRange {
-    private readonly _domElements: IDateRangeDomElements;
+    private readonly domElements: IDateRangeDomElements;
 
     constructor($dateRange: JQuery) {
-        this._domElements = this._createDomElements($dateRange);
+        this.domElements = this._createDomElements($dateRange);
         this._initEventListeners();
     }
 
@@ -40,16 +40,16 @@ class DateRange {
     }
 
     private _initEventListeners(): void {
-        this._domElements.$dropdownHeads.on(
+        this.domElements.$dropdownHeads.on(
             'click.dateRange.setDateRange',
             this._handleDropdownHeadClick.bind(this)
         );
 
-        this._domElements.$calendar.on(
+        this.domElements.$calendar.on(
             'clear.dateRange.clear',
             this._handleCalendarClear.bind(this)
         );
-        this._domElements.$calendar.on(
+        this.domElements.$calendar.on(
             'apply.dateRange.updateDateRange',
             this._handleCalendarApply.bind(this)
         );
@@ -64,8 +64,8 @@ class DateRange {
     }
 
     private _deselectDateRange(): void {
-        this._domElements.$dropdownHeads.dropdownHead('remove-theme', 'select-date');
-        this._domElements.$dateRange.removeClass(DATE_RANGE_CLASSES.RANGE_SELECT);
+        this.domElements.$dropdownHeads.dropdownHead('remove-theme', 'select-date');
+        this.domElements.$dateRange.removeClass(DATE_RANGE_CLASSES.RANGE_SELECT);
     }
 
     private _handleDropdownHeadClick(ev: JQuery.MouseEventBase): boolean {
@@ -77,22 +77,22 @@ class DateRange {
         }
 
         $dropdownHead.dropdownHead('set-theme', 'select-date');
-        this._domElements.$dateRange.addClass(DATE_RANGE_CLASSES.RANGE_SELECT);
+        this.domElements.$dateRange.addClass(DATE_RANGE_CLASSES.RANGE_SELECT);
 
         if ($dropdownHead.hasClass(DATE_RANGE_CLASSES.DROPDOWN_HEAD_LEFT)) {
-            this._domElements.$dropdownHeadRight.dropdownHead('remove-theme', 'select-date');
-            this._domElements.$calendar.calendar('select-date', 'start');
+            this.domElements.$dropdownHeadRight.dropdownHead('remove-theme', 'select-date');
+            this.domElements.$calendar.calendar('select-date', 'start');
             return true;
         }
 
-        this._domElements.$dropdownHeadLeft.dropdownHead('remove-theme', 'select-date');
-        this._domElements.$calendar.calendar('select-date', 'end');
+        this.domElements.$dropdownHeadLeft.dropdownHead('remove-theme', 'select-date');
+        this.domElements.$calendar.calendar('select-date', 'end');
 
         return true;
     }
 
     private _handleCalendarClear(): void {
-        this._domElements.$dropdownHeads.dropdownHead('text', DROPDOWN_HEAD_TEXT_DEFAULT);
+        this.domElements.$dropdownHeads.dropdownHead('text', DROPDOWN_HEAD_TEXT_DEFAULT);
         this._deselectDateRange();
     }
 
@@ -100,7 +100,7 @@ class DateRange {
         const {
             $dropdownHeadLeft,
             $dropdownHeadRight,
-        } = this._domElements;
+        } = this.domElements;
 
         $dropdownHeadLeft.dropdownHead(
             'text',

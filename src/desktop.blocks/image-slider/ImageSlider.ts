@@ -20,15 +20,15 @@ interface IImageSliderDomElements {
 }
 
 class ImageSlider {
-    private readonly _domElements: IImageSliderDomElements;
-    private readonly _allImages: number;
-    private _selectedImage: number;
+    private readonly domElements: IImageSliderDomElements;
+    private readonly allImages: number;
+    private selectedImage: number;
 
     constructor($slider: JQuery) {
-        this._domElements = this._getDomElements($slider);
-        this._allImages = this._domElements.$images.length;
-        this._selectedImage = 1;
-        this._domElements.$currentImageOut.text(1);
+        this.domElements = this._getDomElements($slider);
+        this.allImages = this.domElements.$images.length;
+        this.selectedImage = 1;
+        this.domElements.$currentImageOut.text(1);
 
         this._initEventListeners();
     }
@@ -51,51 +51,51 @@ class ImageSlider {
     }
 
     private _initEventListeners(): void {
-        this._domElements.$btnNext.on(
+        this.domElements.$btnNext.on(
             'click.imageSlider.nextImage',
             this._handleBtnNextClick.bind(this)
         );
 
-        this._domElements.$btnPrev.on(
+        this.domElements.$btnPrev.on(
             'click.imageSlider.prevImage',
             this._handleBtnPrevClick.bind(this)
         );
     }
 
     private _handleBtnNextClick(): void {
-        this._selectedImage += 1;
-        if (this._selectedImage > this._allImages) {
-            this._selectedImage = 1;
+        this.selectedImage += 1;
+        if (this.selectedImage > this.allImages) {
+            this.selectedImage = 1;
         }
 
         this._update();
     }
 
     private _handleBtnPrevClick(): void {
-        this._selectedImage -= 1;
-        if (this._selectedImage < 1) {
-            this._selectedImage = this._allImages;
+        this.selectedImage -= 1;
+        if (this.selectedImage < 1) {
+            this.selectedImage = this.allImages;
         }
 
         this._update();
     }
 
     private _update(): void {
-        this._domElements.$images.removeClass(IMAGE_SLIDER_CLASSES.IMAGE_SELECTED);
-        this._domElements.$images.each((index, element) => {
-            if (index + 1 === this._selectedImage) {
+        this.domElements.$images.removeClass(IMAGE_SLIDER_CLASSES.IMAGE_SELECTED);
+        this.domElements.$images.each((index, element) => {
+            if (index + 1 === this.selectedImage) {
                 element.classList.add(IMAGE_SLIDER_CLASSES.IMAGE_SELECTED);
             }
         });
 
-        this._domElements.$indicators.removeClass(IMAGE_SLIDER_CLASSES.INDICATOR_SELECTED);
-        this._domElements.$indicators.each((index, element) => {
-            if (index + 1 === this._selectedImage) {
+        this.domElements.$indicators.removeClass(IMAGE_SLIDER_CLASSES.INDICATOR_SELECTED);
+        this.domElements.$indicators.each((index, element) => {
+            if (index + 1 === this.selectedImage) {
                 element.classList.add(IMAGE_SLIDER_CLASSES.INDICATOR_SELECTED);
             }
         });
 
-        this._domElements.$currentImageOut.text(this._selectedImage);
+        this.domElements.$currentImageOut.text(this.selectedImage);
     }
 }
 

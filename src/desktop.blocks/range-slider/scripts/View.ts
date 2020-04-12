@@ -12,19 +12,19 @@ interface IRangeSliderDomElements {
 }
 
 class View {
-    private readonly _domElements: IRangeSliderDomElements;
-    private readonly _model: IModelInterface;
-    private readonly _lineBorderWidth: number;
-    private _pointSelectedType: 'min' | 'max' | null;
+    private readonly domElements: IRangeSliderDomElements;
+    private readonly model: IModelInterface;
+    private readonly lineBorderWidth: number;
+    private pointSelectedType: 'min' | 'max' | null;
 
     constructor($slider: JQuery, model: IModelInterface) {
-        this._domElements = this._getDomElements($slider);
-        this._model = model;
-        this._lineBorderWidth = parseInt(
-            this._domElements.$line.css('border-left-width') || '0',
+        this.domElements = this._getDomElements($slider);
+        this.model = model;
+        this.lineBorderWidth = parseInt(
+            this.domElements.$line.css('border-left-width') || '0',
             10
         );
-        this._pointSelectedType = null;
+        this.pointSelectedType = null;
 
         model.onUpdate(this._update.bind(this));
         this._initEventListeners();
@@ -55,37 +55,37 @@ class View {
 
     private _initModel(): void {
         const start = [
-            parseInt(this._domElements.$slider.attr('data-start-min') || '0', 10),
-            parseInt(this._domElements.$slider.attr('data-start-max') || '1000', 10),
+            parseInt(this.domElements.$slider.attr('data-start-min') || '0', 10),
+            parseInt(this.domElements.$slider.attr('data-start-max') || '1000', 10),
         ] as [number, number];
 
-        this._model.initModel(start);
+        this.model.initModel(start);
     }
 
     private _initEventListeners(): void {
-        this._domElements.$line.on(
+        this.domElements.$line.on(
             'mousedown.rangeSlider.update',
             this._handleSliderMousedown.bind(this)
         );
     }
 
     private _updateModel(ev: JQuery.MouseEventBase): void {
-        this._model.update(this._getTargetPosition(ev), this._pointSelectedType);
+        this.model.update(this._getTargetPosition(ev), this.pointSelectedType);
     }
 
     private _handleSliderMousedown(ev: JQuery.MouseEventBase): void {
         const $target = $(ev.target);
 
         if ($target.hasClass(CLASSES.POINT)) {
-            this._pointSelectedType = $target.attr('data-type') === 'min' ? 'min' : 'max';
+            this.pointSelectedType = $target.attr('data-type') === 'min' ? 'min' : 'max';
 
-            if (this._pointSelectedType === 'max') {
-                this._domElements.$point2.css('z-index', 6);
+            if (this.pointSelectedType === 'max') {
+                this.domElements.$point2.css('z-index', 6);
             } else {
-                this._domElements.$point2.css('z-index', 4);
+                this.domElements.$point2.css('z-index', 4);
             }
 
-            this._domElements.$document
+            this.domElements.$document
                 .on(
                     'mousemove.rangeSlider.update',
                     this._handleSliderMousemove.bind(this)
@@ -95,13 +95,13 @@ class View {
                     this._handleDocumentMouseup.bind(this)
                 );
         } else {
-            this._pointSelectedType = null;
+            this.pointSelectedType = null;
             this._updateModel(ev);
         }
     }
 
     private _handleDocumentMouseup(): void {
-        this._domElements.$document.off('mousemove.rangeSlider.update');
+        this.domElements.$document.off('mousemove.rangeSlider.update');
     }
 
     private _handleSliderMousemove(ev: JQuery.MouseEventBase): void {
@@ -114,14 +114,14 @@ class View {
             positionRight,
         ] = positions;
 
-        this._setPointPosition(this._domElements.$point1, positionLeft);
-        this._setPointPosition(this._domElements.$point2, positionRight);
+        this._setPointPosition(this.domElements.$point1, positionLeft);
+        this._setPointPosition(this.domElements.$point2, positionRight);
         this._updateBgLine(positions);
-        this._domElements.$out.text(values);
+        this.domElements.$out.text(values);
     }
 
     private _setPointPosition(_$point: JQuery, position: number): void {
-        const widthLine = this._domElements.$line.innerWidth();
+        const widthLine = this.domElements.$line.innerWidth();
         const offset = _$point.outerWidth(false) / 2;
         const margin = (position * widthLine) - offset;
 
@@ -129,7 +129,7 @@ class View {
     }
 
     private _updateBgLine(positions: [number, number]): void {
-        const widthContainer = this._domElements.$line.innerWidth();
+        const widthContainer = this.domElements.$line.innerWidth();
         const [
             positionLeft,
             positionRight,
@@ -138,14 +138,14 @@ class View {
         const left = positionLeft * widthContainer;
         const right = widthContainer - (widthContainer * positionRight);
 
-        this._domElements.$bgLine
+        this.domElements.$bgLine
             .css('left', `${left}px`)
             .css('right', `${right}px`);
     }
 
     private _getTargetPosition(ev: JQuery.MouseEventBase): number {
-        const widthLine = this._domElements.$line.innerWidth();
-        const offsetLine = this._domElements.$line.offset().left + this._lineBorderWidth;
+        const widthLine = this.domElements.$line.innerWidth();
+        const offsetLine = this.domElements.$line.offset().left + this.lineBorderWidth;
         const mousePosition = ev.pageX;
         const targetPosition = (mousePosition - offsetLine) / widthLine;
 

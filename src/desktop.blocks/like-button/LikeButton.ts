@@ -6,21 +6,21 @@ const LIKE_BTN_CLASSES = {
 };
 
 class LikeButton {
-    private readonly _$button: JQuery;
-    private readonly _$icon: JQuery;
-    private readonly _$counter: JQuery;
-    private readonly _icons: {
+    private readonly $button: JQuery;
+    private readonly $icon: JQuery;
+    private readonly $counter: JQuery;
+    private readonly icons: {
         CHECKED: string;
         UNCHECKED: string;
     };
-    private _likes: number;
+    private likes: number;
 
     constructor($button: JQuery) {
-        this._$button = $button;
-        this._$icon = $button.find(`.${LIKE_BTN_CLASSES.ICON}`);
-        this._$counter = $button.find(`.${LIKE_BTN_CLASSES.COUNTER}`);
+        this.$button = $button;
+        this.$icon = $button.find(`.${LIKE_BTN_CLASSES.ICON}`);
+        this.$counter = $button.find(`.${LIKE_BTN_CLASSES.COUNTER}`);
 
-        this._icons = {
+        this.icons = {
             CHECKED: 'favorite',
             UNCHECKED: 'favorite_border',
         };
@@ -29,31 +29,31 @@ class LikeButton {
     }
 
     private _initDomElements(): void {
-        this._$button.on(
+        this.$button.on(
             'click.likeButton.checked',
             this._handleLikeButtonClick.bind(this)
         );
 
         try {
-            this._likes = parseInt(this._$counter.text(), 10);
+            this.likes = parseInt(this.$counter.text(), 10);
         } catch (error) {
             console.error(error);
-            this._likes = 0;
+            this.likes = 0;
         }
     }
 
     private _handleLikeButtonClick(): void {
-        const isChecked = this._$button.hasClass(LIKE_BTN_CLASSES.CHECKED);
+        const isChecked = this.$button.hasClass(LIKE_BTN_CLASSES.CHECKED);
 
-        this._$button.toggleClass(LIKE_BTN_CLASSES.CHECKED, !isChecked);
-        this._$icon.text(isChecked ? this._icons.UNCHECKED : this._icons.CHECKED);
-        this._likes += isChecked ? -1 : 1;
+        this.$button.toggleClass(LIKE_BTN_CLASSES.CHECKED, !isChecked);
+        this.$icon.text(isChecked ? this.icons.UNCHECKED : this.icons.CHECKED);
+        this.likes += isChecked ? -1 : 1;
 
-        if (this._likes < 0) {
-            this._likes = 0;
+        if (this.likes < 0) {
+            this.likes = 0;
         }
 
-        this._$counter.text(this._likes);
+        this.$counter.text(this.likes);
     }
 }
 

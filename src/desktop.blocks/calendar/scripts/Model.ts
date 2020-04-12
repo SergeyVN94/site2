@@ -5,37 +5,37 @@ type RangeDays = {
 };
 
 class Model {
-    private readonly _renderDate: Date;
-    private readonly _updateHandler: UpdateHandler;
-    private _rangeDays: RangeDays;
+    private readonly renderDate: Date;
+    private readonly updateHandler: UpdateHandler;
+    private rangeDays: RangeDays;
 
     constructor(updateHandler: UpdateHandler) {
-        this._updateHandler = updateHandler;
-        this._rangeDays = {
+        this.updateHandler = updateHandler;
+        this.rangeDays = {
             start: null,
             end: null,
         };
 
-        this._renderDate = new Date();
-        this._renderDate.setHours(0, 0, 0, 0);
+        this.renderDate = new Date();
+        this.renderDate.setHours(0, 0, 0, 0);
     }
 
     public nextMonth(): void {
-        const currentMonth = this._renderDate.getMonth();
-        this._renderDate.setMonth(currentMonth + 1);
-        this._updateHandler();
+        const currentMonth = this.renderDate.getMonth();
+        this.renderDate.setMonth(currentMonth + 1);
+        this.updateHandler();
     }
 
     public previousMonth(): void {
-        const currentMonth = this._renderDate.getMonth();
-        this._renderDate.setMonth(currentMonth - 1);
-        this._updateHandler();
+        const currentMonth = this.renderDate.getMonth();
+        this.renderDate.setMonth(currentMonth - 1);
+        this.updateHandler();
     }
 
     public getPageDays(): number[] {
         const daysInMonth = this._getDaysInMonth(
-            this._renderDate.getMonth(),
-            this._renderDate.getFullYear()
+            this.renderDate.getMonth(),
+            this.renderDate.getFullYear()
         );
 
         const daysMonth: number[] = [];
@@ -44,8 +44,8 @@ class Model {
         }
 
         const tmpDate = new Date(
-            this._renderDate.getFullYear(),
-            this._renderDate.getMonth(),
+            this.renderDate.getFullYear(),
+            this.renderDate.getMonth(),
             1
         );
         const daysInPrevMonth = this._getDaysInMonth(
@@ -74,25 +74,25 @@ class Model {
     }
 
     public getRenderDate(): Date {
-        return this._renderDate;
+        return this.renderDate;
     }
 
     public getRangeDays(): RangeDays {
-        return this._rangeDays;
+        return this.rangeDays;
     }
 
     public resetRangeDays(): void {
-        this._rangeDays = {
+        this.rangeDays = {
             start: null,
             end: null,
         };
-        this._updateHandler();
+        this.updateHandler();
     }
 
     public updateRangeDays(day: number, setRangeStart = true): boolean {
         const targetDate = new Date(
-            this._renderDate.getFullYear(),
-            this._renderDate.getMonth(),
+            this.renderDate.getFullYear(),
+            this.renderDate.getMonth(),
             day
         );
         targetDate.setHours(0, 0, 0, 0); // Что бы сравнивать даты без учета времени.
@@ -108,7 +108,7 @@ class Model {
         const {
             start = null,
             end = null,
-        } = this._rangeDays;
+        } = this.rangeDays;
 
         const rangeStartIsNull = start === null;
         const rangeEndIsNull = end === null;
@@ -117,19 +117,19 @@ class Model {
         const inNeedResetRangeForStartDay = !isTargetDateCanBeSetToStart && !rangeEndIsNull && !rangeStartIsNull;
 
         if (setRangeStart) {
-            this._rangeDays.start = targetDate;
+            this.rangeDays.start = targetDate;
 
             if (inNeedResetRangeForStartDay) {
-                this._rangeDays.end = null;
+                this.rangeDays.end = null;
             }
 
-            this._updateHandler();
+            this.updateHandler();
             return true;
         }
 
         if (rangeStartIsNull || isTargetDateCanBeSetToEnd) {
-            this._rangeDays.end = targetDate;
-            this._updateHandler();
+            this.rangeDays.end = targetDate;
+            this.updateHandler();
             return true;
         }
 

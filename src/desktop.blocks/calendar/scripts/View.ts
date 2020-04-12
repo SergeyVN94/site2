@@ -28,18 +28,18 @@ interface ICalendarDomElements {
 }
 
 class View {
-    private readonly _domElements: ICalendarDomElements;
-    private readonly _model: Model;
+    private readonly domElements: ICalendarDomElements;
+    private readonly model: Model;
 
     constructor($calendar: JQuery) {
-        this._domElements = this._createDomElements($calendar);
-        this._model = new Model(this.update.bind(this));
+        this.domElements = this._createDomElements($calendar);
+        this.model = new Model(this.update.bind(this));
         this._initListeners();
     }
 
     public update(): void {
         this._updateHead();
-        const pageDays = this._model.getPageDays();
+        const pageDays = this.model.getPageDays();
         const calendarBody = this._createCalendarBody(pageDays);
 
         if (this._isNeedRenderCurrentDay()) {
@@ -47,15 +47,15 @@ class View {
         }
 
         this._drawRangeDays(calendarBody);
-        this._domElements.$daysContainer.html('').append(calendarBody);
+        this.domElements.$daysContainer.html('').append(calendarBody);
     }
 
     private _drawRangeDays(calendarBody: DocumentFragment): boolean {
-        const renderDate = this._model.getRenderDate();
+        const renderDate = this.model.getRenderDate();
         const {
             start,
             end,
-        } = this._model.getRangeDays();
+        } = this.model.getRangeDays();
         const startIsNull = start === null;
         const endIsNull = end === null;
         const days = calendarBody.querySelectorAll(`.${CALENDAR_CLASSES.DAY_WEEK}:not(.${CALENDAR_CLASSES.DAY_WEEK_ANOTHER_MONTH})`);
@@ -105,7 +105,7 @@ class View {
     }
 
     private _isNeedRenderCurrentDay(): boolean {
-        const renderDate = this._model.getRenderDate();
+        const renderDate = this.model.getRenderDate();
         const currentDate = new Date();
 
         return (currentDate.getFullYear() === renderDate.getFullYear()) &&
@@ -130,7 +130,7 @@ class View {
 
         const currentDate = new Date();
         currentDate.setHours(0, 0, 0, 0);
-        const renderDate = this._model.getRenderDate();
+        const renderDate = this.model.getRenderDate();
         const tmpDate = new Date(
             renderDate.getFullYear(),
             renderDate.getMonth(),
@@ -161,12 +161,12 @@ class View {
     }
 
     private _updateHead(): void {
-        const renderDate = this._model.getRenderDate();
+        const renderDate = this.model.getRenderDate();
         const monthName = MONTH_NAMES[renderDate.getMonth()];
         const year = renderDate.getFullYear();
         const headText = `${monthName} ${year}`;
 
-        this._domElements.$drawnDate.text(headText);
+        this.domElements.$drawnDate.text(headText);
     }
 
     private _createDayMonth(dayNumber: number, isAnotherMonth = false): HTMLDivElement {
@@ -208,52 +208,52 @@ class View {
     }
 
     private _initListeners(): void {
-        this._domElements.$btnNextMonth.on(
+        this.domElements.$btnNextMonth.on(
             'click.calendar.nextMonth',
             this._handleClickBtnNextMonth.bind(this)
         );
-        this._domElements.$btnPrevMonth.on(
+        this.domElements.$btnPrevMonth.on(
             'click.calendar.prevMonth',
             this._handleClickBtnPrevMonth.bind(this)
         );
 
-        this._domElements.$daysContainer.on(
+        this.domElements.$daysContainer.on(
             'click.calendar.clickOnDay',
             `.${CALENDAR_CLASSES.DAY_WEEK}`,
             this._handleClickDaysContainer.bind(this)
         );
 
-        this._domElements.$btnApply.on(
+        this.domElements.$btnApply.on(
             'click.calendar.apply',
             this._handleClickBtnApply.bind(this)
         );
 
-        this._domElements.$btnClear.on(
+        this.domElements.$btnClear.on(
             'click.calendar.clear',
             this._handleClickBtnClear.bind(this)
         );
     }
 
     private _handleClickBtnClear(): void {
-        this._model.resetRangeDays();
-        this._domElements.$calendar.trigger('clear');
+        this.model.resetRangeDays();
+        this.domElements.$calendar.trigger('clear');
     }
 
     private _handleClickBtnApply(): void {
         const {
             start = null,
             end = null,
-        } = this._model.getRangeDays();
+        } = this.model.getRangeDays();
 
-        this._domElements.$calendar.trigger('apply', [start, end]);
+        this.domElements.$calendar.trigger('apply', [start, end]);
     }
 
     private _handleClickBtnNextMonth(): void {
-        this._model.nextMonth();
+        this.model.nextMonth();
     }
 
     private _handleClickBtnPrevMonth(): void {
-        this._model.previousMonth();
+        this.model.previousMonth();
     }
 
     private _handleClickDaysContainer(ev: JQuery.MouseEventBase): void {
@@ -262,14 +262,14 @@ class View {
 
         if ($day.hasClass(CALENDAR_CLASSES.DAY_WEEK_ANOTHER_MONTH)) {
             if (dayNumber > 20) {
-                this._model.previousMonth();
+                this.model.previousMonth();
             } else {
-                this._model.nextMonth();
+                this.model.nextMonth();
             }
         }
 
-        const selectRange = this._domElements.$calendar.attr('data-select-date') || '';
-        this._model.updateRangeDays(dayNumber, selectRange === 'start');
+        const selectRange = this.domElements.$calendar.attr('data-select-date') || '';
+        this.model.updateRangeDays(dayNumber, selectRange === 'start');
     }
 }
 

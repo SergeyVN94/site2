@@ -9,7 +9,7 @@ class DropdownRoomAmenities extends Dropdown {
     protected _initEventListeners(): void {
         super._initEventListeners();
 
-        this._domElements.$counters.on(
+        this.domElements.$counters.on(
             'click.dropdownGuest.updateBtnClear',
             this._handleCounterUpdate.bind(this)
         );
@@ -22,15 +22,15 @@ class DropdownRoomAmenities extends Dropdown {
         for (const group in counterValuesTable) {
             const groupValue = counterValuesTable[group];
             if (groupValue) {
-                const variations = this._variationsTable[group];
+                const variations = this.variationsTable[group];
                 headTextChunks.push(`${groupValue} ${this._getWordWithEnding(groupValue, variations)}`);
             }
         }
 
         if (headTextChunks.length > 0) {
-            this._domElements.$dropdownHead.dropdownHead('text', this._cropHeadText(headTextChunks.join(', ')));
+            this.domElements.$dropdownHead.dropdownHead('text', this._cropHeadText(headTextChunks.join(', ')));
         } else {
-            this._domElements.$dropdownHead.dropdownHead('text', this._defaultHeadText);
+            this.domElements.$dropdownHead.dropdownHead('text', this.defaultHeadText);
         }
     }
 

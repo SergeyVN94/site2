@@ -14,11 +14,11 @@ interface IDropdownGuestDomElements extends IDropdownDomElements {
 }
 
 class DropdownGuest extends Dropdown {
-    protected _domElements: IDropdownGuestDomElements;
+    protected domElements: IDropdownGuestDomElements;
 
     constructor($dropdown: JQuery) {
         super($dropdown);
-        this._domElements = this._getDomElements($dropdown);
+        this.domElements = this._getDomElements($dropdown);
         this._initEventListeners();
     }
 
@@ -36,47 +36,47 @@ class DropdownGuest extends Dropdown {
     protected _initEventListeners(): void {
         super._initEventListeners();
 
-        this._domElements.$counters.on(
+        this.domElements.$counters.on(
             'click.dropdownGuest.updateBtnClear',
             this._handleCounterUpdate.bind(this)
         );
 
-        this._domElements.$btnApply.on(
+        this.domElements.$btnApply.on(
             'click.dropdownGuest.updateHead',
             this._handleBtnApplyClick.bind(this)
         );
 
-        this._domElements.$btnClear.on(
+        this.domElements.$btnClear.on(
             'click.dropdownGuest.resetDropdown',
             this._handleBtnClearClick.bind(this)
         );
     }
 
     private _handleBtnClearClick(): void {
-        this._domElements.$counters.each((index, element) => {
+        this.domElements.$counters.each((index, element) => {
             $(element).dropdownCounter('reset');
         });
-        this._domElements.$btnClear.button('hidden', true);
-        this._domElements.$dropdownHead.dropdownHead('text', this._defaultHeadText);
+        this.domElements.$btnClear.button('hidden', true);
+        this.domElements.$dropdownHead.dropdownHead('text', this.defaultHeadText);
         this._expanded(false);
     }
 
     private _handleCounterUpdate(): void {
         let isBtnClearHidden = true;
 
-        this._domElements.$counters.each((index, element) => {
+        this.domElements.$counters.each((index, element) => {
             if ($(element).dropdownCounter('value') !== 0) {
                 isBtnClearHidden = false;
             }
         });
 
-        this._domElements.$btnClear.button('hidden', isBtnClearHidden);
+        this.domElements.$btnClear.button('hidden', isBtnClearHidden);
     }
 
     private _handleBtnApplyClick(): void {
         const counterValuesTable = this._getCounterValuesTable();
 
-        this._domElements
+        this.domElements
             .$dropdownHead
             .dropdownHead('text', this._createGuestTextEntry(counterValuesTable));
 
@@ -89,7 +89,7 @@ class DropdownGuest extends Dropdown {
         const headTextChunks: string[] = [];
 
         for (const group in counterValuesTable) {
-            const variations = this._variationsTable[group];
+            const variations = this.variationsTable[group];
             const groupValue = counterValuesTable[group];
 
             if (groupValue !== 0) {
@@ -99,7 +99,7 @@ class DropdownGuest extends Dropdown {
         }
 
         if (headTextChunks.length === 0) {
-            return this._defaultHeadText;
+            return this.defaultHeadText;
         }
 
         return headTextChunks.join(', ');

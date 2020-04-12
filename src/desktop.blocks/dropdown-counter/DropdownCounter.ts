@@ -14,37 +14,37 @@ interface ICounterDomElements {
 }
 
 class DropdownCounter {
-    private readonly _domElements: ICounterDomElements;
-    private _value: number;
-    private readonly _group: string;
+    private readonly domElements: ICounterDomElements;
+    private count: number;
+    private readonly group: string;
 
     constructor($counter: JQuery) {
-        this._domElements = this._getDomElements($counter);
-        const { $out } = this._domElements;
+        this.domElements = this._getDomElements($counter);
+        const { $out } = this.domElements;
 
         try {
             const valueStr = $out.text();
-            this._value = parseInt(valueStr, 10);
+            this.count = parseInt(valueStr, 10);
         } catch (error) {
             console.error(error);
-            this._value = 0;
+            this.count = 0;
             $out.text(0);
         }
 
-        this._group = $counter.data('group') || '';
+        this.group = $counter.data('group') || '';
 
         this._updateButtons();
         this._initEventListeners();
     }
 
     public set value(value: number) {
-        const { $out } = this._domElements;
+        const { $out } = this.domElements;
 
         if (value >= 0) {
-            this._value = value;
+            this.count = value;
             $out.text(value);
         } else {
-            this._value = 0;
+            this.count = 0;
             $out.text(0);
         }
 
@@ -52,15 +52,15 @@ class DropdownCounter {
     }
 
     public get value(): number {
-        return this._value;
+        return this.count;
     }
 
     public reset(): void {
-        this.value = 0;
+        this.count = 0;
     }
 
     public getGroup(): string {
-        return this._group;
+        return this.group;
     }
 
     private _getDomElements($counter: JQuery): ICounterDomElements {
@@ -77,12 +77,12 @@ class DropdownCounter {
     }
 
     private _updateButtons(): void {
-        const btnMinusIsDisable = this._value === 0;
-        this._domElements.$btnMinus.button('disable', btnMinusIsDisable);
+        const btnMinusIsDisable = this.count === 0;
+        this.domElements.$btnMinus.button('disable', btnMinusIsDisable);
     }
 
     private _initEventListeners(): void {
-        this._domElements.$buttons.on(
+        this.domElements.$buttons.on(
             'click.dropdownCounter.update',
             this._handleButtonClick.bind(this)
         );
@@ -92,20 +92,20 @@ class DropdownCounter {
         const $target = $(ev.currentTarget);
 
         if ($target.hasClass(COUNTER_CLASSES.BTN_PLUS)) {
-            this._value += 1;
+            this.count += 1;
         }
 
         if ($target.hasClass(COUNTER_CLASSES.BTN_MINUS)) {
-            this._value -= 1;
+            this.count -= 1;
 
-            if (this._value < 0) {
-                this._value = 0;
+            if (this.count < 0) {
+                this.count = 0;
             }
         }
 
-        this._domElements.$out.text(this._value);
+        this.domElements.$out.text(this.count);
         this._updateButtons();
-        this._domElements.$counter.trigger('update', [this._value]);
+        this.domElements.$counter.trigger('update', [this.count]);
 
         return true;
     }
