@@ -1,10 +1,10 @@
-const COUNTER_CLASSES = {
-    BUTTON: 'js-button',
-    OUT: 'js-text_assignment_count-out',
-    BTN_MINUS: 'js-button_action_minus',
-    BTN_PLUS: 'js-button_action_plus',
-    COUNTER: 'js-dropdown-counter',
-};
+const enum COUNTER_CLASSES {
+    BUTTON = 'js-button',
+    OUT = 'js-text_assignment_count-out',
+    BTN_MINUS = 'js-button_action_minus',
+    BTN_PLUS = 'js-button_action_plus',
+    COUNTER = 'js-dropdown-counter',
+}
 
 interface ICounterDomElements {
     $counter: JQuery;

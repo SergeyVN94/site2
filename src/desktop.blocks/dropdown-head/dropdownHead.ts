@@ -1,6 +1,6 @@
-const DROPDOWN_HEAD_CLASSES = {
-    MAIN_TEXT: 'js-text_assignment_main',
-};
+const enum DROPDOWN_HEAD_CLASSES {
+    MAIN_TEXT = 'js-text_assignment_main',
+}
 
 // eslint-disable-next-line @typescript-eslint/unbound-method
 $.fn.dropdownHead = function pluginHandler(

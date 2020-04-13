@@ -1,14 +1,14 @@
-const IMAGE_SLIDER_CLASSES = {
-    SLIDER: 'js-image-slider',
-    IMAGE: 'image-slider__image',
-    IMAGE_SELECTED: 'image-slider__image_selected',
-    INDICATOR: 'js-image-slider__indicator',
-    INDICATOR_SELECTED: 'image-slider__indicator_theme_selected',
-    NAV_BTN: 'js-image-slider__nav-button',
-    BTN_PREV: 'js-image-slider__nav-button_action_prev-img',
-    BTN_NEXT: 'js-image-slider__nav-button_action_next-img',
-    INDEX_ITEM: 'js-image-slider__image_index-item',
-};
+const enum IMAGE_SLIDER_CLASSES {
+    SLIDER = 'js-image-slider',
+    IMAGE = 'image-slider__image',
+    IMAGE_SELECTED = 'image-slider__image_selected',
+    INDICATOR = 'js-image-slider__indicator',
+    INDICATOR_SELECTED = 'image-slider__indicator_theme_selected',
+    NAV_BTN = 'js-image-slider__nav-button',
+    BTN_PREV = 'js-image-slider__nav-button_action_prev-img',
+    BTN_NEXT = 'js-image-slider__nav-button_action_next-img',
+    INDEX_ITEM = 'js-image-slider__image_index-item',
+}
 
 interface IImageSliderDomElements {
     $slider: JQuery;

@@ -1,5 +1,5 @@
 import { IModelInterface } from './Model';
-import CLASSES from './classes';
+import RANGE_SLIDER_CLASSES from './classes';
 
 interface IRangeSliderDomElements {
     $slider: JQuery;
@@ -32,11 +32,11 @@ class View {
     }
 
     private _getDomElements($slider: JQuery): IRangeSliderDomElements {
-        const $line = $slider.find(`.${CLASSES.LINE}`);
-        const $bgLine = $slider.find(`.${CLASSES.BG_LINE}`);
-        const $out = $slider.find(`.${CLASSES.VALUES_OUT}`);
-        const $point1 = $($slider.find(`.${CLASSES.POINT}`).get()[0]);
-        const $point2 = $($slider.find(`.${CLASSES.POINT}`).get()[1]);
+        const $line = $slider.find(`.${RANGE_SLIDER_CLASSES.LINE}`);
+        const $bgLine = $slider.find(`.${RANGE_SLIDER_CLASSES.BG_LINE}`);
+        const $out = $slider.find(`.${RANGE_SLIDER_CLASSES.VALUES_OUT}`);
+        const $point1 = $($slider.find(`.${RANGE_SLIDER_CLASSES.POINT}`).get()[0]);
+        const $point2 = $($slider.find(`.${RANGE_SLIDER_CLASSES.POINT}`).get()[1]);
         const $document = $(document);
 
         $point1.css('z-index', 5);
@@ -76,7 +76,7 @@ class View {
     private _handleSliderMousedown(ev: JQuery.MouseEventBase): void {
         const $target = $(ev.target);
 
-        if ($target.hasClass(CLASSES.POINT)) {
+        if ($target.hasClass(RANGE_SLIDER_CLASSES.POINT)) {
             this.pointSelectedType = $target.attr('data-type') === 'min' ? 'min' : 'max';
 
             if (this.pointSelectedType === 'max') {

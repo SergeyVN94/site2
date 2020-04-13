@@ -1,8 +1,8 @@
-const DROPDOWN_CLASSES = {
-    DROPDOWN_HEAD: 'js-dropdown-head',
-    DROPDOWN_EXPANDED: 'dropdown_expanded',
-    COUNTER: 'js-dropdown-counter',
-};
+const enum DROPDOWN_CLASSES {
+    DROPDOWN_HEAD = 'js-dropdown-head',
+    DROPDOWN_EXPANDED = 'dropdown_expanded',
+    COUNTER = 'js-dropdown-counter',
+}
 
 interface IDropdownDomElements {
     $dropdown: JQuery;

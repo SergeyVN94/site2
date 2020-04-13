@@ -1,8 +1,8 @@
-const CHECKBOX_LIST_CLASSES = {
-    CHECKBOX_LIST: 'js-expandable-checkbox-list',
-    HEAD: 'js-expandable-checkbox-list__head',
-    EXPANDED: 'expandable-checkbox-list_expanded',
-};
+const enum CHECKBOX_LIST_CLASSES {
+    CHECKBOX_LIST = 'js-expandable-checkbox-list',
+    HEAD = 'js-expandable-checkbox-list__head',
+    EXPANDED = 'expandable-checkbox-list_expanded',
+}
 
 const handleExpandIconClick = function handleExpandIconClick(ev: JQuery.MouseEventBase): void {
     const checkboxList = $(ev.delegateTarget);

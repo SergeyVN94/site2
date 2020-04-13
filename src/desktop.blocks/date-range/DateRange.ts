@@ -1,11 +1,11 @@
-const DATE_RANGE_CLASSES = {
-    DATE_RANGE: 'js-date-range',
-    DROPDOWN_HEAD: 'js-dropdown-head',
-    DROPDOWN_HEAD_LEFT: 'js-dropdown-head_position_left',
-    DROPDOWN_HEAD_RIGHT: 'js-dropdown-head_position_right',
-    RANGE_SELECT: 'date-range_range-select',
-    CALENDAR: 'js-calendar',
-};
+const enum DATE_RANGE_CLASSES {
+    DATE_RANGE = 'js-date-range',
+    DROPDOWN_HEAD = 'js-dropdown-head',
+    DROPDOWN_HEAD_LEFT = 'js-dropdown-head_position_left',
+    DROPDOWN_HEAD_RIGHT = 'js-dropdown-head_position_right',
+    RANGE_SELECT = 'date-range_range-select',
+    CALENDAR = 'js-calendar',
+}
 const DROPDOWN_HEAD_TEXT_DEFAULT = 'ДД.ММ.ГГГГ';
 
 interface IDateRangeDomElements {

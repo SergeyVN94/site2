@@ -1,9 +1,9 @@
-const LIKE_BTN_CLASSES = {
-    LIKE_BTN: 'js-like-button',
-    CHECKED: 'like-button_checked',
-    ICON: 'js-like-button__icon',
-    COUNTER: 'js-like-button__counter',
-};
+const enum LIKE_BTN_CLASSES {
+    LIKE_BTN = 'js-like-button',
+    CHECKED = 'like-button_checked',
+    ICON = 'js-like-button__icon',
+    COUNTER = 'js-like-button__counter',
+}
 
 class LikeButton {
     private readonly $button: JQuery;

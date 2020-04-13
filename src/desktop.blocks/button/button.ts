@@ -1,7 +1,7 @@
-const BUTTON_CLASSES = {
-    DISABLE: 'button_disable',
-    HIDDEN: 'button_hidden',
-};
+const enum BUTTON_CLASSES {
+    DISABLE = 'button_disable',
+    HIDDEN = 'button_hidden',
+}
 
 // eslint-disable-next-line @typescript-eslint/unbound-method
 $.fn.button = function buttonPlugin(
