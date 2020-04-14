@@ -5,10 +5,14 @@ const enum LIKE_BTN_CLASSES {
     COUNTER = 'js-like-button__counter',
 }
 
+interface ILikeBtnDomElements {
+    readonly $button: JQuery;
+    readonly $icon: JQuery;
+    readonly $counter: JQuery;
+}
+
 class LikeButton {
-    private readonly $button: JQuery;
-    private readonly $icon: JQuery;
-    private readonly $counter: JQuery;
+    private readonly domElements: ILikeBtnDomElements;
     private readonly icons: {
         CHECKED: string;
         UNCHECKED: string;
@@ -16,9 +20,7 @@ class LikeButton {
     private likes: number;
 
     constructor($button: JQuery) {
-        this.$button = $button;
-        this.$icon = $button.find(`.${LIKE_BTN_CLASSES.ICON}`);
-        this.$counter = $button.find(`.${LIKE_BTN_CLASSES.COUNTER}`);
+        this.domElements = this._getDomElements($button);
 
         this.icons = {
             CHECKED: 'favorite',
@@ -28,14 +30,30 @@ class LikeButton {
         this._initDomElements();
     }
 
+    private _getDomElements($button: JQuery): ILikeBtnDomElements {
+        const $icon = $button.find(`.${LIKE_BTN_CLASSES.ICON}`);
+        const $counter = $button.find(`.${LIKE_BTN_CLASSES.COUNTER}`);
+
+        return {
+            $button,
+            $icon,
+            $counter,
+        };
+    }
+
     private _initDomElements(): void {
-        this.$button.on(
+        const {
+            $button,
+            $counter,
+        } = this.domElements;
+
+        $button.on(
             'click.likeButton.checked',
             this._handleLikeButtonClick.bind(this)
         );
 
         try {
-            this.likes = parseInt(this.$counter.text(), 10);
+            this.likes = parseInt($counter.text(), 10);
         } catch (error) {
             console.error(error);
             this.likes = 0;
@@ -43,17 +61,22 @@ class LikeButton {
     }
 
     private _handleLikeButtonClick(): void {
-        const isChecked = this.$button.hasClass(LIKE_BTN_CLASSES.CHECKED);
+        const {
+            $button,
+            $counter,
+            $icon,
+        } = this.domElements;
+        const isChecked = $button.hasClass(LIKE_BTN_CLASSES.CHECKED);
 
-        this.$button.toggleClass(LIKE_BTN_CLASSES.CHECKED, !isChecked);
-        this.$icon.text(isChecked ? this.icons.UNCHECKED : this.icons.CHECKED);
+        $button.toggleClass(LIKE_BTN_CLASSES.CHECKED, !isChecked);
+        $icon.text(isChecked ? this.icons.UNCHECKED : this.icons.CHECKED);
         this.likes += isChecked ? -1 : 1;
 
         if (this.likes < 0) {
             this.likes = 0;
         }
 
-        this.$counter.text(this.likes);
+        $counter.text(this.likes);
     }
 }
 
