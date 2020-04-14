@@ -5,6 +5,11 @@ const enum LIKE_BTN_CLASSES {
     COUNTER = 'js-like-button__counter',
 }
 
+const enum LIKE_BTN_ICONS {
+    CHECKED = 'favorite',
+    UNCHECKED = 'favorite_border',
+}
+
 interface ILikeBtnDomElements {
     readonly $button: JQuery;
     readonly $icon: JQuery;
@@ -13,20 +18,10 @@ interface ILikeBtnDomElements {
 
 class LikeButton {
     private readonly domElements: ILikeBtnDomElements;
-    private readonly icons: {
-        CHECKED: string;
-        UNCHECKED: string;
-    };
     private likes: number;
 
     constructor($button: JQuery) {
         this.domElements = this._getDomElements($button);
-
-        this.icons = {
-            CHECKED: 'favorite',
-            UNCHECKED: 'favorite_border',
-        };
-
         this._initDomElements();
     }
 
@@ -69,7 +64,7 @@ class LikeButton {
         const isChecked = $button.hasClass(LIKE_BTN_CLASSES.CHECKED);
 
         $button.toggleClass(LIKE_BTN_CLASSES.CHECKED, !isChecked);
-        $icon.text(isChecked ? this.icons.UNCHECKED : this.icons.CHECKED);
+        $icon.text(isChecked ? LIKE_BTN_ICONS.UNCHECKED : LIKE_BTN_ICONS.CHECKED);
         this.likes += isChecked ? -1 : 1;
 
         if (this.likes < 0) {
