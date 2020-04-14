@@ -9,11 +9,11 @@ const enum DATE_RANGE_CLASSES {
 const DROPDOWN_HEAD_TEXT_DEFAULT = 'ДД.ММ.ГГГГ';
 
 interface IDateRangeDomElements {
-    $dateRange: JQuery;
-    $dropdownHeads: JQuery;
-    $dropdownHeadLeft: JQuery;
-    $dropdownHeadRight: JQuery;
-    $calendar: JQuery;
+    readonly $dateRange: JQuery;
+    readonly $dropdownHeads: JQuery;
+    readonly $dropdownHeadLeft: JQuery;
+    readonly $dropdownHeadRight: JQuery;
+    readonly $calendar: JQuery;
 }
 
 class DateRange {

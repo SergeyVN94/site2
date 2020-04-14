@@ -11,12 +11,12 @@ const enum IMAGE_SLIDER_CLASSES {
 }
 
 interface IImageSliderDomElements {
-    $slider: JQuery;
-    $btnNext: JQuery;
-    $btnPrev: JQuery;
-    $images: JQuery;
-    $indicators: JQuery;
-    $currentImageOut: JQuery;
+    readonly $slider: JQuery;
+    readonly $btnNext: JQuery;
+    readonly $btnPrev: JQuery;
+    readonly $images: JQuery;
+    readonly $indicators: JQuery;
+    readonly $currentImageOut: JQuery;
 }
 
 class ImageSlider {

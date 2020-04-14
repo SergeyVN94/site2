@@ -5,9 +5,9 @@ const enum DROPDOWN_CLASSES {
 }
 
 interface IDropdownDomElements {
-    $dropdown: JQuery;
-    $dropdownHead: JQuery;
-    $counters: JQuery;
+    readonly $dropdown: JQuery;
+    readonly $dropdownHead: JQuery;
+    readonly $counters: JQuery;
 }
 
 interface ICounterValuesTable {

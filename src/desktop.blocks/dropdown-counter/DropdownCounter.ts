@@ -7,10 +7,10 @@ const enum COUNTER_CLASSES {
 }
 
 interface ICounterDomElements {
-    $counter: JQuery;
-    $buttons: JQuery;
-    $btnMinus: JQuery;
-    $out: JQuery;
+    readonly $counter: JQuery;
+    readonly $buttons: JQuery;
+    readonly $btnMinus: JQuery;
+    readonly $out: JQuery;
 }
 
 class DropdownCounter {

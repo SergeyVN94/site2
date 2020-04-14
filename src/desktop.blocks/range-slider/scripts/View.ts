@@ -2,13 +2,13 @@ import { IModelInterface } from './Model';
 import RANGE_SLIDER_CLASSES from './classes';
 
 interface IRangeSliderDomElements {
-    $slider: JQuery;
-    $line: JQuery;
-    $point1: JQuery;
-    $point2: JQuery;
-    $bgLine: JQuery;
-    $out: JQuery;
-    $document: JQuery<Document>;
+    readonly $slider: JQuery;
+    readonly $line: JQuery;
+    readonly $point1: JQuery;
+    readonly $point2: JQuery;
+    readonly $bgLine: JQuery;
+    readonly $out: JQuery;
+    readonly $document: JQuery<Document>;
 }
 
 class View {

@@ -9,8 +9,8 @@ const enum DROPDOWN_GUEST_CLASSES {
 }
 
 interface IDropdownGuestDomElements extends IDropdownDomElements {
-    $btnApply: JQuery;
-    $btnClear: JQuery;
+    readonly $btnApply: JQuery;
+    readonly $btnClear: JQuery;
 }
 
 class DropdownGuest extends Dropdown {

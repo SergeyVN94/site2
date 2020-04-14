@@ -18,13 +18,13 @@ const MONTH_NAMES = [
 ];
 
 interface ICalendarDomElements {
-    $calendar: JQuery;
-    $btnNextMonth: JQuery;
-    $btnPrevMonth: JQuery;
-    $drawnDate: JQuery;
-    $daysContainer: JQuery;
-    $btnApply: JQuery;
-    $btnClear: JQuery;
+    readonly $calendar: JQuery;
+    readonly $btnNextMonth: JQuery;
+    readonly $btnPrevMonth: JQuery;
+    readonly $drawnDate: JQuery;
+    readonly $daysContainer: JQuery;
+    readonly $btnApply: JQuery;
+    readonly $btnClear: JQuery;
 }
 
 class View {
