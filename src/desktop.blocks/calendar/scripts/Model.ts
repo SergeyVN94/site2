@@ -114,13 +114,12 @@ class Model {
         const rangeEndIsNull = end === null;
         const isTargetDateCanBeSetToStart = !rangeEndIsNull && targetDateTime < end.getTime();
         const isTargetDateCanBeSetToEnd = !rangeStartIsNull && targetDateTime > start.getTime();
-        const inNeedResetRangeForStartDay = !isTargetDateCanBeSetToStart &&
-            !rangeEndIsNull && !rangeStartIsNull;
+        const inNeedResetRangeEnd = !isTargetDateCanBeSetToStart && !rangeEndIsNull;
 
         if (setRangeStart) {
             this.rangeDays.start = targetDate;
 
-            if (inNeedResetRangeForStartDay) {
+            if (inNeedResetRangeEnd) {
                 this.rangeDays.end = null;
             }
 
