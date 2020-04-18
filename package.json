@@ -24,7 +24,7 @@
     "devDependencies": {
         "@babel/core": "^7.7.5",
         "@babel/preset-env": "^7.7.6",
-        "@types/jquery": "^3.3.31",
+        "@types/jquery": "^3.3.35",
         "@types/node": "^13.7.2",
         "@types/webpack-env": "^1.15.1",
         "@typescript-eslint/eslint-plugin": "^2.11.0",
@@ -33,7 +33,9 @@
         "babel-loader": "^8.0.6",
         "copy-webpack-plugin": "^5.1.1",
         "css-loader": "^3.3.0",
-        "eslint": "^6.7.2",
+        "eslint": "^6.8.0",
+        "eslint-config-airbnb": "^18.1.0",
+        "eslint-plugin-import": "^2.20.2",
         "eslint-plugin-promise": "^4.2.1",
         "file-loader": "^5.0.2",
         "gh-pages": "^2.2.0",
@@ -53,6 +55,7 @@
         "webpack-cli": "^3.3.10"
     },
     "dependencies": {
+        "eslint-config-airbnb-typescript": "^7.2.1",
         "jquery": "^3.4.1"
     },
     "browserslist": [
