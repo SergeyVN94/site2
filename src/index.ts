@@ -1,5 +1,5 @@
 const importAll = function importAll(resolve: __WebpackModuleApi.RequireContext): void {
-    resolve.keys().forEach(resolve);
+  resolve.keys().forEach(resolve);
 };
 
 importAll(require.context('./desktop.blocks', true, /.(((sa|sc|c)ss)|ts)$/));
