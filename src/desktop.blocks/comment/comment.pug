@@ -17,7 +17,10 @@ mixin comment(options = {})
             .comment__avatar-container
                 img.comment__avatar-image(src=avatar, alt="")
             .comment__like-button
-                +like-button(likes, likeBtnChecked)
+                +like-button({
+                    likes,
+                    checked: likeBtnChecked,
+                })
         .comment__head-body
             .comment__head
                 .comment__user-name
