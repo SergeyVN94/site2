@@ -1,9 +1,10 @@
 .pagination {
-  width: 100%;
-  max-width: 240px;
-
   &__head {
     margin-bottom: 1.0714rem;
+  }
+
+  &__container {
+    display: inline-block;
   }
 
   &__buttons {

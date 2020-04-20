@@ -7,7 +7,7 @@
     padding: 7.1429rem 0rem 5.7143rem 0rem;
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: space-between;
   
     @media (max-width: $breakpoint2) {

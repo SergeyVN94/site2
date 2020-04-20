@@ -1,7 +1,7 @@
 .like-button {
   @include reset-css;
   @include no-select;
-  width: 2.8571rem;
+  min-width: 2.8571rem;
   height: 1.4286rem;
   background: white;
   border: 0.0714rem solid $light-title;
@@ -57,7 +57,7 @@
   }
 
   &__counter {
-    width: 0.8571rem;
+    min-width: 0.8571rem;
     font-family: Montserrat, Arial, sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -66,5 +66,6 @@
     text-align: center;
     color: $light-title;
     user-select: none;
+    padding-right: 0.5714rem;
   }
 }
