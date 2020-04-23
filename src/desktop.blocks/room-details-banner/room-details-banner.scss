@@ -19,6 +19,7 @@
   &__main-img {
     width: 100%;
     height: 100%;
+    display: block;
   }
 
   &__img-column {
@@ -42,5 +43,7 @@
 
   &__img-item {
     width: 100%;
+    height: 100%;
+    display: block;
   }
 }
