@@ -113,6 +113,16 @@ const configTemplate = {
 };
 
 module.exports = [
+    {
+        plugins: [
+            new CopyPlugin([
+                {
+                    from: `${PATHS.src}/chunks/favicons`,
+                    to: PATHS.build,
+                },
+            ]),
+        ],
+    },
     ...pageList.map((page) => {
         return ({
             ...configTemplate,
