@@ -1,8 +1,8 @@
-.cards {
+.ui-kit__cards {
   padding-top: 150px;
   background-color: #e5e5e5;
 
-  &__container-content {
+  &-container-content {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -18,7 +18,7 @@
     }
   }
 
-  &__column {
+  &-column {
     display: flex;
     flex-direction: column;
     max-width: 380px;
@@ -34,7 +34,7 @@
     }
   }
 
-  &__item {
+  &-item {
     @include reset-css;
     margin-bottom: 2.8571rem;
     width: 100%;

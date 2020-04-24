@@ -1,21 +1,21 @@
-include ../card-selection-room/card-selection-room.pug
-include ../card-account-registration/card-account-registration.pug
-include ../card-book-room/card-book-room.pug
-include ../card-authentication/card-authentication.pug
-include ../calendar/calendar.pug
-include ../card-room-information/card-room-information.pug
+include ../../../desktop.blocks/card-selection-room/card-selection-room.pug
+include ../../../desktop.blocks/card-account-registration/card-account-registration.pug
+include ../../../desktop.blocks/card-book-room/card-book-room.pug
+include ../../../desktop.blocks/card-authentication/card-authentication.pug
+include ../../../desktop.blocks/calendar/calendar.pug
+include ../../../desktop.blocks/card-room-information/card-room-information.pug
 
-mixin cards()
-    article.cards
+mixin ui-kit__cards()
+    article.ui-kit__cards
         .container-content
-            .cards__container-content
-                .cards__column
-                    .cards__item
+            .ui-kit__cards-container-content
+                .ui-kit__cards-column
+                    .ui-kit__cards-item
                         +card-selection-room()
-                    .cards__item    
+                    .ui-kit__cards-item    
                         +card-account-registration()
-                .cards__column
-                    .cards__item
+                .ui-kit__cards-column
+                    .ui-kit__cards-item
                         +card-book-room({
                             roomHead: {
                                 roomNumber: 888,
@@ -42,12 +42,12 @@ mixin cards()
                                 ],
                             },
                         })
-                    .cards__item
+                    .ui-kit__cards-item
                         +card-authentication()
-                .cards__column
-                    .cards__item
+                .ui-kit__cards-column
+                    .ui-kit__cards-item
                         +calendar()
-                    .cards__item
+                    .ui-kit__cards-item
                         -
                             const images1 = [
                                 "888.png",
@@ -69,7 +69,7 @@ mixin cards()
                             stars: 5,
                             comments: 145,
                         })
-                    .cards__item
+                    .ui-kit__cards-item
                         +card-room-information({
                             images: images2,
                             roomNumber: 840,

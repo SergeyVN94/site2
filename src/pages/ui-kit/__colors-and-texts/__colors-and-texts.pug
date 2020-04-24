@@ -1,11 +1,11 @@
-include ../colors-demo/colors-demo.pug
-include ../text-demo/text-demo.pug
+include ../../../desktop.blocks/colors-demo/colors-demo.pug
+include ../../../desktop.blocks/text-demo/text-demo.pug
 
-mixin colors-and-type()
-    article.colors-and-type
+mixin ui-kit__colors-and-texts()
+    article.ui-kit__colors-and-texts
         .container-content
-            .colors-and-type__container-content
-                .colors-and-type__colors-demo
+            .ui-kit__colors-and-texts-container-content
+                .ui-kit__colors-and-texts-colors-demo
                     +colors-demo([
                         ["Dark Shade 100%", "#1F2041", "#1F2041"],
                         ["Dark Shade 75%", "#1F2041", "rgba(31, 32, 65, 0.75)"],
@@ -15,7 +15,7 @@ mixin colors-and-type()
                         ["Purple", "#BC9CFF", "#BC9CFF"],
                         ["Green", "#6FCF97", "#6FCF97"],
                     ])
-                .colors-and-type__text-demo
+                .ui-kit__colors-and-texts-text-demo
                     +text-demo([
                         {
                             title: "H1",

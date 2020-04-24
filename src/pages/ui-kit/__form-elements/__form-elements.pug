@@ -1,30 +1,30 @@
-include ../text-field/text-field.pug
-include ../button/button.pug
-include ../dropdown-guest/dropdown-guest.pug
-include ../date-range/date-range.pug
-include ../dropdown-filter-date/dropdown-filter-date.pug
-include ../checkbox-list/checkbox-list.pug
-include ../radio-buttons/radio-buttons.pug
-include ../toggle-buttons/toggle-buttons.pug
-include ../like-buttons/like-buttons.pug
-include ../rating-buttons/rating-buttons.pug
-include ../range-slider/range-slider.pug
-include ../buttons-demo/buttons-demo.pug
-include ../pagination/pagination.pug
-include ../dropdown-room-amenities/dropdown-room-amenities.pug
-include ../expandable-checkbox-list/expandable-checkbox-list.pug
-include ../rich-checkbox-buttons/rich-checkbox-buttons.pug
-include ../bullet-list/bullet-list.pug
-include ../room-advantages/room-advantages.pug
-include ../comment/comment.pug
+include ../../../desktop.blocks/text-field/text-field.pug
+include ../../../desktop.blocks/button/button.pug
+include ../../../desktop.blocks/dropdown-guest/dropdown-guest.pug
+include ../../../desktop.blocks/date-range/date-range.pug
+include ../../../desktop.blocks/dropdown-filter-date/dropdown-filter-date.pug
+include ../../../desktop.blocks/checkbox-list/checkbox-list.pug
+include ../../../desktop.blocks/radio-buttons/radio-buttons.pug
+include ../../../desktop.blocks/toggle-buttons/toggle-buttons.pug
+include ../../../desktop.blocks/like-buttons/like-buttons.pug
+include ../../../desktop.blocks/rating-buttons/rating-buttons.pug
+include ../../../desktop.blocks/range-slider/range-slider.pug
+include ../../../desktop.blocks/buttons-demo/buttons-demo.pug
+include ../../../desktop.blocks/pagination/pagination.pug
+include ../../../desktop.blocks/dropdown-room-amenities/dropdown-room-amenities.pug
+include ../../../desktop.blocks/expandable-checkbox-list/expandable-checkbox-list.pug
+include ../../../desktop.blocks/rich-checkbox-buttons/rich-checkbox-buttons.pug
+include ../../../desktop.blocks/bullet-list/bullet-list.pug
+include ../../../desktop.blocks/room-advantages/room-advantages.pug
+include ../../../desktop.blocks/comment/comment.pug
 
-mixin form-elements()
-    article.form-elements
+mixin ui-kit__form-elements()
+    article.ui-kit__form-elements
         .container-content
-            .form-elements__container-content
-                .form-elements__row
-                    .form-elements__column
-                        .form-elements__item
+            .ui-kit__form-elements-container-content
+                .ui-kit__form-elements-row
+                    .ui-kit__form-elements-column
+                        .ui-kit__form-elements-item
                             +text-field({
                                 head: {
                                     title: "text field",
@@ -33,7 +33,7 @@ mixin form-elements()
                                 placeholder: "Email",
                                 type: "email",
                             })
-                        .form-elements__item
+                        .ui-kit__form-elements-item
                             +text-field({
                                 head: {
                                     title: "subscription text field",
@@ -43,7 +43,7 @@ mixin form-elements()
                                 iconRight: "arrow_forward",
                                 type: "email",
                             })
-                        .form-elements__item
+                        .ui-kit__form-elements-item
                             +text-field({
                                 head: {
                                     title: "masked text field",
@@ -52,24 +52,24 @@ mixin form-elements()
                                 placeholder: "ДД.ММ.ГГГГ",
                                 mask: "%D.%M.%Y",
                             })
-                        .form-elements__item
+                        .ui-kit__form-elements-item
                             +dropdown-guest({
                                 head: {
                                     title: "dropdown",
                                     help: "default",
                                 },
                             })
-                        .form-elements__item
+                        .ui-kit__form-elements-item
                             +date-range()
-                        .form-elements__item
+                        .ui-kit__form-elements-item
                             +dropdown-filter-date({
                                 head: {
                                     title: "filter date dropdown",
                                 },
                                 text: "19 авг - 23 авг",
                             })
-                    .form-elements__column
-                        .form-elements__item
+                    .ui-kit__form-elements-column
+                        .ui-kit__form-elements-item
                             +checkbox-list({
                                 head: {
                                     title: "checkbox buttons",
@@ -80,7 +80,7 @@ mixin form-elements()
                                     {text: "Можно пригласить гостей (до 10 человек)"},
                                 ]
                             })
-                        .form-elements__item
+                        .ui-kit__form-elements-item
                             +radio-buttons({
                                 head: {
                                     title: "radio buttons",
@@ -97,7 +97,7 @@ mixin form-elements()
                                     },
                                 ],
                             })
-                        .form-elements__item
+                        .ui-kit__form-elements-item
                             +toggle-buttons({
                                 head: {
                                     title: "toggle",
@@ -112,7 +112,7 @@ mixin form-elements()
                                     },
                                 ],
                             })
-                        .form-elements__item
+                        .ui-kit__form-elements-item
                             +like-buttons({
                                 head: {
                                     title: "like button",
@@ -127,7 +127,7 @@ mixin form-elements()
                                     },
                                 ],
                             })
-                        .form-elements__item
+                        .ui-kit__form-elements-item
                             +rating-buttons({
                                 head: {
                                     title: "rate button",
@@ -137,28 +137,28 @@ mixin form-elements()
                                     5,
                                 ],
                             })
-                    .form-elements__column
-                        .form-elements__item
+                    .ui-kit__form-elements-column
+                        .ui-kit__form-elements-item
                             +range-slider({
                                 range: [0, 16000],
                                 start: [5000, 10000],
                                 step: 1000,
                                 title: "range slider",
                             })
-                        .form-elements__item
+                        .ui-kit__form-elements-item
                             +buttons-demo()
-                        .form-elements__item
+                        .ui-kit__form-elements-item
                             +pagination({
                                 head: {
                                     title: "pagination",
                                 },
                                 bottomText: "1 – 12 из 100+ вариантов аренды",
                             })
-                .form-elements__row
-                    .form-elements__column         
-                        .form-elements__item
+                .ui-kit__form-elements-row
+                    .ui-kit__form-elements-column         
+                        .ui-kit__form-elements-item
                             +dropdown-room-amenities()
-                        .form-elements__item
+                        .ui-kit__form-elements-item
                             +expandable-checkbox-list({
                                 title: "expandable checkbox list",
                                 items: [
@@ -172,8 +172,8 @@ mixin form-elements()
                                     {text: "Шампунь"},
                                 ],
                             })
-                    .form-elements__column
-                        .form-elements__item
+                    .ui-kit__form-elements-column
+                        .ui-kit__form-elements-item
                             +rich-checkbox-buttons({
                                 head: {
                                     title: "rich checkbox buttons",
@@ -189,7 +189,7 @@ mixin form-elements()
                                     },
                                 ],
                             })                        
-                    .form-elements__column
+                    .ui-kit__form-elements-column
                         +bullet-list({
                             head: {
                                 title: "bullet list",
@@ -200,8 +200,8 @@ mixin form-elements()
                                 "Время прибытия — после 13:00, а выезд до 12:00",
                             ],
                         })
-                .form-elements__row
-                    .form-elements__column
+                .ui-kit__form-elements-row
+                    .ui-kit__form-elements-column
                         +room-advantages([
                             {
                                 title: "Комфорт",
@@ -214,7 +214,7 @@ mixin form-elements()
                                 icon: "location_city",
                             },
                         ])
-                    .form-elements__column.form-elements__comment
+                    .ui-kit__form-elements-column.ui-kit__form-elements-comment
                         -const avatar = require("../../desktop.blocks/comment/images/user1.jpg").default;
                         +comment({
                             avatar,

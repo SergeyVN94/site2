@@ -1,10 +1,10 @@
 extends ../../template/page.pug
 
 include ../../desktop.blocks/logo/logo.pug
-include ../../desktop.blocks/colors-and-type/colors-and-type.pug
-include ../../desktop.blocks/form-elements/form-elements.pug
-include ../../desktop.blocks/cards/cards.pug
-include ../../desktop.blocks/demo-headers-and-footers/demo-headers-and-footers.pug
+include ./__colors-and-texts/__colors-and-texts.pug
+include ./__form-elements/__form-elements.pug
+include ./__cards/__cards.pug
+include ./__demo-headers-and-footers/__demo-headers-and-footers.pug
 
 block pageTitle
     title ui-kit
@@ -14,7 +14,7 @@ block page
         main
             .ui-kit__head
                 +logo(true)
-            +colors-and-type()
-            +form-elements()
-            +cards()
-            +demo-headers-and-footers() 
+            +ui-kit__colors-and-texts()
+            +ui-kit__form-elements()
+            +ui-kit__cards()
+            +ui-kit__demo-headers-and-footers() 

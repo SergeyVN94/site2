@@ -1,10 +1,10 @@
-.colors-and-type {
+.ui-kit__colors-and-texts {
   width: 100%;
   background-color: #fff;
   justify-content: space-around;
   display: flex;
 
-  &__container-content {
+  &-container-content {
     @include reset-css;
     width: 100%;
     display: flex;
@@ -22,7 +22,7 @@
     }
   }
   
-  &__text-demo {
+  &-text-demo {
     @media (max-width: $breakpoint3) {
       margin-top: 2.8571rem;
     }  

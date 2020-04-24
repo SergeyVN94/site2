@@ -1,11 +1,11 @@
-include ../logo/logo.pug
-include ../header/header.pug
-include ../footer/footer.pug
-include ../copyright-bar/copyright-bar.pug
-include ../footer-creative/footer-creative.pug
+include ../../../desktop.blocks/logo/logo.pug
+include ../../../desktop.blocks/header/header.pug
+include ../../../desktop.blocks/footer/footer.pug
+include ../../../desktop.blocks/copyright-bar/copyright-bar.pug
+include ../../../desktop.blocks/footer-creative/footer-creative.pug
 
-mixin demo-headers-and-footers()
-    article.demo-headers-and-footers
+mixin ui-kit__demo-headers-and-footers()
+    article.ui-kit__demo-headers-and-footers
         -
             const menu = {
                items: [
@@ -25,14 +25,14 @@ mixin demo-headers-and-footers()
                ]
             };
 
-        .demo-headers-and-footers__header
+        .ui-kit__demo-headers-and-footers-header
             +header({ menu })
-        .demo-headers-and-footers__header
+        .ui-kit__demo-headers-and-footers-header
             +header({
                 menu,
                 user: "Cosmin Negoita",
             })
-        .demo-headers-and-footers__footer
+        .ui-kit__demo-headers-and-footers-footer
             +footer({
                 siteDescription: "Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.",
                 subscribe: {
@@ -69,11 +69,11 @@ mixin demo-headers-and-footers()
                     },
                 ],
             })
-        .demo-headers-and-footers__copyright-bar
+        .ui-kit__demo-headers-and-footers-copyright-bar
             +copyright-bar({
                 copyright: "Copyright © 2018 Toxin UI Kit. All rights reserved.",
             })
-        .demo-headers-and-footers__footer
+        .ui-kit__demo-headers-and-footers-footer
             +footer-creative({
                 siteDescription: "Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.",
             })
