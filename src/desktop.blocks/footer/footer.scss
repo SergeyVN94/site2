@@ -7,7 +7,7 @@
     padding: 7.1429rem 0rem 5.7143rem 0rem;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-between;
   
     @media (max-width: $breakpoint2) {
@@ -29,6 +29,14 @@
     @media (max-width: $breakpoint2) {
       margin: 0 auto 1.2143rem auto;
     }
+  }
+
+  &__nav-container {
+    width: 100%;
+    padding: 0px 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
   }
   
   &__nav {

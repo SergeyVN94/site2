@@ -23,9 +23,10 @@ mixin footer(options = {})
                             text: siteDescription,
                         })
                 
-                for nav in navList
-                    .footer__nav
-                        +footer-nav(nav)
+                .footer__nav-container
+                    for nav in navList
+                        .footer__nav
+                            +footer-nav(nav)
                 
                 .footer__subscribe-container
                     -
