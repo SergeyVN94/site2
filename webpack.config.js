@@ -132,6 +132,11 @@ const getConfig = function getConfigForPage(page) {
 
 module.exports = [
   {
+    devServer: {
+      contentBase: PATHS.build,
+      compress: true,
+      port: 9000
+    },
     plugins: [
       new CopyPlugin([
         {
