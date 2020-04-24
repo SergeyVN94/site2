@@ -116,17 +116,17 @@ mixin room-impressions(options = {})
             ul.room-impressions__help-list
                 -
                     const helpItems = [
-                        {text: "Великолепно", bg: "very-good"},
-                        {text: "Хорошо", bg: "good"},
-                        {text: "Удовлетворительно", bg: "normal"},
-                        {text: "Разочарован", bg: "bad"},
+                        {text: "Великолепно", theme: "very-good"},
+                        {text: "Хорошо", theme: "good"},
+                        {text: "Удовлетворительно", theme: "normal"},
+                        {text: "Разочарован", theme: "bad"},
                     ];
                 
                 for helpItem in helpItems
-                    -const {text, bg} = helpItem;
+                    -const {text, theme} = helpItem;
                     li.room-impressions__help-item
                         .room-impressions__marker-container
-                            .room-impressions__help-marker(class=`room-impressions__help-marker_color_${bg}`)
+                            .room-impressions__help-marker(class=`room-impressions__help-marker_theme_${theme}`)
                         +text({
                             text,
                             wordBreak: "break-all",
