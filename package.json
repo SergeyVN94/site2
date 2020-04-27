@@ -5,10 +5,9 @@
     "main": "index.js",
     "scripts": {
         "start:dev": "webpack-dev-server",
-        "watch": "NODE_ENV=development npx  webpack --watch",
+        "build": "NODE_ENV=production npx webpack",
         "eslint": "eslint --cache --ext .ts,.tsx src",
         "eslint-fix": "eslint --cache --ext .ts,.tsx src --fix",
-        "eslint:dump": "eslint --print-config ./.eslintrc.json",
         "deploy": "gh-pages -d dist"
     },
     "repository": {

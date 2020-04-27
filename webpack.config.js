@@ -4,7 +4,9 @@ const CopyPlugin = require('copy-webpack-plugin');
 const AutoprefixerPlugin = require('autoprefixer');
 const Webpack = require('webpack');
 
-const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
+const isProduction = process.env.NODE_ENV === 'production';
+const mode = isProduction ? 'production' : 'development';
+const devtool = isProduction ? 'nosources-source-map' : 'inline-source-map';
 
 const PATHS = {
   build: `${__dirname}/dist`,
@@ -38,7 +40,6 @@ const rules = [
           plugins: [
             AutoprefixerPlugin(),
           ],
-          sourceMap: true,
         },
       },
       'sass-loader',
@@ -87,63 +88,46 @@ const pageList = [
   'ui-kit',
 ];
 
-const getConfig = function getConfigForPage(page) {
-  return {
-    mode,
-    optimization,
-    context: PATHS.src,
-    entry: './index.ts',
-    output: {
-      path: `${PATHS.build}`,
-      filename: '[name].js',
-    },
-    module: {
-      rules,
-    },
-    output: {
-      path: PATHS.build,
-      filename: '[name].js',
-    },
-    devtool: 'inline-source-map',
-    watchOptions: {
-      aggregateTimeout: 100,
-    },
-    resolve: {
-      extensions: ['.tsx', '.ts', '.js'],
-    },
-    plugins: [
-      new HtmlWebpackPlugin({
+module.exports = {
+  mode,
+  optimization,
+  devtool,
+  devServer: {
+    contentBase: PATHS.build,
+    compress: true,
+    port: 9000,
+  },
+  context: PATHS.src,
+  entry: './index.ts',
+  output: {
+    path: PATHS.build,
+    filename: '[name].js',
+  },
+  module: {
+    rules,
+  },
+  watchOptions: {
+    aggregateTimeout: 100,
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
+  plugins: [
+    ...pageList.map((page) => {
+      return new HtmlWebpackPlugin({
         template: `${PATHS.src}/pages/${page}/index.pug`,
         filename: `${PATHS.build}/${page}.html`,
-      }),
-      new CopyPlugin([
-        {
-          from: `${PATHS.src}/chunks/favicons`,
-          to: PATHS.build,
-        },
-      ]),
-      new Webpack.ProvidePlugin({
-        $: 'jquery',
-        jQuery: 'jquery',
-      }),
-    ],
-  }
-} 
-
-module.exports = [
-  {
-    devServer: {
-      contentBase: PATHS.build,
-      compress: true,
-      port: 9000
-    },
-    plugins: [
-      new CopyPlugin([
-        {
-          from: `${PATHS.src}/chunks/favicons`,
-          to: PATHS.build,
-        },
-      ]),
-    ],
-  },
-].concat(pageList.map((page) => getConfig(page)));
+      });
+    }),
+    new Webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+    }),
+    new CopyPlugin([
+      {
+        from: `${PATHS.src}/chunks/favicons`,
+        to: PATHS.build,
+      },
+    ]),
+  ],
+};
