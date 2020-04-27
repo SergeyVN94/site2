@@ -63,6 +63,7 @@
     @media (max-width: $breakpoint2) {
       display: none;
       width: 100%;
+      margin-left: 0;
     }
   }
 
@@ -93,7 +94,7 @@
 
     @media (max-width: $breakpoint3) {
       width: 100%;
-      max-width: 200px;
+      max-width: 290px;
       justify-content: space-between;
     }
   }

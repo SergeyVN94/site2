@@ -1,15 +1,12 @@
 include ../text/text.pug
 include ../button/button.pug
+include ../social-buttons/social-buttons.pug
 
 mixin copyright-bar(options = {})
     -
         const {
             copyright = "",
-            socialButtons = [
-                {text: "twitter", href: "https://twitter.com"},
-                {text: "facebook-square", href: "https://ru-ru.facebook.com"},
-                {text: "instagram", href: "https://www.instagram.com"},
-            ],
+            socialButtons = null,
         } = options;
     .copyright-bar
         .container-content
@@ -19,18 +16,4 @@ mixin copyright-bar(options = {})
                         text: copyright,
                     })
                 .copyright-bar__social-buttons
-                    for button in socialButtons
-                        -
-                            const {
-                                text = "",
-                                href = "",
-                            } = button;
-
-                        .copyright-bar__social-button
-                            +button({
-                                text,
-                                href,
-                                theme: "social",
-                                target: "_blank",
-                                rel: "noopener noreferrer",
-                            })
+                    +social-buttons(socialButtons)

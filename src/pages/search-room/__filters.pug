@@ -1,23 +1,23 @@
-include ../dropdown-filter-date/dropdown-filter-date.pug
-include ../dropdown-guest/dropdown-guest.pug
-include ../range-slider/range-slider.pug
-include ../checkbox-list/checkbox-list.pug
-include ../rich-checkbox-buttons/rich-checkbox-buttons.pug
-include ../dropdown-room-amenities/dropdown-room-amenities.pug
-include ../expandable-checkbox-list/expandable-checkbox-list.pug
+include ../../desktop.blocks/dropdown-filter-date/dropdown-filter-date.pug
+include ../../desktop.blocks/dropdown-guest/dropdown-guest.pug
+include ../../desktop.blocks/range-slider/range-slider.pug
+include ../../desktop.blocks/checkbox-list/checkbox-list.pug
+include ../../desktop.blocks/rich-checkbox-buttons/rich-checkbox-buttons.pug
+include ../../desktop.blocks/dropdown-room-amenities/dropdown-room-amenities.pug
+include ../../desktop.blocks/expandable-checkbox-list/expandable-checkbox-list.pug
 
-mixin search-filters()
-    aside.search-filters
-        .search-filters__dropdown-filter-date
+mixin search-room__filters()
+    aside.search-room__filters
+        .search-room__dropdown-filter-date
             +dropdown-filter-date({
                 head: {
                     title: "даты пребывания в отеле",
                 },
                 text: "19 авг - 23 авг",
             })
-        .search-filters__dropdown-guest
+        .search-room__dropdown-guest
             +dropdown-guest()
-        .search-filters__range-slider
+        .search-room__range-slider
             +range-slider({
                 title: "диапазон цены",
                 range: [0, 16000],
@@ -26,7 +26,7 @@ mixin search-filters()
                 value: "0₽ - 15 000₽",
                 step: 1000,
             })
-        .search-filters__checkbox-list
+        .search-room__checkbox-list
             +checkbox-list({
                 head: {
                     title: "Checkbox Buttons",
@@ -37,7 +37,7 @@ mixin search-filters()
                     {text: "Можно пригласить гостей (до 10 человек)"},
                 ],
             })
-        .search-filters__rich-checkbox-buttons
+        .search-room__rich-checkbox-buttons
             +rich-checkbox-buttons({
                 head: {
                     title: "доступность",
@@ -53,9 +53,9 @@ mixin search-filters()
                     },
                 ],
             })    
-        .search-filters__dropdown-room-amenities
+        .search-room__dropdown-room-amenities
             +dropdown-room-amenities()
-        .search-filters__expandable-checkbox-list
+        .search-room__expandable-checkbox-list
             +expandable-checkbox-list({
                 title: "дополнительные удобства",
                 items: [

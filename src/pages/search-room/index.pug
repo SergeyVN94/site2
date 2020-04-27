@@ -1,7 +1,7 @@
 extends ../../template/landing.pug
 
-include ../../desktop.blocks/search-filters/search-filters.pug
-include ../../desktop.blocks/hotel-rooms/hotel-rooms.pug
+include ./__filters.pug
+include ./__rooms.pug
 
 block pageTitle
     title Search page
@@ -118,10 +118,5 @@ block main
                         },
                     ];
 
-                .search-room__search-filters
-                    +search-filters()
-                .search-room__hotel-rooms
-                    +hotel-rooms({
-                        rooms,
-                        title: "Номера, которые мы для вас подобрали",
-                    })
+                +search-room__filters()
+                +search-room__rooms({ rooms })

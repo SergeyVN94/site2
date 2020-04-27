@@ -1,0 +1,26 @@
+include ../../desktop.blocks/text/text.pug
+include ../../desktop.blocks/pagination/pagination.pug
+include ../../desktop.blocks/card-room-information/card-room-information.pug
+
+mixin search-room__rooms(options = {})
+    -
+        const {
+            title = "Номера, которые мы для вас подобрали",
+            rooms = [],
+            paginationBottomText = "1 – 12 из 100+ вариантов аренды",
+        } = options;
+    .search-room__rooms
+        .search-room__rooms-title
+            +text({
+                text: title,
+                theme: "h1",
+                fontName: "montserrat",
+            })
+        .search-room__rooms-container
+            for room in rooms
+                .search-room__room-information
+                    +card-room-information(room)
+        .search-room__pagination
+            +pagination({
+                bottomText: paginationBottomText,
+            })

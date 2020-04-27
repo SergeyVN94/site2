@@ -1,0 +1,28 @@
+include ../button/button.pug
+
+mixin social-buttons(buttons = null)
+    -
+        if (buttons === null) {
+            buttons = [
+                {text: "twitter", href: "https://twitter.com"},
+                {text: "facebook-square", href: "https://ru-ru.facebook.com"},
+                {text: "instagram", href: "https://www.instagram.com"},
+            ];
+        }
+
+    .social-buttons
+        for button in buttons
+            .social-buttons__button
+                - 
+                    const { 
+                        text,
+                        href = "",
+                    } = button;
+
+                +button({
+                    text,
+                    href,
+                    theme: "social",
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                })

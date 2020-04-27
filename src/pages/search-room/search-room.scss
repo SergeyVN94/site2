@@ -1,7 +1,9 @@
 .search-room {
+  border-bottom: 1px solid #e3e3e3;
+
   &__container-content {
     @include reset-css;
-    padding: 2.2143rem 0rem 5.2143rem 0rem;
+    padding: 30px 0px 73px 0px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -13,16 +15,75 @@
     }
   }
 
-  &__hotel-rooms {
-    @include reset-css;
-    width: 100%;
-  }
-
-  &__search-filters {
+  &__filters {
+    width: 266px;
     margin-right: 4.3571rem;
 
     @media (max-width: $breakpoint3) {
       margin-right: 0;
     }
   }
+
+  &__dropdown-filter-date {
+    margin-bottom: 1.5714rem;
+  }
+  
+  &__dropdown-guest {
+    margin-bottom: 2.2857rem;
+  }
+
+  &__range-slider {
+    margin-bottom: 1.7857rem;
+  }
+
+  &__checkbox-list {
+    margin-bottom: 2.0714rem;
+  }
+
+  &__rich-checkbox-buttons {
+    margin-bottom: 2.2143rem;
+  }
+
+  &__dropdown-room-amenities {
+    margin-bottom: 1.1429rem;
+  }
+
+  &__rooms {
+    @include reset-css;
+    width: 100%;
+  
+    &-title {
+      margin-bottom: 0.1429rem;
+    }
+  
+    &-container {
+      @include reset-css;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+  
+      @media (max-width: $breakpoint3) {
+        justify-content: space-around;
+      }
+  
+      @media (max-width: 586px) {
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  }
+
+  &__room-information {
+    margin-top: 1.2857rem;
+  }
+  
+  &__pagination {
+    margin-top: 2.8571rem;
+    padding-right: 1.1429rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }  
 }

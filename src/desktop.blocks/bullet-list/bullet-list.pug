@@ -1,5 +1,5 @@
 include ../block-head/block-head.pug
-include ../bullet-list-item/bullet-list-item.pug
+include ./__item/__item.pug
 
 mixin bullet-list(options = {})
     -
@@ -25,5 +25,5 @@ mixin bullet-list(options = {})
         
         ul.bullet-list__container
             for text in items
-                li.bullet-list__item
-                    +bullet-list-item(text)
+                +bullet-list__item(text)
+                    

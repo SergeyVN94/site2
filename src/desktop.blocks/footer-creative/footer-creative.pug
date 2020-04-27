@@ -1,16 +1,13 @@
 include ../logo/logo.pug
 include ../text/text.pug
 include ../button/button.pug
+include ../social-buttons/social-buttons.pug
 
 mixin footer-creative(options = {})
     -
         const {
             siteDescription = "",
-            socialButtons = [
-                {text: "twitter", href: "https://twitter.com"},
-                {text: "facebook-square", href: "https://ru-ru.facebook.com"},
-                {text: "instagram", href: "https://www.instagram.com"},
-            ],
+            socialButtons = null,
         } = options;
 
     .footer-creative
@@ -23,19 +20,5 @@ mixin footer-creative(options = {})
                         text: siteDescription,
                     })
                 .footer-creative__social-buttons
-                    for button in socialButtons
-                        -
-                            const {
-                                text = "",
-                                href = "",
-                            } = button;
-
-                        .footer-creative__social-button
-                            +button({
-                                text,
-                                href,
-                                theme: "social",
-                                target: "_blank",
-                                rel: "noopener noreferrer",
-                            })
+                    +social-buttons(socialButtons)
             
