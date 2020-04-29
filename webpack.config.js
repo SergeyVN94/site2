@@ -94,6 +94,7 @@ module.exports = {
   devtool,
   devServer: {
     contentBase: PATHS.build,
+    index: 'landing-page.html',
     compress: true,
     port: 9000,
   },
