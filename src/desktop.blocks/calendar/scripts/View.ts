@@ -138,6 +138,10 @@ class View {
       1,
     );
     tmpDate.setHours(0, 0, 0, 0);
+    const selectRange = this.domElements.$calendar.attr('data-select-date') || '';
+    const { start = null } = this.model.getRangeDays();
+    const rangeStartIsNull = start === null;
+    const isNeedSelectRangeEnd = selectRange === 'end';
 
     pageDays.forEach((dayNumber, index) => {
       const isFirstWeek = index < 7;
@@ -149,7 +153,16 @@ class View {
 
       if (!isDayAnotherMonth) {
         tmpDate.setDate(dayNumber);
-        const isDayNotClickable = tmpDate.getTime() < currentDate.getTime();
+
+        const dateIsLessThanToday = tmpDate.getTime() < currentDate.getTime();
+        let isDayNotClickable = dateIsLessThanToday;
+
+        if (!rangeStartIsNull && !dateIsLessThanToday) {
+          const dateIsLessThanRangeStart = tmpDate.getTime() < start.getTime();
+          const isDayCannotBeEndOfRange = isNeedSelectRangeEnd && dateIsLessThanRangeStart;
+          isDayNotClickable = isDayCannotBeEndOfRange;
+        }
+
         if (isDayNotClickable) {
           day.classList.add(CALENDAR_CLASSES.NOT_CLICKABLE);
         }
@@ -233,6 +246,16 @@ class View {
       'click.calendar.clear',
       this._handleClickBtnClear.bind(this),
     );
+
+    new MutationObserver(
+      this._handleCalendarAttributesUpdate.bind(this),
+    ).observe(this.domElements.$calendar.get()[0], {
+      attributes: true,
+    });
+  }
+
+  private _handleCalendarAttributesUpdate(): void {
+    this.update();
   }
 
   private _handleClickBtnClear(): void {
