@@ -36,7 +36,7 @@ html {
   margin: 0 auto;
   padding: 0 1.0714rem;
 
-  @media (max-width: $breakpoint3) {
+  @media (max-width: $breakpoint-cell-phones) {
     padding: 0 0.7143rem;
   }
 }

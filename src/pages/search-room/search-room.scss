@@ -9,7 +9,7 @@
     flex-wrap: nowrap;
     justify-content: space-between;
 
-    @media (max-width: $breakpoint3) {
+    @media (max-width: $breakpoint-cell-phones) {
       flex-wrap: wrap;
       justify-content: center;
     }
@@ -19,7 +19,7 @@
     width: 266px;
     margin-right: 4.3571rem;
 
-    @media (max-width: $breakpoint3) {
+    @media (max-width: $breakpoint-cell-phones) {
       margin-right: 0;
     }
   }
@@ -63,7 +63,7 @@
       flex-wrap: wrap;
       justify-content: space-between;
   
-      @media (max-width: $breakpoint3) {
+      @media (max-width: $breakpoint-cell-phones) {
         justify-content: space-around;
       }
   

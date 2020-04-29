@@ -6,7 +6,7 @@
   flex-wrap: wrap;
   align-items: center;
 
-  @media (max-width: $breakpoint2) {
+  @media (max-width: $breakpoint-tablets) {
     flex-direction: column;
     align-items: flex-start;
   }
@@ -25,7 +25,7 @@
       margin-right: 1.5rem;
     }
   
-    @media (max-width: $breakpoint2) {
+    @media (max-width: $breakpoint-tablets) {
       &:not(:last-child) {
         margin: 0rem 0rem 1.5rem 0rem;
       }

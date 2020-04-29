@@ -6,11 +6,11 @@
     flex-direction: column;
     padding-top: 140px;
 
-    @media (max-width: $breakpoint1) {
+    @media (max-width: $breakpoint-old-displays) {
       padding-top: 5rem;
     }
 
-    @media (max-width: $breakpoint3) {
+    @media (max-width: $breakpoint-cell-phones) {
       padding-top: 1.4286rem;
     }
   }
@@ -34,7 +34,7 @@
       margin-right: 0.7143rem;
     }
 
-    @media (max-width: $breakpoint3) {
+    @media (max-width: $breakpoint-cell-phones) {
       width: 100%;
       margin-right: 0rem;
     }
@@ -52,7 +52,7 @@
   &-comment {
     max-width: 63%;
 
-    @media (max-width: $breakpoint3) {
+    @media (max-width: $breakpoint-cell-phones) {
       max-width: 100%;
     }
   }

@@ -10,7 +10,7 @@
     flex-wrap: nowrap;
     justify-content: space-between;
   
-    @media (max-width: $breakpoint2) {
+    @media (max-width: $breakpoint-tablets) {
       flex-direction: column;
       align-items: center;
     }
@@ -26,7 +26,7 @@
   &__logo {
     margin-bottom: 1.2143rem;
   
-    @media (max-width: $breakpoint2) {
+    @media (max-width: $breakpoint-tablets) {
       margin: 0 auto 1.2143rem auto;
     }
   }
@@ -44,7 +44,7 @@
     width: 100%;
     max-width: 160px;
   
-    @media (max-width: $breakpoint2) {
+    @media (max-width: $breakpoint-tablets) {
       display: none;
     }
   }
@@ -55,7 +55,7 @@
     width: 100%;
     max-width: 260px;
   
-    @media (max-width: $breakpoint2) {
+    @media (max-width: $breakpoint-tablets) {
       margin-top: 1.4286rem;
     }
   }
