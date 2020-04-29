@@ -1,0 +1,32 @@
+.social-icon {
+  @include reset-link;
+  width: 1.7143rem;
+  height: 1.7143rem;
+  font-family: 'Font Awesome 5 Brands', Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.7143rem;
+  line-height: 1.6429rem;
+  background: $bg-gradient-primary;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 0;
+
+  &:hover {
+    opacity: 0.86;
+  }
+
+  &:active {
+    background: $primary;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 1;
+  }
+
+  &:focus {
+    background: $text-secondary;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 1;
+  }
+}

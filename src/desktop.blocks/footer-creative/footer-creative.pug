@@ -1,13 +1,13 @@
 include ../logo/logo.pug
 include ../text/text.pug
 include ../button/button.pug
-include ../social-buttons/social-buttons.pug
+include ../social-icons/social-icons.pug
 
 mixin footer-creative(options = {})
     -
         const {
             siteDescription = "",
-            socialButtons = null,
+            socialIcons = null,
         } = options;
 
     .footer-creative
@@ -19,6 +19,6 @@ mixin footer-creative(options = {})
                     +text({
                         text: siteDescription,
                     })
-                .footer-creative__social-buttons
-                    +social-buttons(socialButtons)
+                .footer-creative__social-icons
+                    +social-icons(socialIcons)
             

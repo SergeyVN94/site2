@@ -44,27 +44,26 @@
   &__icon-right {
     @include reset-css;
     @include no-select;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 3.1429rem;
+    height: 3.1429rem;
+     display: flex;
+    align-items: center;
+    justify-content: center;
     font-family: 'Material Icons';
     font-style: normal;
     font-weight: normal;
     font-size: 1.7143rem;
     line-height: 1.7143rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     color: $bg-gradient-primary;
     background: $bg-gradient-primary;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    width: 100%;
-    max-width: 3.1429rem;
-    min-width: 3.1429rem;
-    height: 100%;
-    max-height: 3.1429rem;
-    position: absolute;
-    right: 0;
-    top: 0;
     cursor: pointer;
+    outline: none;
+    border: none;
   
     &:hover {
       text-shadow: 0px 0px 10px $primary;

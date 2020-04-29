@@ -34,6 +34,7 @@ mixin footer(options = {})
                             title = "",
                             description = "",
                             placeholder = "",
+                            formAction = "/mock-address/change-me",
                         } = subscribe;
 
                     .footer__subscribe-title
@@ -45,9 +46,10 @@ mixin footer(options = {})
                         +text({
                             text: description,
                         })
-                    .footer__subscribe-text-field
-                        +text-field({
-                            placeholder,
-                            type: "email",
-                            iconRight: "arrow_forward",
-                        })
+                    form(action=formAction, method="post")
+                        .footer__subscribe-text-field
+                            +text-field({
+                                placeholder,
+                                type: "email",
+                                iconRight: "arrow_forward",
+                            })

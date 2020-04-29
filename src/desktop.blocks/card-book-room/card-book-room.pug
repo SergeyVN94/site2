@@ -13,6 +13,7 @@ mixin card-book-room(options = {})
             dropdownGuest = {},
             dateRange = {},
             bookingButton = "забронировать",
+            formAction = "/mock-address/change-me",
         } = options;
 
     .card-book-room
@@ -26,8 +27,10 @@ mixin card-book-room(options = {})
             .card-book-room__receipt
                 +receipt(receipt)
             .card-book-room__booking-button
-                +button({
-                    text: bookingButton,
-                    theme: "default-long",
-                    icon: "arrow_forward",
-                })
+                form(action=formAction, method="post")
+                    +button({
+                        text: bookingButton,
+                        theme: "default-long",
+                        icon: "arrow_forward",
+                        type: "submit",
+                    })

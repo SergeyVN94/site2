@@ -2,19 +2,12 @@
   @include reset-css;
   @include no-select;
   @include reset-link;
+  position: relative;
   height: 100%;
   max-height: 3.1429rem;
-  display: inline-block;
-  text-align: center;
-  vertical-align: top;
   cursor: pointer;
-
-  &::after {
-    content: '';
-    height: 100%;
-    display: inline-block;
-    vertical-align: middle;
-  }
+  border: none;
+  background: #ffffff;
 
   &_theme {
     &_default-long {
@@ -157,38 +150,6 @@
       color: #ffffff;
     }
 
-    &_social {
-      width: 1.7143rem;
-      height: 1.7143rem;
-      font-family: 'Font Awesome 5 Brands', Arial, sans-serif;
-      font-style: normal;
-      font-weight: normal;
-      font-size: 1.7143rem;
-      line-height: 1.6429rem;
-      background: $bg-gradient-primary;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      padding: 0;
-
-      &:hover {
-        opacity: 0.86;
-      }
-
-      &:active {
-        background: $primary;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        opacity: 1;
-      }
-
-      &:focus {
-        background: $text-secondary;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        opacity: 1;
-      }
-    }
-
     &_text {
       font-family: Montserrat, Arial, sans-serif;
       font-style: normal;
@@ -309,5 +270,13 @@
     text-align: center;
     color: #ffffff;
     text-transform: none;
+  }
+
+  &__link {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
   }
 }

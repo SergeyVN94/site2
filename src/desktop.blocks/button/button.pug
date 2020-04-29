@@ -16,6 +16,7 @@ mixin button(options = {})
             href = "",
             target = "",
             rel = "",
+            type = "button",
         } = options;
 
         classes.push(`button js-button button_theme_${theme}`);
@@ -30,11 +31,10 @@ mixin button(options = {})
 
     -const classesStr = classes.join(" ");
 
-    if href !== ""
-        a(class=classesStr, href=href, target=target, rel=rel) #{text}
-            if icon !== ""
-                .button__icon #{icon}
-    else
-        div(class=classesStr) #{text}
-            if icon !== ""
-                .button__icon #{icon}
+
+    button(class=classesStr, type=type)
+        .button__text #{text}
+        if icon !== ""
+            .button__icon #{icon}
+        if href !== ""
+            a.button__link(href=href, target=target, rel=rel)

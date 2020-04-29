@@ -1,9 +1,9 @@
-.social-buttons {
+.social-icons {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
 
-  &__button:not(:last-child) {
+  &__icon:not(:last-child) {
     margin-right: 1.4286rem;
   }
 }

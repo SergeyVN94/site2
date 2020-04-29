@@ -1,12 +1,12 @@
 include ../text/text.pug
 include ../button/button.pug
-include ../social-buttons/social-buttons.pug
+include ../social-icons/social-icons.pug
 
 mixin copyright-bar(options = {})
     -
         const {
             copyright = "",
-            socialButtons = null,
+            socialIcons = null,
         } = options;
     .copyright-bar
         .container-content
@@ -15,5 +15,5 @@ mixin copyright-bar(options = {})
                     +text({
                         text: copyright,
                     })
-                .copyright-bar__social-buttons
-                    +social-buttons(socialButtons)
+                .copyright-bar__social-icons
+                    +social-icons(socialIcons)
