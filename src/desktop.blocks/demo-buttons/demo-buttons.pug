@@ -1,7 +1,7 @@
 include ../block-head/block-head.pug
 include ../button/button.pug
 
-mixin buttons-demo(options = {})
+mixin demo-buttons(options = {})
     -
         const {
             head = { title: "buttons" },
@@ -14,46 +14,46 @@ mixin buttons-demo(options = {})
             buttonLong = "перейти к оплате",
         } = options;
 
-    .buttons-demo
+    .demo-buttons
         if head !== null
-            .buttons-demo__head
+            .demo-buttons__head
                 +block-head(head)
-        .buttons-demo__container
-            .buttons-demo__row
-                .buttons-demo__button
+        .demo-buttons__container
+            .demo-buttons__row
+                .demo-buttons__button
                     +button({
                         text: buttonDefault,
                     })
-                .buttons-demo__button
+                .demo-buttons__button
                     +button({
                         text: buttonDefaultDisable,
                         disable: true,
                     })
-            .buttons-demo__row
-                .buttons-demo__button
+            .demo-buttons__row
+                .demo-buttons__button
                     +button({
                         text: buttonLight,
                         theme: "light",
                     })
-                .buttons-demo__button
+                .demo-buttons__button
                     +button({
                         text: buttonLightDisable,
                         disable: true,
                         theme: "light",
                     })
-            .buttons-demo__row
-                .buttons-demo__button
+            .demo-buttons__row
+                .demo-buttons__button
                     +button({
                         text: buttonText,
                         theme: "text",
                     })
-                .buttons-demo__button
+                .demo-buttons__button
                     +button({
                         text: buttonTextDisable,
                         theme: "text",
                         textColor: "text-secondary",
                     })
-            .buttons-demo__row
+            .demo-buttons__row
                 +button({
                     text: buttonLong,
                     theme: "default-long",
