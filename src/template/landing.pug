@@ -3,9 +3,10 @@ extends ../template/page.pug
 include ../desktop.blocks/header/header.pug
 include ../desktop.blocks/footer/footer.pug
 include ../desktop.blocks/copyright-bar/copyright-bar.pug
+include ../desktop.blocks/page-container/page-container.pug
 
 block page
-    body.page-container
+    +page-container()
         -
             const headerConfig = {
                 menu: {

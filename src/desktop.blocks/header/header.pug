@@ -1,6 +1,7 @@
 include ../logo/logo.pug
 include ../menu/menu.pug
 include ../button/button.pug
+include ../container-content/container-content.pug
 
 mixin header(options = {})
     -
@@ -15,7 +16,7 @@ mixin header(options = {})
         } = options;
 
     header.header.js-header
-        .container-content
+        +container-content()
             .header__container-content
                 .header__head
                     .header__logo

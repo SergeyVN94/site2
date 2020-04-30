@@ -4,76 +4,75 @@ include ../../../desktop.blocks/footer/footer.pug
 include ../../../desktop.blocks/copyright-bar/copyright-bar.pug
 include ../../../desktop.blocks/footer-creative/footer-creative.pug
 
-mixin ui-kit__demo-headers-and-footers()
-    article.ui-kit__demo-headers-and-footers
-        -
-            const menu = {
-               items: [
-                    {text: "Home", selected: true},
-                    {text: "About Us"},
-                    {
-                        text: "Services",
-                        items: [
-                            {text: "example1"},
-                            {text: "example2"},
-                            {text: "example3"},
-                        ],
-                    },
-                    {text: "Careers"},
-                    {text: "News"},
-                    {text: "Documentation"}
-               ]
-            };
-
-        .ui-kit__demo-headers-and-footers-header
-            +header({ menu })
-        .ui-kit__demo-headers-and-footers-header
-            +header({
-                menu,
-                user: "Cosmin Negoita",
-            })
-        .ui-kit__demo-headers-and-footers-footer
-            +footer({
-                siteDescription: "Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.",
-                subscribe: {
-                    title: "Subscribe to our newsletter",
-                    description: "Receive our latest news and promotions in your inbox!",
-                    placeholder: "Your email address",
+article.ui-kit__demo-headers-and-footers
+    -
+        const menu = {
+            items: [
+                {text: "Home", selected: true},
+                {text: "About Us"},
+                {
+                    text: "Services",
+                    items: [
+                        {text: "example1"},
+                        {text: "example2"},
+                        {text: "example3"},
+                    ],
                 },
-                navList: [
-                    {
-                        title: "navigation",
-                        items: [
-                            {text: "About Us"},
-                            {text: "News"},
-                            {text: "Support"},
-                            {text: "Products"},
-                        ],
-                    },
-                    {
-                        title: "about us",
-                        items: [
-                            {text: "Who we are"},
-                            {text: "Our team"},
-                            {text: "Careers"},
-                            {text: "Investors"},
-                        ],
-                    },
-                    {
-                        title: "Support",
-                        items: [
-                            {text: "Documentation"},
-                            {text: "Community"},
-                            {text: "Get in Touch"},
-                        ],
-                    },
-                ],
-            })
-        .ui-kit__demo-headers-and-footers-copyright-bar
-            +copyright-bar({
-                copyright: "Copyright © 2018 Toxin UI Kit. All rights reserved.",
-            })
-        .ui-kit__demo-headers-and-footers-footer
-            +footer-creative({
-                siteDescription: "Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.",
-            })
+                {text: "Careers"},
+                {text: "News"},
+                {text: "Documentation"}
+            ]
+        };
+
+    .ui-kit__demo-headers-and-footers-header
+        +header({ menu })
+    .ui-kit__demo-headers-and-footers-header
+        +header({
+            menu,
+            user: "Cosmin Negoita",
+        })
+    .ui-kit__demo-headers-and-footers-footer
+        +footer({
+            siteDescription: "Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.",
+            subscribe: {
+                title: "Subscribe to our newsletter",
+                description: "Receive our latest news and promotions in your inbox!",
+                placeholder: "Your email address",
+            },
+            navList: [
+                {
+                    title: "navigation",
+                    items: [
+                        {text: "About Us"},
+                        {text: "News"},
+                        {text: "Support"},
+                        {text: "Products"},
+                    ],
+                },
+                {
+                    title: "about us",
+                    items: [
+                        {text: "Who we are"},
+                        {text: "Our team"},
+                        {text: "Careers"},
+                        {text: "Investors"},
+                    ],
+                },
+                {
+                    title: "Support",
+                    items: [
+                        {text: "Documentation"},
+                        {text: "Community"},
+                        {text: "Get in Touch"},
+                    ],
+                },
+            ],
+        })
+    .ui-kit__demo-headers-and-footers-copyright-bar
+        +copyright-bar({
+            copyright: "Copyright © 2018 Toxin UI Kit. All rights reserved.",
+        })
+    .ui-kit__demo-headers-and-footers-footer
+        +footer-creative({
+            siteDescription: "Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.",
+        })

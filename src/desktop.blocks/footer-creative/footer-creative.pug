@@ -2,6 +2,7 @@ include ../logo/logo.pug
 include ../text/text.pug
 include ../button/button.pug
 include ../social-icons/social-icons.pug
+include ../container-content/container-content.pug
 
 mixin footer-creative(options = {})
     -
@@ -11,7 +12,7 @@ mixin footer-creative(options = {})
         } = options;
 
     .footer-creative
-        .container-content
+        +container-content()
             .footer-creative__container-content
                 .footer-creative__logo
                     +logo()

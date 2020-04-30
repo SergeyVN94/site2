@@ -2,14 +2,13 @@ extends ../../template/landing.pug
 
 include ../../desktop.blocks/card-authentication/card-authentication.pug
 include ../../desktop.blocks/text/text.pug
+include ../../desktop.blocks/banner/banner.pug
 
 block pageTitle
     title Sign in
 
 block main
     main.sign-in
-        .page-banner
-            .container-content
-                .page-banner__content
-                    .sign-in__card-authentication
-                        +card-authentication()
+        +banner()
+            .sign-in__card-authentication
+                +card-authentication()

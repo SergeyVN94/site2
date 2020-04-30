@@ -7,6 +7,7 @@ include ../../desktop.blocks/room-impressions/room-impressions.pug
 include ../../desktop.blocks/comments/comments.pug
 include ../../desktop.blocks/bullet-list/bullet-list.pug
 include ../../desktop.blocks/text/text.pug
+include ../../desktop.blocks/container-content/container-content.pug
 
 block pageTitle
     title Room details
@@ -19,7 +20,7 @@ block main
                 'room-888-2.png',
                 'room-888-3.png',
             ])
-        .container-content
+        +container-content()
             .room-details__container-content
                 .room-details__main-info
                     .room-details__info-item

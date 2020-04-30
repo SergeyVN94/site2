@@ -17,10 +17,10 @@ include ../../../desktop.blocks/rich-checkbox-buttons/rich-checkbox-buttons.pug
 include ../../../desktop.blocks/bullet-list/bullet-list.pug
 include ../../../desktop.blocks/room-advantages/room-advantages.pug
 include ../../../desktop.blocks/comment/comment.pug
+include ../../../desktop.blocks/container-content/container-content.pug
 
-mixin ui-kit__form-elements()
-    article.ui-kit__form-elements
-        .container-content
+article.ui-kit__form-elements
+        +container-content()
             .ui-kit__form-elements-container-content
                 .ui-kit__form-elements-row
                     .ui-kit__form-elements-column

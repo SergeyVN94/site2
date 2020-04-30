@@ -2,14 +2,13 @@ extends ../../template/landing.pug
 
 include ../../desktop.blocks/card-account-registration/card-account-registration.pug
 include ../../desktop.blocks/text/text.pug
+include ../../desktop.blocks/banner/banner.pug
 
 block pageTitle
     title Registration
 
 block main
     main.registration
-        .page-banner
-            .container-content
-                .page-banner__content
-                    .registration__card-account-registration
-                        +card-account-registration()
+        +banner()
+            .registration__card-account-registration
+                +card-account-registration()

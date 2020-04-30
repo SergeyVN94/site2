@@ -2,6 +2,7 @@ extends ../../template/landing.pug
 
 include ../../desktop.blocks/card-selection-room/card-selection-room.pug
 include ../../desktop.blocks/text/text.pug
+include ../../desktop.blocks/container-content/container-content.pug
 
 block pageTitle
     title Landing page
@@ -9,7 +10,7 @@ block pageTitle
 block main
     main.landing-page
         .landing-page__banner
-            .container-content
+            +container-content()
                 .landing-page__banner-content
                     .landing-page__selection-room
                         +card-selection-room() 

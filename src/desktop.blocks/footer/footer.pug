@@ -2,6 +2,7 @@ include ../logo/logo.pug
 include ../text/text.pug
 include ../footer-nav/footer-nav.pug
 include ../text-field/text-field.pug
+include ../container-content/container-content.pug
 
 mixin footer(options = {})
     -
@@ -13,7 +14,7 @@ mixin footer(options = {})
         } = options;
 
     footer.footer
-        .container-content
+        +container-content()
             .footer__container-content
                 .footer__site-description
                     .footer__logo

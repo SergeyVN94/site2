@@ -1,0 +1,8 @@
+include ../container-content/container-content.pug
+
+mixin banner
+    .banner
+        +container-content()
+            .banner__content
+                if block
+                    block
