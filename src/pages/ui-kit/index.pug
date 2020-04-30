@@ -1,6 +1,6 @@
-extends ../../template/page.pug
+extends /../template/page.pug
 
-include ../../desktop.blocks/logo/logo.pug
+include /logo/logo.pug
 
 block pageTitle
     title ui-kit
@@ -10,7 +10,7 @@ block page
         main
             .ui-kit__head
                 +logo(true)
-            include ./__colors-and-texts/__colors-and-texts.pug
-            include ./__form-elements/__form-elements.pug
-            include ./__cards/__cards.pug
-            include ./__demo-headers-and-footers/__demo-headers-and-footers.pug
+            include __colors-and-texts/__colors-and-texts.pug
+            include __form-elements/__form-elements.pug
+            include __cards/__cards.pug
+            include __demo-headers-and-footers/__demo-headers-and-footers.pug
