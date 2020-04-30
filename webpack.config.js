@@ -27,6 +27,9 @@ const rules = [
   {
     test: /\.pug$/,
     loader: 'pug-loader',
+    options: {
+      root: `${PATHS.src}/desktop.blocks`,
+    },
   },
   {
     test: /\.(sa|sc|c)ss$/,
