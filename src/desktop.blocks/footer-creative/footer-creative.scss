@@ -3,7 +3,7 @@
   background: #fff;
   box-shadow: 0rem 0.7143rem 1.4286rem $dim-shadow;
 
-  &__container-content {
+  &__content {
     @include reset-css;
     padding: 7.1429rem 0rem 110px 0rem;
     display: flex;

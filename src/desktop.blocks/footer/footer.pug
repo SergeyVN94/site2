@@ -15,7 +15,7 @@ mixin footer(options = {})
 
     footer.footer
         +container-content()
-            .footer__container-content
+            .footer__content
                 .footer__site-description
                     .footer__logo
                         +logo()
@@ -47,10 +47,9 @@ mixin footer(options = {})
                         +text({
                             text: description,
                         })
-                    form(action=formAction, method="post")
-                        .footer__subscribe-text-field
-                            +text-field({
-                                placeholder,
-                                type: "email",
-                                iconRight: "arrow_forward",
-                            })
+                    form.footer__subscribe-text-field(action=formAction, method="post")
+                        +text-field({
+                            placeholder,
+                            type: "email",
+                            iconRight: "arrow_forward",
+                        })

@@ -1,12 +1,12 @@
-include /colors-demo/colors-demo.pug
-include /text-demo/text-demo.pug
+include /demo-colors/demo-colors.pug
+include /demo-text/demo-text.pug
 include /container-content/container-content.pug
 
 article.ui-kit__colors-and-texts
     +container-content()
         .ui-kit__colors-and-texts-container-content
-            .ui-kit__colors-and-texts-colors-demo
-                +colors-demo([
+            .ui-kit__colors-and-texts-demo-colors
+                +demo-colors([
                     ["Dark Shade 100%", "#1F2041", "#1F2041"],
                     ["Dark Shade 75%", "#1F2041", "rgba(31, 32, 65, 0.75)"],
                     ["Dark Shade 50%", "#1F2041", "rgba(31, 32, 65, 0.5)"],
@@ -15,8 +15,8 @@ article.ui-kit__colors-and-texts
                     ["Purple", "#BC9CFF", "#BC9CFF"],
                     ["Green", "#6FCF97", "#6FCF97"],
                 ])
-            .ui-kit__colors-and-texts-text-demo
-                +text-demo([
+            .ui-kit__colors-and-texts-demo-text
+                +demo-text([
                     {
                         title: "H1",
                         example: "This one is the sub-section or widget title",

@@ -12,22 +12,22 @@ mixin header(options = {})
             btnRegister = "register",
             btnLoginHref = "./sign-in.html",
             btnRegisterHref = "./registration.html",
-            btnMobileIcon = "view_headline",
+            mobileBtnIcon = "view_headline",
         } = options;
 
     header.header.js-header
         +container-content()
-            .header__container-content
-                .header__head
+            .header__content
+                .header__main
                     .header__logo
                         +logo()
-                    .header__menu-mobile-btn
+                    .header__expand-mobile-menu-btn
                         +button({
                             classes: [
                                 "button_action_expand-mobile-menu",
                                 "js-button_action_expand-mobile-menu",
                             ],
-                            text: btnMobileIcon,
+                            text: mobileBtnIcon,
                             theme: "icon",
                         })
                 .header__nav-container

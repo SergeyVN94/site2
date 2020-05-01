@@ -15,7 +15,7 @@
     }
   }
 
-  &__switch {
+  &__switch-wrapper {
     width: 2.8571rem;
     height: 1.4286rem;
     background: white;
@@ -33,7 +33,7 @@
     }
   }
 
-  &__switch-indicator {
+  &__switch {
     display: block;
     float: left;
     width: 0.8571rem;

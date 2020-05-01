@@ -10,10 +10,10 @@ mixin card-authentication(options = {})
             formAction = "/mock-address/change-me",
             inputEmailPlaceholder = "Email",
             inputPasswordPlaceholder = "Пароль",
-            btnSignIn = "войти",
+            authBtn = "войти",
             noAccount =  "Нет аккаунта на Toxin?",
-            btnCreateAccount = "создать",
-            btnCreateAccountHref = "./registration.html",
+            createAccountBtn = "создать",
+            createAccountBtnHref = "./registration.html",
         } = options;
 
     .card-authentication
@@ -35,9 +35,9 @@ mixin card-authentication(options = {})
                         placeholder: inputPasswordPlaceholder,
                         type: "password",
                     })
-                .card-authentication__btn-auth
+                .card-authentication__auth-btn
                     +button({
-                        text: btnSignIn,
+                        text: authBtn,
                         icon: "arrow_forward",
                         theme: "default-long",
                         type: "submit",
@@ -48,7 +48,7 @@ mixin card-authentication(options = {})
                     color: "important-text",
                 })
                 +button({
-                    href: btnCreateAccountHref,
-                    text: btnCreateAccount,
+                    href: createAccountBtnHref,
+                    text: createAccountBtn,
                     theme: "light",
                 })

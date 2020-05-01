@@ -2,7 +2,7 @@ include /text-field/text-field.pug
 include /button/button.pug
 include /dropdown-guest/dropdown-guest.pug
 include /date-range/date-range.pug
-include /dropdown-filter-date/dropdown-filter-date.pug
+include /dropdown-date-filter/dropdown-date-filter.pug
 include /checkbox-list/checkbox-list.pug
 include /radio-buttons/radio-buttons.pug
 include /toggle-buttons/toggle-buttons.pug
@@ -62,7 +62,7 @@ article.ui-kit__form-elements
                         .ui-kit__form-elements-item
                             +date-range()
                         .ui-kit__form-elements-item
-                            +dropdown-filter-date({
+                            +dropdown-date-filter({
                                 head: {
                                     title: "filter date dropdown",
                                 },

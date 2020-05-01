@@ -1,16 +1,16 @@
-mixin text-demo(items = [])
-    .text-demo
+mixin demo-text(items = [])
+    .demo-text
         for item in items
             -const {title, example, theme} = item;
-            .text-demo__item
-                .text-demo__item-name
+            .demo-text__item
+                .demo-text__item-name
                     +text({
                         text: title,
                         theme: theme,
                         fontWeight: "normal",
                         color: "light-title",
                     })
-                .text-demo__item-value
+                .demo-text__item-value
                     +text({
                         text: example,
                         theme: theme,

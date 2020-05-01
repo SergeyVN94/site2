@@ -47,13 +47,13 @@ mixin image-slider(images = [])
             -
                 const navButton = "image-slider__nav-button";
                 const commonClasses = `${navButton} js-${navButton}`;
-                const btnPrevImg = `${navButton}_action_prev-img`;
-                const btnNextImg = `${navButton}_action_next-img`;
-                const btnPrevImgClasses = `${commonClasses} ${btnPrevImg} js-${btnPrevImg}`;
-                const btnNextImgClasses = `${commonClasses} ${btnNextImg} js-${btnNextImg}`;
+                const prevImgBtn = `${navButton}_action_prev-img`;
+                const nextImgBtn = `${navButton}_action_next-img`;
+                const prevImgBtnClasses = `${commonClasses} ${prevImgBtn} js-${prevImgBtn}`;
+                const nextImgBtnClasses = `${commonClasses} ${nextImgBtn} js-${nextImgBtn}`;
 
-            div(class=btnPrevImgClasses)
+            div(class=prevImgBtnClasses)
                 .image-slider__nav-button-icon expand_more
             
-            div(class=btnNextImgClasses)
+            div(class=nextImgBtnClasses)
                 .image-slider__nav-button-icon expand_more

@@ -10,8 +10,8 @@ mixin card-selection-room(options = {})
             title = "Найдём номера под ваши пожелания",
             dateRange = {},
             dropdownGuest = {},
-            btnFindRoom = "подобрать номер",
-            btnFindRoomHref = "./search-room.html",
+            searchBtnRoom = "подобрать номер",
+            searchBtnRoomHref = "./search-room.html",
         } = options;
     
     .card-selection-room
@@ -26,10 +26,10 @@ mixin card-selection-room(options = {})
                 +date-range(dateRange)
             .card-selection-room__dropdown-guest
                 +dropdown-guest(dropdownGuest)
-            .card-selection-room__button-find
+            .card-selection-room__search-btn
                 +button({
-                    href: btnFindRoomHref,
-                    text: btnFindRoom,
+                    href: searchBtnRoomHref,
+                    text: searchBtnRoom,
                     theme: "default-long",
                     icon: "arrow_forward",
                 })

@@ -2,7 +2,7 @@
   background-color: #fff;
   box-shadow: 0rem 0.0714rem 0rem $dim-border;
 
-  &__container-content {
+  &__content {
     @include reset-css;
     padding: 7.1429rem 0rem 5.7143rem 0rem;
     display: flex;

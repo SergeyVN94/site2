@@ -8,7 +8,7 @@
     flex-direction: row;
   }
 
-  &__rating:not(:last-child) {
+  &__item:not(:last-child) {
     margin-right: 1.4286rem;
   }
 }

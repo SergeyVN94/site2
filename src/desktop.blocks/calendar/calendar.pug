@@ -32,8 +32,8 @@ mixin calendar(options = {})
                         size: "small",
                     })
         .calendar__days-container.js-calendar__days-container
-        .calendar__btn-control
-            .calendar__btn-clear
+        .calendar__control-btns
+            .calendar__clear-btn
                 +button({
                     text: btnClear,
                     theme: "text",
@@ -43,7 +43,7 @@ mixin calendar(options = {})
                         "js-button_action_clear",
                     ],
                 })
-            .calendar__btn-apply
+            .calendar__apply-btn
                 +button({
                     text: btnApply,
                     theme: "text",

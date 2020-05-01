@@ -24,7 +24,7 @@ mixin card-account-registration(options = {})
             inputPasswordPlaceholder = "Пароль",
             toggleBtnSpecialOffers = "Получать спецпредложения",
             paymentBtn = "перейти к оплате",
-            haveAccount = "Уже есть аккаунт на Toxin",
+            hasAccount = "Уже есть аккаунт на Toxin",
             btnSignIn = "войти",
         } = options;
 
@@ -79,9 +79,9 @@ mixin card-account-registration(options = {})
                         icon: "arrow_forward",
                         type: "submit",
                     })
-            .card-account-registration__have-account
+            .card-account-registration__has-account
                 +text({
-                    text: haveAccount,
+                    text: hasAccount,
                     color: "important-text",
                 })
                 +button({

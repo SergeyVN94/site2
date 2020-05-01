@@ -1,6 +1,6 @@
 include /text/text.pug
 
-mixin color-demo-item(options = [])
+mixin demo-color-item(options = [])
     -
         const [
             colorName,
@@ -8,16 +8,16 @@ mixin color-demo-item(options = [])
             squareBgColor,
         ] = options;
 
-    .color-demo-item
-        .color-demo-item__color-square(style=`background-color: ${squareBgColor};`)
-        .color-demo-item__description
-            .color-demo-item__color-name
+    .demo-color-item
+        .demo-color-item__color-square(style=`background-color: ${squareBgColor};`)
+        .demo-color-item__description
+            .demo-color-item__color-name
                 +text({
                     text: colorName,
                     theme: "h2",
                     lineHeight: "big",
                 })
-            .color-demo-item__color-value
+            .demo-color-item__color-value
                 +text({
                     text: colorValue,
                     theme: "h2",

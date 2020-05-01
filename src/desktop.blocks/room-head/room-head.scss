@@ -23,14 +23,14 @@
     margin-left: 0.3571rem;
   }
 
-  &__room-price {
+  &__price-container {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: baseline;
   }
 
-  &__price-number {
+  &__price {
     margin-right: 0.2857rem;
   }
 }
