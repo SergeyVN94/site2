@@ -5,13 +5,21 @@
   &__input {
     display: none;
 
-    &:checked + .input-toggle__switch {
+    &:checked + .input-toggle__switch-wrapper {
       border-color: $primary;
     }
 
-    &:checked + .input-toggle__switch .input-toggle__switch-indicator {
+    &:checked + .input-toggle__switch-wrapper .input-toggle__switch {
       background: $bg-gradient-primary;
       float: right;
+    }
+
+    &:hover + .input-toggle__switch-wrapper {
+      box-shadow: 0px 0px 10px $primary;
+    }
+
+    &:active + .input-toggle__switch-wrapper {
+      box-shadow: 0px 0px 5px $text-secondary;
     }
   }
 
@@ -23,14 +31,6 @@
     box-sizing: border-box;
     border-radius: 0.7143rem;
     padding: 0.2143rem;
-
-    &:hover {
-      box-shadow: 0px 0px 10px $primary;
-    }
-
-    &:active {
-      box-shadow: 0px 0px 5px $text-secondary;
-    }
   }
 
   &__switch {

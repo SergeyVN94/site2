@@ -8,9 +8,10 @@ mixin toggle-button(options = {})
             checked = false,
         } = options;
 
-    .toggle-button
+    label.toggle-button
         +input-toggle(checked)
         .toggle-button__text
             +text({
                 text,
+                noSelect: true,
             })
