@@ -1,6 +1,6 @@
 const enum COUNTER_CLASSES {
   BUTTON = 'js-button',
-  OUT = 'js-text_assignment_count-out',
+  OUT = 'js-dropdown-counter__out',
   BTN_MINUS = 'js-button_action_minus',
   BTN_PLUS = 'js-button_action_plus',
   COUNTER = 'js-dropdown-counter',
@@ -58,7 +58,7 @@ class DropdownCounter {
   }
 
   public reset(): void {
-    this.count = 0;
+    this.value = 0;
   }
 
   public getGroup(): string {
