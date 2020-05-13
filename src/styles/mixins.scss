@@ -32,3 +32,39 @@
     clear: both;
   }
 }
+
+@mixin text-title {
+  font-family: Quicksand, Arial, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  color: $text-title;
+}
+
+@mixin text-h1 {
+  @include text-title;
+  font-size: 1.7143rem;
+  line-height: 2.1429rem;
+}
+
+@mixin text-h2 {
+  @include text-title;
+  font-size: 1.3571rem;
+  line-height: 1.7143rem;
+}
+
+@mixin text-h3 {
+  @include text-title;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 0.8571rem;
+  line-height: 1.0714rem;
+  text-transform: uppercase;
+}
+
+@mixin text-body {
+  font-family: Montserrat, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 1rem;
+  line-height: 1.7143rem;
+  color: $text-primary;
+  font-style: normal;
+}
