@@ -3,7 +3,7 @@
 
   &__container-content {
     @include reset-css;
-    padding: 30px 0px 73px 0px;
+    padding: 30px 0px 72px 0px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -76,11 +76,11 @@
   }
 
   &__room-information {
-    margin-top: 1.2857rem;
+    margin-top: 19px;
   }
   
   &__pagination {
-    margin-top: 2.8571rem;
+    margin-top: 38px;
     padding-right: 1.1429rem;
     display: flex;
     flex-direction: row;
