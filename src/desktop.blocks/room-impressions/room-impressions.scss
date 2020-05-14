@@ -40,13 +40,13 @@
   &__value {
     @include text-h1;
     text-align: center;
-    color: $primary;
+    color: $bg-primary;
   }
 
   &__label {
     @include text-h3;
     text-align: center;
-    color: $primary;
+    color: $bg-primary;
   }
 
   &__help-list {
@@ -80,19 +80,19 @@
 
     &_theme {
       &_very-good {
-        background: $bg-gradient-good;
+        background: $gradient-warn;
       }
 
       &_good {
-        background: $bg-gradient-success;
+        background: $gradient-secondary;
       }
 
       &_normal {
-        background: $bg-gradient-primary;
+        background: $gradient-primary;
       }
 
       &_bad {
-        background: $bg-gradient-bad;
+        background: $gradient-dark;
       }
     }
   }

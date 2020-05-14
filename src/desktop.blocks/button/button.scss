@@ -18,7 +18,7 @@
       padding: 0rem 19.7px;
       font-size: 0.8571rem;
       line-height: 1.0714rem;
-      background: $bg-gradient-primary;
+      background: $gradient-primary;
       font-family: Montserrat, Arial, sans-serif;
       font-style: normal;
       font-weight: bold;
@@ -27,11 +27,11 @@
       position: relative;
 
       &:hover {
-        box-shadow: 0px 0px 10px $primary;
+        box-shadow: 0px 0px 10px $bg-primary;
       }
 
       &:active {
-        background: $primary;
+        background: $bg-primary;
       }
 
       &:focus {
@@ -45,7 +45,7 @@
       padding: 0rem 19.7px;
       font-size: 0.8571rem;
       line-height: 1.0714rem;
-      background: $bg-gradient-primary;
+      background: $gradient-primary;
       font-family: Montserrat, Arial, sans-serif;
       font-style: normal;
       font-weight: bold;
@@ -54,11 +54,11 @@
       padding-top: 0.1429rem;
 
       &:hover {
-        box-shadow: 0px 0px 10px $primary;
+        box-shadow: 0px 0px 10px $bg-primary;
       }
 
       &:active {
-        background: $primary;
+        background: $bg-primary;
       }
 
       &:focus {
@@ -90,13 +90,13 @@
       font-size: 0.8571rem;
       line-height: 1.0714rem;
       border-radius: 1.5714rem;
-      border: 0.1429rem solid $primary;
-      color: $primary;
+      border: 0.1429rem solid $bg-primary;
+      color: $bg-primary;
       text-transform: uppercase;
       padding: 0rem 1.1786rem;
 
       &:hover {
-        box-shadow: 0px 0px 10px $primary;
+        box-shadow: 0px 0px 10px $bg-primary;
       }
 
       &:active {
@@ -111,7 +111,7 @@
     &_round-icon {
       width: 2.8571rem;
       height: 2.8571rem;
-      background: $bg-gradient-primary;
+      background: $gradient-primary;
       border-radius: 1.5714rem;
       font-family: 'Material Icons';
       font-style: normal;
@@ -159,10 +159,10 @@
       font-size: 0.8571rem;
       line-height: 1.0714rem;
       text-transform: uppercase;
-      color: $primary;
+      color: $bg-primary;
 
       &:hover {
-        text-shadow: 0px 0px 10px $primary;
+        text-shadow: 0px 0px 10px $bg-primary;
       }
 
       &:active {
@@ -177,11 +177,11 @@
 
   &_background {
     &_gradient-primary {
-      background: $bg-gradient-primary;
+      background: $gradient-primary;
     }
 
     &_gradient-success {
-      background: $bg-gradient-success;
+      background: $gradient-secondary;
     }
 
     &_none {
@@ -192,15 +192,15 @@
   &_hover-theme {
     &_gradient-primary {
       &:hover {
-        background: $bg-gradient-primary;
-        box-shadow: 0px 0px 10px $primary;
+        background: $gradient-primary;
+        box-shadow: 0px 0px 10px $bg-primary;
         color: #ffffff;
         font-weight: bold;
       }
 
       &:active {
-        background: $bg-gradient-primary;
-        box-shadow: 0px 0px 10px $bg-good;
+        background: $gradient-primary;
+        box-shadow: 0px 0px 10px $bg-secondary;
         color: #ffffff;
         font-weight: bold;
       }
@@ -208,15 +208,15 @@
 
     &_gradient-success {
       &:hover {
-        background: $bg-gradient-success;
-        box-shadow: 0px 0px 10px $bg-good;
+        background: $gradient-secondary;
+        box-shadow: 0px 0px 10px $bg-secondary;
         color: #ffffff;
         font-weight: bold;
       }
 
       &:active {
-        background: $bg-gradient-success;
-        box-shadow: 0px 0px 10px $primary;
+        background: $gradient-secondary;
+        box-shadow: 0px 0px 10px $bg-primary;
         color: #ffffff;
         font-weight: bold;
       }
@@ -257,7 +257,7 @@
     }
 
     &_gradient-primary {
-      background: $bg-gradient-primary;
+      background: $gradient-primary;
       background-clip: text;
       -webkit-text-fill-color: transparent;
     }

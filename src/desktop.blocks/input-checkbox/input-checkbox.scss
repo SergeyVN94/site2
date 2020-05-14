@@ -6,14 +6,14 @@
     display: none;
 
     &:checked + .input-checkbox__new-input {
-      border-color: $primary;
-      background: $bg-gradient-primary;
+      border-color: $bg-primary;
+      background: $gradient-primary;
       background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
     &:hover + .input-checkbox__new-input {
-      box-shadow: 0px 0px 10px $primary;
+      box-shadow: 0px 0px 10px $bg-primary;
     }
 
     &:active + .input-checkbox__new-input {
