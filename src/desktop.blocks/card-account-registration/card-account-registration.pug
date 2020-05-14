@@ -35,19 +35,13 @@ mixin card-account-registration(options = {})
     .card-account-registration
         +card-container()
             h2.card-account-registration__title #{title}
-            form(action=formAction, method="post", class="card-account-registration__form")
+            form.card-account-registration__form(action=formAction, method="post")
                 .card-account-registration__input-name
-                    +input-text({
-                        placeholder: inputNamePlaceholder,
-                    })
+                    +input-text({ placeholder: inputNamePlaceholder })
                 .card-account-registration__input-surname
-                    +input-text({
-                        placeholder: inputSurnamePlaceholder,
-                    })
+                    +input-text({ placeholder: inputSurnamePlaceholder })
                 .card-account-registration__select-gender
-                    +radio-buttons({
-                        items: radioButtonsGender,
-                    })
+                    +radio-buttons({ items: radioButtonsGender })
                 .card-account-registration__date-of-birth
                     +text-field({
                         head: { title: inputDateOfBirthTitle },

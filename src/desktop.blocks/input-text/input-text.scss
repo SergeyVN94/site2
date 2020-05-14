@@ -41,29 +41,12 @@
     }
   }
 
-  &__btn {
-    @include reset-css;
-    @include no-select;
+  &__submit {
     position: absolute;
     right: 0;
     top: 0;
     width: 3.1429rem;
     height: 3.1429rem;
-     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Material Icons';
-    font-style: normal;
-    font-weight: normal;
-    font-size: 1.7143rem;
-    line-height: 1.7143rem;
-    color: $bg-gradient-primary;
-    background: $bg-gradient-primary;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    cursor: pointer;
-    outline: none;
-    border: none;
   
     &:hover {
       text-shadow: 0px 0px 10px $primary;

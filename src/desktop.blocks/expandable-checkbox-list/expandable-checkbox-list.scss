@@ -7,7 +7,7 @@
       display: block;
     }
   
-    .expandable-checkbox-list__expand-btn {
+    .expandable-checkbox-list__expand-button {
       transform: rotate(180deg);
       padding: 0rem 0rem 0.1429rem 0.1429rem;
     }
@@ -28,30 +28,10 @@
     @include text-h3;
   }
 
-  &__expand-btn {
-    @include reset-css;
-    @include no-select;
+  &__expand-button {
     width: 3.1429rem;
     height: 3.1429rem;
     min-width: 3.1429rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Material Icons';
-    font-style: normal;
-    font-weight: normal;
-    font-size: 1.7143rem;
-    line-height: 1.7143rem;
-    color: $text-primary;
-  
-    &:hover,
-    &:active {
-      color: $primary;
-    }
-  
-    &:active {
-      font-size: 2rem;
-    }
   }
   
   &__body {

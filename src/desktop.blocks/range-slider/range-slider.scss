@@ -22,7 +22,7 @@
     user-select: none;
   }
 
-  &__line{
+  &__body {
     @include reset-css;
     z-index: 1;
     width: 100%;

@@ -19,12 +19,10 @@ mixin footer(options = {})
                     .footer__logo
                         +logo()
                     p.footer__description #{siteDescription}
-                
                 .footer__nav-container
                     for nav in navList
                         .footer__nav
                             +footer-nav(nav)
-                
                 .footer__subscribe-container
                     -
                         const {

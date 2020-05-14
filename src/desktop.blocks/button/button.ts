@@ -1,5 +1,5 @@
 const enum BUTTON_CLASSES {
-  DISABLE = 'button_disable',
+  DISABLED = 'button_disabled',
   HIDDEN = 'button_hidden',
 }
 
@@ -13,10 +13,10 @@ $.fn.button = function buttonPlugin(
   switch (command) {
     case 'disable':
       if (args === null) {
-        return this.hasClass(BUTTON_CLASSES.DISABLE);
+        return this.hasClass(BUTTON_CLASSES.DISABLED);
       }
 
-      this.toggleClass(BUTTON_CLASSES.DISABLE, args);
+      this.toggleClass(BUTTON_CLASSES.DISABLED, args);
       return this;
 
     case 'hidden':

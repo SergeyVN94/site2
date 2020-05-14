@@ -7,7 +7,7 @@ mixin button(options = {})
             textColor = "", 
             classes = [],
             text = "click me",
-            disable = false,
+            disabled = false,
             hidden = false,
             icon = "",
             background = "",
@@ -20,7 +20,7 @@ mixin button(options = {})
         } = options;
 
         classes.push(`button js-button button_theme_${theme}`);
-        if (disable) classes.push("button_disable");
+        if (disabled) classes.push("button_disabled");
         if (textColor !== "") classes.push(`button_text-color_${textColor}`);
         if (hidden) classes.push("button_hidden");
         if (background !== "") classes.push(`button_background_${background}`);
@@ -29,10 +29,7 @@ mixin button(options = {})
         if (fontWeight !== "") classes.push(`button_font-weight_${fontWeight}`);
         if (hoverTheme !== "") classes.push(`button_hover-theme_${hoverTheme}`);
 
-    -const classesStr = classes.join(" ");
-
-
-    button(class=classesStr, type=type)
+    button(class=classes, type=type)
         p.button__text #{text}
         if icon !== ""
             .button__icon #{icon}

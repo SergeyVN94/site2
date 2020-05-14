@@ -11,7 +11,11 @@ mixin expandable-checkbox-list(options = {})
     .expandable-checkbox-list.js-expandable-checkbox-list
         .expandable-checkbox-list__head.js-expandable-checkbox-list__head
             h3.expandable-checkbox-list__title #{title}
-            .expandable-checkbox-list__expand-btn #{expandBtnIcon}
+            .expandable-checkbox-list__expand-button
+                +button({
+                    text: expandBtnIcon,
+                    theme: "icon",
+                })
         .expandable-checkbox-list__body
             for item in items
                 .expandable-checkbox-list__checkbox

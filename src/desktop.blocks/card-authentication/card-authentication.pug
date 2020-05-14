@@ -18,7 +18,7 @@ mixin card-authentication(options = {})
     .card-authentication
         +card-container()
             h2.card-authentication__head #{title}
-            form(action=formAction, method="post", class="card-authentication__form")
+            form.card-authentication__form(action=formAction, method="post")
                 .card-authentication__email
                     +input-text({
                         placeholder: inputEmailPlaceholder,

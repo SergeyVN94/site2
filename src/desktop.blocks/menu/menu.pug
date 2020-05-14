@@ -12,9 +12,7 @@ mixin menu(options = {})
         classes.push("menu");
         if (theme !== "") classes.push(`menu_theme_${theme}`);
 
-        const classesStr = classes.join(" ");
-
-    nav(class=classesStr)
+    nav(class=classes)
         for item in items
             //- Если в item есть дочерние items, это menu-item-expandable
             -const isMenuItemExpandable = Object.hasOwnProperty.apply(item, ['items']);

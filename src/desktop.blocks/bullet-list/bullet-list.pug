@@ -13,9 +13,9 @@ mixin bullet-list(options = {})
                 const { marginBottom = "" } = head;
                 const headClasses = ["bullet-list__head"];
 
-                const isCorrectMarginBottom = marginBottom && marginBottom !== "false";
+                const hasMarginBottom = marginBottom && marginBottom !== "false";
 
-                if (isCorrectMarginBottom) headClasses.push(`bullet-list__head_margin-bottom_${marginBottom}`);
+                if (hasMarginBottom) headClasses.push(`bullet-list__head_margin-bottom_${marginBottom}`);
 
             div(class=headClasses)
                 +block-head(head)

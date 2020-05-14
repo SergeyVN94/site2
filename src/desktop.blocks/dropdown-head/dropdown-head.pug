@@ -1,3 +1,5 @@
+include /button/button.pug
+
 mixin dropdown-head(options = {})
     -
         const {
@@ -6,8 +8,11 @@ mixin dropdown-head(options = {})
         } = options;
 
         classes.push("dropdown-head js-dropdown-head");
-        const classesStr = classes.join(" ");
 
-    div(class=classesStr)
+    div(class=classes)
         p.dropdown-head__text.js-dropdown-head__text #{text}
-        .dropdown-head__expand-button expand_more
+        .dropdown-head__expand-button
+            +button({
+                text: "expand_more",
+                theme: "icon",
+            })

@@ -12,7 +12,7 @@ mixin text-field(options = {})
             mask = "",
         } = options;
 
-    .text-field(class="js-text-field", data-mask=mask)
+    .text-field.js-text-field(data-mask=mask)
         if head !== null
             .text-field__head
                 +block-head(head)

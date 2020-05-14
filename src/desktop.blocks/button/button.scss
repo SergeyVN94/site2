@@ -67,17 +67,19 @@
     }
 
     &_icon {
-      width: 3.1429rem;
-      height: 3.1429rem;
+      width: 100%;
+      height: 100%;
       font-family: 'Material Icons';
       font-style: normal;
       font-weight: normal;
       font-size: 1.7143rem;
       line-height: 1.7143rem;
       display: flex;
+      flex: auto;
       align-items: center;
       justify-content: center;
       color: $text-secondary;
+      background-color: transparent;
     }
 
     &_light {
@@ -221,7 +223,7 @@
     }
   }
 
-  &_disable {
+  &_disabled {
     opacity: 0.5;
 
     &:active,
@@ -249,8 +251,16 @@
     padding: 0 1.3571rem;
   }
 
-  &_text-color_text-secondary {
-    color: $text-secondary;
+  &_text-color {
+    &_text-secondary {
+      color: $text-secondary;
+    }
+
+    &_gradient-primary {
+      background: $bg-gradient-primary;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
   }
 
   &__text {

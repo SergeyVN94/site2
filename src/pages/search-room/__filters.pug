@@ -9,9 +9,7 @@ include /expandable-checkbox-list/expandable-checkbox-list.pug
 aside.search-room__filters
     .search-room__dropdown-date-filter
         +dropdown-date-filter({
-            head: {
-                title: "даты пребывания в отеле",
-            },
+            head: { title: "даты пребывания в отеле" },
             text: "19 авг - 23 авг",
         })
     .search-room__dropdown-guest
@@ -27,9 +25,7 @@ aside.search-room__filters
         })
     .search-room__checkbox-list
         +checkbox-list({
-            head: {
-                title: "Checkbox Buttons",
-            },
+            head: { title: "Checkbox Buttons" },
             items: [
                 {text: "Можно курить"},
                 {text: "Можно с питомцами"},
@@ -38,9 +34,7 @@ aside.search-room__filters
         })
     .search-room__rich-checkbox-buttons
         +rich-checkbox-buttons({
-            head: {
-                title: "доступность",
-            },
+            head: { title: "доступность" },
             items: [
                 {
                     text: "Широкий коридор",

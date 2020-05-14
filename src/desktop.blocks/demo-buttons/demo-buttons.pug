@@ -6,11 +6,11 @@ mixin demo-buttons(options = {})
         const {
             head = { title: "buttons" },
             buttonDefault = "click me",
-            buttonDefaultDisable = "click me",
+            buttonDefaultDisabled = "click me",
             buttonLight = "click me",
-            buttonLightDisable = "click me",
+            buttonLightDisabled = "click me",
             buttonText = "click me",
-            buttonTextDisable = "click me",
+            buttonTextDisabled = "click me",
             buttonLong = "перейти к оплате",
         } = options;
 
@@ -21,13 +21,11 @@ mixin demo-buttons(options = {})
         .demo-buttons__container
             .demo-buttons__row
                 .demo-buttons__button
-                    +button({
-                        text: buttonDefault,
-                    })
+                    +button({ text: buttonDefault })
                 .demo-buttons__button
                     +button({
-                        text: buttonDefaultDisable,
-                        disable: true,
+                        text: buttonDefaultDisabled,
+                        disabled: true,
                     })
             .demo-buttons__row
                 .demo-buttons__button
@@ -37,8 +35,8 @@ mixin demo-buttons(options = {})
                     })
                 .demo-buttons__button
                     +button({
-                        text: buttonLightDisable,
-                        disable: true,
+                        text: buttonLightDisabled,
+                        disabled: true,
                         theme: "light",
                     })
             .demo-buttons__row
@@ -49,7 +47,7 @@ mixin demo-buttons(options = {})
                     })
                 .demo-buttons__button
                     +button({
-                        text: buttonTextDisable,
+                        text: buttonTextDisabled,
                         theme: "text",
                         textColor: "text-secondary",
                     })

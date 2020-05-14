@@ -36,20 +36,26 @@
   }
 
   &__expand-button {
-    @include reset-css;
-    @include no-select;
     width: 3.1429rem;
     height: 3.1429rem;
     min-width: 3.1429rem;
-    padding-left: 0.1429rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Material Icons';
-    font-style: normal;
-    font-weight: normal;
-    font-size: 1.7143rem;
-    line-height: 1.7143rem;
-    color: $text-primary;
   }
+
+  // &__expand-button {
+  //   @include reset-css;
+  //   @include no-select;
+  //   width: 3.1429rem;
+  //   height: 3.1429rem;
+  //   min-width: 3.1429rem;
+  //   padding-left: 0.1429rem;
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  //   font-family: 'Material Icons';
+  //   font-style: normal;
+  //   font-weight: normal;
+  //   font-size: 1.7143rem;
+  //   line-height: 1.7143rem;
+  //   color: $text-primary;
+  // }
 }

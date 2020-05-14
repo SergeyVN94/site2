@@ -24,7 +24,6 @@ mixin image-slider(images = [])
                     } = imageConfig;
 
                 img(src=src, alt=alt, class=classes)
-                
             p.image-slider__image_index-item.js-image-slider__image_index-item 0
             .image-slider__indicators
                 -
@@ -39,10 +38,8 @@ mixin image-slider(images = [])
                         indicatorsClasses[0].push("image-slider__indicator_theme_selected");
                     }                    
                     
-
                 for indicatorClasses in indicatorsClasses
-                    -const indicatorClassesStr = indicatorClasses.join(" ");
-                    div(class=indicatorClassesStr)
+                    div(class=indicatorClasses)
 
             -
                 const navButton = "image-slider__nav-button";
@@ -54,6 +51,5 @@ mixin image-slider(images = [])
 
             div(class=prevImgBtnClasses)
                 .image-slider__nav-button-icon expand_more
-            
             div(class=nextImgBtnClasses)
                 .image-slider__nav-button-icon expand_more

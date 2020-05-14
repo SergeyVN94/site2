@@ -79,8 +79,8 @@ class DropdownCounter {
   }
 
   private _updateButtons(): void {
-    const btnMinusIsDisable = this.count === 0;
-    this.domElements.$btnMinus.button('disable', btnMinusIsDisable);
+    const btnMinusIsDisabled = this.count === 0;
+    this.domElements.$btnMinus.button('disable', btnMinusIsDisabled);
   }
 
   private _initEventListeners(): void {
