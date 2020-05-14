@@ -1,5 +1,3 @@
-include /text/text.pug
-
 mixin demo-color-item(options = [])
     -
         const [
@@ -11,16 +9,5 @@ mixin demo-color-item(options = [])
     .demo-color-item
         .demo-color-item__color-square(style=`background-color: ${squareBgColor};`)
         .demo-color-item__description
-            .demo-color-item__color-name
-                +text({
-                    text: colorName,
-                    theme: "h2",
-                    lineHeight: "big",
-                })
-            .demo-color-item__color-value
-                +text({
-                    text: colorValue,
-                    theme: "h2",
-                    fontWeight: "normal",
-                    lineHeight: "big",
-                })
+            p.demo-color-item__color-name #{colorName}
+            p.demo-color-item__color-value #{colorValue}

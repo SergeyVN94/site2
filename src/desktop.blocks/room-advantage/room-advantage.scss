@@ -22,4 +22,13 @@
     -webkit-text-fill-color: transparent;
     margin-right: 0.7143rem;
   }
+
+  &__title {
+    @include text-body;
+    font-weight: bold;
+  }
+
+  &__description {
+    @include text-body;
+  }
 }

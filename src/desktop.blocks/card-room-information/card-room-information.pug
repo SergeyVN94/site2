@@ -1,7 +1,6 @@
 include /image-slider/image-slider.pug
 include /room-head/room-head.pug
 include /rating/rating.pug
-include /text/text.pug
 
 mixin card-room-information(options = {})
     -
@@ -24,17 +23,11 @@ mixin card-room-information(options = {})
                     roomNumber,
                     roomPrice,
                     luxury,
-                    roomNumberSize: "h2",
+                    roomNumberTheme: "h2",
                 })
             .card-room-information__user-response
                 +rating(stars)
                 a.card-room-information__comments(href=commentsHref, tabindex="-1")
-                    +text({
-                        text: comments,
-                        fontWeight: "bold",
-                        color: "text-secondary",
-                    })
-                    +text({
-                        text: " Отзывов",
-                        whiteSpace: "pre",
-                    })
+                    span.card-room-information__comments-counter #{comments}
+                    //- Пробел перед словом "Отзывов"
+                    span.card-room-information__comments-text  Отзывов 

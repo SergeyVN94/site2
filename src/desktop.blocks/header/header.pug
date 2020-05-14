@@ -35,11 +35,7 @@ mixin header(options = {})
                         +menu(menu)
                     .header__personal-area
                         if user !== ""
-                            .header__user-name
-                                +text({
-                                    text: user,
-                                    color: "text-secondary",
-                                })
+                            p.header__user-name #{user}
                         else
                             .header__personal-area-buttons
                                 .header__btn-login

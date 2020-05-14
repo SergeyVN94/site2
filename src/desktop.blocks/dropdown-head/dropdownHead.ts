@@ -1,5 +1,5 @@
 const enum DROPDOWN_HEAD_CLASSES {
-  MAIN_TEXT = 'js-text_assignment_main',
+  MAIN_TEXT = 'js-dropdown-head__text',
 }
 
 // eslint-disable-next-line @typescript-eslint/unbound-method

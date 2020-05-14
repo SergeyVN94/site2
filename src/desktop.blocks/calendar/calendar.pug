@@ -1,4 +1,3 @@
-include /text/text.pug
 include /button/button.pug
 
 mixin calendar(options = {})
@@ -12,25 +11,11 @@ mixin calendar(options = {})
     div(class="calendar js-calendar")
         .calendar__date-navigation
             .calendar__btn-change-month.calendar__btn-change-month_action_prev-month.js-calendar__btn-change-month_action_prev-month arrow_back
-            .calendar__drawn-date
-                +text({
-                    theme: "h2",
-                    fontName: "montserrat",
-                    classes: [
-                        "text_assignment_drawn-date",
-                        "js-text_assignment_drawn-date",
-                    ],
-                })
+            h2.calendar__drawn-date.js-calendar__drawn-date
             .calendar__btn-change-month.calendar__btn-change-month_action_next-month.js-calendar__btn-change-month_action_next-month arrow_forward
         .calendar__weekday-names
             for name in weekdayNames
-                .calendar__weekday-name
-                    +text({
-                        text: name,
-                        color: "primary",
-                        fontWeight: "bold",
-                        size: "small",
-                    })
+                p.calendar__weekday-name #{name}
         .calendar__days-container.js-calendar__days-container
         .calendar__control-btns
             .calendar__clear-btn

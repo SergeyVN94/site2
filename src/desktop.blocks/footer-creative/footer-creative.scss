@@ -16,6 +16,7 @@
   }
 
   &__site-description {
+    @include text-body;
     margin-bottom: 1.9286rem;
     width: 100%;
     max-width: 560px;

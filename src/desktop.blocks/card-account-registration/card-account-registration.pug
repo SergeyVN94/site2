@@ -1,5 +1,4 @@
 include /card-container/card-container.pug
-include /text/text.pug
 include /input-text/input-text.pug
 include /radio-buttons/radio-buttons.pug
 include /text-field/text-field.pug
@@ -35,12 +34,7 @@ mixin card-account-registration(options = {})
 
     .card-account-registration
         +card-container()
-            .card-account-registration__title
-                +text({
-                    text: title,
-                    theme: "h1",
-                    fontName: "montserrat",
-                })
+            h2.card-account-registration__title #{title}
             form(action=formAction, method="post", class="card-account-registration__form")
                 .card-account-registration__input-name
                     +input-text({
@@ -80,10 +74,7 @@ mixin card-account-registration(options = {})
                         type: "submit",
                     })
             .card-account-registration__has-account
-                +text({
-                    text: hasAccount,
-                    color: "important-text",
-                })
+                p.card-account-registration__has-account-text #{hasAccount}
                 +button({
                     href: "./sign-in.html",
                     text: btnSignIn,

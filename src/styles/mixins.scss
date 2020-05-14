@@ -34,6 +34,8 @@
 }
 
 @mixin text-title {
+  margin: 0;
+  padding: 0;
   font-family: Quicksand, Arial, sans-serif;
   font-style: normal;
   font-weight: bold;
@@ -44,12 +46,14 @@
   @include text-title;
   font-size: 1.7143rem;
   line-height: 2.1429rem;
+  text-transform: none;
 }
 
 @mixin text-h2 {
   @include text-title;
   font-size: 1.3571rem;
   line-height: 1.7143rem;
+  text-transform: none;
 }
 
 @mixin text-h3 {
@@ -61,10 +65,13 @@
 }
 
 @mixin text-body {
+  margin: 0;
+  padding: 0;
   font-family: Montserrat, Arial, sans-serif;
   font-weight: normal;
   font-size: 1rem;
   line-height: 1.7143rem;
   color: $text-primary;
   font-style: normal;
+  text-transform: none;
 }

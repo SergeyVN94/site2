@@ -10,6 +10,18 @@
     justify-content: space-between;
   }
 
+  &__title {
+    @include text-h3;
+    user-select: none;
+  }
+
+  &__out-range {
+    @include text-h3;
+    color: $text-secondary;
+    font-weight: normal;
+    user-select: none;
+  }
+
   &__line{
     @include reset-css;
     z-index: 1;
@@ -51,6 +63,9 @@
   
   &__bottom-text {
     @include no-select;
+    @include text-body;
     margin-top: 0.6429rem;
+    color: $text-secondary;
+    font-size: 0.8571rem;
   }
 }

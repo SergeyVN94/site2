@@ -6,6 +6,8 @@
   cursor: pointer;
 
   &__text {
+    @include text-body;
     margin-left: 0.7143rem;
+    user-select: none;
   }
 }

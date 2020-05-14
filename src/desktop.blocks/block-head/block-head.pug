@@ -1,5 +1,3 @@
-include /text/text.pug
-
 mixin block-head(options = {})
     -
         const {
@@ -9,32 +7,18 @@ mixin block-head(options = {})
             helpTheme = "",
         } = options;
 
-        const titleOpt = {
-            text: title,
-            theme: "h3",
-        };
+        const classesTitle = ["block-head__title"];
+        const classesHelp = ["block-head__help"];
 
-        if (titleTheme === "big") {
-            titleOpt.theme = "h2";
-            titleOpt.fontName = "montserrat";
-        }
-
-        const helpOpt = {
-            text: help,
-            theme: "h3",
-            color: "text-secondary",
-            fontWeight: "normal",
-        };
-
-        if (helpTheme === "main-text") {
-            helpOpt.theme = "body";
-            helpOpt.transform = "none";
-        }
+        if (titleTheme !== "") classesTitle.push(`block-head__title_theme_${titleTheme}`);
+        if (helpTheme !== "") classesHelp.push(`block-head__help_theme_${helpTheme}`);
 
     .block-head
         if title !== ""
-            .block-head__title
-                +text(titleOpt)
+            case titleTheme
+                when "h2"
+                    h2(class=classesTitle) #{title}
+                default
+                    h3(class=classesTitle) #{title}
         if help !== ""
-            .block-head__help
-                +text(helpOpt)
+            p(class=classesHelp) #{help}

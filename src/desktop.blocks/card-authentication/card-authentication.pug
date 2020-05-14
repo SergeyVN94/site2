@@ -1,5 +1,4 @@
 include /card-container/card-container.pug
-include /text/text.pug
 include /input-text/input-text.pug
 include /button/button.pug
 
@@ -18,12 +17,7 @@ mixin card-authentication(options = {})
 
     .card-authentication
         +card-container()
-            .card-authentication__head
-                +text({
-                    text: title,
-                    theme: "h1",
-                    fontName: "montserrat",
-                })
+            h2.card-authentication__head #{title}
             form(action=formAction, method="post", class="card-authentication__form")
                 .card-authentication__email
                     +input-text({
@@ -43,10 +37,7 @@ mixin card-authentication(options = {})
                         type: "submit",
                     })
             .card-authentication__no-account
-                +text({
-                    text: noAccount,
-                    color: "important-text",
-                })
+                p.card-authentication__no-account-text #{noAccount}
                 +button({
                     href: createAccountBtnHref,
                     text: createAccountBtn,

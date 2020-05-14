@@ -1,4 +1,3 @@
-include /text/text.pug
 include /block-head/block-head.pug
 
 mixin range-slider(options = {})
@@ -23,29 +22,11 @@ mixin range-slider(options = {})
 
     .range-slider.js-range-slider(data-range-min=rangeMin, data-range-max=rangeMax, data-step=step,data-start-min=startMin, data-start-max=startMax)
         .range-slider__head
-            +text({
-                text: title,
-                theme: "h3",
-                noSelect: true,
-            })
-            +text({
-                theme: "h3",
-                color: "text-secondary",
-                fontWeight: "normal",
-                classes: [
-                    "text_assignment_out-range",
-                    "js-text_assignment_out-range",
-                ],
-                noSelect: true,
-            })
+            h3.range-slider__title #{title}
+            p.range-slider__out-range.js-range-slider__out-range
         .range-slider__line.js-range-slider__line
             .range-slider__point.js-range-slider__point(data-type="min")
             .range-slider__point.js-range-slider__point(data-type="max")
             .range-slider__bg-line.js-range-slider__bg-line
         if bottomText !== ""
-            .range-slider__bottom-text
-                +text({
-                    text: bottomText,
-                    size: "small",
-                    color: "text-secondary",
-                })
+            p.range-slider__bottom-text #{bottomText}

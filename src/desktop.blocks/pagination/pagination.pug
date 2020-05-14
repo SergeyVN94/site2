@@ -1,5 +1,4 @@
 include /block-head/block-head.pug
-include /text/text.pug
 include /button/button.pug
 
 mixin pagination(options = {})
@@ -64,8 +63,4 @@ mixin pagination(options = {})
                         +button(config)
 
             if bottomText !== ""
-                .pagination__bottom-text
-                    +text({
-                        text: bottomText,
-                        horizontal: "middle",
-                    })
+                p.pagination__bottom-text #{bottomText}

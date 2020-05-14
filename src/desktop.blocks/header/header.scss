@@ -77,8 +77,10 @@
 
   &__user-name {
     @include reset-css;
+    @include text-body;
     padding-left: 1.4286rem;
     border-left: 0.0714rem solid $dim-border;
+    color: $text-secondary;
 
     @media (max-width: $breakpoint-tablets) {
       padding: 1.4286rem 0rem 0rem 0rem;

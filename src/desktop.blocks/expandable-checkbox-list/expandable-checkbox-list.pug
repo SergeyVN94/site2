@@ -1,4 +1,3 @@
-include /text/text.pug
 include /checkbox-button/checkbox-button.pug
 
 mixin expandable-checkbox-list(options = {})
@@ -11,11 +10,7 @@ mixin expandable-checkbox-list(options = {})
 
     .expandable-checkbox-list.js-expandable-checkbox-list
         .expandable-checkbox-list__head.js-expandable-checkbox-list__head
-            .expandable-checkbox-list__title
-                +text({
-                    text: title,
-                    theme: "h3",
-                })
+            h3.expandable-checkbox-list__title #{title}
             .expandable-checkbox-list__expand-btn #{expandBtnIcon}
         .expandable-checkbox-list__body
             for item in items

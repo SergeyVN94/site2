@@ -1,5 +1,4 @@
 include /input-toggle/input-toggle.pug
-include /text/text.pug
 
 mixin toggle-button(options = {})
     -
@@ -10,8 +9,4 @@ mixin toggle-button(options = {})
 
     label.toggle-button
         +input-toggle(checked)
-        .toggle-button__text
-            +text({
-                text,
-                noSelect: true,
-            })
+        p.toggle-button__text #{text}

@@ -33,7 +33,7 @@ mixin button(options = {})
 
 
     button(class=classesStr, type=type)
-        .button__text #{text}
+        p.button__text #{text}
         if icon !== ""
             .button__icon #{icon}
         if href !== ""

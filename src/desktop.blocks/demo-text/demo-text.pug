@@ -2,16 +2,7 @@ mixin demo-text(items = [])
     .demo-text
         for item in items
             -const {title, example, theme} = item;
-            .demo-text__item
-                .demo-text__item-name
-                    +text({
-                        text: title,
-                        theme: theme,
-                        fontWeight: "normal",
-                        color: "light-title",
-                    })
-                .demo-text__item-value
-                    +text({
-                        text: example,
-                        theme: theme,
-                    })
+            .demo-text__item(class=`demo-text__item_theme_${theme}`)
+                p.demo-text__item-name #{title}
+                p.demo-text__item-value #{example}
+

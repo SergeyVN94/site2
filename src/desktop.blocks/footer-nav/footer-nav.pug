@@ -1,4 +1,3 @@
-include /text/text.pug
 include /menu/menu.pug
 
 mixin footer-nav(options = {})
@@ -9,11 +8,7 @@ mixin footer-nav(options = {})
         } = options;
 
     .footer-nav
-        .footer-nav__title
-            +text({
-                text: title,
-                theme: "h3",
-            })
+        p.footer-nav__title #{title}
         .footer-nav__menu
             +menu({
                 items,

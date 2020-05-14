@@ -1,7 +1,9 @@
 .card-authentication {
   &__head {
+    @include text-h1;
     width: 100%;
     margin-bottom: 1.3571rem;
+    font-family: Montserrat, Arial, sans-serif;
   }
 
   &__form {
@@ -25,5 +27,10 @@
     flex-wrap: nowrap;
     align-items: center;
     justify-content: space-between;
-  }  
+  }
+
+  &__no-account-text {
+    @include text-body;
+    color: #000000;
+  }
 }

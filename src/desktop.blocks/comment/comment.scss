@@ -38,4 +38,17 @@
   &__head {
     margin-bottom: 0.7143rem;
   }
+
+  &__user-name {
+    @include text-body;
+    font-weight: bold;
+  }
+
+  &__publication-date {
+    @include text-body;
+  }
+
+  &__body {
+    @include text-body;
+  }
 }

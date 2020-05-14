@@ -37,6 +37,18 @@
     flex-direction: column;
   }
 
+  &__value {
+    @include text-h1;
+    text-align: center;
+    color: $primary;
+  }
+
+  &__label {
+    @include text-h3;
+    text-align: center;
+    color: $primary;
+  }
+
   &__help-list {
     @include reset-css;
     list-style: none;
@@ -83,5 +95,10 @@
         background: $bg-gradient-bad;
       }
     }
+  }
+
+  &__help-item-text {
+    @include text-body;
+    word-break: break-all;
   }
 } 

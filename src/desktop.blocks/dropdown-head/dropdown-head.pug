@@ -1,5 +1,3 @@
-include /text/text.pug
-
 mixin dropdown-head(options = {})
     -
         const {
@@ -11,16 +9,5 @@ mixin dropdown-head(options = {})
         const classesStr = classes.join(" ");
 
     div(class=classesStr)
-        .dropdown-head__text
-            +text({
-                text,
-                whiteSpace: "nowrap",
-                noSelect: true,
-                verticalMiddle: true,
-                classes: [
-                    "text_assignment_main",
-                    "js-text_assignment_main",
-                ],
-                noSelect: true,
-            })
+        p.dropdown-head__text.js-dropdown-head__text #{text}
         .dropdown-head__expand-button expand_more

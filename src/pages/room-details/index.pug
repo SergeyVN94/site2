@@ -6,7 +6,6 @@ include /room-advantages/room-advantages.pug
 include /room-impressions/room-impressions.pug
 include /comments/comments.pug
 include /bullet-list/bullet-list.pug
-include /text/text.pug
 include /container-content/container-content.pug
 
 block pageTitle
@@ -72,7 +71,7 @@ block main
                             items,
                             head: {
                                 title: "Отзывы посетителей номера",
-                                titleTheme: "big",
+                                titleTheme: "h2",
                                 help: "2 отзыва",
                                 helpTheme: "main-text",
                             },
@@ -82,7 +81,7 @@ block main
                             +bullet-list({
                                 head: {
                                     title: "Правила",
-                                    titleTheme: "big",
+                                    titleTheme: "h2",
                                     marginBottom: "big",
                                 },
                                 items: [
@@ -92,15 +91,8 @@ block main
                                 ],
                             })
                         .room-details__cancel-reservation
-                            .room-details__cancel-reservation-head
-                                +text({
-                                    text: "Отмена",
-                                    theme: "h2",
-                                    fontName: "montserrat",
-                                })
-                            +text({
-                                text: "Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.",
-                            })
+                            h2.room-details__cancel-reservation-head Отмена
+                            p.room-details__cancel-reservation-body Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.
                 .room-details__book-room
                     +card-book-room({
                         roomHead: {

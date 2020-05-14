@@ -5,7 +5,7 @@
   justify-content: space-between;
   align-items: baseline;
 
-  &__room-number {
+  &__room-info {
     @include reset-link;
     display: flex;
     flex-direction: row;
@@ -15,22 +15,47 @@
   
     &:hover,
     &:active {
-      text-decoration: underline $light-title;
+      border-bottom: 1px solid $light-title;
+    }
+  }
+
+  &__number-prefix {
+    @include text-body;
+    font-weight: bold;
+    white-space: pre;
+    color: $text-title;
+  }
+
+  &__room-number {
+    @include text-h1;
+    
+    &_theme_h2 {
+      @include text-h2;
     }
   }
 
   &__luxury {
+    @include text-h3;
     margin-left: 0.3571rem;
+    color: $primary;
   }
 
   &__price-container {
+    @include text-body;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: baseline;
+    color: $text-secondary;
   }
 
   &__price {
     margin-right: 0.2857rem;
+    font-weight: bold;
+  }
+
+  &__during-period {
+    white-space: pre;
+    font-size: 0.8571rem;
   }
 }

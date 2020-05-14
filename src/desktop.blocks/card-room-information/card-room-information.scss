@@ -19,7 +19,7 @@
   }
 
   &__user-response {
-    padding: 0.5714rem 0.2143rem 0rem 0rem;
+    padding: 0.5714rem 0px 0rem 0rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -38,5 +38,16 @@
     &:active {
       text-decoration: underline $light-title;
     }
+  }
+
+  &__comments-counter {
+    @include text-body;
+    font-weight: bold;
+    color: $text-secondary;
+  }
+
+  &__comments-text {
+    @include text-body;
+    white-space: pre;
   }
 }

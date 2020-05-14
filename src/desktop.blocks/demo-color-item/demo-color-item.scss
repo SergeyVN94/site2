@@ -23,4 +23,15 @@
     flex-direction: column;
     justify-content: center;
   }
+
+  &__color-name {
+    @include text-h2;
+    line-height: 2.1429rem;
+  }
+
+  &__color-value {
+    @include text-h2;
+    line-height: 2.1429rem;
+    font-weight: normal;
+  }
 }

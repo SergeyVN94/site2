@@ -37,7 +37,7 @@
   }
 
   &__checkbox-list {
-    margin-bottom: 2.0714rem;
+    margin-bottom: 32px;
   }
 
   &__rich-checkbox-buttons {
@@ -53,7 +53,9 @@
     width: 100%;
   
     &-title {
+      @include text-h1;
       margin-bottom: 0.1429rem;
+      font-family: Montserrat, Arial, sans-serif;
     }
   
     &-container {

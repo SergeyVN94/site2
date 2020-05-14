@@ -1,5 +1,3 @@
-include /text/text.pug
-
 mixin receipt(options = {})
     -
         const {
@@ -22,31 +20,12 @@ mixin receipt(options = {})
 
             .receipt__item
                 .receipt__text-container
-                    +text({
-                        text,
-                        color: "text-primary",
-                        lineHeight: "small",
-                    })
+                    p.receipt__item-title #{text}
                 if icon
                     .receipt__icon i
-                .receipt__price
-                    +text({
-                        text: priceRes,
-                        color: "text-primary",
-                        lineHeight: "small",
-                        horizontal: "right", 
-                    })
+                p.receipt__price #{priceRes}
                     
         .receipt__total-sum
-            +text({
-                text: "Итого",
-                theme: "h2",
-                fontName: "montserrat",
-            })
+            p.receipt__total-sum-title Итого
             .receipt__separate-line
-            +text({
-                text: totalRes,
-                theme: "h2",
-                fontName: "montserrat",
-                whiteSpace: "nowrap",
-            })
+            p.receipt__total-sum-result #{totalRes}

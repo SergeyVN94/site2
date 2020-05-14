@@ -36,6 +36,11 @@
     }
   }
 
+  &__drawn-date {
+    @include text-h2;
+    font-family: Montserrat, Arial, sans-serif;
+  }
+
   &__weekday-names {
     display: flex;
     flex-direction: row;
@@ -44,12 +49,16 @@
 
   &__weekday-name {
     @include reset-css;
+    @include text-body;
     height: 2.8571rem;
     width: 100%;
     max-width: 2.8571rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: $primary;
+    font-size: 0.8571rem;
+    font-weight: bold;
   }
 
   &__days-container {

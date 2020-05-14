@@ -17,18 +17,12 @@ mixin bullet-list(options = {})
 
                 if (isCorrectMarginBottom) headClasses.push(`bullet-list__head_margin-bottom_${marginBottom}`);
 
-                const headClassesStr = headClasses.join(" ");
-
-            div(class=headClassesStr)
+            div(class=headClasses)
                 +block-head(head)
         
         ul.bullet-list__container
-            for text in items
+            for item in items
                 li.bullet-list__item
-                    .bullet-list__maker-container
+                    .bullet-list__marker-container
                         .bullet-list__marker
-                    .bullet-list__item-text
-                        +text({
-                            text,
-                        })
-                    
+                    p.bullet-list__item-text #{item}

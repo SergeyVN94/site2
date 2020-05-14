@@ -13,6 +13,8 @@
   }
 
   &__copyright-text {
+    @include text-body;
+    
     @media (max-width: $breakpoint-cell-phones) {
       margin-right: 0.7143rem;
     }

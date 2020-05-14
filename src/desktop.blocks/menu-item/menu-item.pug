@@ -1,5 +1,3 @@
-include /text/text.pug
-
 mixin menu-item(options = {})
     -
         const {
@@ -8,12 +6,7 @@ mixin menu-item(options = {})
             selected = false,
         } = options;
 
-        const fontWeight = selected ? "bold" : "normal";
+        const classes = ["menu-item"];
+        if (selected) classes.push("menu-item_selected")
 
-    a.menu-item(href=href)
-        +text({
-            text,
-            fontWeight,
-            lineHeight: "small",
-            whiteSpace: "nowrap",
-        })
+    a(class=classes, href=href) #{text}

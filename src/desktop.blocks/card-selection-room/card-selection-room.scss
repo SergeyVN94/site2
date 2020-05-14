@@ -1,6 +1,8 @@
 .card-selection-room {
   &__title {
+    @include text-h1;
     margin-bottom: 1.5rem;
+    font-family: Montserrat, Arial, sans-serif;
   }
 
   &__date-range {

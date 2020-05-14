@@ -9,12 +9,18 @@
     min-width: 320px;
   }
 
-  &__cancel-reservation-head {
-    margin-bottom: 1.2143rem;
-  }
-
   &__cancel-reservation {
     max-width: 340px;
+  }
+
+  &__cancel-reservation-head {
+    @include text-h2;
+    margin-bottom: 1.2143rem;
+    font-family: Montserrat, Arial, sans-serif;
+  }
+
+  &__cancel-reservation-body {
+    @include text-body;
   }
 
   &__comments {

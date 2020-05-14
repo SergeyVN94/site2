@@ -28,7 +28,7 @@ $marker-size: 0.7143rem;
     }
   }
 
-  &__maker-container {
+  &__marker-container {
     display: flex;
     align-items: center;
     height: 1.7143rem;
@@ -41,5 +41,9 @@ $marker-size: 0.7143rem;
     height: $marker-size;
     background-color: $light-title;
     border-radius: 50%;
+  }
+
+  &__item-text {
+    @include text-body;
   }
 }

@@ -7,12 +7,7 @@ mixin menu-item-expandable(options = {})
 
     .menu-item-expandable.js-menu-item-expandable
         .menu-item-expandable__head
-            .menu-item-expandable__title   
-                +text({
-                    text,
-                    lineHeight: "small",
-                    whiteSpace: "nowrap",
-                })
+            p.menu-item-expandable__title #{text}
             .menu-item-expandable__btn-expand.js-menu-item-expandable__btn-expand expand_more
         .menu-item-expandable__body
             ul.menu-item-expandable__list 
@@ -24,7 +19,4 @@ mixin menu-item-expandable(options = {})
                         } = item;
 
                     li.menu-item-expandable__item
-                        a.menu-item-expandable__link(href=href) 
-                            +text({
-                                text: linkText
-                            })
+                        a.menu-item-expandable__link(href=href) #{linkText}

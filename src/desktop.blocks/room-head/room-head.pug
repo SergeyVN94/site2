@@ -1,10 +1,8 @@
-include /text/text.pug
-
 mixin room-head(options = {})
     -
         const {
             roomNumber = 0,
-            roomNumberSize = "h1",
+            roomNumberTheme = "h1",
             roomNumberHref = "./room-details.html",
             roomPrice = "0",
             pricePeriod = "в сутки",
@@ -15,34 +13,11 @@ mixin room-head(options = {})
         const roomPriceRes = `${roomPrice}₽`;
 
     .room-head
-        a.room-head__room-number(href=roomNumberHref, tabindex="-1")
-            +text({
-                text: "№ ",
-                fontWeight: "bold",
-                color: "text-title",
-                whiteSpace: "pre",
-            })
-            +text({
-                text: roomNumber,
-                theme: roomNumberSize,
-            })
+        a.room-head__room-info(href=roomNumberHref, tabindex="-1")
+            span.room-head__number-prefix #{"№ "}
+            span.room-head__room-number(class=`room-head__room-number_theme_${roomNumberTheme}`) #{roomNumber}
             if luxury
-                .room-head__luxury
-                    +text({
-                        text: luxuryText,
-                        theme: "h3",
-                        color: "primary",
-                    })
-        .room-head__price-container
-            .room-head__price
-                +text({
-                    text: roomPriceRes,
-                    fontWeight: "bold",
-                    color: "text-secondary",
-                })
-            +text({
-                size: "small",
-                text: pricePeriod,
-                whiteSpace: "pre",
-                color: "text-secondary",
-            })
+                span.room-head__luxury #{luxuryText}
+        p.room-head__price-container
+            span.room-head__price #{roomPriceRes}
+            span.room-head__during-period #{pricePeriod}

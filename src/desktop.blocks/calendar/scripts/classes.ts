@@ -2,7 +2,7 @@ const enum CALENDAR_CLASSES {
   CALENDAR = 'js-calendar',
   BTN_PREV_MONTH = 'calendar__btn-change-month_action_prev-month',
   BTN_NEXT_MONTH = 'calendar__btn-change-month_action_next-month',
-  DRAWN_DATE = 'js-text_assignment_drawn-date',
+  DRAWN_DATE = 'js-calendar__drawn-date',
   DAYS_CONTAINER = 'js-calendar__days-container',
   DAY_WEEK = 'js-calendar__day-week',
   DAY_WEEK_ANOTHER_MONTH = 'js-calendar__day-week_theme_another-month',

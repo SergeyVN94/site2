@@ -1,4 +1,3 @@
-include /text/text.pug
 include /button/button.pug
 include /social-icons/social-icons.pug
 include /container-content/container-content.pug
@@ -12,9 +11,6 @@ mixin copyright-bar(options = {})
     .copyright-bar
         +container-content()
             .copyright-bar__content
-                .copyright-bar__copyright-text
-                    +text({
-                        text: copyright,
-                    })
+                p.copyright-bar__copyright-text #{copyright}
                 .copyright-bar__social-icons
                     +social-icons(socialIcons)

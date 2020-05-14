@@ -1,4 +1,3 @@
-include /text/text.pug
 include /input-checkbox/input-checkbox.pug
 
 mixin rich-checkbox-button(options = {})
@@ -11,15 +10,5 @@ mixin rich-checkbox-button(options = {})
     label.rich-checkbox-button
         +input-checkbox()
         .rich-checkbox-button__container
-            .rich-checkbox-button__text
-                +text({
-                    text,
-                    fontWeight: "bold",
-                    lineHeight: "middle",
-                })
-            .rich-checkbox-button__description
-                +text({
-                    text: description,
-                    lineHeight: "very-small",
-                    size: "small",
-                })
+            p.rich-checkbox-button__text #{text}
+            p.rich-checkbox-button__description #{description}

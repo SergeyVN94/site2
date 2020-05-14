@@ -1,7 +1,9 @@
 .card-account-registration {
   &__title {
+    @include text-h1;
     margin-bottom: 1.3571rem;
     width: 100%;
+    font-family: Montserrat, Arial, sans-serif;
   }
 
   &__form {
@@ -37,12 +39,17 @@
     margin-bottom: 1.7143rem;
   }
 
-  &__logging-in {
+  &__has-account {
     width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
     justify-content: space-between;
+  }
+
+  &__has-account-text {
+    @include text-body;
+    color: #000000;
   }
 }

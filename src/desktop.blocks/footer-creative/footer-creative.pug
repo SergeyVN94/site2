@@ -1,5 +1,4 @@
 include /logo/logo.pug
-include /text/text.pug
 include /button/button.pug
 include /social-icons/social-icons.pug
 include /container-content/container-content.pug
@@ -16,10 +15,7 @@ mixin footer-creative(options = {})
             .footer-creative__content
                 .footer-creative__logo
                     +logo()
-                .footer-creative__site-description
-                    +text({
-                        text: siteDescription,
-                    })
+                p.footer-creative__site-description #{siteDescription}
                 .footer-creative__social-icons
                     +social-icons(socialIcons)
             

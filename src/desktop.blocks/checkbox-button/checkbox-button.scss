@@ -11,9 +11,12 @@
   }
 
   &__text {
+    @include text-body;
     margin-left: 0.7143rem;
     word-break: normal;
     width: 100%;
     max-width: 200px;
+    color: $text-secondary;
+    line-height: normal;
   }
 }

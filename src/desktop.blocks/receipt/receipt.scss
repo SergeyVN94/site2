@@ -13,6 +13,12 @@
     margin-right: 0.3571rem;
   }
 
+  &__item-title {
+    @include text-body;
+    color: $text-primary;
+    line-height: 1.2857rem;
+  }
+
   &__icon {
     @include reset-css;
     @include no-select;
@@ -28,14 +34,21 @@
   }
 
   &__price {
+    @include text-body;
     flex: auto;
+    color: $text-primary;
+    line-height: 1.2857rem;
+    text-align: right;
   }
 
   &__total-sum {
+    @include text-h2;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: baseline;
+    font-family: Montserrat, Arial, sans-serif;
+    white-space: nowrap;
   
     &:not(:only-child) {
       margin-top: 2.2143rem;

@@ -1,4 +1,3 @@
-include /text/text.pug
 include /like-button/like-button.pug
 
 mixin comment(options = {})
@@ -23,16 +22,6 @@ mixin comment(options = {})
                 })
         .comment__main
             .comment__head
-                .comment__user-name
-                    +text({
-                        text: userName,
-                        fontWeight: "bold",
-                    })
-                .comment__publication-date
-                    +text({
-                        text: publicationDate,
-                    })
-            .comment__body
-                +text({
-                    text,
-                })
+                p.comment__user-name #{userName}
+                p.comment__publication-date #{publicationDate}
+            p.comment__body #{text}

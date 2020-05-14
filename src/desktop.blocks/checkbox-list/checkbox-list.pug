@@ -12,8 +12,8 @@ mixin checkbox-list(options = {})
         if head !== null
             .checkbox-list__head
                 +block-head(head)
-        .checkbox-list__container
+        ul.checkbox-list__container
             for item in items
-                .checkbox-list__item
+                li.checkbox-list__item
                     +checkbox-button(item)
 

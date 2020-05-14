@@ -1,7 +1,6 @@
 extends /../template/landing.pug
 
 include /card-selection-room/card-selection-room.pug
-include /text/text.pug
 include /container-content/container-content.pug
 
 block pageTitle
@@ -14,8 +13,4 @@ block main
                 .landing-page__banner-content
                     .landing-page__selection-room
                         +card-selection-room() 
-                    .landing-page__description
-                        +text({
-                            text: "Лучшие номера для вашей работы, отдыха и просто вдохновения",
-                            horizontal: "right",
-                        })
+                    p.landing-page__description Лучшие номера для вашей работы, отдыха и просто вдохновения

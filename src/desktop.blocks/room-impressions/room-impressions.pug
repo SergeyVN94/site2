@@ -1,5 +1,4 @@
 include /block-head/block-head.pug
-include /text/text.pug
 
 mixin room-impressions(options = {})
     -
@@ -12,7 +11,7 @@ mixin room-impressions(options = {})
         .room-impressions__head
             +block-head({
                 title,
-                titleTheme: "big",
+                titleTheme: "h2",
             })   
         .room-impressions__body
             -
@@ -100,19 +99,8 @@ mixin room-impressions(options = {})
                     </linearGradient>
 
                 .room-impressions__diagram-counter
-                    .room-impressions__value
-                        +text({
-                            text: items["fine"],
-                            theme: "h1",
-                            horizontal: "middle",
-                            color: "primary",
-                        })
-                    +text({
-                        text: "голосов",
-                        theme: "h3",
-                        horizontal: "middle",
-                        color: "primary",
-                    })
+                    p.room-impressions__value #{items["fine"]}
+                    p.room-impressions__label голосов
             ul.room-impressions__help-list
                 -
                     const helpItems = [
@@ -127,7 +115,4 @@ mixin room-impressions(options = {})
                     li.room-impressions__help-item
                         .room-impressions__marker-container
                             .room-impressions__help-marker(class=`room-impressions__help-marker_theme_${theme}`)
-                        +text({
-                            text,
-                            wordBreak: "break-all",
-                        })
+                        p.room-impressions__help-item-text #{text}

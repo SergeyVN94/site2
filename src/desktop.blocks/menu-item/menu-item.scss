@@ -1,6 +1,13 @@
 .menu-item {
   @include no-select;
+  @include text-body;
   text-decoration: none;
+  white-space: nowrap;
+  line-height: 1.2857rem;
+
+  &_selected {
+    font-weight: bold;
+  }
 
   &:hover {
     text-decoration: underline $text-secondary;

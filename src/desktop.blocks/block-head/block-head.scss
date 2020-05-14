@@ -8,10 +8,23 @@
   }
 
   &__title {
+    @include text-h3;
     float: left;
+
+    &_theme_h2 {
+      @include text-h2;
+      font-family: Montserrat, Arial, sans-serif;
+    }
   }
 
   &__help {
+    @include text-h3;
     float: right;
+    color: $text-secondary;
+    font-weight: normal;
+
+    &_theme_main-text {
+      @include text-body;
+    }
   }
 }

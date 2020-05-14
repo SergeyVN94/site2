@@ -26,9 +26,13 @@
 
   &__text {
     @include reset-css;
+    @include text-body;
     width: 100%;
     padding-left: 1rem;
     overflow: hidden;
+    white-space: nowrap;
+    user-select: none;
+    line-height: 3rem;
   }
 
   &__expand-button {

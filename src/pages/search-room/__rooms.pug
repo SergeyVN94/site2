@@ -1,4 +1,3 @@
-include /text/text.pug
 include /pagination/pagination.pug
 include /card-room-information/card-room-information.pug
 
@@ -111,12 +110,7 @@ include /card-room-information/card-room-information.pug
     ];
 
 .search-room__rooms
-    .search-room__rooms-title
-        +text({
-            text: "Номера, которые мы для вас подобрали",
-            theme: "h1",
-            fontName: "montserrat",
-        })
+    h1.search-room__rooms-title Номера, которые мы для вас подобрали
     .search-room__rooms-container
         for room in rooms
             .search-room__room-information

@@ -6,6 +6,11 @@
   justify-content: space-between;
   align-items: center;
 
+  &__label {
+    @include text-h3;
+    user-select: none;
+  }
+
   &__controls {
     display: flex;
     flex-direction: row;
@@ -13,8 +18,11 @@
   }
 
   &__out {
+    @include text-h3;
     width: 100%;
     max-width: 2.2857rem;
     min-width: 2.2857rem;
+    text-align: center;
+    user-select: none;
   }
 }
