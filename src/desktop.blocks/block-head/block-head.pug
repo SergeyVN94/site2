@@ -15,10 +15,7 @@ mixin block-head(options = {})
 
     .block-head
         if title !== ""
-            case titleTheme
-                when "h2"
-                    h2(class=classesTitle) #{title}
-                default
-                    h3(class=classesTitle) #{title}
+            -const tag = titleTheme === "h2" ? "h2" : "h3";
+            #{tag}(class=classesTitle) #{title}
         if help !== ""
             p(class=classesHelp) #{help}
