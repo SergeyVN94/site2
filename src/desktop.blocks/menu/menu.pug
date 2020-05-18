@@ -15,7 +15,7 @@ mixin menu(options = {})
     nav(class=classes)
         for item in items
             //- Если в item есть дочерние items, это menu-item-expandable
-            -const isMenuItemExpandable = Object.hasOwnProperty.apply(item, ['items']);
+            -const isMenuItemExpandable = Object.hasOwnProperty.apply(item, ["items"]);
             .menu__item
                 if isMenuItemExpandable
                     +menu-item-expandable(item)
