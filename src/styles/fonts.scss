@@ -1,75 +1,13 @@
 /* Font Awesome 5 Brands */
-@font-face {
-  font-family: 'Font Awesome 5 Brands';
-  src: url('../chunks/fonts/font-awesome-5-brands-regular-400.eot');
-  src: local('☺'),
-    url('../chunks/fonts/font-awesome-5-brands-regular-400.woff') format('woff'),
-    url('../chunks/fonts/font-awesome-5-brands-regular-400.ttf')
-      format('truetype'),
-    url('../chunks/fonts/font-awesome-5-brands-regular-400.svg') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
+@include require-font('Font Awesome 5 Brands', 'font-awesome-5-brands-regular-400', normal, normal);
 
 /* Montserrat */
-@font-face {
-  font-family: 'Montserrat';
-  src: url('../chunks/fonts/montserrat-bold.eot');
-  src: url('../chunks/fonts/montserrat-bold.woff') format('woff'),
-    url('../chunks/fonts/montserrat-bold.ttf') format('truetype'),
-    url('../chunks/fonts/montserrat-bold.svg') format('svg');
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url('../chunks/fonts/montserrat-regular.eot');
-  src: url('../chunks/fonts/montserrat-regular.woff') format('woff'),
-    url('../chunks/fonts/montserrat-regular.ttf') format('truetype'),
-    url('../chunks/fonts/montserrat-regular.svg') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
+@include require-font('Montserrat', 'montserrat-regular', normal, normal);
+@include require-font('Montserrat', 'montserrat-bold', bold, normal);
 
 /* Quicksand */
-@font-face {
-  font-family: 'Quicksand';
-  src: url('../chunks/fonts/quicksand-bold.eot');
-  src: url('../chunks/fonts/quicksand-bold.woff') format('woff'),
-    url('../chunks/fonts/quicksand-bold.ttf') format('truetype'),
-    url('../chunks/fonts/quicksand-bold.svg') format('svg');
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Quicksand';
-  src: url('../chunks/fonts/quicksand-light.eot');
-  src: url('../chunks/fonts/quicksand-light.woff') format('woff'),
-    url('../chunks/fonts/quicksand-light.ttf') format('truetype'),
-    url('../chunks/fonts/quicksand-light.svg') format('svg');
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Quicksand';
-  src: url('../chunks/fonts/quicksand-regular.eot');
-  src: url('../chunks/fonts/quicksand-regular.woff') format('woff'),
-    url('../chunks/fonts/quicksand-regular.ttf') format('truetype'),
-    url('../chunks/fonts/quicksand-regular.svg') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
+@include require-font('Quicksand', 'quicksand-regular', normal, normal);
+@include require-font('Quicksand', 'quicksand-bold', bold, normal);
 
 /* Material Icons */
-@font-face {
-  font-family: 'Material Icons';
-  src: url('../chunks/fonts/material-icons-regular.eot');
-  src: url('../chunks/fonts/material-icons-regular.woff') format('woff'),
-    url('../chunks/fonts/material-icons-regular.ttf') format('truetype'),
-    url('../chunks/fonts/material-icons-regular.svg') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
+@include require-font('Material Icons', 'material-icons-regular', normal, normal);
