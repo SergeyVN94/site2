@@ -1,2 +1,8 @@
-mixin social-icon(icon = "", href = "/mock-address/change-me")
+mixin social-icon(options = {})
+    -
+        const {
+            icon,
+            href = "/mock-address/change-me",
+        } = options;
+
     a.social-icon(href=href, target="_blank", rel="noopener noreferrer") #{icon}
