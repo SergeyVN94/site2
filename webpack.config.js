@@ -33,7 +33,6 @@ const rules = [
   },
   {
     test: /\.(sa|sc|c)ss$/,
-    exclude: /node_modules/,
     use: [
       'style-loader',
       'css-loader',
@@ -69,7 +68,6 @@ const rules = [
   {
     test: /\.tsx?$/,
     use: 'ts-loader',
-    exclude: /node_modules/,
   },
   {
     test: /\.(jpe?g|png|gif|svg)$/i,

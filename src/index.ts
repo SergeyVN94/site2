@@ -1,3 +1,5 @@
+import 'material-icons/iconfont/material-icons.scss';
+
 const importAll = function importAll(resolve: __WebpackModuleApi.RequireContext): void {
   resolve.keys().forEach(resolve);
 };
