@@ -9,8 +9,10 @@ mixin dropdown-counter(options = {})
         } = options;
 
         const valueRes = (value < 0) ? 0 : value;
+        const attr = {};
+        if (group !== "") attr["data-group"] = group;
 
-    .dropdown-counter.js-dropdown-counter(data-group=group)
+    .dropdown-counter.js-dropdown-counter&attributes(attr)
         label.dropdown-counter__label #{label}
         .dropdown-counter__controls
             .dropdown-counter__btn-minus

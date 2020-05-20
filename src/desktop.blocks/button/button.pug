@@ -29,9 +29,14 @@ mixin button(options = {})
         if (fontWeight !== "") classes.push(`button_font-weight_${fontWeight}`);
         if (hoverTheme !== "") classes.push(`button_hover-theme_${hoverTheme}`);
 
+        const attr = {};
+        if (target !== "") attr.target = target;
+        if (rel !== "") attr.rel = rel;
+        if (href !== "") attr.href = href;
+
     button(class=classes, type=type)
         p.button__text #{text}
         if icon !== ""
             .button__icon #{icon}
         if href !== ""
-            a.button__link(href=href, target=target, rel=rel)
+            a.button__link&attributes(attr)

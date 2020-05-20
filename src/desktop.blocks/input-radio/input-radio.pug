@@ -1,5 +1,9 @@
 mixin input-radio(group = "", checked = false)
     label.input-radio
-        input.input-radio__input(type="radio", name=group, checked=checked)
+        -
+            const attr = {};
+            if (group !== "") attr.name = group;
+
+        input.input-radio__input(type="radio", checked=checked)&attributes(attr)
         .input-radio__new-input
             .input-radio__input-indicator

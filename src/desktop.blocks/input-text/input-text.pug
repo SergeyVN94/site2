@@ -14,7 +14,12 @@ mixin input-text(options = {})
 
     div(class=classes)
         .input-text__container
-            input.input-text__input(type=type, placeholder=placeholder, value=value)
+            -
+                const attr = {};
+                if (placeholder !== "") attr.placeholder = placeholder;
+                if (value !== "") attr.value = value;
+
+            input.input-text__input(type=type)&attributes(attr)
             if iconRight !== ""
                 .input-text__submit
                     +button({
