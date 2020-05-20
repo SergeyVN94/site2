@@ -71,12 +71,35 @@ const rules = [
   },
   {
     test: /\.(jpe?g|png|gif|svg)$/i,
-    loader: 'file-loader',
-    exclude: /fonts/,
-    options: {
-      name: '[name].[ext]',
-      outputPath: './images',
-    },
+    exclude: /fonts?/,
+    use: [
+      {
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+          outputPath: './images',
+        },
+      },
+      {
+        loader: 'image-webpack-loader',
+        options: {
+          mozjpeg: {
+            progressive: true,
+            quality: 70,
+          },
+          optipng: {
+            enabled: false,
+          },
+          pngquant: {
+            quality: '65-90',
+            speed: 4,
+          },
+          gifsicle: {
+            interlaced: false,
+          },
+        },
+      },
+    ],
   },
 ];
 
