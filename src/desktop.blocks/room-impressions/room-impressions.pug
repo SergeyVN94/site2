@@ -1,12 +1,6 @@
 include /block-head/block-head.pug
 
-mixin room-impressions(options = {})
-    -
-        const {
-            title = "Впечатления от номера",
-            items = {},
-        } = options;
-    
+mixin room-impressions({ items, title = "Впечатления от номера" })
     .room-impressions
         .room-impressions__head
             +block-head({

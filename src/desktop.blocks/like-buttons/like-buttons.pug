@@ -1,13 +1,7 @@
 include /block-head/block-head.pug
 include /like-button/like-button.pug
 
-mixin like-buttons(options = {})
-    -
-        const {
-            head = null,
-            items = [],
-        } = options;
-
+mixin like-buttons({ items, head = null })
     .like-buttons
         if head !== null
             .like-buttons__head

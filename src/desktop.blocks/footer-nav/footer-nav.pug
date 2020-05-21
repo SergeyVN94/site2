@@ -1,12 +1,6 @@
 include /menu/menu.pug
 
-mixin footer-nav(options = {})
-    -
-        const {
-            title = "",
-            items = [],
-        } = options;
-
+mixin footer-nav({ items, title = "" })
     .footer-nav
         p.footer-nav__title #{title}
         .footer-nav__menu

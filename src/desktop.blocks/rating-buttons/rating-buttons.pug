@@ -1,13 +1,7 @@
 include /block-head/block-head.pug
 include /rating/rating.pug
 
-mixin rating-buttons(options = {})
-    -
-        const {
-            head = null,
-            items = [],
-        } = options;
-
+mixin rating-buttons({ items, head = null })
     .rating-buttons
         if head !== null
             .rating-buttons__head

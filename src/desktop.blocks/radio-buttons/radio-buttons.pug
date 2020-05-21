@@ -1,13 +1,7 @@
 include /block-head/block-head.pug
 include /radio-button/radio-button.pug
 
-mixin radio-buttons(options = {})
-    -
-        const {
-            head = null,
-            items = [],
-        } = options;
-
+mixin radio-buttons({ items, head = null })
     .radio-buttons
         if head !== null
             .radio-buttons__head

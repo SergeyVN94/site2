@@ -1,13 +1,7 @@
 include /button/button.pug
 
-mixin dropdown-head(options = {})
-    -
-        const {
-            text = "",
-            classes = [],
-        } = options;
-
-        classes.push("dropdown-head js-dropdown-head");
+mixin dropdown-head({ text, classes = [] })
+    -classes.push("dropdown-head js-dropdown-head");
 
     div(class=classes)
         p.dropdown-head__text.js-dropdown-head__text #{text}

@@ -1,10 +1,10 @@
 include /menu-item/menu-item.pug
 include /menu-item-expandable/menu-item-expandable.pug
 
-mixin menu(options = {})
+mixin menu(options)
     -
         const {
-            items = [],
+            items,
             classes = [],
             theme = "",
         } = options;

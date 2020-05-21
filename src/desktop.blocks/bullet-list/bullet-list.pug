@@ -1,12 +1,6 @@
 include /block-head/block-head.pug
 
-mixin bullet-list(options = {})
-    -
-        const {
-            head = null,
-            items = [],
-        } = options;
-
+mixin bullet-list({ items, head = null })
     .bullet-list
         if head !== null
             -

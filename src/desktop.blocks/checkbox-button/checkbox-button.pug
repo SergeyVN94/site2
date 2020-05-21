@@ -1,12 +1,6 @@
 include /input-checkbox/input-checkbox.pug
 
-mixin checkbox-button(options = {})
-    -
-        const {
-            text = "",
-            checked = false,
-        } = options;
-
+mixin checkbox-button({ text, checked = false })
     .checkbox-button
         label.checkbox-button__container
             +input-checkbox(checked)

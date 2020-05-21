@@ -1,13 +1,7 @@
 include /block-head/block-head.pug
 include /comment/comment.pug
 
-mixin comments(options = {})
-    -
-        const {
-            head = null,
-            items = [],
-        } = options;
-
+mixin comments({ items, head = null })
     .comments
         if head !== null
             .comments__head

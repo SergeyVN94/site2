@@ -1,13 +1,7 @@
 include /block-head/block-head.pug
 include /rich-checkbox-button/rich-checkbox-button.pug
 
-mixin rich-checkbox-buttons(options = {})
-    -
-        const {
-            head = null,
-            items = [],
-        } = options;
-
+mixin rich-checkbox-buttons({ items, head = null })
     .rich-checkbox-buttons
         if head !== null
             .rich-checkbox-buttons__head

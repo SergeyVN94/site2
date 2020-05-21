@@ -1,10 +1,10 @@
 include /checkbox-button/checkbox-button.pug
 
-mixin expandable-checkbox-list(options = {})
+mixin expandable-checkbox-list(options)
     -
         const {
-            title = "",
-            items = [],
+            title,
+            items,
             expandBtnIcon = "expand_more"
         } = options;
 

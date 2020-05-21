@@ -1,4 +1,4 @@
-mixin rating(stars = 0, allStars = 5)
+mixin rating(stars, allStars = 5)
     .rating
         -for (let i = 0; i < allStars; i += 1) 
             -const icon = (i < stars) ? "star" : "star_border";

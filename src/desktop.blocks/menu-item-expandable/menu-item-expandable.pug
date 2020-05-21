@@ -1,10 +1,4 @@
-mixin menu-item-expandable(options = {})
-    -
-        const {
-            text = "",
-            items = [],
-        } = options;
-
+mixin menu-item-expandable({ text, items })
     .menu-item-expandable.js-menu-item-expandable
         .menu-item-expandable__head
             p.menu-item-expandable__title #{text}

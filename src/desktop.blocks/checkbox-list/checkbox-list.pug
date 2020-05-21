@@ -1,13 +1,7 @@
 include /block-head/block-head.pug
 include /checkbox-button/checkbox-button.pug
 
-mixin checkbox-list(options = {})
-    -
-        const {
-            head = null,
-            items = [],
-        } = options;
-
+mixin checkbox-list({ items, head = null })
     .checkbox-list
         if head !== null
             .checkbox-list__head

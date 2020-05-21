@@ -1,12 +1,6 @@
 include /toggle-button/toggle-button.pug
 
-mixin toggle-buttons(options = {})
-    -
-        const {
-            head = null,
-            items = [],
-        } = options;
-
+mixin toggle-buttons({ items, head = null })
     .toggle-buttons
         if head !== null
             .toggle-buttons__head

@@ -1,10 +1,5 @@
-mixin like-button(options = {})
+mixin like-button({ likes = 0, checked = false })
     -
-        const {
-            likes = 0,
-            checked = false,
-        } = options;
-        
         const classes = [
             "like-button",
             "js-like-button",

@@ -1,13 +1,7 @@
 include /block-head/block-head.pug
 include /dropdown-head/dropdown-head.pug
 
-mixin dropdown-date-filter(options = {})
-    -
-        const {
-            head = null,
-            text = "",
-        } = options;
-
+mixin dropdown-date-filter({ text, head = null })
     .dropdown-date-filter
         if head !== null
             .dropdown-date-filter__head

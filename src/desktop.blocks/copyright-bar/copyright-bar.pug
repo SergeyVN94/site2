@@ -2,13 +2,7 @@ include /button/button.pug
 include /social-icons/social-icons.pug
 include /container-content/container-content.pug
 
-mixin copyright-bar(options = {})
-    -
-        const {
-            copyright = "",
-            socialIcons = null,
-        } = options;
-
+mixin copyright-bar({ copyright, socialIcons = null })
     .copyright-bar
         +container-content()
             .copyright-bar__content

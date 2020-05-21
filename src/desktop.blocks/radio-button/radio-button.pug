@@ -1,14 +1,14 @@
 include /input-radio/input-radio.pug
 
-mixin radio-button(options = {})
+mixin radio-button(options)
     -
         const {
-            text = "",
-            group = "",
+            text,
+            group,
             checked = false,
         } = options;
 
     .radio-button
         label.radio-button__container
-            +input-radio(group, checked)
+            +input-radio(options)
             p.radio-button__text #{text}

@@ -1,12 +1,6 @@
 include /input-checkbox/input-checkbox.pug
 
-mixin rich-checkbox-button(options = {})
-    -
-        const {
-            text = "",
-            description = "",
-        } = options;
-
+mixin rich-checkbox-button({ text, description = "" })
     label.rich-checkbox-button
         +input-checkbox()
         .rich-checkbox-button__container

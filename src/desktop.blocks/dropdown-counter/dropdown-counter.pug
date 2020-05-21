@@ -1,9 +1,9 @@
 include /button/button.pug
 
-mixin dropdown-counter(options = {})
+mixin dropdown-counter(options)
     -
         const {
-            label = "",
+            label,
             group = "",
             value = 0,
         } = options;

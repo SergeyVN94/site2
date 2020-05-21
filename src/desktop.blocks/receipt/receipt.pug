@@ -1,12 +1,4 @@
-mixin receipt(options = {})
-    -
-        const {
-            total = 0,
-            items = [],
-        } = options;
-
-        totalRes = `${total}₽`;
-
+mixin receipt({ items, total = 0 })
     .receipt
         for item in items
             -
@@ -28,4 +20,4 @@ mixin receipt(options = {})
         .receipt__total-sum
             p.receipt__total-sum-title Итого
             .receipt__separate-line
-            p.receipt__total-sum-result #{totalRes}
+            p.receipt__total-sum-result #{`${total}₽`}

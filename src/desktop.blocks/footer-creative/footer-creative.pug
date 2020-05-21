@@ -3,13 +3,7 @@ include /button/button.pug
 include /social-icons/social-icons.pug
 include /container-content/container-content.pug
 
-mixin footer-creative(options = {})
-    -
-        const {
-            siteDescription = "",
-            socialIcons = null,
-        } = options;
-
+mixin footer-creative({ siteDescription = "", socialIcons = null })
     .footer-creative
         +container-content()
             .footer-creative__content
