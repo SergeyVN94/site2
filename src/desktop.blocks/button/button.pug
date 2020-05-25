@@ -14,8 +14,6 @@ mixin button(options = {})
             fontWeight = "",
             hoverTheme = "",
             href = "",
-            target = "",
-            rel = "",
             type = "button",
         } = options;
 
@@ -32,8 +30,6 @@ mixin button(options = {})
     if href !== ""
         -
             const attr = {};
-            if (target !== "") attr.target = target;
-            if (rel !== "") attr.rel = rel;
             if (href !== "") attr.href = href;
 
         a(class=classes)&attributes(attr) #{text}
