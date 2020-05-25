@@ -1,7 +1,9 @@
 include /button/button.pug
 
-mixin dropdown-head({ text, classes = [] })
-    -classes.push("dropdown-head js-dropdown-head");
+mixin dropdown-head(text, assignment = "")
+    -
+        const classes = ["dropdown-head js-dropdown-head"];
+        if (assignment !== "") classes.push(`dropdown-head_assignment_${assignment} js-dropdown-head_assignment_${assignment}`);
 
     div(class=classes)
         p.dropdown-head__text.js-dropdown-head__text #{text}

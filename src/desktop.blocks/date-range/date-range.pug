@@ -5,8 +5,8 @@ include /calendar/calendar.pug
 mixin date-range(options = {})
     -
         const {
-            dropdownLeftText = "ДД.ММ.ГГГГ",
-            dropdownRightText = "ДД.ММ.ГГГГ",
+            dropdownEntranceText = "ДД.ММ.ГГГГ",
+            dropdownDepartureText = "ДД.ММ.ГГГГ",
             dropdownLeftHead = { title: "прибытие" },
             dropdownRightHead = { title: "выезд" },
         } = options;
@@ -17,24 +17,12 @@ mixin date-range(options = {})
                 if dropdownLeftHead !== null
                     .date-range__block-head
                         +block-head(dropdownLeftHead)
-                +dropdown-head({
-                    text: dropdownLeftText,
-                    classes: [
-                        "dropdown-head_position_left",
-                        "js-dropdown-head_position_left",
-                    ],
-                })
+                +dropdown-head(dropdownEntranceText, "left")
             .date-range__dropdown
                 if dropdownRightHead !== null
                     .date-range__block-head
                         +block-head(dropdownRightHead)
-                +dropdown-head({
-                    text: dropdownRightText,
-                    classes: [
-                        "dropdown-head_position_right",
-                        "js-dropdown-head_position_right",
-                    ],
-                })
+                +dropdown-head(dropdownDepartureText, "right") 
         .date-range__container
             .date-range__calendar
                 +calendar()

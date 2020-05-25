@@ -1,8 +1,8 @@
 const enum DATE_RANGE_CLASSES {
   DATE_RANGE = 'js-date-range',
   DROPDOWN_HEAD = 'js-dropdown-head',
-  DROPDOWN_HEAD_LEFT = 'js-dropdown-head_position_left',
-  DROPDOWN_HEAD_RIGHT = 'js-dropdown-head_position_right',
+  DROPDOWN_HEAD_LEFT = 'js-dropdown-head_assignment_left',
+  DROPDOWN_HEAD_RIGHT = 'js-dropdown-head_assignment_right',
   RANGE_SELECT = 'date-range_range-select',
   CALENDAR = 'js-calendar',
 }

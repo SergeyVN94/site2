@@ -19,7 +19,7 @@ mixin dropdown(options)
             .dropdown__block-head
                 +block-head(head)
         .dropdown__container
-            +dropdown-head({ text })
+            +dropdown-head(text)
             .dropdown__body
                 .dropdown__content
                     if block
