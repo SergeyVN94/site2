@@ -3,7 +3,7 @@
   max-height: 100%;
 
   &:hover {
-    .image-slider__nav-button {
+    .image-slider__change-img {
       display: flex;
     }
   }
@@ -68,7 +68,7 @@
     }
   }
 
-  &__nav-button {
+  &__change-img {
     @include reset-css;
     @include no-select;
     position: absolute;
@@ -88,13 +88,13 @@
     );
     cursor: pointer;
 
-    &_action_next-img {
+    &_direction_next {
       right: 0;
       transform: matrix(-1, 0, 0, 1, 0, 0);
     }
   }
 
-  &__nav-button-icon {
+  &__change-img-icon {
     font-family: 'Material Icons';
     font-style: normal;
     font-weight: normal;

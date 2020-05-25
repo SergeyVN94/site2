@@ -1,55 +1,20 @@
 mixin image-slider(images = [])
     .image-slider.js-image-slider(data-selected-image=0)
         .image-slider__container
-            -
-                const imageConfigs = images.map((imgInfo, index) => {
-                    const {
-                        src = "",
-                        alt = "Image description template.",
-                    } = imgInfo;
-
-                    return {
-                        src,
-                        alt,
-                        classes: `image-slider__image js-image-slider__image ${index === 0 ? "image-slider__image_selected" : ""}`,
-                    };
-                });
-
-            for imageConfig in imageConfigs
+            for image in images
                 -
                     const {
-                        classes,
                         src,
-                        alt,
-                    } = imageConfig;
+                        alt = "Image description template.",
+                    } = image;
 
-                img(src=src, alt=alt, class=classes)
+                img.image-slider__image.js-image-slider__image(src=src, alt=alt)
             p.image-slider__image_index-item.js-image-slider__image_index-item 0
             .image-slider__indicators
-                -
-                    const indicatorsClasses = [];
-
-                    if (images.length) {
-                        for (let i = 0; i < images.length; i += 1) {
-                            indicatorsClasses.push([
-                                "image-slider__indicator js-image-slider__indicator",
-                            ]);
-                        }
-                        indicatorsClasses[0].push("image-slider__indicator_theme_selected");
-                    }                    
-                    
-                for indicatorClasses in indicatorsClasses
-                    div(class=indicatorClasses)
-
-            -
-                const navButton = "image-slider__nav-button";
-                const commonClasses = `${navButton} js-${navButton}`;
-                const prevImgBtn = `${navButton}_action_prev-img`;
-                const nextImgBtn = `${navButton}_action_next-img`;
-                const prevImgBtnClasses = `${commonClasses} ${prevImgBtn} js-${prevImgBtn}`;
-                const nextImgBtnClasses = `${commonClasses} ${nextImgBtn} js-${nextImgBtn}`;
-
-            div(class=prevImgBtnClasses)
-                .image-slider__nav-button-icon expand_more
-            div(class=nextImgBtnClasses)
-                .image-slider__nav-button-icon expand_more
+                -for (let i = 0; i < images.length; i += 1) {
+                    .image-slider__indicator.js-image-slider__indicator
+                -}
+            .image-slider__change-img.image-slider__change-img_direction_prev.js-image-slider__change-img_direction_prev
+                .image-slider__change-img-icon expand_more
+            .image-slider__change-img.image-slider__change-img_direction_next.js-image-slider__change-img_direction_next
+                .image-slider__change-img-icon expand_more

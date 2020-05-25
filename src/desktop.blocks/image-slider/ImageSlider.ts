@@ -4,9 +4,8 @@ const enum IMAGE_SLIDER_CLASSES {
   IMAGE_SELECTED = 'image-slider__image_selected',
   INDICATOR = 'js-image-slider__indicator',
   INDICATOR_SELECTED = 'image-slider__indicator_theme_selected',
-  NAV_BTN = 'js-image-slider__nav-button',
-  BTN_PREV = 'js-image-slider__nav-button_action_prev-img',
-  BTN_NEXT = 'js-image-slider__nav-button_action_next-img',
+  BTN_PREV = 'js-image-slider__change-img_direction_prev',
+  BTN_NEXT = 'js-image-slider__change-img_direction_next',
   INDEX_ITEM = 'js-image-slider__image_index-item',
 }
 
@@ -33,6 +32,7 @@ class ImageSlider {
     this.domElements.$currentImageOut.text(1);
 
     this._initEventListeners();
+    this._update();
   }
 
   private static _getDomElements($slider: JQuery): IImageSliderDomElements {
