@@ -4,24 +4,20 @@ mixin dropdown-counter(options)
     -
         const {
             label,
-            group = "",
+            group = false,
             value = 0,
         } = options;
 
-        const valueRes = (value < 0) ? 0 : value;
-        const attr = {};
-        if (group !== "") attr["data-group"] = group;
-
-    .dropdown-counter.js-dropdown-counter&attributes(attr)
+    .dropdown-counter.js-dropdown-counter(data-group=group)
         label.dropdown-counter__label #{label}
         .dropdown-counter__controls
             .dropdown-counter__btn-minus
-                -const btnMinusDisabled = (valueRes === 0);
+                -const valueRes = (value < 0) ? 0 : value;
                 +button({
                     action: "minus",
                     text: "-",
                     theme: "round-little",
-                    disabled: btnMinusDisabled,
+                    disabled: (valueRes === 0),
                 })
             p.dropdown-counter__out.js-dropdown-counter__out #{valueRes}
             .dropdown-counter__btn-plus

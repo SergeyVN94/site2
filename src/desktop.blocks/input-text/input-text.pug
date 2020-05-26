@@ -4,8 +4,8 @@ mixin input-text(options = {})
     -
         const {
             type = "text",
-            placeholder = "",
-            value = "",
+            placeholder = false,
+            value = false,
             iconRight = "",
         } = options;
 
@@ -14,12 +14,7 @@ mixin input-text(options = {})
 
     div(class=classes)
         .input-text__container
-            -
-                const attr = {};
-                if (placeholder !== "") attr.placeholder = placeholder;
-                if (value !== "") attr.value = value;
-
-            input.input-text__input(type=type)&attributes(attr)
+            input.input-text__input(type=type, placeholder=placeholder, value=value)
             if iconRight !== ""
                 .input-text__submit
                     +button({
