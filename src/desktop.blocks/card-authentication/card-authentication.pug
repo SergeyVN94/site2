@@ -20,15 +20,9 @@ mixin card-authentication(options = {})
             h2.card-authentication__head #{title}
             form.card-authentication__form(action=formAction, method="post")
                 .card-authentication__email
-                    +input-text({
-                        placeholder: inputEmailPlaceholder,
-                        type: "email",
-                    })
+                    +input-text({ placeholder: inputEmailPlaceholder, type: "email" })
                 .card-authentication__password
-                    +input-text({
-                        placeholder: inputPasswordPlaceholder,
-                        type: "password",
-                    })
+                    +input-text({ placeholder: inputPasswordPlaceholder, type: "password" })
                 .card-authentication__auth-btn
                     +button({
                         text: authBtn,
@@ -38,8 +32,4 @@ mixin card-authentication(options = {})
                     })
             .card-authentication__no-account
                 p.card-authentication__no-account-text #{noAccount}
-                +button({
-                    href: createAccountBtnHref,
-                    text: createAccountBtn,
-                    theme: "light",
-                })
+                +button({ href: createAccountBtnHref, text: createAccountBtn, theme: "light" })

@@ -1,21 +1,11 @@
 include /checkbox-button/checkbox-button.pug
 
-mixin expandable-checkbox-list(options)
-    -
-        const {
-            title,
-            items,
-            expandBtnIcon = "expand_more"
-        } = options;
-
+mixin expandable-checkbox-list({ title, items, expandBtnIcon = "expand_more" })
     .expandable-checkbox-list.js-expandable-checkbox-list
         .expandable-checkbox-list__head.js-expandable-checkbox-list__head
             h3.expandable-checkbox-list__title #{title}
             .expandable-checkbox-list__expand-button
-                +button({
-                    text: expandBtnIcon,
-                    theme: "icon",
-                })
+                +button({ text: expandBtnIcon, theme: "icon" })
         .expandable-checkbox-list__body
             for item in items
                 .expandable-checkbox-list__checkbox

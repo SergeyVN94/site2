@@ -4,16 +4,16 @@ include /input-text/input-text.pug
 mixin text-field(options = {})
     -
         const {
-            head = null,
-            placeholder = false,
-            value = false,
+            head,
+            placeholder,
+            value,
             type = "text",
-            iconRight = "",
+            iconRight,
             mask = false,
         } = options;
 
     .text-field.js-text-field(data-mask=mask)
-        if head !== null
+        if head
             .text-field__head
                 +block-head(head)
         +input-text({

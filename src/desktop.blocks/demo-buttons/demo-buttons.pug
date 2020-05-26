@@ -15,7 +15,7 @@ mixin demo-buttons(options = {})
         } = options;
 
     .demo-buttons
-        if head !== null
+        if head
             .demo-buttons__head
                 +block-head(head)
         .demo-buttons__container
@@ -23,34 +23,17 @@ mixin demo-buttons(options = {})
                 .demo-buttons__button
                     +button({ text: buttonDefault })
                 .demo-buttons__button
-                    +button({
-                        text: buttonDefaultDisabled,
-                        disabled: true,
-                    })
+                    +button({ text: buttonDefaultDisabled, disabled: true })
             .demo-buttons__row
                 .demo-buttons__button
-                    +button({
-                        text: buttonLight,
-                        theme: "light",
-                    })
+                    +button({ text: buttonLight, theme: "light" })
                 .demo-buttons__button
-                    +button({
-                        text: buttonLightDisabled,
-                        disabled: true,
-                        theme: "light",
-                    })
+                    +button({ text: buttonLightDisabled, disabled: true, theme: "light" })
             .demo-buttons__row
                 .demo-buttons__button
-                    +button({
-                        text: buttonText,
-                        theme: "text",
-                    })
+                    +button({ text: buttonText, theme: "text" })
                 .demo-buttons__button
-                    +button({
-                        text: buttonTextDisabled,
-                        theme: "text",
-                        textColor: "text-secondary",
-                    })
+                    +button({ text: buttonTextDisabled, theme: "text", textColor: "text-secondary" })
             .demo-buttons__row
                 +button({
                     text: buttonLong,

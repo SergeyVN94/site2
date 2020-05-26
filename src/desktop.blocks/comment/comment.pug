@@ -1,13 +1,13 @@
 include /like-button/like-button.pug
 
-mixin comment(options = {})
+mixin comment(options)
     -
         const {
-            avatar = "",
-            userName = "",
-            publicationDate = "",
+            avatar,
+            userName,
+            publicationDate,
             likes = 0,
-            text = "",
+            text,
             likeBtnChecked = false,
         } = options;
     
@@ -16,10 +16,7 @@ mixin comment(options = {})
             .comment__avatar-container
                 img.comment__avatar-image(src=avatar, alt=userName)
             .comment__like-button
-                +like-button({
-                    likes,
-                    checked: likeBtnChecked,
-                })
+                +like-button({ likes, checked: likeBtnChecked })
         .comment__main
             .comment__head
                 p.comment__user-name #{userName}

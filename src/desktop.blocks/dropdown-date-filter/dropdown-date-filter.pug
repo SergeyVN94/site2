@@ -1,9 +1,9 @@
 include /block-head/block-head.pug
 include /dropdown-head/dropdown-head.pug
 
-mixin dropdown-date-filter({ text, head = null })
+mixin dropdown-date-filter({ text, head })
     .dropdown-date-filter
-        if head !== null
+        if head
             .dropdown-date-filter__head
                 +block-head(head)
         .dropdown-date-filter__dropdown-head

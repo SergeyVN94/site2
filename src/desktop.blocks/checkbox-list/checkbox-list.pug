@@ -1,9 +1,9 @@
 include /block-head/block-head.pug
 include /checkbox-button/checkbox-button.pug
 
-mixin checkbox-list({ items, head = null })
+mixin checkbox-list({ items, head })
     .checkbox-list
-        if head !== null
+        if head
             .checkbox-list__head
                 +block-head(head)
         ul.checkbox-list__container

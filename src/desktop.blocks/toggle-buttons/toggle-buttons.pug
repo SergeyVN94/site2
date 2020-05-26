@@ -1,8 +1,8 @@
 include /toggle-button/toggle-button.pug
 
-mixin toggle-buttons({ items, head = null })
+mixin toggle-buttons({ items, head })
     .toggle-buttons
-        if head !== null
+        if head
             .toggle-buttons__head
                 +block-head(head)
         .toggle-buttons__container

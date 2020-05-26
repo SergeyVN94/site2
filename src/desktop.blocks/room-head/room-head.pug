@@ -4,13 +4,11 @@ mixin room-head(options = {})
             roomNumber = 0,
             roomNumberTheme = "h1",
             roomNumberHref = "./room-details.html",
-            roomPrice = "0",
+            roomPrice = 0,
             pricePeriod = "в сутки",
             luxury = false,
             luxuryText = "люкс",
         } = options;
-
-        const roomPriceRes = `${roomPrice}₽`;
 
     .room-head
         a.room-head__room-info(href=roomNumberHref, tabindex="-1")
@@ -19,5 +17,5 @@ mixin room-head(options = {})
             if luxury
                 span.room-head__luxury #{luxuryText}
         p.room-head__price-container
-            span.room-head__price #{roomPriceRes}
-            span.room-head__during-period #{pricePeriod}
+            span.room-head__price #{`${roomPrice}₽`}
+            span.room-head__price-period #{pricePeriod}

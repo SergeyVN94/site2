@@ -6,16 +6,16 @@ mixin input-text(options = {})
             type = "text",
             placeholder = false,
             value = false,
-            iconRight = "",
+            iconRight,
         } = options;
 
         const classes = ["input-text"];
-        if (iconRight !== "") classes.push("input-text_use-icon-right");
+        if (iconRight) classes.push("input-text_use-icon-right");
 
     div(class=classes)
         .input-text__container
             input.input-text__input(type=type, placeholder=placeholder, value=value)
-            if iconRight !== ""
+            if iconRight
                 .input-text__submit
                     +button({
                         text: iconRight,

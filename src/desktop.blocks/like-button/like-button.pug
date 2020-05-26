@@ -1,10 +1,6 @@
 mixin like-button({ likes = 0, checked = false })
     -
-        const classes = [
-            "like-button",
-            "js-like-button",
-        ];
-
+        const classes = ["like-button js-like-button"];
         if (checked) classes.push("like-button_checked");
         const icon = checked ? "favorite" : "favorite_border";
 

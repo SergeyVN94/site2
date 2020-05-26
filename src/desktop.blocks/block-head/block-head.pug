@@ -1,21 +1,21 @@
-mixin block-head(options = {})
+mixin block-head(options)
     -
         const {
-            title = "",
-            help = "",
-            titleTheme = "",
-            helpTheme = "",
+            title,
+            help,
+            titleTheme,
+            helpTheme,
         } = options;
 
         const classesTitle = ["block-head__title"];
         const classesHelp = ["block-head__help"];
 
-        if (titleTheme !== "") classesTitle.push(`block-head__title_theme_${titleTheme}`);
-        if (helpTheme !== "") classesHelp.push(`block-head__help_theme_${helpTheme}`);
+        if (titleTheme) classesTitle.push(`block-head__title_theme_${titleTheme}`);
+        if (helpTheme) classesHelp.push(`block-head__help_theme_${helpTheme}`);
 
     .block-head
-        if title !== ""
+        if title
             -const tag = titleTheme === "h2" ? "h2" : "h3";
             #{tag}(class=classesTitle) #{title}
-        if help !== ""
+        if help
             p(class=classesHelp) #{help}

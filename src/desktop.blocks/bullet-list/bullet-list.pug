@@ -1,10 +1,10 @@
 include /block-head/block-head.pug
 
-mixin bullet-list({ items, head = null })
+mixin bullet-list({ items, head })
     .bullet-list
-        if head !== null
+        if head
             -
-                const { marginBottom = "" } = head;
+                const { marginBottom } = head;
                 const headClasses = ["bullet-list__head"];
 
                 const hasMarginBottom = marginBottom && marginBottom !== "false";

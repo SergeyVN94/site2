@@ -1,11 +1,4 @@
-mixin demo-color-item(options = [])
-    -
-        const [
-            colorName,
-            colorValue,
-            squareBgColor,
-        ] = options;
-
+mixin demo-color-item([ colorName, colorValue, squareBgColor ])
     .demo-color-item
         .demo-color-item__color-square(style=`background-color: ${squareBgColor};`)
         .demo-color-item__description

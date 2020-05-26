@@ -1,9 +1,9 @@
 include /block-head/block-head.pug
 include /radio-button/radio-button.pug
 
-mixin radio-buttons({ items, head = null })
+mixin radio-buttons({ items, head })
     .radio-buttons
-        if head !== null
+        if head
             .radio-buttons__head
                 +block-head(head)
         .radio-buttons__container

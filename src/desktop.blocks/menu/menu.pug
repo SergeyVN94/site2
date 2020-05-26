@@ -1,10 +1,10 @@
 include /menu-item/menu-item.pug
 include /menu-item-expandable/menu-item-expandable.pug
 
-mixin menu({ items, theme = "" })
+mixin menu({ items, theme })
     -
         const classes = ["menu"];
-        if (theme !== "") classes.push(`menu_theme_${theme}`);
+        if (theme) classes.push(`menu_theme_${theme}`);
 
     nav(class=classes)
         for item in items

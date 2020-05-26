@@ -54,10 +54,7 @@ mixin card-account-registration(options = {})
                         type: "email",
                     })
                 .card-account-registration__password
-                    +input-text({
-                        placeholder: inputPasswordPlaceholder,
-                        type: "password",
-                    })
+                    +input-text({ placeholder: inputPasswordPlaceholder, type: "password" })
                 .card-account-registration__special-offers
                     +toggle-button({ text: toggleBtnSpecialOffers })
                 .card-account-registration__payment-button

@@ -1,9 +1,9 @@
 include /block-head/block-head.pug
 include /like-button/like-button.pug
 
-mixin like-buttons({ items, head = null })
+mixin like-buttons({ items, head })
     .like-buttons
-        if head !== null
+        if head
             .like-buttons__head
                 +block-head(head)
         .like-buttons__container

@@ -1,13 +1,6 @@
 include /button/button.pug
 
-mixin dropdown-counter(options)
-    -
-        const {
-            label,
-            group = false,
-            value = 0,
-        } = options;
-
+mixin dropdown-counter({ label, group = false, value = 0 })
     .dropdown-counter.js-dropdown-counter(data-group=group)
         label.dropdown-counter__label #{label}
         .dropdown-counter__controls

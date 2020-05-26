@@ -6,8 +6,8 @@ mixin range-slider(options = {})
             step = 1,    
             range = [0, step * 100],
             start = [],
-            title = "",
-            bottomText = "",
+            title,
+            bottomText,
         } = options;
 
         const [
@@ -28,5 +28,5 @@ mixin range-slider(options = {})
             .range-slider__point.js-range-slider__point(data-type="min")
             .range-slider__point.js-range-slider__point(data-type="max")
             .range-slider__bg-line.js-range-slider__bg-line
-        if bottomText !== ""
+        if bottomText
             p.range-slider__bottom-text #{bottomText}

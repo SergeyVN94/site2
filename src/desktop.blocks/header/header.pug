@@ -6,8 +6,8 @@ include /container-content/container-content.pug
 mixin header(options = {})
     -
         const {
-            menu = {},
-            user = "",
+            menu,
+            user,
             btnLogin = "login",
             btnRegister = "register",
             btnLoginHref = "./sign-in.html",
@@ -31,7 +31,7 @@ mixin header(options = {})
                     .header__menu
                         +menu(menu)
                     .header__personal-area
-                        if user !== ""
+                        if user
                             p.header__user-name #{user}
                         else
                             .header__personal-area-buttons

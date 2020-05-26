@@ -3,15 +3,7 @@ include /footer-nav/footer-nav.pug
 include /text-field/text-field.pug
 include /container-content/container-content.pug
 
-mixin footer(options = {})
-    -
-        const {
-            siteDescription = "",
-            navList = [],
-            subscribe = {},
-            copyright = "",
-        } = options;
-
+mixin footer({ siteDescription, navList = [], subscribe = {} })
     footer.footer
         +container-content()
             .footer__content
@@ -26,17 +18,13 @@ mixin footer(options = {})
                 .footer__subscribe-container
                     -
                         const {
-                            title = "",
-                            description = "",
-                            placeholder = "",
+                            title,
+                            description,
+                            placeholder,
                             formAction = "/mock-address/change-me",
                         } = subscribe;
 
                     p.footer__subscribe-title #{title}
                     p.footer__subscribe-description #{description}
                     form.footer__subscribe-text-field(action=formAction, method="post")
-                        +text-field({
-                            placeholder,
-                            type: "email",
-                            iconRight: "arrow_forward",
-                        })
+                        +text-field({ placeholder, type: "email", iconRight: "arrow_forward" })

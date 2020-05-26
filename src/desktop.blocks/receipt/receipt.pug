@@ -1,22 +1,13 @@
 mixin receipt({ items, total = 0 })
     .receipt
         for item in items
-            -
-                const {
-                   text = "",
-                   price = "",
-                   icon = false,
-                } = item;
-
-                priceRes = `${price}₽`;
-
+            -const { text, price, icon = false } = item;
             .receipt__item
                 .receipt__text-container
                     p.receipt__item-title #{text}
                 if icon
                     .receipt__icon i
-                p.receipt__price #{priceRes}
-                    
+                p.receipt__price #{priceRes} 
         .receipt__total-sum
             p.receipt__total-sum-title Итого
             .receipt__separate-line

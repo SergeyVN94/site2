@@ -1,9 +1,9 @@
 include /block-head/block-head.pug
 include /rating/rating.pug
 
-mixin rating-buttons({ items, head = null })
+mixin rating-buttons({ items, head })
     .rating-buttons
-        if head !== null
+        if head
             .rating-buttons__head
                 +block-head(head)
         .rating-buttons__container

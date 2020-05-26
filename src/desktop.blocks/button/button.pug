@@ -1,36 +1,36 @@
 mixin button(options = {})
     -
         const {
-            theme = "default", 
-            size = "",
-            horizontalSize = "",
-            textColor = "", 
-            action = "",
             text = "click me",
+            theme = "default",
+            type = "button",
+            size,
+            horizontalSize,
+            textColor, 
+            action,
             disabled = false,
             hidden = false,
-            icon = "",
-            background = "",
-            fontWeight = "",
-            hoverTheme = "",
-            href = "",
-            type = "button",
+            icon,
+            background,
+            fontWeight,
+            hoverTheme,
+            href,
         } = options;
 
         const classes = [`button js-button button_theme_${theme}`];
         if (disabled) classes.push("button_disabled");
-        if (textColor !== "") classes.push(`button_text-color_${textColor}`);
+        if (textColor) classes.push(`button_text-color_${textColor}`);
         if (hidden) classes.push("button_hidden");
-        if (background !== "") classes.push(`button_background_${background}`);
-        if (size !== "") classes.push(`button_size_${size}`);
-        if (horizontalSize !== "") classes.push(`button_horizontal-size_${horizontalSize}`);
-        if (fontWeight !== "") classes.push(`button_font-weight_${fontWeight}`);
-        if (hoverTheme !== "") classes.push(`button_hover-theme_${hoverTheme}`);
-        if (action !== "") classes.push(`button_action_${action} js-button_action_${action}`);
+        if (background) classes.push(`button_background_${background}`);
+        if (size) classes.push(`button_size_${size}`);
+        if (horizontalSize) classes.push(`button_horizontal-size_${horizontalSize}`);
+        if (fontWeight) classes.push(`button_font-weight_${fontWeight}`);
+        if (hoverTheme) classes.push(`button_hover-theme_${hoverTheme}`);
+        if (action) classes.push(`button_action_${action} js-button_action_${action}`);
 
-    if href !== ""
+    if href
         a(class=classes, href=href) #{text}
-            if icon !== ""
+            if icon
                 .button__icon #{icon}
     else
         button(class=classes, type=type) #{text}       

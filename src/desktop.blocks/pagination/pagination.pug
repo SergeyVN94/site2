@@ -4,8 +4,8 @@ include /button/button.pug
 mixin pagination(options = {})
     -
         const {
-            head = null,
-            bottomText = "",
+            head,
+            bottomText,
             buttons = [
                 {
                     value: 1,
@@ -53,7 +53,7 @@ mixin pagination(options = {})
         });
 
     .pagination
-        if head !== null
+        if head
             .pagination__head
                 +block-head(head)
         .pagination__container
@@ -61,6 +61,5 @@ mixin pagination(options = {})
                 for config in buttonsConfig
                     .pagination__nav-button
                         +button(config)
-
-            if bottomText !== ""
+            if bottomText
                 p.pagination__bottom-text #{bottomText}
