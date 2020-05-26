@@ -1,15 +1,9 @@
 include /menu-item/menu-item.pug
 include /menu-item-expandable/menu-item-expandable.pug
 
-mixin menu(options)
+mixin menu({ items, theme = "" })
     -
-        const {
-            items,
-            classes = [],
-            theme = "",
-        } = options;
-
-        classes.push("menu");
+        const classes = ["menu"];
         if (theme !== "") classes.push(`menu_theme_${theme}`);
 
     nav(class=classes)

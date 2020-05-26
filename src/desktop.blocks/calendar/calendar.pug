@@ -23,17 +23,11 @@ mixin calendar(options = {})
                     text: btnClear,
                     theme: "text",
                     textColor: "text-secondary",
-                    classes: [
-                        "button_action_clear",
-                        "js-button_action_clear",
-                    ],
+                    action: "clear",
                 })
             .calendar__apply-btn
                 +button({
                     text: btnApply,
                     theme: "text",
-                    classes: [
-                        "button_action_apply",
-                        "js-button_action_apply",
-                    ],
+                    action: "apply",
                 })

@@ -23,10 +23,7 @@ mixin header(options = {})
                         +logo()
                     .header__expand-mobile-menu-btn
                         +button({
-                            classes: [
-                                "button_action_expand-mobile-menu",
-                                "js-button_action_expand-mobile-menu",
-                            ],
+                            action: "expand-mobile-menu",
                             text: mobileBtnIcon,
                             theme: "icon",
                         })

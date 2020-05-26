@@ -18,10 +18,7 @@ mixin dropdown-counter(options)
             .dropdown-counter__btn-minus
                 -const btnMinusDisabled = (valueRes === 0);
                 +button({
-                    classes: [
-                        "button_action_minus",
-                        "js-button_action_minus",
-                    ],
+                    action: "minus",
                     text: "-",
                     theme: "round-little",
                     disabled: btnMinusDisabled,
@@ -29,10 +26,7 @@ mixin dropdown-counter(options)
             p.dropdown-counter__out.js-dropdown-counter__out #{valueRes}
             .dropdown-counter__btn-plus
                 +button({
-                    classes: [
-                        "button_action_plus",
-                        "js-button_action_plus",
-                    ],
+                    action: "plus",
                     text: "+",
                     theme: "round-little",
                 })
