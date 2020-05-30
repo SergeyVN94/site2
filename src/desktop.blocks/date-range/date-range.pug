@@ -14,12 +14,12 @@ mixin date-range(options = {})
     .date-range.js-date-range
         .date-range__dropdowns
             .date-range__dropdown
-                if dropdownLefthead
+                if dropdownLeftHead
                     .date-range__block-head
                         +block-head(dropdownLeftHead)
                 +dropdown-head(dropdownEntranceText, "left")
             .date-range__dropdown
-                if dropdownRighthead
+                if dropdownRightHead
                     .date-range__block-head
                         +block-head(dropdownRightHead)
                 +dropdown-head(dropdownDepartureText, "right") 
