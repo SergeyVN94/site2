@@ -50,7 +50,7 @@
       margin-bottom: 1.1429rem;
     }
   
-    @media (max-width: $breakpoint-old-displays) {
+    @media (max-width: $breakpoint-cell-phones) {
       flex-direction: column;
     }
   }
@@ -60,8 +60,14 @@
     padding-top: 0.1429rem;
     width: 100%;
     margin-right: 5rem;
-  
+
     @media (max-width: $breakpoint-old-displays) {
+      padding-left: 10px;
+      padding-right: 10px;
+      margin-right: 0;
+    }
+  
+    @media (max-width: $breakpoint-cell-phones) {
       margin: 0rem 0rem 2.8571rem 0rem;
     }
   }
@@ -69,7 +75,7 @@
   &__room-advantages {
     margin-right: 107px;
   
-    @media (max-width: $breakpoint-old-displays) {
+    @media (max-width: $breakpoint-cell-phones) {
       margin: 0rem 0rem 2.1429rem 0rem;
     }
   }
@@ -77,7 +83,7 @@
   &__rules {
     margin-right: 6.5714rem;
   
-    @media (max-width: $breakpoint-old-displays) {
+    @media (max-width: $breakpoint-cell-phones) {
       margin: 0rem 0rem 2.1429rem 0rem;
     }
   }
