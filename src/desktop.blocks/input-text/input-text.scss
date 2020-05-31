@@ -3,7 +3,7 @@
 
   &_use-icon-right {
     .input-text__input {
-      padding-right: $veri-big-size;
+      padding-right: $very-big-size;
     }
   }
 
@@ -16,7 +16,7 @@
     @include reset-css;
     width: 100%;
     min-width: 0;
-    height: $veri-big-size;
+    height: $very-big-size;
     padding: 0rem 1rem $micro-size 1rem;
     font-family: Montserrat, Arial, sans-serif;
     font-style: normal;
@@ -45,8 +45,8 @@
     position: absolute;
     right: 0;
     top: 0;
-    width: $veri-big-size;
-    height: $veri-big-size;
+    width: $very-big-size;
+    height: $very-big-size;
   
     &:hover {
       text-shadow: 0px 0px 10px $bg-primary;

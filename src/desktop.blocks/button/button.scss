@@ -19,7 +19,7 @@
 
   &_theme {
     &_default {
-      height: $veri-big-size;
+      height: $very-big-size;
       border-radius: $middle-second-size;
       padding: 0rem 19.7px;
       font-size: $small-size;
@@ -46,7 +46,7 @@
 
     &_default-long {
       width: 100%;
-      height: $veri-big-size;
+      height: $very-big-size;
       border-radius: $middle-second-size;
       font-size: $small-size;
       background: $gradient-primary;
@@ -95,7 +95,7 @@
     }
 
     &_light {
-      height: $veri-big-size;
+      height: $very-big-size;
       font-family: Montserrat, Arial, sans-serif;
       font-style: normal;
       font-weight: bold;
@@ -278,7 +278,7 @@
     position: absolute;
     right: 0;
     top: 0;
-    width: $veri-big-size;
+    width: $very-big-size;
     height: 100%;
     font-family: 'Material Icons';
     font-style: normal;

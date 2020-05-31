@@ -1,6 +1,6 @@
 .dropdown-head {
   width: 100%;
-  height: $veri-big-size;
+  height: $very-big-size;
   display: flex;
   background-color: #fff;
   border: 0.0714rem solid $light-title;
@@ -36,8 +36,8 @@
   }
 
   &__expand-button {
-    width: $veri-big-size;
-    height: $veri-big-size;
-    min-width: $veri-big-size;
+    width: $very-big-size;
+    height: $very-big-size;
+    min-width: $very-big-size;
   }
 }
