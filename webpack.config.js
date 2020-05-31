@@ -140,7 +140,7 @@ module.exports = {
   plugins: [
     ...pageList.map((page) => {
       return new HtmlWebpackPlugin({
-        template: `${PATHS.src}/pages/${page}/index.pug`,
+        template: `${PATHS.src}/pages/${page}/${page}.pug`,
         filename: `${PATHS.build}/${page}.html`,
       });
     }),
