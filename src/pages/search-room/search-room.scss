@@ -3,6 +3,7 @@
 
   &__container-content {
     @include reset-css;
+    @include container-content;
     padding: 30px 0px 72px 0px;
     display: flex;
     flex-direction: row;

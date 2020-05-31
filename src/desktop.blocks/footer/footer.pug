@@ -1,30 +1,28 @@
 include /logo/logo.pug
 include /footer-nav/footer-nav.pug
 include /text-field/text-field.pug
-include /container-content/container-content.pug
 
 mixin footer({ siteDescription, navList = [], subscribe = {} })
     footer.footer
-        +container-content()
-            .footer__content
-                .footer__site-description
-                    .footer__logo
-                        +logo()
-                    p.footer__description #{siteDescription}
-                .footer__nav-container
-                    for nav in navList
-                        .footer__nav
-                            +footer-nav(nav)
-                .footer__subscribe-container
-                    -
-                        const {
-                            title,
-                            description,
-                            placeholder,
-                            formAction = "/mock-address/change-me",
-                        } = subscribe;
+        .footer__content
+            .footer__site-description
+                .footer__logo
+                    +logo()
+                p.footer__description #{siteDescription}
+            .footer__nav-container
+                for nav in navList
+                    .footer__nav
+                        +footer-nav(nav)
+            .footer__subscribe-container
+                -
+                    const {
+                        title,
+                        description,
+                        placeholder,
+                        formAction = "/mock-address/change-me",
+                    } = subscribe;
 
-                    p.footer__subscribe-title #{title}
-                    p.footer__subscribe-description #{description}
-                    form.footer__subscribe-text-field(action=formAction, method="post")
-                        +text-field({ placeholder, type: "email", iconRight: "arrow_forward" })
+                p.footer__subscribe-title #{title}
+                p.footer__subscribe-description #{description}
+                form.footer__subscribe-text-field(action=formAction, method="post")
+                    +text-field({ placeholder, type: "email", iconRight: "arrow_forward" })

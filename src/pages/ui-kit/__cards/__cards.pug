@@ -7,73 +7,72 @@ include /card-room-information/card-room-information.pug
 include /container-content/container-content.pug
 
 article.ui-kit__cards
-    +container-content()
-        .ui-kit__cards-container-content
-            .ui-kit__cards-column
-                .ui-kit__cards-item
-                    +card-selection-room()
-                .ui-kit__cards-item    
-                    +card-account-registration()
-            .ui-kit__cards-column
-                .ui-kit__cards-item
-                    +card-book-room({
-                        roomHead: {
-                            roomNumber: 888,
-                            roomPrice: "9 990",
-                            luxury: true,
-                        },
-                        receipt: {
-                            total:  "38 081",
-                            items: [
-                                {
-                                    text: "9 990₽ х 4 суток",
-                                    price: "39 960",
-                                },
-                                {
-                                    text: "Сбор за услуги: скидка 2 179₽",
-                                    price: "0",
-                                    icon: true,
-                                },
-                                {
-                                    text: "Сбор за дополнительные услуги",
-                                    price: "300",
-                                    icon: true,
-                                },
-                            ],
-                        },
-                    })
-                .ui-kit__cards-item
-                    +card-authentication()
-            .ui-kit__cards-column
-                .ui-kit__cards-item
-                    +calendar()
-                .ui-kit__cards-item
-                    -
-                        const images1 = [
-                            "888.jpg",
-                            "840.jpg",
-                            "888.jpg",
-                            "840.jpg",
-                        ].map((src) => {
-                            return {
-                                src: require(`../../desktop.blocks/card-room-information/images/room-${src}`).default,
-                            };
-                        });
-                        const images2 = [...images1].reverse();
-
-                    +card-room-information({
-                        images: images1,
+    .ui-kit__cards-container-content
+        .ui-kit__cards-column
+            .ui-kit__cards-item
+                +card-selection-room()
+            .ui-kit__cards-item    
+                +card-account-registration()
+        .ui-kit__cards-column
+            .ui-kit__cards-item
+                +card-book-room({
+                    roomHead: {
                         roomNumber: 888,
                         roomPrice: "9 990",
                         luxury: true,
-                        stars: 5,
-                        comments: 145,
-                    })
-                .ui-kit__cards-item
-                    +card-room-information({
-                        images: images2,
-                        roomNumber: 840,
-                        roomPrice: "9 900",
-                        stars: 4,
-                        comments: 65,
-                    })
+                    },
+                    receipt: {
+                        total:  "38 081",
+                        items: [
+                            {
+                                text: "9 990₽ х 4 суток",
+                                price: "39 960",
+                            },
+                            {
+                                text: "Сбор за услуги: скидка 2 179₽",
+                                price: "0",
+                                icon: true,
+                            },
+                            {
+                                text: "Сбор за дополнительные услуги",
+                                price: "300",
+                                icon: true,
+                            },
+                        ],
+                    },
+                })
+            .ui-kit__cards-item
+                +card-authentication()
+        .ui-kit__cards-column
+            .ui-kit__cards-item
+                +calendar()
+            .ui-kit__cards-item
+                -
+                    const images1 = [
+                        "888.jpg",
+                        "840.jpg",
+                        "888.jpg",
+                        "840.jpg",
+                    ].map((src) => {
+                        return {
+                            src: require(`../../desktop.blocks/card-room-information/images/room-${src}`).default,
+                        };
+                    });
+                    const images2 = [...images1].reverse();
+
+                +card-room-information({
+                    images: images1,
+                    roomNumber: 888,
+                    roomPrice: "9 990",
+                    luxury: true,
+                    stars: 5,
+                    comments: 145,
+                })
+            .ui-kit__cards-item
+                +card-room-information({
+                    images: images2,
+                    roomNumber: 840,
+                    roomPrice: "9 900",
+                    stars: 4,
+                    comments: 65,
+                })

@@ -6,6 +6,7 @@
 
   &-container-content {
     @include reset-css;
+    @include container-content;
     width: 100%;
     display: flex;
     justify-content: space-between;

@@ -1,7 +1,6 @@
 include /logo/logo.pug
 include /menu/menu.pug
 include /button/button.pug
-include /container-content/container-content.pug
 
 mixin header(options = {})
     -
@@ -16,35 +15,34 @@ mixin header(options = {})
         } = options;
 
     header.header.js-header
-        +container-content()
-            .header__content
-                .header__main
-                    .header__logo
-                        +logo()
-                    .header__expand-mobile-menu-btn
-                        +button({
-                            action: "expand-mobile-menu",
-                            text: mobileBtnIcon,
-                            theme: "icon",
-                        })
-                .header__nav-container
-                    .header__menu
-                        +menu(menu)
-                    .header__personal-area
-                        if user
-                            p.header__user-name #{user}
-                        else
-                            .header__personal-area-buttons
-                                .header__btn-login
-                                    +button({
-                                        text: btnLogin,
-                                        href: btnLoginHref,
-                                        size: "sm",
-                                        theme: "light",
-                                    })
-                                .header__btn-register
-                                    +button({
-                                        text: btnRegister,
-                                        href: btnRegisterHref,
-                                        size: "sm",
-                                    })
+        .header__content
+            .header__main
+                .header__logo
+                    +logo()
+                .header__expand-mobile-menu-btn
+                    +button({
+                        action: "expand-mobile-menu",
+                        text: mobileBtnIcon,
+                        theme: "icon",
+                    })
+            .header__nav-container
+                .header__menu
+                    +menu(menu)
+                .header__personal-area
+                    if user
+                        p.header__user-name #{user}
+                    else
+                        .header__personal-area-buttons
+                            .header__btn-login
+                                +button({
+                                    text: btnLogin,
+                                    href: btnLoginHref,
+                                    size: "sm",
+                                    theme: "light",
+                                })
+                            .header__btn-register
+                                +button({
+                                    text: btnRegister,
+                                    href: btnRegisterHref,
+                                    size: "sm",
+                                })

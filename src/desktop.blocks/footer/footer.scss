@@ -4,6 +4,7 @@
 
   &__content {
     @include reset-css;
+    @include container-content;
     padding: 7.1429rem 0rem 5.7143rem 0rem;
     display: flex;
     flex-direction: row;
