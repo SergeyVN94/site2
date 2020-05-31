@@ -30,7 +30,8 @@
   &__container-content {
     @include reset-css;
     @include container-content;
-    padding: 4.8571rem 0rem 5.1429rem 0rem;
+    padding-top: 4.8571rem;
+    padding-bottom: 5.1429rem;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
