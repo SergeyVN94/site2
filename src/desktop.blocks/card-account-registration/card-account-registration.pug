@@ -23,6 +23,7 @@ mixin card-account-registration(options = {})
             inputPasswordPlaceholder = "Пароль",
             toggleBtnSpecialOffers = "Получать спецпредложения",
             paymentBtn = "перейти к оплате",
+            paymentBtnHref = "/mock-address/change-me",
             hasAccount = "Уже есть аккаунт на Toxin",
             btnSignIn = "войти",
         } = options;
@@ -60,6 +61,7 @@ mixin card-account-registration(options = {})
                 .card-account-registration__payment-button
                     +button({
                         text: paymentBtn,
+                        href: paymentBtnHref,
                         theme: "default-long",
                         icon: "arrow_forward",
                         type: "submit",

@@ -13,6 +13,7 @@ mixin card-book-room(options = {})
             dropdownGuest = {},
             dateRange = {},
             bookingButton = "забронировать",
+            bookingButtonHref = "/mock-address/change-me",
             formAction = "/mock-address/change-me",
         } = options;
 
@@ -30,6 +31,7 @@ mixin card-book-room(options = {})
                 form(action=formAction, method="post")
                     +button({
                         text: bookingButton,
+                        href: bookingButtonHref,
                         theme: "default-long",
                         icon: "arrow_forward",
                         type: "submit",

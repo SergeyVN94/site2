@@ -10,6 +10,7 @@ mixin card-authentication(options = {})
             inputEmailPlaceholder = "Email",
             inputPasswordPlaceholder = "Пароль",
             authBtn = "войти",
+            authBtnHref = "/mock-address/change-me",
             noAccount =  "Нет аккаунта на Toxin?",
             createAccountBtn = "создать",
             createAccountBtnHref = "./registration.html",
@@ -26,6 +27,7 @@ mixin card-authentication(options = {})
                 .card-authentication__auth-btn
                     +button({
                         text: authBtn,
+                        href: authBtnHref,
                         icon: "arrow_forward",
                         theme: "default-long",
                         type: "submit",
