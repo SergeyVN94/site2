@@ -6,7 +6,8 @@
   &__content {
     @include reset-css;
     @include container-content;
-    padding: 7.1429rem 0rem 110px 0rem;
+    padding-top: 7.1429rem;
+    padding-bottom: 110px;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -98,8 +98,4 @@
   max-width: 1190px;
   margin: 0 auto;
   padding: 0 1.0714rem;
-
-  @media (max-width: $breakpoint-cell-phones) {
-    padding: 0 0.7143rem;
-  }
 }
