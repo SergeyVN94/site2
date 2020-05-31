@@ -13,9 +13,8 @@ mixin dropdown(options)
 
         const classes = ["dropdown js-dropdown"];
         if (content) classes.push(`dropdown_content_${content} js-dropdown_content_${content}`);
-        const variationsStr = JSON.stringify(variations);
 
-    div(class=classes, data-variations=variationsStr)
+    div(class=classes, data-variations=JSON.stringify(variations))
         if head
             .dropdown__block-head
                 +block-head(head)

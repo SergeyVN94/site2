@@ -6,14 +6,10 @@ mixin bullet-list({ items, head })
             -
                 const { marginBottom } = head;
                 const headClasses = ["bullet-list__head"];
-
-                const hasMarginBottom = marginBottom && marginBottom !== "false";
-
-                if (hasMarginBottom) headClasses.push(`bullet-list__head_margin-bottom_${marginBottom}`);
+                if (["big"].includes(marginBottom)) headClasses.push(`bullet-list__head_margin-bottom_${marginBottom}`);
 
             div(class=headClasses)
                 +block-head(head)
-        
         ul.bullet-list__container
             for item in items
                 li.bullet-list__item

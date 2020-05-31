@@ -17,16 +17,25 @@ mixin button(options = {})
             href,
         } = options;
 
-        const classes = [`button js-button button_theme_${theme}`];
-        if (disabled) classes.push("button_disabled");
-        if (textColor) classes.push(`button_text-color_${textColor}`);
-        if (hidden) classes.push("button_hidden");
-        if (background) classes.push(`button_background_${background}`);
-        if (size) classes.push(`button_size_${size}`);
-        if (horizontalSize) classes.push(`button_horizontal-size_${horizontalSize}`);
-        if (fontWeight) classes.push(`button_font-weight_${fontWeight}`);
-        if (hoverTheme) classes.push(`button_hover-theme_${hoverTheme}`);
+        const classes = [`button js-button`];
+        if ([
+            "default", "default-long", "icon", "light", "round-icon", "round-little", "round", "text",
+        ].includes(theme)) classes.push(`button_theme_${theme}`);
+        if ([
+            "text-secondary", "gradient-primary",
+        ].includes(textColor)) classes.push(`button_text-color_${textColor}`);
+        if ([
+            "gradient-primary", "gradient-success", "none",
+        ].includes(background)) classes.push(`button_background_${background}`);
+        if (["sm"].includes(size)) classes.push(`button_size_${size}`);
+        if (["big"].includes(horizontalSize)) classes.push(`button_horizontal-size_${horizontalSize}`);
+        if (["bold"].includes(fontWeight)) classes.push(`button_font-weight_${fontWeight}`);
+        if ([
+            "gradient-primary", "gradient-success",
+        ].includes(hoverTheme)) classes.push(`button_hover-theme_${hoverTheme}`);
         if (action) classes.push(`button_action_${action} js-button_action_${action}`);
+        if (disabled) classes.push("button_disabled");
+        if (hidden) classes.push("button_hidden");
 
     if href
         a(class=classes, href=href) #{text}

@@ -10,8 +10,8 @@ mixin block-head(options)
         const classesTitle = ["block-head__title"];
         const classesHelp = ["block-head__help"];
 
-        if (titleTheme) classesTitle.push(`block-head__title_theme_${titleTheme}`);
-        if (helpTheme) classesHelp.push(`block-head__help_theme_${helpTheme}`);
+        if (["h2"].includes(titleTheme)) classesTitle.push(`block-head__title_theme_${titleTheme}`);
+        if (["main-text"].includes(helpTheme)) classesHelp.push(`block-head__help_theme_${helpTheme}`);
 
     .block-head
         if title
