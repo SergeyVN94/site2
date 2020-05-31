@@ -29,20 +29,20 @@
   &__new-input {
     @include reset-css;
     display: flex;
-    width: 1.4286rem;
-    height: 1.4286rem;
+    width: $middle-first-size;
+    height: $middle-first-size;
     background: #fff;
     border: 0.0714rem solid $light-title;
-    border-radius: 0.7143rem;
+    border-radius: $tiny-size;
     align-items: center;
     justify-content: center;
   }
 
   &__input-indicator {
     display: none;
-    width: 0.8571rem;
-    height: 0.8571rem;
+    width: $small-size;
+    height: $small-size;
     background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
-    border-radius: 0.7143rem;
+    border-radius: $tiny-size;
   }
 }

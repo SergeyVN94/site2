@@ -3,7 +3,7 @@
   min-width: 266px;
 
   &__head {
-    margin-bottom: 1.6429rem;
+    margin-bottom: $middle-third-size;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -40,11 +40,11 @@
     top: -0.4286rem;
     left: -8px;
     z-index: 2;
-    width: 0.8571rem;
-    height: 0.8571rem;
+    width: $small-size;
+    height: $small-size;
     background: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%);
-    border: 0.1429rem solid #ffffff;
-    border-radius: 0.7143rem;
+    border: $micro-size solid #ffffff;
+    border-radius: $tiny-size;
     cursor: pointer;
   }
 
@@ -66,6 +66,6 @@
     @include text-body;
     margin-top: 0.6429rem;
     color: $text-secondary;
-    font-size: 0.8571rem;
+    font-size: $small-size;
   }
 }

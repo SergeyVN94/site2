@@ -21,22 +21,22 @@
     max-width: 100%;
     max-height: 100%;
     height: auto;
-    border: 0.1429rem solid #fff;
+    border: $micro-size solid #fff;
     box-sizing: border-box;
-    box-shadow: 0rem 0.7143rem 1.4286rem rgba(31, 32, 65, 0.1);
+    box-shadow: 0rem $tiny-size $middle-first-size rgba(31, 32, 65, 0.1);
     border-radius: 2.2857rem;
   }
 
   &__like-button {
-    margin-top: 0.8571rem;
+    margin-top: $small-size;
   }
 
   &__main {
-    margin-left: 0.7143rem;
+    margin-left: $tiny-size;
   }
 
   &__head {
-    margin-bottom: 0.7143rem;
+    margin-bottom: $tiny-size;
   }
 
   &__user-name {

@@ -43,8 +43,8 @@
 
   &__indicators {
     position: absolute;
-    right: 1.0714rem;
-    bottom: 1.0714rem;
+    right: $standard-size;
+    bottom: $standard-size;
     z-index: 1000;
     display: flex;
     flex-direction: row;
@@ -98,7 +98,7 @@
     font-family: 'Material Icons';
     font-style: normal;
     font-weight: normal;
-    font-size: 1.7143rem;
+    font-size: $big-size;
     color: #fff;
     transform: rotate(90deg);
   }

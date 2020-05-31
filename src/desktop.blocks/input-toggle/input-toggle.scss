@@ -25,20 +25,20 @@
 
   &__switch-wrapper {
     width: 2.8571rem;
-    height: 1.4286rem;
+    height: $middle-first-size;
     background: white;
     border: 0.0714rem solid $light-title;
     box-sizing: border-box;
-    border-radius: 0.7143rem;
+    border-radius: $tiny-size;
     padding: 0.2143rem;
   }
 
   &__switch {
     display: block;
     float: left;
-    width: 0.8571rem;
-    height: 0.8571rem;
+    width: $small-size;
+    height: $small-size;
     background: $light-title;
-    border-radius: 0.7143rem;
+    border-radius: $tiny-size;
   }
 }

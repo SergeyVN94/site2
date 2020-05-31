@@ -1,6 +1,6 @@
 .rating-buttons {
   &__head {
-    margin-bottom: 1.0714rem;
+    margin-bottom: $standard-size;
   }
 
   &__container {
@@ -9,6 +9,6 @@
   }
 
   &__item:not(:last-child) {
-    margin-right: 1.4286rem;
+    margin-right: $middle-first-size;
   }
 }

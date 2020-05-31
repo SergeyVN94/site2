@@ -11,7 +11,7 @@
 
   &__item {
     &:not(:last-child) {
-      margin-right: 1.4286rem;
+      margin-right: $middle-first-size;
     }
   }
 }

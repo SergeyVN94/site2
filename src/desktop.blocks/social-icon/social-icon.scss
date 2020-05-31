@@ -1,12 +1,12 @@
 .social-icon {
   @include reset-link;
-  width: 1.7143rem;
-  height: 1.7143rem;
+  width: $big-size;
+  height: $big-size;
   font-family: 'Font Awesome 5 Brands', Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 1.7143rem;
-  line-height: 1.6429rem;
+  font-size: $big-size;
+  line-height: $middle-third-size;
   background: $gradient-primary;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -18,13 +18,14 @@
 
   &:active {
     background: $bg-primary;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    opacity: 1;
   }
 
   &:focus {
     background: $text-secondary;
+  }
+
+  &:active,
+  &:focus {
     background-clip: text;
     -webkit-text-fill-color: transparent;
     opacity: 1;

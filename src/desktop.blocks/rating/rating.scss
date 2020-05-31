@@ -2,13 +2,13 @@
   &__star {
     display: inline-block;
     vertical-align: middle;
-    width: 1.7143rem;
-    height: 1.7143rem;
+    width: $big-size;
+    height: $big-size;
     font-family: 'Material Icons';
     font-style: normal;
     font-weight: normal;
-    font-size: 1.7143rem;
-    line-height: 1.7143rem;
+    font-size: $big-size;
+    line-height: $big-size;
     text-align: center;
     background: $gradient-primary;
     background-clip: text;

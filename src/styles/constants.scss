@@ -1,3 +1,9 @@
+// breakpoints
+$breakpoint-old-displays: 1200px; // Устаревшие мониторы
+$breakpoint-tablets: 992px; // Планшеты
+$breakpoint-cell-phones: 768px; // Мобильные телефоны
+
+// colors
 $text-title: #1F2041;
 $text-primary: #1f2041bf;
 $text-secondary: #1f204180;
@@ -10,3 +16,14 @@ $gradient-primary: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
 $gradient-secondary: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
 $gradient-warn: linear-gradient(180deg, #FFE39C 0%, #FFBA9C 100%);
 $gradient-dark: linear-gradient(180deg, #919191 0%, #3D4975 100%);
+
+// sizes
+$veri-big-size: 3.1429rem;
+$big-size: 1.7143rem;
+$middle-third-size: 1.6429rem;
+$middle-second-size: 1.5714rem;
+$middle-first-size: 1.4286rem;
+$standard-size: 1.0714rem;
+$small-size: 0.8571rem;
+$tiny-size: 0.7143rem;
+$micro-size: 0.1429rem;

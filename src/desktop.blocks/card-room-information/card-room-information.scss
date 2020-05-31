@@ -1,7 +1,7 @@
 .card-room-information {
   width: 270px;
   background: #fff;
-  box-shadow: 0rem 0.7143rem 1.4286rem $dim-shadow;
+  box-shadow: 0rem $tiny-size $middle-first-size $dim-shadow;
   border-radius: 0.2857rem;
 
   &__image-slider {
@@ -10,7 +10,7 @@
   }
 
   &__body {
-    padding: 1.4286rem 1.2143rem 1.4286rem 1.4286rem;
+    padding: $middle-first-size 1.2143rem $middle-first-size $middle-first-size;
   }
   
   &__head {

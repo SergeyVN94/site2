@@ -10,7 +10,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 4.7857rem 3.8571rem 0rem 0.7143rem;
+    padding: 4.7857rem 3.8571rem 0rem $tiny-size;
     margin: 0 auto;
   
     @media (max-width: $breakpoint-tablets) {

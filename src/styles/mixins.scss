@@ -44,7 +44,7 @@
 
 @mixin text-h1 {
   @include text-title;
-  font-size: 1.7143rem;
+  font-size: $big-size;
   line-height: 2.1429rem;
   text-transform: none;
 }
@@ -52,15 +52,15 @@
 @mixin text-h2 {
   @include text-title;
   font-size: 1.3571rem;
-  line-height: 1.7143rem;
+  line-height: $big-size;
   text-transform: none;
 }
 
 @mixin text-h3 {
   @include text-title;
   font-family: Montserrat, Arial, sans-serif;
-  font-size: 0.8571rem;
-  line-height: 1.0714rem;
+  font-size: $small-size;
+  line-height: $standard-size;
   text-transform: uppercase;
 }
 
@@ -70,7 +70,7 @@
   font-family: Montserrat, Arial, sans-serif;
   font-weight: normal;
   font-size: 1rem;
-  line-height: 1.7143rem;
+  line-height: $big-size;
   color: $text-primary;
   font-style: normal;
   text-transform: none;
@@ -97,5 +97,5 @@
   min-width: 320px;
   max-width: 1190px;
   margin: 0 auto;
-  padding: 0 1.0714rem;
+  padding: 0 $standard-size;
 }

@@ -9,13 +9,13 @@
   
     .expandable-checkbox-list__expand-button {
       transform: rotate(180deg);
-      padding: 0rem 0rem 0.1429rem 0.1429rem;
+      padding: 0rem 0rem $micro-size $micro-size;
     }
   }
 
   &__head {
-    height: 3.1429rem;
-    margin-bottom: 0.1429rem;
+    height: $veri-big-size;
+    margin-bottom: $micro-size;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -29,9 +29,9 @@
   }
 
   &__expand-button {
-    width: 3.1429rem;
-    height: 3.1429rem;
-    min-width: 3.1429rem;
+    width: $veri-big-size;
+    height: $veri-big-size;
+    min-width: $veri-big-size;
   }
   
   &__body {
@@ -40,7 +40,7 @@
   
   &__checkbox {
     &:not(:last-child) {
-      margin-bottom: 0.7143rem;
+      margin-bottom: $tiny-size;
     }
   }
 }

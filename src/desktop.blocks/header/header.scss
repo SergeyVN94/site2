@@ -1,6 +1,6 @@
 .header {
   background-color: #fff;
-  box-shadow: 0rem 0.7143rem 1.4286rem $dim-shadow;
+  box-shadow: 0rem $tiny-size $middle-first-size $dim-shadow;
 
   &_extended {
     .header__nav-container {
@@ -22,7 +22,7 @@
     justify-content: space-between;
 
     @media (max-width: $breakpoint-tablets) {
-      padding-left: 0.7143rem;
+      padding-left: $tiny-size;
       flex: auto;
       flex-direction: column;
       height: auto;
@@ -69,22 +69,22 @@
   }
 
   &__personal-area {
-    margin-left: 1.5714rem;
+    margin-left: $middle-second-size;
 
     @media (max-width: $breakpoint-tablets) {
-      margin: 1.4286rem 0rem 1.4286rem 0rem;
+      margin: $middle-first-size 0rem $middle-first-size 0rem;
     }
   }
 
   &__user-name {
     @include reset-css;
     @include text-body;
-    padding-left: 1.4286rem;
+    padding-left: $middle-first-size;
     border-left: 0.0714rem solid $dim-border;
     color: $text-secondary;
 
     @media (max-width: $breakpoint-tablets) {
-      padding: 1.4286rem 0rem 0rem 0rem;
+      padding: $middle-first-size 0rem 0rem 0rem;
       border-left: none;
       border-top: 0.0714rem solid $dim-border;
     }
@@ -103,7 +103,7 @@
   }
 
   &__btn-login {
-    margin-right: 1.4286rem;
+    margin-right: $middle-first-size;
 
     @media (max-width: $breakpoint-cell-phones) {
       margin-right: 0;

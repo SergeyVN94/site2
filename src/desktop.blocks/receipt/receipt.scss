@@ -22,8 +22,8 @@
   &__icon {
     @include reset-css;
     @include no-select;
-    width: 1.4286rem;
-    height: 1.4286rem;
+    width: $middle-first-size;
+    height: $middle-first-size;
     border-radius: 50%;
     display: flex;
     align-items: center;

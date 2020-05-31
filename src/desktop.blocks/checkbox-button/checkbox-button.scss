@@ -11,7 +11,7 @@
 
   &__text {
     @include text-body;
-    margin-left: 0.7143rem;
+    margin-left: $tiny-size;
     word-break: normal;
     width: 100%;
     max-width: 200px;

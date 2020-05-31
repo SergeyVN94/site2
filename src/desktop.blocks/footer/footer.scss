@@ -62,7 +62,7 @@
     max-width: 260px;
   
     @media (max-width: $breakpoint-tablets) {
-      margin-top: 1.4286rem;
+      margin-top: $middle-first-size;
     }
   }
   
@@ -73,6 +73,6 @@
 
   &__subscribe-description {
     @include text-body;
-    margin-bottom: 1.6429rem;
+    margin-bottom: $middle-third-size;
   }
 }

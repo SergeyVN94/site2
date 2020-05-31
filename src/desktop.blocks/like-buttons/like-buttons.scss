@@ -1,6 +1,6 @@
 .like-buttons {
   &__head {
-    margin-bottom: 1.0714rem;
+    margin-bottom: $standard-size;
   }
 
   &__container {
@@ -10,7 +10,7 @@
 
   &__button {
     &:not(:last-child) {
-      margin-right: 0.7143rem;
+      margin-right: $tiny-size;
     }
   }
 }

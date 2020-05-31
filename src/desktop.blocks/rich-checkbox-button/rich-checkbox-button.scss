@@ -6,7 +6,7 @@
   cursor: pointer;
 
   &__container {
-    margin-left: 0.7143rem;
+    margin-left: $tiny-size;
     width: 270px;
     display: flex;
     flex-direction: column;
@@ -15,13 +15,13 @@
   &__text {
     @include text-body;
     margin-bottom: 0.3571rem;
-    line-height: 1.4286rem;
+    line-height: $middle-first-size;
     font-weight: bold;
   }
 
   &__description {
     @include text-body;
-    line-height: 1.0714rem;
-    font-size: 0.8571rem;
+    line-height: $standard-size;
+    font-size: $small-size;
   }
 }

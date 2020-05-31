@@ -3,7 +3,7 @@
 
   &_use-icon-right {
     .input-text__input {
-      padding-right: 3.1429rem;
+      padding-right: $veri-big-size;
     }
   }
 
@@ -16,8 +16,8 @@
     @include reset-css;
     width: 100%;
     min-width: 0;
-    height: 3.1429rem;
-    padding: 0rem 1rem 0.1429rem 1rem;
+    height: $veri-big-size;
+    padding: 0rem 1rem $micro-size 1rem;
     font-family: Montserrat, Arial, sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -35,7 +35,7 @@
   
     &:hover,
     &:focus {
-      line-height: 1.7143rem;
+      line-height: $big-size;
       color: $text-primary;
       border-color: $text-secondary;
     }
@@ -45,8 +45,8 @@
     position: absolute;
     right: 0;
     top: 0;
-    width: 3.1429rem;
-    height: 3.1429rem;
+    width: $veri-big-size;
+    height: $veri-big-size;
   
     &:hover {
       text-shadow: 0px 0px 10px $bg-primary;

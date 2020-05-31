@@ -49,9 +49,8 @@ const rules = [
         loader: 'sass-resources-loader',
         options: {
           resources: [
-            `${PATHS.src}/styles/colors.scss`,
+            `${PATHS.src}/styles/constants.scss`,
             `${PATHS.src}/styles/mixins.scss`,
-            `${PATHS.src}/styles/breakpoints.scss`,
           ],
         },
       },

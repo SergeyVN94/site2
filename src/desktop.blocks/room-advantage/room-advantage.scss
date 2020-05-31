@@ -20,7 +20,7 @@
     background: $gradient-primary;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-right: 0.7143rem;
+    margin-right: $tiny-size;
   }
 
   &__title {

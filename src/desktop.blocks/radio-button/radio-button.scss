@@ -12,7 +12,7 @@
 
   &__text {
     @include text-body;
-    margin-left: 0.7143rem;
-    line-height: 1.4286rem;
+    margin-left: $tiny-size;
+    line-height: $middle-first-size;
   }
 }

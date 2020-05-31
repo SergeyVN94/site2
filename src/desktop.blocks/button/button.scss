@@ -19,17 +19,17 @@
 
   &_theme {
     &_default {
-      height: 3.1429rem;
-      border-radius: 1.5714rem;
+      height: $veri-big-size;
+      border-radius: $middle-second-size;
       padding: 0rem 19.7px;
-      font-size: 0.8571rem;
+      font-size: $small-size;
       background: $gradient-primary;
       font-family: Montserrat, Arial, sans-serif;
       font-style: normal;
       font-weight: bold;
       text-transform: uppercase;
       color: white;
-      padding-top: 0.1429rem;
+      padding-top: $micro-size;
 
       &:hover {
         box-shadow: 0px 0px 10px $bg-primary;
@@ -46,9 +46,9 @@
 
     &_default-long {
       width: 100%;
-      height: 3.1429rem;
-      border-radius: 1.5714rem;
-      font-size: 0.8571rem;
+      height: $veri-big-size;
+      border-radius: $middle-second-size;
+      font-size: $small-size;
       background: $gradient-primary;
       font-family: Montserrat, Arial, sans-serif;
       font-style: normal;
@@ -76,8 +76,8 @@
       font-family: 'Material Icons';
       font-style: normal;
       font-weight: normal;
-      font-size: 1.7143rem;
-      line-height: 1.7143rem;
+      font-size: $big-size;
+      line-height: $big-size;
       color: $text-secondary;
       background-color: transparent;
 
@@ -95,13 +95,13 @@
     }
 
     &_light {
-      height: 3.1429rem;
+      height: $veri-big-size;
       font-family: Montserrat, Arial, sans-serif;
       font-style: normal;
       font-weight: bold;
-      font-size: 0.8571rem;
-      border-radius: 1.5714rem;
-      border: 0.1429rem solid $bg-primary;
+      font-size: $small-size;
+      border-radius: $middle-second-size;
+      border: $micro-size solid $bg-primary;
       color: $bg-primary;
       text-transform: uppercase;
       padding: 0rem 1.1786rem;
@@ -123,12 +123,12 @@
       width: 2.8571rem;
       height: 2.8571rem;
       background: $gradient-primary;
-      border-radius: 1.5714rem;
+      border-radius: $middle-second-size;
       font-family: 'Material Icons';
       font-style: normal;
       font-weight: normal;
-      font-size: 1.7143rem;
-      line-height: 1.4286rem;
+      font-size: $big-size;
+      line-height: $middle-first-size;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -139,7 +139,7 @@
       width: 2.1429rem;
       height: 2.1429rem;
       border: 0.0714rem solid rgba(31, 32, 65, 0.25);
-      border-radius: 1.5714rem;
+      border-radius: $middle-second-size;
       color: $text-secondary;
       font-family: Montserrat, Arial, sans-serif;
       font-style: normal;
@@ -151,12 +151,12 @@
     &_round {
       width: 2.8571rem;
       height: 2.8571rem;
-      border-radius: 1.5714rem;
+      border-radius: $middle-second-size;
       font-family: Montserrat, Arial, sans-serif;
       font-style: normal;
       font-weight: normal;
-      font-size: 0.8571rem;
-      line-height: 1.0714rem;
+      font-size: $small-size;
+      line-height: $standard-size;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -167,8 +167,8 @@
       font-family: Montserrat, Arial, sans-serif;
       font-style: normal;
       font-weight: bold;
-      font-size: 0.8571rem;
-      line-height: 1.0714rem;
+      font-size: $small-size;
+      line-height: $standard-size;
       text-transform: uppercase;
       color: $bg-primary;
 
@@ -254,7 +254,7 @@
   }
 
   &_horizontal-size_big {
-    padding: 0rem 1.6429rem;
+    padding: 0rem $middle-third-size;
   }
 
   &_size_sm {
@@ -278,13 +278,13 @@
     position: absolute;
     right: 0;
     top: 0;
-    width: 3.1429rem;
+    width: $veri-big-size;
     height: 100%;
     font-family: 'Material Icons';
     font-style: normal;
     font-weight: normal;
-    font-size: 1.7143rem;
-    line-height: 1.7143rem;
+    font-size: $big-size;
+    line-height: $big-size;
     display: flex;
     align-items: center;
     justify-content: center;

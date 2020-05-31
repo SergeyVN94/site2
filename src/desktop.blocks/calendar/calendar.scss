@@ -3,11 +3,11 @@
   @include no-select;
   width: 100%;
   max-width: 320px;
-  padding: 1.4286rem 1.4286rem;
+  padding: $middle-first-size $middle-first-size;
   background: #ffffff;
   border: 0.0714rem solid $light-title;
   box-sizing: border-box;
-  box-shadow: 0rem 0.7143rem 1.4286rem $dim-shadow;
+  box-shadow: 0rem $tiny-size $middle-first-size $dim-shadow;
   border-radius: 0.2857rem;
 
   &__date-navigation {
@@ -20,13 +20,13 @@
   }
 
   &__change-month {
-    width: 1.7143rem;
-    height: 1.7143rem;
+    width: $big-size;
+    height: $big-size;
     font-family: 'Material Icons';
     font-style: normal;
     font-weight: normal;
-    font-size: 1.7143rem;
-    line-height: 1.7143rem;
+    font-size: $big-size;
+    line-height: $big-size;
     text-align: center;
     color: $bg-primary;
     cursor: pointer;
@@ -57,7 +57,7 @@
     align-items: center;
     justify-content: center;
     color: $bg-primary;
-    font-size: 0.8571rem;
+    font-size: $small-size;
     font-weight: bold;
   }
 
@@ -65,7 +65,7 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    margin-bottom: 1.4286rem;
+    margin-bottom: $middle-first-size;
   }
 
   &__day-week {
@@ -78,7 +78,7 @@
     font-family: Montserrat, Arial, sans-serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 0.8571rem;
+    font-size: $small-size;
     color: $text-secondary;
     cursor: pointer;
 
@@ -146,7 +146,7 @@
   
       &_range-day {
         background: $gradient-primary;
-        border-radius: 1.5714rem;
+        border-radius: $middle-second-size;
         color: #fff;
         font-weight: bold;
       }

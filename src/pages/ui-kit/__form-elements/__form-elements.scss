@@ -32,7 +32,7 @@
     flex-direction: column;
 
     &:not(:last-child) {
-      margin-right: 0.7143rem;
+      margin-right: $tiny-size;
     }
 
     @media (max-width: $breakpoint-cell-phones) {

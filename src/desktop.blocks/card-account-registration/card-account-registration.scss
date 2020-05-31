@@ -12,11 +12,11 @@
   }
 
   &__input-name {
-    margin-bottom: 0.7143rem;
+    margin-bottom: $tiny-size;
   }
 
   &__input-surname {
-    margin-bottom: 0.7143rem;
+    margin-bottom: $tiny-size;
   }
 
   &__select-gender {
@@ -24,11 +24,11 @@
   }
 
   &__date-of-birth {
-    margin-bottom: 1.6429rem;
+    margin-bottom: $middle-third-size;
   }
   
   &__email {
-    margin-bottom: 0.7143rem;
+    margin-bottom: $tiny-size;
   }
   
   &__password {
@@ -36,7 +36,7 @@
   }
   
   &__special-offers {
-    margin-bottom: 1.7143rem;
+    margin-bottom: $big-size;
   }
 
   &__has-account {

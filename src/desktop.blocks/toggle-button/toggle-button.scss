@@ -7,7 +7,7 @@
 
   &__text {
     @include text-body;
-    margin-left: 0.7143rem;
+    margin-left: $tiny-size;
     user-select: none;
   }
 }

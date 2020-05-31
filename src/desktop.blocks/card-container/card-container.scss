@@ -14,7 +14,7 @@
   padding: 2.8571rem 2.1429rem 2.1429rem 2.0714rem;
 
   @media (max-width: 400px) {
-    padding: 2.1429rem 0.7143rem;
+    padding: 2.1429rem $tiny-size;
     max-width: 100%;
     min-width: auto;
   }
