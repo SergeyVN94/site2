@@ -1,8 +1,6 @@
 import Dropdown, { IDropdownDomElements } from '../dropdown/Dropdown';
 
 const enum DROPDOWN_GUEST_CLASSES {
-  BTN_APPLY = 'js-button_action_apply',
-  BTN_CLEAR = 'js-button_action_clear',
   DROPDOWN_HEAD = 'js-dropdown-head',
   COUNTER = 'js-dropdown-counter',
   DROPDOWN = 'js-dropdown_content_guest',
@@ -23,8 +21,8 @@ class DropdownGuest extends Dropdown {
   }
 
   protected static _getDomElements($dropdown: JQuery): IDropdownGuestDomElements {
-    const $btnApply = $dropdown.find(`.${DROPDOWN_GUEST_CLASSES.BTN_APPLY}`);
-    const $btnClear = $dropdown.find(`.${DROPDOWN_GUEST_CLASSES.BTN_CLEAR}`);
+    const $btnApply = $dropdown.find('.js-button[data-action="apply"]');
+    const $btnClear = $dropdown.find('.js-button[data-action="clear"]');
 
     return {
       ...Dropdown._getDomElements($dropdown),

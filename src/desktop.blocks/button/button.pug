@@ -7,7 +7,7 @@ mixin button(options = {})
             size,
             horizontalSize,
             textColor, 
-            action,
+            dataAction = false,
             disabled = false,
             hidden = false,
             icon,
@@ -33,13 +33,12 @@ mixin button(options = {})
         if ([
             "gradient-primary", "gradient-success",
         ].includes(hoverTheme)) classes.push(`button_hover-theme_${hoverTheme}`);
-        if (action) classes.push(`button_action_${action} js-button_action_${action}`);
         if (disabled) classes.push("button_disabled");
         if (hidden) classes.push("button_hidden");
 
     if href
-        a(class=classes, href=href) #{text}
+        a(class=classes, href=href, data-action=dataAction) #{text}
             if icon
                 .button__icon #{icon}
     else
-        button(class=classes, type=type) #{text}       
+        button(class=classes, type=type, data-action=dataAction) #{text}       

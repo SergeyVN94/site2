@@ -39,7 +39,7 @@ mixin dropdown-guest(options = {})
         .dropdown-guest__controls
             .dropdown-guest__btn-clear
                 +button({
-                    action: "clear",
+                    dataAction: "clear",
                     text: btnClear,
                     theme: "text",
                     textColor: "text-secondary",
@@ -47,7 +47,7 @@ mixin dropdown-guest(options = {})
                 })
             .dropdown-guest__btn-apply
                 +button({
-                    action: "apply",
+                    dataAction: "apply",
                     text: btnApply,
                     theme: "text",
                 })

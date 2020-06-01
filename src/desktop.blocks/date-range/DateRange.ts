@@ -1,8 +1,6 @@
 const enum DATE_RANGE_CLASSES {
   DATE_RANGE = 'js-date-range',
   DROPDOWN_HEAD = 'js-dropdown-head',
-  DROPDOWN_HEAD_LEFT = 'js-dropdown-head_assignment_left',
-  DROPDOWN_HEAD_RIGHT = 'js-dropdown-head_assignment_right',
   RANGE_SELECT = 'date-range_range-select',
   CALENDAR = 'js-calendar',
 }
@@ -26,8 +24,8 @@ class DateRange {
 
   private static _createDomElements($dateRange: JQuery): IDateRangeDomElements {
     const $dropdownHeads = $dateRange.find(`.${DATE_RANGE_CLASSES.DROPDOWN_HEAD}`);
-    const $dropdownHeadLeft = $dateRange.find(`.${DATE_RANGE_CLASSES.DROPDOWN_HEAD_LEFT}`);
-    const $dropdownHeadRight = $dateRange.find(`.${DATE_RANGE_CLASSES.DROPDOWN_HEAD_RIGHT}`);
+    const $dropdownHeadLeft = $dateRange.find(`.${DATE_RANGE_CLASSES.DROPDOWN_HEAD}[data-assignment='left']`);
+    const $dropdownHeadRight = $dateRange.find(`.${DATE_RANGE_CLASSES.DROPDOWN_HEAD}[data-assignment='right']`);
     const $calendar = $dateRange.find(`.${DATE_RANGE_CLASSES.CALENDAR}`);
 
     return {
@@ -79,7 +77,7 @@ class DateRange {
     $dropdownHead.dropdownHead('set-theme', 'select-date');
     this.domElements.$dateRange.addClass(DATE_RANGE_CLASSES.RANGE_SELECT);
 
-    if ($dropdownHead.hasClass(DATE_RANGE_CLASSES.DROPDOWN_HEAD_LEFT)) {
+    if ($dropdownHead.data('assignment') === 'left') {
       this.domElements.$dropdownHeadRight.dropdownHead('remove-theme', 'select-date');
       this.domElements.$calendar.calendar('select-date', 'start');
       return true;

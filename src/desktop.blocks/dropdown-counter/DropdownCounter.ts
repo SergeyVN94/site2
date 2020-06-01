@@ -1,8 +1,6 @@
 const enum COUNTER_CLASSES {
   BUTTON = 'js-button',
   OUT = 'js-dropdown-counter__out',
-  BTN_MINUS = 'js-button_action_minus',
-  BTN_PLUS = 'js-button_action_plus',
   COUNTER = 'js-dropdown-counter',
 }
 
@@ -67,7 +65,7 @@ class DropdownCounter {
 
   private static _getDomElements($counter: JQuery): ICounterDomElements {
     const $buttons = $counter.find(`.${COUNTER_CLASSES.BUTTON}`);
-    const $btnMinus = $counter.find(`.${COUNTER_CLASSES.BTN_MINUS}`);
+    const $btnMinus = $counter.find(`.${COUNTER_CLASSES.BUTTON}[data-action='minus']`);
     const $out = $counter.find(`.${COUNTER_CLASSES.OUT}`);
 
     return {
@@ -93,11 +91,11 @@ class DropdownCounter {
   private _handleButtonClick(ev: JQuery.MouseEventBase): boolean {
     const $target = $(ev.currentTarget);
 
-    if ($target.hasClass(COUNTER_CLASSES.BTN_PLUS)) {
+    if ($target.data('action') === 'plus') {
       this.count += 1;
     }
 
-    if ($target.hasClass(COUNTER_CLASSES.BTN_MINUS)) {
+    if ($target.data('action') === 'minus') {
       this.count -= 1;
 
       if (this.count < 0) {

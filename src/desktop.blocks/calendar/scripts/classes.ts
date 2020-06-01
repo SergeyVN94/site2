@@ -10,8 +10,8 @@ const enum CALENDAR_CLASSES {
   RANGE_DAY_START = 'calendar__day-week_range-day_start',
   RANGE_DAY_END = 'calendar__day-week_range-day_end',
   RANGE_DAY_MIDDLE = 'calendar__day-week_theme_range-day-middle',
-  BTN_APPLY = 'js-button_action_apply',
-  BTN_CLEAR = 'js-button_action_clear',
+  BTN_APPLY = 'js-button[data-action="apply"]',
+  BTN_CLEAR = 'js-button[data-action="clear"]',
   NOT_CLICKABLE = 'calendar__day-week_theme_not-clickable',
 }
 
