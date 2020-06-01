@@ -9,12 +9,11 @@ include /dropdown-guest/dropdown-guest.pug
 include /date-range/date-range.pug
 include /dropdown-date-filter/dropdown-date-filter.pug
 include /checkbox-list/checkbox-list.pug
-include /radio-buttons/radio-buttons.pug
-include /toggle-buttons/toggle-buttons.pug
-include /like-buttons/like-buttons.pug
-include /rating-buttons/rating-buttons.pug
+include /rating/rating.pug
+include /toggle-button/toggle-button.pug
+include /like-button/like-button.pug
+include /radio-button/radio-button.pug
 include /range-slider/range-slider.pug
-include /demo-buttons/demo-buttons.pug
 include /pagination/pagination.pug
 include /dropdown-room-amenities/dropdown-room-amenities.pug
 include /expandable-checkbox-list/expandable-checkbox-list.pug
@@ -119,28 +118,41 @@ block page
                                     ]
                                 })
                             .ui-kit__form-elements-item
-                                +radio-buttons({
-                                    head: { title: "radio buttons" },
-                                    items: [
-                                        { text: "Мужчина", group: "gender", checked: true },
-                                        { text: "Женщина", group: "gender" },
-                                    ],
-                                })
+                                .ui-kit__radio-buttons
+                                    .ui-kit__radio-buttons-head
+                                        +block-head({ title: "radio buttons" })
+                                    .ui-kit__radio-buttons-container
+                                        .ui-kit__radio-button
+                                            +radio-button({ text: "Мужчина", group: "gender", checked: true })
+                                        .ui-kit__radio-button
+                                            +radio-button({ text: "Женщина", group: "gender" })
                             .ui-kit__form-elements-item
-                                +toggle-buttons({
-                                    head: { title: "toggle" },
-                                    items: [
-                                        { text: "Получать спецпредложения", checked: true },
-                                        { text: "Получать спецпредложения" },
-                                    ],
-                                })
+                                .ui-kit__toggle-buttons
+                                    .ui-kit__toggle-buttons-head
+                                        +block-head({ title: "toggle" })
+                                    .ui-kit__toggle-buttons-container
+                                        .ui-kit__toggle-button
+                                            +toggle-button({ text: "Получать спецпредложения", checked: true })
+                                        .ui-kit__toggle-button
+                                            +toggle-button({ text: "Получать спецпредложения" })
                             .ui-kit__form-elements-item
-                                +like-buttons({
-                                    head: { title: "like button" },
-                                    items: [ { likes: 2 }, { likes: 12, checked: true } ],
-                                })
+                                .ui-kit__like-buttons
+                                    .ui-kit__like-buttons-head
+                                        +block-head({ title: "like button" })
+                                    .ui-kit__like-buttons-container
+                                        .ui-kit__like-button
+                                            +like-button({ likes: 2 })
+                                        .ui-kit__like-button
+                                            +like-button({ likes: 12, checked: true })
                             .ui-kit__form-elements-item
-                                +rating-buttons({ head: { title: "rate button" }, items: [4, 5] })
+                                .ui-kit__rating-buttons
+                                    .ui-kit__rating-buttons-head
+                                        +block-head({ title: "rate button" })
+                                    .ui-kit__rating-buttons-container
+                                        .ui-kit__rating
+                                            +rating(4)
+                                        .ui-kit__rating
+                                            +rating(5)
                         .ui-kit__form-elements-column
                             .ui-kit__form-elements-item
                                 +range-slider({
@@ -150,7 +162,32 @@ block page
                                     title: "range slider",
                                 })
                             .ui-kit__form-elements-item
-                                +demo-buttons()
+                                .ui-kit__demo-buttons
+                                    .ui-kit__demo-buttons-head
+                                        +block-head({ title: "buttons" })
+                                    .ui-kit__demo-buttons-container
+                                        .ui-kit__demo-buttons-row
+                                            .ui-kit__demo-button
+                                                +button({ text: "click me" })
+                                            .ui-kit__demo-button
+                                                +button({ text: "click me", disabled: true })
+                                        .ui-kit__demo-buttons-row
+                                            .ui-kit__demo-button
+                                                +button({ text: "click me", theme: "light" })
+                                            .ui-kit__demo-button
+                                                +button({ text: "click me", disabled: true, theme: "light" })
+                                        .ui-kit__demo-buttons-row
+                                            .ui-kit__demo-button
+                                                +button({ text: "click me", theme: "text" })
+                                            .ui-kit__demo-button
+                                                +button({ text: "click me", theme: "text", textColor: "text-secondary" })
+                                        .ui-kit__demo-buttons-row
+                                            +button({
+                                                text: "перейти к оплате",
+                                                theme: "default-long",
+                                                icon: "arrow_forward",
+                                                href: "/mock-address/change-me",
+                                            })
                             .ui-kit__form-elements-item
                                 +pagination({
                                     head: { title: "pagination" },
@@ -307,11 +344,11 @@ block page
                         ]
                     };
 
-                .ui-kit__demo-headers-and-footers-header
+                .ui-kit__header
                     +header({ menu })
-                .ui-kit__demo-headers-and-footers-header
+                .ui-kit__header
                     +header({ menu, user: "Cosmin Negoita" })
-                .ui-kit__demo-headers-and-footers-footer
+                .ui-kit__footer
                     +footer({
                         siteDescription: "Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.",
                         subscribe: {
@@ -348,9 +385,9 @@ block page
                             },
                         ],
                     })
-                .ui-kit__demo-headers-and-footers-copyright-bar
+                .ui-kit__copyright-bar
                     +copyright-bar({ copyright: "Copyright © 2018 Toxin UI Kit. All rights reserved." })
-                .ui-kit__demo-headers-and-footers-footer
+                .ui-kit__footer-creative
                     +footer-creative({
                         siteDescription: "Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.",
                     })

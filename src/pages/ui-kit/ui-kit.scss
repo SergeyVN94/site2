@@ -102,6 +102,78 @@
     }
   }
 
+  &__radio-buttons {
+    &-head {
+      margin-bottom: 1.1429rem;
+    }
+  
+    &-container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+    }
+  }
+
+  &__radio-button:not(:last-child) {
+    margin-right: $middle-first-size;
+  }
+
+  &__toggle-buttons-head {
+    margin-bottom: 0.9286rem;
+  }
+
+  &__toggle-button:not(:last-child) {
+    margin-bottom: $tiny-size;
+  }
+
+  &__like-buttons {
+    &-head {
+      margin-bottom: $standard-size;
+    }
+  
+    &-container {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  &__like-button {
+    &:not(:last-child) {
+      margin-right: $tiny-size;
+    }
+  }
+
+  &__rating-buttons {
+    &-head {
+      margin-bottom: $standard-size;
+    }
+  
+    &-container {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  &__rating:not(:last-child) {
+    margin-right: $middle-first-size;
+  }
+
+  &__demo-buttons {
+    &-head {
+      margin-bottom: 1.1429rem;
+    }
+  
+    &-row {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 2.1429rem;
+    }
+  }
+
+  &__demo-button:not(:last-child) {
+    margin-right: $middle-first-size;
+  }
+
   &__cards {
     padding-top: 150px;
     background-color: #e5e5e5;
@@ -149,13 +221,13 @@
   &__demo-headers-and-footers {
     background: #e5e5e5;
     padding: 150px 0;
-  
-    &-header {
-      margin-bottom: 2.8571rem;
-    }
-    
-    &-copyright-bar {
-      margin: 0.0714rem 0rem 2.8571rem 0rem;
-    }
+  }
+
+  &__header {
+    margin-bottom: 2.8571rem;
+  }
+
+  &__copyright-bar {
+    margin: 0.0714rem 0rem 2.8571rem 0rem;
   }
 }
