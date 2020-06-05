@@ -1,15 +1,11 @@
 .input-text {
   width: 100%;
+  position: relative;
 
   &_use-icon-right {
     .input-text__input {
       padding-right: $very-big-size;
     }
-  }
-
-  &__container {
-    width: 100%;
-    position: relative;
   }
 
   &__input {

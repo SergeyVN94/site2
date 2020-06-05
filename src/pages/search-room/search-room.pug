@@ -17,61 +17,62 @@ block main
     main.search-room
         .search-room__container-content
             aside.search-room__filters
-                .search-room__dropdown-date-filter
-                    +dropdown-date-filter({
-                        head: { title: "даты пребывания в отеле" },
-                        text: "19 авг - 23 авг",
-                    })
-                .search-room__dropdown-guest
-                    +dropdown-guest()
-                .search-room__range-slider
-                    +range-slider({
-                        title: "диапазон цены",
-                        range: [0, 16000],
-                        start: [5000, 10000],
-                        bottomText: "Стоимость за сутки пребывания в номере",
-                        value: "0₽ - 15 000₽",
-                        step: 1000,
-                    })
-                .search-room__checkbox-list
-                    +checkbox-list({
-                        head: { title: "Checkbox Buttons" },
-                        items: [
-                            {text: "Можно курить"},
-                            {text: "Можно с питомцами"},
-                            {text: "Можно пригласить гостей (до 10 человек)"},
-                        ],
-                    })
-                .search-room__rich-checkbox-buttons
-                    +rich-checkbox-buttons({
-                        head: { title: "доступность" },
-                        items: [
-                            {
-                                text: "Широкий коридор",
-                                description: "Ширина коридоров в номере не менее 91 см.",
-                            },
-                            {
-                                text: "Помощник для инвалидов",
-                                description: "На 1 этаже вас встретит специалист  и проводит до номера.",
-                            },
-                        ],
-                    })    
-                .search-room__dropdown-room-amenities
-                    +dropdown-room-amenities()
-                .search-room__expandable-checkbox-list
-                    +expandable-checkbox-list({
-                        title: "дополнительные удобства",
-                        items: [
-                            {text: "Завтрак"},
-                            {text: "Письменный стол"},
-                            {text: "Стул для кормления"},
-                            {text: "Кроватка"},
-                            {text: "Телевизор"},
-                            {text: "Шампунь"},
-                            {text: "Телевизор"},
-                            {text: "Шампунь"},
-                        ],
-                    })
+                form.search-room__form(action="/mock-address/change-me", method="post")
+                    .search-room__dropdown-date-filter
+                        +dropdown-date-filter({
+                            head: { title: "даты пребывания в отеле" },
+                            text: "19 авг - 23 авг",
+                        })
+                    .search-room__dropdown-guest
+                        +dropdown-guest()
+                    .search-room__range-slider
+                        +range-slider({
+                            title: "диапазон цены",
+                            range: [0, 16000],
+                            start: [5000, 10000],
+                            bottomText: "Стоимость за сутки пребывания в номере",
+                            value: "0₽ - 15 000₽",
+                            step: 1000,
+                        })
+                    .search-room__checkbox-list
+                        +checkbox-list({
+                            head: { title: "Checkbox Buttons" },
+                            items: [
+                                {text: "Можно курить"},
+                                {text: "Можно с питомцами"},
+                                {text: "Можно пригласить гостей (до 10 человек)"},
+                            ],
+                        })
+                    .search-room__rich-checkbox-buttons
+                        +rich-checkbox-buttons({
+                            head: { title: "доступность" },
+                            items: [
+                                {
+                                    text: "Широкий коридор",
+                                    description: "Ширина коридоров в номере не менее 91 см.",
+                                },
+                                {
+                                    text: "Помощник для инвалидов",
+                                    description: "На 1 этаже вас встретит специалист  и проводит до номера.",
+                                },
+                            ],
+                        })    
+                    .search-room__dropdown-room-amenities
+                        +dropdown-room-amenities()
+                    .search-room__expandable-checkbox-list
+                        +expandable-checkbox-list({
+                            title: "дополнительные удобства",
+                            items: [
+                                {text: "Завтрак"},
+                                {text: "Письменный стол"},
+                                {text: "Стул для кормления"},
+                                {text: "Кроватка"},
+                                {text: "Телевизор"},
+                                {text: "Шампунь"},
+                                {text: "Телевизор"},
+                                {text: "Шампунь"},
+                            ],
+                        })
             .search-room__rooms
                 h1.search-room__rooms-title Номера, которые мы для вас подобрали
                 .search-room__rooms-container
