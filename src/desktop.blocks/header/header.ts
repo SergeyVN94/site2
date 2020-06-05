@@ -1,5 +1,5 @@
 const enum HEADER_CLASSES {
-  MOBILE_BTN = 'js-button_action_expand-mobile-menu',
+  MOBILE_BTN = 'js-button[data-action="expand-mobile-menu"]',
   HEADER = 'js-header',
   EXPANDED_MENU = 'header_extended',
 }
