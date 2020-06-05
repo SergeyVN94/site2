@@ -1,8 +1,9 @@
 include /logo/logo.pug
 include /footer-nav/footer-nav.pug
 include /text-field/text-field.pug
+include /copyright-bar/copyright-bar.pug
 
-mixin footer({ siteDescription, navList = [], subscribe = {} })
+mixin footer({ siteDescription, navList = [], subscribe = {}, copyrightBar = {} })
     footer.footer
         .footer__content
             .footer__site-description
@@ -26,3 +27,5 @@ mixin footer({ siteDescription, navList = [], subscribe = {} })
                 p.footer__subscribe-description #{description}
                 form.footer__subscribe-text-field(action=formAction, method="post")
                     +text-field({ placeholder, type: "email", iconRight: "arrow_forward" })
+        .footer__copyright
+            +copyright-bar(copyrightBar)

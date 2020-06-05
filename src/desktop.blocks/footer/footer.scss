@@ -75,4 +75,8 @@
     @include text-body;
     margin-bottom: $middle-third-size;
   }
+
+  &__copyright {
+    border-top: 0.0714rem solid #e5e5e5;
+  }
 }
