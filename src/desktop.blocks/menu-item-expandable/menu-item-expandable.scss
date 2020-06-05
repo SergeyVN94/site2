@@ -53,6 +53,14 @@
     margin: 0;
     border-radius: 0rem 0rem 0.2857rem 0.2857rem;
     box-shadow: 0rem $tiny-size $middle-first-size $light-title;
+
+    @media (max-width: $breakpoint-tablets) {
+      position: relative;
+      border-radius: 0;
+      box-shadow: none;
+      left: 0;
+      padding: 0;
+    }
   }
 
   &__item {
