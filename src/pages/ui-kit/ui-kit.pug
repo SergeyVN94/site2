@@ -29,7 +29,6 @@ include /calendar/calendar.pug
 include /card-room-information/card-room-information.pug
 include /header/header.pug
 include /footer/footer.pug
-include /copyright-bar/copyright-bar.pug
 include /footer-creative/footer-creative.pug
 
 block pageTitle
@@ -384,9 +383,8 @@ block page
                                 ],
                             },
                         ],
+                        copyrightBar: { copyright: "Copyright © 2018 Toxin UI Kit. All rights reserved." },
                     })
-                .ui-kit__copyright-bar
-                    +copyright-bar({ copyright: "Copyright © 2018 Toxin UI Kit. All rights reserved." })
                 .ui-kit__footer-creative
                     +footer-creative({
                         siteDescription: "Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.",
