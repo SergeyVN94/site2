@@ -62,4 +62,9 @@
     height: 0.0714rem;
     border-bottom: 0.0714rem dotted $light-title;
   }
+
+  &__total-sum-title,
+  &__total-sum-result {
+    margin: 0;
+  }
 }
