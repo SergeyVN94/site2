@@ -21,6 +21,12 @@
 
   &__select-gender {
     margin-bottom: 1.7857rem;
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__gender-radio:not(:last-child) {
+    margin-right: 20px;
   }
 
   &__date-of-birth {

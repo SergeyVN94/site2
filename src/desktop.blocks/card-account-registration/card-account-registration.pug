@@ -1,6 +1,6 @@
 include /card-container/card-container.pug
 include /input-text/input-text.pug
-include /radio-buttons/radio-buttons.pug
+include /radio-button/radio-button.pug
 include /text-field/text-field.pug
 include /toggle-button/toggle-button.pug
 include /button/button.pug
@@ -42,7 +42,9 @@ mixin card-account-registration(options = {})
                 .card-account-registration__input-surname
                     +input-text({ placeholder: inputSurnamePlaceholder })
                 .card-account-registration__select-gender
-                    +radio-buttons({ items: radioButtonsGender })
+                    for item in radioButtonsGender
+                        .card-account-registration__gender-radio
+                            +radio-button(item)
                 .card-account-registration__date-of-birth
                     +text-field({
                         head: { title: inputDateOfBirthTitle },
