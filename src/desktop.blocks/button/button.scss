@@ -9,6 +9,8 @@
   background: #ffffff;
   text-align: center;
   vertical-align: middle;
+  font-family: Montserrat, Arial, sans-serif;
+  font-style: normal;
 
   &:not(button):before {
     content: '';
@@ -24,8 +26,6 @@
       padding: 0rem 19.7px;
       font-size: $small-size;
       background: $gradient-primary;
-      font-family: Montserrat, Arial, sans-serif;
-      font-style: normal;
       font-weight: bold;
       text-transform: uppercase;
       color: white;
@@ -50,8 +50,6 @@
       border-radius: $middle-second-size;
       font-size: $small-size;
       background: $gradient-primary;
-      font-family: Montserrat, Arial, sans-serif;
-      font-style: normal;
       font-weight: bold;
       text-transform: uppercase;
       color: white;
@@ -74,7 +72,6 @@
       width: 100%;
       height: 100%;
       font-family: 'Material Icons';
-      font-style: normal;
       font-weight: normal;
       font-size: $big-size;
       line-height: $big-size;
@@ -96,8 +93,6 @@
 
     &_light {
       height: $very-big-size;
-      font-family: Montserrat, Arial, sans-serif;
-      font-style: normal;
       font-weight: bold;
       font-size: $small-size;
       border-radius: $middle-second-size;
@@ -125,7 +120,6 @@
       background: $gradient-primary;
       border-radius: $middle-second-size;
       font-family: 'Material Icons';
-      font-style: normal;
       font-weight: normal;
       font-size: $big-size;
       line-height: $middle-first-size;
@@ -141,8 +135,6 @@
       border: 0.0714rem solid rgba(31, 32, 65, 0.25);
       border-radius: $middle-second-size;
       color: $text-secondary;
-      font-family: Montserrat, Arial, sans-serif;
-      font-style: normal;
       font-weight: normal;
       font-size: 1.2857rem;
       line-height: 2.1429rem;
@@ -152,8 +144,6 @@
       width: 2.8571rem;
       height: 2.8571rem;
       border-radius: $middle-second-size;
-      font-family: Montserrat, Arial, sans-serif;
-      font-style: normal;
       font-weight: normal;
       font-size: $small-size;
       line-height: $standard-size;
@@ -164,8 +154,6 @@
     }
 
     &_text {
-      font-family: Montserrat, Arial, sans-serif;
-      font-style: normal;
       font-weight: bold;
       font-size: $small-size;
       line-height: $standard-size;
@@ -281,7 +269,6 @@
     width: $very-big-size;
     height: 100%;
     font-family: 'Material Icons';
-    font-style: normal;
     font-weight: normal;
     font-size: $big-size;
     line-height: $big-size;
