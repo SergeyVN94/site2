@@ -81,8 +81,8 @@
     font-family: $name;
     src: url('../chunks/fonts/' + $font + '.eot');
     src: local('☺'),
-      url('../chunks/fonts/' + $font + '.woff') format('woff'),
       url('../chunks/fonts/' + $font + '.woff2') format('woff2'),
+      url('../chunks/fonts/' + $font + '.woff') format('woff'),
       url('../chunks/fonts/' + $font + '.ttf')
         format('truetype'),
       url('../chunks/fonts/' + $font + '.svg') format('svg');
