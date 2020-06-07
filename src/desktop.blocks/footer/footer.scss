@@ -1,4 +1,6 @@
 .footer {
+  display: flex;
+  flex-direction: column;
   background-color: #fff;
   box-shadow: 0rem 0.0714rem 0rem $dim-border;
 
