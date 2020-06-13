@@ -1,6 +1,5 @@
 extends /../template/landing.pug
 
-include /dropdown-date-filter/dropdown-date-filter.pug
 include /dropdown-guest/dropdown-guest.pug
 include /range-slider/range-slider.pug
 include /checkbox-list/checkbox-list.pug
@@ -19,12 +18,25 @@ block main
             aside.search-room__filters
                 form.search-room__form(action="/mock-address/change-me", method="post")
                     .search-room__dropdown-date-filter
-                        +dropdown-date-filter({
+                        +dropdown({
                             head: { title: "даты пребывания в отеле" },
                             text: "19 авг - 23 авг",
                         })
                     .search-room__dropdown-guest
-                        +dropdown-guest()
+                        +dropdown({
+                            head: { title: 'Гости' },
+                            text: 'Сколько гостей',
+                            variations: {
+                                adults:  ["гость", "гостя", "гостей"],
+                                babies: ["младенец", "младенца", "младенцев"],
+                            },
+                            counters: [
+                                { label: "взрослые", group: "adults", value: 0 },
+                                { label: "дети", group: "adults", value: 0 },
+                                { label: "младенцы", group: "babies", value: 0 },
+                            ],
+                            useControls: true,
+                        })
                     .search-room__range-slider
                         +range-slider({
                             title: "диапазон цены",
@@ -58,7 +70,20 @@ block main
                             ],
                         })    
                     .search-room__dropdown-room-amenities
-                        +dropdown-room-amenities()
+                        +dropdown({
+                            head: { title: 'удобства номера' },
+                            text: 'Удобства номера',
+                            variations: {
+                                bedrooms: ["спальня", "спальни", "спален"],
+                                beds: ["кровать","кровати","кроватей"],
+                                bathrooms: ["ванная комната","ванные комнаты","ванныx комнат"],
+                            },
+                            counters: [
+                                { label: "спальни", group: "bedrooms" },
+                                { label: "кровати", group: "beds" },
+                                { label: "ванные комнаты", group: "bathrooms" },
+                            ],
+                        })
                     .search-room__expandable-checkbox-list
                         +expandable-checkbox-list({
                             title: "дополнительные удобства",

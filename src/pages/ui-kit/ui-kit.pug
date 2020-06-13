@@ -7,7 +7,6 @@ include /text-field/text-field.pug
 include /button/button.pug
 include /dropdown-guest/dropdown-guest.pug
 include /date-range/date-range.pug
-include /dropdown-date-filter/dropdown-date-filter.pug
 include /checkbox-list/checkbox-list.pug
 include /rating/rating.pug
 include /toggle-button/toggle-button.pug
@@ -98,11 +97,24 @@ block page
                                     mask: "%D.%M.%Y",
                                 })
                             .ui-kit__form-elements-item
-                                +dropdown-guest({ head: { title: "dropdown", help: "default" } })
+                                +dropdown({
+                                    head: { title: "dropdown", help: "default" },
+                                    text: 'Сколько гостей',
+                                    variations: {
+                                        adults:  ["гость", "гостя", "гостей"],
+                                        babies: ["младенец", "младенца", "младенцев"],
+                                    },
+                                    counters: [
+                                        { label: "взрослые", group: "adults", value: 0 },
+                                        { label: "дети", group: "adults", value: 0 },
+                                        { label: "младенцы", group: "babies", value: 0 },
+                                    ],
+                                    useControls: true,
+                                })
                             .ui-kit__form-elements-item
                                 +date-range()
                             .ui-kit__form-elements-item
-                                +dropdown-date-filter({
+                                +dropdown({
                                     head: { title: "filter date dropdown" },
                                     text: "19 авг - 23 авг",
                                 })
@@ -195,7 +207,20 @@ block page
                     .ui-kit__form-elements-row
                         .ui-kit__form-elements-column         
                             .ui-kit__form-elements-item
-                                +dropdown-room-amenities()
+                                +dropdown({
+                                    head: { title: 'удобства номера' },
+                                    text: 'Удобства номера',
+                                    variations: {
+                                        bedrooms: ["спальня", "спальни", "спален"],
+                                        beds: ["кровать","кровати","кроватей"],
+                                        bathrooms: ["ванная комната","ванные комнаты","ванныx комнат"],
+                                    },
+                                    counters: [
+                                        { label: "спальни", group: "bedrooms" },
+                                        { label: "кровати", group: "beds" },
+                                        { label: "ванные комнаты", group: "bathrooms" },
+                                    ],
+                                })
                             .ui-kit__form-elements-item
                                 +expandable-checkbox-list({
                                     title: "expandable checkbox list",

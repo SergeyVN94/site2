@@ -10,7 +10,20 @@ mixin card-book-room(options = {})
         const {
             roomHead = {},
             receipt = {},
-            dropdownGuest = {},
+            dropdownGuest = {
+                head: { title: 'Гости' },
+                text: 'Сколько гостей',
+                variations: {
+                    adults:  ["гость", "гостя", "гостей"],
+                    babies: ["младенец", "младенца", "младенцев"],
+                },
+                counters: [
+                    { label: "взрослые", group: "adults", value: 0 },
+                    { label: "дети", group: "adults", value: 0 },
+                    { label: "младенцы", group: "babies", value: 0 },
+                ],
+                useControls: true,
+            },
             dateRange = {},
             bookingButton = "забронировать",
             bookingButtonHref = "/mock-address/change-me",
@@ -25,7 +38,7 @@ mixin card-book-room(options = {})
                 .card-book-room__date-range
                     +date-range(dateRange)
                 .card-book-room__dropdown-guest
-                    +dropdown-guest(dropdownGuest)
+                    +dropdown(dropdownGuest)
                 .card-book-room__receipt
                     +receipt(receipt)
                 .card-book-room__booking-button

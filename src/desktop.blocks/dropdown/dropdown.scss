@@ -1,8 +1,14 @@
 .dropdown {
   @include reset-css;
+  position: relative;
   width: 100%;
 
   &_expanded {
+    .dropdown__head {
+      border-radius: 0.2857rem 0.2857rem 0rem 0rem;
+      border-color: $text-secondary;
+    }
+
     .dropdown__body {
       display: block;
     }
@@ -12,16 +18,39 @@
     margin-bottom: 0.2857rem;
   }
 
-  &__body {
-    position: relative;
-    display: none;
+  &__head {
+    width: 100%;
+    height: $very-big-size;
+    display: flex;
+    background-color: #fff;
+    border: 0.0714rem solid $light-title;
+    box-sizing: border-box;
+    border-radius: 0.2857rem;
+    color: $text-primary;
+    cursor: pointer;
+
+    &:hover {
+      border-color: $text-secondary;
+    }
   }
 
-  &__content {
+  &__head-text {
+    @include reset-css;
+    @include text-body;
+    width: 100%;
+    padding-left: 1rem;
+    overflow: hidden;
+    white-space: nowrap;
+    user-select: none;
+    line-height: 3rem;
+  }
+
+  &__body {
+    display: none;
     position: absolute;
     width: 100%;
     left: 0;
-    top: 0;
+    top: 62px;
     z-index: 999;
     background: #fff;
     border: 0.0714rem solid $text-secondary;
@@ -29,5 +58,48 @@
     box-sizing: border-box;
     box-shadow: 0rem $tiny-size $middle-first-size $dim-shadow;
     border-radius: 0rem 0rem 0.2857rem 0.2857rem;
+  }
+
+  &__counter {
+    @include reset-css;
+    width: 100%;
+    padding: 6px 6px 0px $standard-size;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    &:last-child {
+      padding-bottom: 0.5714rem;
+    }
+  
+    &-label {
+      @include text-h3;
+      user-select: none;
+    }
+  
+    &-controls {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+  
+    &-out {
+      @include text-h3;
+      width: 100%;
+      max-width: 2.2857rem;
+      min-width: 2.2857rem;
+      text-align: center;
+      user-select: none;
+    }
+  }
+
+  &__controls {
+    @include reset-css;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 21px 7px 12px $standard-size;
   }
 }

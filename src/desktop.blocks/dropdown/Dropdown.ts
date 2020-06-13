@@ -1,13 +1,25 @@
 const enum DROPDOWN_CLASSES {
-  DROPDOWN_HEAD = 'js-dropdown-head',
+  DROPDOWN = 'js-dropdown',
+  DROPDOWN_HEAD = 'js-dropdown__head',
   DROPDOWN_EXPANDED = 'dropdown_expanded',
+  DROPDOWN_BODY = 'js-dropdown__body',
+  BTN_PLUS = 'js-button[data-action="plus"]',
+  BTN_MINUS = 'js-button[data-action="minus"]',
+  BTN_APPLY = 'js-button[data-action="apply"]',
+  BTN_CLEAR = 'js-button[data-action="clear"]',
   COUNTER = 'js-dropdown-counter',
+  COUNTER_OUT = 'js-dropdown__counter-out',
+  HEAD_TEXT = 'js-dropdown__head-text',
 }
 
 interface IDropdownDomElements {
   readonly $dropdown: JQuery;
   readonly $dropdownHead: JQuery;
-  readonly $counters: JQuery;
+  readonly $dropdownBody: JQuery;
+  readonly $countersOut: JQuery;
+  readonly $headText: JQuery;
+  readonly $btnApply: JQuery;
+  readonly $btnClear: JQuery;
 }
 
 interface ICounterValuesTable {
@@ -15,62 +27,47 @@ interface ICounterValuesTable {
 }
 
 class Dropdown {
-  protected domElements: IDropdownDomElements;
+  private domElements: IDropdownDomElements;
 
-  protected readonly defaultHeadText: string;
+  private readonly defaultHeadText: string;
 
-  protected readonly variationsTable: {
-    [index: string]: [string, string, string];
-  };
+  private readonly variationsTable: { [index: string]: [string, string, string] };
 
-  private isExpanded: boolean;
+  private counterGroupsValues: { [index: string]: number };
+
+  private sumValuesCounters: number;
 
   constructor($dropdown: JQuery) {
     this.domElements = Dropdown._getDomElements($dropdown);
-    const { $dropdownHead } = this.domElements;
-    this.defaultHeadText = $dropdownHead.dropdownHead('text');
+    this.defaultHeadText = this.domElements.$headText.text();
     this.variationsTable = $dropdown.data('variations');
-    this.isExpanded = $dropdown.hasClass(DROPDOWN_CLASSES.DROPDOWN_EXPANDED);
+    this.sumValuesCounters = 0;
+    this.counterGroupsValues = {};
+    this._resetGroupsValues();
+    this._initEventListeners();
   }
 
-  protected static _getDomElements($dropdown: JQuery): IDropdownDomElements {
-    const $dropdownHead = $dropdown.find(`.${DROPDOWN_CLASSES.DROPDOWN_HEAD}`);
-    const $counters = $dropdown.find(`.${DROPDOWN_CLASSES.COUNTER}`);
+  private _resetGroupsValues(): void {
+    this.counterGroupsValues = {};
+    this.domElements.$countersOut.each((index, out) => {
+      const group = $(out).data('group');
+      this.counterGroupsValues[group] = 0;
+    });
+  }
 
+  private static _getDomElements($dropdown: JQuery): IDropdownDomElements {
     return {
       $dropdown,
-      $dropdownHead,
-      $counters,
+      $dropdownHead: $dropdown.find(`.${DROPDOWN_CLASSES.DROPDOWN_HEAD}`),
+      $dropdownBody: $dropdown.find(`.${DROPDOWN_CLASSES.DROPDOWN_BODY}`),
+      $countersOut: $dropdown.find(`.${DROPDOWN_CLASSES.COUNTER_OUT}`),
+      $headText: $dropdown.find(`.${DROPDOWN_CLASSES.HEAD_TEXT}`),
+      $btnApply: $dropdown.find(`.${DROPDOWN_CLASSES.BTN_APPLY}`),
+      $btnClear: $dropdown.find(`.${DROPDOWN_CLASSES.BTN_CLEAR}`),
     };
   }
 
-  protected _getCounterValuesTable(): ICounterValuesTable {
-    const counterValuesTable: ICounterValuesTable = {};
-
-    this.domElements.$counters.each((index, element) => {
-      const $counter = $(element);
-      const group = $counter.dropdownCounter('group');
-      const value = $counter.dropdownCounter('value');
-      if (counterValuesTable[group]) {
-        counterValuesTable[group] += value;
-      } else {
-        counterValuesTable[group] = value;
-      }
-    });
-
-    return counterValuesTable;
-  }
-
-  protected _initEventListeners(): void {
-    const { $dropdownHead } = this.domElements;
-
-    $dropdownHead.on(
-      'click.dropdown.expanded',
-      this._handleDropdownHeadClick.bind(this),
-    );
-  }
-
-  protected static _getWordWithEnding(value: number, words: [string, string, string]): string {
+  private static _getWordWithEnding(value: number, words: [string, string, string]): string {
     const [
       digitOne,
       digitZero,
@@ -94,25 +91,131 @@ class Dropdown {
     return words[2];
   }
 
-  protected _expanded(state: boolean): void {
+  private static _cropHeadText(head: string): string {
+    const words = head.split(' ');
+
+    if (words.length < 4) {
+      return head;
+    }
+
+    const firstFourWords = words.slice(0, 4);
+    const lastWord = firstFourWords[firstFourWords.length - 1];
+
+    if (lastWord.endsWith(',')) {
+      firstFourWords[firstFourWords.length - 1] = lastWord.slice(0, -1);
+    }
+
+    return `${firstFourWords.join(' ')}...`;
+  }
+
+  private _initEventListeners(): void {
+    const { $dropdownHead, $dropdownBody } = this.domElements;
+
+    $dropdownHead.on('click.dropdown.expanded', this._handleDropdownHeadClick.bind(this));
+    $dropdownBody.on('click.dropdown.selectControl', this._handleDropdownBodyClick.bind(this));
+  }
+
+  private _updateDropdownHeadText(needCropText = false): boolean {
+    const { $headText } = this.domElements;
+
+    if (this.sumValuesCounters === 0) {
+      $headText.text(this.defaultHeadText);
+      return true;
+    }
+
+    const headTextItems: string[] = [];
+
+    Object.keys(this.counterGroupsValues).forEach((group) => {
+      const groupValue = this.counterGroupsValues[group];
+      const word = Dropdown._getWordWithEnding(groupValue, this.variationsTable[group]);
+      if (groupValue > 0) headTextItems.push(`${groupValue} ${word}`);
+    });
+
+    if (!headTextItems.length) {
+      $headText.text(this.defaultHeadText);
+      return true;
+    }
+
+    const headText = headTextItems.join(', ');
+    $headText.text(needCropText ? Dropdown._cropHeadText(headText) : headText);
+
+    return true;
+  }
+
+  private _resetDropdown(): void {
+    this._resetGroupsValues();
+
     const {
+      $countersOut,
+      $btnClear,
       $dropdown,
-      $dropdownHead,
+      $headText,
     } = this.domElements;
 
-    $dropdown.toggleClass(DROPDOWN_CLASSES.DROPDOWN_EXPANDED, state);
-    $dropdownHead.dropdownHead((state ? 'set-theme' : 'remove-theme'), 'expanded');
-    this.isExpanded = state;
+    $countersOut.each((index, out) => {
+      $(out)
+        .text(0)
+        .parent()
+        .find(`.${DROPDOWN_CLASSES.BTN_MINUS}`)
+        .button('disable', true);
+    });
+
+    $btnClear.button('hidden', true);
+    $dropdown.removeClass(DROPDOWN_CLASSES.DROPDOWN_EXPANDED);
+    $headText.text(this.defaultHeadText);
+  }
+
+  private _handleDropdownBodyClick(ev: JQuery.MouseEventBase): void {
+    const $target = $(ev.target);
+
+    const isBtnPlus = $target.data('action') === 'plus';
+    const isBtnMinus = $target.data('action') === 'minus';
+    const isBtnApply = $target.data('action') === 'apply';
+    const isBtnClear = $target.data('action') === 'clear';
+
+    if (isBtnPlus || isBtnMinus) {
+      const $out = $target
+        .parent()
+        .find(`.${DROPDOWN_CLASSES.COUNTER_OUT}`);
+
+      const group = $out.data('group');
+      let counterValue = parseInt($out.text(), 10);
+
+      if (isBtnPlus) {
+        counterValue += 1;
+        this.counterGroupsValues[group] += 1;
+        this.sumValuesCounters += 1;
+      }
+
+      if (isBtnMinus && counterValue > 0) {
+        counterValue -= 1;
+        this.counterGroupsValues[group] -= 1;
+        this.sumValuesCounters -= 1;
+      }
+
+      $target.parent().find(`.${DROPDOWN_CLASSES.BTN_MINUS}`).button('disable', counterValue === 0);
+      $out.text(counterValue);
+
+      if (!this.domElements.$btnApply.length) this._updateDropdownHeadText(true);
+
+      this.domElements.$btnClear.button('hidden', this.sumValuesCounters === 0);
+    }
+
+    if (isBtnClear) this._resetDropdown();
+
+    if (isBtnApply) {
+      this._updateDropdownHeadText();
+      this.domElements.$dropdown.removeClass(DROPDOWN_CLASSES.DROPDOWN_EXPANDED);
+    }
   }
 
   private _handleDropdownHeadClick(): void {
-    this.isExpanded = !this.isExpanded;
-    this._expanded(this.isExpanded);
+    this.domElements.$dropdown.toggleClass(DROPDOWN_CLASSES.DROPDOWN_EXPANDED);
   }
 }
 
-export default Dropdown;
-export {
-  ICounterValuesTable,
-  IDropdownDomElements,
-};
+$(() => {
+  $(`.${DROPDOWN_CLASSES.DROPDOWN}`).each((index, element) => {
+    new Dropdown($(element));
+  });
+});

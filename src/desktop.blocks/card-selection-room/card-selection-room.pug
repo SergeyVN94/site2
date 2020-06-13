@@ -8,7 +8,20 @@ mixin card-selection-room(options = {})
         const {
             title = "Найдём номера под ваши пожелания",
             dateRange = {},
-            dropdownGuest = {},
+            dropdownGuest = {
+                head: { title: 'Гости' },
+                text: 'Сколько гостей',
+                variations: {
+                    adults:  ["гость", "гостя", "гостей"],
+                    babies: ["младенец", "младенца", "младенцев"],
+                },
+                counters: [
+                    { label: "взрослые", group: "adults", value: 0 },
+                    { label: "дети", group: "adults", value: 0 },
+                    { label: "младенцы", group: "babies", value: 0 },
+                ],
+                useControls: true,
+            },
             searchBtnRoom = "подобрать номер",
             searchBtnRoomHref = "./search-room.html",
             formAction = "/mock-address/change-me",
@@ -21,7 +34,7 @@ mixin card-selection-room(options = {})
                 .card-selection-room__date-range
                     +date-range(dateRange)
                 .card-selection-room__dropdown-guest
-                    +dropdown-guest(dropdownGuest)
+                    +dropdown(dropdownGuest)
                 .card-selection-room__search-btn
                     +button({
                         href: searchBtnRoomHref,

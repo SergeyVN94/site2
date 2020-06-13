@@ -1,6 +1,5 @@
 include /block-head/block-head.pug
-include /dropdown-head/dropdown-head.pug
-include /dropdown-counter/dropdown-counter.pug
+include /button/button.pug
 
 mixin dropdown(options)
     -
@@ -8,19 +7,54 @@ mixin dropdown(options)
             text,
             head,
             content,
+            expanded = false,
             variations = {},
+            counters = [],
+            useControls = false,
+            btnApply = "применить",
+            btnClear = "очистить",
         } = options;
 
-        const classes = ["dropdown js-dropdown"];
-        if (content) classes.push(`dropdown_content_${content} js-dropdown_content_${content}`);
-
-    div(class=classes, data-variations=JSON.stringify(variations))
+    .dropdown.js-dropdown(class=(expanded ? "dropdown_expanded" : ""), data-variations=JSON.stringify(variations))
         if head
             .dropdown__block-head
                 +block-head(head)
         .dropdown__container
-            +dropdown-head(text)
-            .dropdown__body
-                .dropdown__content
-                    if block
-                        block
+            .dropdown__head.js-dropdown__head
+                p.dropdown__head-text.js-dropdown__head-text #{text}
+                +button({ text: "expand_more", theme: "icon" })
+            if counters.length
+                .dropdown__body.js-dropdown__body
+                    for counter in counters
+                        -const { label, group, value = 0 } = counter;
+                        .dropdown__counter
+                            label.dropdown__counter-label #{label}
+                            .dropdown__counter-controls
+                                +button({
+                                    dataAction: "minus",
+                                    text: "-",
+                                    theme: "round-little",
+                                    disabled: (value === 0),
+                                })
+                                p.dropdown__counter-out.js-dropdown__counter-out(data-group=group) #{value}
+                                +button({
+                                    dataAction: "plus",
+                                    text: "+",
+                                    theme: "round-little",
+                                })
+                    if useControls
+                        .dropdown__controls
+                            .dropdown-guest__btn-clear
+                                +button({
+                                    dataAction: "clear",
+                                    text: btnClear,
+                                    theme: "text",
+                                    textColor: "text-secondary",
+                                    hidden: true,
+                                })
+                            .dropdown-guest__btn-apply
+                                +button({
+                                    dataAction: "apply",
+                                    text: btnApply,
+                                    theme: "text",
+                                })
