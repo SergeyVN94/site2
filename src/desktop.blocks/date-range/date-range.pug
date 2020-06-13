@@ -13,16 +13,20 @@ mixin date-range(options = {})
 
     .date-range.js-date-range
         .date-range__dropdowns
-            .date-range__dropdown
+            .date-range__dropdown-container
                 if dropdownLeftHead
-                    .date-range__block-head
+                    .date-range__dropdown-head
                         +block-head(dropdownLeftHead)
-                +dropdown-head(dropdownEntranceText, "left")
-            .date-range__dropdown
+                .date-range__dropdown.js-date-range__dropdown(data-type="start")
+                    p.date-range__dropdown-text.js-date-range__dropdown-text #{dropdownEntranceText}
+                    +button({ text: "expand_more", theme: "icon" })
+            .date-range__dropdown-container
                 if dropdownRightHead
-                    .date-range__block-head
+                    .date-range__dropdown-head
                         +block-head(dropdownRightHead)
-                +dropdown-head(dropdownDepartureText, "right") 
+                .date-range__dropdown.js-date-range__dropdown(data-type="end")
+                    p.date-range__dropdown-text.js-date-range__dropdown-text #{dropdownDepartureText}
+                    +button({ text: "expand_more", theme: "icon" })
         .date-range__container
             .date-range__calendar
                 +calendar()

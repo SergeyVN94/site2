@@ -1,21 +1,25 @@
 const enum DATE_RANGE_CLASSES {
   DATE_RANGE = 'js-date-range',
-  DROPDOWN_HEAD = 'js-dropdown-head',
+  DROPDOWN = 'js-date-range__dropdown',
+  DROPDOWN_TEXT = 'js-date-range__dropdown-text',
+  DROPDOWN_SELECTED = 'date-range__dropdown_selected',
   RANGE_SELECT = 'date-range_range-select',
   CALENDAR = 'js-calendar',
 }
-const DROPDOWN_HEAD_TEXT_DEFAULT = 'ДД.ММ.ГГГГ';
 
 interface IDateRangeDomElements {
   readonly $dateRange: JQuery;
-  readonly $dropdownHeads: JQuery;
-  readonly $dropdownHeadLeft: JQuery;
-  readonly $dropdownHeadRight: JQuery;
+  readonly $dropdownStart: JQuery;
+  readonly $dropdownEnd: JQuery;
+  readonly $dropdownStartText: JQuery;
+  readonly $dropdownEndText: JQuery;
   readonly $calendar: JQuery;
 }
 
 class DateRange {
   private readonly domElements: IDateRangeDomElements;
+
+  private static DEFAULT_TEXT = 'ДД.ММ.ГГГГ';
 
   constructor($dateRange: JQuery) {
     this.domElements = DateRange._createDomElements($dateRange);
@@ -23,34 +27,84 @@ class DateRange {
   }
 
   private static _createDomElements($dateRange: JQuery): IDateRangeDomElements {
-    const $dropdownHeads = $dateRange.find(`.${DATE_RANGE_CLASSES.DROPDOWN_HEAD}`);
-    const $dropdownHeadLeft = $dateRange.find(`.${DATE_RANGE_CLASSES.DROPDOWN_HEAD}[data-assignment='left']`);
-    const $dropdownHeadRight = $dateRange.find(`.${DATE_RANGE_CLASSES.DROPDOWN_HEAD}[data-assignment='right']`);
-    const $calendar = $dateRange.find(`.${DATE_RANGE_CLASSES.CALENDAR}`);
-
     return {
       $dateRange,
-      $dropdownHeads,
-      $dropdownHeadLeft,
-      $dropdownHeadRight,
-      $calendar,
+      $dropdownStart: $dateRange.find(`.${DATE_RANGE_CLASSES.DROPDOWN}[data-type='start']`),
+      $dropdownEnd: $dateRange.find(`.${DATE_RANGE_CLASSES.DROPDOWN}[data-type='end']`),
+      $dropdownStartText: $dateRange.find(`.${DATE_RANGE_CLASSES.DROPDOWN}[data-type='start'] .${DATE_RANGE_CLASSES.DROPDOWN_TEXT}`),
+      $dropdownEndText: $dateRange.find(`.${DATE_RANGE_CLASSES.DROPDOWN}[data-type='end'] .${DATE_RANGE_CLASSES.DROPDOWN_TEXT}`),
+      $calendar: $dateRange.find(`.${DATE_RANGE_CLASSES.CALENDAR}`),
     };
   }
 
   private _initEventListeners(): void {
-    this.domElements.$dropdownHeads.on(
-      'click.dateRange.setDateRange',
-      this._handleDropdownHeadClick.bind(this),
-    );
+    const {
+      $calendar,
+      $dropdownStart,
+      $dropdownEnd,
+    } = this.domElements;
 
-    this.domElements.$calendar.on(
-      'clear.dateRange.clear',
-      this._handleCalendarClear.bind(this),
+    $dropdownStart.on('click.dateRange.selectStart', this._handleDropdownStartClick.bind(this));
+    $dropdownEnd.on('click.dateRange.selectStart', this._handleDropdownEndClick.bind(this));
+
+    $calendar
+      .on('clear.dateRange.clear', this._handleCalendarClear.bind(this))
+      .on('apply.dateRange.updateDateRange', this._handleCalendarApply.bind(this));
+  }
+
+  private _handleDropdownStartClick(): void {
+    const {
+      $dropdownStart,
+      $dropdownEnd,
+      $dateRange,
+      $calendar,
+    } = this.domElements;
+
+    if ($dropdownStart.hasClass(DATE_RANGE_CLASSES.DROPDOWN_SELECTED)) {
+      this._deselectDateRange();
+    } else {
+      $dropdownStart.addClass(DATE_RANGE_CLASSES.DROPDOWN_SELECTED);
+      $dropdownEnd.removeClass(DATE_RANGE_CLASSES.DROPDOWN_SELECTED);
+      $dateRange.addClass(DATE_RANGE_CLASSES.RANGE_SELECT);
+      $calendar.calendar('select-date', 'start');
+    }
+  }
+
+  private _handleDropdownEndClick(): void {
+    const {
+      $dropdownStart,
+      $dropdownEnd,
+      $dateRange,
+      $calendar,
+    } = this.domElements;
+
+    if ($dropdownEnd.hasClass(DATE_RANGE_CLASSES.DROPDOWN_SELECTED)) {
+      this._deselectDateRange();
+    } else {
+      $dropdownEnd.addClass(DATE_RANGE_CLASSES.DROPDOWN_SELECTED);
+      $dropdownStart.removeClass(DATE_RANGE_CLASSES.DROPDOWN_SELECTED);
+      $dateRange.addClass(DATE_RANGE_CLASSES.RANGE_SELECT);
+      $calendar.calendar('select-date', 'end');
+    }
+  }
+
+  private _handleCalendarClear(): void {
+    const { $dropdownStartText, $dropdownEndText } = this.domElements;
+
+    $dropdownStartText.text(DateRange.DEFAULT_TEXT);
+    $dropdownEndText.text(DateRange.DEFAULT_TEXT);
+    this._deselectDateRange();
+  }
+
+  private _handleCalendarApply(ev: JQuery.EventBase, start: Date, end: Date): void {
+    const { $dropdownStartText, $dropdownEndText } = this.domElements;
+
+    $dropdownStartText.text(
+      start === null ? DateRange.DEFAULT_TEXT : DateRange._dateToString(start),
     );
-    this.domElements.$calendar.on(
-      'apply.dateRange.updateDateRange',
-      this._handleCalendarApply.bind(this),
-    );
+    $dropdownEndText.text(end === null ? DateRange.DEFAULT_TEXT : DateRange._dateToString(end));
+
+    this._deselectDateRange();
   }
 
   private static _dateToString(date: Date): string {
@@ -62,55 +116,11 @@ class DateRange {
   }
 
   private _deselectDateRange(): void {
-    this.domElements.$dropdownHeads.dropdownHead('remove-theme', 'select-date');
-    this.domElements.$dateRange.removeClass(DATE_RANGE_CLASSES.RANGE_SELECT);
-  }
+    const { $dropdownStart, $dropdownEnd, $dateRange } = this.domElements;
 
-  private _handleDropdownHeadClick(ev: JQuery.MouseEventBase): boolean {
-    const $dropdownHead = $(ev.currentTarget);
-
-    if ($dropdownHead.dropdownHead('has-theme', 'select-date')) {
-      this._deselectDateRange();
-      return true;
-    }
-
-    $dropdownHead.dropdownHead('set-theme', 'select-date');
-    this.domElements.$dateRange.addClass(DATE_RANGE_CLASSES.RANGE_SELECT);
-
-    if ($dropdownHead.data('assignment') === 'left') {
-      this.domElements.$dropdownHeadRight.dropdownHead('remove-theme', 'select-date');
-      this.domElements.$calendar.calendar('select-date', 'start');
-      return true;
-    }
-
-    this.domElements.$dropdownHeadLeft.dropdownHead('remove-theme', 'select-date');
-    this.domElements.$calendar.calendar('select-date', 'end');
-
-    return true;
-  }
-
-  private _handleCalendarClear(): void {
-    this.domElements.$dropdownHeads.dropdownHead('text', DROPDOWN_HEAD_TEXT_DEFAULT);
-    this._deselectDateRange();
-  }
-
-  private _handleCalendarApply(ev: JQuery.EventBase, start: Date, end: Date): void {
-    const {
-      $dropdownHeadLeft,
-      $dropdownHeadRight,
-    } = this.domElements;
-
-    $dropdownHeadLeft.dropdownHead(
-      'text',
-      start === null ? DROPDOWN_HEAD_TEXT_DEFAULT : DateRange._dateToString(start),
-    );
-
-    $dropdownHeadRight.dropdownHead(
-      'text',
-      end === null ? DROPDOWN_HEAD_TEXT_DEFAULT : DateRange._dateToString(end),
-    );
-
-    this._deselectDateRange();
+    $dropdownStart.removeClass(DATE_RANGE_CLASSES.DROPDOWN_SELECTED);
+    $dropdownEnd.removeClass(DATE_RANGE_CLASSES.DROPDOWN_SELECTED);
+    $dateRange.removeClass(DATE_RANGE_CLASSES.RANGE_SELECT);
   }
 }
 
