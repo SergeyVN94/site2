@@ -19,7 +19,7 @@
     font-weight: normal;
     font-size: 0.9786rem;
     line-height: 1.2857rem;
-    color: $light-title;
+    color: $text-primary;
     background-color: #fff;
     border: 0.0714rem solid $light-title;
     border-radius: 0.2857rem;
@@ -32,7 +32,6 @@
     &:hover,
     &:focus {
       line-height: $big-size;
-      color: $text-primary;
       border-color: $text-secondary;
     }
   }
