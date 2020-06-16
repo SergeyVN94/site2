@@ -1,14 +1,13 @@
 mixin image-slider(images)
     .image-slider.js-image-slider(data-selected-image=0)
-        .image-slider__container
+        .image-slider__container.js-image-slider__container
             for image in images
                 -const { src, alt = "Image description template." } = image;
                 img.image-slider__image.js-image-slider__image(src=src, alt=alt)
-            p.image-slider__image_index-item.js-image-slider__image_index-item 0
             .image-slider__indicators
                 -for (let i = 0; i < images.length; i += 1)
                     .image-slider__indicator.js-image-slider__indicator
-            .image-slider__change-img.image-slider__change-img_direction_prev.js-image-slider__change-img_direction_prev
-                .image-slider__change-img-icon expand_more
-            .image-slider__change-img.image-slider__change-img_direction_next.js-image-slider__change-img_direction_next
-                .image-slider__change-img-icon expand_more
+        .image-slider__change-img.image-slider__change-img_direction_prev.js-image-slider__change-img_direction_prev
+            .image-slider__change-img-icon expand_more
+        .image-slider__change-img.image-slider__change-img_direction_next.js-image-slider__change-img_direction_next
+            .image-slider__change-img-icon expand_more
