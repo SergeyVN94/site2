@@ -39,13 +39,14 @@ block main
                                 icon: "whatshot",
                             },
                         ], "Сведения о номере")
-                    +room-impressions({
-                        items: {
-                            veryGood: 520,
-                            good: 260,
-                            fine: 260,
-                        },
-                    })
+                    .room-details__room-impressions
+                        +room-impressions({
+                            items: {
+                                veryGood: 520,
+                                good: 260,
+                                fine: 260,
+                            },
+                        })
                 .room-details__comments
                     -
                         const items = [
