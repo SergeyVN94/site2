@@ -2,6 +2,7 @@ const enum IMAGE_SLIDER_CLASSES {
   SLIDER = 'js-image-slider',
   IMAGE = 'image-slider__image',
   IMAGE_SELECTED = 'image-slider__image_selected',
+  INDICATOR_CONTAINER = 'js-image-slider__indicators',
   INDICATOR = 'js-image-slider__indicator',
   INDICATOR_SELECTED = 'image-slider__indicator_theme_selected',
   BTN_PREV = 'js-image-slider__change-img_direction_prev',
@@ -15,6 +16,7 @@ interface IImageSliderDomElements {
   readonly $btnPrev: JQuery;
   readonly $images: JQuery;
   readonly $indicators: JQuery;
+  readonly $indicatorContainer: JQuery;
   readonly $currentImageOut: JQuery;
 }
 
@@ -48,20 +50,35 @@ class ImageSlider {
       $btnPrev,
       $images,
       $indicators,
+      $indicatorContainer: $slider.find(`.${IMAGE_SLIDER_CLASSES.INDICATOR_CONTAINER}`),
       $currentImageOut,
     };
   }
 
   private _initEventListeners(): void {
-    this.domElements.$btnNext.on(
+    const { $btnNext, $btnPrev, $indicatorContainer } = this.domElements;
+
+    $btnNext.on(
       'click.imageSlider.nextImage',
       this._handleBtnNextClick.bind(this),
     );
 
-    this.domElements.$btnPrev.on(
+    $btnPrev.on(
       'click.imageSlider.prevImage',
       this._handleBtnPrevClick.bind(this),
     );
+
+    $indicatorContainer.on(
+      'click.imageSlider.select',
+      this._handleIndicatorContainerClick.bind(this),
+    );
+  }
+
+  private _handleIndicatorContainerClick(ev: JQuery.MouseEventBase): void {
+    const $indicator = $(ev.target);
+    const index = parseInt(String($indicator.data('index')), 10);
+    this.selectedImage = index + 1;
+    this._update();
   }
 
   private _handleBtnNextClick(): void {
