@@ -20,6 +20,7 @@ interface IDropdownDomElements {
   readonly $headText: JQuery;
   readonly $btnApply: JQuery;
   readonly $btnClear: JQuery;
+  readonly $document: JQuery<Document>;
 }
 
 interface ICounterValuesTable {
@@ -64,6 +65,7 @@ class Dropdown {
       $headText: $dropdown.find(`.${DROPDOWN_CLASSES.HEAD_TEXT}`),
       $btnApply: $dropdown.find(`.${DROPDOWN_CLASSES.BTN_APPLY}`),
       $btnClear: $dropdown.find(`.${DROPDOWN_CLASSES.BTN_CLEAR}`),
+      $document: $(document),
     };
   }
 
@@ -94,7 +96,7 @@ class Dropdown {
   private static _cropHeadText(head: string): string {
     const words = head.split(' ');
 
-    if (words.length < 4) {
+    if (words.length < 5) {
       return head;
     }
 
@@ -115,7 +117,7 @@ class Dropdown {
     $dropdownBody.on('click.dropdown.selectControl', this._handleDropdownBodyClick.bind(this));
   }
 
-  private _updateDropdownHeadText(needCropText = false): boolean {
+  private _updateDropdownHeadText(): boolean {
     const { $headText } = this.domElements;
 
     if (this.sumValuesCounters === 0) {
@@ -137,7 +139,7 @@ class Dropdown {
     }
 
     const headText = headTextItems.join(', ');
-    $headText.text(needCropText ? Dropdown._cropHeadText(headText) : headText);
+    $headText.text(Dropdown._cropHeadText(headText));
 
     return true;
   }
@@ -145,12 +147,7 @@ class Dropdown {
   private _resetDropdown(): void {
     this._resetGroupsValues();
 
-    const {
-      $countersOut,
-      $btnClear,
-      $dropdown,
-      $headText,
-    } = this.domElements;
+    const { $countersOut, $btnClear, $headText } = this.domElements;
 
     $countersOut.each((index, out) => {
       $(out)
@@ -161,8 +158,17 @@ class Dropdown {
     });
 
     $btnClear.button('hidden', true);
-    $dropdown.removeClass(DROPDOWN_CLASSES.DROPDOWN_EXPANDED);
     $headText.text(this.defaultHeadText);
+  }
+
+  private _handleDocumentClick(ev: JQuery.MouseEventBase): void {
+    const { $document, $dropdown } = this.domElements;
+    const isHidden = $(ev.target).parents(`.${DROPDOWN_CLASSES.DROPDOWN}`).length === 0;
+
+    if (isHidden) {
+      $dropdown.removeClass(DROPDOWN_CLASSES.DROPDOWN_EXPANDED);
+      $document.off('click.document.dropdown.unexpended');
+    }
   }
 
   private _handleDropdownBodyClick(ev: JQuery.MouseEventBase): void {
@@ -195,22 +201,22 @@ class Dropdown {
 
       $target.parent().find(`.${DROPDOWN_CLASSES.BTN_MINUS}`).button('disable', counterValue === 0);
       $out.text(counterValue);
-
-      if (!this.domElements.$btnApply.length) this._updateDropdownHeadText(true);
+      this._updateDropdownHeadText();
 
       this.domElements.$btnClear.button('hidden', this.sumValuesCounters === 0);
     }
 
     if (isBtnClear) this._resetDropdown();
-
-    if (isBtnApply) {
-      this._updateDropdownHeadText();
-      this.domElements.$dropdown.removeClass(DROPDOWN_CLASSES.DROPDOWN_EXPANDED);
-    }
+    if (isBtnApply) this.domElements.$dropdown.removeClass(DROPDOWN_CLASSES.DROPDOWN_EXPANDED);
   }
 
   private _handleDropdownHeadClick(): void {
-    this.domElements.$dropdown.toggleClass(DROPDOWN_CLASSES.DROPDOWN_EXPANDED);
+    const { $dropdown, $document } = this.domElements;
+    $dropdown.toggleClass(DROPDOWN_CLASSES.DROPDOWN_EXPANDED);
+
+    if ($dropdown.hasClass(DROPDOWN_CLASSES.DROPDOWN_EXPANDED)) {
+      $document.on('click.document.dropdown.unexpended', this._handleDocumentClick.bind(this));
+    }
   }
 }
 
