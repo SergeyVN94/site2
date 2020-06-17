@@ -13,7 +13,7 @@ mixin input-text(options = {})
         if (iconRight) classes.push("input-text_use-icon-right");
 
     div(class=classes)
-        input.input-text__input(type=type, placeholder=placeholder, value=value)
+        input.input-text__input.js-input-text__input(type=type, placeholder=placeholder, value=value)
         if iconRight
             .input-text__submit
                 +button({
