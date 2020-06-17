@@ -14,6 +14,7 @@ interface IDateRangeDomElements {
   readonly $dropdownStartText: JQuery;
   readonly $dropdownEndText: JQuery;
   readonly $calendar: JQuery;
+  readonly $document: JQuery<Document>;
 }
 
 class DateRange {
@@ -34,6 +35,7 @@ class DateRange {
       $dropdownStartText: $dateRange.find(`.${DATE_RANGE_CLASSES.DROPDOWN}[data-type='start'] .${DATE_RANGE_CLASSES.DROPDOWN_TEXT}`),
       $dropdownEndText: $dateRange.find(`.${DATE_RANGE_CLASSES.DROPDOWN}[data-type='end'] .${DATE_RANGE_CLASSES.DROPDOWN_TEXT}`),
       $calendar: $dateRange.find(`.${DATE_RANGE_CLASSES.CALENDAR}`),
+      $document: $(document),
     };
   }
 
@@ -63,6 +65,7 @@ class DateRange {
     if ($dropdownStart.hasClass(DATE_RANGE_CLASSES.DROPDOWN_SELECTED)) {
       this._deselectDateRange();
     } else {
+      this._initFocusout();
       $dropdownStart.addClass(DATE_RANGE_CLASSES.DROPDOWN_SELECTED);
       $dropdownEnd.removeClass(DATE_RANGE_CLASSES.DROPDOWN_SELECTED);
       $dateRange.addClass(DATE_RANGE_CLASSES.RANGE_SELECT);
@@ -81,11 +84,49 @@ class DateRange {
     if ($dropdownEnd.hasClass(DATE_RANGE_CLASSES.DROPDOWN_SELECTED)) {
       this._deselectDateRange();
     } else {
+      this._initFocusout();
       $dropdownEnd.addClass(DATE_RANGE_CLASSES.DROPDOWN_SELECTED);
       $dropdownStart.removeClass(DATE_RANGE_CLASSES.DROPDOWN_SELECTED);
       $dateRange.addClass(DATE_RANGE_CLASSES.RANGE_SELECT);
       $calendar.calendar('select-date', 'end');
     }
+  }
+
+  private _handleDocumentClick(ev: { originalEvent: { path: Element[] } }): void {
+    const { path } = ev.originalEvent;
+
+    // $(ev.target).parents не работает!
+    const dateRangeInPath = path.some((element) => {
+      // Object.prototype.hasOwnProperty не работает! ни через call, ни через apply.
+      if (element.classList) {
+        return element.classList.contains(DATE_RANGE_CLASSES.DATE_RANGE);
+      }
+
+      return false;
+    });
+
+    if (!dateRangeInPath) {
+      const {
+        $document,
+        $dateRange,
+        $dropdownEnd,
+        $dropdownStart,
+      } = this.domElements;
+
+      $dropdownEnd.removeClass(DATE_RANGE_CLASSES.DROPDOWN_SELECTED);
+      $dropdownStart.removeClass(DATE_RANGE_CLASSES.DROPDOWN_SELECTED);
+      $dateRange.removeClass(DATE_RANGE_CLASSES.RANGE_SELECT);
+      $document.off('click.document.dateRange.unexpended');
+    }
+  }
+
+  private _initFocusout(): void {
+    this.domElements.$document
+      .off('click.document.dateRange.unexpended')
+      .on(
+        'click.document.dateRange.unexpended',
+        this._handleDocumentClick.bind(this),
+      );
   }
 
   private _handleCalendarClear(): void {
