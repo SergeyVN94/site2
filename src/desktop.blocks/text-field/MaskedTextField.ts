@@ -15,11 +15,16 @@ class MaskedTextField {
   private _handleInputInput(): void {
     const currentValue = String(this.$input.val());
     this.lastValue = this._checkValue(currentValue);
+
     const input = (this.$input.get()[0] as HTMLInputElement);
     const cursorPosition = input.selectionStart;
+
     this.$input.val(this.lastValue);
-    input.selectionStart = cursorPosition;
-    input.selectionEnd = cursorPosition;
+
+    if (cursorPosition !== currentValue.length) {
+      input.selectionStart = cursorPosition;
+      input.selectionEnd = cursorPosition;
+    }
   }
 
   private _checkValue(value: string): string {
