@@ -138,6 +138,58 @@ class Model {
     return false;
   }
 
+  public addedDayInRange(day: number): boolean {
+    const targetDate = new Date(
+      this.renderDate.getFullYear(),
+      this.renderDate.getMonth(),
+      day,
+    );
+    targetDate.setHours(0, 0, 0, 0); // Что бы сравнивать даты без учета времени.
+    const targetDateTime = targetDate.getTime();
+
+    const startIsNull = this.rangeDays.start === null;
+    const endIsNull = this.rangeDays.end === null;
+
+    if (!startIsNull && !endIsNull) {
+      this.resetRangeDays();
+      this.rangeDays.start = targetDate;
+      this.updateHandler();
+      return true;
+    }
+
+    if (startIsNull && endIsNull) {
+      this.rangeDays.start = targetDate;
+      this.updateHandler();
+      return true;
+    }
+
+    if (!startIsNull) {
+      if (this.rangeDays.start.getTime() < targetDateTime) {
+        this.rangeDays.end = targetDate;
+      } else {
+        this.rangeDays.end = this.rangeDays.start;
+        this.rangeDays.start = targetDate;
+      }
+
+      this.updateHandler();
+      return true;
+    }
+
+    if (!endIsNull) {
+      if (this.rangeDays.end.getTime() > targetDateTime) {
+        this.rangeDays.start = targetDate;
+      } else {
+        this.rangeDays.start = this.rangeDays.end;
+        this.rangeDays.end = targetDate;
+      }
+
+      this.updateHandler();
+      return true;
+    }
+
+    return false;
+  }
+
   private static _getDaysInMonth(month: number, year: number): number {
     return new Date(year, month + 1, 0).getDate();
   }

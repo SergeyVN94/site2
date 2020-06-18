@@ -293,7 +293,12 @@ class View {
     }
 
     const selectRange = this.domElements.$calendar.attr('data-select-date') || '';
-    this.model.updateRangeDays(dayNumber, selectRange === 'start');
+
+    if (selectRange === 'auto') {
+      this.model.addedDayInRange(dayNumber);
+    } else {
+      this.model.updateRangeDays(dayNumber, selectRange === 'start');
+    }
   }
 }
 

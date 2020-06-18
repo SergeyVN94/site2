@@ -13,7 +13,7 @@ interface JQuery {
   dropdownCounter(command: 'value', value: number): JQuery;
   dropdownCounter(command: 'group'): string;
   dropdownCounter(command: 'reset'): JQuery;
-  calendar(command: 'select-date', args: 'start' | 'end'): JQuery;
+  calendar(command: 'select-date', args: 'start' | 'end' | 'auto'): JQuery;
   button(command: 'disable'): boolean;
   button(command: 'disable', state: boolean): JQuery;
   button(command: 'hidden'): boolean;

@@ -6,6 +6,7 @@ include /demo-text/demo-text.pug
 include /text-field/text-field.pug
 include /button/button.pug
 include /dropdown/dropdown.pug
+include /filter-date-dropdown/filter-date-dropdown.pug
 include /date-range/date-range.pug
 include /checkbox-list/checkbox-list.pug
 include /rating/rating.pug
@@ -113,7 +114,7 @@ block page
                             .ui-kit__form-elements-item
                                 +date-range()
                             .ui-kit__form-elements-item
-                                +dropdown({
+                                +filter-date-dropdown({
                                     head: { title: "filter date dropdown" },
                                     text: "19 авг - 23 авг",
                                 })

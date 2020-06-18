@@ -5,7 +5,7 @@ import View from './View';
 $.fn.calendar = function calendarPlugin(
   this: JQuery,
   command: 'select-date',
-  args: 'start' | 'end',
+  args: 'start' | 'end' | 'auto',
 ): JQuery {
   switch (command) {
     case 'select-date':
