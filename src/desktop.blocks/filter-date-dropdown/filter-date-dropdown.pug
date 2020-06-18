@@ -2,7 +2,7 @@ include /block-head/block-head.pug
 include /button/button.pug
 include /calendar/calendar.pug
 
-mixin filter-date-dropdown({ head = {}, text = "" })
+mixin filter-date-dropdown({ head = {}, text = "Выберите дату" })
     .filter-date-dropdown.js-filter-date-dropdown(class=(expanded ? "filter-date-dropdown_expanded" : ""))
         if head
             .filter-date-dropdown__block-head
