@@ -3,7 +3,42 @@
     margin-bottom: 1.3571rem;
   }
 
-  &__room-advantage:not(:last-child) {
-    margin-bottom: $middle-third-size;
+  &__list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding-bottom: 1.2143rem;
+    max-width: 255px;
+
+    &:not(:last-child) {
+      margin-bottom: $middle-third-size;
+      border-bottom: 0.0714rem solid $dim-border;
+    }    
+  }
+  
+  &__icon {
+    width: 3.4286rem;
+    height: 3.4286rem;
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 3.4286rem;
+    line-height: 3.4286rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background: $gradient-primary;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-right: $tiny-size;
+  }
+
+  &__item-title {
+    @include text-body;
+    font-weight: bold;
+  }
+
+  &__item-description {
+    @include text-body;
   }
 }

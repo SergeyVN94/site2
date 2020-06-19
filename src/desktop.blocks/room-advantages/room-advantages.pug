@@ -1,5 +1,4 @@
 include /block-head/block-head.pug
-include /room-advantage/room-advantage.pug
 
 mixin room-advantages(items, title)
     .room-advantages
@@ -11,5 +10,9 @@ mixin room-advantages(items, title)
                 })
         .room-advantages__container
             for item in items
-                .room-advantages__room-advantage
-                    +room-advantage(item)
+                -const { icon, title, description } = item;
+                .room-advantages__list
+                    .room-advantages__icon #{icon}
+                    .room-advantages__text-container
+                        p.room-advantages__item-title #{title}
+                        p.room-advantages__item-description #{description}
