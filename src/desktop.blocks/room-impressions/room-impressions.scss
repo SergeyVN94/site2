@@ -17,36 +17,66 @@
     width: 120px;
     min-width: 120px;
     height: 120px;
-    display: block;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     position: relative;
+
+    &_theme {
+      &_very-good .room-impressions__diagram-counter {
+        background: $gradient-warn;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      &_good .room-impressions__diagram-counter {
+        background: $gradient-secondary;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      &_fine .room-impressions__diagram-counter {
+        background: $gradient-primary;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      &_bad .room-impressions__diagram-counter {
+        background: $gradient-dark;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
   }
 
   &__diagram-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
     transform: rotate(-90deg);
+
+    path {
+      transition: 600ms;
+    }
   }
 
   &__diagram-counter {
     @include reset-css;
-    position: absolute;
-    left: 0;
-    top: 0;
-    padding-top: 2.5rem;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+    display: inline-block;
+    margin-bottom: 6px;
   }
 
   &__value {
     @include text-h1;
     text-align: center;
-    color: $bg-primary;
   }
 
   &__label {
     @include text-h3;
     text-align: center;
-    color: $bg-primary;
   }
 
   &__help-list {

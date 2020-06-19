@@ -13,87 +13,118 @@ mixin room-impressions({ items, title = "Впечатления от номер�
                     return Object.hasOwnProperty.apply(obj, [key]);
                 };
 
-                const isCorrectPropertyItem = function isCorrectPropertyItem(key) {
-                    const isNumber = typeof items[key] === "number";
-                    const isPositive = items[key] >= 0;
-                    
-                    return isPropertyExists(items, key) && isNumber && isPositive;
+                const isCorrectItem = function isCorrectItem(items, key) {
+                    const isNumber = typeof items[key] === "number";                  
+                    return isPropertyExists(items, key) && isNumber && items[key] >= 0;
                 };
 
-                const KEYS = ["bad", "fine", "good", "veryGood"];
-                let sum = 0;
+                const degreesToRadians = (degrees) => (degrees * Math.PI) / 180;
+                const cos = (degrees) => Math.cos(degreesToRadians(degrees));
+                const sin = (degrees) => Math.sin(degreesToRadians(degrees));
 
-                KEYS.forEach((key) => {
-                    if (isCorrectPropertyItem(key)) {
-                        sum += items[key];
-                    } else {
-                        items[key] = 0;
-                    }
-                });
+                const KEYS = ["Разочарован", "Удовлетворительно", "Хорошо", "Великолепно"];
+                const GRADIENTS = { 
+                    "Разочарован": "bad",
+                    "Удовлетворительно": "fine",
+                    "Хорошо": "good",
+                    "Великолепно": "veryGood",
+                };
+                const THEMES = { 
+                    "Разочарован": "bad",
+                    "Удовлетворительно": "fine",
+                    "Хорошо": "good",
+                    "Великолепно": "very-good",
+                };
+
+                const FULL_RADIUS = 60;
+                const LINE_WIDTH = 4;
+                const LINE_WIDTH_EXPANDED = 10;
+                const RADIUS = FULL_RADIUS - (LINE_WIDTH / 2);
+                const RADIUS_EXPANDED = FULL_RADIUS - (LINE_WIDTH_EXPANDED / 2);
+
+                const VALID_KEYS = KEYS.filter((key) => isCorrectItem(items, key));
+                const totalVotes = VALID_KEYS
+                    .map((key) => items[key])
+                    .reduce((acc, val) => acc + val);
+
+                const LINE_INDENT = 1; // градусы
 
                 const paths = {};
 
-                if (sum){
-                    let lastPos = {
-                        x: 60 + (58 * Math.cos((Math.PI / 180))),
-                        y: 60 + (58 * Math.sin((Math.PI / 180))),
+                const getX = (degrees, radius = RADIUS) => FULL_RADIUS + (radius * cos(degrees));
+                const getY = (degrees, radius = RADIUS) => FULL_RADIUS + (radius * sin(degrees));
+
+                if (totalVotes) {
+                    const lastPos = {
+                        x: getX(LINE_INDENT),
+                        y: getY(LINE_INDENT),
                     };
 
-                    let sumDegrees = 1;
+                    const lastPosExpanded= {
+                        x: getX(LINE_INDENT, RADIUS_EXPANDED),
+                        y: getY(LINE_INDENT, RADIUS_EXPANDED),
+                    };
 
-                    KEYS.forEach((key) => {
-                        let degrees = Math.floor((items[key] / sum) * 360);
+                    let sumDegrees = LINE_INDENT;
 
-                        if (degrees > 3) {
-                            sumDegrees += degrees;
-                        
-                            const rad = ((Math.PI * (sumDegrees - 2)) / 180);
-                            let x = 60 + (58 * Math.cos(rad));
-                            let y = 60 + (58 * Math.sin(rad));
+                    VALID_KEYS.forEach((key) => {
+                        const degrees = ((items[key] / totalVotes) * 360) - (LINE_INDENT * 2);
+                        sumDegrees += degrees;
+                    
+                        const x = getX(sumDegrees);
+                        const y = getY(sumDegrees);
 
-                            magicNumber = degrees > 180 ? 1 : 0;
-                            let path = `M${lastPos.x} ${lastPos.y} A 58 58 0 ${magicNumber} 1 ${x} ${y}`;
-                            paths[key] = path;
+                        const expX = getX(sumDegrees, RADIUS_EXPANDED);
+                        const expY = getY(sumDegrees, RADIUS_EXPANDED);
 
-                            const nRad = ((Math.PI * (sumDegrees)) / 180);
-                            lastPos.x = 60 + (58 * Math.cos(nRad));
-                            lastPos.y = 60 + (58 * Math.sin(nRad));
-                        }
+                        const magicNumber = degrees > 180 ? 1 : 0;
+                        const path = `M${lastPos.x} ${lastPos.y} A ${RADIUS} ${RADIUS} 0 ${magicNumber} 1 ${x} ${y}`;
+                        const pathExpanded = `M${lastPosExpanded.x} ${lastPosExpanded.y} A ${RADIUS_EXPANDED} ${RADIUS_EXPANDED} 0 ${magicNumber} 1 ${expX} ${expY}`;
+                        paths[key] = {};
+                        paths[key].path = path;
+                        paths[key].pathExpanded = pathExpanded;
+
+                        sumDegrees += LINE_INDENT * 2;
+                        lastPos.x = getX(sumDegrees);
+                        lastPos.y = getY(sumDegrees);
+                        lastPosExpanded.x = getX(sumDegrees, RADIUS_EXPANDED);
+                        lastPosExpanded.y = getY(sumDegrees, RADIUS_EXPANDED);
                     });
                 }
 
-                itemsStr = JSON.stringify(items);
-            
-            .room-impressions__diagram
-                svg.room-impressions__diagram-image(width="100%", height="100%", fill="none", xmlns="http://www.w3.org/2000/svg", data-items=itemsStr)
-                    -
-                        KEYS.forEach((key) => {
-                            if (isPropertyExists(paths, key)) {
-                                const stroke = `url(#linear-gradient-${key})`;
-                    path(d=paths[key], stroke-width="4", fill="none", stroke=stroke)
-                    -
-                            }
-                        });
+            .room-impressions__diagram.js-room-impressions__diagram
+                svg.room-impressions__diagram-image.js-room-impressions__diagram-image(width="100%", height="100%", fill="none", xmlns="http://www.w3.org/2000/svg", data-items=JSON.stringify(items))
+                    for key in VALID_KEYS
+                        -const stroke = `url(#linear-gradient-${GRADIENTS[key]})`;
+                        path(
+                            d=paths[key].path,
+                            stroke-width=LINE_WIDTH
+                            fill="none",
+                            stroke=stroke,
+                            data-value=items[key],
+                            data-path-expanded=paths[key].pathExpanded,
+                            data-stroke-width-expanded=LINE_WIDTH_EXPANDED,
+                            data-theme=THEMES[key],
+                        )
 
-                    <linearGradient id="linear-gradient-bad">
-                        <stop stop-color="#919191"/>
-                        <stop offset="1" stop-color="#3D4975"/>
-                    </linearGradient>
-                    <linearGradient id="linear-gradient-fine">
-                        <stop stop-color="#BC9CFF"/>
-                        <stop offset="1" stop-color="#8BA4F9"/>
-                    </linearGradient>
-                    <linearGradient id="linear-gradient-good">
-                        <stop stop-color="#6FCF97"/>
-                        <stop offset="1" stop-color="#66D2EA"/>
-                    </linearGradient>
-                    <linearGradient id="linear-gradient-veryGood">
-                        <stop stop-color="#FFBA9C"/>
-                        <stop offset="1" stop-color="#FFE39C"/>
-                    </linearGradient>
+                    linearGradient(id="linear-gradient-bad")
+                        stop(stop-color="#919191")
+                        stop(offset="1" stop-color="#3D4975")
+
+                    linearGradient(id="linear-gradient-fine")
+                        stop(stop-color="#BC9CFF")
+                        stop(offset="1" stop-color="#8BA4F9")
+
+                    linearGradient(id="linear-gradient-good")
+                        stop(stop-color="#6FCF97")
+                        stop(offset="1" stop-color="#66D2EA")
+
+                    linearGradient(id="linear-gradient-veryGood")
+                        stop(stop-color="#FFBA9C")
+                        stop(offset="1" stop-color="#FFE39C")
 
                 .room-impressions__diagram-counter
-                    p.room-impressions__value #{items["fine"]}
+                    p.room-impressions__value.js-room-impressions__value #{totalVotes}
                     p.room-impressions__label голосов
             ul.room-impressions__help-list
                 -
