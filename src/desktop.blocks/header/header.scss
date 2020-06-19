@@ -46,7 +46,7 @@
     flex: auto;
   }
 
-  &__expand-mobile-menu-btn {
+  &__expand-mobile-menu-button {
     display: none;
 
     @media (max-width: $breakpoint-tablets) {
@@ -90,7 +90,7 @@
     }
   }
 
-  &__personal-area-buttons {
+  &__buttons {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -102,7 +102,7 @@
     }
   }
 
-  &__btn-login {
+  &__button-login {
     margin-right: $middle-first-size;
 
     @media (max-width: $breakpoint-cell-phones) {

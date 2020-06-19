@@ -7,11 +7,11 @@ mixin header(options = {})
         const {
             menu,
             user,
-            btnLogin = "login",
-            btnRegister = "register",
-            btnLoginHref = "./sign-in.html",
-            btnRegisterHref = "./registration.html",
-            mobileBtnIcon = "view_headline",
+            buttonLogin = "login",
+            buttonRegister = "register",
+            buttonLoginHref = "./sign-in.html",
+            buttonRegisterHref = "./registration.html",
+            mobileButtonIcon = "view_headline",
         } = options;
 
     header.header.js-header
@@ -19,10 +19,10 @@ mixin header(options = {})
             .header__main
                 .header__logo
                     +logo()
-                .header__expand-mobile-menu-btn
+                .header__expand-mobile-menu-button
                     +button({
                         dataAction: "expand-mobile-menu",
-                        text: mobileBtnIcon,
+                        text: mobileButtonIcon,
                         theme: "icon",
                     })
             .header__nav-container
@@ -32,17 +32,17 @@ mixin header(options = {})
                     if user
                         p.header__user-name #{user}
                     else
-                        .header__personal-area-buttons
-                            .header__btn-login
+                        .header__buttons
+                            .header__button-login
                                 +button({
-                                    text: btnLogin,
-                                    href: btnLoginHref,
+                                    text: buttonLogin,
+                                    href: buttonLoginHref,
                                     size: "sm",
                                     theme: "light",
                                 })
-                            .header__btn-register
+                            .header__button-register
                                 +button({
-                                    text: btnRegister,
-                                    href: btnRegisterHref,
+                                    text: buttonRegister,
+                                    href: buttonRegisterHref,
                                     size: "sm",
                                 })
