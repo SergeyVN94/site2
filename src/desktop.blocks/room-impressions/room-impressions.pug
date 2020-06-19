@@ -1,7 +1,7 @@
 include /block-head/block-head.pug
 
 mixin room-impressions({ items, title = "Впечатления от номера" })
-    .room-impressions
+    .room-impressions.js-room-impressions
         .room-impressions__head
             +block-head({
                 title,
@@ -102,7 +102,9 @@ mixin room-impressions({ items, title = "Впечатления от номер�
                             fill="none",
                             stroke=stroke,
                             data-value=items[key],
+                            data-path=paths[key].path,
                             data-path-expanded=paths[key].pathExpanded,
+                            data-stroke-width=LINE_WIDTH,
                             data-stroke-width-expanded=LINE_WIDTH_EXPANDED,
                             data-theme=THEMES[key],
                         )
@@ -131,13 +133,13 @@ mixin room-impressions({ items, title = "Впечатления от номер�
                     const helpItems = [
                         {text: "Великолепно", theme: "very-good"},
                         {text: "Хорошо", theme: "good"},
-                        {text: "Удовлетворительно", theme: "normal"},
+                        {text: "Удовлетворительно", theme: "fine"},
                         {text: "Разочарован", theme: "bad"},
                     ];
                 
                 for helpItem in helpItems
                     -const {text, theme} = helpItem;
-                    li.room-impressions__help-item
+                    li.room-impressions__help-item.js-room-impressions__help-item(data-theme=theme)
                         .room-impressions__marker-container
-                            .room-impressions__help-marker(class=`room-impressions__help-marker_theme_${theme}`)
+                            .room-impressions__help-marker
                         p.room-impressions__help-item-text #{text}

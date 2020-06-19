@@ -101,30 +101,30 @@
     align-items: center;
   }
 
+  &__help-item {
+    &[data-theme='very-good'] .room-impressions__help-marker {
+      background: $gradient-warn;
+    }
+
+    &[data-theme='good'] .room-impressions__help-marker {
+      background: $gradient-secondary;
+    }
+
+    &[data-theme='fine'] .room-impressions__help-marker {
+      background: $gradient-primary;
+    }
+
+    &[data-theme='bad'] .room-impressions__help-marker {
+      background: $gradient-dark;
+    }
+  }
+
   &__help-marker {
     width: $tiny-size;
     min-width: $tiny-size;
     height: $tiny-size;
     display: block;
     border-radius: 50%;
-
-    &_theme {
-      &_very-good {
-        background: $gradient-warn;
-      }
-
-      &_good {
-        background: $gradient-secondary;
-      }
-
-      &_normal {
-        background: $gradient-primary;
-      }
-
-      &_bad {
-        background: $gradient-dark;
-      }
-    }
   }
 
   &__help-item-text {
