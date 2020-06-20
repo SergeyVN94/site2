@@ -7,14 +7,15 @@
 
     &:checked + .input-radio__new-input {
       border-color: $bg-primary;
-    }
 
-    &:checked + .input-radio__new-input > .input-radio__input-indicator {
-      display: block;
-    }
-
-    &:hover + .input-radio__new-input {
-      box-shadow: 0px 0px 10px $bg-primary;
+      &:after {
+        content: '';
+        display: block;
+        width: $small-size;
+        height: $small-size;
+        background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+        border-radius: $tiny-size;
+      }
     }
 
     &:active + .input-radio__new-input {
@@ -36,13 +37,9 @@
     border-radius: $tiny-size;
     align-items: center;
     justify-content: center;
-  }
 
-  &__input-indicator {
-    display: none;
-    width: $small-size;
-    height: $small-size;
-    background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
-    border-radius: $tiny-size;
+    &:hover {
+      box-shadow: 0px 0px 10px $bg-primary;
+    }
   }
 }

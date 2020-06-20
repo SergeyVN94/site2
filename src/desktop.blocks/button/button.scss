@@ -191,6 +191,7 @@
   &_hover-theme {
     &_gradient-primary {
       &:hover {
+        z-index: 9999;
         background: $gradient-primary;
         box-shadow: 0px 0px 10px $bg-primary;
         color: #ffffff;
@@ -198,6 +199,7 @@
       }
 
       &:active {
+        z-index: 9999;
         background: $gradient-primary;
         box-shadow: 0px 0px 10px $bg-secondary;
         color: #ffffff;
@@ -207,6 +209,7 @@
 
     &_gradient-success {
       &:hover {
+        z-index: 9999;
         background: $gradient-secondary;
         box-shadow: 0px 0px 10px $bg-secondary;
         color: #ffffff;
@@ -214,6 +217,7 @@
       }
 
       &:active {
+        z-index: 9999;
         background: $gradient-secondary;
         box-shadow: 0px 0px 10px $bg-primary;
         color: #ffffff;

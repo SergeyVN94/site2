@@ -5,25 +5,21 @@
   &__input {
     display: none;
 
-    &:checked + .input-toggle__switch-wrapper {
+    &:checked + .input-toggle__new-input {
       border-color: $bg-primary;
+
+      &::after {
+        background: $gradient-primary;
+        float: right;
+      }
     }
 
-    &:checked + .input-toggle__switch-wrapper .input-toggle__switch {
-      background: $gradient-primary;
-      float: right;
-    }
-
-    &:hover + .input-toggle__switch-wrapper {
-      box-shadow: 0px 0px 10px $bg-primary;
-    }
-
-    &:active + .input-toggle__switch-wrapper {
+    &:active + .input-toggle__new-input {
       box-shadow: 0px 0px 5px $text-secondary;
     }
   }
 
-  &__switch-wrapper {
+  &__new-input {
     width: 2.8571rem;
     height: $middle-first-size;
     background: white;
@@ -31,14 +27,19 @@
     box-sizing: border-box;
     border-radius: $tiny-size;
     padding: 0.2143rem;
-  }
 
-  &__switch {
-    display: block;
-    float: left;
-    width: $small-size;
-    height: $small-size;
-    background: $light-title;
-    border-radius: $tiny-size;
+    &:hover {
+      box-shadow: 0px 0px 10px $bg-primary;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      float: left;
+      width: $small-size;
+      height: $small-size;
+      background: $light-title;
+      border-radius: $tiny-size;
+    }
   }
 }

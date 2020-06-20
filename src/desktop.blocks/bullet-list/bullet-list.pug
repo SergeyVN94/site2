@@ -12,7 +12,4 @@ mixin bullet-list({ items, head })
                 +block-head(head)
         ul.bullet-list__container
             for item in items
-                li.bullet-list__item
-                    .bullet-list__marker-container
-                        .bullet-list__marker
-                    p.bullet-list__item-text #{item}
+                li.bullet-list__item #{item}

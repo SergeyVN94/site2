@@ -18,32 +18,21 @@ $marker-size: $tiny-size;
   }
 
   &__item {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    @include text-body;
     list-style: none;
 
     &:not(:last-child) {
       margin-bottom: $tiny-size;
     }
-  }
 
-  &__marker-container {
-    display: flex;
-    align-items: center;
-    height: $big-size;
-    margin-right: $marker-size;
-  }
-
-  &__marker {
-    display: block;
-    width: $marker-size;
-    height: $marker-size;
-    background-color: $light-title;
-    border-radius: 50%;
-  }
-
-  &__item-text {
-    @include text-body;
+    &::before {
+      margin-right: 10px;
+      content: '';
+      display: inline-block;
+      width: $marker-size;
+      height: $marker-size;
+      border-radius: 50%;
+      background-color: $light-title;
+    }
   }
 }
