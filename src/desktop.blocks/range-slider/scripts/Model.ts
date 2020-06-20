@@ -7,6 +7,7 @@ interface IModelInterface {
   update: (targetPosition: number, type: 'min' | 'max' | null) => void;
   onUpdate: (callback: modelUpdateCallback) => void;
   initModel: (start: [number, number]) => void;
+  getState(): { positions: [number, number]; values: string };
 }
 
 class Model implements IModelInterface {
@@ -64,6 +65,19 @@ class Model implements IModelInterface {
     this._toggleUpdateEvent();
   }
 
+  public getState(): {
+    positions: [number, number];
+    values: string;
+  } {
+    return {
+      positions: [
+        this._stepToPointPosition(this.pointMinStep),
+        this._stepToPointPosition(this.pointMaxStep),
+      ],
+      values: this._getValuesStr(),
+    };
+  }
+
   private _updatePointSteps(targetPosition: number): void {
     const targetStep = this._positionToStep(targetPosition);
     const pointMinPosition = this._stepToPointPosition(this.pointMinStep);
@@ -107,11 +121,7 @@ class Model implements IModelInterface {
 
   private _toggleUpdateEvent(): void {
     if (this.callback !== null) {
-      const positions = [
-        this._stepToPointPosition(this.pointMinStep),
-        this._stepToPointPosition(this.pointMaxStep),
-      ] as [number, number];
-      const values = this._getValuesStr();
+      const { positions, values } = this.getState();
       this.callback(positions, values);
     }
   }

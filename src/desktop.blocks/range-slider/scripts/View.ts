@@ -70,10 +70,17 @@ class View {
       'mousedown.rangeSlider.update',
       this._handleSliderMousedown.bind(this),
     );
+
+    $(window).on('resize.rangeSlider.updateWithResize', this._handleWindowResize.bind(this));
   }
 
   private _updateModel(ev: JQuery.MouseEventBase): void {
     this.model.update(this._getTargetPosition(ev), this.pointSelectedType);
+  }
+
+  private _handleWindowResize(): void {
+    const { positions, values } = this.model.getState();
+    this._update(positions, values);
   }
 
   private _handleSliderMousedown(ev: JQuery.MouseEventBase): void {
