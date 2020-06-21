@@ -4,7 +4,7 @@ include /menu-item-expandable/menu-item-expandable.pug
 mixin menu({ items, theme })
     -
         const classes = ["menu"];
-        if (["vertical"].includes(theme)) classes.push(`menu_theme_${theme}`);
+        if (theme === "vertical") classes.push(`menu_theme_${theme}`);
 
     nav(class=classes)
         for item in items

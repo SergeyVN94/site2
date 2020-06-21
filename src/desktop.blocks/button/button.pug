@@ -27,9 +27,9 @@ mixin button(options = {})
         if ([
             "gradient-primary", "gradient-success", "none",
         ].includes(background)) classes.push(`button_background_${background}`);
-        if (["sm"].includes(size)) classes.push(`button_size_${size}`);
-        if (["big"].includes(horizontalSize)) classes.push(`button_horizontal-size_${horizontalSize}`);
-        if (["bold"].includes(fontWeight)) classes.push(`button_font-weight_${fontWeight}`);
+        if (size === "sm") classes.push(`button_size_${size}`);
+        if (horizontalSize === "big") classes.push(`button_horizontal-size_${horizontalSize}`);
+        if (fontWeight === "bold") classes.push(`button_font-weight_${fontWeight}`);
         if ([
             "gradient-primary", "gradient-success",
         ].includes(hoverTheme)) classes.push(`button_hover-theme_${hoverTheme}`);
