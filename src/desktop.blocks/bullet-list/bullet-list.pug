@@ -3,12 +3,7 @@ include /block-head/block-head.pug
 mixin bullet-list({ items, head })
     .bullet-list
         if head
-            -
-                const { marginBottom } = head;
-                const headClasses = ["bullet-list__head"];
-                if (marginBottom === "big") headClasses.push(`bullet-list__head_margin-bottom_${marginBottom}`);
-
-            div(class=headClasses)
+            .bullet-list__head(class=(head.marginBottomBig ? "bullet-list__head_margin-bottom_big" : ""))
                 +block-head(head)
         ul.bullet-list__container
             for item in items

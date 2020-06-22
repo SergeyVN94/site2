@@ -3,19 +3,12 @@ mixin block-head(options)
         const {
             title,
             help,
-            titleTheme,
-            helpTheme,
+            titleThemeH2,
+            helpThemeMainText,
         } = options;
-
-        const classesTitle = ["block-head__title"];
-        const classesHelp = ["block-head__help"];
-
-        if (titleTheme === "h2") classesTitle.push(`block-head__title_theme_${titleTheme}`);
-        if (helpTheme === "main-text") classesHelp.push(`block-head__help_theme_${helpTheme}`);
 
     .block-head
         if title
-            -const tag = titleTheme === "h2" ? "h2" : "h3";
-            #{tag}(class=classesTitle) #{title}
+            #{titleThemeH2 ? "h2" : "h3"}.block-head__title(class=(titleThemeH2 ? "block-head__title_theme_h2" : "")) #{title}
         if help
-            p(class=classesHelp) #{help}
+            p.block-head__help(class=(helpThemeMainText ? "block-head__help_theme_main-text" : "")) #{help}
