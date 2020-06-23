@@ -97,8 +97,7 @@ class DateRange {
 
     // $(ev.target).parents не работает!
     const dateRangeInPath = path.some((element) => {
-      // Object.prototype.hasOwnProperty не работает! ни через call, ни через apply.
-      if (element.classList) {
+      if ('classList' in element) {
         return element.classList.contains(DATE_RANGE_CLASSES.DATE_RANGE);
       }
 

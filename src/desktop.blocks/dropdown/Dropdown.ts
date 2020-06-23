@@ -70,14 +70,8 @@ class Dropdown {
   }
 
   private static _getWordWithEnding(value: number, words: [string, string, string]): string {
-    const [
-      digitOne,
-      digitZero,
-    ] = `0${value}`
-      .slice(-2)
-      .split('')
-      .map((digit) => parseInt(digit, 10));
-
+    const digitOne = Math.floor(value / 10) % 10;
+    const digitZero = value % 10;
     const isDigitZeroIsOne = digitZero === 1;
     const isDigitOneIsOne = digitOne === 1;
     const isDigitZeroBetweenOneAndFive = digitZero > 1 && digitZero < 5;

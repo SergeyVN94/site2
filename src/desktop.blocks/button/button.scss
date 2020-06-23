@@ -3,20 +3,16 @@
   @include no-select;
   @include reset-link;
   position: relative;
-  display: inline-block;
   cursor: pointer;
   border: none;
   background: #ffffff;
-  text-align: center;
-  vertical-align: middle;
   font-family: Montserrat, Arial, sans-serif;
   font-style: normal;
 
-  &:not(button):before {
-    content: '';
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;
+  @at-root a#{&} {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
   }
 
   &_theme {

@@ -144,7 +144,7 @@ class Model {
       this.renderDate.getMonth(),
       day,
     );
-    targetDate.setHours(0, 0, 0, 0); // Что бы сравнивать даты без учета времени.
+    targetDate.setHours(0, 0, 0, 0);
     const targetDateTime = targetDate.getTime();
 
     const startIsNull = this.rangeDays.start === null;

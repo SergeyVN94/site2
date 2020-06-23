@@ -67,8 +67,7 @@ class FilterDateDropdown {
 
     // $(ev.target).parents не работает!
     const onDropdown = path.some((element) => {
-      // Object.prototype.hasOwnProperty не работает! ни через call, ни через apply.
-      if (element.classList) {
+      if ('classList' in element) {
         return element.classList.contains(FILTER_DATE_CLASSES.DROPDOWN_EXPANDED);
       }
 
