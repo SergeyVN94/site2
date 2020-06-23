@@ -26,9 +26,9 @@ mixin dropdown(options)
             if counters.length
                 .dropdown__body.js-dropdown__body
                     for counter in counters
-                        -const { label, group, value = 0 } = counter;
+                        -const { text: counterText, group, value = 0 } = counter;
                         .dropdown__counter
-                            label.dropdown__counter-label #{label}
+                            .dropdown__counter-text #{counterText}
                             .dropdown__counter-controls
                                 +button({
                                     dataAction: "minus",

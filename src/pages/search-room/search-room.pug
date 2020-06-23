@@ -30,9 +30,9 @@ block main
                                 babies: ["младенец", "младенца", "младенцев"],
                             },
                             counters: [
-                                { label: "взрослые", group: "adults", value: 0 },
-                                { label: "дети", group: "adults", value: 0 },
-                                { label: "младенцы", group: "babies", value: 0 },
+                                { text: "взрослые", group: "adults", value: 0 },
+                                { text: "дети", group: "adults", value: 0 },
+                                { text: "младенцы", group: "babies", value: 0 },
                             ],
                             useControls: true,
                         })
@@ -78,9 +78,9 @@ block main
                                 bathrooms: ["ванная комната","ванные комнаты","ванныx комнат"],
                             },
                             counters: [
-                                { label: "спальни", group: "bedrooms" },
-                                { label: "кровати", group: "beds" },
-                                { label: "ванные комнаты", group: "bathrooms" },
+                                { text: "спальни", group: "bedrooms" },
+                                { text: "кровати", group: "beds" },
+                                { text: "ванные комнаты", group: "bathrooms" },
                             ],
                         })
                     .search-room__expandable-checkbox-list
@@ -110,7 +110,7 @@ block main
                         +card-room-information({
                             images: getImages("888.jpg"),
                             roomNumber: 888,
-                            luxury: true,
+                            isLuxury: true,
                             roomPrice: "9 990",
                             stars: 5,
                             comments: 145,
@@ -119,7 +119,7 @@ block main
                         +card-room-information({
                             images: getImages("840.jpg"),
                             roomNumber: 840,
-                            luxury: false,
+                            isLuxury: false,
                             roomPrice: "9 900",
                             stars: 4,
                             comments: 65,
@@ -128,7 +128,7 @@ block main
                         +card-room-information({
                             images: getImages("980.jpg"),
                             roomNumber: 980,
-                            luxury: true,
+                            isLuxury: true,
                             roomPrice: "8 500",
                             stars: 3,
                             comments: 35,
@@ -137,7 +137,7 @@ block main
                         +card-room-information({
                             images: getImages("856.jpg"),
                             roomNumber: 856,
-                            luxury: false,
+                            isLuxury: false,
                             roomPrice: "7 300",
                             stars: 5,
                             comments: 19,
@@ -146,7 +146,7 @@ block main
                         +card-room-information({
                             images: getImages("740.jpg"),
                             roomNumber: 740,
-                            luxury: false,
+                            isLuxury: false,
                             roomPrice: "6 000",
                             stars: 4,
                             comments: 44,
@@ -155,7 +155,7 @@ block main
                         +card-room-information({
                             images: getImages("982.jpg"),
                             roomNumber: 982,
-                            luxury: false,
+                            isLuxury: false,
                             roomPrice: "5 800",
                             stars: 3,
                             comments: 56,
@@ -164,7 +164,7 @@ block main
                         +card-room-information({
                             images: getImages("678.jpg"),
                             roomNumber: 678,
-                            luxury: false,
+                            isLuxury: false,
                             roomPrice: "5 500",
                             stars: 5,
                             comments: 45,
@@ -173,7 +173,7 @@ block main
                         +card-room-information({
                             images: getImages("450.jpg"),
                             roomNumber: 450,
-                            luxury: false,
+                            isLuxury: false,
                             roomPrice: "5 300",
                             stars: 4,
                             comments: 39,
@@ -182,7 +182,7 @@ block main
                         +card-room-information({
                             images: getImages("350.jpg"),
                             roomNumber: 350,
-                            luxury: false,
+                            isLuxury: false,
                             roomPrice: "5 000",
                             stars: 3,
                             comments: 77,
@@ -191,7 +191,7 @@ block main
                         +card-room-information({
                             images: getImages("666.jpg"),
                             roomNumber: 666,
-                            luxury: false,
+                            isLuxury: false,
                             roomPrice: "5 000",
                             stars: 5,
                             comments: 25,
@@ -200,7 +200,7 @@ block main
                         +card-room-information({
                             images: getImages("444.jpg"),
                             roomNumber: 444,
-                            luxury: false,
+                            isLuxury: false,
                             roomPrice: "5 000",
                             stars: 3,
                             comments: 15,
@@ -209,7 +209,7 @@ block main
                         +card-room-information({
                             images: getImages("352.jpg"),
                             roomNumber: 352,
-                            luxury: false,
+                            isLuxury: false,
                             roomPrice: "5 000",
                             stars: 3,
                             comments: 55,

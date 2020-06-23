@@ -8,7 +8,7 @@ mixin card-room-information(options = {})
             roomNumber = 0,
             roomPrice = 0,
             images = [],
-            luxury = false,
+            isLuxury = false,
             stars = 0,
             comments = 0,
             commentsHref = "./room-details.html#comments",
@@ -22,7 +22,7 @@ mixin card-room-information(options = {})
                 +room-head({
                     roomNumber,
                     roomPrice,
-                    luxury,
+                    isLuxury,
                     roomNumberTheme: "h2",
                 })
             .card-room-information__user-response

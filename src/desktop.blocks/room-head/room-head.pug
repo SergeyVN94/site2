@@ -6,7 +6,7 @@ mixin room-head(options = {})
             roomNumberHref = "./room-details.html",
             roomPrice = 0,
             pricePeriod = "в сутки",
-            luxury = false,
+            isLuxury = false,
             luxuryText = "люкс",
         } = options;
 
@@ -15,7 +15,7 @@ mixin room-head(options = {})
             span.room-head__number-prefix #{"№ "}
             -const roomNumClasses = (roomNumberTheme === "h2") ? `room-head__room-number_theme_${roomNumberTheme}` : "";
             span.room-head__room-number(class=roomNumClasses) #{roomNumber}
-            if luxury
+            if isLuxury
                 span.room-head__luxury #{luxuryText}
         p.room-head__price-container
             span.room-head__price #{`${roomPrice}₽`}

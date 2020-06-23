@@ -2,13 +2,8 @@ include /menu-item/menu-item.pug
 include /menu-item-expandable/menu-item-expandable.pug
 
 mixin menu({ items, theme })
-    -
-        const classes = ["menu"];
-        if (theme === "vertical") classes.push(`menu_theme_${theme}`);
-
-    nav(class=classes)
+    nav.menu(class=(theme === "vertical" ? "menu_theme_vertical" : "" ))
         for item in items
-            //- Если в item есть дочерние items, это menu-item-expandable
             -const isMenuItemExpandable = Object.hasOwnProperty.apply(item, ["items"]);
             .menu__item
                 if isMenuItemExpandable

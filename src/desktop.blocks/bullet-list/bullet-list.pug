@@ -3,7 +3,7 @@ include /block-head/block-head.pug
 mixin bullet-list({ items, head })
     .bullet-list
         if head
-            .bullet-list__head(class=(head.marginBottomBig ? "bullet-list__head_margin-bottom_big" : ""))
+            .bullet-list__head(class=(head.isMarginBottomBig ? "bullet-list__head_margin-bottom_big" : ""))
                 +block-head(head)
         ul.bullet-list__container
             for item in items
