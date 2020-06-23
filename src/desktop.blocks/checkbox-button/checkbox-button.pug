@@ -1,7 +1,10 @@
-include /input-checkbox/input-checkbox.pug
-
-mixin checkbox-button({ text, checked = false })
-    .checkbox-button
-        label.checkbox-button__container
-            +input-checkbox(checked)
+mixin checkbox-button({ text, description, checked = false })
+    label.checkbox-button
+        input.checkbox-button__input(type="checkbox", checked=checked)
+        .checkbox-button__new-input check
+        if description
+            .checkbox-button__container
+                p.checkbox-button__title #{text}
+                p.checkbox-button__description #{description}
+        else
             p.checkbox-button__text #{text}

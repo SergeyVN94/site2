@@ -3,7 +3,6 @@ extends /../template/landing.pug
 include /dropdown/dropdown.pug
 include /range-slider/range-slider.pug
 include /checkbox-list/checkbox-list.pug
-include /rich-checkbox-buttons/rich-checkbox-buttons.pug
 include /expandable-checkbox-list/expandable-checkbox-list.pug
 include /pagination/pagination.pug
 include /card-room-information/card-room-information.pug
@@ -55,8 +54,9 @@ block main
                             ],
                         })
                     .search-room__rich-checkbox-buttons
-                        +rich-checkbox-buttons({
+                        +checkbox-list({
                             head: { title: "доступность" },
+                            isRichButtons: true,
                             items: [
                                 {
                                     text: "Широкий коридор",

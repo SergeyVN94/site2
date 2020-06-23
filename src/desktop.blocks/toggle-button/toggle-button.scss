@@ -5,6 +5,47 @@
   align-items: center;
   cursor: pointer;
 
+  &__input {
+    display: none;
+
+    &:checked + .toggle-button__new-input {
+      border-color: $bg-primary;
+
+      &::after {
+        background: $gradient-primary;
+        float: right;
+      }
+    }
+
+    &:active + .toggle-button__new-input {
+      box-shadow: 0px 0px 5px $text-secondary;
+    }
+  }
+
+  &__new-input {
+    width: 2.8571rem;
+    height: $middle-first-size;
+    background: white;
+    border: 0.0714rem solid $light-title;
+    box-sizing: border-box;
+    border-radius: $tiny-size;
+    padding: 0.2143rem;
+
+    &:hover {
+      box-shadow: 0px 0px 10px $bg-primary;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      float: left;
+      width: $small-size;
+      height: $small-size;
+      background: $light-title;
+      border-radius: $tiny-size;
+    }
+  }
+
   &__text {
     @include text-body;
     margin-left: $tiny-size;

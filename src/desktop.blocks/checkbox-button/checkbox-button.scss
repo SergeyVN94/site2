@@ -1,12 +1,51 @@
 .checkbox-button {
   @include reset-css;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  cursor: pointer;
 
-  &__container {
+  &__input {
+    display: none;
+
+    &:checked + .checkbox-button__new-input {
+      border-color: $bg-primary;
+      background: $gradient-primary;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    &:hover + .checkbox-button__new-input {
+      box-shadow: 0px 0px 10px $bg-primary;
+    }
+
+    &:active + .checkbox-button__new-input {
+      box-shadow: 0px 0px 5px $text-secondary;
+    }
+
+    &:focus + .checkbox-button__new-input {
+      border-color: $text-secondary;
+    }
+  }
+
+  &__new-input {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: flex-start;
-    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    width: $middle-first-size;
+    height: $middle-first-size;
+    background: #fff;
+    border: 0.0714rem solid $light-title;
+    box-sizing: border-box;
+    border-radius: 0.2857rem;
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    @include no-select;
   }
 
   &__text {
@@ -17,5 +56,25 @@
     max-width: 200px;
     color: $text-secondary;
     line-height: normal;
+  } 
+
+  &__container {
+    margin-left: $tiny-size;
+    width: 270px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    @include text-body;
+    margin-bottom: 0.3571rem;
+    line-height: $middle-first-size;
+    font-weight: bold;
+  }
+
+  &__description {
+    @include text-body;
+    line-height: $standard-size;
+    font-size: $small-size;
   }
 }
