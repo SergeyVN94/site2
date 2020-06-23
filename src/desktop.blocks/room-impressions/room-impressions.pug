@@ -139,7 +139,7 @@ mixin room-impressions({ items, title = "Впечатления от номер�
                 
                 for helpItem in helpItems
                     -const {text, theme} = helpItem;
-                    li.room-impressions__help-item.js-room-impressions__help-item(data-theme=theme)
+                    li.room-impressions__help-item.js-room-impressions__help-item(data-theme=theme, data-value=(items[text] || "0"))
                         .room-impressions__marker-container
                             .room-impressions__help-marker
                         p.room-impressions__help-item-text #{text}

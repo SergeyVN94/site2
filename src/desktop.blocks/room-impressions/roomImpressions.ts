@@ -25,11 +25,9 @@ $(`.${ROOM_IMPRESSION_CLASSES.ROOM_IMPRESSIONS}`).each((index, element) => {
     .find(`.${ROOM_IMPRESSION_CLASSES.HELP_ITEM}`)
     .on('mouseover.roomImpression.selectPathWithHelp', (ev: JQuery.MouseOverEvent) => {
       const $path = $diagram.find(`svg path[data-theme='${ev.currentTarget.dataset.theme}']`);
+      $out.text($(ev.currentTarget).data('value'));
 
-      if ($path.length) {
-        $out.text($path.data('value'));
-        selectPath($path, $diagram);
-      }
+      if ($path.length) selectPath($path, $diagram);
     }).on('mouseout.roomImpression.unselectPathWithHelp', (ev: JQuery.MouseOutEvent) => {
       const $path = $diagram.find(`svg path[data-theme='${ev.currentTarget.dataset.theme}']`);
       $out.text(totalValue);
