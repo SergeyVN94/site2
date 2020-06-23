@@ -2,7 +2,45 @@
   @include reset-css;
   width: auto;
 
-  &__item:not(:last-child) {
-    margin-bottom: $middle-first-size;
+  &__item {
+    @include reset-css;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    &:not(:last-child) {
+      margin-bottom: $middle-first-size;
+    }
+  }
+
+  &__color-square {
+    @include reset-css;
+    width: 100%;
+    min-width: 5rem;
+    max-width: 5rem;
+    min-height: 5rem;
+    max-height: 5rem;
+    border-radius: 0.4286rem;
+  }
+
+  &__description {
+    @include reset-css;
+    width: 100%;
+    margin-left: 2.9286rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__color-name {
+    @include text-h2;
+    line-height: 2.1429rem;
+  }
+
+  &__color-value {
+    @include text-h2;
+    line-height: 2.1429rem;
+    font-weight: normal;
   }
 }

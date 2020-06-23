@@ -1,5 +1,5 @@
 include /logo/logo.pug
-include /footer-nav/footer-nav.pug
+include /menu/menu.pug
 include /text-field/text-field.pug
 include /copyright-bar/copyright-bar.pug
 
@@ -13,7 +13,9 @@ mixin footer({ siteDescription, navList = [], subscribe = {}, copyrightBar = {} 
             .footer__nav-container
                 for nav in navList
                     .footer__nav
-                        +footer-nav(nav)
+                        p.footer__nav-title #{nav.title}
+                        .footer__nav-menu
+                            +menu({ items: nav.items, theme: "vertical" })
             .footer__subscribe-container
                 -
                     const {

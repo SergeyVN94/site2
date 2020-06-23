@@ -1,6 +1,0 @@
-mixin menu-item({ text, href = "/mock-address/change-me", selected = false })
-    -
-        const classes = ["menu-item"];
-        if (selected) classes.push("menu-item_selected")
-
-    a(class=classes, href=href) #{text}

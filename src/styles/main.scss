@@ -12,3 +12,15 @@ html {
   color: $text-primary;
   height: 100%;
 }
+
+body {
+  @include reset-css;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: auto;
+}

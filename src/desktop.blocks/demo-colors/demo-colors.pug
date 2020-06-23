@@ -1,7 +1,9 @@
-include /demo-color-item/demo-color-item.pug
-
 mixin demo-colors(colors)
     .demo-colors
         for color in colors
+            -const { name, value, squareBg } = color;
             .demo-colors__item
-                +demo-color-item(color)
+                .demo-colors__color-square(style=`background-color: ${squareBg};`)
+                .demo-colors__description
+                    p.demo-colors__color-name #{name}
+                    p.demo-colors__color-value #{value}

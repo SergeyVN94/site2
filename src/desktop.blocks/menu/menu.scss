@@ -20,7 +20,8 @@
     }
   }
 
-  &__item {
+  &__item,
+  &__item-expandable {
     &:not(:last-child) {
       margin-right: 1.5rem;
     }
@@ -32,5 +33,115 @@
         margin: 0rem 0rem 1.5rem 0rem;
       }
     }
+  }
+
+  &__item {
+    @include no-select;
+    @include text-body;
+    text-decoration: none;
+    white-space: nowrap;
+    line-height: 1.2857rem;      
+    
+    &_selected {
+      font-weight: bold;
+    }
+  
+    &:hover {
+      text-decoration: underline $text-secondary;
+    }
+  
+    &:active {
+      outline: none;
+      text-decoration: none;
+      text-shadow: 0px 0px 5px $text-secondary;
+    }
+  }
+
+  &__item-expandable {
+    @include reset-css;
+    @include no-select;
+    display: block;
+    cursor: pointer;
+  
+    &_expanded {
+      .menu__item-expandable-body {
+        display: block;
+      }
+    }
+  
+    &-head {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+    }
+  
+    &-title {
+      @include text-body;
+      white-space: nowrap;
+      line-height: 1.2857rem;
+    }
+  
+    &-body {
+      @include reset-css;
+      position: relative;
+      display: none;
+    }
+  
+    &-list {
+      @include reset-css;
+      z-index: 999;
+      min-width: 100%;
+      position: absolute;
+      left: -0.5rem;
+      top: 0;
+      background: #fff;
+      padding: 0.5rem;
+      margin: 0;
+      border-radius: 0rem 0rem 0.2857rem 0.2857rem;
+      box-shadow: 0rem $tiny-size $middle-first-size $light-title;
+  
+      @media (max-width: $breakpoint-tablets) {
+        position: relative;
+        border-radius: 0;
+        box-shadow: none;
+        left: 0;
+        padding: 0;
+      }
+    }
+  
+    &-item {
+      list-style-type: none;
+      margin-top: $tiny-size;
+    }
+  
+    &-link {
+      @include no-select;
+      @include text-body;
+      text-decoration: none;
+      cursor: pointer;
+    
+      &:hover {
+        text-decoration: underline $text-secondary;
+      }
+    
+      &:active {
+        outline: none;
+        text-decoration: none;
+        text-shadow: 0px 0px 5px $text-secondary;
+      }
+    }
+  }
+
+  &__btn-expand {
+    width: $middle-third-size;
+    height: 1.5rem;
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: normal;
+    font-size: $big-size;
+    line-height: 1.5rem;
+    text-align: center;
+    color: $text-secondary;
   }
 }

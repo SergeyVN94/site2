@@ -1,12 +1,24 @@
-include /menu-item/menu-item.pug
-include /menu-item-expandable/menu-item-expandable.pug
-
 mixin menu({ items, theme })
-    nav.menu(class=(theme === "vertical" ? "menu_theme_vertical" : "" ))
+    nav.menu(class=(theme === "vertical" ? "menu_theme_vertical" : ""))
         for item in items
-            -const isMenuItemExpandable = Object.hasOwnProperty.apply(item, ["items"]);
-            .menu__item
-                if isMenuItemExpandable
-                    +menu-item-expandable(item)
-                else
-                    +menu-item(item)
+            -
+                const {
+                    text,
+                    href = "/mock-address/change-me",
+                    selected = false,
+                    items,
+                } = item;
+
+            if items
+                .menu__item-expandable.js-menu__item-expandable
+                    .menu__item-expandable-head
+                        p.menu__item-expandable-title #{text}
+                        .menu__btn-expand.js-menu__btn-expand expand_more
+                    .menu__item-expandable-body
+                        ul.menu__item-expandable-list 
+                            for item in items
+                                -const { text: linkText, href = "/mock-address/change-me" } = item;
+                                li.menu__item-expandable-item
+                                    a.menu__item-expandable-link(href=href) #{linkText}
+            else
+                a.menu__item(class=(selected ? "menu__item_selected" : ""), href=href) #{text}
