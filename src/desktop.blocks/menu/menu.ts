@@ -1,14 +1,14 @@
-const enum MENU__ITEM_EXPANDABLE_CLASSES {
-  MENU_ITEM = 'js-menu__item-expandable',
+const enum MENU_CLASSES {
+  MENU_ITEM_EXPANDABLE = 'js-menu__item_expandable',
   BTN_EXPAND = 'js-menu__btn-expand',
-  EXPANDED = 'menu__item-expandable_expanded',
+  ITEM_EXPANDED = 'menu__item_expanded',
 }
 
 const handleMenuItemClick = function handleMenuItemClick(ev: JQuery.MouseEventBase): void {
-  $(ev.delegateTarget).toggleClass(MENU__ITEM_EXPANDABLE_CLASSES.EXPANDED);
+  $(ev.delegateTarget).toggleClass(MENU_CLASSES.ITEM_EXPANDED);
 };
 
-$(`.${MENU__ITEM_EXPANDABLE_CLASSES.MENU_ITEM}`).on(
-  'click.menu-item-expandable.expand',
+$(`.${MENU_CLASSES.MENU_ITEM_EXPANDABLE}`).on(
+  'click.menu__item_expandable.expand',
   handleMenuItemClick,
 );
