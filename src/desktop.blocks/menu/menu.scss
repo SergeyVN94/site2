@@ -39,16 +39,6 @@
     &_expandable {
       .menu__item-text::after {
         display: block;
-        content: 'expand_more';
-        width: $middle-third-size;
-        height: 1.5rem;
-        font-family: 'Material Icons';
-        font-style: normal;
-        font-weight: normal;
-        font-size: $big-size;
-        line-height: 1.5rem;
-        text-align: center;
-        color: $text-secondary;
       }
     }
 
@@ -79,11 +69,35 @@
     flex-wrap: nowrap;
     align-items: center;
 
-    &:hover:not(::after) {
+    &::after {
+      display: none;
+      content: 'expand_more';
+      width: $middle-third-size;
+      height: 1.5rem;
+      font-family: 'Material Icons';
+      font-style: normal;
+      font-weight: normal;
+      font-size: $big-size;
+      line-height: 1.5rem;
+      text-align: center;
+      color: $text-secondary;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      &:after {
+        text-decoration: none;
+        text-shadow: none;
+        outline: none;
+      }
+    }
+
+    &:hover {
       text-decoration: underline $text-secondary;
     }
   
-    &:active:not(::after) {
+    &:active {
       outline: none;
       text-decoration: none;
       text-shadow: 0px 0px 5px $text-secondary;

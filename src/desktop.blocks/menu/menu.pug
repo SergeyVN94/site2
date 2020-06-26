@@ -11,7 +11,7 @@ mixin menu({ items, theme })
 
             if childItems
                 .menu__item.menu__item_expandable.js-menu__item_expandable
-                    .menu__item-text #{text}
+                    .menu__item-text.js-menu__item-text #{text}
                     ul.menu__item-body
                         for childItem in childItems
                             -const { text: linkText, href = "/mock-address/change-me" } = childItem;
