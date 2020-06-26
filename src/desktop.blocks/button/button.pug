@@ -15,6 +15,7 @@ mixin button(options = {})
             fontWeightBold,
             hoverTheme,
             href,
+            isActiveTabindex,
         } = options;
 
         const classes = [`button js-button`];
@@ -37,8 +38,8 @@ mixin button(options = {})
         if (hidden) classes.push("button_hidden");
 
     if href
-        a(class=classes, href=href, data-action=dataAction) #{text}
+        a(class=classes, href=href, data-action=dataAction, tabindex=(isActiveTabindex ? false : -1)) #{text}
             if icon
                 .button__icon #{icon}
     else
-        button(class=classes, type=type, data-action=dataAction) #{text}       
+        button(class=classes, type=type, data-action=dataAction, tabindex=(isActiveTabindex ? false : -1)) #{text}       

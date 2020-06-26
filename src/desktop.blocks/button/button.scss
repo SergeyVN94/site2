@@ -35,7 +35,7 @@
         background: $bg-primary;
       }
 
-      &[type='submit']:focus {
+      &:focus {
         box-shadow: 0px 0px 10px $text-secondary;
       }
     }
@@ -59,7 +59,7 @@
         background: $bg-primary;
       }
 
-      &[type='submit']:focus {
+      &:focus {
         box-shadow: 0px 0px 10px $text-secondary;
       }
     }
@@ -105,7 +105,7 @@
         box-shadow: 0px 0px 10px $text-secondary;
       }
 
-      &[type='submit']:focus {
+      &:focus {
         box-shadow: 0px 0px 10px $text-secondary;
       }
     }
@@ -201,9 +201,15 @@
         color: #ffffff;
         font-weight: bold;
       }
+
+      &:focus {
+        z-index: 9999;
+        box-shadow: 0px 0px 10px $bg-secondary;
+      }
     }
 
     &_gradient-success {
+      
       &:hover {
         z-index: 9999;
         background: $gradient-secondary;
@@ -218,6 +224,11 @@
         box-shadow: 0px 0px 10px $bg-primary;
         color: #ffffff;
         font-weight: bold;
+      }
+
+      &:focus {
+        z-index: 9999;
+        box-shadow: 0px 0px 10px $bg-primary;
       }
     }
   }

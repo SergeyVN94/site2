@@ -67,6 +67,7 @@ mixin card-account-registration(options = {})
                         theme: "default-long",
                         icon: "arrow_forward",
                         type: "submit",
+                        isActiveTabindex: true,
                     })
             .card-account-registration__has-account
                 p.card-account-registration__has-account-text #{hasAccount}
@@ -75,4 +76,5 @@ mixin card-account-registration(options = {})
                     text: btnSignIn,
                     theme: "light",
                     isHorizontalSizeBig: true,
+                    isActiveTabindex: true,
                 })

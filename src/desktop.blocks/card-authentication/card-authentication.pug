@@ -31,7 +31,13 @@ mixin card-authentication(options = {})
                         icon: "arrow_forward",
                         theme: "default-long",
                         type: "submit",
+                        isActiveTabindex: true,
                     })
             .card-authentication__no-account
                 p.card-authentication__no-account-text #{noAccount}
-                +button({ href: createAccountBtnHref, text: createAccountBtn, theme: "light" })
+                +button({
+                    href: createAccountBtnHref,
+                    text: createAccountBtn,
+                    theme: "light",
+                    isActiveTabindex: true,
+                })

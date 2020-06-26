@@ -70,17 +70,17 @@ class Dropdown {
   }
 
   private static _getWordWithEnding(value: number, words: [string, string, string]): string {
-    const digitOne = Math.floor(value / 10) % 10;
-    const digitZero = value % 10;
-    const isDigitZeroIsOne = digitZero === 1;
-    const isDigitOneIsOne = digitOne === 1;
-    const isDigitZeroBetweenOneAndFive = digitZero > 1 && digitZero < 5;
+    const tens = Math.floor(value / 10) % 10;
+    const units = value % 10;
+    const isUnitsEqualToOne = units === 1;
+    const isTensEqualToOne = tens === 1;
+    const isUnitsBetweenOneAndFive = units > 1 && units < 5;
 
-    if (isDigitZeroIsOne && !isDigitOneIsOne) {
+    if (isUnitsEqualToOne && !isTensEqualToOne) {
       return words[0];
     }
 
-    if (isDigitZeroBetweenOneAndFive && !isDigitOneIsOne) {
+    if (isUnitsBetweenOneAndFive && !isTensEqualToOne) {
       return words[1];
     }
 

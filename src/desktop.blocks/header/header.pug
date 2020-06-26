@@ -24,6 +24,7 @@ mixin header(options = {})
                         dataAction: "expand-mobile-menu",
                         text: mobileButtonIcon,
                         theme: "icon",
+                        isActiveTabindex: true,
                     })
             .header__nav-container
                 .header__menu
@@ -39,10 +40,12 @@ mixin header(options = {})
                                     href: buttonLoginHref,
                                     sizeSm: true,
                                     theme: "light",
+                                    isActiveTabindex: true,
                                 })
                             .header__button-register
                                 +button({
                                     text: buttonRegister,
                                     href: buttonRegisterHref,
                                     sizeSm: true,
+                                    isActiveTabindex: true,
                                 })
