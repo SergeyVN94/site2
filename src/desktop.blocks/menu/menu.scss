@@ -61,6 +61,8 @@
     @include reset-css;
     @include no-select;
     @include text-body;
+    position: relative;
+    padding-right: 23px;
     text-decoration: none;
     white-space: nowrap;
     line-height: 1.2857rem;
@@ -68,8 +70,10 @@
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
-
+    
     &::after {
+      position: absolute;
+      right: 0;
       display: none;
       content: 'expand_more';
       width: $middle-third-size;
@@ -81,16 +85,6 @@
       line-height: 1.5rem;
       text-align: center;
       color: $text-secondary;
-    }
-
-    &:hover,
-    &:focus,
-    &:active {
-      &:after {
-        text-decoration: none;
-        text-shadow: none;
-        outline: none;
-      }
     }
 
     &:hover {
