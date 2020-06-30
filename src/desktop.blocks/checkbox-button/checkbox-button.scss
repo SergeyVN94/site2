@@ -33,7 +33,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: $middle-first-size;
+    min-width: $middle-first-size;
     height: $middle-first-size;
     background: #fff;
     border: 0.0714rem solid $light-title;

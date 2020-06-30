@@ -25,6 +25,7 @@
 
     &_theme_light {
       @include text-body;
+      color: $text-secondary;
     }
   }
 }

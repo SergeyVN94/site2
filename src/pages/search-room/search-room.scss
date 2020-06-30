@@ -19,7 +19,8 @@
 
   &__filters {
     width: 266px;
-    margin-right: 4.3571rem;
+    margin-right: 60px;
+    margin-top: 1px;
 
     @media (max-width: $breakpoint-cell-phones) {
       margin-right: 0;
