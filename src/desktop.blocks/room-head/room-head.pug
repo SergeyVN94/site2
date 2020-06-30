@@ -2,7 +2,7 @@ mixin room-head(options = {})
     -
         const {
             roomNumber = 0,
-            isRoomNumberThemeH2,
+            isRoomNumberMiddle,
             roomNumberHref = "./room-details.html",
             roomPrice = 0,
             pricePeriod = "в сутки",
@@ -13,7 +13,7 @@ mixin room-head(options = {})
     .room-head
         a.room-head__room-info(href=roomNumberHref, tabindex="-1")
             span.room-head__number-prefix #{"№ "}
-            span.room-head__room-number(class=(isRoomNumberThemeH2 ? "room-head__room-number_theme_h2" : "")) #{roomNumber}
+            span.room-head__room-number(class=(isRoomNumberMiddle ? "room-head__room-number_theme_h2" : "")) #{roomNumber}
             if isLuxury
                 span.room-head__luxury #{luxuryText}
         p.room-head__price-container

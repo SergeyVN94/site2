@@ -33,7 +33,7 @@ block main
                                 { text: "дети", group: "adults", value: 0 },
                                 { text: "младенцы", group: "babies", value: 0 },
                             ],
-                            useControls: true,
+                            isUseControls: true,
                         })
                     .search-room__range-slider
                         +range-slider({
@@ -56,7 +56,7 @@ block main
                     .search-room__rich-checkbox-buttons
                         +checkbox-list({
                             head: { title: "доступность" },
-                            isRichButtons: true,
+                            isWithRichButtons: true,
                             items: [
                                 {
                                     text: "Широкий коридор",

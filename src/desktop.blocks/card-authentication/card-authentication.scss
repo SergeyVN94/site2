@@ -19,7 +19,7 @@
     margin-bottom: $middle-first-size;
   }
   
-  &__no-account {
+  &__invitation-register {
     @include reset-css;
     width: 100%;
     display: flex;
@@ -29,7 +29,7 @@
     justify-content: space-between;
   }
 
-  &__no-account-text {
+  &__invitation-register-text {
     @include text-body;
     color: #000000;
   }

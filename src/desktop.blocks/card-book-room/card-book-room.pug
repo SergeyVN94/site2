@@ -22,11 +22,11 @@ mixin card-book-room(options = {})
                     { text: "дети", group: "adults", value: 0 },
                     { text: "младенцы", group: "babies", value: 0 },
                 ],
-                useControls: true,
+                isUseControls: true,
             },
             dateRange = {},
-            bookingButton = "забронировать",
-            bookingButtonHref = "/mock-address/change-me",
+            bookingBtn = "забронировать",
+            bookingBtnHref = "/mock-address/change-me",
             formAction = "/mock-address/change-me",
         } = options;
 
@@ -43,8 +43,8 @@ mixin card-book-room(options = {})
                     +receipt(receipt)
                 .card-book-room__booking-button
                     +button({
-                        text: bookingButton,
-                        href: bookingButtonHref,
+                        text: bookingBtn,
+                        href: bookingBtnHref,
                         theme: "default-long",
                         icon: "arrow_forward",
                         type: "submit",

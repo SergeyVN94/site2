@@ -23,7 +23,7 @@
     color: $text-secondary;
     font-weight: normal;
 
-    &_theme_main-text {
+    &_theme_light {
       @include text-body;
     }
   }

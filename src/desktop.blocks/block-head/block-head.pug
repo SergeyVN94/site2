@@ -4,11 +4,11 @@ mixin block-head(options)
             title,
             help,
             isTitleThemeH2,
-            isHelpThemeMainText,
+            isHelpThemeLight,
         } = options;
 
     .block-head
         if title
             #{isTitleThemeH2 ? "h2" : "h3"}.block-head__title(class=(isTitleThemeH2 ? "block-head__title_theme_h2" : "")) #{title}
         if help
-            p.block-head__help(class=(isHelpThemeMainText ? "block-head__help_theme_main-text" : "")) #{help}
+            p.block-head__help(class=(isHelpThemeLight ? "block-head__help_theme_light" : "")) #{help}

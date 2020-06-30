@@ -10,7 +10,7 @@ mixin input-text(options = {})
         } = options;
 
         const classes = ["input-text"];
-        if (iconRight) classes.push("input-text_use-icon-right");
+        if (iconRight) classes.push("input-text_with-control");
 
     div(class=classes)
         input.input-text__input.js-input-text__input(type=type, placeholder=placeholder, value=value)

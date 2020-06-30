@@ -15,7 +15,7 @@ mixin footer({ siteDescription, navList = [], subscribe = {}, copyrightBar = {} 
                     .footer__nav
                         p.footer__nav-title #{nav.title}
                         .footer__nav-menu
-                            +menu({ items: nav.items, theme: "vertical" })
+                            +menu({ items: nav.items, isVertical: true })
             .footer__subscribe-container
                 -
                     const {

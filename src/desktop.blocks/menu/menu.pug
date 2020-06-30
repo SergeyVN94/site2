@@ -1,5 +1,5 @@
-mixin menu({ items, theme })
-    nav.menu(class=(theme === "vertical" ? "menu_theme_vertical" : ""))
+mixin menu({ items, isVertical = false })
+    nav.menu(class=(isVertical ? "menu_theme_vertical" : ""))
         for item in items
             -
                 const {

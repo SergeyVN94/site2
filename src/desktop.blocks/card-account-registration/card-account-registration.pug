@@ -24,7 +24,7 @@ mixin card-account-registration(options = {})
             toggleBtnSpecialOffers = "Получать спецпредложения",
             paymentBtn = "перейти к оплате",
             paymentBtnHref = "/mock-address/change-me",
-            hasAccount = "Уже есть аккаунт на Toxin",
+            userHasAccount = "Уже есть аккаунт на Toxin",
             btnSignIn = "войти",
         } = options;
 
@@ -37,13 +37,13 @@ mixin card-account-registration(options = {})
         +card-container()
             h2.card-account-registration__title #{title}
             form.card-account-registration__form(action=formAction, method="post")
-                .card-account-registration__input-name
+                .card-account-registration__user-name
                     +input-text({ placeholder: inputNamePlaceholder })
-                .card-account-registration__input-surname
+                .card-account-registration__user-surname
                     +input-text({ placeholder: inputSurnamePlaceholder })
-                .card-account-registration__select-gender
+                .card-account-registration__genders
                     for item in radioButtonsGender
-                        .card-account-registration__gender-radio
+                        .card-account-registration__gender
                             +radio-button(item)
                 .card-account-registration__date-of-birth
                     +text-field({
@@ -58,8 +58,8 @@ mixin card-account-registration(options = {})
                     })
                 .card-account-registration__password
                     +input-text({ placeholder: inputPasswordPlaceholder, type: "password" })
-                .card-account-registration__special-offers
-                    +toggle-button({ text: toggleBtnSpecialOffers })
+                .card-account-registration__offer
+                    +toggle-button({ text: toggleBtnSpecialOffer })
                 .card-account-registration__payment-button
                     +button({
                         text: paymentBtn,
@@ -69,8 +69,8 @@ mixin card-account-registration(options = {})
                         type: "submit",
                         isActiveTabindex: true,
                     })
-            .card-account-registration__has-account
-                p.card-account-registration__has-account-text #{hasAccount}
+            .card-account-registration__account-question
+                p.card-account-registration__account-question-text #{userHasAccount}
                 +button({
                     href: "./sign-in.html",
                     text: btnSignIn,

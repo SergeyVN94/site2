@@ -4,7 +4,7 @@ mixin button(options = {})
             text = "click me",
             theme = "default",
             type = "button",
-            sizeSm,
+            isSizeSm,
             isHorizontalSizeBig,
             textColor, 
             dataAction = false,
@@ -12,7 +12,7 @@ mixin button(options = {})
             hidden,
             icon,
             background,
-            fontWeightBold,
+            isFontBold,
             hoverTheme,
             href,
             isActiveTabindex,
@@ -28,9 +28,9 @@ mixin button(options = {})
         if ([
             "gradient-primary", "gradient-success", "none",
         ].includes(background)) classes.push(`button_background_${background}`);
-        if (sizeSm) classes.push("button_size_sm");
+        if (isSizeSm) classes.push("button_size_sm");
         if (isHorizontalSizeBig) classes.push("button_horizontal-size_big");
-        if (fontWeightBold) classes.push("button_font-weight_bold");
+        if (isFontBold) classes.push("button_font-weight_bold");
         if ([
             "gradient-primary", "gradient-success",
         ].includes(hoverTheme)) classes.push(`button_hover-theme_${hoverTheme}`);
