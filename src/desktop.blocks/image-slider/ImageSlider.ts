@@ -76,9 +76,11 @@ class ImageSlider {
 
   private _handleIndicatorContainerClick(ev: JQuery.MouseEventBase): void {
     const $indicator = $(ev.target);
-    const index = parseInt(String($indicator.data('index')), 10);
-    this.selectedImage = index + 1;
-    this._update();
+    if ($indicator.hasClass(IMAGE_SLIDER_CLASSES.INDICATOR)) {
+      const index = parseInt(String($indicator.data('index')), 10);
+      this.selectedImage = index + 1;
+      this._update();
+    }
   }
 
   private _handleBtnNextClick(): void {

@@ -37,8 +37,12 @@
     }
 
     &_expandable {
-      .menu__item-text::after {
-        display: block;
+      .menu__item-text {
+        padding-right: 23px;
+
+        &::after {
+          display: block;
+        }
       }
     }
 
@@ -62,7 +66,6 @@
     @include no-select;
     @include text-body;
     position: relative;
-    padding-right: 23px;
     text-decoration: none;
     white-space: nowrap;
     line-height: 1.2857rem;
