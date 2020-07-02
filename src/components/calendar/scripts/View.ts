@@ -203,12 +203,12 @@ class View {
   }
 
   private static _createDomElements($calendar: JQuery): ICalendarDomElements {
-    const $btnNextMonth = $calendar.find(`.${CALENDAR_CLASSES.BTN_NEXT_MONTH}`);
-    const $btnPrevMonth = $calendar.find(`.${CALENDAR_CLASSES.BTN_PREV_MONTH}`);
+    const $btnNextMonth = $calendar.find(`.${CALENDAR_CLASSES.BUTTON_NEXT_MONTH}`);
+    const $btnPrevMonth = $calendar.find(`.${CALENDAR_CLASSES.BUTTON_PREVIOUS_MONTH}`);
     const $drawnDate = $calendar.find(`.${CALENDAR_CLASSES.DRAWN_DATE}`);
     const $daysContainer = $calendar.find(`.${CALENDAR_CLASSES.DAYS_CONTAINER}`);
-    const $btnApply = $calendar.find(`.${CALENDAR_CLASSES.BTN_APPLY}`);
-    const $btnClear = $calendar.find(`.${CALENDAR_CLASSES.BTN_CLEAR}`);
+    const $btnApply = $calendar.find(`.${CALENDAR_CLASSES.BUTTON_APPLY}`);
+    const $btnClear = $calendar.find(`.${CALENDAR_CLASSES.BUTTON_CLEAR}`);
 
     return {
       $calendar,

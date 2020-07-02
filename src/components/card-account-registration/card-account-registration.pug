@@ -21,11 +21,11 @@ mixin card-account-registration(options = {})
             inputsAuthenticationTitle = "данные для входа в сервис",
             inputEmailPlaceholder = "Email",
             inputPasswordPlaceholder = "Пароль",
-            toggleBtnSpecialOffers = "Получать спецпредложения",
-            paymentBtn = "перейти к оплате",
-            paymentBtnHref = "/mock-address/change-me",
+            toggleButtonSpecialOffers = "Получать спецпредложения",
+            paymentButton = "перейти к оплате",
+            paymentButtonHref = "/mock-address/change-me",
             userHasAccount = "Уже есть аккаунт на Toxin",
-            btnSignIn = "войти",
+            buttonSignIn = "войти",
         } = options;
 
         const radioButtonsGender = genderRadio.map((item) => ({text: item, group: "gender"}))
@@ -60,11 +60,11 @@ mixin card-account-registration(options = {})
                 .card-account-registration__password
                     +input-text({ placeholder: inputPasswordPlaceholder, type: "password" })
                 .card-account-registration__offer
-                    +toggle-button({ text: toggleBtnSpecialOffers })
+                    +toggle-button({ text: toggleButtonSpecialOffers })
                 .card-account-registration__payment-button
                     +button({
-                        text: paymentBtn,
-                        href: paymentBtnHref,
+                        text: paymentButton,
+                        href: paymentButtonHref,
                         theme: "default-long",
                         icon: "arrow_forward",
                         type: "submit",
@@ -74,7 +74,7 @@ mixin card-account-registration(options = {})
                 p.card-account-registration__account-question-text #{userHasAccount}
                 +button({
                     href: "./sign-in.html",
-                    text: btnSignIn,
+                    text: buttonSignIn,
                     theme: "light",
                     isHorizontalSizeBig: true,
                     isActiveTabindex: true,

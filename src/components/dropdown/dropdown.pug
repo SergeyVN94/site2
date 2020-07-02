@@ -10,8 +10,8 @@ mixin dropdown(options)
             variations = {},
             counters = [],
             isUseControls = false,
-            btnApply = "применить",
-            btnClear = "очистить",
+            buttonApply = "применить",
+            buttonClear = "очистить",
         } = options;
 
     .dropdown.js-dropdown(class=(expanded ? "dropdown_expanded" : ""), data-variations=JSON.stringify(variations))
@@ -43,17 +43,17 @@ mixin dropdown(options)
                                 })
                     if isUseControls
                         .dropdown__controls
-                            .dropdown-guest__btn-clear
+                            .dropdown-guest__button-clear
                                 +button({
                                     dataAction: "clear",
-                                    text: btnClear,
+                                    text: buttonClear,
                                     theme: "text",
                                     textColor: "text-secondary",
                                     hidden: true,
                                 })
-                            .dropdown-guest__btn-apply
+                            .dropdown-guest__button-apply
                                 +button({
                                     dataAction: "apply",
-                                    text: btnApply,
+                                    text: buttonApply,
                                     theme: "text",
                                 })

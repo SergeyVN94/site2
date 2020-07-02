@@ -22,8 +22,8 @@ mixin card-selection-room(options = {})
                 ],
                 isUseControls: true,
             },
-            searchBtnRoom = "подобрать номер",
-            searchBtnRoomHref = "./search-room.html",
+            searchButtonRoom = "подобрать номер",
+            searchButtonRoomHref = "./search-room.html",
             formAction = "/mock-address/change-me",
         } = options;
     
@@ -35,10 +35,10 @@ mixin card-selection-room(options = {})
                     +date-range(dateRange)
                 .card-selection-room__dropdown-guest
                     +dropdown(dropdownGuest)
-                .card-selection-room__search-btn
+                .card-selection-room__search-button
                     +button({
-                        href: searchBtnRoomHref,
-                        text: searchBtnRoom,
+                        href: searchButtonRoomHref,
+                        text: searchButtonRoom,
                         theme: "default-long",
                         icon: "arrow_forward",
                         isActiveTabindex: true,

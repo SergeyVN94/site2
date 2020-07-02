@@ -1,7 +1,7 @@
 const enum CALENDAR_CLASSES {
   CALENDAR = 'js-calendar',
-  BTN_PREV_MONTH = 'js-calendar__change-month_direction_prev',
-  BTN_NEXT_MONTH = 'js-calendar__change-month_direction_next',
+  BUTTON_PREVIOUS_MONTH = 'js-calendar__change-month_direction_previous',
+  BUTTON_NEXT_MONTH = 'js-calendar__change-month_direction_next',
   DRAWN_DATE = 'js-calendar__drawn-date',
   DAYS_CONTAINER = 'js-calendar__days-container',
   DAY_WEEK = 'js-calendar__day-week',
@@ -10,8 +10,8 @@ const enum CALENDAR_CLASSES {
   RANGE_DAY_START = 'calendar__day-week_range-day_start',
   RANGE_DAY_END = 'calendar__day-week_range-day_end',
   RANGE_DAY_MIDDLE = 'calendar__day-week_theme_range-day-middle',
-  BTN_APPLY = 'js-button[data-action="apply"]',
-  BTN_CLEAR = 'js-button[data-action="clear"]',
+  BUTTON_APPLY = 'js-button[data-action="apply"]',
+  BUTTON_CLEAR = 'js-button[data-action="clear"]',
   NOT_CLICKABLE = 'calendar__day-week_theme_not-clickable',
 }
 

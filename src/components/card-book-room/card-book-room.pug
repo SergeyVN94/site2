@@ -25,8 +25,8 @@ mixin card-book-room(options = {})
                 isUseControls: true,
             },
             dateRange = {},
-            bookingBtn = "забронировать",
-            bookingBtnHref = "/mock-address/change-me",
+            bookingButton = "забронировать",
+            bookingButtonHref = "/mock-address/change-me",
             formAction = "/mock-address/change-me",
         } = options;
 
@@ -43,8 +43,8 @@ mixin card-book-room(options = {})
                     +receipt(receipt)
                 .card-book-room__booking-button
                     +button({
-                        text: bookingBtn,
-                        href: bookingBtnHref,
+                        text: bookingButton,
+                        href: bookingButtonHref,
                         theme: "default-long",
                         icon: "arrow_forward",
                         type: "submit",
