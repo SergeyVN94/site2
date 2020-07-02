@@ -1,4 +1,3 @@
-include /card-container/card-container.pug
 include /date-range/date-range.pug
 include /dropdown/dropdown.pug
 include /button/button.pug
@@ -20,7 +19,7 @@ mixin card-selection-room(options = {})
                     { text: "дети", group: "adults", value: 0 },
                     { text: "младенцы", group: "babies", value: 0 },
                 ],
-                isUseControls: true,
+                useControls: true,
             },
             searchButtonRoom = "подобрать номер",
             searchButtonRoomHref = "./search-room.html",

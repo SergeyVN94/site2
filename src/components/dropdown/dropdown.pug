@@ -6,15 +6,15 @@ mixin dropdown(options)
         const {
             text,
             head,
-            expanded = false,
+            isOpened = false,
             variations = {},
             counters = [],
-            isUseControls = false,
+            useControls = false,
             buttonApply = "применить",
             buttonClear = "очистить",
         } = options;
 
-    .dropdown.js-dropdown(class=(expanded ? "dropdown_expanded" : ""), data-variations=JSON.stringify(variations))
+    .dropdown.js-dropdown(class=(isOpened ? "dropdown_is-opened" : ""), data-variations=JSON.stringify(variations))
         if head
             .dropdown__block-head
                 +block-head(head)
@@ -41,7 +41,7 @@ mixin dropdown(options)
                                     text: "+",
                                     theme: "round-little",
                                 })
-                    if isUseControls
+                    if useControls
                         .dropdown__controls
                             .dropdown-guest__button-clear
                                 +button({

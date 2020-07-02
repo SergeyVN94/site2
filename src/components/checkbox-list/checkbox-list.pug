@@ -1,8 +1,8 @@
 include /block-head/block-head.pug
 include /checkbox-button/checkbox-button.pug
 
-mixin checkbox-list({ items, head, isWithRichButtons })
-    .checkbox-list(class=(isWithRichButtons ? "checkbox-list_with-rich-buttons" : ""))
+mixin checkbox-list({ items, head, withRichButtons })
+    .checkbox-list(class=(withRichButtons ? "checkbox-list_with-rich-buttons" : ""))
         if head
             .checkbox-list__head
                 +block-head(head)

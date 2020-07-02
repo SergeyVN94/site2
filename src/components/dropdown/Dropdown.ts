@@ -1,7 +1,7 @@
 const enum DROPDOWN_CLASSES {
   DROPDOWN = 'js-dropdown',
   DROPDOWN_HEAD = 'js-dropdown__head',
-  DROPDOWN_EXPANDED = 'dropdown_expanded',
+  DROPDOWN_IS_OPENED = 'dropdown_is-opened',
   DROPDOWN_BODY = 'js-dropdown__body',
   BTN_PLUS = 'js-button[data-action="plus"]',
   BTN_MINUS = 'js-button[data-action="minus"]',
@@ -160,7 +160,7 @@ class Dropdown {
     const isHidden = $(ev.target).parents(`.${DROPDOWN_CLASSES.DROPDOWN}`).length === 0;
 
     if (isHidden) {
-      $dropdown.removeClass(DROPDOWN_CLASSES.DROPDOWN_EXPANDED);
+      $dropdown.removeClass(DROPDOWN_CLASSES.DROPDOWN_IS_OPENED);
       $document.off('click.document.dropdown.unexpended');
     }
   }
@@ -201,14 +201,14 @@ class Dropdown {
     }
 
     if (isBtnClear) this._resetDropdown();
-    if (isBtnApply) this.domElements.$dropdown.removeClass(DROPDOWN_CLASSES.DROPDOWN_EXPANDED);
+    if (isBtnApply) this.domElements.$dropdown.removeClass(DROPDOWN_CLASSES.DROPDOWN_IS_OPENED);
   }
 
   private _handleDropdownHeadClick(): void {
     const { $dropdown, $document } = this.domElements;
-    $dropdown.toggleClass(DROPDOWN_CLASSES.DROPDOWN_EXPANDED);
+    $dropdown.toggleClass(DROPDOWN_CLASSES.DROPDOWN_IS_OPENED);
 
-    if ($dropdown.hasClass(DROPDOWN_CLASSES.DROPDOWN_EXPANDED)) {
+    if ($dropdown.hasClass(DROPDOWN_CLASSES.DROPDOWN_IS_OPENED)) {
       $document.on('click.document.dropdown.unexpended', this._handleDocumentClick.bind(this));
     }
   }

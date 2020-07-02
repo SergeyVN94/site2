@@ -8,7 +8,7 @@ mixin comment(options)
             publicationDate,
             likes = 0,
             text,
-            likeBtnChecked = false,
+            isLikeButtonChecked = false,
         } = options;
     
     .comment
@@ -16,7 +16,7 @@ mixin comment(options)
             .comment__avatar-container
                 img.comment__avatar-image(src=avatar, alt=userName)
             .comment__like-button
-                +like-button({ likes, checked: likeBtnChecked })
+                +like-button({ likes, checked: isLikeButtonChecked })
         .comment__main
             .comment__head
                 p.comment__user-name #{userName}

@@ -1,7 +1,7 @@
 const enum FILTER_DATE_CLASSES {
   DROPDOWN = 'js-filter-date-dropdown',
   DROPDOWN_HEAD = 'js-filter-date-dropdown__head',
-  DROPDOWN_EXPANDED = 'filter-date-dropdown_expanded',
+  DROPDOWN_IS_OPENED = 'filter-date-dropdown_is-opened',
   DROPDOWN_HEAD_TEXT = 'js-filter-date-dropdown__text',
   CALENDAR = 'js-calendar',
 }
@@ -59,7 +59,7 @@ class FilterDateDropdown {
 
     const { $dropdown, $headText } = this.domElements;
     if (start || end) $headText.text(headChunks.join(' - '));
-    $dropdown.removeClass(FILTER_DATE_CLASSES.DROPDOWN_EXPANDED);
+    $dropdown.removeClass(FILTER_DATE_CLASSES.DROPDOWN_IS_OPENED);
   }
 
   private _handleDocumentClick(ev: { originalEvent: { path: Element[] } }): void {
@@ -68,7 +68,7 @@ class FilterDateDropdown {
     // $(ev.target).parents не работает!
     const onDropdown = path.some((element) => {
       if ('classList' in element) {
-        return element.classList.contains(FILTER_DATE_CLASSES.DROPDOWN_EXPANDED);
+        return element.classList.contains(FILTER_DATE_CLASSES.DROPDOWN_IS_OPENED);
       }
 
       return false;
@@ -76,7 +76,7 @@ class FilterDateDropdown {
 
     if (!onDropdown) {
       const { $dropdown, $document } = this.domElements;
-      $dropdown.removeClass(FILTER_DATE_CLASSES.DROPDOWN_EXPANDED);
+      $dropdown.removeClass(FILTER_DATE_CLASSES.DROPDOWN_IS_OPENED);
       $document.off('click.filterDateDropdown.unexpanded');
     }
   }
@@ -84,9 +84,9 @@ class FilterDateDropdown {
   private _handleHeadClick(): void {
     const { $dropdown, $document } = this.domElements;
 
-    $dropdown.toggleClass(FILTER_DATE_CLASSES.DROPDOWN_EXPANDED);
+    $dropdown.toggleClass(FILTER_DATE_CLASSES.DROPDOWN_IS_OPENED);
 
-    if ($dropdown.hasClass(FILTER_DATE_CLASSES.DROPDOWN_EXPANDED)) {
+    if ($dropdown.hasClass(FILTER_DATE_CLASSES.DROPDOWN_IS_OPENED)) {
       $document.on(
         'click.filterDateDropdown.unexpanded',
         this._handleDocumentClick.bind(this),
