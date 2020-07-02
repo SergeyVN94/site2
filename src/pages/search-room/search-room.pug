@@ -6,6 +6,7 @@ include /checkbox-list/checkbox-list.pug
 include /expandable-checkbox-list/expandable-checkbox-list.pug
 include /pagination/pagination.pug
 include /card-room-information/card-room-information.pug
+include /filter-date-dropdown/filter-date-dropdown.pug
 
 block pageTitle
     title Search page
@@ -16,9 +17,9 @@ block main
             aside.search-room__filters
                 form.search-room__form(action="/mock-address/change-me", method="post")
                     .search-room__dropdown-date-filter
-                        +dropdown({
+                        +filter-date-dropdown({
                             head: { title: "даты пребывания в отеле" },
-                            text: "19 авг - 23 авг",
+                            text: "Выберите дату",
                         })
                     .search-room__dropdown-guest
                         +dropdown({
