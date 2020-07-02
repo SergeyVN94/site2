@@ -1,3 +1,12 @@
-.sign-in__card-authentication {
-  padding: 163px 0;
+.sign-in {
+  &__banner {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+  }
+
+  &__card-authentication {
+    padding: 163px 0;
+  }
 }
+

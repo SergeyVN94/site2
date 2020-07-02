@@ -1,3 +1,13 @@
-.registration__card-account-registration {
-  padding: 30px 0px 26px 0px;
+.registration {
+  &__banner {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+  }
+
+  &__card-account-registration {
+    padding: 30px 0px 26px 0px;
+  }
 }
+
+
