@@ -270,7 +270,7 @@ block content
                             },
                         ])
                     .ui-kit__form-elements-column.ui-kit__form-elements-comment
-                        -const avatar = require("../../desktop.blocks/comment/images/user1.jpg").default;
+                        -const avatar = require("../../components/comment/images/user1.jpg").default;
                         +comment({
                             avatar,
                             userName: "Мурад Сарафанов",
@@ -325,7 +325,7 @@ block content
                                 "840.jpg",
                                 "888.jpg",
                                 "840.jpg",
-                            ].map((src) => ({src: require(`../../desktop.blocks/card-room-information/images/room-${src}`).default}));
+                            ].map((src) => ({src: require(`../../components/card-room-information/images/room-${src}`).default}));
                             const images2 = [...images1].reverse();
 
                         +card-room-information({

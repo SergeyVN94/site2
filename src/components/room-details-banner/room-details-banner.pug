@@ -1,5 +1,5 @@
 mixin room-details-banner(images)
-    -const imagesSrc = images.map((src) => require(`../../desktop.blocks/room-details-banner/images/${src}`).default);
+    -const imagesSrc = images.map((src) => require(`../../components/room-details-banner/images/${src}`).default);
     .room-details-banner
         .room-details-banner__main-img-container
             -const mainImage = imagesSrc.shift();
