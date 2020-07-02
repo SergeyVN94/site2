@@ -1,4 +1,6 @@
 .card-authentication {
+  @include card-container;
+
   &__head {
     @include text-h1;
     width: 100%;

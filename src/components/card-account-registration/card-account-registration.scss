@@ -1,4 +1,6 @@
 .card-account-registration {
+  @include card-container;
+
   &__title {
     @include text-h1;
     margin-bottom: 1.3571rem;

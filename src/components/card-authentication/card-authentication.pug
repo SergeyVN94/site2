@@ -1,4 +1,3 @@
-include /card-container/card-container.pug
 include /input-text/input-text.pug
 include /button/button.pug
 
@@ -17,27 +16,26 @@ mixin card-authentication(options = {})
         } = options;
 
     .card-authentication
-        +card-container()
-            h2.card-authentication__head #{title}
-            form.card-authentication__form(action=formAction, method="post")
-                .card-authentication__email
-                    +input-text({ placeholder: inputEmailPlaceholder, type: "email" })
-                .card-authentication__password
-                    +input-text({ placeholder: inputPasswordPlaceholder, type: "password" })
-                .card-authentication__auth-btn
-                    +button({
-                        text: authenticationButton,
-                        href: authenticationButtonHref,
-                        icon: "arrow_forward",
-                        theme: "default-long",
-                        type: "submit",
-                        isActiveTabindex: true,
-                    })
-            .card-authentication__invitation-register
-                p.card-authentication__invitation-register-text #{noAccount}
+        h2.card-authentication__head #{title}
+        form.card-authentication__form(action=formAction, method="post")
+            .card-authentication__email
+                +input-text({ placeholder: inputEmailPlaceholder, type: "email" })
+            .card-authentication__password
+                +input-text({ placeholder: inputPasswordPlaceholder, type: "password" })
+            .card-authentication__auth-btn
                 +button({
-                    href: createAccountButtonHref,
-                    text: createAccountButton,
-                    theme: "light",
+                    text: authenticationButton,
+                    href: authenticationButtonHref,
+                    icon: "arrow_forward",
+                    theme: "default-long",
+                    type: "submit",
                     isActiveTabindex: true,
                 })
+        .card-authentication__invitation-register
+            p.card-authentication__invitation-register-text #{noAccount}
+            +button({
+                href: createAccountButtonHref,
+                text: createAccountButton,
+                theme: "light",
+                isActiveTabindex: true,
+            })

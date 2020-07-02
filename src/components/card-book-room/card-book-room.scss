@@ -1,4 +1,6 @@
 .card-book-room {
+  @include card-container;
+
   &__head {
     margin-bottom: $middle-first-size;
     width: 100%;
