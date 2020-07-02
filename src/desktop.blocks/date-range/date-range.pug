@@ -4,13 +4,14 @@ include /calendar/calendar.pug
 mixin date-range(options = {})
     -
         const {
+            dropdownDefaultText = "ДД.ММ.ГГГГ",
             dropdownEntranceText = "ДД.ММ.ГГГГ",
             dropdownDepartureText = "ДД.ММ.ГГГГ",
             dropdownLeftHead = { title: "прибытие" },
             dropdownRightHead = { title: "выезд" },
         } = options;
 
-    .date-range.js-date-range
+    .date-range.js-date-range(data-dropdown-default-text=dropdownDefaultText)
         .date-range__dropdowns
             .date-range__dropdown-container
                 if dropdownLeftHead

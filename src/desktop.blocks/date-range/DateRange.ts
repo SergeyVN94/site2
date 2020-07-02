@@ -20,10 +20,11 @@ interface IDateRangeDomElements {
 class DateRange {
   private readonly domElements: IDateRangeDomElements;
 
-  private static DEFAULT_TEXT = 'ДД.ММ.ГГГГ';
+  private defaultText: string;
 
   constructor($dateRange: JQuery) {
     this.domElements = DateRange._createDomElements($dateRange);
+    this.defaultText = this.domElements.$dateRange.data('dropdown-default-text') || '';
     this._initEventListeners();
   }
 
@@ -131,8 +132,8 @@ class DateRange {
   private _handleCalendarClear(): void {
     const { $dropdownStartText, $dropdownEndText } = this.domElements;
 
-    $dropdownStartText.text(DateRange.DEFAULT_TEXT);
-    $dropdownEndText.text(DateRange.DEFAULT_TEXT);
+    $dropdownStartText.text(this.defaultText);
+    $dropdownEndText.text(this.defaultText);
     this._deselectDateRange();
   }
 
@@ -140,9 +141,9 @@ class DateRange {
     const { $dropdownStartText, $dropdownEndText } = this.domElements;
 
     $dropdownStartText.text(
-      start === null ? DateRange.DEFAULT_TEXT : DateRange._dateToString(start),
+      start === null ? this.defaultText : DateRange._dateToString(start),
     );
-    $dropdownEndText.text(end === null ? DateRange.DEFAULT_TEXT : DateRange._dateToString(end));
+    $dropdownEndText.text(end === null ? this.defaultText : DateRange._dateToString(end));
 
     this._deselectDateRange();
   }

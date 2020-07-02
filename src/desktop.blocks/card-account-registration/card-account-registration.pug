@@ -49,6 +49,7 @@ mixin card-account-registration(options = {})
                     +text-field({
                         head: { title: inputDateOfBirthTitle },
                         placeholder: inputDateOfBirthPlaceholder,
+                        mask: "00.00.0000",
                     })
                 .card-account-registration__email
                     +text-field({
