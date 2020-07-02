@@ -69,13 +69,12 @@
     text-decoration: none;
     white-space: nowrap;
     line-height: 1.2857rem;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    display: inline-block;
     align-items: center;
     
     &::after {
       position: absolute;
+      top: 0;
       right: 0;
       display: none;
       content: 'expand_more';
@@ -85,7 +84,7 @@
       font-style: normal;
       font-weight: normal;
       font-size: $big-size;
-      line-height: 1.5rem;
+      line-height: 1.2857rem;
       text-align: center;
       color: $text-secondary;
     }
