@@ -9,7 +9,7 @@ mixin dropdown(options)
             isOpened = false,
             variations = {},
             counters = [],
-            useControls = false,
+            withControls = false,
             buttonApply = "применить",
             buttonClear = "очистить",
         } = options;
@@ -41,7 +41,7 @@ mixin dropdown(options)
                                     text: "+",
                                     theme: "round-little",
                                 })
-                    if useControls
+                    if withControls
                         .dropdown__controls
                             .dropdown-guest__button-clear
                                 +button({
