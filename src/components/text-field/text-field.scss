@@ -2,7 +2,62 @@
   @include reset-css;
   width: 100%;
 
+  &_with-control {
+    .text-field__input {
+       padding-right: $very-big-size;
+    }
+  }
+
   &__head {
     margin-bottom: 0.2857rem;
+  }
+
+  &__wrapper {
+    width: 100%;
+    position: relative;
+  }
+
+  &__input {
+    @include reset-css;
+    width: 100%;
+    min-width: 0;
+    height: $very-big-size;
+    padding: 0rem 1rem $micro-size 1rem;
+    font-family: Montserrat, Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.9786rem;
+    line-height: 1.2857rem;
+    color: $text-primary;
+    background-color: #fff;
+    border: 0.0714rem solid $light-title;
+    border-radius: 0.2857rem;
+  
+    &::placeholder {
+      color: $light-title;
+      opacity: 1;
+    }
+  
+    &:hover,
+    &:focus {
+      line-height: $big-size;
+      border-color: $text-secondary;
+    }
+  }
+
+  &__submit {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: $very-big-size;
+    height: $very-big-size;
+  
+    &:hover {
+      text-shadow: 0px 0px 10px $bg-primary;
+    }
+  
+    &:active {
+      text-shadow: 0px 0px 10px $text-secondary;
+    }
   }
 }

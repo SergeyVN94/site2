@@ -49,9 +49,9 @@ class MaskedTextField {
   }
 }
 
-$('.js-text-field').each((index, element) => {
-  const $textField = $(element);
-  const mask = String($textField.data('mask') || '');
+$('.js-text-field__input').each((index, element) => {
+  const $textFieldInput = $(element);
+  const mask = String($textFieldInput.data('mask') || '');
 
-  if (mask.length) new MaskedTextField($textField.find('input'), mask);
+  if (mask.length) new MaskedTextField($textFieldInput, mask);
 });

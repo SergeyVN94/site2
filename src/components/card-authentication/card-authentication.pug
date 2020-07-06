@@ -1,4 +1,4 @@
-include /input-text/input-text.pug
+include /text-field/text-field.pug
 include /button/button.pug
 
 mixin card-authentication(options = {})
@@ -19,9 +19,9 @@ mixin card-authentication(options = {})
         h2.card-authentication__head #{title}
         form.card-authentication__form(action=formAction, method="post")
             .card-authentication__email
-                +input-text({ placeholder: inputEmailPlaceholder, type: "email" })
+                +text-field({ placeholder: inputEmailPlaceholder, type: "email" })
             .card-authentication__password
-                +input-text({ placeholder: inputPasswordPlaceholder, type: "password" })
+                +text-field({ placeholder: inputPasswordPlaceholder, type: "password" })
             .card-authentication__button
                 +button({
                     text: authenticationButton,
