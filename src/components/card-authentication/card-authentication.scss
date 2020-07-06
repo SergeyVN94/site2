@@ -33,6 +33,7 @@
 
   &__invitation-register-text {
     @include text-body;
+    line-height: 1.5rem;
     padding-right: 10px;
     color: #000000;
   }
