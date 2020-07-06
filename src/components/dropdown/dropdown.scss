@@ -3,7 +3,7 @@
   position: relative;
   width: 100%;
 
-  &_is-opened {
+  &_opened {
     .dropdown__head {
       border-radius: 0.2857rem 0.2857rem 0rem 0rem;
       border-color: $text-secondary;

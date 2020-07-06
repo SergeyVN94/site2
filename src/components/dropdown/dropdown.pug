@@ -14,7 +14,7 @@ mixin dropdown(options)
             buttonClear = "очистить",
         } = options;
 
-    .dropdown.js-dropdown(class=(isOpened ? "dropdown_is-opened" : ""), data-variations=JSON.stringify(variations))
+    .dropdown.js-dropdown(class=(isOpened ? "dropdown_opened" : ""), data-variations=JSON.stringify(variations))
         if head
             .dropdown__block-head
                 +block-head(head)

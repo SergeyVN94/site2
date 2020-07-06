@@ -3,7 +3,7 @@ include /button/button.pug
 include /calendar/calendar.pug
 
 mixin filter-date-dropdown({ head = {}, text = "Выберите дату" })
-    .filter-date-dropdown.js-filter-date-dropdown(class=(isOpened ? "filter-date-dropdown_is-opened" : ""))
+    .filter-date-dropdown.js-filter-date-dropdown(class=(isOpened ? "filter-date-dropdown_opened" : ""))
         if head
             .filter-date-dropdown__block-head
                 +block-head(head)

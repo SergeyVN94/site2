@@ -1,7 +1,7 @@
 const enum FILTER_DATE_CLASSES {
   DROPDOWN = 'js-filter-date-dropdown',
   DROPDOWN_HEAD = 'js-filter-date-dropdown__head',
-  DROPDOWN_IS_OPENED = 'filter-date-dropdown_is-opened',
+  DROPDOWN_IS_OPENED = 'filter-date-dropdown_opened',
   DROPDOWN_HEAD_TEXT = 'js-filter-date-dropdown__text',
   CALENDAR = 'js-calendar',
 }
