@@ -4,8 +4,9 @@
   width: 100%;
 
   &_opened {
+
     .dropdown__head {
-      border-radius: 0.2857rem 0.2857rem 0rem 0rem;
+      border-radius: .2857rem .2857rem 0rem 0rem;
       border-color: $text-secondary;
     }
 
@@ -15,7 +16,7 @@
   }
 
   &__block-head {
-    margin-bottom: 0.2857rem;
+    margin-bottom: .2857rem;
   }
 
   &__head {
@@ -23,9 +24,9 @@
     height: $very-big-size;
     display: flex;
     background-color: #fff;
-    border: 0.0714rem solid $light-title;
+    border: .0714rem solid $light-title;
     box-sizing: border-box;
-    border-radius: 0.2857rem;
+    border-radius: .2857rem;
     color: $text-primary;
     cursor: pointer;
 
@@ -36,6 +37,7 @@
 
   &__head-text {
     @include reset-css;
+
     @include text-body;
     width: 100%;
     padding-left: 1rem;
@@ -53,11 +55,11 @@
     top: 62px;
     z-index: 999;
     background: #fff;
-    border: 0.0714rem solid $text-secondary;
+    border: .0714rem solid $text-secondary;
     border-top: 0;
     box-sizing: border-box;
     box-shadow: 0rem $tiny-size $middle-first-size $dim-shadow;
-    border-radius: 0rem 0rem 0.2857rem 0.2857rem;
+    border-radius: 0rem 0rem .2857rem .2857rem;
   }
 
   &__counter {
@@ -70,7 +72,7 @@
     align-items: center;
 
     &:last-child {
-      padding-bottom: 0.5714rem;
+      padding-bottom: .5714rem;
     }
   
     &-text {

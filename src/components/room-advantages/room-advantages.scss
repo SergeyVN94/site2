@@ -1,4 +1,5 @@
 .room-advantages {
+
   &__head {
     margin-bottom: 1.3571rem;
   }
@@ -12,7 +13,7 @@
 
     &:not(:last-child) {
       margin-bottom: $middle-third-size;
-      border-bottom: 0.0714rem solid $dim-border;
+      border-bottom: .0714rem solid $dim-border;
     }    
   }
   

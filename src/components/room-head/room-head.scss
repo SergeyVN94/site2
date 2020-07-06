@@ -36,7 +36,7 @@
 
   &__luxury {
     @include text-h3;
-    margin-left: 0.3571rem;
+    margin-left: .3571rem;
     color: $bg-primary;
   }
 
@@ -50,7 +50,7 @@
   }
 
   &__price {
-    margin-right: 0.2857rem;
+    margin-right: .2857rem;
     font-weight: bold;
   }
 

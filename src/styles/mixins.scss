@@ -25,6 +25,7 @@
 }
 
 @mixin inner-float {
+
   &::after {
     content: '';
     display: block;
@@ -58,6 +59,7 @@
 
 @mixin text-h3 {
   @include text-title;
+  
   font-family: Montserrat, Arial, sans-serif;
   font-size: $small-size;
   line-height: $standard-size;
@@ -84,7 +86,7 @@
       url('../chunks/fonts/' + $font + '.woff2') format('woff2'),
       url('../chunks/fonts/' + $font + '.woff') format('woff'),
       url('../chunks/fonts/' + $font + '.ttf')
-        format('truetype'),
+      format('truetype'),
       url('../chunks/fonts/' + $font + '.svg') format('svg');
     font-weight: $font-weight;
     font-style: $font-style;
@@ -108,10 +110,10 @@
   flex-direction: column;
   align-items: center;
   background: #FFFFFF;
-  border: 0.0714rem solid #0000001f;
+  border: .0714rem solid #0000001f;
   box-sizing: border-box;
   box-shadow: 0rem 0rem 1.7857rem #00000033;
-  border-radius: 0.2857rem;
+  border-radius: .2857rem;
   padding: 2.8571rem 2.1429rem 2.1429rem 2.0714rem;
 
   @media (max-width: 400px) {

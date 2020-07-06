@@ -1,4 +1,5 @@
 .pagination {
+
   &__head {
     margin-bottom: $standard-size;
   }
@@ -15,7 +16,7 @@
 
   &__bottom-text {
     @include text-body;
-    margin-top: 0.5714rem;
+    margin-top: .5714rem;
     text-align: center;
   }
 }

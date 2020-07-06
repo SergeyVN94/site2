@@ -17,6 +17,7 @@
 
     &-container-content {
       @include reset-css;
+
       @include container-content;
       width: 100%;
       display: flex;
@@ -46,6 +47,7 @@
   
     &-container-content {
       @include container-content;
+
       display: flex;
       flex-direction: column;
       padding-top: 140px;
@@ -103,6 +105,7 @@
   }
 
   &__radio-buttons {
+
     &-head {
       margin-bottom: 1.1429rem;
     }
@@ -119,7 +122,7 @@
   }
 
   &__toggle-buttons-head {
-    margin-bottom: 0.9286rem;
+    margin-bottom: .9286rem;
   }
 
   &__toggle-button:not(:last-child) {
@@ -127,6 +130,7 @@
   }
 
   &__like-buttons {
+
     &-head {
       margin-bottom: $standard-size;
     }
@@ -138,12 +142,14 @@
   }
 
   &__like-button {
+
     &:not(:last-child) {
       margin-right: $tiny-size;
     }
   }
 
   &__rating-buttons {
+
     &-head {
       margin-bottom: $standard-size;
     }
@@ -159,6 +165,7 @@
   }
 
   &__demo-buttons {
+
     &-head {
       margin-bottom: 1.1429rem;
     }

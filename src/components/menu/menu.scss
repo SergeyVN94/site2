@@ -30,13 +30,15 @@
 
     &:focus-within,
     &_expanded {
+
       .menu__item-body {
         max-height: none;
-        padding: 0.5rem;
+        padding: .5rem;
       }
     }
 
     &_expandable {
+
       .menu__item-text {
         padding-right: 23px;
 
@@ -47,6 +49,7 @@
     }
 
     &_selected {
+
       .menu__item-text {
         font-weight: bold;
       }
@@ -63,7 +66,9 @@
 
   &__item-text {
     @include reset-css;
+
     @include no-select;
+
     @include text-body;
     position: relative;
     text-decoration: none;
@@ -110,7 +115,7 @@
     max-height: 0;
     overflow: hidden;
     background: #fff;    
-    border-radius: 0rem 0rem 0.2857rem 0.2857rem;
+    border-radius: 0rem 0rem .2857rem .2857rem;
     box-shadow: 0rem $tiny-size $middle-first-size $light-title;
     
     @media (max-width: $breakpoint-tablets) {
@@ -131,6 +136,7 @@
     }
 
     @media (max-width: $breakpoint-tablets) {
+
       &:first-child {
         margin-top: $tiny-size;
       }
@@ -139,6 +145,7 @@
 
   &__item-link {
     @include no-select;
+
     @include text-body;
     text-decoration: none;
     cursor: pointer;

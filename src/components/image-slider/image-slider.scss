@@ -5,6 +5,7 @@
   overflow: hidden;
 
   &:hover {
+
     .image-slider__change-img {
       display: flex;
     }
@@ -25,7 +26,7 @@
     max-height: 100%;
     opacity: 0;
     transition: 1s;
-    border-radius: 0.2857rem 0.2857rem 0rem 0rem;
+    border-radius: .2857rem .2857rem 0rem 0rem;
 
     &_selected {
       opacity: 1;
@@ -45,11 +46,11 @@
 
   &__indicator {
     @include reset-css;
-    width: 0.5357rem;
-    height: 0.5357rem;
+    width: .5357rem;
+    height: .5357rem;
     border-radius: 50%;
-    border: 0.0714rem solid #ffffff;
-    box-shadow: 0rem 0.3571rem 0.3571rem #1f20414d;
+    border: .0714rem solid #ffffff;
+    box-shadow: 0rem .3571rem .3571rem #1f20414d;
     cursor: pointer;
 
     &:not(:last-child) {
@@ -63,19 +64,20 @@
 
   &__change-img {
     @include reset-css;
+
     @include no-select;
     position: absolute;
     top: 0;
     width: 3rem;
     height: 100%;
     z-index: 999;
-    border-radius: 0.2857rem 0rem 0rem 0rem;
+    border-radius: .2857rem 0rem 0rem 0rem;
     display: none;
     align-items: center;
     justify-content: center;
     background: linear-gradient(
       90deg,
-      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, .5) 0%,
       rgba(0, 0, 0, 0) 99.99%,
       rgba(255, 255, 255, 0) 100%
     );

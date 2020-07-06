@@ -3,8 +3,10 @@
 
 /* Montserrat */
 @include require-font('Montserrat', 'montserrat-regular', normal, normal);
+
 @include require-font('Montserrat', 'montserrat-bold', bold, normal);
 
 /* Quicksand */
 @include require-font('Quicksand', 'quicksand-regular', normal, normal);
+
 @include require-font('Quicksand', 'quicksand-bold', bold, normal);

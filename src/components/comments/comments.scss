@@ -1,9 +1,11 @@
 .comments {
+
   &__head {
     margin-bottom: 1.3571rem;
   }
 
   &__comment {
+
     &:not(:last-child) {
       margin-bottom: $middle-third-size;
     }

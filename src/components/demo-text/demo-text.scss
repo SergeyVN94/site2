@@ -8,6 +8,7 @@
     display: flex;
 
     &_theme {
+
       &_h1 {
         @include text-h1;
       }

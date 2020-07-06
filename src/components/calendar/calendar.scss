@@ -1,14 +1,15 @@
 .calendar {
   @include reset-css;
+
   @include no-select;
   width: 100%;
   max-width: 320px;
   padding: $middle-first-size $middle-first-size;
   background: #ffffff;
-  border: 0.0714rem solid $light-title;
+  border: .0714rem solid $light-title;
   box-sizing: border-box;
   box-shadow: 0rem $tiny-size $middle-first-size $dim-shadow;
-  border-radius: 0.2857rem;
+  border-radius: .2857rem;
 
   &__date-navigation {
     margin-bottom: 2.0714rem;
@@ -49,6 +50,7 @@
 
   &__weekday-name {
     @include reset-css;
+
     @include text-body;
     height: 2.8571rem;
     width: 100%;
@@ -83,6 +85,7 @@
     cursor: pointer;
 
     &_range-day {
+
       &_end,
       &_start {
         position: relative;
@@ -97,11 +100,12 @@
           position: absolute;
           display: block;
           background: $gradient-primary;
-          opacity: 0.25;
+          opacity: .25;
         }
       }
 
       &_end {
+
         &::after {
           left: 0;
         }
@@ -117,6 +121,7 @@
     }
 
     &_theme {
+
       &_not-clickable {
         color: $light-title;
         cursor: default;
@@ -140,7 +145,7 @@
           position: absolute;
           display: block;
           background: $gradient-primary;
-          opacity: 0.25;
+          opacity: .25;
         }
       }
   

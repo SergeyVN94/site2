@@ -1,10 +1,13 @@
 .button {
   @include reset-css;
+
   @include no-select;
+
   @include reset-link;
+  
   position: relative;
   cursor: pointer;
-  border: none;
+  border: 0;
   background: #ffffff;
   font-family: Montserrat, Arial, sans-serif;
   font-style: normal;
@@ -16,6 +19,7 @@
   }
 
   &_theme {
+
     &_default {
       height: $very-big-size;
       border-radius: $middle-second-size;
@@ -128,7 +132,7 @@
     &_round-little {
       width: 2.1429rem;
       height: 2.1429rem;
-      border: 0.0714rem solid rgba(31, 32, 65, 0.25);
+      border: .0714rem solid rgba(31, 32, 65, .25);
       border-radius: $middle-second-size;
       color: $text-secondary;
       font-weight: normal;
@@ -171,6 +175,7 @@
   }
 
   &_background {
+
     &_gradient-primary {
       background: $gradient-primary;
     }
@@ -185,7 +190,9 @@
   }
 
   &_hover-theme {
+
     &_gradient-primary {
+
       &:hover {
         z-index: 9999;
         background: $gradient-primary;
@@ -234,7 +241,7 @@
   }
 
   &_disabled {
-    opacity: 0.5;
+    opacity: .5;
 
     &:active,
     &:hover,
@@ -262,6 +269,7 @@
   }
 
   &_text-color {
+
     &_text-secondary {
       color: $text-secondary;
     }

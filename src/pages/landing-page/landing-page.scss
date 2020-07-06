@@ -1,4 +1,5 @@
 .landing-page {
+
   &__banner {
     width: 100%;
     max-width: 1920px;
@@ -13,6 +14,7 @@
 
   &__banner-content {
     @include reset-css;
+
     @include container-content;
     position: relative;
     width: 100%;
@@ -25,7 +27,7 @@
     width: 100%;
     max-width: 290px;
     position: absolute;
-    right: 0.5714rem;
+    right: .5714rem;
     bottom: 1.5rem;
     text-align: right;
   }

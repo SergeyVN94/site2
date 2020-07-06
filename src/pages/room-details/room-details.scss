@@ -1,5 +1,5 @@
 .room-details {
-  border-bottom: 0.0714rem solid #e5e5e5;
+  border-bottom: .0714rem solid #e5e5e5;
 
   &__banner {
     @include reset-css;
@@ -29,6 +29,7 @@
 
   &__container-content {
     @include reset-css;
+
     @include container-content;
     padding-top: 4.8571rem;
     padding-bottom: 5.1429rem;
@@ -52,6 +53,7 @@
     }
 
     @media (max-width: $breakpoint-old-displays) and (min-width: $breakpoint-cell-phones) {
+
       &:last-child {
         margin-bottom: 40px;
       }
@@ -65,7 +67,7 @@
 
   &__main-info {
     @include reset-css;
-    padding-top: 0.1429rem;
+    padding-top: .1429rem;
     width: 100%;
     margin-right: 5rem;
 

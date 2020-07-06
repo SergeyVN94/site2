@@ -1,4 +1,5 @@
 .room-impressions {
+
   &__head {
     margin-bottom: $middle-first-size;
   }
@@ -24,6 +25,7 @@
     position: relative;
 
     &_theme {
+
       &_very-good .room-impressions__diagram-counter {
         background: $gradient-warn;
         background-clip: text;
@@ -93,7 +95,7 @@
   }
 
   &__marker-container {
-    margin-right: 0.3571rem;
+    margin-right: .3571rem;
     width: $tiny-size;
     min-width: $tiny-size;
     height: $big-size;
@@ -102,6 +104,7 @@
   }
 
   &__help-item {
+
     &[data-theme='very-good'] .room-impressions__help-marker {
       background: $gradient-warn;
     }

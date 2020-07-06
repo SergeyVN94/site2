@@ -36,15 +36,16 @@
     min-width: $middle-first-size;
     height: $middle-first-size;
     background: #fff;
-    border: 0.0714rem solid $light-title;
+    border: .0714rem solid $light-title;
     box-sizing: border-box;
-    border-radius: 0.2857rem;
+    border-radius: .2857rem;
     font-family: 'Material Icons';
     font-style: normal;
     font-weight: normal;
     font-size: 1rem;
     font-weight: bold;
     color: white;
+
     @include no-select;
   }
 
@@ -67,7 +68,7 @@
 
   &__title {
     @include text-body;
-    margin-bottom: 0.3571rem;
+    margin-bottom: .3571rem;
     line-height: $middle-first-size;
     font-weight: bold;
   }

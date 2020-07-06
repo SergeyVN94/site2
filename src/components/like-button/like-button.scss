@@ -1,10 +1,11 @@
 .like-button {
   @include reset-css;
+
   @include no-select;
   min-width: 2.8571rem;
   height: $middle-first-size;
   background: white;
-  border: 0.0714rem solid $light-title;
+  border: .0714rem solid $light-title;
   box-sizing: border-box;
   border-radius: $tiny-size;
   display: flex;
@@ -29,6 +30,7 @@
       background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+
     .like-button__counter {
       color: $bg-primary;
     }
@@ -45,7 +47,7 @@
     font-style: normal;
     font-weight: normal;
     font-size: $tiny-size;
-    line-height: 0.6429rem;
+    line-height: .6429rem;
     display: flex;
     align-items: center;
     text-align: center;
@@ -66,6 +68,6 @@
     text-align: center;
     color: $light-title;
     user-select: none;
-    padding-right: 0.5714rem;
+    padding-right: .5714rem;
   }
 }

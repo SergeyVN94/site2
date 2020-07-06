@@ -1,5 +1,7 @@
 .filter-date-dropdown {
+
   &_opened {
+
     .filter-date-dropdown__head {
       border-color: $text-secondary;
       border-radius: 4px 4px 0px 0px;
@@ -42,7 +44,7 @@
 
   &__calendar {
     position: absolute;
-    top: 0.3571rem;
+    top: .3571rem;
     z-index: 999;
     display: none;
   }

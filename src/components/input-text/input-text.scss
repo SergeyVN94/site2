@@ -3,6 +3,7 @@
   position: relative;
 
   &_with-control {
+
     .input-text__input {
       padding-right: $very-big-size;
     }
@@ -17,12 +18,12 @@
     font-family: Montserrat, Arial, sans-serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 0.9786rem;
+    font-size: .9786rem;
     line-height: 1.2857rem;
     color: $text-primary;
     background-color: #fff;
-    border: 0.0714rem solid $light-title;
-    border-radius: 0.2857rem;
+    border: .0714rem solid $light-title;
+    border-radius: .2857rem;
   
     &::placeholder {
       color: $light-title;

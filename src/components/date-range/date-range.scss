@@ -2,6 +2,7 @@
   width: 100%;
 
   &_range-select {
+
     .date-range__container {
       display: block;
     }
@@ -29,7 +30,7 @@
   }
 
   &__dropdown-head {
-    margin-bottom: 0.2857rem;
+    margin-bottom: .2857rem;
   }
 
   &__dropdown {
@@ -37,9 +38,9 @@
     height: $very-big-size;
     display: flex;
     background-color: #fff;
-    border: 0.0714rem solid $light-title;
+    border: .0714rem solid $light-title;
     box-sizing: border-box;
-    border-radius: 0.2857rem;
+    border-radius: .2857rem;
     color: $text-primary;
     cursor: pointer;
   
@@ -54,6 +55,7 @@
 
   &__dropdown-text {
     @include reset-css;
+
     @include text-body;
     width: 100%;
     padding-left: 1rem;
@@ -72,6 +74,6 @@
   &__calendar {
     position: absolute;
     z-index: 999;
-    margin-top: 0.3571rem;
+    margin-top: .3571rem;
   }
 }

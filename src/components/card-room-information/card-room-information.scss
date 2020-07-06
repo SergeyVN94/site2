@@ -2,11 +2,11 @@
   width: 270px;
   background: #fff;
   box-shadow: 0rem $tiny-size $middle-first-size $dim-shadow;
-  border-radius: 0.2857rem;
+  border-radius: .2857rem;
 
   &__image-slider {
     height: 151px; 
-    border-radius: 0.2857rem 0.2857rem 0rem 0rem;
+    border-radius: .2857rem .2857rem 0rem 0rem;
   }
 
   &__body {
@@ -14,12 +14,12 @@
   }
   
   &__head {
-    padding-bottom: 0.5rem;
-    border-bottom: 0.0714rem solid $dim-border;
+    padding-bottom: .5rem;
+    border-bottom: .0714rem solid $dim-border;
   }
 
   &__user-response {
-    padding: 0.5714rem 0px 0rem 0rem;
+    padding: .5714rem 0px 0rem 0rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

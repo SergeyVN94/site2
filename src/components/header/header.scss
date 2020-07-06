@@ -3,6 +3,7 @@
   box-shadow: 0rem $tiny-size $middle-first-size $dim-shadow;
 
   &_extended {
+
     .header__nav-container {
       @media (max-width: $breakpoint-tablets) {
         display: block;
@@ -12,6 +13,7 @@
 
   &__content {
     @include reset-css;
+
     @include container-content;
     width: 100%;
     height: 5rem;
@@ -78,15 +80,16 @@
 
   &__user-name {
     @include reset-css;
+
     @include text-body;
     padding-left: $middle-first-size;
-    border-left: 0.0714rem solid $dim-border;
+    border-left: .0714rem solid $dim-border;
     color: $text-secondary;
 
     @media (max-width: $breakpoint-tablets) {
       padding: $middle-first-size 0rem 0rem 0rem;
-      border-left: none;
-      border-top: 0.0714rem solid $dim-border;
+      border-left: 0;
+      border-top: .0714rem solid $dim-border;
     }
   }
 

@@ -2,10 +2,11 @@
   display: flex;
   flex-direction: column;
   background-color: #fff;
-  box-shadow: 0rem 0.0714rem 0rem $dim-border;
+  box-shadow: 0rem .0714rem 0rem $dim-border;
 
   &__content {
     @include reset-css;
+
     @include container-content;
     padding-top: 7.1429rem;
     padding-bottom: 5.7143rem;
@@ -48,7 +49,7 @@
   }
   
   &__nav {
-    margin-top: 0.3571rem;
+    margin-top: .3571rem;
     width: 100%;
     max-width: 160px;
   
@@ -64,7 +65,7 @@
   
   &__subscribe-container {
     @include reset-css;
-    margin-top: 0.3571rem;
+    margin-top: .3571rem;
     width: 100%;
     max-width: 260px;
   
@@ -84,6 +85,6 @@
   }
 
   &__copyright {
-    border-top: 0.0714rem solid #e5e5e5;
+    border-top: .0714rem solid #e5e5e5;
   }
 }

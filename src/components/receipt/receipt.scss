@@ -1,4 +1,5 @@
 .receipt {
+
   &__item {
     display: flex;
     flex-direction: row;
@@ -10,7 +11,7 @@
   &__text-container {
     width: 100%;
     max-width: 215px;
-    margin-right: 0.3571rem;
+    margin-right: .3571rem;
   }
 
   &__item-title {
@@ -21,6 +22,7 @@
 
   &__icon {
     @include reset-css;
+
     @include no-select;
     width: $middle-first-size;
     height: $middle-first-size;
@@ -28,7 +30,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 0.0714rem solid $light-title;
+    border: .0714rem solid $light-title;
     color: $light-title;
     cursor: pointer;
   }
@@ -58,9 +60,9 @@
   &__separate-line {
     @include reset-css;
     width: 100%;
-    margin: 0 0.3571rem;
-    height: 0.0714rem;
-    border-bottom: 0.0714rem dotted $light-title;
+    margin: 0 .3571rem;
+    height: .0714rem;
+    border-bottom: .0714rem dotted $light-title;
   }
 
   &__total-sum-title,
