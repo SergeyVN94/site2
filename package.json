@@ -8,6 +8,8 @@
         "build": "NODE_ENV=production npx webpack",
         "eslint": "eslint --cache --ext .ts,.tsx src",
         "eslint-fix": "eslint --cache --ext .ts,.tsx src --fix",
+        "stylelint": "npx stylelint src/**/*.scss",
+        "stylelint-fix": "npx stylelint src/**/*.scss --fix",
         "deploy": "gh-pages -d dist"
     },
     "repository": {
@@ -29,6 +31,11 @@
         "eslint-plugin-import": "^2.20.2",
         "eslint-plugin-promise": "^4.2.1",
         "gh-pages": "^2.2.0",
+        "stylelint": "^13.6.1",
+        "stylelint-config-airbnb": "0.0.0",
+        "stylelint-config-standard": "^20.0.0",
+        "stylelint-order": "^4.1.0",
+        "stylelint-scss": "^3.18.0",
         "webpack-dev-server": "^3.11.0"
     },
     "dependencies": {
