@@ -43,7 +43,7 @@ mixin dropdown(options)
                                 })
                     if withControls
                         .dropdown__controls
-                            .dropdown-guest__button-clear
+                            .dropdown__button-clear
                                 +button({
                                     dataAction: "clear",
                                     text: buttonClear,
@@ -51,7 +51,7 @@ mixin dropdown(options)
                                     textColor: "text-secondary",
                                     hidden: true,
                                 })
-                            .dropdown-guest__button-apply
+                            .dropdown__button-apply
                                 +button({
                                     dataAction: "apply",
                                     text: buttonApply,
