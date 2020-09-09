@@ -1,27 +1,27 @@
 include /block-head/block-head.pug
 
 mixin text-field(options = {})
-    -
-        const {
-            head,
-            iconRight,
-            mask = false,
-            type = "text",
-            placeholder = false,
-            value = false,
-        } = options;
+  -
+    const {
+      head,
+      iconRight,
+      mask = false,
+      type = "text",
+      placeholder = false,
+      value = false,
+    } = options;
 
-    .text-field(class=(iconRight ? "text-field_with-control" : ""))
-        if head
-            .text-field__head
-                +block-head(head)
-        .text-field__wrapper
-            input.text-field__input.js-text-field__input(type=type, placeholder=placeholder, value=value, data-mask=mask)
-            if iconRight
-                .text-field__submit
-                    +button({
-                        text: iconRight,
-                        theme: "icon",
-                        type: "submit",
-                        textColor: "gradient-primary",
-                    })    
+  .text-field(class=(iconRight ? "text-field_with-control" : ""))
+    if head
+      .text-field__head
+        +block-head(head)
+    .text-field__wrapper
+      input.text-field__input.js-text-field__input(type=type, placeholder=placeholder, value=value, data-mask=mask)
+      if iconRight
+        .text-field__submit
+          +button({
+            text: iconRight,
+            theme: "icon",
+            type: "submit",
+            textColor: "gradient-primary",
+          })    

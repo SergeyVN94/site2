@@ -1,45 +1,45 @@
 mixin button(options = {})
-    -
-        const {
-            text = "click me",
-            theme = "default",
-            type = "button",
-            isSizeSmall,
-            isHorizontalSizeBig,
-            textColor, 
-            dataAction = false,
-            disabled,
-            hidden,
-            icon,
-            background,
-            isFontBold,
-            hoverTheme,
-            href,
-            isActiveTabindex,
-        } = options;
+  -
+    const {
+      text = "click me",
+      theme = "default",
+      type = "button",
+      isSizeSmall,
+      isHorizontalSizeBig,
+      textColor, 
+      dataAction = false,
+      disabled,
+      hidden,
+      icon,
+      background,
+      isFontBold,
+      hoverTheme,
+      href,
+      isActiveTabindex,
+    } = options;
 
-        const classes = [`button js-button`];
-        if ([
-            "default", "default-long", "icon", "light", "round-icon", "round-little", "round", "text",
-        ].includes(theme)) classes.push(`button_theme_${theme}`);
-        if ([
-            "text-secondary", "gradient-primary",
-        ].includes(textColor)) classes.push(`button_text-color_${textColor}`);
-        if ([
-            "gradient-primary", "gradient-success", "none",
-        ].includes(background)) classes.push(`button_background_${background}`);
-        if (isSizeSmall) classes.push("button_size_sm");
-        if (isHorizontalSizeBig) classes.push("button_horizontal-size_big");
-        if (isFontBold) classes.push("button_font-weight_bold");
-        if ([
-            "gradient-primary", "gradient-success",
-        ].includes(hoverTheme)) classes.push(`button_hover-theme_${hoverTheme}`);
-        if (disabled) classes.push("button_disabled");
-        if (hidden) classes.push("button_hidden");
+    const classes = [`button js-button`];
+    if ([
+      "default", "default-long", "icon", "light", "round-icon", "round-little", "round", "text",
+    ].includes(theme)) classes.push(`button_theme_${theme}`);
+    if ([
+      "text-secondary", "gradient-primary",
+    ].includes(textColor)) classes.push(`button_text-color_${textColor}`);
+    if ([
+      "gradient-primary", "gradient-success", "none",
+    ].includes(background)) classes.push(`button_background_${background}`);
+    if (isSizeSmall) classes.push("button_size_sm");
+    if (isHorizontalSizeBig) classes.push("button_horizontal-size_big");
+    if (isFontBold) classes.push("button_font-weight_bold");
+    if ([
+      "gradient-primary", "gradient-success",
+    ].includes(hoverTheme)) classes.push(`button_hover-theme_${hoverTheme}`);
+    if (disabled) classes.push("button_disabled");
+    if (hidden) classes.push("button_hidden");
 
-    if href
-        a(class=classes, href=href, data-action=dataAction, tabindex=(isActiveTabindex ? false : -1)) #{text}
-            if icon
-                .button__icon #{icon}
-    else
-        button(class=classes, type=type, data-action=dataAction, tabindex=(isActiveTabindex ? false : -1)) #{text}       
+  if href
+    a(class=classes, href=href, data-action=dataAction, tabindex=(isActiveTabindex ? false : -1)) #{text}
+      if icon
+        .button__icon #{icon}
+  else
+    button(class=classes, type=type, data-action=dataAction, tabindex=(isActiveTabindex ? false : -1)) #{text}       

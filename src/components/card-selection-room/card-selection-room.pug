@@ -3,41 +3,41 @@ include /dropdown/dropdown.pug
 include /button/button.pug
 
 mixin card-selection-room(options = {})
-    -
-        const {
-            title = "Найдём номера под ваши пожелания",
-            dateRange = {},
-            dropdownGuest = {
-                head: { title: 'Гости' },
-                text: 'Сколько гостей',
-                variations: {
-                    adults:  ["гость", "гостя", "гостей"],
-                    babies: ["младенец", "младенца", "младенцев"],
-                },
-                counters: [
-                    { text: "взрослые", group: "adults", value: 0 },
-                    { text: "дети", group: "adults", value: 0 },
-                    { text: "младенцы", group: "babies", value: 0 },
-                ],
-                withControls: true,
-            },
-            searchButtonRoom = "подобрать номер",
-            searchButtonRoomHref = "./search-room.html",
-            formAction = "/mock-address/change-me",
-        } = options;
-    
-    .card-selection-room
-        h2.card-selection-room__title #{title}
-        form.card-selection-room__form(action=formAction, method="post")
-            .card-selection-room__date-range
-                +date-range(dateRange)
-            .card-selection-room__dropdown-guest
-                +dropdown(dropdownGuest)
-            .card-selection-room__search-button
-                +button({
-                    href: searchButtonRoomHref,
-                    text: searchButtonRoom,
-                    theme: "default-long",
-                    icon: "arrow_forward",
-                    isActiveTabindex: true,
-                })
+  -
+    const {
+      title = "Найдём номера под ваши пожелания",
+      dateRange = {},
+      dropdownGuest = {
+        head: { title: 'Гости' },
+        text: 'Сколько гостей',
+        variations: {
+          adults:  ["гость", "гостя", "гостей"],
+          babies: ["младенец", "младенца", "младенцев"],
+        },
+        counters: [
+          { text: "взрослые", group: "adults", value: 0 },
+          { text: "дети", group: "adults", value: 0 },
+          { text: "младенцы", group: "babies", value: 0 },
+        ],
+        withControls: true,
+      },
+      searchButtonRoom = "подобрать номер",
+      searchButtonRoomHref = "./search-room.html",
+      formAction = "/mock-address/change-me",
+    } = options;
+
+  .card-selection-room
+    h2.card-selection-room__title #{title}
+    form.card-selection-room__form(action=formAction, method="post")
+      .card-selection-room__date-range
+        +date-range(dateRange)
+      .card-selection-room__dropdown-guest
+        +dropdown(dropdownGuest)
+      .card-selection-room__search-button
+        +button({
+          href: searchButtonRoomHref,
+          text: searchButtonRoom,
+          theme: "default-long",
+          icon: "arrow_forward",
+          isActiveTabindex: true,
+        })

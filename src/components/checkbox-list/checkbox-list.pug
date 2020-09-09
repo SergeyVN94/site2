@@ -2,11 +2,11 @@ include /block-head/block-head.pug
 include /checkbox-button/checkbox-button.pug
 
 mixin checkbox-list({ items, head, withRichButtons })
-    .checkbox-list(class=(withRichButtons ? "checkbox-list_with-rich-buttons" : ""))
-        if head
-            .checkbox-list__head
-                +block-head(head)
-        ul.checkbox-list__container
-            for item in items
-                li.checkbox-list__item
-                    +checkbox-button(item)
+  .checkbox-list(class=(withRichButtons ? "checkbox-list_with-rich-buttons" : ""))
+    if head
+      .checkbox-list__head
+        +block-head(head)
+    ul.checkbox-list__container
+      for item in items
+        li.checkbox-list__item
+          +checkbox-button(item)

@@ -30,383 +30,383 @@ include /footer/footer.pug
 include /footer-creative/footer-creative.pug
 
 block pageTitle
-    title ui-kit
+  title ui-kit
 
 block content
-    main.ui-kit
-        .ui-kit__head
-            +logo(true)
-        article.ui-kit__colors-and-texts
-            .ui-kit__colors-and-texts-container-content
-                .ui-kit__colors-and-texts-demo-colors
-                    +demo-colors([
-                        { name: "Dark Shade 100%", value: "#1F2041", squareBg: "#1F2041" },
-                        { name: "Dark Shade 75%", value: "#1F2041", squareBg: "rgba(31, 32, 65, 0.75)" },
-                        { name: "Dark Shade 50%", value: "#1F2041", squareBg: "rgba(31, 32, 65, 0.5)" },
-                        { name: "Dark Shade 25%", value: "#1F2041", squareBg: "rgba(31, 32, 65, 0.25)" },
-                        { name: "Dark Shade 5%", value: "#1F2041", squareBg: "rgba(31, 32, 65, 0.05)" },
-                        { name: "Purple", value: "#BC9CFF", squareBg: "#BC9CFF" },
-                        { name: "Green", value: "#6FCF97", squareBg: "#6FCF97" },
-                    ])
-                .ui-kit__colors-and-texts-demo-text
-                    +demo-text([
-                        {
-                            title: "H1",
-                            example: "This one is the sub-section or widget title",
-                            theme: "h1",
-                        },
-                        {
-                            title: "H2",
-                            example: "Next one is the item title inside widgets",
-                            theme: "h2",
-                        },
-                        {
-                            title: "H3",
-                            example: "This is a label or CTA text",
-                            theme: "h3",
-                        },
-                        {
-                            title: "Body",
-                            example: "This is the body text which is used for most of the design, like paragraphs, lists, etc.",
-                            theme: "body",
-                        },
-                    ])
-        article.ui-kit__form-elements
-            .ui-kit__form-elements-container-content
-                .ui-kit__form-elements-row
-                    .ui-kit__form-elements-column
-                        .ui-kit__form-elements-item
-                            +text-field({
-                                head: { title: "text field", help: "default" },
-                                placeholder: "Email",
-                                type: "email",
-                            })
-                        .ui-kit__form-elements-item
-                            +text-field({
-                                head: { title: "subscription text field", help: "default" },
-                                placeholder: "Email",
-                                iconRight: "arrow_forward",
-                                type: "email",
-                            })
-                        .ui-kit__form-elements-item
-                            +text-field({
-                                head: { title: "masked text field", help: "default" },
-                                placeholder: "ДД.ММ.ГГГГ",
-                                mask: "00.00.0000",
-                            })
-                        .ui-kit__form-elements-item
-                            +dropdown({
-                                head: { title: "dropdown", help: "default" },
-                                text: 'Сколько гостей',
-                                variations: {
-                                    adults:  ["гость", "гостя", "гостей"],
-                                    babies: ["младенец", "младенца", "младенцев"],
-                                },
-                                counters: [
-                                    { text: "взрослые", group: "adults", value: 0 },
-                                    { text: "дети", group: "adults", value: 0 },
-                                    { text: "младенцы", group: "babies", value: 0 },
-                                ],
-                                withControls: true,
-                            })
-                        .ui-kit__form-elements-item
-                            +date-range()
-                        .ui-kit__form-elements-item
-                            +filter-date-dropdown({ head: { title: "filter date dropdown" } })
-                    .ui-kit__form-elements-column
-                        .ui-kit__form-elements-item
-                            +checkbox-list({
-                                head: { title: "checkbox buttons" },
-                                items: [
-                                    {text: "Можно курить"},
-                                    {text: "Можно с питомцами"},
-                                    {text: "Можно пригласить гостей (до 10 человек)"},
-                                ]
-                            })
-                        .ui-kit__form-elements-item
-                            .ui-kit__radio-buttons
-                                .ui-kit__radio-buttons-head
-                                    +block-head({ title: "radio buttons" })
-                                .ui-kit__radio-buttons-container
-                                    .ui-kit__radio-button
-                                        +radio-button({ text: "Мужчина", group: "gender", checked: true })
-                                    .ui-kit__radio-button
-                                        +radio-button({ text: "Женщина", group: "gender" })
-                        .ui-kit__form-elements-item
-                            .ui-kit__toggle-buttons
-                                .ui-kit__toggle-buttons-head
-                                    +block-head({ title: "toggle" })
-                                .ui-kit__toggle-buttons-container
-                                    .ui-kit__toggle-button
-                                        +toggle-button({ text: "Получать спецпредложения", checked: true })
-                                    .ui-kit__toggle-button
-                                        +toggle-button({ text: "Получать спецпредложения" })
-                        .ui-kit__form-elements-item
-                            .ui-kit__like-buttons
-                                .ui-kit__like-buttons-head
-                                    +block-head({ title: "like button" })
-                                .ui-kit__like-buttons-container
-                                    .ui-kit__like-button
-                                        +like-button({ likes: 2 })
-                                    .ui-kit__like-button
-                                        +like-button({ likes: 12, checked: true })
-                        .ui-kit__form-elements-item
-                            .ui-kit__rating-buttons
-                                .ui-kit__rating-buttons-head
-                                    +block-head({ title: "rate button" })
-                                .ui-kit__rating-buttons-container
-                                    .ui-kit__rating
-                                        +rating(4)
-                                    .ui-kit__rating
-                                        +rating(5)
-                    .ui-kit__form-elements-column
-                        .ui-kit__form-elements-item
-                            +range-slider({
-                                range: [0, 16000],
-                                start: [5000, 10000],
-                                step: 1000,
-                                title: "range slider",
-                            })
-                        .ui-kit__form-elements-item
-                            .ui-kit__demo-buttons
-                                .ui-kit__demo-buttons-head
-                                    +block-head({ title: "buttons" })
-                                .ui-kit__demo-buttons-container
-                                    .ui-kit__demo-buttons-row
-                                        .ui-kit__demo-button
-                                            +button({ text: "click me" })
-                                        .ui-kit__demo-button
-                                            +button({ text: "click me", disabled: true })
-                                    .ui-kit__demo-buttons-row
-                                        .ui-kit__demo-button
-                                            +button({ text: "click me", theme: "light" })
-                                        .ui-kit__demo-button
-                                            +button({ text: "click me", disabled: true, theme: "light" })
-                                    .ui-kit__demo-buttons-row
-                                        .ui-kit__demo-button
-                                            +button({ text: "click me", theme: "text" })
-                                        .ui-kit__demo-button
-                                            +button({ text: "click me", theme: "text", textColor: "text-secondary" })
-                                    .ui-kit__demo-buttons-row
-                                        +button({
-                                            text: "перейти к оплате",
-                                            theme: "default-long",
-                                            icon: "arrow_forward",
-                                            href: "/mock-address/change-me",
-                                        })
-                        .ui-kit__form-elements-item
-                            +pagination({
-                                head: { title: "pagination" },
-                                bottomText: "1 – 12 из 100+ вариантов аренды",
-                            })
-                .ui-kit__form-elements-row
-                    .ui-kit__form-elements-column         
-                        .ui-kit__form-elements-item
-                            +dropdown({
-                                head: { title: 'удобства номера' },
-                                text: 'Удобства номера',
-                                variations: {
-                                    bedrooms: ["спальня", "спальни", "спален"],
-                                    beds: ["кровать","кровати","кроватей"],
-                                    bathrooms: ["ванная комната","ванные комнаты","ванныx комнат"],
-                                },
-                                counters: [
-                                    { text: "спальни", group: "bedrooms" },
-                                    { text: "кровати", group: "beds" },
-                                    { text: "ванные комнаты", group: "bathrooms" },
-                                ],
-                            })
-                        .ui-kit__form-elements-item
-                            +expandable-checkbox-list({
-                                title: "expandable checkbox list",
-                                items: [
-                                    {text: "Завтрак"},
-                                    {text: "Письменный стол"},
-                                    {text: "Стул для кормления"},
-                                    {text: "Кроватка"},
-                                    {text: "Телевизор"},
-                                    {text: "Шампунь"},
-                                    {text: "Телевизор"},
-                                    {text: "Шампунь"},
-                                ],
-                            })
-                    .ui-kit__form-elements-column
-                        .ui-kit__form-elements-item
-                            +checkbox-list({
-                                head: { title: "rich checkbox buttons" },
-                                withRichButtons: true,
-                                items: [
-                                    {
-                                        text: "Широкий коридор",
-                                        description: "Ширина коридоров в номере не менее 91 см.",
-                                    },
-                                    {
-                                        text: "Помощник для инвалидов",
-                                        description: "На 1 этаже вас встретит специалист  и проводит до номера.",
-                                    },
-                                ],
-                            })                        
-                    .ui-kit__form-elements-column
-                        +bullet-list({
-                            head: { title: "bullet list" },
-                            items: [
-                                "Нельзя с питомцами",
-                                "Без вечеринок и мероприятий",
-                                "Время прибытия — после 13:00, а выезд до 12:00",
-                            ],
-                        })
-                .ui-kit__form-elements-row
-                    .ui-kit__form-elements-column
-                        +room-advantages([
-                            {
-                                title: "Комфорт",
-                                description: "Шумопоглощающие стены",
-                                icon: "insert_emoticon",
-                            },
-                            {
-                                title: "Удобство",
-                                description: "Окно в каждой из спален",
-                                icon: "location_city",
-                            },
-                        ])
-                    .ui-kit__form-elements-column.ui-kit__form-elements-comment
-                        -const avatar = require("../../components/comment/images/user1.jpg").default;
-                        +comment({
-                            avatar,
-                            userName: "Мурад Сарафанов",
-                            publicationDate: "5 дней назад",
-                            likes: 12,
-                            text: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.",
-                        })
-        article.ui-kit__cards
-            .ui-kit__cards-container-content
-                .ui-kit__cards-column
-                    .ui-kit__cards-item
-                        +card-selection-room()
-                    .ui-kit__cards-item    
-                        +card-account-registration()
-                .ui-kit__cards-column
-                    .ui-kit__cards-item
-                        +card-book-room({
-                            roomHead: {
-                                roomNumber: 888,
-                                roomPrice: "9 990",
-                                isLuxury: true,
-                            },
-                            receipt: {
-                                total:  "38 081",
-                                items: [
-                                    {
-                                        text: "9 990₽ х 4 суток",
-                                        price: "39 960",
-                                    },
-                                    {
-                                        text: "Сбор за услуги: скидка 2 179₽",
-                                        price: "0",
-                                        icon: true,
-                                    },
-                                    {
-                                        text: "Сбор за дополнительные услуги",
-                                        price: "300",
-                                        icon: true,
-                                    },
-                                ],
-                            },
-                        })
-                    .ui-kit__cards-item
-                        +card-authentication()
-                .ui-kit__cards-column
-                    .ui-kit__cards-item
-                        +calendar()
-                    .ui-kit__cards-item
-                        -
-                            const images1 = [
-                                "888.jpg",
-                                "840.jpg",
-                                "888.jpg",
-                                "840.jpg",
-                            ].map((src) => ({src: require(`../../components/card-room-information/images/room-${src}`).default}));
-                            const images2 = [...images1].reverse();
-
-                        +card-room-information({
-                            images: images1,
-                            roomNumber: 888,
-                            roomPrice: "9 990",
-                            isLuxury: true,
-                            stars: 5,
-                            comments: 145,
-                        })
-                    .ui-kit__cards-item
-                        +card-room-information({
-                            images: images2,
-                            roomNumber: 840,
-                            roomPrice: "9 900",
-                            stars: 4,
-                            comments: 65,
-                        })
-        article.ui-kit__demo-headers-and-footers
+  main.ui-kit
+    .ui-kit__head
+      +logo(true)
+    article.ui-kit__colors-and-texts
+      .ui-kit__colors-and-texts-container-content
+        .ui-kit__colors-and-texts-demo-colors
+          +demo-colors([
+            { name: "Dark Shade 100%", value: "#1F2041", squareBg: "#1F2041" },
+            { name: "Dark Shade 75%", value: "#1F2041", squareBg: "rgba(31, 32, 65, 0.75)" },
+            { name: "Dark Shade 50%", value: "#1F2041", squareBg: "rgba(31, 32, 65, 0.5)" },
+            { name: "Dark Shade 25%", value: "#1F2041", squareBg: "rgba(31, 32, 65, 0.25)" },
+            { name: "Dark Shade 5%", value: "#1F2041", squareBg: "rgba(31, 32, 65, 0.05)" },
+            { name: "Purple", value: "#BC9CFF", squareBg: "#BC9CFF" },
+            { name: "Green", value: "#6FCF97", squareBg: "#6FCF97" },
+          ])
+        .ui-kit__colors-and-texts-demo-text
+          +demo-text([
+            {
+              title: "H1",
+              example: "This one is the sub-section or widget title",
+              theme: "h1",
+            },
+            {
+              title: "H2",
+              example: "Next one is the item title inside widgets",
+              theme: "h2",
+            },
+            {
+              title: "H3",
+              example: "This is a label or CTA text",
+              theme: "h3",
+            },
+            {
+              title: "Body",
+              example: "This is the body text which is used for most of the design, like paragraphs, lists, etc.",
+              theme: "body",
+            },
+          ])
+    article.ui-kit__form-elements
+      .ui-kit__form-elements-container-content
+        .ui-kit__form-elements-row
+          .ui-kit__form-elements-column
+            .ui-kit__form-elements-item
+              +text-field({
+                head: { title: "text field", help: "default" },
+                placeholder: "Email",
+                type: "email",
+              })
+            .ui-kit__form-elements-item
+              +text-field({
+                head: { title: "subscription text field", help: "default" },
+                placeholder: "Email",
+                iconRight: "arrow_forward",
+                type: "email",
+              })
+            .ui-kit__form-elements-item
+              +text-field({
+                head: { title: "masked text field", help: "default" },
+                placeholder: "ДД.ММ.ГГГГ",
+                mask: "00.00.0000",
+              })
+            .ui-kit__form-elements-item
+              +dropdown({
+                head: { title: "dropdown", help: "default" },
+                text: 'Сколько гостей',
+                variations: {
+                  adults:  ["гость", "гостя", "гостей"],
+                  babies: ["младенец", "младенца", "младенцев"],
+                },
+                counters: [
+                  { text: "взрослые", group: "adults", value: 0 },
+                  { text: "дети", group: "adults", value: 0 },
+                  { text: "младенцы", group: "babies", value: 0 },
+                ],
+                withControls: true,
+              })
+            .ui-kit__form-elements-item
+              +date-range()
+            .ui-kit__form-elements-item
+              +filter-date-dropdown({ head: { title: "filter date dropdown" } })
+          .ui-kit__form-elements-column
+            .ui-kit__form-elements-item
+              +checkbox-list({
+                head: { title: "checkbox buttons" },
+                items: [
+                  {text: "Можно курить"},
+                  {text: "Можно с питомцами"},
+                  {text: "Можно пригласить гостей (до 10 человек)"},
+                ]
+              })
+            .ui-kit__form-elements-item
+              .ui-kit__radio-buttons
+                .ui-kit__radio-buttons-head
+                  +block-head({ title: "radio buttons" })
+                .ui-kit__radio-buttons-container
+                  .ui-kit__radio-button
+                    +radio-button({ text: "Мужчина", group: "gender", checked: true })
+                  .ui-kit__radio-button
+                    +radio-button({ text: "Женщина", group: "gender" })
+            .ui-kit__form-elements-item
+              .ui-kit__toggle-buttons
+                .ui-kit__toggle-buttons-head
+                  +block-head({ title: "toggle" })
+                .ui-kit__toggle-buttons-container
+                  .ui-kit__toggle-button
+                    +toggle-button({ text: "Получать спецпредложения", checked: true })
+                  .ui-kit__toggle-button
+                    +toggle-button({ text: "Получать спецпредложения" })
+            .ui-kit__form-elements-item
+              .ui-kit__like-buttons
+                .ui-kit__like-buttons-head
+                  +block-head({ title: "like button" })
+                .ui-kit__like-buttons-container
+                  .ui-kit__like-button
+                    +like-button({ likes: 2 })
+                  .ui-kit__like-button
+                    +like-button({ likes: 12, checked: true })
+            .ui-kit__form-elements-item
+              .ui-kit__rating-buttons
+                .ui-kit__rating-buttons-head
+                  +block-head({ title: "rate button" })
+                .ui-kit__rating-buttons-container
+                  .ui-kit__rating
+                    +rating(4)
+                  .ui-kit__rating
+                    +rating(5)
+          .ui-kit__form-elements-column
+            .ui-kit__form-elements-item
+              +range-slider({
+                range: [0, 16000],
+                start: [5000, 10000],
+                step: 1000,
+                title: "range slider",
+              })
+            .ui-kit__form-elements-item
+              .ui-kit__demo-buttons
+                .ui-kit__demo-buttons-head
+                  +block-head({ title: "buttons" })
+                .ui-kit__demo-buttons-container
+                  .ui-kit__demo-buttons-row
+                    .ui-kit__demo-button
+                      +button({ text: "click me" })
+                    .ui-kit__demo-button
+                      +button({ text: "click me", disabled: true })
+                  .ui-kit__demo-buttons-row
+                    .ui-kit__demo-button
+                      +button({ text: "click me", theme: "light" })
+                    .ui-kit__demo-button
+                      +button({ text: "click me", disabled: true, theme: "light" })
+                  .ui-kit__demo-buttons-row
+                    .ui-kit__demo-button
+                      +button({ text: "click me", theme: "text" })
+                    .ui-kit__demo-button
+                      +button({ text: "click me", theme: "text", textColor: "text-secondary" })
+                  .ui-kit__demo-buttons-row
+                    +button({
+                      text: "перейти к оплате",
+                      theme: "default-long",
+                      icon: "arrow_forward",
+                      href: "/mock-address/change-me",
+                    })
+            .ui-kit__form-elements-item
+              +pagination({
+                head: { title: "pagination" },
+                bottomText: "1 – 12 из 100+ вариантов аренды",
+              })
+        .ui-kit__form-elements-row
+          .ui-kit__form-elements-column         
+            .ui-kit__form-elements-item
+              +dropdown({
+                head: { title: 'удобства номера' },
+                text: 'Удобства номера',
+                variations: {
+                  bedrooms: ["спальня", "спальни", "спален"],
+                  beds: ["кровать","кровати","кроватей"],
+                  bathrooms: ["ванная комната","ванные комнаты","ванныx комнат"],
+                },
+                counters: [
+                  { text: "спальни", group: "bedrooms" },
+                  { text: "кровати", group: "beds" },
+                  { text: "ванные комнаты", group: "bathrooms" },
+                ],
+              })
+            .ui-kit__form-elements-item
+              +expandable-checkbox-list({
+                title: "expandable checkbox list",
+                items: [
+                  {text: "Завтрак"},
+                  {text: "Письменный стол"},
+                  {text: "Стул для кормления"},
+                  {text: "Кроватка"},
+                  {text: "Телевизор"},
+                  {text: "Шампунь"},
+                  {text: "Телевизор"},
+                  {text: "Шампунь"},
+                ],
+              })
+          .ui-kit__form-elements-column
+            .ui-kit__form-elements-item
+              +checkbox-list({
+                head: { title: "rich checkbox buttons" },
+                withRichButtons: true,
+                items: [
+                  {
+                    text: "Широкий коридор",
+                    description: "Ширина коридоров в номере не менее 91 см.",
+                  },
+                  {
+                    text: "Помощник для инвалидов",
+                    description: "На 1 этаже вас встретит специалист  и проводит до номера.",
+                  },
+                ],
+              })                        
+          .ui-kit__form-elements-column
+            +bullet-list({
+              head: { title: "bullet list" },
+              items: [
+                "Нельзя с питомцами",
+                "Без вечеринок и мероприятий",
+                "Время прибытия — после 13:00, а выезд до 12:00",
+              ],
+            })
+        .ui-kit__form-elements-row
+          .ui-kit__form-elements-column
+            +room-advantages([
+              {
+                title: "Комфорт",
+                description: "Шумопоглощающие стены",
+                icon: "insert_emoticon",
+              },
+              {
+                title: "Удобство",
+                description: "Окно в каждой из спален",
+                icon: "location_city",
+              },
+            ])
+          .ui-kit__form-elements-column.ui-kit__form-elements-comment
+            -const avatar = require("../../components/comment/images/user1.jpg").default;
+            +comment({
+              avatar,
+              userName: "Мурад Сарафанов",
+              publicationDate: "5 дней назад",
+              likes: 12,
+              text: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.",
+            })
+    article.ui-kit__cards
+      .ui-kit__cards-container-content
+        .ui-kit__cards-column
+          .ui-kit__cards-item
+            +card-selection-room()
+          .ui-kit__cards-item    
+            +card-account-registration()
+        .ui-kit__cards-column
+          .ui-kit__cards-item
+            +card-book-room({
+              roomHead: {
+                roomNumber: 888,
+                roomPrice: "9 990",
+                isLuxury: true,
+              },
+              receipt: {
+                total:  "38 081",
+                items: [
+                  {
+                    text: "9 990₽ х 4 суток",
+                    price: "39 960",
+                  },
+                  {
+                    text: "Сбор за услуги: скидка 2 179₽",
+                    price: "0",
+                    icon: true,
+                  },
+                  {
+                    text: "Сбор за дополнительные услуги",
+                    price: "300",
+                    icon: true,
+                  },
+                ],
+              },
+            })
+          .ui-kit__cards-item
+            +card-authentication()
+        .ui-kit__cards-column
+          .ui-kit__cards-item
+            +calendar()
+          .ui-kit__cards-item
             -
-                const menu = {
-                    items: [
-                        {text: "Home", selected: true},
-                        {text: "About Us"},
-                        {
-                            text: "Services",
-                            items: [
-                                {text: "example1"},
-                                {text: "example2"},
-                                {text: "example3"},
-                            ],
-                        },
-                        {text: "Careers"},
-                        {text: "News"},
-                        {text: "Documentation"}
-                    ]
-                };
+              const images1 = [
+                "888.jpg",
+                "840.jpg",
+                "888.jpg",
+                "840.jpg",
+              ].map((src) => ({src: require(`../../components/card-room-information/images/room-${src}`).default}));
+              const images2 = [...images1].reverse();
 
-            .ui-kit__header
-                +header({ menu })
-            .ui-kit__header
-                +header({ menu, user: "Cosmin Negoita" })
-            .ui-kit__footer
-                +footer({
-                    siteDescription: "Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.",
-                    subscribe: {
-                        title: "Subscribe to our newsletter",
-                        description: "Receive our latest news and promotions in your inbox!",
-                        placeholder: "Your email address",
-                    },
-                    navList: [
-                        {
-                            title: "navigation",
-                            items: [
-                                {text: "About Us"},
-                                {text: "News"},
-                                {text: "Support"},
-                                {text: "Products"},
-                            ],
-                        },
-                        {
-                            title: "about us",
-                            items: [
-                                {text: "Who we are"},
-                                {text: "Our team"},
-                                {text: "Careers"},
-                                {text: "Investors"},
-                            ],
-                        },
-                        {
-                            title: "Support",
-                            items: [
-                                {text: "Documentation"},
-                                {text: "Community"},
-                                {text: "Get in Touch"},
-                            ],
-                        },
-                    ],
-                    copyrightBar: { copyright: "Copyright © 2018 Toxin UI Kit. All rights reserved." },
-                })
-            .ui-kit__footer-creative
-                +footer-creative({
-                    siteDescription: "Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.",
-                })
+            +card-room-information({
+              images: images1,
+              roomNumber: 888,
+              roomPrice: "9 990",
+              isLuxury: true,
+              stars: 5,
+              comments: 145,
+            })
+          .ui-kit__cards-item
+            +card-room-information({
+              images: images2,
+              roomNumber: 840,
+              roomPrice: "9 900",
+              stars: 4,
+              comments: 65,
+            })
+    article.ui-kit__demo-headers-and-footers
+      -
+        const menu = {
+          items: [
+            {text: "Home", selected: true},
+            {text: "About Us"},
+            {
+              text: "Services",
+              items: [
+                {text: "example1"},
+                {text: "example2"},
+                {text: "example3"},
+              ],
+            },
+            {text: "Careers"},
+            {text: "News"},
+            {text: "Documentation"}
+          ]
+        };
+
+      .ui-kit__header
+        +header({ menu })
+      .ui-kit__header
+        +header({ menu, user: "Cosmin Negoita" })
+      .ui-kit__footer
+        +footer({
+          siteDescription: "Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.",
+          subscribe: {
+            title: "Subscribe to our newsletter",
+            description: "Receive our latest news and promotions in your inbox!",
+            placeholder: "Your email address",
+          },
+          navList: [
+            {
+              title: "navigation",
+              items: [
+                {text: "About Us"},
+                {text: "News"},
+                {text: "Support"},
+                {text: "Products"},
+              ],
+            },
+            {
+              title: "about us",
+              items: [
+                {text: "Who we are"},
+                {text: "Our team"},
+                {text: "Careers"},
+                {text: "Investors"},
+              ],
+            },
+            {
+              title: "Support",
+              items: [
+                {text: "Documentation"},
+                {text: "Community"},
+                {text: "Get in Touch"},
+              ],
+            },
+          ],
+          copyrightBar: { copyright: "Copyright © 2018 Toxin UI Kit. All rights reserved." },
+        })
+      .ui-kit__footer-creative
+        +footer-creative({
+          siteDescription: "Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.",
+        })

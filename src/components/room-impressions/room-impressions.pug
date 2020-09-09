@@ -1,145 +1,145 @@
 include /block-head/block-head.pug
 
 mixin room-impressions({ items, title = "Впечатления от номера" })
-    .room-impressions.js-room-impressions
-        .room-impressions__head
-            +block-head({
-                title,
-                isTitleThemeH2: true,
-            })   
-        .room-impressions__body
-            -
-                const isPropertyExists = function isPropertyExists(obj, key) {
-                    return Object.hasOwnProperty.apply(obj, [key]);
-                };
+  .room-impressions.js-room-impressions
+    .room-impressions__head
+      +block-head({
+        title,
+        isTitleThemeH2: true,
+      })   
+    .room-impressions__body
+      -
+        const isPropertyExists = function isPropertyExists(obj, key) {
+          return Object.hasOwnProperty.apply(obj, [key]);
+        };
 
-                const isCorrectItem = function isCorrectItem(items, key) {
-                    const isNumber = typeof items[key] === "number";                  
-                    return isPropertyExists(items, key) && isNumber && items[key] >= 0;
-                };
+        const isCorrectItem = function isCorrectItem(items, key) {
+          const isNumber = typeof items[key] === "number";                  
+          return isPropertyExists(items, key) && isNumber && items[key] >= 0;
+        };
 
-                const degreesToRadians = (degrees) => (degrees * Math.PI) / 180;
-                const cos = (degrees) => Math.cos(degreesToRadians(degrees));
-                const sin = (degrees) => Math.sin(degreesToRadians(degrees));
+        const degreesToRadians = (degrees) => (degrees * Math.PI) / 180;
+        const cos = (degrees) => Math.cos(degreesToRadians(degrees));
+        const sin = (degrees) => Math.sin(degreesToRadians(degrees));
 
-                const KEYS = ["Разочарован", "Удовлетворительно", "Хорошо", "Великолепно"];
-                const GRADIENTS = { 
-                    "Разочарован": "bad",
-                    "Удовлетворительно": "fine",
-                    "Хорошо": "good",
-                    "Великолепно": "veryGood",
-                };
-                const THEMES = { 
-                    "Разочарован": "bad",
-                    "Удовлетворительно": "fine",
-                    "Хорошо": "good",
-                    "Великолепно": "very-good",
-                };
+        const KEYS = ["Разочарован", "Удовлетворительно", "Хорошо", "Великолепно"];
+        const GRADIENTS = { 
+          "Разочарован": "bad",
+          "Удовлетворительно": "fine",
+          "Хорошо": "good",
+          "Великолепно": "veryGood",
+        };
+        const THEMES = { 
+          "Разочарован": "bad",
+          "Удовлетворительно": "fine",
+          "Хорошо": "good",
+          "Великолепно": "very-good",
+        };
 
-                const FULL_RADIUS = 60;
-                const LINE_WIDTH = 4;
-                const LINE_WIDTH_EXPANDED = 10;
-                const RADIUS = FULL_RADIUS - (LINE_WIDTH / 2);
-                const RADIUS_EXPANDED = FULL_RADIUS - (LINE_WIDTH_EXPANDED / 2);
+        const FULL_RADIUS = 60;
+        const LINE_WIDTH = 4;
+        const LINE_WIDTH_EXPANDED = 10;
+        const RADIUS = FULL_RADIUS - (LINE_WIDTH / 2);
+        const RADIUS_EXPANDED = FULL_RADIUS - (LINE_WIDTH_EXPANDED / 2);
 
-                const VALID_KEYS = KEYS.filter((key) => isCorrectItem(items, key));
-                const totalVotes = VALID_KEYS
-                    .map((key) => items[key])
-                    .reduce((acc, val) => acc + val);
+        const VALID_KEYS = KEYS.filter((key) => isCorrectItem(items, key));
+        const totalVotes = VALID_KEYS
+          .map((key) => items[key])
+          .reduce((acc, val) => acc + val);
 
-                const LINE_INDENT = 1; // градусы
+        const LINE_INDENT = 1; // градусы
 
-                const paths = {};
+        const paths = {};
 
-                const getX = (degrees, radius = RADIUS) => FULL_RADIUS + (radius * cos(degrees));
-                const getY = (degrees, radius = RADIUS) => FULL_RADIUS + (radius * sin(degrees));
+        const getX = (degrees, radius = RADIUS) => FULL_RADIUS + (radius * cos(degrees));
+        const getY = (degrees, radius = RADIUS) => FULL_RADIUS + (radius * sin(degrees));
 
-                if (totalVotes) {
-                    const lastPos = {
-                        x: getX(LINE_INDENT),
-                        y: getY(LINE_INDENT),
-                    };
+        if (totalVotes) {
+          const lastPos = {
+            x: getX(LINE_INDENT),
+            y: getY(LINE_INDENT),
+          };
 
-                    const lastPosExpanded= {
-                        x: getX(LINE_INDENT, RADIUS_EXPANDED),
-                        y: getY(LINE_INDENT, RADIUS_EXPANDED),
-                    };
+          const lastPosExpanded= {
+            x: getX(LINE_INDENT, RADIUS_EXPANDED),
+            y: getY(LINE_INDENT, RADIUS_EXPANDED),
+          };
 
-                    let sumDegrees = LINE_INDENT;
+          let sumDegrees = LINE_INDENT;
 
-                    VALID_KEYS.forEach((key) => {
-                        const degrees = ((items[key] / totalVotes) * 360) - (LINE_INDENT * 2);
-                        sumDegrees += degrees;
-                    
-                        const x = getX(sumDegrees);
-                        const y = getY(sumDegrees);
+          VALID_KEYS.forEach((key) => {
+            const degrees = ((items[key] / totalVotes) * 360) - (LINE_INDENT * 2);
+            sumDegrees += degrees;
 
-                        const expX = getX(sumDegrees, RADIUS_EXPANDED);
-                        const expY = getY(sumDegrees, RADIUS_EXPANDED);
+            const x = getX(sumDegrees);
+            const y = getY(sumDegrees);
 
-                        const magicNumber = degrees > 180 ? 1 : 0;
-                        const path = `M${lastPos.x} ${lastPos.y} A ${RADIUS} ${RADIUS} 0 ${magicNumber} 1 ${x} ${y}`;
-                        const pathExpanded = `M${lastPosExpanded.x} ${lastPosExpanded.y} A ${RADIUS_EXPANDED} ${RADIUS_EXPANDED} 0 ${magicNumber} 1 ${expX} ${expY}`;
-                        paths[key] = {};
-                        paths[key].path = path;
-                        paths[key].pathExpanded = pathExpanded;
+            const expX = getX(sumDegrees, RADIUS_EXPANDED);
+            const expY = getY(sumDegrees, RADIUS_EXPANDED);
 
-                        sumDegrees += LINE_INDENT * 2;
-                        lastPos.x = getX(sumDegrees);
-                        lastPos.y = getY(sumDegrees);
-                        lastPosExpanded.x = getX(sumDegrees, RADIUS_EXPANDED);
-                        lastPosExpanded.y = getY(sumDegrees, RADIUS_EXPANDED);
-                    });
-                }
+            const magicNumber = degrees > 180 ? 1 : 0;
+            const path = `M${lastPos.x} ${lastPos.y} A ${RADIUS} ${RADIUS} 0 ${magicNumber} 1 ${x} ${y}`;
+            const pathExpanded = `M${lastPosExpanded.x} ${lastPosExpanded.y} A ${RADIUS_EXPANDED} ${RADIUS_EXPANDED} 0 ${magicNumber} 1 ${expX} ${expY}`;
+            paths[key] = {};
+            paths[key].path = path;
+            paths[key].pathExpanded = pathExpanded;
 
-            .room-impressions__diagram.js-room-impressions__diagram
-                svg.room-impressions__diagram-image.js-room-impressions__diagram-image(width="100%", height="100%", fill="none", xmlns="http://www.w3.org/2000/svg", data-items=JSON.stringify(items))
-                    for key in VALID_KEYS
-                        -const stroke = `url(#linear-gradient-${GRADIENTS[key]})`;
-                        path(
-                            d=paths[key].path,
-                            stroke-width=LINE_WIDTH
-                            fill="none",
-                            stroke=stroke,
-                            data-value=items[key],
-                            data-path=paths[key].path,
-                            data-path-expanded=paths[key].pathExpanded,
-                            data-stroke-width=LINE_WIDTH,
-                            data-stroke-width-expanded=LINE_WIDTH_EXPANDED,
-                            data-theme=THEMES[key],
-                        )
+            sumDegrees += LINE_INDENT * 2;
+            lastPos.x = getX(sumDegrees);
+            lastPos.y = getY(sumDegrees);
+            lastPosExpanded.x = getX(sumDegrees, RADIUS_EXPANDED);
+            lastPosExpanded.y = getY(sumDegrees, RADIUS_EXPANDED);
+          });
+        }
 
-                    linearGradient(id="linear-gradient-bad")
-                        stop(stop-color="#919191")
-                        stop(offset="1" stop-color="#3D4975")
+      .room-impressions__diagram.js-room-impressions__diagram
+        svg.room-impressions__diagram-image.js-room-impressions__diagram-image(width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg", data-items=JSON.stringify(items))
+          for key in VALID_KEYS
+            -const stroke = `url(#linear-gradient-${GRADIENTS[key]})`;
+            path(
+              d=paths[key].path,
+              stroke-width=LINE_WIDTH
+              fill="none",
+              stroke=stroke,
+              data-value=items[key],
+              data-path=paths[key].path,
+              data-path-expanded=paths[key].pathExpanded,
+              data-stroke-width=LINE_WIDTH,
+              data-stroke-width-expanded=LINE_WIDTH_EXPANDED,
+              data-theme=THEMES[key],
+            )
 
-                    linearGradient(id="linear-gradient-fine")
-                        stop(stop-color="#BC9CFF")
-                        stop(offset="1" stop-color="#8BA4F9")
+          linearGradient(id="linear-gradient-bad")
+            stop(stop-color="#919191")
+            stop(offset="1" stop-color="#3D4975")
 
-                    linearGradient(id="linear-gradient-good")
-                        stop(stop-color="#6FCF97")
-                        stop(offset="1" stop-color="#66D2EA")
+          linearGradient(id="linear-gradient-fine")
+            stop(stop-color="#BC9CFF")
+            stop(offset="1" stop-color="#8BA4F9")
 
-                    linearGradient(id="linear-gradient-veryGood")
-                        stop(stop-color="#FFBA9C")
-                        stop(offset="1" stop-color="#FFE39C")
+          linearGradient(id="linear-gradient-good")
+            stop(stop-color="#6FCF97")
+            stop(offset="1" stop-color="#66D2EA")
 
-                .room-impressions__diagram-counter
-                    p.room-impressions__value.js-room-impressions__value #{totalVotes}
-                    p.room-impressions__label голосов
-            ul.room-impressions__help-list
-                -
-                    const helpItems = [
-                        {text: "Великолепно", theme: "very-good"},
-                        {text: "Хорошо", theme: "good"},
-                        {text: "Удовлетворительно", theme: "fine"},
-                        {text: "Разочарован", theme: "bad"},
-                    ];
-                
-                for helpItem in helpItems
-                    -const {text, theme} = helpItem;
-                    li.room-impressions__help-item.js-room-impressions__help-item(data-theme=theme, data-value=(items[text] || "0"))
-                        .room-impressions__marker-container
-                            .room-impressions__help-marker
-                        p.room-impressions__help-item-text #{text}
+          linearGradient(id="linear-gradient-veryGood")
+            stop(stop-color="#FFBA9C")
+            stop(offset="1" stop-color="#FFE39C")
+
+        .room-impressions__diagram-counter
+          p.room-impressions__value.js-room-impressions__value #{totalVotes}
+          p.room-impressions__label голосов
+      ul.room-impressions__help-list
+        -
+          const helpItems = [
+            {text: "Великолепно", theme: "very-good"},
+            {text: "Хорошо", theme: "good"},
+            {text: "Удовлетворительно", theme: "fine"},
+            {text: "Разочарован", theme: "bad"},
+          ];
+
+        for helpItem in helpItems
+          -const {text, theme} = helpItem;
+          li.room-impressions__help-item.js-room-impressions__help-item(data-theme=theme, data-value=(items[text] || "0"))
+            .room-impressions__marker-container
+              .room-impressions__help-marker
+            p.room-impressions__help-item-text #{text}

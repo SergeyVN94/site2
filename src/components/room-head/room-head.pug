@@ -1,21 +1,21 @@
 mixin room-head(options = {})
-    -
-        const {
-            roomNumber = 0,
-            isRoomNumberMiddle,
-            roomNumberHref = "./room-details.html",
-            roomPrice = 0,
-            pricePeriod = "в сутки",
-            isLuxury = false,
-            luxuryText = "люкс",
-        } = options;
+  -
+    const {
+      roomNumber = 0,
+      isRoomNumberMiddle,
+      roomNumberHref = "./room-details.html",
+      roomPrice = 0,
+      pricePeriod = "в сутки",
+      isLuxury = false,
+      luxuryText = "люкс",
+    } = options;
 
-    .room-head
-        a.room-head__room-info(href=roomNumberHref, tabindex="-1")
-            span.room-head__number-prefix #{"№ "}
-            span.room-head__room-number(class=(isRoomNumberMiddle ? "room-head__room-number_theme_h2" : "")) #{roomNumber}
-            if isLuxury
-                span.room-head__luxury #{luxuryText}
-        p.room-head__price-container
-            span.room-head__price #{`${roomPrice}₽`}
-            span.room-head__price-period #{pricePeriod}
+  .room-head
+    a.room-head__room-info(href=roomNumberHref, tabindex="-1")
+      span.room-head__number-prefix #{"№ "}
+      span.room-head__room-number(class=(isRoomNumberMiddle ? "room-head__room-number_theme_h2" : "")) #{roomNumber}
+      if isLuxury
+        span.room-head__luxury #{luxuryText}
+    p.room-head__price-container
+      span.room-head__price #{`${roomPrice}₽`}
+      span.room-head__price-period #{pricePeriod}

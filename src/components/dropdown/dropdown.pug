@@ -2,58 +2,58 @@ include /block-head/block-head.pug
 include /button/button.pug
 
 mixin dropdown(options)
-    -
-        const {
-            text,
-            head,
-            isOpened = false,
-            variations = {},
-            counters = [],
-            withControls = false,
-            buttonApply = "применить",
-            buttonClear = "очистить",
-        } = options;
+  -
+    const {
+      text,
+      head,
+      isOpened = false,
+      variations = {},
+      counters = [],
+      withControls = false,
+      buttonApply = "применить",
+      buttonClear = "очистить",
+    } = options;
 
-    .dropdown.js-dropdown(class=(isOpened ? "dropdown_opened" : ""), data-variations=JSON.stringify(variations))
-        if head
-            .dropdown__block-head
-                +block-head(head)
-        .dropdown__container
-            .dropdown__head.js-dropdown__head
-                p.dropdown__head-text.js-dropdown__head-text #{text}
-                +button({ text: "expand_more", theme: "icon" })
-            if counters.length
-                .dropdown__body.js-dropdown__body
-                    for counter in counters
-                        -const { text: counterText, group, value = 0 } = counter;
-                        .dropdown__counter
-                            .dropdown__counter-text #{counterText}
-                            .dropdown__counter-controls
-                                +button({
-                                    dataAction: "minus",
-                                    text: "-",
-                                    theme: "round-little",
-                                    disabled: (value === 0),
-                                })
-                                p.dropdown__counter-out.js-dropdown__counter-out(data-group=group) #{value}
-                                +button({
-                                    dataAction: "plus",
-                                    text: "+",
-                                    theme: "round-little",
-                                })
-                    if withControls
-                        .dropdown__controls
-                            .dropdown__button-clear
-                                +button({
-                                    dataAction: "clear",
-                                    text: buttonClear,
-                                    theme: "text",
-                                    textColor: "text-secondary",
-                                    hidden: true,
-                                })
-                            .dropdown__button-apply
-                                +button({
-                                    dataAction: "apply",
-                                    text: buttonApply,
-                                    theme: "text",
-                                })
+  .dropdown.js-dropdown(class=(isOpened ? "dropdown_opened" : ""), data-variations=JSON.stringify(variations))
+    if head
+      .dropdown__block-head
+        +block-head(head)
+    .dropdown__container
+      .dropdown__head.js-dropdown__head
+        p.dropdown__head-text.js-dropdown__head-text #{text}
+        +button({ text: "expand_more", theme: "icon" })
+      if counters.length
+        .dropdown__body.js-dropdown__body
+          for counter in counters
+            -const { text: counterText, group, value = 0 } = counter;
+            .dropdown__counter
+              .dropdown__counter-text #{counterText}
+              .dropdown__counter-controls
+                +button({
+                  dataAction: "minus",
+                  text: "-",
+                  theme: "round-little",
+                  disabled: (value === 0),
+                })
+                p.dropdown__counter-out.js-dropdown__counter-out(data-group=group) #{value}
+                +button({
+                  dataAction: "plus",
+                  text: "+",
+                  theme: "round-little",
+                })
+          if withControls
+            .dropdown__controls
+              .dropdown__button-clear
+                +button({
+                  dataAction: "clear",
+                  text: buttonClear,
+                  theme: "text",
+                  textColor: "text-secondary",
+                  hidden: true,
+                })
+              .dropdown__button-apply
+                +button({
+                  dataAction: "apply",
+                  text: buttonApply,
+                  theme: "text",
+                })

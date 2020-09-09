@@ -1,12 +1,12 @@
 include /checkbox-button/checkbox-button.pug
 
 mixin expandable-checkbox-list({ title, items, expandButtonIcon = "expand_more" })
-    .expandable-checkbox-list.js-expandable-checkbox-list
-        .expandable-checkbox-list__head.js-expandable-checkbox-list__head
-            h3.expandable-checkbox-list__title #{title}
-            .expandable-checkbox-list__button
-                +button({ text: expandButtonIcon, theme: "icon" })
-        .expandable-checkbox-list__body
-            for item in items
-                .expandable-checkbox-list__checkbox
-                    +checkbox-button(item)
+  .expandable-checkbox-list.js-expandable-checkbox-list
+    .expandable-checkbox-list__head.js-expandable-checkbox-list__head
+      h3.expandable-checkbox-list__title #{title}
+      .expandable-checkbox-list__button
+        +button({ text: expandButtonIcon, theme: "icon" })
+    .expandable-checkbox-list__body
+      for item in items
+        .expandable-checkbox-list__checkbox
+          +checkbox-button(item)

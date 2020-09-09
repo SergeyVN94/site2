@@ -1,18 +1,18 @@
 include /block-head/block-head.pug
 
 mixin room-advantages(items, title)
-    .room-advantages
-        if title
-            .room-advantages__head
-                +block-head({
-                    title,
-                    isTitleThemeH2: true,
-                })
-        .room-advantages__container
-            for item in items
-                -const { icon, title, description } = item;
-                .room-advantages__list
-                    .room-advantages__icon #{icon}
-                    .room-advantages__text-container
-                        p.room-advantages__item-title #{title}
-                        p.room-advantages__item-description #{description}
+  .room-advantages
+    if title
+      .room-advantages__head
+        +block-head({
+          title,
+          isTitleThemeH2: true,
+        })
+    .room-advantages__container
+      for item in items
+        -const { icon, title, description } = item;
+        .room-advantages__list
+          .room-advantages__icon #{icon}
+          .room-advantages__text-container
+            p.room-advantages__item-title #{title}
+            p.room-advantages__item-description #{description}

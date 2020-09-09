@@ -1,14 +1,14 @@
 include /social-icon/social-icon.pug
 
 mixin social-icons(icons)
-    -
-        icons = icons || [
-            {icon: "twitter", href: "https://twitter.com"},
-            {icon: "facebook-square", href: "https://ru-ru.facebook.com"},
-            {icon: "instagram", href: "https://www.instagram.com"},
-        ];
+  -
+    icons = icons || [
+      {icon: "twitter", href: "https://twitter.com"},
+      {icon: "facebook-square", href: "https://ru-ru.facebook.com"},
+      {icon: "instagram", href: "https://www.instagram.com"},
+    ];
 
-    .social-icons
-        for icon in icons
-            .social-icons__icon
-                +social-icon(icon)
+  .social-icons
+    for icon in icons
+      .social-icons__icon
+        +social-icon(icon)

@@ -4,75 +4,75 @@ include /toggle-button/toggle-button.pug
 include /button/button.pug
 
 mixin card-account-registration(options = {})
-    -
-        const {
-            title = "Регистрация аккаунта",
-            formAction = "/mock-address/change-me",
-            inputNamePlaceholder = "Имя",
-            inputSurnamePlaceholder = "Фамилия",
-            genderRadio = [
-                "Мужчина",
-                "Женщина",
-            ],
-            inputDateOfBirthTitle = "дата рождения",
-            inputDateOfBirthPlaceholder = "ДД.ММ.ГГГГ",
-            inputsAuthenticationTitle = "данные для входа в сервис",
-            inputEmailPlaceholder = "Email",
-            inputPasswordPlaceholder = "Пароль",
-            toggleButtonSpecialOffers = "Получать спецпредложения",
-            paymentButton = "перейти к оплате",
-            paymentButtonHref = "/mock-address/change-me",
-            userHasAccount = "Уже есть аккаунт на Toxin",
-            buttonSignIn = "войти",
-        } = options;
+  -
+    const {
+      title = "Регистрация аккаунта",
+      formAction = "/mock-address/change-me",
+      inputNamePlaceholder = "Имя",
+      inputSurnamePlaceholder = "Фамилия",
+      genderRadio = [
+        "Мужчина",
+        "Женщина",
+      ],
+      inputDateOfBirthTitle = "дата рождения",
+      inputDateOfBirthPlaceholder = "ДД.ММ.ГГГГ",
+      inputsAuthenticationTitle = "данные для входа в сервис",
+      inputEmailPlaceholder = "Email",
+      inputPasswordPlaceholder = "Пароль",
+      toggleButtonSpecialOffers = "Получать спецпредложения",
+      paymentButton = "перейти к оплате",
+      paymentButtonHref = "/mock-address/change-me",
+      userHasAccount = "Уже есть аккаунт на Toxin",
+      buttonSignIn = "войти",
+    } = options;
 
-        const radioButtonsGender = genderRadio.map((item) => ({text: item, group: "gender"}))
-        if (radioButtonsGender.length) {
-            radioButtonsGender[0].checked = true;
-        }
+    const radioButtonsGender = genderRadio.map((item) => ({text: item, group: "gender"}))
+    if (radioButtonsGender.length) {
+      radioButtonsGender[0].checked = true;
+    }
 
-    .card-account-registration
-        h2.card-account-registration__title #{title}
-        form.card-account-registration__form(action=formAction, method="post")
-            .card-account-registration__user-name
-                +text-field({ placeholder: inputNamePlaceholder })
-            .card-account-registration__user-surname
-                +text-field({ placeholder: inputSurnamePlaceholder })
-            .card-account-registration__genders
-                for item in radioButtonsGender
-                    .card-account-registration__gender
-                        +radio-button(item)
-            .card-account-registration__date-of-birth
-                +text-field({
-                    head: { title: inputDateOfBirthTitle },
-                    placeholder: inputDateOfBirthPlaceholder,
-                    mask: "00.00.0000",
-                })
-            .card-account-registration__email
-                +text-field({
-                    head: { title: inputsAuthenticationTitle },
-                    placeholder: inputEmailPlaceholder,
-                    type: "email",
-                })
-            .card-account-registration__password
-                +text-field({ placeholder: inputPasswordPlaceholder, type: "password" })
-            .card-account-registration__offer
-                +toggle-button({ text: toggleButtonSpecialOffers })
-            .card-account-registration__payment-button
-                +button({
-                    text: paymentButton,
-                    href: paymentButtonHref,
-                    theme: "default-long",
-                    icon: "arrow_forward",
-                    type: "submit",
-                    isActiveTabindex: true,
-                })
-        .card-account-registration__account-question
-            p.card-account-registration__account-question-text #{userHasAccount}
-            +button({
-                href: "./sign-in.html",
-                text: buttonSignIn,
-                theme: "light",
-                isHorizontalSizeBig: true,
-                isActiveTabindex: true,
-            })
+  .card-account-registration
+    h2.card-account-registration__title #{title}
+    form.card-account-registration__form(action=formAction, method="post")
+      .card-account-registration__user-name
+        +text-field({ placeholder: inputNamePlaceholder })
+      .card-account-registration__user-surname
+        +text-field({ placeholder: inputSurnamePlaceholder })
+      .card-account-registration__genders
+        for item in radioButtonsGender
+          .card-account-registration__gender
+            +radio-button(item)
+      .card-account-registration__date-of-birth
+        +text-field({
+          head: { title: inputDateOfBirthTitle },
+          placeholder: inputDateOfBirthPlaceholder,
+          mask: "00.00.0000",
+        })
+      .card-account-registration__email
+        +text-field({
+          head: { title: inputsAuthenticationTitle },
+          placeholder: inputEmailPlaceholder,
+          type: "email",
+        })
+      .card-account-registration__password
+        +text-field({ placeholder: inputPasswordPlaceholder, type: "password" })
+      .card-account-registration__offer
+        +toggle-button({ text: toggleButtonSpecialOffers })
+      .card-account-registration__payment-button
+        +button({
+          text: paymentButton,
+          href: paymentButtonHref,
+          theme: "default-long",
+          icon: "arrow_forward",
+          type: "submit",
+          isActiveTabindex: true,
+        })
+    .card-account-registration__account-question
+      p.card-account-registration__account-question-text #{userHasAccount}
+      +button({
+        href: "./sign-in.html",
+        text: buttonSignIn,
+        theme: "light",
+        isHorizontalSizeBig: true,
+        isActiveTabindex: true,
+      })

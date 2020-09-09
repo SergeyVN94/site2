@@ -2,11 +2,11 @@ include /block-head/block-head.pug
 include /comment/comment.pug
 
 mixin comments({ items, head })
-    .comments
-        if head
-            .comments__head
-                +block-head(head)
-        .comments__body
-            for item in items
-                .comments__comment
-                    +comment(item)
+  .comments
+    if head
+      .comments__head
+        +block-head(head)
+    .comments__body
+      for item in items
+        .comments__comment
+          +comment(item)

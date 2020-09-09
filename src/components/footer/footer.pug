@@ -4,30 +4,30 @@ include /text-field/text-field.pug
 include /copyright-bar/copyright-bar.pug
 
 mixin footer({ siteDescription, navList = [], subscribe = {}, copyrightBar = {} })
-    footer.footer
-        .footer__content
-            .footer__site-description
-                .footer__logo
-                    +logo()
-                p.footer__description #{siteDescription}
-            .footer__nav-container
-                for nav in navList
-                    .footer__nav
-                        p.footer__nav-title #{nav.title}
-                        .footer__nav-menu
-                            +menu({ items: nav.items, isVertical: true })
-            .footer__subscribe-container
-                -
-                    const {
-                        title,
-                        description,
-                        placeholder,
-                        formAction = "/mock-address/change-me",
-                    } = subscribe;
+  footer.footer
+    .footer__content
+      .footer__site-description
+        .footer__logo
+          +logo()
+        p.footer__description #{siteDescription}
+      .footer__nav-container
+        for nav in navList
+          .footer__nav
+            p.footer__nav-title #{nav.title}
+            .footer__nav-menu
+              +menu({ items: nav.items, isVertical: true })
+      .footer__subscribe-container
+        -
+          const {
+            title,
+            description,
+            placeholder,
+            formAction = "/mock-address/change-me",
+          } = subscribe;
 
-                p.footer__subscribe-title #{title}
-                p.footer__subscribe-description #{description}
-                form.footer__subscribe-text-field(action=formAction, method="post")
-                    +text-field({ placeholder, type: "email", iconRight: "arrow_forward" })
-        .footer__copyright
-            +copyright-bar(copyrightBar)
+        p.footer__subscribe-title #{title}
+        p.footer__subscribe-description #{description}
+        form.footer__subscribe-text-field(action=formAction, method="post")
+          +text-field({ placeholder, type: "email", iconRight: "arrow_forward" })
+    .footer__copyright
+      +copyright-bar(copyrightBar)

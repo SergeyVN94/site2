@@ -1,10 +1,10 @@
 mixin logo(isMinimality = false)
-    a.logo(href="./landing-page.html")
-        if isMinimality
-            .logo__icon
-                include ./images/icon.svg
-        else
-            .logo__icon-main
-                include ./images/icon-main.svg
-            .logo__text
-                include ./images/text.svg  
+  a.logo(href="./landing-page.html")
+    if isMinimality
+      .logo__icon
+        include ./images/icon.svg
+    else
+      .logo__icon-main
+        include ./images/icon-main.svg
+      .logo__text
+        include ./images/text.svg  

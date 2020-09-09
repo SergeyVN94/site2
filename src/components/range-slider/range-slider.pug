@@ -1,32 +1,32 @@
 include /block-head/block-head.pug
 
 mixin range-slider(options = {})
-    -
-        const {
-            step = 1,    
-            range = [0, step * 100],
-            start = [],
-            title,
-            bottomText,
-        } = options;
+  -
+    const {
+      step = 1,    
+      range = [0, step * 100],
+      start = [],
+      title,
+      bottomText,
+    } = options;
 
-        const [
-            rangeMin = 0,
-            rangeMax = step * 100,
-        ] = range;
+    const [
+      rangeMin = 0,
+      rangeMax = step * 100,
+    ] = range;
 
-        const [
-            startMin = rangeMin,
-            startMax = rangeMax,
-        ] = start;
+    const [
+      startMin = rangeMin,
+      startMax = rangeMax,
+    ] = start;
 
-    .range-slider.js-range-slider(data-range-min=rangeMin, data-range-max=rangeMax, data-step=step,data-start-min=startMin, data-start-max=startMax)
-        .range-slider__head
-            h3.range-slider__title #{title}
-            p.range-slider__out-range.js-range-slider__out-range
-        .range-slider__body.js-range-slider__body
-            .range-slider__point.js-range-slider__point(data-type="min")
-            .range-slider__point.js-range-slider__point(data-type="max")
-            .range-slider__bg-line.js-range-slider__bg-line
-        if bottomText
-            p.range-slider__bottom-text #{bottomText}
+  .range-slider.js-range-slider(data-range-min=rangeMin, data-range-max=rangeMax, data-step=step,data-start-min=startMin, data-start-max=startMax)
+    .range-slider__head
+      h3.range-slider__title #{title}
+      p.range-slider__out-range.js-range-slider__out-range
+    .range-slider__body.js-range-slider__body
+      .range-slider__point.js-range-slider__point(data-type="min")
+      .range-slider__point.js-range-slider__point(data-type="max")
+      .range-slider__bg-line.js-range-slider__bg-line
+    if bottomText
+      p.range-slider__bottom-text #{bottomText}

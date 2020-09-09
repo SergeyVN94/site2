@@ -3,31 +3,31 @@ include /room-head/room-head.pug
 include /rating/rating.pug
 
 mixin card-room-information(options = {})
-    -
-        const {
-            roomNumber = 0,
-            roomPrice = 0,
-            images = [],
-            isLuxury = false,
-            stars = 0,
-            comments = 0,
-            commentsHref = "./room-details.html#comments",
-        } = options;
+  -
+    const {
+      roomNumber = 0,
+      roomPrice = 0,
+      images = [],
+      isLuxury = false,
+      stars = 0,
+      comments = 0,
+      commentsHref = "./room-details.html#comments",
+    } = options;
 
-    .card-room-information
-        .card-room-information__image-slider
-            +image-slider(images)
-        .card-room-information__body
-            .card-room-information__head
-                +room-head({
-                    roomNumber,
-                    roomPrice,
-                    isLuxury,
-                    isRoomNumberMiddle: true,
-                })
-            .card-room-information__user-response
-                +rating(stars)
-                a.card-room-information__comments(href=commentsHref, tabindex="-1")
-                    span.card-room-information__comments-counter #{comments}
-                    //- Пробел перед словом "Отзывов"
-                    span.card-room-information__comments-text  Отзывов 
+  .card-room-information
+    .card-room-information__image-slider
+      +image-slider(images)
+    .card-room-information__body
+      .card-room-information__head
+        +room-head({
+          roomNumber,
+          roomPrice,
+          isLuxury,
+          isRoomNumberMiddle: true,
+        })
+      .card-room-information__user-response
+        +rating(stars)
+        a.card-room-information__comments(href=commentsHref, tabindex="-1")
+          span.card-room-information__comments-counter #{comments}
+          //- Пробел перед словом "Отзывов"
+          span.card-room-information__comments-text  Отзывов 

@@ -1,13 +1,13 @@
 mixin image-slider(images)
-    .image-slider.js-image-slider
-        .image-slider__container.js-image-slider__container
-            for image in images
-                -const { src, alt = "Image description template." } = image;
-                img.image-slider__image.js-image-slider__image(src=src, alt=alt)
-            .image-slider__indicators.js-image-slider__indicators
-                -for (let i = 0; i < images.length; i += 1)
-                    .image-slider__indicator.js-image-slider__indicator(data-index=i)
-        .image-slider__change-img.image-slider__change-img_direction_previous.js-image-slider__change-img_direction_previous
-            .image-slider__change-img-icon expand_more
-        .image-slider__change-img.image-slider__change-img_direction_next.js-image-slider__change-img_direction_next
-            .image-slider__change-img-icon expand_more
+  .image-slider.js-image-slider
+    .image-slider__container.js-image-slider__container
+      for image in images
+        -const { src, alt = "Image description template." } = image;
+        img.image-slider__image.js-image-slider__image(src=src, alt=alt)
+      .image-slider__indicators.js-image-slider__indicators
+        -for (let i = 0; i < images.length; i += 1)
+          .image-slider__indicator.js-image-slider__indicator(data-index=i)
+    .image-slider__change-img.image-slider__change-img_direction_previous.js-image-slider__change-img_direction_previous
+      .image-slider__change-img-icon expand_more
+    .image-slider__change-img.image-slider__change-img_direction_next.js-image-slider__change-img_direction_next
+      .image-slider__change-img-icon expand_more

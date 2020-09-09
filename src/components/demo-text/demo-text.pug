@@ -1,11 +1,11 @@
 mixin demo-text(items)
-    .demo-text
-        for item in items
-            -
-                const {title, example, theme} = item;
-                const itemClass = ([
-                    "h1", "h2", "h3", "body",
-                ].includes(theme)) ? `demo-text__item_theme_${theme}` : "";
-            .demo-text__item(class=itemClass)
-                p.demo-text__item-name #{title}
-                p.demo-text__item-value #{example}
+  .demo-text
+    for item in items
+      -
+        const {title, example, theme} = item;
+        const itemClass = ([
+          "h1", "h2", "h3", "body",
+        ].includes(theme)) ? `demo-text__item_theme_${theme}` : "";
+      .demo-text__item(class=itemClass)
+        p.demo-text__item-name #{title}
+        p.demo-text__item-value #{example}

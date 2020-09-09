@@ -5,46 +5,46 @@ include /button/button.pug
 include /dropdown/dropdown.pug
 
 mixin card-book-room(options = {})
-    -
-        const {
-            roomHead = {},
-            receipt = {},
-            dropdownGuest = {
-                head: { title: 'Гости' },
-                text: 'Сколько гостей',
-                variations: {
-                    adults:  ["гость", "гостя", "гостей"],
-                    babies: ["младенец", "младенца", "младенцев"],
-                },
-                counters: [
-                    { text: "взрослые", group: "adults", value: 0 },
-                    { text: "дети", group: "adults", value: 0 },
-                    { text: "младенцы", group: "babies", value: 0 },
-                ],
-                withControls: true,
-            },
-            dateRange = {},
-            bookingButton = "забронировать",
-            bookingButtonHref = "/mock-address/change-me",
-            formAction = "/mock-address/change-me",
-        } = options;
+  -
+    const {
+      roomHead = {},
+      receipt = {},
+      dropdownGuest = {
+        head: { title: 'Гости' },
+        text: 'Сколько гостей',
+        variations: {
+          adults:  ["гость", "гостя", "гостей"],
+          babies: ["младенец", "младенца", "младенцев"],
+        },
+        counters: [
+          { text: "взрослые", group: "adults", value: 0 },
+          { text: "дети", group: "adults", value: 0 },
+          { text: "младенцы", group: "babies", value: 0 },
+        ],
+        withControls: true,
+      },
+      dateRange = {},
+      bookingButton = "забронировать",
+      bookingButtonHref = "/mock-address/change-me",
+      formAction = "/mock-address/change-me",
+    } = options;
 
-    .card-book-room
-        .card-book-room__head
-            +room-head(roomHead)
-        form.card-book-room__form(action=formAction, method="post")
-            .card-book-room__date-range
-                +date-range(dateRange)
-            .card-book-room__dropdown-guest
-                +dropdown(dropdownGuest)
-            .card-book-room__receipt
-                +receipt(receipt)
-            .card-book-room__booking-button
-                +button({
-                    text: bookingButton,
-                    href: bookingButtonHref,
-                    theme: "default-long",
-                    icon: "arrow_forward",
-                    type: "submit",
-                    isActiveTabindex: true,
-                })
+  .card-book-room
+    .card-book-room__head
+      +room-head(roomHead)
+    form.card-book-room__form(action=formAction, method="post")
+      .card-book-room__date-range
+        +date-range(dateRange)
+      .card-book-room__dropdown-guest
+        +dropdown(dropdownGuest)
+      .card-book-room__receipt
+        +receipt(receipt)
+      .card-book-room__booking-button
+        +button({
+          text: bookingButton,
+          href: bookingButtonHref,
+          theme: "default-long",
+          icon: "arrow_forward",
+          type: "submit",
+          isActiveTabindex: true,
+        })

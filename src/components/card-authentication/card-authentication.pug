@@ -2,40 +2,40 @@ include /text-field/text-field.pug
 include /button/button.pug
 
 mixin card-authentication(options = {})
-    -
-        const {
-            title = "Войти",
-            formAction = "/mock-address/change-me",
-            inputEmailPlaceholder = "Email",
-            inputPasswordPlaceholder = "Пароль",
-            authenticationButton = "войти",
-            authenticationButtonHref = "/mock-address/change-me",
-            noAccount =  "Нет аккаунта на Toxin?",
-            createAccountButton = "создать",
-            createAccountButtonHref = "./registration.html",
-        } = options;
+  -
+    const {
+      title = "Войти",
+      formAction = "/mock-address/change-me",
+      inputEmailPlaceholder = "Email",
+      inputPasswordPlaceholder = "Пароль",
+      authenticationButton = "войти",
+      authenticationButtonHref = "/mock-address/change-me",
+      noAccount =  "Нет аккаунта на Toxin?",
+      createAccountButton = "создать",
+      createAccountButtonHref = "./registration.html",
+    } = options;
 
-    .card-authentication
-        h2.card-authentication__head #{title}
-        form.card-authentication__form(action=formAction, method="post")
-            .card-authentication__email
-                +text-field({ placeholder: inputEmailPlaceholder, type: "email" })
-            .card-authentication__password
-                +text-field({ placeholder: inputPasswordPlaceholder, type: "password" })
-            .card-authentication__button
-                +button({
-                    text: authenticationButton,
-                    href: authenticationButtonHref,
-                    icon: "arrow_forward",
-                    theme: "default-long",
-                    type: "submit",
-                    isActiveTabindex: true,
-                })
-        .card-authentication__invitation-register
-            p.card-authentication__invitation-register-text #{noAccount}
-            +button({
-                href: createAccountButtonHref,
-                text: createAccountButton,
-                theme: "light",
-                isActiveTabindex: true,
-            })
+  .card-authentication
+    h2.card-authentication__head #{title}
+    form.card-authentication__form(action=formAction, method="post")
+      .card-authentication__email
+        +text-field({ placeholder: inputEmailPlaceholder, type: "email" })
+      .card-authentication__password
+        +text-field({ placeholder: inputPasswordPlaceholder, type: "password" })
+      .card-authentication__button
+        +button({
+          text: authenticationButton,
+          href: authenticationButtonHref,
+          icon: "arrow_forward",
+          theme: "default-long",
+          type: "submit",
+          isActiveTabindex: true,
+        })
+    .card-authentication__invitation-register
+      p.card-authentication__invitation-register-text #{noAccount}
+      +button({
+        href: createAccountButtonHref,
+        text: createAccountButton,
+        theme: "light",
+        isActiveTabindex: true,
+      })

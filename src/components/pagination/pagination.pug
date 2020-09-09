@@ -2,67 +2,67 @@ include /block-head/block-head.pug
 include /button/button.pug
 
 mixin pagination(options = {})
-    -
-        const {
-            head,
-            bottomText,
-            buttons = [
-                {
-                    value: 1,
-                    type: "current",
-                },
-                { value: 2 },
-                { value: 3 },
-                { value: "..." },
-                { value: 15 },
-                { type: "next-page" },
-            ],
-        } = options;
+  -
+    const {
+      head,
+      bottomText,
+      buttons = [
+        {
+          value: 1,
+          type: "current",
+        },
+        { value: 2 },
+        { value: 3 },
+        { value: "..." },
+        { value: 15 },
+        { type: "next-page" },
+      ],
+    } = options;
 
-        const buttonsConfig = buttons.map((config) => {
-            const {
-                type = "default",
-                value = "",
-            } = config;
+    const buttonsConfig = buttons.map((config) => {
+      const {
+        type = "default",
+        value = "",
+      } = config;
 
-            if (type === "default") {
-                return {
-                    text: value,
-                    theme: "round",
-                    textColor: "text-secondary",
-                    hoverTheme: "gradient-primary",
-                    isActiveTabindex: true,
-                }
-            }
+      if (type === "default") {
+        return {
+          text: value,
+          theme: "round",
+          textColor: "text-secondary",
+          hoverTheme: "gradient-primary",
+          isActiveTabindex: true,
+        }
+      }
 
-            if (type === "current") {
-                return {
-                    text: value,
-                    theme: "round",
-                    isFontBold: true,
-                    background: "gradient-primary",
-                    hoverTheme: "gradient-primary",
-                    isActiveTabindex: true,
-                }
-            }
+      if (type === "current") {
+        return {
+          text: value,
+          theme: "round",
+          isFontBold: true,
+          background: "gradient-primary",
+          hoverTheme: "gradient-primary",
+          isActiveTabindex: true,
+        }
+      }
 
-            return {
-                text: "arrow_forward",
-                theme: "round-icon",
-                background: "gradient-success",
-                hoverTheme: "gradient-success",
-                isActiveTabindex: true,
-            }
-        });
+      return {
+        text: "arrow_forward",
+        theme: "round-icon",
+        background: "gradient-success",
+        hoverTheme: "gradient-success",
+        isActiveTabindex: true,
+      }
+    });
 
-    .pagination
-        if head
-            .pagination__head
-                +block-head(head)
-        .pagination__container
-            .pagination__buttons
-                for config in buttonsConfig
-                    .pagination__nav-button
-                        +button(config)
-            if bottomText
-                p.pagination__bottom-text #{bottomText}
+  .pagination
+    if head
+      .pagination__head
+        +block-head(head)
+    .pagination__container
+      .pagination__buttons
+        for config in buttonsConfig
+          .pagination__nav-button
+            +button(config)
+      if bottomText
+        p.pagination__bottom-text #{bottomText}

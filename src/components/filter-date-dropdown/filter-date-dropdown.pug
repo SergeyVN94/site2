@@ -3,13 +3,13 @@ include /button/button.pug
 include /calendar/calendar.pug
 
 mixin filter-date-dropdown({ head = {}, text = "Выберите дату" })
-    .filter-date-dropdown.js-filter-date-dropdown(class=(isOpened ? "filter-date-dropdown_opened" : ""))
-        if head
-            .filter-date-dropdown__block-head
-                +block-head(head)
-        .filter-date-dropdown__head.js-filter-date-dropdown__head
-            p.filter-date-dropdown__text.js-filter-date-dropdown__text #{text}
-            +button({ text: "expand_more", theme: "icon" })
-        .filter-date-dropdown__container
-            .filter-date-dropdown__calendar
-                +calendar()
+  .filter-date-dropdown.js-filter-date-dropdown(class=(isOpened ? "filter-date-dropdown_opened" : ""))
+    if head
+      .filter-date-dropdown__block-head
+        +block-head(head)
+    .filter-date-dropdown__head.js-filter-date-dropdown__head
+      p.filter-date-dropdown__text.js-filter-date-dropdown__text #{text}
+      +button({ text: "expand_more", theme: "icon" })
+    .filter-date-dropdown__container
+      .filter-date-dropdown__calendar
+        +calendar()

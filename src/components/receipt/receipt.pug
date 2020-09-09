@@ -1,14 +1,14 @@
 mixin receipt({ items, total = 0 })
-    .receipt
-        for item in items
-            -const { text, price, icon = false } = item;
-            .receipt__item
-                .receipt__text-container
-                    p.receipt__item-title #{text}
-                if icon
-                    .receipt__icon i
-                p.receipt__price #{price} 
-        .receipt__total-sum
-            p.receipt__total-sum-title Итого
-            .receipt__separate-line
-            p.receipt__total-sum-result #{`${total}₽`}
+  .receipt
+    for item in items
+      -const { text, price, icon = false } = item;
+      .receipt__item
+        .receipt__text-container
+          p.receipt__item-title #{text}
+        if icon
+          .receipt__icon i
+        p.receipt__price #{price} 
+    .receipt__total-sum
+      p.receipt__total-sum-title Итого
+      .receipt__separate-line
+      p.receipt__total-sum-result #{`${total}₽`}

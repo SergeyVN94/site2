@@ -1,24 +1,24 @@
 include /like-button/like-button.pug
 
 mixin comment(options)
-    -
-        const {
-            avatar,
-            userName,
-            publicationDate,
-            likes = 0,
-            text,
-            isLikeButtonChecked = false,
-        } = options;
-    
-    .comment
-        .comment__aside
-            .comment__avatar-container
-                img.comment__avatar-image(src=avatar, alt=userName)
-            .comment__like-button
-                +like-button({ likes, checked: isLikeButtonChecked })
-        .comment__main
-            .comment__head
-                p.comment__user-name #{userName}
-                p.comment__publication-date #{publicationDate}
-            p.comment__body #{text}
+  -
+    const {
+      avatar,
+      userName,
+      publicationDate,
+      likes = 0,
+      text,
+      isLikeButtonChecked = false,
+    } = options;
+
+  .comment
+    .comment__aside
+      .comment__avatar-container
+        img.comment__avatar-image(src=avatar, alt=userName)
+      .comment__like-button
+        +like-button({ likes, checked: isLikeButtonChecked })
+    .comment__main
+      .comment__head
+        p.comment__user-name #{userName}
+        p.comment__publication-date #{publicationDate}
+      p.comment__body #{text}

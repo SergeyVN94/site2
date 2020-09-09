@@ -2,31 +2,31 @@ include /block-head/block-head.pug
 include /calendar/calendar.pug
 
 mixin date-range(options = {})
-    -
-        const {
-            dropdownDefaultText = "ДД.ММ.ГГГГ",
-            dropdownEntranceText = "ДД.ММ.ГГГГ",
-            dropdownDepartureText = "ДД.ММ.ГГГГ",
-            dropdownLeftHead = { title: "прибытие" },
-            dropdownRightHead = { title: "выезд" },
-        } = options;
+  -
+    const {
+      dropdownDefaultText = "ДД.ММ.ГГГГ",
+      dropdownEntranceText = "ДД.ММ.ГГГГ",
+      dropdownDepartureText = "ДД.ММ.ГГГГ",
+      dropdownLeftHead = { title: "прибытие" },
+      dropdownRightHead = { title: "выезд" },
+    } = options;
 
-    .date-range.js-date-range(data-dropdown-default-text=dropdownDefaultText)
-        .date-range__dropdowns
-            .date-range__dropdown-container
-                if dropdownLeftHead
-                    .date-range__dropdown-head
-                        +block-head(dropdownLeftHead)
-                .date-range__dropdown.js-date-range__dropdown(data-type="start")
-                    p.date-range__dropdown-text.js-date-range__dropdown-text #{dropdownEntranceText}
-                    +button({ text: "expand_more", theme: "icon" })
-            .date-range__dropdown-container
-                if dropdownRightHead
-                    .date-range__dropdown-head
-                        +block-head(dropdownRightHead)
-                .date-range__dropdown.js-date-range__dropdown(data-type="end")
-                    p.date-range__dropdown-text.js-date-range__dropdown-text #{dropdownDepartureText}
-                    +button({ text: "expand_more", theme: "icon" })
-        .date-range__container
-            .date-range__calendar
-                +calendar()
+  .date-range.js-date-range(data-dropdown-default-text=dropdownDefaultText)
+    .date-range__dropdowns
+      .date-range__dropdown-container
+        if dropdownLeftHead
+          .date-range__dropdown-head
+            +block-head(dropdownLeftHead)
+        .date-range__dropdown.js-date-range__dropdown(data-type="start")
+          p.date-range__dropdown-text.js-date-range__dropdown-text #{dropdownEntranceText}
+          +button({ text: "expand_more", theme: "icon" })
+      .date-range__dropdown-container
+        if dropdownRightHead
+          .date-range__dropdown-head
+            +block-head(dropdownRightHead)
+        .date-range__dropdown.js-date-range__dropdown(data-type="end")
+          p.date-range__dropdown-text.js-date-range__dropdown-text #{dropdownDepartureText}
+          +button({ text: "expand_more", theme: "icon" })
+    .date-range__container
+      .date-range__calendar
+        +calendar()
