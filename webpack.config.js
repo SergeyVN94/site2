@@ -3,6 +3,8 @@ const TerserPlugin = require('terser-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const AutoprefixerPlugin = require('autoprefixer');
 const Webpack = require('webpack');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
 const mode = isProduction ? 'production' : 'development';
@@ -13,28 +15,16 @@ const PATHS = {
 };
 const context = PATHS.src;
 
-const optimization = {
-  minimizer: [
-    new TerserPlugin({
-      terserOptions: {},
-      cache: true,
-      parallel: true,
-    }),
-  ],
-}
-
 const rules = [
   {
     test: /\.pug$/,
     loader: 'pug-loader',
-    options: {
-      root: `${PATHS.src}/components`,
-    },
+    options: { root: `${PATHS.src}/components` },
   },
   {
     test: /\.(sa|sc|c)ss$/,
     use: [
-      'style-loader',
+      MiniCssExtractPlugin.loader,
       'css-loader',
       {
         loader: 'postcss-loader',
@@ -57,7 +47,7 @@ const rules = [
     ],
   },
   {
-    test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+    test: /.+(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
     loader: 'file-loader',
     options: {
       name: '[name].[ext]',
@@ -111,9 +101,28 @@ const pageList = [
   'ui-kit',
 ];
 
+const getOptimization = () => {
+  const config = {
+    splitChunks: { chunks: 'all' },
+  };
+
+  if (isProduction) {
+    config.minimizer = [
+      new TerserPlugin({
+        terserOptions: {},
+        cache: true,
+        parallel: true,
+      }),
+    ];
+  }
+
+  return config;
+};
+
+const getFileName = (extension) => `[name]${isProduction ? '.[contenthash]' : ''}${extension}`;
+
 module.exports = {
   mode,
-  optimization,
   devtool,
   context,
   devServer: {
@@ -125,8 +134,9 @@ module.exports = {
   entry: './index.ts',
   output: {
     path: PATHS.build,
-    filename: '[name].js',
+    filename: getFileName('.js'),
   },
+  optimization: getOptimization(),
   module: { rules },
   watchOptions: { aggregateTimeout: 100 },
   resolve: {
@@ -154,5 +164,7 @@ module.exports = {
         to: `${PATHS.build}/favicons`,
       },
     ]),
+    new MiniCssExtractPlugin({ filename: getFileName('.css') }),
+    new CleanWebpackPlugin(),
   ],
 };
