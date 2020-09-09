@@ -81,13 +81,13 @@
 @mixin require-font($name, $font, $font-weight, $font-style) {
   @font-face {
     font-family: $name;
-    src: url('../chunks/fonts/' + $font + '.eot');
+    src: url('~@fonts/' + $font + '.eot');
     src: local('☺'),
-      url('../chunks/fonts/' + $font + '.woff2') format('woff2'),
-      url('../chunks/fonts/' + $font + '.woff') format('woff'),
-      url('../chunks/fonts/' + $font + '.ttf')
+      url('~@fonts/' + $font + '.woff2') format('woff2'),
+      url('~@fonts/' + $font + '.woff') format('woff'),
+      url('~@fonts/' + $font + '.ttf')
       format('truetype'),
-      url('../chunks/fonts/' + $font + '.svg') format('svg');
+      url('~@fonts/' + $font + '.svg') format('svg');
     font-weight: $font-weight;
     font-style: $font-style;
   }

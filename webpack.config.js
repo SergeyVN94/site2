@@ -7,11 +7,11 @@ const Webpack = require('webpack');
 const isProduction = process.env.NODE_ENV === 'production';
 const mode = isProduction ? 'production' : 'development';
 const devtool = isProduction ? 'nosources-source-map' : 'inline-source-map';
-
 const PATHS = {
   build: `${__dirname}/dist`,
   src: `${__dirname}/src`,
 };
+const context = PATHS.src;
 
 const optimization = {
   minimizer: [
@@ -115,26 +115,27 @@ module.exports = {
   mode,
   optimization,
   devtool,
+  context,
   devServer: {
     contentBase: PATHS.build,
     index: 'landing-page.html',
     compress: true,
     port: 9000,
   },
-  context: PATHS.src,
   entry: './index.ts',
   output: {
     path: PATHS.build,
     filename: '[name].js',
   },
-  module: {
-    rules,
-  },
-  watchOptions: {
-    aggregateTimeout: 100,
-  },
+  module: { rules },
+  watchOptions: { aggregateTimeout: 100 },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
+    alias: {
+      '@images': `${context}/assets/images`,
+      '@fonts': `${context}/assets/fonts`,
+      '@components': `${context}/components`,
+    },
   },
   plugins: [
     ...pageList.map((page) => {
@@ -149,8 +150,8 @@ module.exports = {
     }),
     new CopyPlugin([
       {
-        from: `${PATHS.src}/chunks/favicons`,
-        to: PATHS.build,
+        from: `${PATHS.src}/assets/favicons`,
+        to: `${PATHS.build}/favicons`,
       },
     ]),
   ],
