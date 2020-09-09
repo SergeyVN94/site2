@@ -5,6 +5,7 @@ const AutoprefixerPlugin = require('autoprefixer');
 const Webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const find = require('find');
 
 const isProduction = process.env.NODE_ENV === 'production';
 const mode = isProduction ? 'production' : 'development';
@@ -92,14 +93,9 @@ const rules = [
   },
 ];
 
-const pageList = [
-  'landing-page',
-  'search-room',
-  'room-details',
-  'registration',
-  'sign-in',
-  'ui-kit',
-];
+const pages = find
+  .fileSync(/\.pug$/, `${context}/pages`)
+  .map((name) => name.slice(name.lastIndexOf('/') + 1, name.lastIndexOf('.')));
 
 const getOptimization = () => {
   const config = {
@@ -148,7 +144,7 @@ module.exports = {
     },
   },
   plugins: [
-    ...pageList.map((page) => {
+    ...pages.map((page) => {
       return new HtmlWebpackPlugin({
         template: `${PATHS.src}/pages/${page}/${page}.pug`,
         filename: `${PATHS.build}/${page}.html`,
