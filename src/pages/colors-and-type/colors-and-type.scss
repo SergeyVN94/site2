@@ -1,22 +1,29 @@
 .colors-and-type {
   width: 100%;
-  padding: 67px 0px 145px;
   background-color: #fff;
   justify-content: space-around;
   display: flex;
 
   &__container-content {
     @include reset-css;
-
-    @include container-content;
+    padding: 64px 225px 145px 120px;
     width: 100%;
+    max-width: 1440px;
     display: flex;
     justify-content: space-between;
-    padding: 4.7857rem 3.8571rem 0rem $tiny-size;
     margin: 0 auto;
 
-    @media (max-width: $breakpoint-tablets) {
-      padding: 4.7857rem 0rem 0rem 0rem;
+    @media (max-width: 1160px) {
+      padding: 64px 120px 120px;
+    }
+
+
+    @media (max-width: $breakpoint-laptops) {
+      padding: 64px 100px 120px;
+    }
+
+    @media (max-width: 950px) {
+      padding: 64px 50px 120px;
     }
 
     @media (max-width: $breakpoint-cell-phones) {
