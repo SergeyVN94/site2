@@ -1,0 +1,46 @@
+extends /../template/page.pug
+
+include /simple-header/simple-header.pug
+include /demo-colors/demo-colors.pug
+include /demo-text/demo-text.pug
+
+block pageTitle
+  title Colors & Type
+
+block content
+  +simple-header()
+  main.colors-and-type
+    .colors-and-type__container-content
+      .colors-and-type__demo-colors
+        +demo-colors([
+          { name: "Dark Shade 100%", value: "#1F2041", squareBg: "#1F2041" },
+          { name: "Dark Shade 75%", value: "#1F2041", squareBg: "rgba(31, 32, 65, 0.75)" },
+          { name: "Dark Shade 50%", value: "#1F2041", squareBg: "rgba(31, 32, 65, 0.5)" },
+          { name: "Dark Shade 25%", value: "#1F2041", squareBg: "rgba(31, 32, 65, 0.25)" },
+          { name: "Dark Shade 5%", value: "#1F2041", squareBg: "rgba(31, 32, 65, 0.05)" },
+          { name: "Purple", value: "#BC9CFF", squareBg: "#BC9CFF" },
+          { name: "Green", value: "#6FCF97", squareBg: "#6FCF97" },
+        ])
+      .colors-and-type__demo-text
+        +demo-text([
+          {
+            title: "H1",
+            example: "This one is the sub-section or widget title",
+            theme: "h1",
+          },
+          {
+            title: "H2",
+            example: "Next one is the item title inside widgets",
+            theme: "h2",
+          },
+          {
+            title: "H3",
+            example: "This is a label or CTA text",
+            theme: "h3",
+          },
+          {
+            title: "Body",
+            example: "This is the body text which is used for most of the design, like paragraphs, lists, etc.",
+            theme: "body",
+          },
+        ])

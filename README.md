@@ -13,7 +13,11 @@
 `deploy` - опубликовать сборку из папки dist в gh-pages.
 
 ## Github pages
-https://sergeyvn94.github.io/site2/ui-kit.html  
+https://sergeyvn94.github.io/site2/colors-and-type.html  
+https://sergeyvn94.github.io/site2/form-elements.html  
+https://sergeyvn94.github.io/site2/cards.html  
+https://sergeyvn94.github.io/site2/headers-and-footers.html  
+
 https://sergeyvn94.github.io/site2/registration.html  
 https://sergeyvn94.github.io/site2/sign-in.html  
 https://sergeyvn94.github.io/site2/landing-page.html  

@@ -1,0 +1,6 @@
+include /logo/logo.pug
+
+mixin simple-header(isGreyTheme = false)
+  header.simple-header(class=(isGreyTheme ? "simple-header_theme_grey" : ""))
+    .simple-header__container-content
+      +logo(true)

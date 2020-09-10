@@ -1,0 +1,141 @@
+.form-elements {
+  width: 100%;
+  padding: 65px 0px 145px;
+  background-color: #fff;
+  justify-content: space-around;
+  display: flex;
+
+  &__container-content {
+    @include reset-css;
+
+    @include container-content;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 4.7857rem 3.8571rem 0rem $tiny-size;
+    margin: 0 auto;
+
+    @media (max-width: $breakpoint-tablets) {
+      padding: 4.7857rem 0rem 0rem 0rem;
+    }
+
+    @media (max-width: $breakpoint-cell-phones) {
+      align-items: center;
+    }
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    
+    &:not(:last-child) {
+      margin-bottom: 7.1429rem;
+    }
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+
+    &:not(:last-child) {
+      margin-right: $tiny-size;
+    }
+
+    @media (max-width: $breakpoint-cell-phones) {
+      width: 100%;
+      margin-right: 0rem;
+    }
+  }
+
+  &__item {
+    margin-bottom: 1.4286rem;
+    min-width: 320px;
+
+    @media (max-width: 400px) {
+      min-width: auto;
+    }
+  }
+
+  &__radio-buttons {
+
+    &-head {
+      margin-bottom: 1.1429rem;
+    }
+  
+    &-container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+    }
+  }
+
+  &__radio-button:not(:last-child) {
+    margin-right: $middle-first-size;
+  }
+
+  &__toggle-buttons-head {
+    margin-bottom: .9286rem;
+  }
+
+  &__toggle-button:not(:last-child) {
+    margin-bottom: $tiny-size;
+  }
+
+  &__like-buttons {
+
+    &-head {
+      margin-bottom: $standard-size;
+    }
+  
+    &-container {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  &__like-button {
+
+    &:not(:last-child) {
+      margin-right: $tiny-size;
+    }
+  }
+
+  &__rating-buttons {
+
+    &-head {
+      margin-bottom: $standard-size;
+    }
+  
+    &-container {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  &__rating:not(:last-child) {
+    margin-right: $middle-first-size;
+  }
+
+  &__demo-buttons {
+
+    &-head {
+      margin-bottom: 1.1429rem;
+    }
+  
+    &-row {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 2.1429rem;
+    }
+  }
+
+  &__demo-button:not(:last-child) {
+    margin-right: $middle-first-size;
+  }
+
+  &__comment {
+    max-width: 65%;
+  }
+}
