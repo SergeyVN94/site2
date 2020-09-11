@@ -15,65 +15,71 @@ block content
       -
         const menu = {
           items: [
-            {text: "Home", selected: true},
-            {text: "About Us"},
+            {text: "О нас", selected: true},
             {
-              text: "Services",
+              text: "Услуги",
               items: [
                 {text: "example1"},
                 {text: "example2"},
                 {text: "example3"},
               ],
             },
-            {text: "Careers"},
-            {text: "News"},
-            {text: "Documentation"}
+            {text: "Вакансии"},
+            {text: "Новости"},
+            {
+              text: "Соглашения",
+              items: [
+                {text: "example1"},
+                {text: "example2"},
+                {text: "example3"},
+              ],
+            },
           ]
         };
 
       .headers-and-footers__header
         +header({ menu })
       .headers-and-footers__header
-        +header({ menu, user: "Cosmin Negoita" })
+        +header({ menu, user: "Юлий Цезарь" })
       .headers-and-footers__footer
         +footer({
-          siteDescription: "Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.",
+          siteDescription: "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды",
           subscribe: {
-            title: "Subscribe to our newsletter",
-            description: "Receive our latest news and promotions in your inbox!",
-            placeholder: "Your email address",
+            title: "Подписка",
+            description: "Получайте специальные предложения и новости сервиса",
+            placeholder: "Email",
           },
           navList: [
             {
-              title: "navigation",
+              title: "навигация",
               items: [
-                {text: "About Us"},
-                {text: "News"},
-                {text: "Support"},
-                {text: "Products"},
+                {text: "О нас"},
+                {text: "Новости"},
+                {text: "Служба поддержки"},
+                {text: "Услуги"},
               ],
             },
             {
-              title: "about us",
+              title: "О нас",
               items: [
-                {text: "Who we are"},
-                {text: "Our team"},
-                {text: "Careers"},
-                {text: "Investors"},
+                {text: "О сервисе"},
+                {text: "Наша команда"},
+                {text: "Вакансии"},
+                {text: "Инвесторы"},
               ],
             },
             {
-              title: "Support",
+              title: "Служба поддержки",
               items: [
-                {text: "Documentation"},
-                {text: "Community"},
-                {text: "Get in Touch"},
+                {text: "Соглашения"},
+                {text: "Сообщества"},
+                {text: "Связь с нами"},
               ],
             },
           ],
-          copyrightBar: { copyright: "Copyright © 2018 Toxin UI Kit. All rights reserved." },
+          copyrightBar: { copyright: "Copyright © 2018 Toxin отель. Все права зачищены." },
         })
       .headers-and-footers__footer-creative
         +footer-creative({
-          siteDescription: "Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.",
+          siteDescription: "Copyright © 2018 Toxin отель. Все права зачищены.",
         })

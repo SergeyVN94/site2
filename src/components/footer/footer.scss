@@ -28,9 +28,7 @@
     flex-direction: column;
   }
 
-  &__logo {
-    margin-bottom: 1.2143rem;
-  
+  &__logo { 
     @media (max-width: $breakpoint-tablets) {
       margin: 0 auto 1.2143rem auto;
     }
@@ -38,6 +36,7 @@
 
   &__description {
     @include text-body;
+    margin-top: 14px;
   }
 
   &__nav-container {
