@@ -6,7 +6,7 @@
 
   &__container-content {
     @include reset-css;
-    padding: 64px 221px 145px 120px;
+    padding: 64px 191px 145px 149px;
     width: 100%;
     max-width: 1440px;
     display: flex;
@@ -26,15 +26,15 @@
       padding: 64px 50px 120px;
     }
 
-    @media (max-width: $breakpoint-cell-phones) {
+    @media (max-width: 780px) {
       flex-direction: column;
       align-items: center;
     }
   }
 
   &__demo-text {
-    @media (max-width: $breakpoint-cell-phones) {
-      margin-top: 2.8571rem;
+    @media (max-width: 780px) {
+      margin-top: 80px;
     }
   }
 }
