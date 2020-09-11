@@ -76,6 +76,7 @@
     line-height: 1.2857rem;
     display: inline-block;
     align-items: center;
+    color: $text-secondary;
     
     &::after {
       position: absolute;
@@ -149,6 +150,7 @@
     @include text-body;
     text-decoration: none;
     cursor: pointer;
+    color: $text-secondary;
   
     &:hover {
       text-decoration: underline $text-secondary;
