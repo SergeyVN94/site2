@@ -1,6 +1,5 @@
 .form-elements {
   width: 100%;
-  padding: 65px 0px 145px;
   background-color: #fff;
   justify-content: space-around;
   display: flex;
@@ -12,7 +11,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 4.7857rem 3.8571rem 0rem $tiny-size;
+    padding: 63px 16px 145px;
     margin: 0 auto;
 
     @media (max-width: $breakpoint-tablets) {
