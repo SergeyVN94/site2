@@ -48,16 +48,44 @@
     }
   }
 
-  &__item {
-    margin-bottom: 1.4286rem;
-    min-width: 320px;
-
-    @media (max-width: 400px) {
-      min-width: auto;
-    }
+  // row 1 column 1
+  &__text-field-focused {
+    margin-top: 20px;
+    width: 320px;
+    max-width: 100%;
   }
 
+  &__dropdown-guests {
+    margin-top: 20px;
+    width: 320px;
+    max-width: 100%;
+  }
+
+  &__masked-text-field {
+    margin-top: 25px;
+    width: 320px;
+    max-width: 100%;
+  }
+
+  &__date-range {
+    margin-top: 42px;
+    width: 320px;
+    max-width: 100%;
+  }
+
+  &__filter-date-dropdown {
+    margin-top: 41px;
+    width: 266px;
+  }
+
+  &__subscription-text-field {
+    margin-top: 42px;
+    width: 266px;
+  }
+
+  // row 1 column 2
   &__radio-buttons {
+    margin-top: 41px;
 
     &-head {
       margin-bottom: 1.1429rem;
@@ -74,6 +102,10 @@
     margin-right: $middle-first-size;
   }
 
+  &__toggle-buttons {
+    margin-top: 42px;
+  }
+
   &__toggle-buttons-head {
     margin-bottom: .9286rem;
   }
@@ -83,6 +115,7 @@
   }
 
   &__like-buttons {
+    margin-top: 45px;
 
     &-head {
       margin-bottom: $standard-size;
@@ -102,6 +135,7 @@
   }
 
   &__rating-buttons {
+    margin-top: 41px;
 
     &-head {
       margin-bottom: $standard-size;
@@ -117,23 +151,45 @@
     margin-right: $middle-first-size;
   }
 
+  // row 1 column 3
+  &__range-slider {
+    max-width: 266px;
+  }
+
   &__demo-buttons {
+    margin-top: 45px;
+    width: 320px;
+    max-width: 100%;
 
     &-head {
-      margin-bottom: 1.1429rem;
+      margin-bottom: 15px;
     }
   
     &-row {
       display: flex;
       flex-direction: row;
-      margin-bottom: 2.1429rem;
+      margin-bottom: 30px;
     }
   }
 
   &__demo-button:not(:last-child) {
-    margin-right: $middle-first-size;
+    margin-right: 21px;
   }
 
+  &__pagination {
+    margin-top: 11px;
+  }
+
+  // row 2 column 1
+  &__room-amenities {
+    width: 266px;
+  }
+
+  &__expandable-checkbox-list {
+    margin-top: 40px;
+  }
+
+  // row 3 column 2
   &__comment {
     max-width: 65%;
   }

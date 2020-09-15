@@ -27,26 +27,13 @@ block content
     .form-elements__container-content
       .form-elements__row
         .form-elements__column
-          .form-elements__item
+          .form-elements__text-field
             +text-field({
               head: { title: "text field", help: "default" },
               placeholder: "Email",
               type: "email",
             })
-          .form-elements__item
-            +text-field({
-              head: { title: "subscription text field", help: "default" },
-              placeholder: "Email",
-              iconRight: "arrow_forward",
-              type: "email",
-            })
-          .form-elements__item
-            +text-field({
-              head: { title: "masked text field", help: "default" },
-              placeholder: "ДД.ММ.ГГГГ",
-              mask: "00.00.0000",
-            })
-          .form-elements__item
+          .form-elements__dropdown-guests
             +dropdown({
               head: { title: "dropdown", help: "default" },
               text: 'Сколько гостей',
@@ -61,12 +48,28 @@ block content
               ],
               withControls: true,
             })
-          .form-elements__item
-            +date-range()
-          .form-elements__item
+          .form-elements__masked-text-field
+            +text-field({
+              head: { title: "masked text field", help: "default" },
+              placeholder: "ДД.ММ.ГГГГ",
+              mask: "00.00.0000",
+            })
+          .form-elements__date-range
+            +date-range({
+              dropdownLeftHead: { title: "date dropdown" },
+              dropdownRightHead: { title: "date dropdown" },
+            })
+          .form-elements__filter-date-dropdown
             +filter-date-dropdown({ head: { title: "filter date dropdown" } })
+          .form-elements__subscription-text-field
+            +text-field({
+              head: { title: "subscription text field" },
+              placeholder: "Email",
+              iconRight: "arrow_forward",
+              type: "email",
+            })
         .form-elements__column
-          .form-elements__item
+          .form-elements__checkbox-list
             +checkbox-list({
               head: { title: "checkbox buttons" },
               items: [
@@ -75,87 +78,82 @@ block content
                 { text: "Можно пригласить гостей (до 10 человек)", checked: true },
               ]
             })
-          .form-elements__item
-            .form-elements__radio-buttons
-              .form-elements__radio-buttons-head
-                +block-head({ title: "radio buttons" })
-              .form-elements__radio-buttons-container
-                .form-elements__radio-button
-                  +radio-button({ text: "Мужчина", group: "gender", checked: true })
-                .form-elements__radio-button
-                  +radio-button({ text: "Женщина", group: "gender" })
-          .form-elements__item
-            .form-elements__toggle-buttons
-              .form-elements__toggle-buttons-head
-                +block-head({ title: "toggle" })
-              .form-elements__toggle-buttons-container
-                .form-elements__toggle-button
-                  +toggle-button({ text: "Получать спецпредложения", checked: true })
-                .form-elements__toggle-button
-                  +toggle-button({ text: "Получать спецпредложения" })
-          .form-elements__item
-            .form-elements__like-buttons
-              .form-elements__like-buttons-head
-                +block-head({ title: "like button" })
-              .form-elements__like-buttons-container
-                .form-elements__like-button
-                  +like-button({ likes: 2 })
-                .form-elements__like-button
-                  +like-button({ likes: 12, checked: true })
-          .form-elements__item
-            .form-elements__rating-buttons
-              .form-elements__rating-buttons-head
-                +block-head({ title: "rate button" })
-              .form-elements__rating-buttons-container
-                .form-elements__rating
-                  +rating(4)
-                .form-elements__rating
-                  +rating(5)
+          .form-elements__radio-buttons
+            .form-elements__radio-buttons-head
+              +block-head({ title: "radio buttons" })
+            .form-elements__radio-buttons-container
+              .form-elements__radio-button
+                +radio-button({ text: "Мужчина", group: "gender", checked: true })
+              .form-elements__radio-button
+                +radio-button({ text: "Женщина", group: "gender" })
+          .form-elements__toggle-buttons
+            .form-elements__toggle-buttons-head
+              +block-head({ title: "toggle" })
+            .form-elements__toggle-buttons-container
+              .form-elements__toggle-button
+                +toggle-button({ text: "Получать спецпредложения", checked: true })
+              .form-elements__toggle-button
+                +toggle-button({ text: "Получать спецпредложения" })
+          .form-elements__like-buttons
+            .form-elements__like-buttons-head
+              +block-head({ title: "like button" })
+            .form-elements__like-buttons-container
+              .form-elements__like-button
+                +like-button({ likes: 2 })
+              .form-elements__like-button
+                +like-button({ likes: 12, checked: true })
+          .form-elements__rating-buttons
+            .form-elements__rating-buttons-head
+              +block-head({ title: "rate button" })
+            .form-elements__rating-buttons-container
+              .form-elements__rating
+                +rating(4)
+              .form-elements__rating
+                +rating(5)
         .form-elements__column
-          .form-elements__item
+          .form-elements__range-slider
             +range-slider({
               range: [0, 16000],
               start: [5000, 10000],
               step: 1000,
               title: "range slider",
             })
-          .form-elements__item
-            .form-elements__demo-buttons
-              .form-elements__demo-buttons-head
-                +block-head({ title: "buttons" })
-              .form-elements__demo-buttons-container
-                .form-elements__demo-buttons-row
-                  .form-elements__demo-button
-                    +button({ text: "click me" })
-                  .form-elements__demo-button
-                    +button({ text: "click me", disabled: true })
-                .form-elements__demo-buttons-row
-                  .form-elements__demo-button
-                    +button({ text: "click me", theme: "light" })
-                  .form-elements__demo-button
-                    +button({ text: "click me", disabled: true, theme: "light" })
-                .form-elements__demo-buttons-row
-                  .form-elements__demo-button
-                    +button({ text: "click me", theme: "text" })
-                  .form-elements__demo-button
-                    +button({ text: "click me", theme: "text", textColor: "text-secondary" })
-                .form-elements__demo-buttons-row
-                  +button({
-                    text: "перейти к оплате",
-                    theme: "default-long",
-                    icon: "arrow_forward",
-                    href: "/mock-address/change-me",
-                  })
-          .form-elements__item
+          .form-elements__demo-buttons
+            .form-elements__demo-buttons-head
+              +block-head({ title: "buttons" })
+            .form-elements__demo-buttons-container
+              .form-elements__demo-buttons-row
+                .form-elements__demo-button
+                  +button({ text: "click me" })
+                .form-elements__demo-button
+                  +button({ text: "click me", disabled: true })
+              .form-elements__demo-buttons-row
+                .form-elements__demo-button
+                  +button({ text: "click me", theme: "light" })
+                .form-elements__demo-button
+                  +button({ text: "click me", disabled: true, theme: "light" })
+              .form-elements__demo-buttons-row
+                .form-elements__demo-button
+                  +button({ text: "click me", theme: "text" })
+                .form-elements__demo-button
+                  +button({ text: "click me", theme: "text", textColor: "text-secondary" })
+              .form-elements__demo-buttons-row
+                +button({
+                  text: "перейти к оплате",
+                  theme: "default-long",
+                  icon: "arrow_forward",
+                  href: "/mock-address/change-me",
+                })
+          .form-elements__pagination
             +pagination({
               head: { title: "pagination" },
               bottomText: "1 – 12 из 100+ вариантов аренды",
             })
       .form-elements__row
         .form-elements__column         
-          .form-elements__item
+          .form-elements__room-amenities
             +dropdown({
-              head: { title: 'удобства номера' },
+              head: { title: 'dropdown' },
               text: 'Удобства номера',
               variations: {
                 bedrooms: ["спальня", "спальни", "спален"],
@@ -168,7 +166,7 @@ block content
                 { text: "ванные комнаты", group: "bathrooms" },
               ],
             })
-          .form-elements__item
+          .form-elements__expandable-checkbox-list
             +expandable-checkbox-list({
               title: "expandable checkbox list",
               items: [

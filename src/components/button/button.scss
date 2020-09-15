@@ -23,24 +23,20 @@
     &_default {
       height: $very-big-size;
       border-radius: $middle-second-size;
-      padding: 0rem 19.7px;
+      padding: 14px 19.7px 15px;
       font-size: $small-size;
       background: $gradient-primary;
       font-weight: bold;
       text-transform: uppercase;
       color: white;
-      padding-top: $micro-size;
 
-      &:hover {
-        box-shadow: 0px 0px 10px $bg-primary;
+      &:hover,
+      &:focus {
+        opacity: .5;
       }
 
       &:active {
         background: $bg-primary;
-      }
-
-      &:focus {
-        box-shadow: 0px 0px 10px $text-secondary;
       }
     }
 
@@ -99,17 +95,14 @@
       border: $micro-size solid $bg-primary;
       color: $bg-primary;
       text-transform: uppercase;
-      padding: 0rem 1.1786rem;
+      padding: 0 17px;
 
-      &:hover {
-        box-shadow: 0px 0px 10px $bg-primary;
+      &:hover,
+      &:focus {
+        opacity: .5;
       }
 
       &:active {
-        box-shadow: 0px 0px 10px $text-secondary;
-      }
-
-      &:focus {
         box-shadow: 0px 0px 10px $text-secondary;
       }
     }
