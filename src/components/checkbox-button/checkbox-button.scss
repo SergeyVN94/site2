@@ -51,6 +51,7 @@
 
   &__text {
     @include text-body;
+    padding-top: 1px;
     margin-left: $tiny-size;
     word-break: normal;
     width: 100%;

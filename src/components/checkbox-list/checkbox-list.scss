@@ -3,7 +3,7 @@
   &_with-rich-buttons {
 
     .checkbox-list__head {
-      margin-bottom: 1.1429rem;
+      margin-bottom: 16px;
     }
   
     .checkbox-list__item:not(:last-child) {
@@ -26,7 +26,7 @@
     list-style: none;
 
     &:not(:last-child) {
-      margin-bottom: 11px;
+      margin-bottom: 10px;
     }
   }
 }

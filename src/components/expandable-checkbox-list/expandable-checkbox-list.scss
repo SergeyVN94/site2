@@ -8,15 +8,14 @@
       display: block;
     }
   
-    .expandable-checkbox-list__expand-button {
+    .expandable-checkbox-list__button {
       transform: rotate(180deg);
-      padding: 0rem 0rem $micro-size $micro-size;
     }
   }
 
   &__head {
     height: $very-big-size;
-    margin-bottom: $micro-size;
+    margin-bottom: 3px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
