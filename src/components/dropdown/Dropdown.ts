@@ -166,7 +166,7 @@ class Dropdown {
   }
 
   private _handleDropdownBodyClick(ev: JQuery.MouseEventBase): void {
-    const $target = $(ev.target);
+    const $target = $(ev.target).parents('.js-button');
 
     const isBtnPlus = $target.data('action') === 'plus';
     const isBtnMinus = $target.data('action') === 'minus';

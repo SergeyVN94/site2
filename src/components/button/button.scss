@@ -11,7 +11,8 @@
   background: #ffffff;
   font-family: Montserrat, Arial, sans-serif;
   font-style: normal;
-
+  overflow: hidden;
+  
   @at-root a#{&} {
     display: inline-flex;
     justify-content: center;
@@ -21,15 +22,9 @@
   &_theme {
 
     &_default {
-      height: $very-big-size;
       border-radius: $middle-second-size;
-      padding: 14px 19.7px 15px;
-      font-size: $small-size;
       background: $gradient-primary;
-      font-weight: bold;
-      text-transform: uppercase;
-      color: white;
-
+      
       &:hover,
       &:focus {
         opacity: .5;
@@ -38,17 +33,20 @@
       &:active {
         background: $bg-primary;
       }
+
+      .button__text {
+        padding: 14px 19.7px 15px;
+        font-size: $small-size;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: white;
+      }
     }
 
     &_default-long {
       width: 100%;
-      height: $very-big-size;
       border-radius: $middle-second-size;
-      font-size: $small-size;
       background: $gradient-primary;
-      font-weight: bold;
-      text-transform: uppercase;
-      color: white;
       position: relative;
 
       &:hover {
@@ -62,16 +60,19 @@
       &:focus {
         box-shadow: 0px 0px 10px $text-secondary;
       }
+
+      .button__text {
+        padding: 14px 19.7px 15px;
+        font-size: $small-size;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: white;
+      }
     }
 
     &_icon {
       min-width: 3.1429rem;
       height: 100%;
-      font-family: 'Material Icons';
-      font-weight: normal;
-      font-size: $big-size;
-      line-height: $big-size;
-      color: $text-secondary;
       background-color: transparent;
 
       &:hover {
@@ -85,25 +86,37 @@
       &:focus {
         text-shadow: 0px 0px 20px $text-secondary;
       }
+
+      .button__text {
+        font-family: 'Material Icons';
+        font-size: $big-size;
+        font-weight: normal;
+        line-height: $big-size;
+        color: $text-secondary;
+        background-color: transparent;
+        word-wrap: inherit;
+      }
     }
 
     &_light {
-      height: $very-big-size;
-      font-weight: bold;
-      font-size: $small-size;
-      border-radius: $middle-second-size;
-      border: $micro-size solid $bg-primary;
-      color: $bg-primary;
-      text-transform: uppercase;
-      padding: 0 17px;
-
+      position: relative;
+      background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+      border-radius: 22px;
+      padding: 2px;
+      
       &:hover,
       &:focus {
-        opacity: .5;
+        background: linear-gradient(180deg, rgba(188, 156, 255, .5) 0%, rgba(139, 164, 249, .5) 100%);
       }
 
-      &:active {
-        box-shadow: 0px 0px 10px $text-secondary;
+      .button__text {
+        font-weight: bold;
+        color: $bg-primary;
+        font-size: $small-size;
+        padding: 12px 17px 13px;
+        border-radius: inherit;
+        background: #ffffff;
+        text-transform: uppercase;
       }
     }
 
@@ -112,14 +125,18 @@
       height: 2.8571rem;
       background: $gradient-primary;
       border-radius: $middle-second-size;
-      font-family: 'Material Icons';
-      font-weight: normal;
-      font-size: $big-size;
-      line-height: $middle-first-size;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #ffffff;
+      
+      .button__text {
+        font-family: 'Material Icons';
+        font-weight: normal;
+        font-size: $big-size;
+        line-height: $middle-first-size;
+        color: #ffffff;
+        word-wrap: inherit;
+      }
     }
 
     &_round-little {
@@ -127,23 +144,29 @@
       height: 2.1429rem;
       border: .0714rem solid rgba(31, 32, 65, .25);
       border-radius: $middle-second-size;
-      color: $text-secondary;
-      font-weight: normal;
-      font-size: 1.2857rem;
-      line-height: 2.1429rem;
+    
+      .button__text {
+        color: $text-secondary;
+        font-weight: normal;
+        font-size: 1.2857rem;
+        line-height: 2.1429rem;
+      }
     }
 
     &_round {
       width: 2.8571rem;
       height: 2.8571rem;
       border-radius: $middle-second-size;
-      font-weight: normal;
-      font-size: $small-size;
-      line-height: $standard-size;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #ffffff;
+      
+      .button__text {
+        font-weight: normal;
+        font-size: $small-size;
+        line-height: $standard-size;
+        color: #ffffff;
+      }
     }
 
     &_text {
@@ -184,50 +207,44 @@
 
   &_hover-theme {
 
-    &_gradient-primary {
+    &_gradient-primary,
+    &_gradient-success {
 
-      &:hover {
-        z-index: 9999;
-        background: $gradient-primary;
-        box-shadow: 0px 0px 10px $bg-primary;
-        color: #ffffff;
-        font-weight: bold;
-      }
-
+      &:hover,
       &:active {
         z-index: 9999;
+
+        .button__text {
+          color: #ffffff;
+          font-weight: bold;
+        }
+      }
+    }
+
+    &_gradient-primary {
+
+      &:hover,
+      &:active {
         background: $gradient-primary;
-        box-shadow: 0px 0px 10px $bg-secondary;
-        color: #ffffff;
-        font-weight: bold;
+        box-shadow: 0px 0px 10px $bg-primary;
       }
 
+      &:active,
       &:focus {
-        z-index: 9999;
         box-shadow: 0px 0px 10px $bg-secondary;
       }
     }
 
     &_gradient-success {
       
-      &:hover {
-        z-index: 9999;
+      &:hover,
+      &:active {
         background: $gradient-secondary;
         box-shadow: 0px 0px 10px $bg-secondary;
-        color: #ffffff;
-        font-weight: bold;
       }
 
-      &:active {
-        z-index: 9999;
-        background: $gradient-secondary;
-        box-shadow: 0px 0px 10px $bg-primary;
-        color: #ffffff;
-        font-weight: bold;
-      }
-
+      &:active,
       &:focus {
-        z-index: 9999;
         box-shadow: 0px 0px 10px $bg-primary;
       }
     }
@@ -242,9 +259,11 @@
       box-shadow: none;
       text-shadow: none;
     }
+
+    cursor: default;
   }
 
-  &_font-weight_bold {
+  &_font-weight_bold .button__text {
     font-weight: bold;
   }
 
@@ -252,26 +271,41 @@
     display: none;
   }
 
-  &_horizontal-size_big {
+  &_horizontal-size_big .button__text {
     padding: 0rem $middle-third-size;
   }
 
   &_size_sm {
-    height: 2.4286rem;
-    padding: 0 1.3571rem;
-  }
+
+    &.button_theme_light .button__text {
+      padding: 7px 19px 8px;
+    }
+
+    .button__text {
+      padding: 9px 1.3571rem 10px;
+    }
+  } 
 
   &_text-color {
 
-    &_text-secondary {
+    &_text-secondary .button__text {
       color: $text-secondary;
     }
 
-    &_gradient-primary {
+    &_gradient-primary .button__text {
       background: $gradient-primary;
       background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+  }
+
+  &__text {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    line-height: 15px;
+    word-wrap: break-word;
+    border-radius: inherit;
   }
 
   &__icon {
