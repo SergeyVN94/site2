@@ -97,26 +97,14 @@ class DateRange {
     const { path } = ev.originalEvent;
 
     // $(ev.target).parents не работает!
-    const dateRangeInPath = path.some((element) => {
-      if ('classList' in element) {
-        return element.classList.contains(DATE_RANGE_CLASSES.DATE_RANGE);
-      }
-
-      return false;
-    });
+    const dateRangeInPath = path.some((element) => (
+      ('classList' in element) && element.classList.contains(DATE_RANGE_CLASSES.DATE_RANGE)
+    ));
 
     if (!dateRangeInPath) {
-      const {
-        $document,
-        $dateRange,
-        $dropdownEnd,
-        $dropdownStart,
-      } = this.domElements;
-
-      $dropdownEnd.removeClass(DATE_RANGE_CLASSES.DROPDOWN_SELECTED);
-      $dropdownStart.removeClass(DATE_RANGE_CLASSES.DROPDOWN_SELECTED);
-      $dateRange.removeClass(DATE_RANGE_CLASSES.RANGE_SELECT);
-      $document.off('click.document.dateRange.unexpended');
+      const { start = null, end = null } = this.domElements.$calendar.calendar('get-range');
+      this.updateDropdowns(start, end);
+      this.domElements.$document.off('click.document.dateRange.unexpended');
     }
   }
 
@@ -138,6 +126,10 @@ class DateRange {
   }
 
   private _handleCalendarApply(ev: JQuery.EventBase, start: Date, end: Date): void {
+    this.updateDropdowns(start, end);
+  }
+
+  private updateDropdowns(start: Date, end: Date): void {
     const { $dropdownStartText, $dropdownEndText } = this.domElements;
 
     $dropdownStartText.text(
@@ -165,6 +157,6 @@ class DateRange {
   }
 }
 
-$(`.${DATE_RANGE_CLASSES.DATE_RANGE}`).each((index, element) => {
+$(`.${DATE_RANGE_CLASSES.DATE_RANGE}`).each((_, element) => {
   new DateRange($(element));
 });

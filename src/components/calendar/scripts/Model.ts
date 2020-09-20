@@ -24,14 +24,14 @@ type DayLabelGenerator = (
 class Model {
   private readonly currentDate: Date;
 
-  private readonly handlerUpdateEvent: HandlerUpdateEvent;
+  private handlerUpdateEvent: HandlerUpdateEvent;
 
   private rangeDays: RangeDays;
 
   private static dayLabelGenerators: DayLabelGenerator[] = [];
 
-  constructor(handlerUpdateEvent: HandlerUpdateEvent) {
-    this.handlerUpdateEvent = handlerUpdateEvent;
+  constructor() {
+    this.handlerUpdateEvent = null;
     this.rangeDays = {
       start: null,
       end: null,
@@ -39,6 +39,11 @@ class Model {
     this.currentDate = new Date();
     this.currentDate.setHours(0, 0, 0, 0);
 
+    this.triggerUpdateEvent();
+  }
+
+  public onUpdate(handlerUpdateEvent: HandlerUpdateEvent): void {
+    this.handlerUpdateEvent = handlerUpdateEvent;
     this.triggerUpdateEvent();
   }
 
@@ -206,7 +211,7 @@ class Model {
   }
 
   private triggerUpdateEvent(): void {
-    this.handlerUpdateEvent(this.createModelStatePackage());
+    this.handlerUpdateEvent && this.handlerUpdateEvent(this.createModelStatePackage());
   }
 
   private getDayLabels(day: Date): string[] {

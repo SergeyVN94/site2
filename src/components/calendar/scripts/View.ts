@@ -1,6 +1,8 @@
 import Model, { ModelStatePackage, DayInfo } from './Model';
 import CLASSES from './classes';
 
+type SelectMode = 'range-start' | 'range-end' | 'auto';
+
 const MONTH_NAMES = [
   'Январь',
   'Февраль',
@@ -33,10 +35,24 @@ class View {
 
   private cacheModelState: ModelStatePackage;
 
-  constructor($calendar: JQuery) {
+  private selectMode: SelectMode;
+
+  constructor($calendar: JQuery, model: Model) {
     this.domElements = View.createDomElements($calendar);
-    this.model = new Model(this.update.bind(this));
+    this.model = model;
+    this.selectMode = 'auto';
     this.initListeners();
+  }
+
+  public getRange(): { start: Date; end: Date } {
+    return this.cacheModelState.rangeDays;
+  }
+
+  public setSelectMode(mode: SelectMode): void {
+    if (['range-start', 'range-end', 'auto'].includes(mode)) this.selectMode = mode;
+    else console.error(new Error(`Invalid select mode: '${mode}'`));
+
+    this.update(this.cacheModelState);
   }
 
   public update(packet: ModelStatePackage): void {
@@ -94,9 +110,8 @@ class View {
   private parseLabels(labels: string[]): string[] {
     const classList: string[] = [];
 
-    if (
-      labels.includes('next-month') || labels.includes('previous-month')
-    ) classList.push(CLASSES.DAY_THEME_ANOTHER_MONTH, `js-${CLASSES.DAY_THEME_ANOTHER_MONTH}`);
+    const isAnotherMonth = labels.includes('next-month') || labels.includes('previous-month');
+    if (isAnotherMonth) classList.push(CLASSES.DAY_THEME_ANOTHER_MONTH, `js-${CLASSES.DAY_THEME_ANOTHER_MONTH}`);
     if (labels.includes('today')) classList.push(CLASSES.DAY_THEME_TODAY);
     if (labels.includes('range')) classList.push(CLASSES.DAY_THEME_RANGE_DAY);
     if (labels.includes('range-start')) classList.push(CLASSES.RANGE_DAY_START);
@@ -104,9 +119,9 @@ class View {
     if (labels.includes('range-middle')) classList.push(CLASSES.DAY_THEME_RANGE_DAY_MIDDLE);
     if (labels.includes('not-selectable')) classList.push(CLASSES.DAY_THEME_NOT_CLICKABLE);
 
-    const selectRange = this.domElements.$calendar.attr('data-select-date') || '';
-    const isNotSelectable = labels.includes('not-selectable-as-range-end');
-    if (selectRange === 'end' && isNotSelectable) classList.push(CLASSES.DAY_THEME_NOT_CLICKABLE);
+    const isNotSelectable = this.selectMode === 'range-end'
+      && labels.includes('not-selectable-as-range-end');
+    if (isNotSelectable) classList.push(CLASSES.DAY_THEME_NOT_CLICKABLE);
 
     return classList;
   }
@@ -155,16 +170,6 @@ class View {
       'click.calendar.clear',
       this.handleClickBtnClear.bind(this),
     );
-
-    new MutationObserver(
-      this.handleCalendarAttributesUpdate.bind(this),
-    ).observe(this.domElements.$calendar.get()[0], {
-      attributes: true,
-    });
-  }
-
-  private handleCalendarAttributesUpdate(): void {
-    this.update(this.cacheModelState);
   }
 
   private handleClickBtnClear(): void {
@@ -197,8 +202,10 @@ class View {
       (dayNumber > 20) ? this.model.previousMonth() : this.model.nextMonth();
     }
 
-    const selectRange = this.domElements.$calendar.attr('data-select-date') || '';
-    this.model.addDayInRange(dayNumber, (selectRange === 'auto') ? undefined : (selectRange === 'start'));
+    this.model.addDayInRange(
+      dayNumber,
+      (this.selectMode === 'auto') ? undefined : (this.selectMode === 'range-start'),
+    );
   }
 }
 
