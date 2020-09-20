@@ -72,16 +72,9 @@
 
   &__day-week {
     @include reset-css;
-    width: 100%;
-    max-width: (100% / 7);
-    height: 2.8571rem;
-    line-height: 2.8571rem;
-    text-align: center;
-    font-family: Montserrat, Arial, sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: $small-size;
-    color: $text-secondary;
+    width: 14.285714286%;
+    display: inline-block;
+    border-radius: 50%;
     cursor: pointer;
 
     &_range-day {
@@ -123,11 +116,14 @@
     &_theme {
 
       &_not-clickable {
-        color: $light-title;
         cursor: default;
+        
+        .calendar__day-number {
+          color: $light-title;
+        }
       }
 
-      &_another-month {
+      &_another-month .calendar__day-number {
         color: $light-title;
       }
   
@@ -151,19 +147,42 @@
   
       &_range-day {
         background: $gradient-primary;
-        border-radius: 50%;
-        color: #fff;
-        font-weight: bold;
       }
   
       &_today {
         background: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%);
-        border-radius: 50%;
-        font-weight: bold;
-        color: #fff;
         cursor: default;
       }
+
+      &_range-day,
+      &_today {
+
+        .calendar__day-number {
+          font-weight: bold;
+          color: #fff;
+        }
+      }
     }
+  }
+
+  &__day-inner {
+    margin: 0;
+    padding: 50% 0;
+    height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__day-number {
+    display: block;
+    text-align: center;
+    font-family: Montserrat, Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: $small-size;
+    color: $text-secondary;
+    text-align: center;
   }
 
   &__control-buttons {

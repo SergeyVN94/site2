@@ -1,6 +1,5 @@
-import Model from './Model';
-
-import CALENDAR_CLASSES from './classes';
+import Model, { ModelStatePackage, DayInfo } from './Model';
+import CLASSES from './classes';
 
 const MONTH_NAMES = [
   'Январь',
@@ -32,183 +31,83 @@ class View {
 
   private readonly model: Model;
 
+  private cacheModelState: ModelStatePackage;
+
   constructor($calendar: JQuery) {
-    this.domElements = View._createDomElements($calendar);
+    this.domElements = View.createDomElements($calendar);
     this.model = new Model(this.update.bind(this));
-    this._initListeners();
+    this.initListeners();
   }
 
-  public update(): void {
-    this._updateHead();
-    const pageDays = this.model.getPageDays();
-    const calendarBody = this._createCalendarBody(pageDays);
-
-    if (this._isNeedRenderCurrentDay()) {
-      View._drawCurrentDay(calendarBody);
-    }
-
-    this._drawRangeDays(calendarBody);
-    this.domElements.$daysContainer.html('').append(calendarBody);
-  }
-
-  private _drawRangeDays(calendarBody: DocumentFragment): boolean {
-    const renderDate = this.model.getRenderDate();
+  public update(packet: ModelStatePackage): void {
+    this.cacheModelState = packet;
     const {
-      start,
-      end,
-    } = this.model.getRangeDays();
-    const startIsNull = start === null;
-    const endIsNull = end === null;
-    const days = calendarBody.querySelectorAll(`.${CALENDAR_CLASSES.DAY_WEEK}:not(.${CALENDAR_CLASSES.DAY_WEEK_ANOTHER_MONTH})`);
+      days,
+      rangeDays: { start, end },
+      currentDate,
+    } = packet;
 
-    if (startIsNull && endIsNull) {
-      return false;
-    }
+    this.renderHead(currentDate);
+    this.renderBody(days);
 
-    const tmpDate = new Date(
-      renderDate.getFullYear(),
-      renderDate.getMonth(),
-    );
-    tmpDate.setHours(0, 0, 0, 0);
-    days.forEach((day, index) => {
-      tmpDate.setDate(index + 1);
+    console.log(`start: ${start}, end: ${end}, res: ${(start === null && end === null)}`);
 
-      const isNeedDrawRangeStart = !startIsNull && tmpDate.getTime() === start.getTime();
-      if (isNeedDrawRangeStart) {
-        day.classList.add(CALENDAR_CLASSES.RANGE_DAY);
-
-        if (!endIsNull) {
-          day.classList.add(CALENDAR_CLASSES.RANGE_DAY_START);
-        }
-      }
-
-      const isNeedDrawRangeEnd = !endIsNull && tmpDate.getTime() === end.getTime();
-      if (isNeedDrawRangeEnd) {
-        day.classList.add(CALENDAR_CLASSES.RANGE_DAY);
-
-        if (!startIsNull) {
-          day.classList.add(CALENDAR_CLASSES.RANGE_DAY_END);
-        }
-      }
-
-      const isNeedDrawRangeMiddle = !startIsNull && !endIsNull;
-      if (isNeedDrawRangeMiddle) {
-        const isDayIsMiddleRange = tmpDate.getTime() > start.getTime()
-                    && tmpDate.getTime() < end.getTime();
-
-        if (isDayIsMiddleRange) {
-          day.classList.add(CALENDAR_CLASSES.RANGE_DAY_MIDDLE);
-        }
-      }
-    });
-
-    return true;
+    this.domElements.$btnClear.button('hidden', (start === null && end === null));
   }
 
-  private _isNeedRenderCurrentDay(): boolean {
-    const renderDate = this.model.getRenderDate();
-    const currentDate = new Date();
-
-    return (currentDate.getFullYear() === renderDate.getFullYear())
-            && (currentDate.getMonth() === renderDate.getMonth());
-  }
-
-  private static _drawCurrentDay(calendarBody: DocumentFragment): void {
-    const currentDayNumber = (new Date()).getDate();
-
-    calendarBody
-      .querySelectorAll('div:not(.calendar__day-week_theme_another-month)')
-      .forEach((day, index) => {
-        const dayIsToday = (index + 1) === currentDayNumber;
-        if (dayIsToday) {
-          day.classList.add('calendar__day-week_theme_today');
-        }
-      });
-  }
-
-  private _createCalendarBody(pageDays: number[]): DocumentFragment {
-    const calendarBody = document.createDocumentFragment();
-
-    const currentDate = new Date();
-    currentDate.setHours(0, 0, 0, 0);
-    const renderDate = this.model.getRenderDate();
-    const tmpDate = new Date(
-      renderDate.getFullYear(),
-      renderDate.getMonth(),
-      1,
-    );
-    tmpDate.setHours(0, 0, 0, 0);
-    const selectRange = this.domElements.$calendar.attr('data-select-date') || '';
-    const { start = null } = this.model.getRangeDays();
-    const rangeStartIsNull = start === null;
-    const isNeedSelectRangeEnd = selectRange === 'end';
-
-    pageDays.forEach((dayNumber, index) => {
-      const isFirstWeek = index < 7;
-      const isLastWeek = index > pageDays.length - 7;
-      const isDayFromPrevMonth = (dayNumber > 20 && isFirstWeek);
-      const isDayFromNextMonth = (dayNumber < 8 && isLastWeek);
-      const isDayAnotherMonth = isDayFromPrevMonth || isDayFromNextMonth;
-      const day = View._createDayMonth(dayNumber, isDayAnotherMonth);
-
-      if (!isDayAnotherMonth) {
-        tmpDate.setDate(dayNumber);
-
-        const dateIsLessThanToday = tmpDate.getTime() < currentDate.getTime();
-        let isDayNotClickable = dateIsLessThanToday;
-
-        if (!rangeStartIsNull && !dateIsLessThanToday) {
-          const dateIsLessThanRangeStart = tmpDate.getTime() < start.getTime();
-          const isDayCannotBeEndOfRange = isNeedSelectRangeEnd && dateIsLessThanRangeStart;
-          isDayNotClickable = isDayCannotBeEndOfRange;
-        }
-
-        if (isDayNotClickable) {
-          day.classList.add(CALENDAR_CLASSES.NOT_CLICKABLE);
-        }
-      }
-
-      calendarBody.appendChild(day);
-    });
-
-    return calendarBody;
-  }
-
-  private _updateHead(): void {
-    const renderDate = this.model.getRenderDate();
-    const monthName = MONTH_NAMES[renderDate.getMonth()];
-    const year = renderDate.getFullYear();
+  private renderHead(currentDate: Date): void {
+    const monthName = MONTH_NAMES[currentDate.getMonth()];
+    const year = currentDate.getFullYear();
     const headText = `${monthName} ${year}`;
 
     this.domElements.$drawnDate.text(headText);
   }
 
-  private static _createDayMonth(dayNumber: number, isAnotherMonth = false): HTMLDivElement {
+  private renderBody(days: DayInfo[]): void {
+    const body = document.createDocumentFragment();
+
+    days.forEach((dayInfo) => {
+      body.append(View.createDay(dayInfo));
+    });
+
+    this.domElements.$daysContainer.html(body);
+  }
+
+  private static createDay(info: DayInfo): Element {
     const day = document.createElement('div');
-    day.classList.add(
-      'calendar__day-week',
-      'js-calendar__day-week',
-    );
+    const innerWrapper = document.createElement('p');
+    const textContainer = document.createElement('span');
 
-    if (isAnotherMonth) {
-      day.classList.add(
-        'calendar__day-week_theme_another-month',
-        'js-calendar__day-week_theme_another-month',
-      );
-    }
+    const { labels } = info;
 
-    day.innerHTML = String(dayNumber);
+    day.classList.add(CLASSES.DAY_WEEK, `js-${CLASSES.DAY_WEEK}`);
+    if (
+      labels.includes('next-month') || labels.includes('previous-month')
+    ) day.classList.add(CLASSES.DAY_THEME_ANOTHER_MONTH, `js-${CLASSES.DAY_THEME_ANOTHER_MONTH}`);
+    if (labels.includes('today')) day.classList.add(CLASSES.DAY_THEME_TODAY);
+    if (labels.includes('range')) day.classList.add(CLASSES.DAY_THEME_RANGE_DAY);
+    if (labels.includes('range-start')) day.classList.add(CLASSES.RANGE_DAY_START);
+    if (labels.includes('range-end')) day.classList.add(CLASSES.RANGE_DAY_END);
+    if (labels.includes('range-middle')) day.classList.add(CLASSES.DAY_THEME_RANGE_DAY_MIDDLE);
+
+    textContainer.classList.add('calendar__day-number');
+    textContainer.innerHTML = info.date.getDate().toString();
+
+    innerWrapper.classList.add('calendar__day-inner');
+    innerWrapper.append(textContainer);
+
+    day.append(innerWrapper);
 
     return day;
   }
 
-  private static _createDomElements($calendar: JQuery): ICalendarDomElements {
-    const $btnNextMonth = $calendar.find(`.${CALENDAR_CLASSES.BUTTON_NEXT_MONTH}`);
-    const $btnPrevMonth = $calendar.find(`.${CALENDAR_CLASSES.BUTTON_PREVIOUS_MONTH}`);
-    const $drawnDate = $calendar.find(`.${CALENDAR_CLASSES.DRAWN_DATE}`);
-    const $daysContainer = $calendar.find(`.${CALENDAR_CLASSES.DAYS_CONTAINER}`);
-    const $btnApply = $calendar.find(`.${CALENDAR_CLASSES.BUTTON_APPLY}`);
-    const $btnClear = $calendar.find(`.${CALENDAR_CLASSES.BUTTON_CLEAR}`);
+  private static createDomElements($calendar: JQuery): ICalendarDomElements {
+    const $btnNextMonth = $calendar.find(`.js-${CLASSES.BUTTON_NEXT_MONTH}`);
+    const $btnPrevMonth = $calendar.find(`.js-${CLASSES.BUTTON_PREVIOUS_MONTH}`);
+    const $drawnDate = $calendar.find(`.js-${CLASSES.DRAWN_DATE}`);
+    const $daysContainer = $calendar.find(`.js-${CLASSES.DAYS_CONTAINER}`);
+    const $btnApply = $calendar.find(`.js-${CLASSES.BUTTON_APPLY}`);
+    const $btnClear = $calendar.find(`.js-${CLASSES.BUTTON_CLEAR}`);
 
     return {
       $calendar,
@@ -221,84 +120,75 @@ class View {
     };
   }
 
-  private _initListeners(): void {
+  private initListeners(): void {
     this.domElements.$btnNextMonth.on(
       'click.calendar.nextMonth',
-      this._handleClickBtnNextMonth.bind(this),
+      this.handleClickBtnNextMonth.bind(this),
     );
     this.domElements.$btnPrevMonth.on(
       'click.calendar.prevMonth',
-      this._handleClickBtnPrevMonth.bind(this),
+      this.handleClickBtnPrevMonth.bind(this),
     );
 
     this.domElements.$daysContainer.on(
       'click.calendar.clickOnDay',
-      `.${CALENDAR_CLASSES.DAY_WEEK}`,
-      this._handleClickDaysContainer.bind(this),
+      `.js-${CLASSES.DAY_WEEK}`,
+      this.handleClickDaysContainer.bind(this),
     );
 
     this.domElements.$btnApply.on(
       'click.calendar.apply',
-      this._handleClickBtnApply.bind(this),
+      this.handleClickBtnApply.bind(this),
     );
 
     this.domElements.$btnClear.on(
       'click.calendar.clear',
-      this._handleClickBtnClear.bind(this),
+      this.handleClickBtnClear.bind(this),
     );
 
     new MutationObserver(
-      this._handleCalendarAttributesUpdate.bind(this),
+      this.handleCalendarAttributesUpdate.bind(this),
     ).observe(this.domElements.$calendar.get()[0], {
       attributes: true,
     });
   }
 
-  private _handleCalendarAttributesUpdate(): void {
-    this.update();
+  private handleCalendarAttributesUpdate(): void {
+    this.update(this.cacheModelState);
   }
 
-  private _handleClickBtnClear(): void {
+  private handleClickBtnClear(): void {
     this.model.resetRangeDays();
     this.domElements.$calendar.trigger('clear');
   }
 
-  private _handleClickBtnApply(): void {
+  private handleClickBtnApply(): void {
     const {
       start = null,
       end = null,
-    } = this.model.getRangeDays();
+    } = this.cacheModelState.rangeDays;
 
     this.domElements.$calendar.trigger('apply', [start, end]);
   }
 
-  private _handleClickBtnNextMonth(): void {
+  private handleClickBtnNextMonth(): void {
     this.model.nextMonth();
   }
 
-  private _handleClickBtnPrevMonth(): void {
+  private handleClickBtnPrevMonth(): void {
     this.model.previousMonth();
   }
 
-  private _handleClickDaysContainer(ev: JQuery.MouseEventBase): void {
+  private handleClickDaysContainer(ev: JQuery.MouseEventBase): void {
     const $day = $(ev.currentTarget);
-    const dayNumber = parseInt($day.text(), 10);
+    const dayNumber = parseInt($day.find(`.${CLASSES.DAY_NUMBER}`).text(), 10);
 
-    if ($day.hasClass(CALENDAR_CLASSES.DAY_WEEK_ANOTHER_MONTH)) {
-      if (dayNumber > 20) {
-        this.model.previousMonth();
-      } else {
-        this.model.nextMonth();
-      }
+    if ($day.hasClass(CLASSES.DAY_THEME_ANOTHER_MONTH)) {
+      (dayNumber > 20) ? this.model.previousMonth() : this.model.nextMonth();
     }
 
     const selectRange = this.domElements.$calendar.attr('data-select-date') || '';
-
-    if (selectRange === 'auto') {
-      this.model.addedDayInRange(dayNumber);
-    } else {
-      this.model.updateRangeDays(dayNumber, selectRange === 'start');
-    }
+    this.model.addedDayInRange(dayNumber, (selectRange === 'auto') ? undefined : (selectRange === 'start'));
   }
 }
 

@@ -18,5 +18,5 @@ $.fn.calendar = function calendarPlugin(
 };
 
 $(`.${CALENDAR_CLASSES.CALENDAR}`).each((index, element) => {
-  new View($(element)).update();
+  new View($(element));
 });

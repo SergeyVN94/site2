@@ -1,86 +1,51 @@
-type UpdateHandler = () => void;
+type DayLabel = 'previous-month' | 'next-month' | 'today' | 'range' | 'range-start' | 'range-end' | 'range-middle';
+type DayInfo = {
+  date: Date;
+  labels: DayLabel[];
+};
+type ModelStatePackage = {
+  currentDate: Date;
+  days: DayInfo[];
+  rangeDays: {
+    start: Date;
+    end: Date;
+  };
+};
+type HandlerUpdateEvent = (state: ModelStatePackage) => void;
 type RangeDays = {
   start: Date;
   end: Date;
 };
 
 class Model {
-  private readonly renderDate: Date;
+  private readonly currentDate: Date;
 
-  private readonly updateHandler: UpdateHandler;
+  private readonly handlerUpdateEvent: HandlerUpdateEvent;
 
   private rangeDays: RangeDays;
 
-  constructor(updateHandler: UpdateHandler) {
-    this.updateHandler = updateHandler;
+  constructor(handlerUpdateEvent: HandlerUpdateEvent) {
+    this.handlerUpdateEvent = handlerUpdateEvent;
     this.rangeDays = {
       start: null,
       end: null,
     };
+    this.currentDate = new Date();
+    this.currentDate.setHours(0, 0, 0, 0);
 
-    this.renderDate = new Date();
-    this.renderDate.setHours(0, 0, 0, 0);
+    this.triggerUpdateEvent();
   }
 
   public nextMonth(): void {
-    const currentMonth = this.renderDate.getMonth();
-    this.renderDate.setMonth(currentMonth + 1);
-    this.updateHandler();
+    const currentMonth = this.currentDate.getMonth();
+    this.currentDate.setMonth(currentMonth + 1);
+    this.triggerUpdateEvent();
   }
 
   public previousMonth(): void {
-    const currentMonth = this.renderDate.getMonth();
-    this.renderDate.setMonth(currentMonth - 1);
-    this.updateHandler();
-  }
-
-  public getPageDays(): number[] {
-    const daysInMonth = Model._getDaysInMonth(
-      this.renderDate.getMonth(),
-      this.renderDate.getFullYear(),
-    );
-
-    const daysMonth: number[] = [];
-    for (let i = 1; i <= daysInMonth; i += 1) {
-      daysMonth.push(i);
-    }
-
-    const tmpDate = new Date(
-      this.renderDate.getFullYear(),
-      this.renderDate.getMonth(),
-      1,
-    );
-    const daysInPrevMonth = Model._getDaysInMonth(
-      tmpDate.getMonth() - 1,
-      tmpDate.getFullYear(),
-    );
-    const dayOfWeekFirstDay = (tmpDate.getDay() || 7) - 1; // Monday - 0, Sunday - 6
-
-    const daysPrevMonth: number[] = [];
-    for (let i = dayOfWeekFirstDay - 1, j = daysInPrevMonth; i >= 0; i -= 1, j -= 1) {
-      daysPrevMonth.push(j);
-    }
-
-    tmpDate.setDate(daysInMonth);
-    const dayOfWeekLastDay = (tmpDate.getDay() || 7) - 1;
-
-    const daysNextMonth: number[] = [];
-    for (let i = dayOfWeekLastDay + 1, j = 1; i <= 6; i += 1, j += 1) {
-      daysNextMonth.push(j);
-    }
-
-    return daysPrevMonth
-      .reverse()
-      .concat(daysMonth)
-      .concat(daysNextMonth);
-  }
-
-  public getRenderDate(): Date {
-    return this.renderDate;
-  }
-
-  public getRangeDays(): RangeDays {
-    return this.rangeDays;
+    const currentMonth = this.currentDate.getMonth();
+    this.currentDate.setMonth(currentMonth - 1);
+    this.triggerUpdateEvent();
   }
 
   public resetRangeDays(): void {
@@ -88,34 +53,74 @@ class Model {
       start: null,
       end: null,
     };
-    this.updateHandler();
+    this.triggerUpdateEvent();
   }
 
-  public updateRangeDays(day: number, setRangeStart = true): boolean {
-    const targetDate = new Date(
-      this.renderDate.getFullYear(),
-      this.renderDate.getMonth(),
-      day,
-    );
-    targetDate.setHours(0, 0, 0, 0); // Что бы сравнивать даты без учета времени.
-    const targetDateTime = targetDate.getTime();
+  public addedDayInRange(day: number, setRangeStart?: boolean): boolean {
+    const targetDate = new Date(this.currentDate);
+    targetDate.setDate(day);
+    targetDate.setHours(0, 0, 0, 0);
+    const targetDateInMilliseconds = targetDate.getTime();
 
     const currentDate = new Date();
     currentDate.setHours(0, 0, 0, 0);
 
-    if (targetDateTime <= currentDate.getTime()) {
-      return false;
+    if (targetDateInMilliseconds <= currentDate.getTime()) return false;
+
+    if (setRangeStart !== undefined) return this.updateRangeDays(targetDate, setRangeStart);
+
+    const startIsNull = this.rangeDays.start === null;
+    const endIsNull = this.rangeDays.end === null;
+
+    if (!startIsNull && !endIsNull) {
+      this.rangeDays = { start: targetDate, end: null };
+      this.triggerUpdateEvent();
+      return true;
     }
 
-    const {
-      start = null,
-      end = null,
-    } = this.rangeDays;
+    if (startIsNull && endIsNull) {
+      this.rangeDays.start = targetDate;
+      this.triggerUpdateEvent();
+      return true;
+    }
 
+    if (!startIsNull) {
+      if (this.rangeDays.start.getTime() < targetDateInMilliseconds) {
+        this.rangeDays.end = targetDate;
+      } else {
+        this.rangeDays.end = this.rangeDays.start;
+        this.rangeDays.start = targetDate;
+      }
+
+      this.triggerUpdateEvent();
+      return true;
+    }
+
+    if (!endIsNull) {
+      if (this.rangeDays.end.getTime() > targetDateInMilliseconds) {
+        this.rangeDays.start = targetDate;
+      } else {
+        this.rangeDays.start = this.rangeDays.end;
+        this.rangeDays.end = targetDate;
+      }
+
+      this.triggerUpdateEvent();
+      return true;
+    }
+
+    return false;
+  }
+
+  private updateRangeDays(targetDate: Date, setRangeStart = true): boolean {
+    const targetDateInMilliseconds = targetDate.getTime();
+
+    const { start, end } = this.rangeDays;
     const rangeStartIsNull = start === null;
     const rangeEndIsNull = end === null;
-    const isTargetDateCanBeSetToStart = !rangeEndIsNull && targetDateTime < end.getTime();
-    const isTargetDateCanBeSetToEnd = !rangeStartIsNull && targetDateTime > start.getTime();
+
+    const isTargetDateCanBeSetToStart = !rangeEndIsNull && targetDateInMilliseconds < end.getTime();
+    const isTargetDateCanBeSetToEnd = !rangeStartIsNull
+    && targetDateInMilliseconds > start.getTime();
     const inNeedResetRangeEnd = !isTargetDateCanBeSetToStart && !rangeEndIsNull;
 
     if (setRangeStart) {
@@ -125,74 +130,112 @@ class Model {
         this.rangeDays.end = null;
       }
 
-      this.updateHandler();
+      this.triggerUpdateEvent();
       return true;
     }
 
     if (rangeStartIsNull || isTargetDateCanBeSetToEnd) {
       this.rangeDays.end = targetDate;
-      this.updateHandler();
+      this.triggerUpdateEvent();
       return true;
     }
 
     return false;
   }
 
-  public addedDayInRange(day: number): boolean {
-    const targetDate = new Date(
-      this.renderDate.getFullYear(),
-      this.renderDate.getMonth(),
-      day,
-    );
-    targetDate.setHours(0, 0, 0, 0);
-    const targetDateTime = targetDate.getTime();
+  private createModelStatePackage(): ModelStatePackage {
+    const days: DayInfo[] = [];
 
-    const startIsNull = this.rangeDays.start === null;
-    const endIsNull = this.rangeDays.end === null;
+    const previousMonth = new Date(this.currentDate);
+    previousMonth.setMonth(this.currentDate.getMonth() - 1);
+    const daysInPrevMonth = Model.getDaysInMonth(previousMonth);
+    previousMonth.setDate(daysInPrevMonth);
 
-    if (!startIsNull && !endIsNull) {
-      this.resetRangeDays();
-      this.rangeDays.start = targetDate;
-      this.updateHandler();
-      return true;
-    }
-
-    if (startIsNull && endIsNull) {
-      this.rangeDays.start = targetDate;
-      this.updateHandler();
-      return true;
-    }
-
-    if (!startIsNull) {
-      if (this.rangeDays.start.getTime() < targetDateTime) {
-        this.rangeDays.end = targetDate;
-      } else {
-        this.rangeDays.end = this.rangeDays.start;
-        this.rangeDays.start = targetDate;
+    let dayOfWeek = (previousMonth.getDay() || 7); // Monday - 1, Sunday - 7
+    if (dayOfWeek < 7) { // last day of the previous month is not Sunday
+      for (
+        let dayOfMonth = daysInPrevMonth;
+        dayOfWeek > 0;
+        dayOfWeek -= 1, dayOfMonth -= 1
+      ) {
+        const date = new Date(previousMonth);
+        date.setDate(dayOfMonth);
+        days.unshift({ date, labels: this.getDayLabels(date) });
       }
-
-      this.updateHandler();
-      return true;
     }
 
-    if (!endIsNull) {
-      if (this.rangeDays.end.getTime() > targetDateTime) {
-        this.rangeDays.start = targetDate;
-      } else {
-        this.rangeDays.start = this.rangeDays.end;
-        this.rangeDays.end = targetDate;
+    const currentMonth = new Date(this.currentDate);
+    const daysInMonth = Model.getDaysInMonth(currentMonth);
+    for (let i = 1; i <= daysInMonth; i += 1) {
+      const date = new Date(currentMonth);
+      date.setDate(i);
+      days.push({ date, labels: this.getDayLabels(date) });
+    }
+
+    const nextMonth = new Date(this.currentDate);
+    nextMonth.setMonth(this.currentDate.getMonth() + 1);
+    nextMonth.setDate(1);
+
+    let dayOfWeekFirstDay = (nextMonth.getDay() || 7); // Monday - 1, Sunday - 7
+    if (dayOfWeekFirstDay > 1) {
+      for (let dayOfMonth = 1; dayOfWeekFirstDay <= 7; dayOfWeekFirstDay += 1, dayOfMonth += 1) {
+        const date = new Date(nextMonth);
+        date.setDate(dayOfMonth);
+        days.push({ date, labels: this.getDayLabels(date) });
       }
-
-      this.updateHandler();
-      return true;
     }
 
-    return false;
+    return {
+      days,
+      currentDate: new Date(this.currentDate),
+      rangeDays: {
+        start: this.rangeDays.start && new Date(this.rangeDays.start),
+        end: this.rangeDays.end && new Date(this.rangeDays.end),
+      },
+    };
   }
 
-  private static _getDaysInMonth(month: number, year: number): number {
-    return new Date(year, month + 1, 0).getDate();
+  private triggerUpdateEvent(): void {
+    this.handlerUpdateEvent(this.createModelStatePackage());
+  }
+
+  private getDayLabels(day: Date): DayLabel[] {
+    const labels: DayLabel[] = [];
+    const dayInMilliseconds = day.getTime();
+
+    if (
+      day.getMonth() !== this.currentDate.getMonth()
+    ) labels.push(day.getMonth() < this.currentDate.getMonth() ? 'previous-month' : 'next-month');
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    if (day.getTime() === today.getTime()) labels.push('today');
+
+    const { start, end } = this.rangeDays;
+
+    if (start && dayInMilliseconds === start.getTime()) {
+      labels.push('range');
+      if (end) labels.push('range-start');
+    }
+
+    if (end && dayInMilliseconds === end.getTime()) {
+      labels.push('range');
+      if (start) labels.push('range-end');
+    }
+
+    if (
+      start && end
+      && dayInMilliseconds > start.getTime()
+      && dayInMilliseconds < end.getTime()
+    ) labels.push('range-middle');
+
+    return labels;
+  }
+
+  private static getDaysInMonth(date: Date): number {
+    return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
   }
 }
 
 export default Model;
+export { ModelStatePackage, DayInfo };
