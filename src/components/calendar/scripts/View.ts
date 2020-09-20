@@ -50,8 +50,6 @@ class View {
     this.renderHead(currentDate);
     this.renderBody(days);
 
-    console.log(`start: ${start}, end: ${end}, res: ${(start === null && end === null)}`);
-
     this.domElements.$btnClear.button('hidden', (start === null && end === null));
   }
 
@@ -67,38 +65,50 @@ class View {
     const body = document.createDocumentFragment();
 
     days.forEach((dayInfo) => {
-      body.append(View.createDay(dayInfo));
+      body.append(this.createDay(dayInfo));
     });
 
     this.domElements.$daysContainer.html(body);
   }
 
-  private static createDay(info: DayInfo): Element {
+  private createDay(info: DayInfo): Element {
     const day = document.createElement('div');
     const innerWrapper = document.createElement('p');
     const textContainer = document.createElement('span');
 
     const { labels } = info;
 
-    day.classList.add(CLASSES.DAY_WEEK, `js-${CLASSES.DAY_WEEK}`);
-    if (
-      labels.includes('next-month') || labels.includes('previous-month')
-    ) day.classList.add(CLASSES.DAY_THEME_ANOTHER_MONTH, `js-${CLASSES.DAY_THEME_ANOTHER_MONTH}`);
-    if (labels.includes('today')) day.classList.add(CLASSES.DAY_THEME_TODAY);
-    if (labels.includes('range')) day.classList.add(CLASSES.DAY_THEME_RANGE_DAY);
-    if (labels.includes('range-start')) day.classList.add(CLASSES.RANGE_DAY_START);
-    if (labels.includes('range-end')) day.classList.add(CLASSES.RANGE_DAY_END);
-    if (labels.includes('range-middle')) day.classList.add(CLASSES.DAY_THEME_RANGE_DAY_MIDDLE);
+    day.classList.add(CLASSES.DAY_WEEK, `js-${CLASSES.DAY_WEEK}`, ...this.parseLabels(labels));
 
-    textContainer.classList.add('calendar__day-number');
+    textContainer.classList.add(CLASSES.DAY_NUMBER);
     textContainer.innerHTML = info.date.getDate().toString();
 
-    innerWrapper.classList.add('calendar__day-inner');
+    innerWrapper.classList.add(CLASSES.DAY_INNER);
     innerWrapper.append(textContainer);
 
     day.append(innerWrapper);
 
     return day;
+  }
+
+  private parseLabels(labels: string[]): string[] {
+    const classList: string[] = [];
+
+    if (
+      labels.includes('next-month') || labels.includes('previous-month')
+    ) classList.push(CLASSES.DAY_THEME_ANOTHER_MONTH, `js-${CLASSES.DAY_THEME_ANOTHER_MONTH}`);
+    if (labels.includes('today')) classList.push(CLASSES.DAY_THEME_TODAY);
+    if (labels.includes('range')) classList.push(CLASSES.DAY_THEME_RANGE_DAY);
+    if (labels.includes('range-start')) classList.push(CLASSES.RANGE_DAY_START);
+    if (labels.includes('range-end')) classList.push(CLASSES.RANGE_DAY_END);
+    if (labels.includes('range-middle')) classList.push(CLASSES.DAY_THEME_RANGE_DAY_MIDDLE);
+    if (labels.includes('not-selectable')) classList.push(CLASSES.DAY_THEME_NOT_CLICKABLE);
+
+    const selectRange = this.domElements.$calendar.attr('data-select-date') || '';
+    const isNotSelectable = labels.includes('not-selectable-as-range-end');
+    if (selectRange === 'end' && isNotSelectable) classList.push(CLASSES.DAY_THEME_NOT_CLICKABLE);
+
+    return classList;
   }
 
   private static createDomElements($calendar: JQuery): ICalendarDomElements {
@@ -188,7 +198,7 @@ class View {
     }
 
     const selectRange = this.domElements.$calendar.attr('data-select-date') || '';
-    this.model.addedDayInRange(dayNumber, (selectRange === 'auto') ? undefined : (selectRange === 'start'));
+    this.model.addDayInRange(dayNumber, (selectRange === 'auto') ? undefined : (selectRange === 'start'));
   }
 }
 

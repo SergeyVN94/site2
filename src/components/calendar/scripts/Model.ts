@@ -1,7 +1,6 @@
-type DayLabel = 'previous-month' | 'next-month' | 'today' | 'range' | 'range-start' | 'range-end' | 'range-middle';
 type DayInfo = {
   date: Date;
-  labels: DayLabel[];
+  labels: string[];
 };
 type ModelStatePackage = {
   currentDate: Date;
@@ -16,6 +15,11 @@ type RangeDays = {
   start: Date;
   end: Date;
 };
+type DayLabelGenerator = (
+  date: Date,
+  currentDate: Date,
+  rangeDays: RangeDays,
+) => string | string[] | null;
 
 class Model {
   private readonly currentDate: Date;
@@ -23,6 +27,8 @@ class Model {
   private readonly handlerUpdateEvent: HandlerUpdateEvent;
 
   private rangeDays: RangeDays;
+
+  private static dayLabelGenerators: DayLabelGenerator[] = [];
 
   constructor(handlerUpdateEvent: HandlerUpdateEvent) {
     this.handlerUpdateEvent = handlerUpdateEvent;
@@ -56,7 +62,7 @@ class Model {
     this.triggerUpdateEvent();
   }
 
-  public addedDayInRange(day: number, setRangeStart?: boolean): boolean {
+  public addDayInRange(day: number, setRangeStart?: boolean): boolean {
     const targetDate = new Date(this.currentDate);
     targetDate.setDate(day);
     targetDate.setHours(0, 0, 0, 0);
@@ -109,6 +115,10 @@ class Model {
     }
 
     return false;
+  }
+
+  public static addDayLabelGenerator(generator: DayLabelGenerator): void {
+    Model.dayLabelGenerators.push(generator);
   }
 
   private updateRangeDays(targetDate: Date, setRangeStart = true): boolean {
@@ -199,35 +209,20 @@ class Model {
     this.handlerUpdateEvent(this.createModelStatePackage());
   }
 
-  private getDayLabels(day: Date): DayLabel[] {
-    const labels: DayLabel[] = [];
-    const dayInMilliseconds = day.getTime();
-
-    if (
-      day.getMonth() !== this.currentDate.getMonth()
-    ) labels.push(day.getMonth() < this.currentDate.getMonth() ? 'previous-month' : 'next-month');
-
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    if (day.getTime() === today.getTime()) labels.push('today');
-
+  private getDayLabels(day: Date): string[] {
+    const labels: string[] = [];
     const { start, end } = this.rangeDays;
 
-    if (start && dayInMilliseconds === start.getTime()) {
-      labels.push('range');
-      if (end) labels.push('range-start');
-    }
+    Model.dayLabelGenerators.forEach((generator) => {
+      const currentDateCopy = new Date(this.currentDate);
+      const rangeDaysCopy = {
+        start: start ? new Date(start) : null,
+        end: end ? new Date(end) : null,
+      };
 
-    if (end && dayInMilliseconds === end.getTime()) {
-      labels.push('range');
-      if (start) labels.push('range-end');
-    }
-
-    if (
-      start && end
-      && dayInMilliseconds > start.getTime()
-      && dayInMilliseconds < end.getTime()
-    ) labels.push('range-middle');
+      const labelsOfDay = generator(day, currentDateCopy, rangeDaysCopy);
+      if (labelsOfDay) (typeof labelsOfDay === 'string') ? labels.push(labelsOfDay) : labels.push(...labelsOfDay);
+    });
 
     return labels;
   }
@@ -236,6 +231,56 @@ class Model {
     return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
   }
 }
+
+Model.addDayLabelGenerator((day, currentDate) => {
+  if (
+    day.getMonth() !== currentDate.getMonth()
+  ) return (day.getMonth() < currentDate.getMonth()) ? 'previous-month' : 'next-month';
+
+  return null;
+});
+
+Model.addDayLabelGenerator((day) => {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  return (day.getTime() === today.getTime()) ? 'today' : null;
+});
+
+Model.addDayLabelGenerator((day, _, { start, end }) => {
+  const dayInMilliseconds = day.getTime();
+  const labels: string[] = [];
+
+  if (start && dayInMilliseconds === start.getTime()) {
+    labels.push('range');
+    if (end) labels.push('range-start');
+  }
+
+  if (end && dayInMilliseconds === end.getTime()) {
+    labels.push('range');
+    if (start) labels.push('range-end');
+  }
+
+  if (
+    start && end
+    && dayInMilliseconds > start.getTime()
+    && dayInMilliseconds < end.getTime()
+  ) labels.push('range-middle');
+
+  return labels;
+});
+
+Model.addDayLabelGenerator((day, _, { start }) => {
+  const labels: string[] = [];
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const dateLessThatToday = day.getTime() <= today.getTime();
+
+  if (dateLessThatToday) labels.push('not-selectable');
+  else if (start && (day.getTime() <= start.getTime())) labels.push('not-selectable-as-range-end');
+
+  return labels;
+});
 
 export default Model;
 export { ModelStatePackage, DayInfo };

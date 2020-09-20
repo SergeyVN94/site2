@@ -8,6 +8,7 @@ const enum CLASSES {
   DAYS_CONTAINER = 'calendar__days-container',
   DAY_WEEK = 'calendar__day-week',
   DAY_NUMBER = 'calendar__day-number',
+  DAY_INNER = 'calendar__day-inner',
   DAY_THEME_ANOTHER_MONTH = 'calendar__day-week_theme_another-month',
   DAY_THEME_RANGE_DAY = 'calendar__day-week_theme_range-day',
   DAY_THEME_NOT_CLICKABLE = 'calendar__day-week_theme_not-clickable',
