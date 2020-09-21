@@ -1,8 +1,10 @@
+$mobile-width: 768px;
+
 .footer {
   display: flex;
   flex-direction: column;
   background-color: #fff;
-  box-shadow: 0rem .0714rem 0rem $dim-border;
+  box-shadow: 0 1px 0 $dim-border;
 
   &__content {
     @include reset-css;
@@ -14,10 +16,13 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
+
+    @media (max-width: 1070px) {
+      justify-content: space-around;
+    }
   
-    @media (max-width: $breakpoint-tablets) {
-      flex-direction: column;
-      align-items: center;
+    @media (max-width: $mobile-width) {
+      display: none;
     }
   }
   
@@ -26,12 +31,6 @@
     max-width: 260px;
     display: flex;
     flex-direction: column;
-  }
-
-  &__logo { 
-    @media (max-width: $breakpoint-tablets) {
-      margin: 0 auto 1.2143rem auto;
-    }
   }
 
   &__description {
@@ -45,6 +44,10 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+
+    @media (max-width: 1070px) {
+      display: none;
+    }
   }
   
   &__nav {
@@ -52,7 +55,7 @@
     width: 100%;
     max-width: 160px;
   
-    @media (max-width: $breakpoint-tablets) {
+    @media (max-width: $breakpoint-cell-phones) {
       display: none;
     }
 
@@ -67,10 +70,6 @@
     margin-top: .3571rem;
     width: 100%;
     max-width: 260px;
-  
-    @media (max-width: $breakpoint-tablets) {
-      margin-top: $middle-first-size;
-    }
   }
   
   &__subscribe-title {
@@ -85,5 +84,56 @@
 
   &__copyright {
     border-top: .0714rem solid #e5e5e5;
+  }
+
+  &__copyright {
+    padding: 23px 0;
+    background: #fff;
+    box-shadow: 0rem $tiny-size $middle-first-size $dim-shadow;
+  
+    &-content {
+      @include container-content;
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+  
+    &-text {
+      @include text-body;
+      
+      @media (max-width: $breakpoint-cell-phones) {
+        margin-right: $tiny-size;
+      }
+    }
+
+    @media (max-width: $mobile-width) {
+      display: none;
+    }
+  }
+
+  &__mobile-content {
+    @include reset-css;
+
+    @include container-content;
+    padding: 120px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (min-width: $mobile-width + 1) {
+      display: none;
+    }
+  }
+
+  &__mobile-copyright {
+    @include text-body;
+    margin-top: 14px;
+  }
+
+  &__mobile-social-icons {
+    margin-top: 23px;
   }
 }

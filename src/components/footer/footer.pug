@@ -1,9 +1,9 @@
 include /logo/logo.pug
 include /menu/menu.pug
 include /text-field/text-field.pug
-include /copyright-bar/copyright-bar.pug
+include /social-icons/social-icons.pug
 
-mixin footer({ siteDescription, navList = [], subscribe = {}, copyrightBar = {} })
+mixin footer({ siteDescription, navList = [], subscribe = {}, copyright = '', socialIcons })
   footer.footer
     .footer__content
       .footer__site-description
@@ -30,4 +30,13 @@ mixin footer({ siteDescription, navList = [], subscribe = {}, copyrightBar = {} 
         form.footer__subscribe-text-field(action=formAction, method="post")
           +text-field({ placeholder, type: "email", iconRight: "arrow_forward" })
     .footer__copyright
-      +copyright-bar(copyrightBar)
+      .footer__copyright-content
+        p.footer__copyright-text #{copyright}
+        .footer__social-icons
+          +social-icons(socialIcons)
+    .footer__mobile-content
+      .footer__mobile-logo
+          +logo()
+      .footer__mobile-copyright #{copyright}
+      .footer__mobile-social-icons
+          +social-icons(socialIcons)
