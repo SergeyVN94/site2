@@ -27,8 +27,19 @@
     width: 100%;
     max-width: 290px;
     position: absolute;
-    right: .5714rem;
+    right: 8px;
     bottom: 1.5rem;
     text-align: right;
+
+    @media (max-width: 1244px) {
+      right: 30px;
+    }
+
+    @media (max-width: 425px) {
+      margin: 0 auto;
+      right: 0;
+      left: 0;
+      text-align: center;
+    }
   }
 }
