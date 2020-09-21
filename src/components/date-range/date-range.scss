@@ -64,6 +64,11 @@
     user-select: none;
     line-height: 3rem;
   }
+
+  &__expand-button {
+    min-width: 44px;
+    height: 42px;
+  }
   
   &__container {
     width: 100%;

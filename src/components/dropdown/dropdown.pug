@@ -21,7 +21,8 @@ mixin dropdown(options)
     .dropdown__container
       .dropdown__head.js-dropdown__head
         p.dropdown__head-text.js-dropdown__head-text #{text}
-        +button({ text: "expand_more", theme: "icon" })
+        .dropdown__expand-button
+          +button({ text: "expand_more", theme: "icon" })
       if counters.length
         .dropdown__body.js-dropdown__body
           for counter in counters

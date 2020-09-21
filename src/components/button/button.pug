@@ -23,7 +23,7 @@ mixin button(options = {})
       "default", "default-long", "icon", "light", "round-icon", "round-little", "round", "text",
     ].includes(theme)) classes.push(`button_theme_${theme}`);
     if ([
-      "text-secondary", "gradient-primary",
+      "text-secondary", "gradient-primary", "bg-primary",
     ].includes(textColor)) classes.push(`button_text-color_${textColor}`);
     if ([
       "gradient-primary", "gradient-success", "none",

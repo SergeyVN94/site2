@@ -47,6 +47,12 @@
     line-height: 3rem;
   }
 
+  &__expand-button {
+    width: 44px;
+    min-width: 44px;
+    height: 42px;
+  }
+
   &__body {
     display: none;
     position: absolute;

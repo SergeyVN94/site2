@@ -19,14 +19,16 @@ mixin date-range(options = {})
             +block-head(dropdownLeftHead)
         .date-range__dropdown.js-date-range__dropdown(data-type="start")
           p.date-range__dropdown-text.js-date-range__dropdown-text #{dropdownEntranceText}
-          +button({ text: "expand_more", theme: "icon" })
+          .date-range__expand-button
+            +button({ text: "expand_more", theme: "icon" })
       .date-range__dropdown-container
         if dropdownRightHead
           .date-range__dropdown-head
             +block-head(dropdownRightHead)
         .date-range__dropdown.js-date-range__dropdown(data-type="end")
           p.date-range__dropdown-text.js-date-range__dropdown-text #{dropdownDepartureText}
-          +button({ text: "expand_more", theme: "icon" })
+          .date-range__expand-button
+            +button({ text: "expand_more", theme: "icon" })
     .date-range__container
       .date-range__calendar
         +calendar()

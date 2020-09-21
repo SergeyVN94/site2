@@ -9,7 +9,8 @@ mixin filter-date-dropdown({ head = {}, text = "Выберите дату" })
         +block-head(head)
     .filter-date-dropdown__head.js-filter-date-dropdown__head
       p.filter-date-dropdown__text.js-filter-date-dropdown__text #{text}
-      +button({ text: "expand_more", theme: "icon" })
+      .filter-date-dropdown__expand-button
+        +button({ text: "expand_more", theme: "icon" })
     .filter-date-dropdown__container
       .filter-date-dropdown__calendar
         +calendar()
