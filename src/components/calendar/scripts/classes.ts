@@ -1,7 +1,7 @@
 const enum CLASSES {
   CALENDAR = 'calendar',
-  BUTTON_PREVIOUS_MONTH = 'calendar__change-month_direction_previous',
-  BUTTON_NEXT_MONTH = 'calendar__change-month_direction_next',
+  BUTTON_PREVIOUS_MONTH = 'button[data-action="previous-month"]',
+  BUTTON_NEXT_MONTH = 'button[data-action="next-month"]',
   BUTTON_APPLY = 'button[data-action="apply"]',
   BUTTON_CLEAR = 'button[data-action="clear"]',
   DRAWN_DATE = 'calendar__drawn-date',

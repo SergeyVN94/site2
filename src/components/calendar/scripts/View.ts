@@ -69,9 +69,15 @@ class View {
     this.domElements.$btnClear.button('hidden', (start === null && end === null));
   }
 
-  private renderHead(currentDate: Date): void {
-    const monthName = MONTH_NAMES[currentDate.getMonth()];
-    const year = currentDate.getFullYear();
+  private renderHead(date: Date): void {
+    const currentDate = new Date();
+    const isCannotSwitchToPreviousMonth = date.getMonth() === currentDate.getMonth()
+      && date.getFullYear() === currentDate.getFullYear();
+
+    this.domElements.$btnPrevMonth.button('hidden', isCannotSwitchToPreviousMonth);
+
+    const monthName = MONTH_NAMES[date.getMonth()];
+    const year = date.getFullYear();
     const headText = `${monthName} ${year}`;
 
     this.domElements.$drawnDate.text(headText);

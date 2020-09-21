@@ -10,9 +10,21 @@ mixin calendar(options = {})
 
   .calendar.js-calendar
     .calendar__date-navigation
-      .calendar__change-month.calendar__change-month_direction_previous.js-calendar__change-month_direction_previous arrow_back
+      .calendar__change-month
+        +button({
+          text: 'arrow_back',
+          textColor: 'bg-primary',
+          theme: 'icon',
+          dataAction: 'previous-month',
+        })
       h2.calendar__drawn-date.js-calendar__drawn-date
-      .calendar__change-month.calendar__change-month_direction_next.js-calendar__change-month_direction_next arrow_forward
+      .calendar__change-month
+        +button({
+          text: 'arrow_forward',
+          textColor: 'bg-primary',
+          theme: 'icon',
+          dataAction: 'next-month',
+        })
     .calendar__weekday-names
       for name in weekdayNames
         p.calendar__weekday-name #{name}
