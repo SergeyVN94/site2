@@ -27,17 +27,18 @@ mixin card-selection-room(options = {})
     } = options;
 
   .card-selection-room
-    h2.card-selection-room__title #{title}
-    form.card-selection-room__form(action=formAction, method="post")
-      .card-selection-room__date-range
-        +date-range(dateRange)
-      .card-selection-room__dropdown-guest
-        +dropdown(dropdownGuest)
-      .card-selection-room__search-button
-        +button({
-          href: searchButtonRoomHref,
-          text: searchButtonRoom,
-          theme: "default-long",
-          icon: "arrow_forward",
-          isActiveTabindex: true,
-        })
+    .card-selection-room__content
+      h2.card-selection-room__title #{title}
+      form.card-selection-room__form(action=formAction, method="post")
+        .card-selection-room__date-range
+          +date-range(dateRange)
+        .card-selection-room__dropdown-guest
+          +dropdown(dropdownGuest)
+        .card-selection-room__search-button
+          +button({
+            href: searchButtonRoomHref,
+            text: searchButtonRoom,
+            theme: "default-long",
+            icon: "arrow_forward",
+            isActiveTabindex: true,
+          })

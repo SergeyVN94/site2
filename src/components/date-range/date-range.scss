@@ -1,5 +1,6 @@
 .date-range {
   width: 100%;
+  max-width: 320px;
 
   &_range-select {
 
@@ -14,23 +15,19 @@
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: baseline;
-  
-    @media (max-width: 380px) {
-      justify-content: space-between;
-    }
   }
 
   &__dropdown-container {
     width: 100%;
     max-width: 150px;
-  
-    @media (max-width: 330px) {
-      max-width: 50%;
+
+    &:last-child {
+      margin-left: 20px;
     }
   }
 
   &__dropdown-head {
-    margin-bottom: .2857rem;
+    margin-bottom: 4px;
   }
 
   &__dropdown {
@@ -38,10 +35,11 @@
     height: $very-big-size;
     display: flex;
     background-color: #fff;
-    border: .0714rem solid $light-title;
+    border: 1px solid $light-title;
     box-sizing: border-box;
-    border-radius: .2857rem;
+    border-radius: 4px;
     color: $text-primary;
+    overflow: hidden;
     cursor: pointer;
   
     &:hover {
@@ -58,6 +56,7 @@
 
     @include text-body;
     width: 100%;
+    max-width: 100%;
     padding-left: 1rem;
     overflow: hidden;
     white-space: nowrap;
@@ -79,6 +78,6 @@
   &__calendar {
     position: absolute;
     z-index: 999;
-    margin-top: .3571rem;
+    top: 5px;
   }
 }

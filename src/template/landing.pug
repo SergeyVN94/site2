@@ -2,7 +2,6 @@ extends page.pug
 
 include /header/header.pug
 include /footer/footer.pug
-include /copyright-bar/copyright-bar.pug
 
 block content
   -
@@ -47,7 +46,7 @@ block content
         {
           title: "навигация",
           items: [
-            {text: "О нас", href: "./landing-page.html"},
+            {text: "О нас"},
             {text: "Новости"},
             {text: "Служба поддержки"},
             {text: "Услуги"},
@@ -71,7 +70,7 @@ block content
           ],
         },
       ],
-      copyrightBar: { copyright: "Copyright © 2018 Toxin отель. Все права зачищены." }
+      copyright: "Copyright © 2018 Toxin отель. Все права зачищены.",
     };
 
   +header(headerConfig)

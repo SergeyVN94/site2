@@ -5,6 +5,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
 
   @media (max-width: $breakpoint-tablets) {
     flex-direction: column;

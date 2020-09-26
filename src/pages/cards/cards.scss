@@ -19,28 +19,12 @@
     }
   }
 
-  &__row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    
-    &:not(:last-child) {
-      margin-bottom: 7.1429rem;
-    }
-  }
-
   &__column {
     display: flex;
     flex-direction: column;
 
-    &:not(:last-child) {
-      margin-right: $tiny-size;
-    }
-
     @media (max-width: $breakpoint-cell-phones) {
       width: 100%;
-      margin-right: 0rem;
     }
   }
 

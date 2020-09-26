@@ -3,7 +3,6 @@ extends /../template/page.pug
 include /simple-header/simple-header.pug
 include /header/header.pug
 include /footer/footer.pug
-include /footer-creative/footer-creative.pug
 
 block pageTitle
   title Headers and Footers
@@ -77,9 +76,5 @@ block content
               ],
             },
           ],
-          copyrightBar: { copyright: "Copyright © 2018 Toxin отель. Все права зачищены." },
-        })
-      .headers-and-footers__footer-creative
-        +footer-creative({
-          siteDescription: "Copyright © 2018 Toxin отель. Все права зачищены.",
+          copyright: "Copyright © 2018 Toxin отель. Все права зачищены.",
         })

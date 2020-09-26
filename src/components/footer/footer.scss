@@ -131,6 +131,7 @@ $mobile-width: 768px;
   &__mobile-copyright {
     @include text-body;
     margin-top: 14px;
+    text-align: center;
   }
 
   &__mobile-social-icons {
