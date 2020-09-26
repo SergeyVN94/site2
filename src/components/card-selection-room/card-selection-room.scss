@@ -1,10 +1,6 @@
 .card-selection-room {
   @include card-container;
 
-  &__content {
-    @include card-content;
-  }
-
   &__title {
     @include text-h1;
     margin-bottom: 1.5rem;
