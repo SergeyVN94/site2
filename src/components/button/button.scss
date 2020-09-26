@@ -101,8 +101,9 @@
     &_light {
       position: relative;
       background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+      background-origin: border-box;
       border-radius: 22px;
-      padding: 2px;
+      border: 2px solid transparent;
       
       &:hover,
       &:focus {
