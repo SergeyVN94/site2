@@ -17,7 +17,15 @@
     align-items: flex-start;
   
     .menu__item {
-      margin: 0rem 0rem 1.5rem 0rem;
+      margin: 0 0 1.5rem 0;
+
+      &:not(:last-child) {
+        margin-right: 0;
+      }
+    }
+
+    .menu__item-text {
+      white-space: break-spaces;
     }
   }
 
@@ -60,7 +68,7 @@
       width: 100%;
 
       &:not(:last-child) {
-        margin: 0rem 0rem 1.5rem 0rem;
+        margin: 0 0 1.5rem 0;
       }
     }
   }
@@ -117,8 +125,8 @@
     max-height: 0;
     overflow: hidden;
     background: #fff;    
-    border-radius: 0rem 0rem .2857rem .2857rem;
-    box-shadow: 0rem $tiny-size $middle-first-size $light-title;
+    border-radius: 0 0 .2857rem .2857rem;
+    box-shadow: 0 $tiny-size $middle-first-size $light-title;
     
     @media (max-width: $breakpoint-tablets) {
       position: relative;
