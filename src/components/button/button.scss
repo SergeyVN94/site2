@@ -108,6 +108,7 @@
       &:hover,
       &:focus {
         background: linear-gradient(180deg, rgba(188, 156, 255, .5) 0%, rgba(139, 164, 249, .5) 100%);
+        background-origin: border-box;
       }
 
       .button__text {

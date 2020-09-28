@@ -7,7 +7,6 @@ const enum DROPDOWN_CLASSES {
   BTN_MINUS = 'js-button[data-action="minus"]',
   BTN_APPLY = 'js-button[data-action="apply"]',
   BTN_CLEAR = 'js-button[data-action="clear"]',
-  COUNTER = 'js-dropdown-counter',
   COUNTER_OUT = 'js-dropdown__counter-out',
   HEAD_TEXT = 'js-dropdown__head-text',
 }
@@ -36,13 +35,10 @@ class Dropdown {
 
   private counterGroupsValues: { [index: string]: number };
 
-  private sumValuesCounters: number;
-
   constructor($dropdown: JQuery) {
     this.domElements = Dropdown._getDomElements($dropdown);
     this.defaultHeadText = this.domElements.$headText.text();
     this.variationsTable = $dropdown.data('variations');
-    this.sumValuesCounters = 0;
     this.counterGroupsValues = {};
     this._resetGroupsValues();
     this._initEventListeners();
@@ -108,13 +104,17 @@ class Dropdown {
     const { $dropdownHead, $dropdownBody } = this.domElements;
 
     $dropdownHead.on('click.dropdown.expanded', this._handleDropdownHeadClick.bind(this));
-    $dropdownBody.on('click.dropdown.selectControl', this._handleDropdownBodyClick.bind(this));
+    $dropdownBody.on(
+      'click.dropdown.selectControl',
+      '.js-button',
+      this._handleButtonClick.bind(this),
+    );
   }
 
   private _updateDropdownHeadText(): boolean {
     const { $headText } = this.domElements;
 
-    if (this.sumValuesCounters === 0) {
+    if (this.countSumCounters() === 0) {
       $headText.text(this.defaultHeadText);
       return true;
     }
@@ -136,6 +136,13 @@ class Dropdown {
     $headText.text(Dropdown._cropHeadText(headText));
 
     return true;
+  }
+
+  private countSumCounters(): number {
+    return Object.keys(this.counterGroupsValues).reduce((accumulator: number, key: string) => {
+      const counterValue = this.counterGroupsValues[key];
+      return (accumulator + (typeof counterValue === 'number' ? counterValue : 0));
+    }, 0);
   }
 
   private _resetDropdown(): void {
@@ -165,18 +172,17 @@ class Dropdown {
     }
   }
 
-  private _handleDropdownBodyClick(ev: JQuery.MouseEventBase): void {
-    const $target = $(ev.target).parents('.js-button');
+  private _handleButtonClick(ev: JQuery.MouseEventBase): void {
+    const $button = $(ev.currentTarget);
 
-    const isBtnPlus = $target.data('action') === 'plus';
-    const isBtnMinus = $target.data('action') === 'minus';
-    const isBtnApply = $target.data('action') === 'apply';
-    const isBtnClear = $target.data('action') === 'clear';
+    const isBtnPlus = $button.data('action') === 'plus';
+    const isBtnMinus = $button.data('action') === 'minus';
+    const isBtnApply = $button.data('action') === 'apply';
+    const isBtnClear = $button.data('action') === 'clear';
 
     if (isBtnPlus || isBtnMinus) {
-      const $out = $target
-        .parent()
-        .find(`.${DROPDOWN_CLASSES.COUNTER_OUT}`);
+      const $controls = $button.parent();
+      const $out = $controls.find(`.${DROPDOWN_CLASSES.COUNTER_OUT}`);
 
       const group = $out.data('group');
       let counterValue = parseInt($out.text(), 10);
@@ -184,20 +190,18 @@ class Dropdown {
       if (isBtnPlus) {
         counterValue += 1;
         this.counterGroupsValues[group] += 1;
-        this.sumValuesCounters += 1;
       }
 
-      if (isBtnMinus && counterValue > 0) {
+      if (isBtnMinus && counterValue) {
         counterValue -= 1;
         this.counterGroupsValues[group] -= 1;
-        this.sumValuesCounters -= 1;
       }
 
-      $target.parent().find(`.${DROPDOWN_CLASSES.BTN_MINUS}`).button('disable', counterValue === 0);
+      $controls.find(`.${DROPDOWN_CLASSES.BTN_MINUS}`).button('disable', counterValue === 0);
       $out.text(counterValue);
       this._updateDropdownHeadText();
 
-      this.domElements.$btnClear.button('hidden', this.sumValuesCounters === 0);
+      this.domElements.$btnClear.button('hidden', this.countSumCounters() === 0);
     }
 
     if (isBtnClear) this._resetDropdown();
