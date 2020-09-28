@@ -47,6 +47,6 @@ mixin button(options = {})
     else attr.type = type;
 
   #{href ? "a" : "button"}()&attributes(attr) 
-    span.button__text #{text}
+    span.button__text.js-button__text #{text}
     if icon
       span.button__icon #{icon}

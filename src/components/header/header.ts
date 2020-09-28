@@ -5,7 +5,9 @@ const enum HEADER_CLASSES {
 }
 
 const handleBtnMobileClick = function handleBtnMobileClick(ev: JQuery.MouseEventBase): void {
-  $(ev.delegateTarget).toggleClass(HEADER_CLASSES.EXPANDED_MENU);
+  const $header = $(ev.delegateTarget);
+  $header.toggleClass(HEADER_CLASSES.EXPANDED_MENU);
+  $(ev.currentTarget).button('text', $header.hasClass(HEADER_CLASSES.EXPANDED_MENU) ? 'close' : 'view_headline');
 };
 
 $(`.${HEADER_CLASSES.HEADER}`).on(
