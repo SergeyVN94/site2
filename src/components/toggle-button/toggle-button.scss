@@ -23,8 +23,10 @@
   }
 
   &__new-input {
-    width: 2.8571rem;
+    width: 40px;
+    min-width: 40px;
     height: $middle-first-size;
+    min-height: $middle-first-size;
     background: white;
     border: .0714rem solid $light-title;
     box-sizing: border-box;

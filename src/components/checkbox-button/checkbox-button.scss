@@ -11,9 +11,10 @@
 
     &:checked + .checkbox-button__new-input {
       border-color: $bg-primary;
-      background: $gradient-primary;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
+    }
+
+    &:checked + .checkbox-button__new-input > .checkbox-button__vector {
+      display: block;
     }
 
     &:hover + .checkbox-button__new-input {
@@ -30,23 +31,20 @@
   }
 
   &__new-input {
+    @include no-select;
     display: flex;
     justify-content: center;
     align-items: center;
     min-width: $middle-first-size;
     height: $middle-first-size;
     background: #fff;
-    border: .0714rem solid $light-title;
-    box-sizing: border-box;
-    border-radius: .2857rem;
-    font-family: 'Material Icons';
-    font-style: normal;
-    font-weight: normal;
-    font-size: 1rem;
-    font-weight: bold;
-    color: white;
+    border: 1px solid $light-title;
+    border-radius: 4px;
+    box-sizing: border-box;    
+  }
 
-    @include no-select;
+  &__vector {
+    display: none;
   }
 
   &__text {
