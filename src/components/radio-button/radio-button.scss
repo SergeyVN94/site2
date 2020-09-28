@@ -23,6 +23,10 @@
       }
     }
 
+    &:checked + .radio-button__new-input + .radio-button__text {
+      color: $text-primary;
+    }
+
     &:active + .radio-button__new-input {
       box-shadow: 0px 0px 5px $text-secondary;
     }
@@ -36,9 +40,11 @@
     @include reset-css;
     display: flex;
     width: $middle-first-size;
+    min-width: $middle-first-size;
     height: $middle-first-size;
+    min-height: $middle-first-size;
     background: #fff;
-    border: .0714rem solid $light-title;
+    border: 1px solid $light-title;
     border-radius: $tiny-size;
     align-items: center;
     justify-content: center;
@@ -51,6 +57,7 @@
   &__text {
     @include text-body;
     margin-left: $tiny-size;
+    color: $text-secondary;
     line-height: $middle-first-size;
   }
 }

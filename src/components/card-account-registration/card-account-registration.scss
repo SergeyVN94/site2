@@ -25,6 +25,7 @@
     margin-bottom: 1.7857rem;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
   }
 
   &__gender:not(:last-child) {
