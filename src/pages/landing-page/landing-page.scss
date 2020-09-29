@@ -10,6 +10,10 @@
     background-position: 100% 100%;
     background-repeat: no-repeat;
     background-size: cover;
+
+    @media (max-width: 425px) {
+      height: 563px;
+    }
   }
 
   &__banner-content {
@@ -21,8 +25,13 @@
     height: 100%;
     padding-top: 69px;
 
+    @media (max-width: 425px) {
+      display: flex;
+      justify-content: center;
+    }
+
     @media (max-width: 380px) {
-      padding: 69px 0;
+      padding: 69px 10;
     }
   }
 
