@@ -212,6 +212,10 @@
     &_gradient-primary,
     &_gradient-success {
 
+      &:focus {
+        z-index: 9999;
+      }
+
       &:hover,
       &:active {
         z-index: 9999;

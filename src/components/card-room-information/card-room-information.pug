@@ -5,13 +5,14 @@ include /rating/rating.pug
 mixin card-room-information(options = {})
   -
     const {
+      roomInfoHref = "/mock-address/change-me",
       roomNumber = 0,
       roomPrice = 0,
       images = [],
       isLuxury = false,
       stars = 0,
       comments = 0,
-      commentsHref = "./room-details.html#comments",
+      commentsHref = "/mock-address/change-me",
     } = options;
 
   .card-room-information
@@ -23,6 +24,7 @@ mixin card-room-information(options = {})
           roomNumber,
           roomPrice,
           isLuxury,
+          roomNumberHref: roomInfoHref,
           isRoomNumberMiddle: true,
         })
       .card-room-information__user-response

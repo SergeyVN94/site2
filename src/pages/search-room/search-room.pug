@@ -89,11 +89,9 @@ block main
               title: "дополнительные удобства",
               items: [
                 {text: "Завтрак"},
-                {text: "Письменный стол"},
-                {text: "Стул для кормления"},
-                {text: "Кроватка"},
-                {text: "Телевизор"},
-                {text: "Шампунь"},
+                {text: "Письменный стол", checked: true},
+                {text: "Стул для кормления", checked: true},
+                {text: "Кроватка", checked: true},
                 {text: "Телевизор"},
                 {text: "Шампунь"},
               ],
@@ -115,6 +113,8 @@ block main
               roomPrice: "9 990",
               stars: 5,
               comments: 145,
+              roomInfoHref: "./room-details.html",
+              commentsHref: "./room-details.html#comments",
             })
           .search-room__room-information
             +card-room-information({

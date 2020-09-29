@@ -1,7 +1,9 @@
 .social-icons {
+  max-width: 100%;
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
+  justify-content: space-around;
 
   &__icon:not(:last-child) {
     margin-right: 24px;

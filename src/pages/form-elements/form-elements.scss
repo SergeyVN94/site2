@@ -14,12 +14,10 @@
     padding: 63px 16px 145px;
     margin: 0 auto;
 
-    @media (max-width: $breakpoint-tablets) {
-      padding: 4.7857rem 0rem 0rem 0rem;
-    }
-
     @media (max-width: $breakpoint-cell-phones) {
       align-items: center;
+
+      padding: 63px 10px 145px;
     }
   }
 
@@ -44,7 +42,10 @@
 
     @media (max-width: $breakpoint-cell-phones) {
       width: 100%;
-      margin-right: 0rem;
+
+      &:not(:last-child) {
+        margin-right: 0;
+      }
     }
   }
 
