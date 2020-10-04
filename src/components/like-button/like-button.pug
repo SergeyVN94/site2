@@ -1,4 +1,5 @@
 mixin like-button({ likes = 0, checked = false })
   .like-button.js-like-button(class=(checked ? "like-button_checked" : ""))
-    .like-button__icon.js-like-button__icon #{checked ? "favorite" : "favorite_border"}
-    .like-button__counter.js-like-button__counter #{likes}
+    .like-button__container
+      .like-button__icon.js-like-button__icon #{checked ? "favorite" : "favorite_border"}
+      .like-button__counter.js-like-button__counter #{likes}

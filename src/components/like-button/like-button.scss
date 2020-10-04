@@ -1,17 +1,9 @@
 .like-button {
-  @include reset-css;
-
   @include no-select;
-  min-width: 2.8571rem;
-  height: $middle-first-size;
-  background: white;
-  border: .0714rem solid $light-title;
-  box-sizing: border-box;
-  border-radius: $tiny-size;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: center;
+  min-width: 40px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: $light-title;
   cursor: pointer;
 
   &:hover {
@@ -23,7 +15,8 @@
   }
 
   &_checked {
-    border-color: $bg-primary;
+    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    background-origin: border-box;
 
     .like-button__icon {
       background: $bg-primary;
@@ -40,18 +33,30 @@
     }
   }
 
-  &__icon {
-    width: 1.2857rem;
-    height: 1.2857rem;
-    font-family: 'Material Icons';
+  &__container {
+    padding: 0 7px 0 4px;
+    border-radius: inherit;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    background: #fff;
+  }
+
+  &__icon,
+  &__counter {
     font-style: normal;
     font-weight: normal;
-    font-size: $tiny-size;
-    line-height: .6429rem;
+    font-size: .7143rem;
+    line-height: 1.3571rem;
+    color: $light-title;
+  }
+
+  &__icon {
+    padding-right: 3px;
+    font-family: 'Material Icons';
     display: flex;
     align-items: center;
     text-align: center;
-    color: $light-title;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -59,15 +64,9 @@
   }
 
   &__counter {
-    min-width: $small-size;
+    width: 100%;
     font-family: Montserrat, Arial, sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: $tiny-size;
-    line-height: 1.2143rem;
     text-align: center;
-    color: $light-title;
     user-select: none;
-    padding-right: .5714rem;
   }
 }
