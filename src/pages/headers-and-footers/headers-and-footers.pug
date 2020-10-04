@@ -4,8 +4,10 @@ include /simple-header/simple-header.pug
 include /header/header.pug
 include /footer/footer.pug
 
-block pageTitle
-  title Headers and Footers
+block pageHead
+  title Шапки и подвалы
+  meta(name="keywords" content="hotels, hotel search, order a room")
+  meta(name="description" content="Header and footer examples")
 
 block content
   +simple-header(true)

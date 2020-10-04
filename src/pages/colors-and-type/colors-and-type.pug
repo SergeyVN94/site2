@@ -4,8 +4,10 @@ include /simple-header/simple-header.pug
 include /demo-colors/demo-colors.pug
 include /demo-text/demo-text.pug
 
-block pageTitle
-  title Colors & Type
+block pageHead
+  title Цвета и текст
+  meta(name="keywords" content="hotels, hotel search, order a room")
+  meta(name="description" content="Used colors and text")
 
 block content
   +simple-header()

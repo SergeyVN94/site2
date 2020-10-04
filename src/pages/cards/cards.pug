@@ -8,8 +8,10 @@ include /card-authentication/card-authentication.pug
 include /calendar/calendar.pug
 include /card-room-information/card-room-information.pug
 
-block pageTitle
-  title Cards
+block pageHead
+  title Карточки
+  meta(name="keywords" content="hotels, hotel search, order a room")
+  meta(name="description" content="Used cards")
 
 block content
   +simple-header(true)

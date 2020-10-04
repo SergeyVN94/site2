@@ -8,8 +8,10 @@ include /pagination/pagination.pug
 include /card-room-information/card-room-information.pug
 include /filter-date-dropdown/filter-date-dropdown.pug
 
-block pageTitle
-  title Search page
+block pageHead
+  title Подобрать комнату
+  meta(name="keywords" content="hotels, hotel search, order a room")
+  meta(name="description" content="Search hotel rooms")
 
 block main
   main.search-room
