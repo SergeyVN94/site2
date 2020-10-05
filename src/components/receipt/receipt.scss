@@ -25,22 +25,25 @@
 
     @include no-select;
     width: $middle-first-size;
+    min-width: $middle-first-size;
     height: $middle-first-size;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: .0714rem solid $light-title;
+    border: 1px solid $light-title;
     color: $light-title;
     cursor: pointer;
   }
 
   &__price {
     @include text-body;
+    margin-left: 10px;
     flex: auto;
     color: $text-primary;
     line-height: 1.2857rem;
     text-align: right;
+    white-space: nowrap;
   }
 
   &__total-sum {

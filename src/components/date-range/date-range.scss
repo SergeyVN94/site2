@@ -13,22 +13,12 @@
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     align-items: baseline;
   }
 
-  &__dropdown-container {
-    width: 50%;
-    max-width: 100px;
-    min-width: 50%;
-
-    &:first-child {
-      padding-right: 10px;
-    }
-
-    &:last-child {
-      padding-left: 10px;
-    }
+  &__dropdown-container:first-child {
+    padding-right: 5px;
   }
 
   &__dropdown-head {
@@ -36,15 +26,15 @@
   }
 
   &__dropdown {
+    padding: 8px 0px 7px 14px;
     width: 100%;
-    height: $very-big-size;
+    min-width: 150px;
     display: flex;
     background-color: #fff;
     border: 1px solid $light-title;
     box-sizing: border-box;
     border-radius: 4px;
     color: $text-primary;
-    overflow: hidden;
     cursor: pointer;
   
     &:hover {
@@ -62,16 +52,12 @@
     @include text-body;
     width: 100%;
     max-width: 100%;
-    padding-left: 1rem;
-    overflow: hidden;
     white-space: nowrap;
     user-select: none;
-    line-height: 3rem;
   }
 
   &__expand-button {
-    min-width: 44px;
-    height: 42px;
+    min-width: 40px;
   }
   
   &__container {
