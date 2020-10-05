@@ -115,7 +115,7 @@ const getOptimization = () => {
   return config;
 };
 
-const getFileName = (extension) => `[name]${isProduction ? '.[contenthash]' : ''}${extension}`;
+const getFileName = (extension) => `[name].[${isProduction ? 'contenthash' : 'hash'}]${extension}`;
 
 module.exports = {
   mode,
