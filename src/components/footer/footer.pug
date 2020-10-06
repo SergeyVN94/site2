@@ -34,9 +34,3 @@ mixin footer({ siteDescription, navList = [], subscribe = {}, copyright = '', so
         p.footer__copyright-text #{copyright}
         .footer__social-icons
           +social-icons(socialIcons)
-    .footer__mobile-content
-      .footer__mobile-logo
-          +logo()
-      .footer__mobile-copyright #{copyright}
-      .footer__mobile-social-icons
-          +social-icons(socialIcons)
