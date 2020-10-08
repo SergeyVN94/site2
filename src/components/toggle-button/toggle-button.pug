@@ -1,5 +1,5 @@
-mixin toggle-button({ text, checked })
+mixin toggle-button({ text, checked, name = false })
   label.toggle-button
-    input.toggle-button__input(type="checkbox", checked=checked)
+    input.toggle-button__input(type="checkbox", checked=checked, name=name)
     .toggle-button__new-input
     p.toggle-button__text #{text}
