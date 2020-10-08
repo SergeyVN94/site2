@@ -35,9 +35,9 @@ mixin card-account-registration(options = {})
     h2.card-account-registration__title #{title}
     form.card-account-registration__form(action=formAction, method="post")
       .card-account-registration__user-name
-        +text-field({ placeholder: inputNamePlaceholder })
+        +text-field({ placeholder: inputNamePlaceholder, name: "user-name" })
       .card-account-registration__user-surname
-        +text-field({ placeholder: inputSurnamePlaceholder })
+        +text-field({ placeholder: inputSurnamePlaceholder, name: "user-surname" })
       .card-account-registration__genders
         for item in radioButtonsGender
           .card-account-registration__gender
@@ -47,17 +47,19 @@ mixin card-account-registration(options = {})
           head: { title: inputDateOfBirthTitle },
           placeholder: inputDateOfBirthPlaceholder,
           mask: "00.00.0000",
+          name: "date-of-birth",
         })
       .card-account-registration__email
         +text-field({
           head: { title: inputsAuthenticationTitle },
           placeholder: inputEmailPlaceholder,
           type: "email",
+          name: "email",
         })
       .card-account-registration__password
-        +text-field({ placeholder: inputPasswordPlaceholder, type: "password" })
+        +text-field({ placeholder: inputPasswordPlaceholder, type: "password", name: "password" })
       .card-account-registration__offer
-        +toggle-button({ text: toggleButtonSpecialOffers })
+        +toggle-button({ text: toggleButtonSpecialOffers, name: "special-offers" })
       .card-account-registration__payment-button
         +button({
           text: paymentButton,

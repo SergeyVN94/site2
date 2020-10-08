@@ -19,9 +19,9 @@ mixin card-authentication(options = {})
     h2.card-authentication__head #{title}
     form.card-authentication__form(action=formAction, method="post")
       .card-authentication__email
-        +text-field({ placeholder: inputEmailPlaceholder, type: "email" })
+        +text-field({ placeholder: inputEmailPlaceholder, type: "email", name: "email" })
       .card-authentication__password
-        +text-field({ placeholder: inputPasswordPlaceholder, type: "password" })
+        +text-field({ placeholder: inputPasswordPlaceholder, type: "password", name: "password" })
       .card-authentication__button
         +button({
           text: authenticationButton,
