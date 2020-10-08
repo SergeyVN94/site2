@@ -1,22 +1,23 @@
 mixin menu({ items, isVertical = false })
   nav.menu(class=(isVertical ? "menu_theme_vertical" : ""))
-    for item in items
-      -
-        const {
-          text,
-          href = "/mock-address/change-me",
-          selected = false,
-          items: childItems,
-        } = item;
+    ul.menu__wrapper
+      for item in items
+        -
+          const {
+            text,
+            href = "/mock-address/change-me",
+            selected = false,
+            items: childItems,
+          } = item;
 
-      if childItems
-        .menu__item.menu__item_expandable.js-menu__item_expandable
-          .menu__item-text.js-menu__item-text #{text}
-          ul.menu__item-body
-            for childItem in childItems
-              -const { text: linkText, href = "/mock-address/change-me" } = childItem;
-              li.menu__item-child
-                a.menu__item-link(href=href) #{linkText}
-      else
-        .menu__item(class=(selected ? "menu__item_selected" : ""))
-          a.menu__item-text(href=href) #{text}
+        if childItems
+          li.menu__item.menu__item_expandable.js-menu__item_expandable
+            .menu__item-text.js-menu__item-text #{text}
+            ul.menu__item-body
+              for childItem in childItems
+                -const { text: linkText, href = "/mock-address/change-me" } = childItem;
+                li.menu__item-child
+                  a.menu__item-link(href=href) #{linkText}
+        else
+          li.menu__item(class=(selected ? "menu__item_selected" : ""))
+            a.menu__item-text(href=href) #{text}

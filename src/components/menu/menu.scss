@@ -1,21 +1,14 @@
 .menu {
   @include reset-css;
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-
-  @media (max-width: $breakpoint-tablets) {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  &_theme_vertical {
-    flex-direction: column;
-    align-items: flex-start;
   
+  &_theme_vertical {
+
+    .menu__wrapper {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
     .menu__item {
       margin: 0 0 1.5rem 0;
 
@@ -26,6 +19,21 @@
 
     .menu__item-text {
       white-space: break-spaces;
+    }
+  }
+
+  &__wrapper {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+
+    @media (max-width: $breakpoint-tablets) {
+      flex-direction: column;
+      align-items: flex-start;
     }
   }
 
