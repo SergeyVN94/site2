@@ -28,7 +28,7 @@ mixin footer({ siteDescription, navList = [], subscribe = {}, copyright = '', so
         p.footer__subscribe-title #{title}
         p.footer__subscribe-description #{description}
         form.footer__subscribe-text-field(action=formAction, method="post")
-          +text-field({ placeholder, type: "email", iconRight: "arrow_forward" })
+          +text-field({ placeholder, type: "email", withArrow: true })
     .footer__copyright
       .footer__copyright-content
         p.footer__copyright-text #{copyright}

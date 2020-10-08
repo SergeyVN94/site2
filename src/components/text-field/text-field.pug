@@ -4,23 +4,30 @@ mixin text-field(options = {})
   -
     const {
       head,
-      iconRight,
+      withArrow,
       mask = false,
       type = "text",
       placeholder = false,
       value = false,
+      name = false,
     } = options;
 
-  .text-field(class=(iconRight ? "text-field_with-control" : ""))
+  .text-field(class=(withArrow ? "text-field_with-arrow" : ""))
     if head
       .text-field__head
         +block-head(head)
     .text-field__wrapper
-      input.text-field__input.js-text-field__input(type=type, placeholder=placeholder, value=value, data-mask=mask)
-      if iconRight
-        .text-field__submit
+      input.text-field__input.js-text-field__input(
+        type=type,
+        placeholder=placeholder,
+        value=value,
+        data-mask=mask,
+        name=name
+      )
+      if withArrow
+        .text-field__arrow
           +button({
-            text: iconRight,
+            text: "arrow_forward",
             theme: "icon",
             type: "submit",
             textColor: "gradient-primary",
