@@ -1,11 +1,10 @@
 .dropdown {
   @include reset-css;
-  position: relative;
   width: 100%;
 
   &_opened {
 
-    .dropdown__head {
+    .dropdown__input {
       border-radius: .2857rem .2857rem 0rem 0rem;
       border-color: $text-secondary;
     }
@@ -20,13 +19,15 @@
   }
 
   &__head {
+    position: relative;
+  }
+
+  &__input {
+    @include text-body;
+    padding: 9px 44px 9px 14px;
     width: 100%;
-    height: $very-big-size;
-    display: flex;
-    background-color: #fff;
-    border: .0714rem solid $light-title;
-    box-sizing: border-box;
-    border-radius: .2857rem;
+    border: 1px solid $light-title;
+    border-radius: 4px;
     color: $text-primary;
     cursor: pointer;
 
@@ -35,22 +36,17 @@
     }
   }
 
-  &__head-text {
-    @include reset-css;
-
-    @include text-body;
-    width: 100%;
-    padding-left: 1rem;
-    overflow: hidden;
-    white-space: nowrap;
-    user-select: none;
-    line-height: 3rem;
-  }
-
   &__expand-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
     width: 44px;
     min-width: 44px;
-    height: 42px;
+  }
+
+  &__body-wrapper {
+    position: relative;
   }
 
   &__body {
@@ -58,10 +54,9 @@
     position: absolute;
     width: 100%;
     left: 0;
-    top: 63px;
     z-index: 999;
     background: #fff;
-    border: .0714rem solid $text-secondary;
+    border: 1px solid $text-secondary;
     border-top: 0;
     box-sizing: border-box;
     box-shadow: 0rem $tiny-size $middle-first-size $dim-shadow;

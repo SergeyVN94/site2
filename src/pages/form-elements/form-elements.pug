@@ -39,7 +39,8 @@ block content
           .form-elements__dropdown-guests
             +dropdown({
               head: { title: "dropdown", help: "default" },
-              text: 'Сколько гостей',
+              value: "Сколько гостей",
+              name: "guests",
               variations: {
                 adults:  ["гость", "гостя", "гостей"],
                 babies: ["младенец", "младенца", "младенцев"],
@@ -153,8 +154,9 @@ block content
         .form-elements__column         
           .form-elements__room-amenities
             +dropdown({
-              head: { title: 'dropdown' },
-              text: 'Удобства номера',
+              head: { title: "dropdown" },
+              value: "Удобства номера",
+              name: "room-amenities",
               variations: {
                 bedrooms: ["спальня", "спальни", "спален"],
                 beds: ["кровать","кровати","кроватей"],

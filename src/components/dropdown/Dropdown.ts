@@ -8,7 +8,7 @@ const enum DROPDOWN_CLASSES {
   BTN_APPLY = 'js-button[data-action="apply"]',
   BTN_CLEAR = 'js-button[data-action="clear"]',
   COUNTER_OUT = 'js-dropdown__counter-out',
-  HEAD_TEXT = 'js-dropdown__head-text',
+  INPUT = 'js-dropdown__input',
 }
 
 interface IDropdownDomElements {
@@ -37,7 +37,7 @@ class Dropdown {
 
   constructor($dropdown: JQuery) {
     this.domElements = Dropdown._getDomElements($dropdown);
-    this.defaultHeadText = this.domElements.$headText.text();
+    this.defaultHeadText = this.domElements.$headText.val().toString();
     this.variationsTable = $dropdown.data('variations');
     this.counterGroupsValues = {};
     this._resetGroupsValues();
@@ -58,7 +58,7 @@ class Dropdown {
       $dropdownHead: $dropdown.find(`.${DROPDOWN_CLASSES.DROPDOWN_HEAD}`),
       $dropdownBody: $dropdown.find(`.${DROPDOWN_CLASSES.DROPDOWN_BODY}`),
       $countersOut: $dropdown.find(`.${DROPDOWN_CLASSES.COUNTER_OUT}`),
-      $headText: $dropdown.find(`.${DROPDOWN_CLASSES.HEAD_TEXT}`),
+      $headText: $dropdown.find(`.${DROPDOWN_CLASSES.INPUT}`),
       $btnApply: $dropdown.find(`.${DROPDOWN_CLASSES.BTN_APPLY}`),
       $btnClear: $dropdown.find(`.${DROPDOWN_CLASSES.BTN_CLEAR}`),
       $document: $(document),
@@ -115,7 +115,7 @@ class Dropdown {
     const { $headText } = this.domElements;
 
     if (this.countSumCounters() === 0) {
-      $headText.text(this.defaultHeadText);
+      $headText.val(this.defaultHeadText);
       return true;
     }
 
@@ -128,12 +128,12 @@ class Dropdown {
     });
 
     if (!headTextItems.length) {
-      $headText.text(this.defaultHeadText);
+      $headText.val(this.defaultHeadText);
       return true;
     }
 
     const headText = headTextItems.join(', ');
-    $headText.text(Dropdown._cropHeadText(headText));
+    $headText.val(Dropdown._cropHeadText(headText));
 
     return true;
   }
@@ -159,7 +159,7 @@ class Dropdown {
     });
 
     $btnClear.button('hidden', true);
-    $headText.text(this.defaultHeadText);
+    $headText.val(this.defaultHeadText);
   }
 
   private _handleDocumentClick(ev: JQuery.MouseEventBase): void {
