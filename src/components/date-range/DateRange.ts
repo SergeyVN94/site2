@@ -1,18 +1,18 @@
 const enum DATE_RANGE_CLASSES {
   DATE_RANGE = 'js-date-range',
   DROPDOWN = 'js-date-range__dropdown',
-  DROPDOWN_TEXT = 'js-date-range__dropdown-text',
-  DROPDOWN_SELECTED = 'date-range__dropdown_selected',
+  DROPDOWN_INPUT = 'js-date-range__input',
+  DROPDOWN_INPUT_SELECTED = 'date-range__input_selected',
   RANGE_SELECT = 'date-range_range-select',
   CALENDAR = 'js-calendar',
 }
 
 interface IDateRangeDomElements {
   readonly $dateRange: JQuery;
+  readonly $dropdownStartInput: JQuery;
+  readonly $dropdownEndInput: JQuery;
   readonly $dropdownStart: JQuery;
   readonly $dropdownEnd: JQuery;
-  readonly $dropdownStartText: JQuery;
-  readonly $dropdownEndText: JQuery;
   readonly $calendar: JQuery;
   readonly $document: JQuery<Document>;
 }
@@ -24,17 +24,17 @@ class DateRange {
 
   constructor($dateRange: JQuery) {
     this.domElements = DateRange._createDomElements($dateRange);
-    this.defaultText = this.domElements.$dateRange.data('dropdown-default-text') || '';
+    this.defaultText = this.domElements.$dropdownStartInput.val().toString();
     this._initEventListeners();
   }
 
   private static _createDomElements($dateRange: JQuery): IDateRangeDomElements {
     return {
       $dateRange,
+      $dropdownStartInput: $dateRange.find(`.${DATE_RANGE_CLASSES.DROPDOWN}[data-type='start'] input`),
+      $dropdownEndInput: $dateRange.find(`.${DATE_RANGE_CLASSES.DROPDOWN}[data-type='end'] input`),
       $dropdownStart: $dateRange.find(`.${DATE_RANGE_CLASSES.DROPDOWN}[data-type='start']`),
       $dropdownEnd: $dateRange.find(`.${DATE_RANGE_CLASSES.DROPDOWN}[data-type='end']`),
-      $dropdownStartText: $dateRange.find(`.${DATE_RANGE_CLASSES.DROPDOWN}[data-type='start'] .${DATE_RANGE_CLASSES.DROPDOWN_TEXT}`),
-      $dropdownEndText: $dateRange.find(`.${DATE_RANGE_CLASSES.DROPDOWN}[data-type='end'] .${DATE_RANGE_CLASSES.DROPDOWN_TEXT}`),
       $calendar: $dateRange.find(`.${DATE_RANGE_CLASSES.CALENDAR}`),
       $document: $(document),
     };
@@ -48,7 +48,7 @@ class DateRange {
     } = this.domElements;
 
     $dropdownStart.on('click.dateRange.selectStart', this._handleDropdownStartClick.bind(this));
-    $dropdownEnd.on('click.dateRange.selectStart', this._handleDropdownEndClick.bind(this));
+    $dropdownEnd.on('click.dateRange.selectEnd', this._handleDropdownEndClick.bind(this));
 
     $calendar
       .on('clear.dateRange.clear', this._handleCalendarClear.bind(this))
@@ -57,18 +57,18 @@ class DateRange {
 
   private _handleDropdownStartClick(): void {
     const {
-      $dropdownStart,
-      $dropdownEnd,
+      $dropdownStartInput,
+      $dropdownEndInput,
       $dateRange,
       $calendar,
     } = this.domElements;
 
-    if ($dropdownStart.hasClass(DATE_RANGE_CLASSES.DROPDOWN_SELECTED)) {
+    if ($dropdownStartInput.hasClass(DATE_RANGE_CLASSES.DROPDOWN_INPUT_SELECTED)) {
       this._deselectDateRange();
     } else {
       this._initFocusout();
-      $dropdownStart.addClass(DATE_RANGE_CLASSES.DROPDOWN_SELECTED);
-      $dropdownEnd.removeClass(DATE_RANGE_CLASSES.DROPDOWN_SELECTED);
+      $dropdownStartInput.addClass(DATE_RANGE_CLASSES.DROPDOWN_INPUT_SELECTED);
+      $dropdownEndInput.removeClass(DATE_RANGE_CLASSES.DROPDOWN_INPUT_SELECTED);
       $dateRange.addClass(DATE_RANGE_CLASSES.RANGE_SELECT);
       $calendar.calendar('select-date', 'start');
     }
@@ -76,18 +76,18 @@ class DateRange {
 
   private _handleDropdownEndClick(): void {
     const {
-      $dropdownStart,
-      $dropdownEnd,
+      $dropdownStartInput,
+      $dropdownEndInput,
       $dateRange,
       $calendar,
     } = this.domElements;
 
-    if ($dropdownEnd.hasClass(DATE_RANGE_CLASSES.DROPDOWN_SELECTED)) {
+    if ($dropdownEndInput.hasClass(DATE_RANGE_CLASSES.DROPDOWN_INPUT_SELECTED)) {
       this._deselectDateRange();
     } else {
       this._initFocusout();
-      $dropdownEnd.addClass(DATE_RANGE_CLASSES.DROPDOWN_SELECTED);
-      $dropdownStart.removeClass(DATE_RANGE_CLASSES.DROPDOWN_SELECTED);
+      $dropdownEndInput.addClass(DATE_RANGE_CLASSES.DROPDOWN_INPUT_SELECTED);
+      $dropdownStartInput.removeClass(DATE_RANGE_CLASSES.DROPDOWN_INPUT_SELECTED);
       $dateRange.addClass(DATE_RANGE_CLASSES.RANGE_SELECT);
       $calendar.calendar('select-date', 'end');
     }
@@ -118,10 +118,10 @@ class DateRange {
   }
 
   private _handleCalendarClear(): void {
-    const { $dropdownStartText, $dropdownEndText } = this.domElements;
+    const { $dropdownStartInput, $dropdownEndInput } = this.domElements;
 
-    $dropdownStartText.text(this.defaultText);
-    $dropdownEndText.text(this.defaultText);
+    $dropdownStartInput.val(this.defaultText);
+    $dropdownEndInput.val(this.defaultText);
     this._deselectDateRange();
   }
 
@@ -130,12 +130,12 @@ class DateRange {
   }
 
   private updateDropdowns(start: Date, end: Date): void {
-    const { $dropdownStartText, $dropdownEndText } = this.domElements;
+    const { $dropdownStartInput, $dropdownEndInput } = this.domElements;
 
-    $dropdownStartText.text(
+    $dropdownStartInput.val(
       start === null ? this.defaultText : DateRange._dateToString(start),
     );
-    $dropdownEndText.text(end === null ? this.defaultText : DateRange._dateToString(end));
+    $dropdownEndInput.val(end === null ? this.defaultText : DateRange._dateToString(end));
 
     this._deselectDateRange();
   }
@@ -149,10 +149,10 @@ class DateRange {
   }
 
   private _deselectDateRange(): void {
-    const { $dropdownStart, $dropdownEnd, $dateRange } = this.domElements;
+    const { $dropdownStartInput, $dropdownEndInput, $dateRange } = this.domElements;
 
-    $dropdownStart.removeClass(DATE_RANGE_CLASSES.DROPDOWN_SELECTED);
-    $dropdownEnd.removeClass(DATE_RANGE_CLASSES.DROPDOWN_SELECTED);
+    $dropdownStartInput.removeClass(DATE_RANGE_CLASSES.DROPDOWN_INPUT_SELECTED);
+    $dropdownEndInput.removeClass(DATE_RANGE_CLASSES.DROPDOWN_INPUT_SELECTED);
     $dateRange.removeClass(DATE_RANGE_CLASSES.RANGE_SELECT);
   }
 }

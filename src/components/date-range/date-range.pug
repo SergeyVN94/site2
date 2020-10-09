@@ -4,31 +4,40 @@ include /calendar/calendar.pug
 mixin date-range(options = {})
   -
     const {
-      dropdownDefaultText = "ДД.ММ.ГГГГ",
-      dropdownEntranceText = "ДД.ММ.ГГГГ",
-      dropdownDepartureText = "ДД.ММ.ГГГГ",
-      dropdownLeftHead = { title: "прибытие" },
-      dropdownRightHead = { title: "выезд" },
+      dropdownEntranceValue = "ДД.ММ.ГГГГ",
+      dropdownDepartureValue = "ДД.ММ.ГГГГ",
+      dropdownEntranceName = "entrance",
+      dropdownDepartureName = "departure",
+      dropdownEntranceTitle = "прибытие",
+      dropdownDepartureTitle = "выезд",
     } = options;
 
   .date-range.js-date-range(data-dropdown-default-text=dropdownDefaultText)
     .date-range__dropdowns
       .date-range__dropdown-container
-        if dropdownLeftHead
-          .date-range__dropdown-head
-            +block-head(dropdownLeftHead)
+        if dropdownEntranceTitle
+          .date-range__head
+            +block-head({ title: dropdownEntranceTitle })
         .date-range__dropdown.js-date-range__dropdown(data-type="start")
-          p.date-range__dropdown-text.js-date-range__dropdown-text #{dropdownEntranceText}
+          input.date-range__input.js-date-range__input(
+            value=dropdownEntranceValue
+            name=dropdownEntranceName
+            readonly
+          )
           .date-range__expand-button
-            +button({ text: "expand_more", theme: "icon" })
+            +button({ text: "expand_more", theme: "icon", dateAction: "expand" })
       .date-range__dropdown-container
-        if dropdownRightHead
-          .date-range__dropdown-head
-            +block-head(dropdownRightHead)
+        if dropdownDepartureTitle
+          .date-range__head
+            +block-head({ title: dropdownDepartureTitle })
         .date-range__dropdown.js-date-range__dropdown(data-type="end")
-          p.date-range__dropdown-text.js-date-range__dropdown-text #{dropdownDepartureText}
+          input.date-range__input.js-date-range__input(
+            value=dropdownDepartureValue
+            name=dropdownDepartureName
+            readonly
+          )
           .date-range__expand-button
-            +button({ text: "expand_more", theme: "icon" })
+            +button({ text: "expand_more", theme: "icon", dateAction: "expand" })
     .date-range__container
       .date-range__calendar
         +calendar()
