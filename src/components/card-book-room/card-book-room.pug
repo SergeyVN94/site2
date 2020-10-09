@@ -26,7 +26,6 @@ mixin card-book-room(options = {})
       },
       dateRange = {},
       bookingButton = "забронировать",
-      bookingButtonHref = "/mock-address/change-me",
       formAction = "/mock-address/change-me",
     } = options;
 
@@ -43,7 +42,6 @@ mixin card-book-room(options = {})
       .card-book-room__booking-button
         +button({
           text: bookingButton,
-          href: bookingButtonHref,
           isLong: true,
           withArrow: true,
           type: "submit",

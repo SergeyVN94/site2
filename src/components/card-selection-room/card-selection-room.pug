@@ -23,21 +23,20 @@ mixin card-selection-room(options = {})
         withControls: true,
       },
       searchButtonRoom = "подобрать номер",
-      searchButtonRoomHref = "./search-room.html",
-      formAction = "/mock-address/change-me",
+      formAction = "./search-room.html",
     } = options;
 
   .card-selection-room
     h2.card-selection-room__title #{title}
-    form.card-selection-room__form(action=formAction, method="post")
+    form.card-selection-room__form(action=formAction, method="get")
       .card-selection-room__date-range
         +date-range(dateRange)
       .card-selection-room__dropdown-guest
         +dropdown(dropdownGuest)
       .card-selection-room__search-button
         +button({
-          href: searchButtonRoomHref,
           text: searchButtonRoom,
           isLong: true,
           withArrow: true,
+          type: "submit"
         })

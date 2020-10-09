@@ -12,7 +12,6 @@ mixin card-authentication(options = {})
       authenticationButtonHref = "/mock-address/change-me",
       noAccount =  "Нет аккаунта на Toxin?",
       createAccountButton = "создать",
-      createAccountButtonHref = "./registration.html",
     } = options;
 
   .card-authentication
@@ -25,7 +24,6 @@ mixin card-authentication(options = {})
       .card-authentication__button
         +button({
           text: authenticationButton,
-          href: authenticationButtonHref,
           withArrow: true,
           isLong: true,
           type: "submit",
