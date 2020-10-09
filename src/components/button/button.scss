@@ -43,33 +43,6 @@
       }
     }
 
-    &_default-long {
-      width: 100%;
-      border-radius: $middle-second-size;
-      background: $gradient-primary;
-      position: relative;
-
-      &:hover {
-        box-shadow: 0px 0px 10px $bg-primary;
-      }
-
-      &:active {
-        background: $bg-primary;
-      }
-
-      &:focus {
-        box-shadow: 0px 0px 10px $text-secondary;
-      }
-
-      .button__text {
-        padding: 14px 19.7px 15px;
-        font-size: $small-size;
-        font-weight: bold;
-        text-transform: uppercase;
-        color: white;
-      }
-    }
-
     &_icon {
       width: 100%;
       height: 100%;
@@ -309,6 +282,11 @@
     }
   }
 
+  &_long {
+    display: block;
+    width: 100%;
+  }
+
   &__text {
     display: block;
     max-width: 100%;
@@ -318,12 +296,13 @@
     border-radius: inherit;
   }
 
-  &__icon {
+  &__arrow {
     position: absolute;
     right: 0;
     top: 0;
-    width: $very-big-size;
-    height: 100%;
+    bottom: 0;
+    width: 44px;
+    min-width: 44px;
     font-family: 'Material Icons';
     font-weight: normal;
     font-size: $big-size;

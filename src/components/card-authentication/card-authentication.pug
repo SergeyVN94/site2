@@ -26,8 +26,8 @@ mixin card-authentication(options = {})
         +button({
           text: authenticationButton,
           href: authenticationButtonHref,
-          icon: "arrow_forward",
-          theme: "default-long",
+          withArrow: true,
+          isLong: true,
           type: "submit",
         })
     .card-authentication__invitation-register

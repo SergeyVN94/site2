@@ -5,12 +5,13 @@ mixin button(options = {})
       theme = "default",
       type = "button",
       isSizeSmall,
+      isLong,
       isHorizontalSizeBig,
       textColor, 
       dataAction = false,
       disabled,
       hidden,
-      icon,
+      withArrow,
       background,
       isFontBold,
       hoverTheme,
@@ -19,7 +20,7 @@ mixin button(options = {})
 
     const classes = [`button js-button`];
     if ([
-      "default", "default-long", "icon", "light", "round-icon", "round-little", "round", "text",
+      "default", "icon", "light", "round-icon", "round-little", "round", "text",
     ].includes(theme)) classes.push(`button_theme_${theme}`);
     if ([
       "text-secondary", "gradient-primary", "bg-primary",
@@ -35,6 +36,8 @@ mixin button(options = {})
     ].includes(hoverTheme)) classes.push(`button_hover-theme_${hoverTheme}`);
     if (disabled) classes.push("button_disabled");
     if (hidden) classes.push("button_hidden");
+    if (withArrow) classes.push("button_with-arrow");
+    if (isLong) classes.push("button_long");
 
     const attr = {
       class: classes,
@@ -46,5 +49,5 @@ mixin button(options = {})
 
   #{href ? "a" : "button"}()&attributes(attr) 
     span.button__text.js-button__text #{text}
-    if icon
-      span.button__icon #{icon}
+    if withArrow
+      span.button__arrow arrow_forward
