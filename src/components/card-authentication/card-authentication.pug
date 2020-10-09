@@ -29,7 +29,6 @@ mixin card-authentication(options = {})
           icon: "arrow_forward",
           theme: "default-long",
           type: "submit",
-          isActiveTabindex: true,
         })
     .card-authentication__invitation-register
       p.card-authentication__invitation-register-text #{noAccount}
@@ -37,5 +36,4 @@ mixin card-authentication(options = {})
         href: createAccountButtonHref,
         text: createAccountButton,
         theme: "light",
-        isActiveTabindex: true,
       })

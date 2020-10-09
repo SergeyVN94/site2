@@ -15,7 +15,6 @@ mixin button(options = {})
       isFontBold,
       hoverTheme,
       href,
-      isActiveTabindex,
     } = options;
 
     const classes = [`button js-button`];
@@ -40,7 +39,6 @@ mixin button(options = {})
     const attr = {
       class: classes,
       "data-action": dataAction,
-      tabindex: (isActiveTabindex ? false : -1),
     };
 
     if (href) attr.href = href;
