@@ -2,13 +2,16 @@ include /block-head/block-head.pug
 include /button/button.pug
 include /calendar/calendar.pug
 
-mixin filter-date-dropdown({ head = {}, text = "Выберите дату" })
+mixin filter-date-dropdown({ head = {},  value = "Выберите дату", name = "date-range" })
   .filter-date-dropdown.js-filter-date-dropdown(class=(isOpened ? "filter-date-dropdown_opened" : ""))
     if head
       .filter-date-dropdown__block-head
         +block-head(head)
     .filter-date-dropdown__head.js-filter-date-dropdown__head
-      p.filter-date-dropdown__text.js-filter-date-dropdown__text #{text}
+      input.filter-date-dropdown__input.js-filter-date-dropdown__input(
+        value=value
+        name=name
+      )
       .filter-date-dropdown__expand-button
         +button({ text: "expand_more", theme: "icon" })
     .filter-date-dropdown__container

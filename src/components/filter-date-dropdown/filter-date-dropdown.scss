@@ -3,7 +3,7 @@
 
   &_opened {
 
-    .filter-date-dropdown__head {
+    .filter-date-dropdown__input {
       border-color: $text-secondary;
       border-radius: 4px 4px 0px 0px;
     }
@@ -18,31 +18,28 @@
   }
 
   &__head {
-    box-sizing: border-box;
-    height: 44px;
+    position: relative;
     max-width: 100%;
-    border-radius: 4px;
+  }
+
+  &__input {
+    @include text-body;
+    padding: 9px 44px 9px 14px;
+    width: 100%;
     border: 1px solid $light-title;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
+    border-radius: 4px;
 
     &:hover {
       border-color: $text-secondary;
     }
   }
 
-  &__text {
-    @include text-body;
-    width: 100%;
-    line-height: 44px;
-    padding: 0 15px;
-  }
-
   &__expand-button {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
     min-width: 44px;
-    height: 42px;
   }
 
   &__container {

@@ -2,7 +2,7 @@ const enum FILTER_DATE_CLASSES {
   DROPDOWN = 'js-filter-date-dropdown',
   DROPDOWN_HEAD = 'js-filter-date-dropdown__head',
   DROPDOWN_IS_OPENED = 'filter-date-dropdown_opened',
-  DROPDOWN_HEAD_TEXT = 'js-filter-date-dropdown__text',
+  INPUT = 'js-filter-date-dropdown__input',
   CALENDAR = 'js-calendar',
 }
 
@@ -10,7 +10,7 @@ interface IDomElements {
   readonly $dropdown: JQuery;
   $document: JQuery<Document>;
   $calendar: JQuery;
-  $headText: JQuery;
+  $input: JQuery;
 }
 
 const monthNames = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
@@ -18,9 +18,12 @@ const monthNames = ['Январь', 'Февраль', 'Март', 'Апрель'
 class FilterDateDropdown {
   private readonly domElements: IDomElements;
 
+  private defaultText: string;
+
   constructor($dropdown: JQuery) {
     this.domElements = FilterDateDropdown._getDomElements($dropdown);
     this.domElements.$calendar.calendar('select-date', 'auto');
+    this.defaultText = this.domElements.$input.val().toString();
     this._initEventListeners();
   }
 
@@ -29,7 +32,7 @@ class FilterDateDropdown {
       $dropdown,
       $document: $(document),
       $calendar: $dropdown.find(`.${FILTER_DATE_CLASSES.CALENDAR}`),
-      $headText: $dropdown.find(`.${FILTER_DATE_CLASSES.DROPDOWN_HEAD_TEXT}`),
+      $input: $dropdown.find(`.${FILTER_DATE_CLASSES.INPUT}`),
     };
   }
 
@@ -44,11 +47,11 @@ class FilterDateDropdown {
 
     $calendar
       .on('apply.filterDate.setDate', this._handleCalendarApply.bind(this))
-      .on('clear.filterDate.setDate', this._handleCalendarClear.bind(this));
+      .on('clear.filterDate.clearDate', this._handleCalendarClear.bind(this));
   }
 
   private _handleCalendarClear(): void {
-    this.domElements.$headText.text('Выберите дату');
+    this.domElements.$input.val(this.defaultText);
   }
 
   private _handleCalendarApply(ev: JQuery.Event, start: Date, end: Date): void {
@@ -57,8 +60,8 @@ class FilterDateDropdown {
     if (start) headChunks.push(`${start.getDate()} ${monthNames[start.getMonth()].toLowerCase().slice(0, 3)}`);
     if (end) headChunks.push(`${end.getDate()} ${monthNames[end.getMonth()].toLowerCase().slice(0, 3)}`);
 
-    const { $dropdown, $headText } = this.domElements;
-    if (start || end) $headText.text(headChunks.join(' - '));
+    const { $dropdown, $input } = this.domElements;
+    if (start || end) $input.val(headChunks.join(' - '));
     $dropdown.removeClass(FILTER_DATE_CLASSES.DROPDOWN_IS_OPENED);
   }
 
