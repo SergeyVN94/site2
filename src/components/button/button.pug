@@ -45,6 +45,7 @@ mixin button(options = {})
     };
 
     if (href) attr.href = href;
+    if (!href && disabled) attr.disabled = true;
     else attr.type = type;
 
   #{href ? "a" : "button"}()&attributes(attr) 
