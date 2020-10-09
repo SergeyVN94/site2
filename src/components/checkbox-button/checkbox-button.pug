@@ -1,7 +1,7 @@
-mixin checkbox-button({ text, description, checked = false })
+mixin checkbox-button({ text, description, checked = false, name = false })
   .checkbox-button(class=(description ? 'checkbox-button_theme_rich' : ''))
     label.checkbox-button__wrapper
-      input.checkbox-button__input(type="checkbox", checked=checked)
+      input.checkbox-button__input(type="checkbox", checked=checked, name=name)
       .checkbox-button__new-input
         svg.checkbox-button__vector(width="10" height="11" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg")
           path(d="M1.46439 4.40768L5.70703 8.65032L4.29282 10.0645L0.0501771 5.82189L1.46439 4.40768Z" fill="url(#paint0_linear)")

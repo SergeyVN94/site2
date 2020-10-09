@@ -78,9 +78,9 @@ block content
             +checkbox-list({
               head: { title: "checkbox buttons" },
               items: [
-                { text: "Можно курить"},
-                { text: "Можно с питомцами", checked: true },
-                { text: "Можно пригласить гостей (до 10 человек)", checked: true },
+                { text: "Можно курить", name: "smoking" },
+                { text: "Можно с питомцами", name: "pets", checked: true },
+                { text: "Можно пригласить гостей (до 10 человек)", name: "guests", checked: true },
               ]
             })
           .form-elements__radio-buttons
@@ -170,12 +170,12 @@ block content
             +expandable-checkbox-list({
               title: "expandable checkbox list",
               items: [
-                {text: "Завтрак"},
-                {text: "Письменный стол"},
-                {text: "Стул для кормления"},
-                {text: "Кроватка"},
-                {text: "Телевизор"},
-                {text: "Шампунь"},
+                { text: "Завтрак", name: "breakfast" },
+                { text: "Письменный стол", name: "desk" },
+                { text: "Стул для кормления", name: "feeding-chair" },
+                { text: "Кроватка", name: "crib" },
+                { text: "Телевизор", name: "tv" },
+                { text: "Шампунь", name: "shampoo" },
               ],
             })
         .form-elements__column
@@ -187,10 +187,12 @@ block content
                 {
                   text: "Широкий коридор",
                   description: "Ширина коридоров в номере не менее 91 см.",
+                  name: "wide-corridor",
                 },
                 {
                   text: "Помощник для инвалидов",
                   description: "На 1 этаже вас встретит специалист  и проводит до номера.",
+                  name: "disabled-assistant",
                 },
               ],
             })                        

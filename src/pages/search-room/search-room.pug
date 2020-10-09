@@ -51,9 +51,9 @@ block main
             +checkbox-list({
               head: { title: "Checkbox Buttons" },
               items: [
-                {text: "Можно курить"},
-                {text: "Можно с питомцами", checked: true},
-                {text: "Можно пригласить гостей (до 10 человек)", checked: true},
+                { text: "Можно курить", name: "smoking" },
+                { text: "Можно с питомцами", name: "pets", checked: true },
+                { text: "Можно пригласить гостей (до 10 человек)", name: "guests", checked: true },
               ],
             })
           .search-room__rich-checkbox-buttons
@@ -64,10 +64,12 @@ block main
                 {
                   text: "Широкий коридор",
                   description: "Ширина коридоров в номере не менее 91 см.",
+                  name: "wide-corridor",
                 },
                 {
                   text: "Помощник для инвалидов",
                   description: "На 1 этаже вас встретит специалист  и проводит до номера.",
+                  name: "disabled-assistant",
                 },
               ],
             })    
@@ -90,12 +92,12 @@ block main
             +expandable-checkbox-list({
               title: "дополнительные удобства",
               items: [
-                {text: "Завтрак"},
-                {text: "Письменный стол", checked: true},
-                {text: "Стул для кормления", checked: true},
-                {text: "Кроватка", checked: true},
-                {text: "Телевизор"},
-                {text: "Шампунь"},
+                { text: "Завтрак", name: "breakfast" },
+                { text: "Письменный стол", name: "desk", checked: true },
+                { text: "Стул для кормления", name: "feeding-chair", checked: true },
+                { text: "Кроватка", name: "crib", checked: true },
+                { text: "Телевизор", name: "tv" },
+                { text: "Шампунь", name: "shampoo" },
               ],
             })
       .search-room__rooms
