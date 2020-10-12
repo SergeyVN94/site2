@@ -7,6 +7,7 @@ mixin card-account-registration(options = {})
   -
     const {
       title = "Регистрация аккаунта",
+      titleNumber = 3,
       formAction = "/mock-address/change-me",
       inputNamePlaceholder = "Имя",
       inputSurnamePlaceholder = "Фамилия",
@@ -30,8 +31,10 @@ mixin card-account-registration(options = {})
       radioButtonsGender[0].checked = true;
     }
 
+    const titleTag = `h${titleNumber}`;
+
   .card-account-registration
-    h2.card-account-registration__title #{title}
+    #{titleTag}.card-account-registration__title #{title}
     form.card-account-registration__form(action=formAction, method="post")
       .card-account-registration__user-name
         +text-field({ placeholder: inputNamePlaceholder, name: "user-name" })

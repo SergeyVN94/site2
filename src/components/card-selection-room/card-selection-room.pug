@@ -6,6 +6,7 @@ mixin card-selection-room(options = {})
   -
     const {
       title = "Найдём номера под ваши пожелания",
+      titleNumber = 3,
       dateRange = {},
       dropdownGuest = {
         head: { title: "Гости" },
@@ -26,8 +27,10 @@ mixin card-selection-room(options = {})
       formAction = "./search-room.html",
     } = options;
 
+    const titleTag = `h${titleNumber}`;
+
   .card-selection-room
-    h2.card-selection-room__title #{title}
+    #{titleTag}.card-selection-room__title #{title}
     form.card-selection-room__form(action=formAction, method="get")
       .card-selection-room__date-range
         +date-range(dateRange)
