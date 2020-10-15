@@ -31,11 +31,6 @@ mixin calendar(options = {})
     .calendar__days-container.js-calendar__days-container
     .calendar__control-buttons
       .calendar__clear-button
-        +button({
-          text: buttonClear,
-          theme: "text",
-          textColor: "text-secondary",
-          dataAction: "clear",
-        })
+        +button({ text: buttonClear, theme: "textual", dataAction: "clear" })
       .calendar__apply-button
-        +button({ text: buttonApply, theme: "text", dataAction: "apply" })
+        +button({ text: buttonApply, theme: "textual", dataAction: "apply" })

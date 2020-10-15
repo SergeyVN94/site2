@@ -144,7 +144,7 @@
       }
     }
 
-    &_text {
+    &_textual {
       font-weight: bold;
       font-size: $small-size;
       line-height: $standard-size;
@@ -152,7 +152,7 @@
       color: $bg-primary;
 
       &:hover {
-        text-shadow: 0px 0px 10px $bg-primary;
+        color: $text-secondary;
       }
 
       &:active {
@@ -266,10 +266,6 @@
   } 
 
   &_text-color {
-
-    &_text-secondary .button__text {
-      color: $text-secondary;
-    }
 
     &_gradient-primary .button__text {
       background: $gradient-primary;
