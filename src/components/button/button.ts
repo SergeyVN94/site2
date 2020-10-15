@@ -17,6 +17,7 @@ $.fn.button = function buttonPlugin(
         return this.hasClass(BUTTON_CLASSES.DISABLED);
       }
 
+      args ? this.attr('disabled') : this.removeAttr('disabled');
       this.toggleClass(BUTTON_CLASSES.DISABLED, Boolean(args));
       return this;
 
