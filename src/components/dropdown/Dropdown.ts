@@ -183,24 +183,16 @@ class Dropdown {
     if (isBtnPlus || isBtnMinus) {
       const $controls = $button.parent();
       const $out = $controls.find(`.${DROPDOWN_CLASSES.COUNTER_OUT}`);
-
+      const $btnMinus = isBtnMinus ? $button : $controls.find(`.${DROPDOWN_CLASSES.BTN_MINUS}`);
       const group = $out.data('group');
-      let counterValue = parseInt($out.text(), 10);
 
-      if (isBtnPlus) {
-        counterValue += 1;
-        this.counterGroupsValues[group] += 1;
-      }
+      if (isBtnPlus) this.counterGroupsValues[group] += 1;
+      if (isBtnMinus && this.counterGroupsValues[group]) this.counterGroupsValues[group] -= 1;
 
-      if (isBtnMinus && counterValue) {
-        counterValue -= 1;
-        this.counterGroupsValues[group] -= 1;
-      }
+      $btnMinus.button('disable', this.counterGroupsValues[group] === 0);
+      $out.text(this.counterGroupsValues[group]);
 
-      $controls.find(`.${DROPDOWN_CLASSES.BTN_MINUS}`).button('disable', counterValue === 0);
-      $out.text(counterValue);
       this._updateDropdownHeadText();
-
       this.domElements.$btnClear.button('hidden', this.countSumCounters() === 0);
     }
 
