@@ -3,7 +3,7 @@ const enum DATE_RANGE_CLASSES {
   DROPDOWN = 'js-date-range__dropdown',
   DROPDOWN_INPUT = 'js-date-range__input',
   DROPDOWN_INPUT_SELECTED = 'date-range__input_selected',
-  RANGE_SELECT = 'date-range_range-select',
+  DROPDOWN_OPENED = 'date-range_opened',
   CALENDAR = 'js-calendar',
 }
 
@@ -20,11 +20,9 @@ interface IDateRangeDomElements {
 class DateRange {
   private readonly domElements: IDateRangeDomElements;
 
-  private defaultText: string;
 
   constructor($dateRange: JQuery) {
     this.domElements = DateRange._createDomElements($dateRange);
-    this.defaultText = this.domElements.$dropdownStartInput.val().toString();
     this._initEventListeners();
   }
 
@@ -69,7 +67,7 @@ class DateRange {
       this._initFocusout();
       $dropdownStartInput.addClass(DATE_RANGE_CLASSES.DROPDOWN_INPUT_SELECTED);
       $dropdownEndInput.removeClass(DATE_RANGE_CLASSES.DROPDOWN_INPUT_SELECTED);
-      $dateRange.addClass(DATE_RANGE_CLASSES.RANGE_SELECT);
+      $dateRange.addClass(DATE_RANGE_CLASSES.DROPDOWN_OPENED);
       $calendar.calendar('select-date', 'start');
     }
   }
@@ -88,17 +86,17 @@ class DateRange {
       this._initFocusout();
       $dropdownEndInput.addClass(DATE_RANGE_CLASSES.DROPDOWN_INPUT_SELECTED);
       $dropdownStartInput.removeClass(DATE_RANGE_CLASSES.DROPDOWN_INPUT_SELECTED);
-      $dateRange.addClass(DATE_RANGE_CLASSES.RANGE_SELECT);
+      $dateRange.addClass(DATE_RANGE_CLASSES.DROPDOWN_OPENED);
       $calendar.calendar('select-date', 'end');
     }
   }
 
-  private _handleDocumentClick(ev: { originalEvent: { path: Element[] } }): void {
-    const { path } = ev.originalEvent;
+  private _handleDocumentClick(ev: JQuery.MouseEventBase): void {
+    const path = ev.originalEvent.composedPath() as Element[];
 
     // $(ev.target).parents не работает!
     const dateRangeInPath = path.some((element) => (
-      ('classList' in element) && element.classList.contains(DATE_RANGE_CLASSES.DATE_RANGE)
+      (element.classList) && element.classList.contains(DATE_RANGE_CLASSES.DATE_RANGE)
     ));
 
     if (!dateRangeInPath) {
@@ -120,8 +118,8 @@ class DateRange {
   private _handleCalendarClear(): void {
     const { $dropdownStartInput, $dropdownEndInput } = this.domElements;
 
-    $dropdownStartInput.val(this.defaultText);
-    $dropdownEndInput.val(this.defaultText);
+    $dropdownStartInput.val('');
+    $dropdownEndInput.val('');
     this._deselectDateRange();
   }
 
@@ -132,10 +130,8 @@ class DateRange {
   private updateDropdowns(start: Date, end: Date): void {
     const { $dropdownStartInput, $dropdownEndInput } = this.domElements;
 
-    $dropdownStartInput.val(
-      start === null ? this.defaultText : DateRange._dateToString(start),
-    );
-    $dropdownEndInput.val(end === null ? this.defaultText : DateRange._dateToString(end));
+    $dropdownStartInput.val(start ? DateRange._dateToString(start) : '');
+    $dropdownEndInput.val(end ? DateRange._dateToString(end) : '');
 
     this._deselectDateRange();
   }
@@ -153,7 +149,7 @@ class DateRange {
 
     $dropdownStartInput.removeClass(DATE_RANGE_CLASSES.DROPDOWN_INPUT_SELECTED);
     $dropdownEndInput.removeClass(DATE_RANGE_CLASSES.DROPDOWN_INPUT_SELECTED);
-    $dateRange.removeClass(DATE_RANGE_CLASSES.RANGE_SELECT);
+    $dateRange.removeClass(DATE_RANGE_CLASSES.DROPDOWN_OPENED);
   }
 }
 

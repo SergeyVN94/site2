@@ -2,7 +2,7 @@
   width: 100%;
   max-width: 400px;
 
-  &_range-select {
+  &_opened {
 
     .date-range__container {
       display: block;
@@ -61,7 +61,13 @@
     color: $text-primary;
     cursor: pointer;
 
-    &:hover {
+    &::placeholder {
+      @include text-body;
+    }
+
+    &:hover,
+    &:focus {
+      outline: 0;
       border-color: $text-secondary;
     }
 

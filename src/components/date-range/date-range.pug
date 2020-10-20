@@ -4,8 +4,7 @@ include /calendar/calendar.pug
 mixin date-range(options = {})
   -
     const {
-      dropdownEntranceValue = "ДД.ММ.ГГГГ",
-      dropdownDepartureValue = "ДД.ММ.ГГГГ",
+      placeholder = "ДД.ММ.ГГГГ",
       dropdownEntranceName = "entrance",
       dropdownDepartureName = "departure",
       dropdownEntranceTitle = "прибытие",
@@ -20,7 +19,7 @@ mixin date-range(options = {})
             +block-head({ title: dropdownEntranceTitle })
         .date-range__dropdown.js-date-range__dropdown(data-type="start")
           input.date-range__input.js-date-range__input(
-            value=dropdownEntranceValue
+            placeholder=placeholder
             name=dropdownEntranceName
             readonly
           )
@@ -32,7 +31,7 @@ mixin date-range(options = {})
             +block-head({ title: dropdownDepartureTitle })
         .date-range__dropdown.js-date-range__dropdown(data-type="end")
           input.date-range__input.js-date-range__input(
-            value=dropdownDepartureValue
+            placeholder=placeholder
             name=dropdownDepartureName
             readonly
           )
