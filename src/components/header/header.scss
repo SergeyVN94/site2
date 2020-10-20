@@ -110,6 +110,10 @@
   }
 
   &__button-login {
-    margin: 0 $middle-first-size ($middle-first-size / 3) 0;
+    margin-right: $middle-first-size;
+
+    @media (max-width: $breakpoint-tablets) {
+      margin: 0 $middle-first-size ($middle-first-size / 3) 0;
+    }
   }
 }
