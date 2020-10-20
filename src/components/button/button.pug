@@ -44,9 +44,12 @@ mixin button(options = {})
       "data-action": dataAction,
     };
 
-    if (href) attr.href = href;
-    if (!href && disabled) attr.disabled = true;
-    else attr.type = type;
+    if (href) {
+      attr.href = href;
+    } else {
+      disabled && (attr.disabled = true);
+      attr.type = type;
+    }
 
   #{href ? "a" : "button"}()&attributes(attr) 
     span.button__text.js-button__text #{text}
