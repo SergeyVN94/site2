@@ -27,12 +27,24 @@
     padding: 9px 44px 9px 14px;
     width: 100%;
     border: 1px solid $light-title;
+    outline: 0;
     border-radius: 4px;
     color: $text-primary;
+    text-overflow: ellipsis;
     cursor: pointer;
 
-    &:hover {
+    &::placeholder {
+      @include text-body;
+      color: $text-primary;
+    }
+
+    &:hover,
+    &:focus {
       border-color: $text-secondary;
+    }
+
+    &:focus {
+      outline: 0;
     }
   }
 

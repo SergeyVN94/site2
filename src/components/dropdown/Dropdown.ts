@@ -16,8 +16,7 @@ interface IDropdownDomElements {
   readonly $dropdownHead: JQuery;
   readonly $dropdownBody: JQuery;
   readonly $countersOut: JQuery;
-  readonly $headText: JQuery;
-  readonly $btnApply: JQuery;
+  readonly $input: JQuery;
   readonly $btnClear: JQuery;
   readonly $document: JQuery<Document>;
 }
@@ -29,27 +28,12 @@ interface ICounterValuesTable {
 class Dropdown {
   private domElements: IDropdownDomElements;
 
-  private readonly defaultHeadText: string;
-
   private readonly variationsTable: { [index: string]: [string, string, string] };
-
-  private counterGroupsValues: { [index: string]: number };
 
   constructor($dropdown: JQuery) {
     this.domElements = Dropdown._getDomElements($dropdown);
-    this.defaultHeadText = this.domElements.$headText.val().toString();
     this.variationsTable = $dropdown.data('variations');
-    this.counterGroupsValues = {};
-    this._resetGroupsValues();
     this._initEventListeners();
-  }
-
-  private _resetGroupsValues(): void {
-    this.counterGroupsValues = {};
-    this.domElements.$countersOut.each((index, out) => {
-      const group = $(out).data('group');
-      this.counterGroupsValues[group] = 0;
-    });
   }
 
   private static _getDomElements($dropdown: JQuery): IDropdownDomElements {
@@ -58,8 +42,7 @@ class Dropdown {
       $dropdownHead: $dropdown.find(`.${DROPDOWN_CLASSES.DROPDOWN_HEAD}`),
       $dropdownBody: $dropdown.find(`.${DROPDOWN_CLASSES.DROPDOWN_BODY}`),
       $countersOut: $dropdown.find(`.${DROPDOWN_CLASSES.COUNTER_OUT}`),
-      $headText: $dropdown.find(`.${DROPDOWN_CLASSES.INPUT}`),
-      $btnApply: $dropdown.find(`.${DROPDOWN_CLASSES.BTN_APPLY}`),
+      $input: $dropdown.find(`.${DROPDOWN_CLASSES.INPUT}`),
       $btnClear: $dropdown.find(`.${DROPDOWN_CLASSES.BTN_CLEAR}`),
       $document: $(document),
     };
@@ -83,23 +66,6 @@ class Dropdown {
     return words[2];
   }
 
-  private static _cropHeadText(head: string): string {
-    const words = head.split(' ');
-
-    if (words.length < 5) {
-      return head;
-    }
-
-    const firstFourWords = words.slice(0, 4);
-    const lastWord = firstFourWords[firstFourWords.length - 1];
-
-    if (lastWord.endsWith(',')) {
-      firstFourWords[firstFourWords.length - 1] = lastWord.slice(0, -1);
-    }
-
-    return `${firstFourWords.join(' ')}...`;
-  }
-
   private _initEventListeners(): void {
     const { $dropdownHead, $dropdownBody } = this.domElements;
 
@@ -111,46 +77,50 @@ class Dropdown {
     );
   }
 
-  private _updateDropdownHeadText(): boolean {
-    const { $headText } = this.domElements;
+  private _updateDropdownHeadText(): void {
+    const groupsValues: { [index: string]: number } = {};
 
-    if (this.countSumCounters() === 0) {
-      $headText.val(this.defaultHeadText);
-      return true;
-    }
+    this.domElements.$countersOut.each((_, counterOut) => {
+      const { group } = counterOut.dataset;
+      const count = parseInt(counterOut.textContent, 10);
 
-    const headTextItems: string[] = [];
-
-    Object.keys(this.counterGroupsValues).forEach((group) => {
-      const groupValue = this.counterGroupsValues[group];
-      const word = Dropdown._getWordWithEnding(groupValue, this.variationsTable[group]);
-      if (groupValue > 0) headTextItems.push(`${groupValue} ${word}`);
+      if (group && !Number.isNaN(count)) {
+        if (count) {
+          groupsValues[group] = typeof groupsValues[group] === 'number'
+            ? groupsValues[group] + count
+            : count;
+        }
+      } else {
+        console.error(new Error('Failed to get value from counter'));
+      }
     });
 
-    if (!headTextItems.length) {
-      $headText.val(this.defaultHeadText);
-      return true;
-    }
+    const headText = Object.keys(groupsValues)
+      .map((group) => {
+        const count = groupsValues[group];
+        const word = Dropdown._getWordWithEnding(count, this.variationsTable[group]);
+        return `${count} ${word}`;
+      })
+      .join(', ');
 
-    const headText = headTextItems.join(', ');
-    $headText.val(Dropdown._cropHeadText(headText));
-
-    return true;
+    this.domElements.$input.val(headText);
   }
 
-  private countSumCounters(): number {
-    return Object.keys(this.counterGroupsValues).reduce((accumulator: number, key: string) => {
-      const counterValue = this.counterGroupsValues[key];
-      return (accumulator + (typeof counterValue === 'number' ? counterValue : 0));
-    }, 0);
+  private _countSumCounters(): number {
+    let sum = 0;
+
+    this.domElements.$countersOut.each((_, counterOut) => {
+      const count = parseInt(counterOut.textContent, 10);
+      if (!Number.isNaN(count)) sum += count;
+    });
+
+    return sum;
   }
 
   private _resetDropdown(): void {
-    this._resetGroupsValues();
+    const { $countersOut, $btnClear, $input } = this.domElements;
 
-    const { $countersOut, $btnClear, $headText } = this.domElements;
-
-    $countersOut.each((index, out) => {
+    $countersOut.each((_, out) => {
       $(out)
         .text(0)
         .parent()
@@ -159,7 +129,7 @@ class Dropdown {
     });
 
     $btnClear.button('hidden', true);
-    $headText.val(this.defaultHeadText);
+    $input.val('');
   }
 
   private _handleDocumentClick(ev: JQuery.MouseEventBase): void {
@@ -184,16 +154,18 @@ class Dropdown {
       const $controls = $button.parent();
       const $out = $controls.find(`.${DROPDOWN_CLASSES.COUNTER_OUT}`);
       const $btnMinus = isBtnMinus ? $button : $controls.find(`.${DROPDOWN_CLASSES.BTN_MINUS}`);
-      const group = $out.data('group');
+      let outCount = parseInt($out.text(), 10);
 
-      if (isBtnPlus) this.counterGroupsValues[group] += 1;
-      if (isBtnMinus && this.counterGroupsValues[group]) this.counterGroupsValues[group] -= 1;
+      if (Number.isNaN(outCount)) outCount = 0;
 
-      $btnMinus.button('disable', this.counterGroupsValues[group] === 0);
-      $out.text(this.counterGroupsValues[group]);
+      if (isBtnPlus) outCount += 1;
+      if (isBtnMinus && outCount) outCount -= 1;
+
+      $btnMinus.button('disable', outCount === 0);
+      $out.text(outCount);
 
       this._updateDropdownHeadText();
-      this.domElements.$btnClear.button('hidden', this.countSumCounters() === 0);
+      this.domElements.$btnClear.button('hidden', this._countSumCounters() === 0);
     }
 
     if (isBtnClear) this._resetDropdown();
