@@ -1,7 +1,6 @@
 extends /../template/landing.pug
 
 include /card-account-registration/card-account-registration.pug
-include /banner/banner.pug
 
 block pageHead
   title Зарегистрироваться
@@ -11,6 +10,5 @@ block pageHead
 block main
   main.registration
     .registration__banner
-      +banner()
-        .registration__card-account-registration
-          +card-account-registration({ titleNumber: 1 })
+      .registration__card-account-registration
+        +card-account-registration({ titleNumber: 1 })

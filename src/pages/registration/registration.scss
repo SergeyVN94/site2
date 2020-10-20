@@ -1,12 +1,12 @@
-.registration {
-
-  &__banner {
-    width: 100%;
-    max-width: 1920px;
-    margin: 0 auto;
-  }
-
-  &__card-account-registration {
-    padding: 17px 0px 19px;
-  }
+.registration__banner {
+  margin: 0 auto;
+  padding: 17px 0px 19px;
+  width: 100%;
+  max-width: 1920px;
+  display: flex;
+  justify-content: center;
+  background-image: url('~@images/banners/login-registration.jpg');
+  background-position: 100% 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

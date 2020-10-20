@@ -1,16 +1,16 @@
-.sign-in {
+.sign-in__banner {
+  margin: 0 auto;
+  padding: 171px 0 173px;
+  width: 100%;
+  max-width: 1920px;
+  display: flex;
+  justify-content: center;
+  background-image: url('~@images/banners/login-registration.jpg');
+  background-position: 100% 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
 
-  &__banner {
-    width: 100%;
-    max-width: 1920px;
-    margin: 0 auto;
-  }
-
-  &__card-authentication {
-    padding: 171px 0 173px 0;
-
-    @media (max-width: 425px) {
-      padding: 50px 0 55px 0;
-    }
+  @media (max-width: 425px) {
+    padding: 50px 0 55px;
   }
 }

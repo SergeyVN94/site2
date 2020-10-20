@@ -1,7 +1,6 @@
 extends /../template/landing.pug
 
 include /card-authentication/card-authentication.pug
-include /banner/banner.pug
 
 block pageHead
   title Войти
@@ -11,6 +10,5 @@ block pageHead
 block main
   main.sign-in
     .sign-in__banner
-      +banner()
-        .sign-in__card-authentication
-          +card-authentication({ titleNumber: 1 })
+      .sign-in__card-authentication
+        +card-authentication({ titleNumber: 1 })
