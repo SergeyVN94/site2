@@ -18,12 +18,9 @@ const monthNames = ['Январь', 'Февраль', 'Март', 'Апрель'
 class FilterDateDropdown {
   private readonly domElements: IDomElements;
 
-  private defaultText: string;
-
   constructor($dropdown: JQuery) {
     this.domElements = FilterDateDropdown._getDomElements($dropdown);
     this.domElements.$calendar.calendar('select-date', 'auto');
-    this.defaultText = this.domElements.$input.val().toString();
     this._initEventListeners();
   }
 
@@ -51,10 +48,10 @@ class FilterDateDropdown {
   }
 
   private _handleCalendarClear(): void {
-    this.domElements.$input.val(this.defaultText);
+    this.domElements.$input.val('');
   }
 
-  private _handleCalendarApply(ev: JQuery.Event, start: Date, end: Date): void {
+  private _handleCalendarApply(_: JQuery.Event, start: Date, end: Date): void {
     const headChunks: string[] = [];
 
     if (start) headChunks.push(`${start.getDate()} ${monthNames[start.getMonth()].toLowerCase().slice(0, 3)}`);
@@ -65,17 +62,13 @@ class FilterDateDropdown {
     $dropdown.removeClass(FILTER_DATE_CLASSES.DROPDOWN_IS_OPENED);
   }
 
-  private _handleDocumentClick(ev: { originalEvent: { path: Element[] } }): void {
-    const { path } = ev.originalEvent;
+  private _handleDocumentClick(ev: JQuery.MouseEventBase): void {
+    const path = ev.originalEvent.composedPath() as Element[];
 
     // $(ev.target).parents не работает!
-    const onDropdown = path.some((element) => {
-      if ('classList' in element) {
-        return element.classList.contains(FILTER_DATE_CLASSES.DROPDOWN_IS_OPENED);
-      }
-
-      return false;
-    });
+    const onDropdown = path.some((element) => (
+      element.classList && element.classList.contains(FILTER_DATE_CLASSES.DROPDOWN_IS_OPENED)
+    ));
 
     if (!onDropdown) {
       const { $dropdown, $document } = this.domElements;

@@ -2,15 +2,17 @@ include /block-head/block-head.pug
 include /button/button.pug
 include /calendar/calendar.pug
 
-mixin filter-date-dropdown({ head = {},  value = "Выберите дату", name = "date-range" })
+mixin filter-date-dropdown({ title,  placeholder = "Выберите даты", name = "date-range" })
   .filter-date-dropdown.js-filter-date-dropdown(class=(isOpened ? "filter-date-dropdown_opened" : ""))
-    if head
+    if title
       .filter-date-dropdown__block-head
-        +block-head(head)
+        +block-head({ title })
     .filter-date-dropdown__head.js-filter-date-dropdown__head
       input.filter-date-dropdown__input.js-filter-date-dropdown__input(
+        placeholder=placeholder
         value=value
         name=name
+        readonly
       )
       .filter-date-dropdown__expand-button
         +button({ text: "expand_more", theme: "icon" })

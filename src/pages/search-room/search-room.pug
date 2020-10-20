@@ -19,10 +19,7 @@ block main
       aside.search-room__filters
         form.search-room__form(action="/mock-address/change-me" method="post")
           .search-room__dropdown-date-filter
-            +filter-date-dropdown({
-              head: { title: "даты пребывания в отеле" },
-              text: "Выберите дату",
-            })
+            +filter-date-dropdown({ title: "даты пребывания в отеле" })
           .search-room__dropdown-guest
             +dropdown({
               head: { title: "Гости" },
