@@ -140,7 +140,7 @@
         font-weight: normal;
         font-size: $small-size;
         line-height: $standard-size;
-        color: #ffffff;
+        color: $text-secondary;
       }
     }
 
@@ -169,10 +169,18 @@
 
     &_gradient-primary {
       background: $gradient-primary;
+
+      .button__text {
+        color: #fff;
+      }
     }
 
     &_gradient-success {
       background: $gradient-secondary;
+
+      .button__text {
+        color: #fff;
+      }
     }
 
     &_none {
