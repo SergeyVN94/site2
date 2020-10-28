@@ -1,6 +1,6 @@
-mixin bullet-list({ items, head })
+mixin bullet-list({ items, head, isHeadThemeH2 })
   .bullet-list
-    h3.bullet-list__head(class=(head.isMarginBottomBig ? "bullet-list__head_margin-bottom_big" : "")) #{head}
+    #{isHeadThemeH2 ? 'h2' : 'h3'}.bullet-list__head(class=(isHeadThemeH2 ? "bullet-list__head_theme_h2" : "")) #{head}
     ul.bullet-list__container
       for item in items
         li.bullet-list__item #{item}

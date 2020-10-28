@@ -6,10 +6,12 @@ $marker-size: $tiny-size;
 
   &__head {
     @include text-h3;
-    margin: 0rem 0rem $small-size $middle-first-size;
+    margin: 0 0 $small-size $middle-first-size;
 
-    &_margin-bottom_big {
-      margin-bottom: 1.2143rem;
+    &_theme_h2 {
+      @include text-h2;
+      margin: 0 0 1.2143rem $middle-first-size;
+      font-family: Montserrat, Arial, sans-serif;
     }
   }
 
