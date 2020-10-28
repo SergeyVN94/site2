@@ -1,7 +1,9 @@
 .room-advantages {
 
   &__head {
+    @include text-h2;
     margin-bottom: 1.3571rem;
+    font-family: Montserrat, Arial, sans-serif;
   }
 
   &__list {

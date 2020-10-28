@@ -22,7 +22,7 @@ block main
             +filter-date-dropdown({ title: "даты пребывания в отеле" })
           .search-room__dropdown-guest
             +dropdown({
-              head: { title: "Гости" },
+              head: "Гости",
               placeholder: "Сколько гостей",
               name: "guests",
               variations: {
@@ -47,7 +47,7 @@ block main
             })
           .search-room__checkbox-list
             +checkbox-list({
-              head: { title: "Checkbox Buttons" },
+              head: "Checkbox Buttons",
               items: [
                 { text: "Можно курить", name: "smoking" },
                 { text: "Можно с питомцами", name: "pets", checked: true },
@@ -56,7 +56,7 @@ block main
             })
           .search-room__rich-checkbox-buttons
             +checkbox-list({
-              head: { title: "доступность" },
+              head: "доступность",
               withRichButtons: true,
               items: [
                 {
@@ -73,7 +73,7 @@ block main
             })    
           .search-room__dropdown-room-amenities
             +dropdown({
-              head: { title: "удобства номера" },
+              head: "удобства номера",
               placeholder: "Удобства номера",
               name: "room-amenities",
               variations: {

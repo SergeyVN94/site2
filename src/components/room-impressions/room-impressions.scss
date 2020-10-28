@@ -1,7 +1,9 @@
 .room-impressions {
 
   &__head {
+    @include text-h2;
     margin-bottom: $middle-first-size;
+    font-family: Montserrat, Arial, sans-serif;
   }
 
   &__body {

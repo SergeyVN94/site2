@@ -2,6 +2,20 @@
 
   &__head {
     margin-bottom: 1.3571rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  &__title {
+    @include text-h2;
+    font-family: Montserrat, Arial, sans-serif;
+  }
+
+  &__counter {
+    @include text-body;
+    color: $text-secondary;
   }
 
   &__comment {

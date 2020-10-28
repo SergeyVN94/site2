@@ -5,6 +5,7 @@ $marker-size: $tiny-size;
   max-width: 270px;
 
   &__head {
+    @include text-h3;
     margin: 0rem 0rem $small-size $middle-first-size;
 
     &_margin-bottom_big {

@@ -1,4 +1,3 @@
-include /block-head/block-head.pug
 include /button/button.pug
 
 mixin pagination(options = {})
@@ -54,8 +53,7 @@ mixin pagination(options = {})
 
   .pagination
     if head
-      .pagination__head
-        +block-head(head)
+      h3.pagination__head #{head}
     .pagination__container
       .pagination__buttons
         for config in buttonsConfig

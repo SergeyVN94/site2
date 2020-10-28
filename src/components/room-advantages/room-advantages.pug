@@ -1,13 +1,7 @@
-include /block-head/block-head.pug
-
-mixin room-advantages(items, title)
+mixin room-advantages(items, head)
   .room-advantages
-    if title
-      .room-advantages__head
-        +block-head({
-          title,
-          isTitleThemeH2: true,
-        })
+    if head
+      h2.room-advantages__head #{head}
     .room-advantages__container
       for item in items
         -const { icon, title, description } = item;

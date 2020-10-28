@@ -1,4 +1,3 @@
-include /block-head/block-head.pug
 include /calendar/calendar.pug
 
 mixin date-range(options = {})
@@ -14,9 +13,7 @@ mixin date-range(options = {})
   .date-range.js-date-range(data-dropdown-default-text=dropdownDefaultText)
     .date-range__dropdowns
       .date-range__dropdown-container
-        if dropdownEntranceTitle
-          .date-range__head
-            +block-head({ title: dropdownEntranceTitle })
+        .date-range__head #{dropdownEntranceTitle}
         .date-range__dropdown.js-date-range__dropdown(data-type="start")
           input.date-range__input.js-date-range__input(
             placeholder=placeholder
@@ -26,9 +23,7 @@ mixin date-range(options = {})
           .date-range__expand-button
             +button({ text: "expand_more", theme: "icon", dateAction: "expand" })
       .date-range__dropdown-container
-        if dropdownDepartureTitle
-          .date-range__head
-            +block-head({ title: dropdownDepartureTitle })
+        .date-range__head #{dropdownDepartureTitle}
         .date-range__dropdown.js-date-range__dropdown(data-type="end")
           input.date-range__input.js-date-range__input(
             placeholder=placeholder

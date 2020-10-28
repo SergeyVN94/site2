@@ -1,4 +1,3 @@
-include /block-head/block-head.pug
 include /button/button.pug
 
 mixin dropdown(options)
@@ -16,50 +15,48 @@ mixin dropdown(options)
     } = options;
 
   .dropdown.js-dropdown(class=(isOpened ? "dropdown_opened" : ""), data-variations=JSON.stringify(variations))
-    if head
-      .dropdown__block-head
-        +block-head(head)
-      .dropdown__head.js-dropdown__head
-        input.dropdown__input.js-dropdown__input(
-          type="text"
-          placeholder=placeholder
-          name=name
-          readonly
-        )
-        .dropdown__expand-button
-          +button({ text: "expand_more", theme: "icon" })
-      .dropdown__body-wrapper
-        if counters.length
-          .dropdown__body.js-dropdown__body
-            for counter in counters
-              -const { text: counterText, group, value = 0 } = counter;
-              .dropdown__counter
-                .dropdown__counter-text #{counterText}
-                .dropdown__counter-controls
-                  +button({
-                    dataAction: "minus",
-                    text: "-",
-                    theme: "round-little",
-                    disabled: (value === 0),
-                  })
-                  p.dropdown__counter-out.js-dropdown__counter-out(data-group=group) #{value}
-                  +button({
-                    dataAction: "plus",
-                    text: "+",
-                    theme: "round-little",
-                  })
-            if withControls
-              .dropdown__controls
-                .dropdown__button-clear
-                  +button({
-                    dataAction: "clear",
-                    text: buttonClear,
-                    theme: "textual",
-                    hidden: true,
-                  })
-                .dropdown__button-apply
-                  +button({
-                    dataAction: "apply",
-                    text: buttonApply,
-                    theme: "textual",
-                  })
+    .dropdown__head #{head}
+    .dropdown__input-wrapper.js-dropdown__input-wrapper
+      input.dropdown__input.js-dropdown__input(
+        type="text"
+        placeholder=placeholder
+        name=name
+        readonly
+      )
+      .dropdown__expand-button
+        +button({ text: "expand_more", theme: "icon" })
+    .dropdown__body-wrapper
+      if counters.length
+        .dropdown__body.js-dropdown__body
+          for counter in counters
+            -const { text: counterText, group, value = 0 } = counter;
+            .dropdown__counter
+              .dropdown__counter-text #{counterText}
+              .dropdown__counter-controls
+                +button({
+                  dataAction: "minus",
+                  text: "-",
+                  theme: "round-little",
+                  disabled: (value === 0),
+                })
+                p.dropdown__counter-out.js-dropdown__counter-out(data-group=group) #{value}
+                +button({
+                  dataAction: "plus",
+                  text: "+",
+                  theme: "round-little",
+                })
+          if withControls
+            .dropdown__controls
+              .dropdown__button-clear
+                +button({
+                  dataAction: "clear",
+                  text: buttonClear,
+                  theme: "textual",
+                  hidden: true,
+                })
+              .dropdown__button-apply
+                +button({
+                  dataAction: "apply",
+                  text: buttonApply,
+                  theme: "textual",
+                })

@@ -1,12 +1,6 @@
-include /block-head/block-head.pug
-
-mixin room-impressions({ items, title = "Впечатления от номера" })
+mixin room-impressions({ items, head = "Впечатления от номера" })
   .room-impressions.js-room-impressions
-    .room-impressions__head
-      +block-head({
-        title,
-        isTitleThemeH2: true,
-      })   
+    .room-impressions__head #{head}
     .room-impressions__body
       -
         const isPropertyExists = function isPropertyExists(obj, key) {

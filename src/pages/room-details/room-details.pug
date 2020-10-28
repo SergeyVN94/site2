@@ -69,22 +69,13 @@ block main
             ];
           a(name="comments")
           +comments({
+            head: "Отзывы посетителей номера",
             items,
-            head: {
-              title: "Отзывы посетителей номера",
-              isTitleThemeH2: true,
-              help: "2 отзыва",
-              isHelpThemeLight: true,
-            },
           })
         .room-details__info-item
           .room-details__rules
             +bullet-list({
-              head: {
-                title: "Правила",
-                isTitleThemeH2: true,
-                isMarginBottomBig: true,
-              },
+              head: "Правила",
               items: [
                 "Нельзя с питомцами",
                 "Без вечеринок и мероприятий",

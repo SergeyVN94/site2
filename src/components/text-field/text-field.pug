@@ -1,5 +1,3 @@
-include /block-head/block-head.pug
-
 mixin text-field(options = {})
   -
     const {
@@ -13,9 +11,7 @@ mixin text-field(options = {})
     } = options;
 
   .text-field(class=(withArrow ? "text-field_with-arrow" : ""))
-    if head
-      .text-field__head
-        +block-head(head)
+    .text-field__head #{head}
     .text-field__wrapper
       input.text-field__input.js-text-field__input(
         type=type,

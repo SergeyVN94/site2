@@ -1,6 +1,7 @@
 .pagination {
 
   &__head {
+    @include text-h3;
     margin-bottom: $standard-size;
   }
 

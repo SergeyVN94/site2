@@ -31,14 +31,14 @@ block content
         .form-elements__column
           .form-elements__text-field
             +text-field({
-              head: { title: "text field", help: "default" },
+              head: "text field",
               placeholder: "Email",
               type: "email",
               name: "email",
             })
           .form-elements__dropdown-guests
             +dropdown({
-              head: { title: "dropdown", help: "default" },
+              head: "dropdown",
               placeholder: "Сколько гостей",
               name: "guests",
               variations: {
@@ -54,7 +54,7 @@ block content
             })
           .form-elements__masked-text-field
             +text-field({
-              head: { title: "masked text field", help: "default" },
+              head: "masked text field",
               placeholder: "ДД.ММ.ГГГГ",
               mask: "00.00.0000",
               name: "date-of-birth",
@@ -65,10 +65,10 @@ block content
               dropdownDepartureTitle: "date dropdown",
             })
           .form-elements__filter-date-dropdown
-            +filter-date-dropdown({ title: "filter date dropdown" })
+            +filter-date-dropdown({ head: "filter date dropdown" })
           .form-elements__subscription-text-field
             +text-field({
-              head: { title: "subscription text field" },
+              head: "subscription text field",
               placeholder: "Email",
               withArrow: true,
               type: "email",
@@ -77,7 +77,7 @@ block content
         .form-elements__column
           .form-elements__checkbox-list
             +checkbox-list({
-              head: { title: "checkbox buttons" },
+              head: "checkbox buttons",
               items: [
                 { text: "Можно курить", name: "smoking" },
                 { text: "Можно с питомцами", name: "pets", checked: true },
@@ -85,32 +85,28 @@ block content
               ]
             })
           .form-elements__radio-buttons
-            .form-elements__radio-buttons-head
-              +block-head({ title: "radio buttons" })
+            .form-elements__radio-buttons-head radio buttons
             .form-elements__radio-buttons-container
               .form-elements__radio-button
                 +radio-button({ text: "Мужчина", group: "gender", checked: true })
               .form-elements__radio-button
                 +radio-button({ text: "Женщина", group: "gender" })
           .form-elements__toggle-buttons
-            .form-elements__toggle-buttons-head
-              +block-head({ title: "toggle" })
+            .form-elements__toggle-buttons-head toggle
             .form-elements__toggle-buttons-container
               .form-elements__toggle-button
                 +toggle-button({ text: "Получать спецпредложения", checked: true, name: "special-offers1" })
               .form-elements__toggle-button
                 +toggle-button({ text: "Получать спецпредложения", name: "special-offers2" })
           .form-elements__like-buttons
-            .form-elements__like-buttons-head
-              +block-head({ title: "like button" })
+            .form-elements__like-buttons-head like button
             .form-elements__like-buttons-container
               .form-elements__like-button
                 +like-button({ likes: 2 })
               .form-elements__like-button
                 +like-button({ likes: 12, checked: true })
           .form-elements__rating-buttons
-            .form-elements__rating-buttons-head
-              +block-head({ title: "rate button" })
+            .form-elements__rating-buttons-head rate button
             .form-elements__rating-buttons-container
               .form-elements__rating
                 +rating(4)
@@ -125,8 +121,7 @@ block content
               title: "range slider",
             })
           .form-elements__demo-buttons
-            .form-elements__demo-buttons-head
-              +block-head({ title: "buttons" })
+            .form-elements__demo-buttons-head buttons
             .form-elements__demo-buttons-container
               .form-elements__demo-buttons-row
                 .form-elements__demo-button
@@ -145,14 +140,14 @@ block content
                 })
           .form-elements__pagination
             +pagination({
-              head: { title: "pagination" },
+              head: "pagination",
               bottomText: "1 – 12 из 100+ вариантов аренды",
             })
       .form-elements__row
         .form-elements__column         
           .form-elements__room-amenities
             +dropdown({
-              head: { title: "dropdown" },
+              head: "dropdown",
               placeholder: "Удобства номера",
               name: "room-amenities",
               variations: {
@@ -181,7 +176,7 @@ block content
         .form-elements__column
           .form-elements__item
             +checkbox-list({
-              head: { title: "rich checkbox buttons" },
+              head: "rich checkbox buttons",
               withRichButtons: true,
               items: [
                 {
@@ -198,7 +193,7 @@ block content
             })                        
         .form-elements__column
           +bullet-list({
-            head: { title: "bullet list" },
+            head: "bullet list",
             items: [
               "Нельзя с питомцами",
               "Без вечеринок и мероприятий",

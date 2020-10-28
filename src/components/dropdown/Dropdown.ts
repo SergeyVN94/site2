@@ -1,6 +1,6 @@
 const enum DROPDOWN_CLASSES {
   DROPDOWN = 'js-dropdown',
-  DROPDOWN_HEAD = 'js-dropdown__head',
+  DROPDOWN_HEAD = 'js-dropdown__input-wrapper',
   DROPDOWN_IS_OPENED = 'dropdown_opened',
   DROPDOWN_BODY = 'js-dropdown__body',
   BTN_PLUS = 'js-button[data-action="plus"]',

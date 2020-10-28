@@ -1,11 +1,25 @@
-include /block-head/block-head.pug
 include /comment/comment.pug
 
-mixin comments({ items, head })
+mixin comments({ items })
+  -
+    const itemsLength = items.length;
+    let counterWord = 'отзывов';
+
+    const tens = Math.floor(itemsLength / 10) % 10;
+    const units = itemsLength % 10;
+    const isUnitsEqualToOne = units === 1;
+    const isTensEqualToOne = tens === 1;
+    const isUnitsBetweenOneAndFive = units > 1 && units < 5;
+
+    if (isUnitsEqualToOne && !isTensEqualToOne) counterWord = 'отзыв';
+    if (isUnitsBetweenOneAndFive && !isTensEqualToOne) counterWord = 'отзыва';
+
+    const counterValue = `${itemsLength} ${counterWord}`;
+
   .comments
-    if head
-      .comments__head
-        +block-head(head)
+    .comments__head
+      h2.comments__title Отзывы посетителей номера
+      h3.comments__counter #{counterValue}
     .comments__body
       for item in items
         .comments__comment

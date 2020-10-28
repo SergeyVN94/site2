@@ -46,14 +46,14 @@ mixin card-account-registration(options = {})
             +radio-button(item)
       .card-account-registration__date-of-birth
         +text-field({
-          head: { title: inputDateOfBirthTitle },
+          head: inputDateOfBirthTitle,
           placeholder: inputDateOfBirthPlaceholder,
           mask: "00.00.0000",
           name: "date-of-birth",
         })
       .card-account-registration__email
         +text-field({
-          head: { title: inputsAuthenticationTitle },
+          head: inputsAuthenticationTitle,
           placeholder: inputEmailPlaceholder,
           type: "email",
           name: "email",
