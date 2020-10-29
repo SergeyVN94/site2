@@ -1,7 +1,7 @@
-mixin room-advantages(items, head)
+mixin room-advantages({ items, title, titleTagNumber = 3 })
   .room-advantages
-    if head
-      h2.room-advantages__head #{head}
+    if title
+      #{`h${titleTagNumber}`}.room-advantages__title #{title}
     .room-advantages__container
       for item in items
         -const { icon, title, description } = item;

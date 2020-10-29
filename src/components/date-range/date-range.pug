@@ -8,12 +8,13 @@ mixin date-range(options = {})
       dropdownDepartureName = "departure",
       dropdownEntranceTitle = "прибытие",
       dropdownDepartureTitle = "выезд",
+      titleTagNumber = 3,
     } = options;
 
   .date-range.js-date-range(data-dropdown-default-text=dropdownDefaultText)
     .date-range__dropdowns
       .date-range__dropdown-container
-        .date-range__head #{dropdownEntranceTitle}
+        #{`h${titleTagNumber}`}.date-range__title #{dropdownEntranceTitle}
         .date-range__dropdown.js-date-range__dropdown(data-type="start")
           input.date-range__input.js-date-range__input(
             placeholder=placeholder
@@ -23,7 +24,7 @@ mixin date-range(options = {})
           .date-range__expand-button
             +button({ text: "expand_more", theme: "icon", dateAction: "expand" })
       .date-range__dropdown-container
-        .date-range__head #{dropdownDepartureTitle}
+        #{`h${titleTagNumber}`}.date-range__title #{dropdownDepartureTitle}
         .date-range__dropdown.js-date-range__dropdown(data-type="end")
           input.date-range__input.js-date-range__input(
             placeholder=placeholder

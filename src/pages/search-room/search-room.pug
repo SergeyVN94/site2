@@ -19,10 +19,11 @@ block main
       aside.search-room__filters
         form.search-room__form(action="/mock-address/change-me" method="post")
           .search-room__dropdown-date-filter
-            +filter-date-dropdown({ title: "даты пребывания в отеле" })
+            +filter-date-dropdown({ title: "даты пребывания в отеле", titleTagNumber: 2 })
           .search-room__dropdown-guest
             +dropdown({
-              head: "Гости",
+              title: "Гости",
+              titleTagNumber: 2,
               placeholder: "Сколько гостей",
               name: "guests",
               variations: {
@@ -39,6 +40,7 @@ block main
           .search-room__range-slider
             +range-slider({
               title: "диапазон цены",
+              titleTagNumber: 2,
               range: [0, 16000],
               start: [5000, 10000],
               bottomText: "Стоимость за сутки пребывания в номере",
@@ -47,7 +49,8 @@ block main
             })
           .search-room__checkbox-list
             +checkbox-list({
-              head: "Checkbox Buttons",
+              title: "Checkbox Buttons",
+              titleTagNumber: 2,
               items: [
                 { text: "Можно курить", name: "smoking" },
                 { text: "Можно с питомцами", name: "pets", checked: true },
@@ -56,7 +59,8 @@ block main
             })
           .search-room__rich-checkbox-buttons
             +checkbox-list({
-              head: "доступность",
+              title: "доступность",
+              titleTagNumber: 2,
               withRichButtons: true,
               items: [
                 {
@@ -73,7 +77,8 @@ block main
             })    
           .search-room__dropdown-room-amenities
             +dropdown({
-              head: "удобства номера",
+              title: "удобства номера",
+              titleTagNumber: 2,
               placeholder: "Удобства номера",
               name: "room-amenities",
               variations: {
@@ -89,7 +94,7 @@ block main
             })
           .search-room__expandable-checkbox-list
             +expandable-checkbox-list({
-              title: "дополнительные удобства",
+              label: "дополнительные удобства",
               items: [
                 { text: "Завтрак", name: "breakfast" },
                 { text: "Письменный стол", name: "desk", checked: true },

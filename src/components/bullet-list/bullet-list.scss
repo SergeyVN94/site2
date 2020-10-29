@@ -4,7 +4,7 @@ $marker-size: $tiny-size;
   width: 100%;
   max-width: 270px;
 
-  &__head {
+  &__title {
     @include text-h3;
     margin: 0 0 $small-size $middle-first-size;
 

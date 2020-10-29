@@ -7,7 +7,7 @@ mixin card-account-registration(options = {})
   -
     const {
       title = "Регистрация аккаунта",
-      titleNumber = 3,
+      titleTagNumber = 3,
       formAction = "/mock-address/change-me",
       inputNamePlaceholder = "Имя",
       inputSurnamePlaceholder = "Фамилия",
@@ -31,10 +31,8 @@ mixin card-account-registration(options = {})
       radioButtonsGender[0].checked = true;
     }
 
-    const titleTag = `h${titleNumber}`;
-
   .card-account-registration
-    #{titleTag}.card-account-registration__title #{title}
+    #{`h${titleTagNumber}`}.card-account-registration__title #{title}
     form.card-account-registration__form(action=formAction, method="post")
       .card-account-registration__user-name
         +text-field({ placeholder: inputNamePlaceholder, name: "user-name" })
@@ -46,14 +44,16 @@ mixin card-account-registration(options = {})
             +radio-button(item)
       .card-account-registration__date-of-birth
         +text-field({
-          head: inputDateOfBirthTitle,
+          title: inputDateOfBirthTitle,
+          titleTagNumber: titleTagNumber < 6 ? titleTagNumber + 1 : 6,
           placeholder: inputDateOfBirthPlaceholder,
           mask: "00.00.0000",
           name: "date-of-birth",
         })
       .card-account-registration__email
         +text-field({
-          head: inputsAuthenticationTitle,
+          title: inputsAuthenticationTitle,
+          titleTagNumber: titleTagNumber < 6 ? titleTagNumber + 1 : 6,
           placeholder: inputEmailPlaceholder,
           type: "email",
           name: "email",

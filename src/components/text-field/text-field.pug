@@ -1,7 +1,8 @@
 mixin text-field(options = {})
   -
     const {
-      head,
+      title,
+      titleTagNumber = 3,
       withArrow,
       mask = false,
       type = "text",
@@ -11,7 +12,7 @@ mixin text-field(options = {})
     } = options;
 
   .text-field(class=(withArrow ? "text-field_with-arrow" : ""))
-    .text-field__head #{head}
+    #{`h${titleTagNumber}`}.text-field__title #{title}
     .text-field__wrapper
       input.text-field__input.js-text-field__input(
         type=type,

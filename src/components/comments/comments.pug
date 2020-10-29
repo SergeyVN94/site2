@@ -1,6 +1,6 @@
 include /comment/comment.pug
 
-mixin comments({ items })
+mixin comments({ items, titleTagNumber = 2 })
   -
     const itemsLength = items.length;
     let counterWord = 'отзывов';
@@ -18,8 +18,8 @@ mixin comments({ items })
 
   .comments
     .comments__head
-      h2.comments__title Отзывы посетителей номера
-      h3.comments__counter #{counterValue}
+      #{`h${titleTagNumber}`}.comments__title Отзывы посетителей номера
+      p.comments__counter #{counterValue}
     .comments__body
       for item in items
         .comments__comment

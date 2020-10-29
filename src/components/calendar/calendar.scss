@@ -12,7 +12,7 @@
   border-radius: .2857rem;
 
   &__date-navigation {
-    margin-bottom: 2.0714rem;
+    margin-bottom: 30px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -27,6 +27,7 @@
 
   &__drawn-date {
     @include text-h2;
+    margin: 0;
     font-family: Montserrat, Arial, sans-serif;
   }
 

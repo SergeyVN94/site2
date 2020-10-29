@@ -1,6 +1,6 @@
-mixin room-impressions({ items, head = "Впечатления от номера" })
+mixin room-impressions({ items, title = "Впечатления от номера", titleTagNumber = 2 })
   .room-impressions.js-room-impressions
-    .room-impressions__head #{head}
+    #{`h${titleTagNumber}`}.room-impressions__title #{title}
     .room-impressions__body
       -
         const isPropertyExists = function isPropertyExists(obj, key) {

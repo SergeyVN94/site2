@@ -5,7 +5,7 @@ mixin card-authentication(options = {})
   -
     const {
       title = "Войти",
-      titleNumber = 3,
+      titleTagNumber = 3,
       formAction = "/mock-address/change-me",
       inputEmailPlaceholder = "Email",
       inputPasswordPlaceholder = "Пароль",
@@ -15,10 +15,8 @@ mixin card-authentication(options = {})
       createAccountButton = "создать",
     } = options;
 
-    const titleTag = `h${titleNumber}`;
-
   .card-authentication
-    #{titleTag}.card-authentication__head #{title}
+    #{`h${titleTagNumber}`}.card-authentication__head #{title}
     form.card-authentication__form(action=formAction, method="post")
       .card-authentication__email
         +text-field({ placeholder: inputEmailPlaceholder, type: "email", name: "email" })

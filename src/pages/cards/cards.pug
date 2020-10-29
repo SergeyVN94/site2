@@ -19,12 +19,13 @@ block content
     .cards__container-content
       .cards__column
         .cards__item
-          +card-selection-room()
+          +card-selection-room({ titleTagNumber: 2 })
         .cards__item
-          +card-account-registration()
+          +card-account-registration({ titleTagNumber: 2 })
       .cards__column
         .cards__item
           +card-book-room({
+            titleTagNumber: 2,
             roomHead: {
               roomNumber: 888,
               roomPrice: "9 990",
@@ -51,7 +52,7 @@ block content
             },
           })
         .cards__item
-          +card-authentication()
+          +card-authentication({ titleTagNumber: 2 })
       .cards__column
         .cards__item
           +calendar()

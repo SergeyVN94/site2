@@ -1,9 +1,9 @@
 include /button/button.pug
 include /calendar/calendar.pug
 
-mixin filter-date-dropdown({ head,  placeholder = "Выберите даты", name = "date-range" })
+mixin filter-date-dropdown({ title, titleTagNumber = 3,  placeholder = "Выберите даты", name = "date-range" })
   .filter-date-dropdown.js-filter-date-dropdown(class=(isOpened ? "filter-date-dropdown_opened" : ""))
-    .filter-date-dropdown__head #{head}
+    #{`h${titleTagNumber}`}.filter-date-dropdown__title #{title}
     .filter-date-dropdown__input-wrapper.js-filter-date-dropdown__input-wrapper
       input.filter-date-dropdown__input.js-filter-date-dropdown__input(
         placeholder=placeholder

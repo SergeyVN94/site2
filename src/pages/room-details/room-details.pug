@@ -24,23 +24,27 @@ block main
       .room-details__main-info
         .room-details__info-item
           .room-details__room-advantages
-            +room-advantages([
-              {
-                title: "Комфорт",
-                description: "Шумопоглощающие стены",
-                icon: "insert_emoticon",
-              },
-              {
-                title: "Удобство",
-                description: "Окно в каждой из спален",
-                icon: "location_city",
-              },
-              {
-                title: "Уют",
-                description: "Номер оснащён камином",
-                icon: "whatshot",
-              },
-            ], "Сведения о номере")
+            +room-advantages({
+              title: "Сведения о номере",
+              titleTagNumber: 1,
+              items: [
+                {
+                  title: "Комфорт",
+                  description: "Шумопоглощающие стены",
+                  icon: "insert_emoticon",
+                },
+                {
+                  title: "Удобство",
+                  description: "Окно в каждой из спален",
+                  icon: "location_city",
+                },
+                {
+                  title: "Уют",
+                  description: "Номер оснащён камином",
+                  icon: "whatshot",
+                },
+              ],
+            })
           .room-details__room-impressions
             +room-impressions({
               items: {
@@ -75,8 +79,9 @@ block main
         .room-details__info-item
           .room-details__rules
             +bullet-list({
-              head: "Правила",
-              isHeadThemeH2: true,
+              title: "Правила",
+              titleTagNumber: 2,
+              isTitleThemeH2: true,
               items: [
                 "Нельзя с питомцами",
                 "Без вечеринок и мероприятий",
@@ -88,6 +93,7 @@ block main
             p.room-details__cancel-reservation-body Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.
       .room-details__book-room
         +card-book-room({
+          titleTagNumber: 2,
           roomHead: {
             roomNumber: 888,
             roomPrice: "9 990",

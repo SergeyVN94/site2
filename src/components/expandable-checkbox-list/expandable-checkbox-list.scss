@@ -24,8 +24,9 @@
     cursor: pointer;
   }
 
-  &__title {
+  &__label {
     @include text-h3;
+    margin: 0;
   }
 
   &__button {

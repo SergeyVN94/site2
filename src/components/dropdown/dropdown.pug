@@ -3,7 +3,8 @@ include /button/button.pug
 mixin dropdown(options)
   -
     const {
-      head,
+      title,
+      titleTagNumber = 3,
       placeholder = '',
       name = false,
       isOpened = false,
@@ -15,7 +16,7 @@ mixin dropdown(options)
     } = options;
 
   .dropdown.js-dropdown(class=(isOpened ? "dropdown_opened" : ""), data-variations=JSON.stringify(variations))
-    .dropdown__head #{head}
+    #{`h${titleTagNumber}`}.dropdown__title #{title}
     .dropdown__input-wrapper.js-dropdown__input-wrapper
       input.dropdown__input.js-dropdown__input(
         type="text"
