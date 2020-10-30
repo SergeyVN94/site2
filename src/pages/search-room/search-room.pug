@@ -2,7 +2,6 @@ extends /../template/landing.pug
 
 include /dropdown/dropdown.pug
 include /range-slider/range-slider.pug
-include /checkbox-list/checkbox-list.pug
 include /expandable-checkbox-list/expandable-checkbox-list.pug
 include /pagination/pagination.pug
 include /card-room-information/card-room-information.pug
@@ -48,21 +47,21 @@ block main
               step: 1000,
             })
           .search-room__checkbox-list
-            +checkbox-list({
-              title: "Checkbox Buttons",
-              titleTagNumber: 2,
-              items: [
+            -
+              items = [
                 { text: "Можно курить", name: "smoking" },
                 { text: "Можно с питомцами", name: "pets", checked: true },
                 { text: "Можно пригласить гостей (до 10 человек)", name: "guests", checked: true },
-              ],
-            })
-          .search-room__rich-checkbox-buttons
-            +checkbox-list({
-              title: "доступность",
-              titleTagNumber: 2,
-              withRichButtons: true,
-              items: [
+              ];
+
+            p.search-room__checkbox-list-title правила дома
+              ul.search-room__checkbox-list-wrapper
+                for i in items
+                  li.search-room__checkbox
+                    +input-button(i)
+          .search-room__rich-checkbox-list
+            -
+              items = [
                 {
                   text: "Широкий коридор",
                   description: "Ширина коридоров в номере не менее 91 см.",
@@ -73,8 +72,13 @@ block main
                   description: "На 1 этаже вас встретит специалист  и проводит до номера.",
                   name: "disabled-assistant",
                 },
-              ],
-            })    
+              ];
+
+            p.search-room__rich-checkbox-list-title доступность
+              ul.search-room__rich-checkbox-list-wrapper
+                for i in items
+                  li.search-room__rich-checkbox
+                    +input-button(i)
           .search-room__dropdown-room-amenities
             +dropdown({
               title: "удобства номера",
@@ -226,4 +230,4 @@ block main
         .search-room__pagination
           +pagination({
             bottomText: "1 – 12 из 100+ вариантов аренды",
-    })
+          })

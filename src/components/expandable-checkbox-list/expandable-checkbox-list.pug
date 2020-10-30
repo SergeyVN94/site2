@@ -1,4 +1,4 @@
-include /checkbox-button/checkbox-button.pug
+include /input-button/input-button.pug
 
 mixin expandable-checkbox-list({ label, items, expandButtonIcon = "expand_more" })
   .expandable-checkbox-list.js-expandable-checkbox-list
@@ -9,4 +9,4 @@ mixin expandable-checkbox-list({ label, items, expandButtonIcon = "expand_more" 
     .expandable-checkbox-list__body
       for item in items
         .expandable-checkbox-list__checkbox
-          +checkbox-button(item)
+          +input-button(item)

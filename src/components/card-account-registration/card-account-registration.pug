@@ -1,6 +1,5 @@
-include /radio-button/radio-button.pug
+include /input-button/input-button.pug
 include /text-field/text-field.pug
-include /toggle-button/toggle-button.pug
 include /button/button.pug
 
 mixin card-account-registration(options = {})
@@ -11,10 +10,6 @@ mixin card-account-registration(options = {})
       formAction = "/mock-address/change-me",
       inputNamePlaceholder = "Имя",
       inputSurnamePlaceholder = "Фамилия",
-      genderRadio = [
-        "Мужчина",
-        "Женщина",
-      ],
       inputDateOfBirthTitle = "дата рождения",
       inputDateOfBirthPlaceholder = "ДД.ММ.ГГГГ",
       inputsAuthenticationTitle = "данные для входа в сервис",
@@ -26,11 +21,6 @@ mixin card-account-registration(options = {})
       buttonSignIn = "войти",
     } = options;
 
-    const radioButtonsGender = genderRadio.map((item) => ({text: item, group: "gender"}))
-    if (radioButtonsGender.length) {
-      radioButtonsGender[0].checked = true;
-    }
-
   .card-account-registration
     #{`h${titleTagNumber}`}.card-account-registration__title #{title}
     form.card-account-registration__form(action=formAction, method="post")
@@ -39,9 +29,21 @@ mixin card-account-registration(options = {})
       .card-account-registration__user-surname
         +text-field({ placeholder: inputSurnamePlaceholder, name: "user-surname" })
       .card-account-registration__genders
-        for item in radioButtonsGender
           .card-account-registration__gender
-            +radio-button(item)
+            +input-button({
+              type: "radio",
+              text: "Мужчина",
+              name: "gender",
+              value: "Мужчина",
+              checked: true,
+            })
+          .card-account-registration__gender
+            +input-button({
+              type: "radio",
+              text: "Женщина",
+              name: "gender",
+              value: "Женщина",
+            })
       .card-account-registration__date-of-birth
         +text-field({
           title: inputDateOfBirthTitle,
@@ -61,7 +63,7 @@ mixin card-account-registration(options = {})
       .card-account-registration__password
         +text-field({ placeholder: inputPasswordPlaceholder, type: "password", name: "password" })
       .card-account-registration__offer
-        +toggle-button({ text: toggleButtonSpecialOffers, name: "special-offers" })
+        +input-button({ text: toggleButtonSpecialOffers, name: "special-offers", type: 'toggle' })
       .card-account-registration__payment-button
         +button({
           text: paymentButton,

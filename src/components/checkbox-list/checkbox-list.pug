@@ -1,9 +1,0 @@
-include /checkbox-button/checkbox-button.pug
-
-mixin checkbox-list({ items, title, titleTagNumber = 3, withRichButtons })
-  .checkbox-list(class=(withRichButtons ? "checkbox-list_with-rich-buttons" : ""))
-    #{`h${titleTagNumber}`}.checkbox-list__title #{title}
-    ul.checkbox-list__container
-      for item in items
-        li.checkbox-list__item
-          +checkbox-button(item)

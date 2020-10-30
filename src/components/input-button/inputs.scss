@@ -1,0 +1,54 @@
+@mixin checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: $middle-first-size;
+  height: $middle-first-size;
+  background: #fff;
+  border: 1px solid $light-title;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+@mixin radio {
+  display: flex;
+  width: $middle-first-size;
+  min-width: $middle-first-size;
+  height: $middle-first-size;
+  min-height: $middle-first-size;
+  background: #fff;
+  border: 1px solid $light-title;
+  border-radius: $tiny-size;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    box-shadow: 0px 0px 10px $bg-primary;
+  }
+}
+
+@mixin toggle {
+  width: 40px;
+  min-width: 40px;
+  height: $middle-first-size;
+  min-height: $middle-first-size;
+  background: white;
+  border: .0714rem solid $light-title;
+  box-sizing: border-box;
+  border-radius: $tiny-size;
+  padding: .2143rem;
+
+  &:hover {
+    box-shadow: 0px 0px 10px $bg-primary;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    float: left;
+    width: $small-size;
+    height: $small-size;
+    background: $light-title;
+    border-radius: $tiny-size;
+  }
+}

@@ -6,11 +6,8 @@ include /button/button.pug
 include /dropdown/dropdown.pug
 include /filter-date-dropdown/filter-date-dropdown.pug
 include /date-range/date-range.pug
-include /checkbox-list/checkbox-list.pug
 include /rating/rating.pug
-include /toggle-button/toggle-button.pug
 include /like-button/like-button.pug
-include /radio-button/radio-button.pug
 include /range-slider/range-slider.pug
 include /pagination/pagination.pug
 include /expandable-checkbox-list/expandable-checkbox-list.pug
@@ -76,28 +73,52 @@ block content
             })
         .form-elements__column
           .form-elements__checkbox-list
-            +checkbox-list({
-              title: "checkbox buttons",
-              items: [
+            -
+              items = [
                 { text: "Можно курить", name: "smoking" },
                 { text: "Можно с питомцами", name: "pets", checked: true },
                 { text: "Можно пригласить гостей (до 10 человек)", name: "guests", checked: true },
-              ]
-            })
+              ];
+
+            p.form-elements__checkbox-list-title checkbox buttons
+              ul.form-elements__checkbox-list-wrapper
+                for i in items
+                  li.form-elements__checkbox
+                    +input-button(i)
           .form-elements__radio-buttons
-            h3.form-elements__radio-buttons-head radio buttons
+            p.form-elements__radio-buttons-head radio buttons
             .form-elements__radio-buttons-container
               .form-elements__radio-button
-                +radio-button({ text: "Мужчина", group: "gender", checked: true })
+                +input-button({
+                  type: "radio",
+                  text: "Мужчина",
+                  value: "Мужчина",
+                  name: "gender",
+                  checked: true,
+                })
               .form-elements__radio-button
-                +radio-button({ text: "Женщина", group: "gender" })
+                +input-button({
+                  type: "radio",
+                  text: "Женщина",
+                  value: "Женщина",
+                  name: "gender",
+                })
           .form-elements__toggle-buttons
             h3.form-elements__toggle-buttons-head toggle
             .form-elements__toggle-buttons-container
               .form-elements__toggle-button
-                +toggle-button({ text: "Получать спецпредложения", checked: true, name: "special-offers1" })
+                +input-button({
+                  type: "toggle",
+                  text: "Получать спецпредложения",
+                  checked: true,
+                  name: "special-offers1",
+                })
               .form-elements__toggle-button
-                +toggle-button({ text: "Получать спецпредложения", name: "special-offers2" })
+                +input-button({
+                  type: "toggle",
+                  text: "Получать спецпредложения",
+                  name: "special-offers2",
+                })
           .form-elements__like-buttons
             h3.form-elements__like-buttons-head like button
             .form-elements__like-buttons-container
@@ -175,22 +196,26 @@ block content
             })
         .form-elements__column
           .form-elements__item
-            +checkbox-list({
-              title: "rich checkbox buttons",
-              withRichButtons: true,
-              items: [
-                {
-                  text: "Широкий коридор",
-                  description: "Ширина коридоров в номере не менее 91 см.",
-                  name: "wide-corridor",
-                },
-                {
-                  text: "Помощник для инвалидов",
-                  description: "На 1 этаже вас встретит специалист  и проводит до номера.",
-                  name: "disabled-assistant",
-                },
-              ],
-            })                        
+            .form-elements__rich-checkbox-list
+              -
+                items = [
+                  {
+                    text: "Широкий коридор",
+                    description: "Ширина коридоров в номере не менее 91 см.",
+                    name: "wide-corridor",
+                  },
+                  {
+                    text: "Помощник для инвалидов",
+                    description: "На 1 этаже вас встретит специалист  и проводит до номера.",
+                    name: "disabled-assistant",
+                  },
+                ];
+
+              p.form-elements__rich-checkbox-list-title rich checkbox buttons
+                ul.form-elements__rich-checkbox-list-wrapper
+                  for i in items
+                    li.form-elements__rich-checkbox
+                      +input-button(i)                    
         .form-elements__column
           +bullet-list({
             title: "bullet list",
