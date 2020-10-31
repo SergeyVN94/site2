@@ -31,7 +31,6 @@ $(`.${CALENDAR_CLASSES.CALENDAR}`).each((_, element) => {
   const $calendar = $(element);
   const model = new Model();
   const view = new View($calendar, model);
-  model.onUpdate(view.update.bind(view));
 
   $calendar.data('view', view);
 });

@@ -41,6 +41,7 @@ class View {
     this.domElements = View.createDomElements($calendar);
     this.model = model;
     this.selectMode = 'auto';
+    this.model.onUpdate(this.update.bind(this));
     this.initListeners();
   }
 
@@ -55,7 +56,7 @@ class View {
     this.update(this.cacheModelState);
   }
 
-  public update(packet: ModelStatePackage): void {
+  private update(packet: ModelStatePackage): void {
     this.cacheModelState = packet;
     const {
       days,

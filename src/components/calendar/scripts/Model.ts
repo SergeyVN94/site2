@@ -37,9 +37,8 @@ class Model {
       end: null,
     };
     this.currentDate = new Date();
+    this.currentDate.setDate(15); // Фиксит баг.
     this.currentDate.setHours(0, 0, 0, 0);
-
-    this.triggerUpdateEvent();
   }
 
   public onUpdate(handlerUpdateEvent: HandlerUpdateEvent): void {
