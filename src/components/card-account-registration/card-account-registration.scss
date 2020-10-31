@@ -67,4 +67,8 @@
     @include text-body;
     color: #000000;
   }
+
+  &__authentication-button {
+    width: 100px;
+  }
 }

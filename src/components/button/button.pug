@@ -6,7 +6,6 @@ mixin button(options = {})
       type = "button",
       isSizeSmall,
       isLong,
-      isHorizontalSizeBig,
       textColor, 
       dataAction = false,
       disabled,
@@ -29,7 +28,6 @@ mixin button(options = {})
       "gradient-primary", "gradient-success", "none",
     ].includes(background)) classes.push(`button_background_${background}`);
     if (isSizeSmall) classes.push("button_size_sm");
-    if (isHorizontalSizeBig) classes.push("button_horizontal-size_big");
     if (isFontBold) classes.push("button_font-weight_bold");
     if ([
       "gradient-primary", "gradient-success",

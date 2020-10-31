@@ -1,4 +1,6 @@
-.button {
+$root: '.button';
+
+#{$root} {
   @include reset-css;
 
   @include no-select;
@@ -34,7 +36,7 @@
         background: $bg-primary;
       }
 
-      .button__text {
+      #{$root}__text {
         padding: 14px 19.7px 15px;
         font-size: $small-size;
         font-weight: bold;
@@ -60,7 +62,7 @@
         text-shadow: 0px 0px 20px $text-secondary;
       }
 
-      .button__text {
+      #{$root}__text {
         font-family: 'Material Icons';
         font-size: $big-size;
         font-weight: normal;
@@ -84,7 +86,7 @@
         background-origin: border-box;
       }
 
-      .button__text {
+      #{$root}__text {
         font-weight: bold;
         color: $bg-primary;
         font-size: $small-size;
@@ -104,7 +106,7 @@
       align-items: center;
       justify-content: center;
       
-      .button__text {
+      #{$root}__text {
         font-family: 'Material Icons';
         font-weight: normal;
         font-size: $big-size;
@@ -120,7 +122,7 @@
       border: .0714rem solid rgba(31, 32, 65, .25);
       border-radius: $middle-second-size;
     
-      .button__text {
+      #{$root}__text {
         color: $text-secondary;
         font-weight: normal;
         font-size: 1.2857rem;
@@ -136,7 +138,7 @@
       align-items: center;
       justify-content: center;
       
-      .button__text {
+      #{$root}__text {
         font-weight: normal;
         font-size: $small-size;
         line-height: $standard-size;
@@ -170,7 +172,7 @@
     &_gradient-primary {
       background: $gradient-primary;
 
-      .button__text {
+      #{$root}__text {
         color: #fff;
       }
     }
@@ -178,7 +180,7 @@
     &_gradient-success {
       background: $gradient-secondary;
 
-      .button__text {
+      #{$root}__text {
         color: #fff;
       }
     }
@@ -201,7 +203,7 @@
       &:active {
         z-index: 9999;
 
-        .button__text {
+        #{$root}__text {
           color: #ffffff;
           font-weight: bold;
         }
@@ -250,7 +252,7 @@
     cursor: default;
   }
 
-  &_font-weight_bold .button__text {
+  &_font-weight_bold #{$root}__text {
     font-weight: bold;
   }
 
@@ -258,30 +260,26 @@
     display: none;
   }
 
-  &_horizontal-size_big .button__text {
-    padding: 12px 24px 13px;
-  }
-
   &_size_sm {
 
-    &.button_theme_light .button__text {
+    &#{$root}_theme_light #{$root}__text {
       padding: 7px 19px 8px;
     }
 
-    .button__text {
+    #{$root}__text {
       padding: 9px 1.3571rem 10px;
     }
   } 
 
   &_text-color {
 
-    &_gradient-primary .button__text {
+    &_gradient-primary #{$root}__text {
       background: $gradient-primary;
       background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    &_bg-primary .button__text {
+    &_bg-primary #{$root}__text {
       color: $bg-primary;
     }
   }
@@ -289,6 +287,10 @@
   &_long {
     display: block;
     width: 100%;
+
+    #{$root}__text {
+      width: 100%;
+    }
   }
 
   &__text {
@@ -298,6 +300,7 @@
     line-height: 15px;
     white-space: break-spaces;
     border-radius: inherit;
+    text-align: center;
   }
 
   &__arrow {

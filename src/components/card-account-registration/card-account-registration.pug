@@ -74,9 +74,10 @@ mixin card-account-registration(options = {})
         })
     .card-account-registration__account-question
       p.card-account-registration__account-question-text #{userHasAccount}
-      +button({
-        href: "./sign-in.html",
-        text: buttonSignIn,
-        theme: "light",
-        isHorizontalSizeBig: true,
-      })
+      .card-account-registration__authentication-button
+        +button({
+          href: "./sign-in.html",
+          text: buttonSignIn,
+          theme: "light",
+          isLong: true,
+        })
