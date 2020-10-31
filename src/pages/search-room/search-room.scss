@@ -43,6 +43,7 @@
 
   &__checkbox-list {
     margin-bottom: 32px;
+    border: 0;
 
     &-title {
       @include text-h3;
@@ -62,6 +63,7 @@
 
   &__rich-checkbox-list {
     margin-bottom: 2.2143rem;
+    border: 0;
 
     &-title {
       @include text-h3;

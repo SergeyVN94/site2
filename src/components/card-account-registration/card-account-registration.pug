@@ -52,16 +52,17 @@ mixin card-account-registration(options = {})
           mask: "00.00.0000",
           name: "date-of-birth",
         })
-      .card-account-registration__email
-        +text-field({
-          title: inputsAuthenticationTitle,
-          titleTagNumber: titleTagNumber < 6 ? titleTagNumber + 1 : 6,
-          placeholder: inputEmailPlaceholder,
-          type: "email",
-          name: "email",
-        })
-      .card-account-registration__password
-        +text-field({ placeholder: inputPasswordPlaceholder, type: "password", name: "password" })
+      fieldset.card-account-registration__authentication
+        legend.card-account-registration__authentication-title #{inputsAuthenticationTitle}
+        .card-account-registration__email
+          +text-field({
+            titleTagNumber: titleTagNumber < 6 ? titleTagNumber + 1 : 6,
+            placeholder: inputEmailPlaceholder,
+            type: "email",
+            name: "email",
+          })
+        .card-account-registration__password
+          +text-field({ placeholder: inputPasswordPlaceholder, type: "password", name: "password" })
       .card-account-registration__offer
         +input-button({ text: toggleButtonSpecialOffers, name: "special-offers", type: 'toggle' })
       .card-account-registration__payment-button

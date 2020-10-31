@@ -46,7 +46,7 @@ block main
               value: "0₽ - 15 000₽",
               step: 1000,
             })
-          .search-room__checkbox-list
+          fieldset.search-room__checkbox-list
             -
               items = [
                 { text: "Можно курить", name: "smokingAllowed" },
@@ -54,12 +54,12 @@ block main
                 { text: "Можно пригласить гостей (до 10 человек)", name: "guestsAllowed", checked: true },
               ];
 
-            p.search-room__checkbox-list-title правила дома
-              ul.search-room__checkbox-list-wrapper
-                for i in items
-                  li.search-room__checkbox
-                    +input-button(i)
-          .search-room__rich-checkbox-list
+            legend.search-room__checkbox-list-title правила дома
+            ul.search-room__checkbox-list-wrapper
+              for i in items
+                li.search-room__checkbox
+                  +input-button(i)
+          fieldset.search-room__rich-checkbox-list
             -
               items = [
                 {
@@ -74,11 +74,11 @@ block main
                 },
               ];
 
-            p.search-room__rich-checkbox-list-title доступность
-              ul.search-room__rich-checkbox-list-wrapper
-                for i in items
-                  li.search-room__rich-checkbox
-                    +input-button(i)
+            legend.search-room__rich-checkbox-list-title доступность
+            ul.search-room__rich-checkbox-list-wrapper
+              for i in items
+                li.search-room__rich-checkbox
+                  +input-button(i)
           .search-room__dropdown-room-amenities
             +dropdown({
               title: "удобства номера",

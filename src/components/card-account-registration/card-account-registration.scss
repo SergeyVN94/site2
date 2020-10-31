@@ -36,12 +36,18 @@
     margin-bottom: $middle-third-size;
   }
   
+  &__authentication {
+    display: block;
+    margin: 0 0 .5rem 0;
+    border: 0;
+
+    &-title {
+      @include text-h3;
+    }
+  }
+
   &__email {
     margin-bottom: $tiny-size;
-  }
-  
-  &__password {
-    margin-bottom: .5rem;
   }
   
   &__offer {
