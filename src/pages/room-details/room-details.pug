@@ -4,7 +4,7 @@ include /room-details-banner/room-details-banner.pug
 include /card-book-room/card-book-room.pug
 include /room-advantages/room-advantages.pug
 include /room-impressions/room-impressions.pug
-include /comments/comments.pug
+include /comment/comment.pug
 include /bullet-list/bullet-list.pug
 
 block pageHead
@@ -71,11 +71,15 @@ block main
                 text: "Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент",
               },
             ];
+
           a(name="comments")
-          +comments({
-            head: "Отзывы посетителей номера",
-            items,
-          })
+          .room-details__comments-head
+            h2.room-details__comments-title Отзывы посетителей номера
+            p.room-details__comments-counter 2 отзыва
+          ul.room-details__comments-body
+            for item in items
+              li.room-details__comment
+                +comment(item)
         .room-details__info-item
           .room-details__rules
             +bullet-list({

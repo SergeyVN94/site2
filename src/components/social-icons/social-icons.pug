@@ -8,7 +8,7 @@ mixin social-icons(icons)
       {icon: "instagram", href: "https://www.instagram.com"},
     ];
 
-  .social-icons
+  ul.social-icons
     for icon in icons
-      .social-icons__icon
+      li.social-icons__icon
         +social-icon(icon)
