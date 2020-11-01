@@ -1,5 +1,9 @@
 .cards {
   background-color: #e5e5e5;
+
+  &__title {
+    visibility: hidden;
+  }
   
   &__container-content {
     @include container-content;

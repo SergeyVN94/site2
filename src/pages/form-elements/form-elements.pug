@@ -103,7 +103,7 @@ block content
                   name: "gender",
                 })
           .form-elements__toggle-buttons
-            h3.form-elements__toggle-buttons-head toggle
+            p.form-elements__toggle-buttons-head toggle
             .form-elements__toggle-buttons-container
               .form-elements__toggle-button
                 +input-button({
@@ -119,14 +119,14 @@ block content
                   name: "special-offers2",
                 })
           .form-elements__like-buttons
-            h3.form-elements__like-buttons-head like button
+            p.form-elements__like-buttons-head like button
             .form-elements__like-buttons-container
               .form-elements__like-button
                 +like-button({ likes: 2 })
               .form-elements__like-button
                 +like-button({ likes: 12, checked: true })
           .form-elements__rating-buttons
-            h3.form-elements__rating-buttons-head rate button
+            p.form-elements__rating-buttons-head rate button
             .form-elements__rating-buttons-container
               .form-elements__rating
                 +rating(4)
@@ -141,7 +141,7 @@ block content
               title: "range slider",
             })
           .form-elements__demo-buttons
-            h3.form-elements__demo-buttons-head buttons
+            p.form-elements__demo-buttons-head buttons
             .form-elements__demo-buttons-container
               .form-elements__demo-buttons-row
                 .form-elements__demo-button
@@ -159,10 +159,8 @@ block content
                   href: "/mock-address/change-me",
                 })
           .form-elements__pagination
-            +pagination({
-              head: "pagination",
-              bottomText: "1 – 12 из 100+ вариантов аренды",
-            })
+            p.form-elements__pagination-title pagination
+            +pagination({ bottomText: "1 – 12 из 100+ вариантов аренды" })
       .form-elements__row
         .form-elements__column         
           .form-elements__room-amenities

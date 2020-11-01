@@ -1,13 +1,5 @@
 .pagination {
-
-  &__title {
-    @include text-h3;
-    margin-bottom: $standard-size;
-  }
-
-  &__container {
-    display: inline-block;
-  }
+  display: inline-block;
 
   &__buttons {
     display: flex;

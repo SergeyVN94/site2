@@ -3,8 +3,6 @@ include /button/button.pug
 mixin pagination(options = {})
   -
     const {
-      title,
-      titleTagNumber = 3,
       bottomText,
       buttons = [
         {
@@ -53,12 +51,9 @@ mixin pagination(options = {})
     });
 
   .pagination
-    if title
-      #{`h${titleTagNumber}`}.pagination__title #{title}
-    .pagination__container
-      .pagination__buttons
-        for config in buttonsConfig
-          .pagination__nav-button
-            +button(config)
-      if bottomText
-        p.pagination__bottom-text #{bottomText}
+    .pagination__buttons
+      for config in buttonsConfig
+        .pagination__nav-button
+          +button(config)
+    if bottomText
+      p.pagination__bottom-text #{bottomText}

@@ -9,6 +9,10 @@
     min-width: 320px;
   }
 
+  &__title {
+    visibility: hidden;
+  }
+
   &__cancel-reservation {
     max-width: 340px;
   }

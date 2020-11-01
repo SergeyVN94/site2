@@ -203,6 +203,11 @@
 
   &__pagination {
     margin-top: 11px;
+
+    &-title {
+      @include text-h3;
+      margin-bottom: $standard-size;
+    }
   }
 
   // row 2 column 1
