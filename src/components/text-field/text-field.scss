@@ -1,20 +1,18 @@
 .text-field {
   width: 100%;
 
-  &_with-arrow {
-
-    .text-field__input {
-      padding-right: 44px;
-    }
+  &_with-arrow &__input {
+    padding-right: 44px;
   }
 
-  &__title {
+  &__label {
     @include text-h3;
-    margin-bottom: 4px;
+    margin: 0 0 4px;
+    display: block;
   }
 
   &__wrapper {
-    width: 100%;
+    display: block;
     position: relative;
   }
 
@@ -51,6 +49,7 @@
     top: 0;
     bottom: 0;
     width: $very-big-size;
+    display: block;
   
     &:hover {
       text-shadow: 0px 0px 10px $bg-primary;

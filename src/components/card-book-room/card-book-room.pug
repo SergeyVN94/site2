@@ -1,5 +1,5 @@
 include /room-head/room-head.pug
-include /date-range/date-range.pug
+include /date-picker/date-picker.pug
 include /receipt/receipt.pug
 include /button/button.pug
 include /dropdown/dropdown.pug
@@ -10,7 +10,7 @@ mixin card-book-room(options = {})
       roomHead = {},
       receipt = {},
       dropdownGuest = {
-        title: "Гости",
+        label: "Гости",
         placeholder: "Сколько гостей",
         name: "guests",
         variations: {
@@ -24,7 +24,7 @@ mixin card-book-room(options = {})
         ],
         withControls: true,
       },
-      dateRange = {},
+      datePicker = {},
       bookingButton = "забронировать",
       formAction = "/mock-address/change-me",
     } = options;
@@ -34,7 +34,7 @@ mixin card-book-room(options = {})
       +room-head(roomHead)
     form.card-book-room__form(action=formAction, method="post")
       .card-book-room__date-range
-        +date-range(dateRange)
+        +date-picker(datePicker)
       .card-book-room__dropdown-guest
         +dropdown(dropdownGuest)
       .card-book-room__receipt

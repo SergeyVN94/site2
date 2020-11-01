@@ -46,8 +46,7 @@ mixin card-account-registration(options = {})
             })
       .card-account-registration__date-of-birth
         +text-field({
-          title: inputDateOfBirthTitle,
-          titleTagNumber: titleTagNumber < 6 ? titleTagNumber + 1 : 6,
+          label: inputDateOfBirthTitle,
           placeholder: inputDateOfBirthPlaceholder,
           mask: "00.00.0000",
           name: "date-of-birth",
@@ -56,7 +55,6 @@ mixin card-account-registration(options = {})
         legend.card-account-registration__authentication-title #{inputsAuthenticationTitle}
         .card-account-registration__email
           +text-field({
-            titleTagNumber: titleTagNumber < 6 ? titleTagNumber + 1 : 6,
             placeholder: inputEmailPlaceholder,
             type: "email",
             name: "email",

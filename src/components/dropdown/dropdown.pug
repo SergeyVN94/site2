@@ -3,8 +3,7 @@ include /button/button.pug
 mixin dropdown(options)
   -
     const {
-      title,
-      titleTagNumber = 3,
+      label,
       placeholder = '',
       name = false,
       isOpened = false,
@@ -15,17 +14,25 @@ mixin dropdown(options)
       buttonClear = "очистить",
     } = options;
 
-  .dropdown.js-dropdown(class=(isOpened ? "dropdown_opened" : ""), data-variations=JSON.stringify(variations))
-    #{`h${titleTagNumber}`}.dropdown__title #{title}
-    .dropdown__input-wrapper.js-dropdown__input-wrapper
-      input.dropdown__input.js-dropdown__input(
-        type="text"
-        placeholder=placeholder
-        name=name
-        readonly
-      )
-      .dropdown__expand-button
-        +button({ text: "expand_more", theme: "icon" })
+    const classes = [
+      isOpened ? "dropdown_opened" : "",
+      label ? "dropdown_with-label": "",
+    ];
+
+  .dropdown.js-dropdown(class=classes, data-variations=JSON.stringify(variations))
+    #{label ? 'label' : 'div'}.dropdown__head
+      if label
+        span.dropdown__label #{label}
+      #{label ? 'span' : 'div'}.dropdown__input-wrapper.js-dropdown__input-wrapper
+        input.dropdown__input.js-dropdown__input(
+          type="text"
+          placeholder=placeholder
+          name=name
+          readonly
+        )
+        .dropdown__expand-button
+          +button({ text: "expand_more", theme: "icon" })
+        
     .dropdown__body-wrapper
       if counters.length
         .dropdown__body.js-dropdown__body

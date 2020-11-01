@@ -1,0 +1,53 @@
+include /calendar/calendar.pug
+
+mixin date-picker-dropdown({ label, type, placeholder, name })
+  #{label ? "label" : "div"}.date-picker__dropdown.js-date-picker__dropdown(data-type=type)
+    if label
+      span.date-picker__label #{label}
+    #{label ? "span" : "div"}.date-picker__input-wrapper
+      input.date-picker__input.js-date-picker__input(
+        placeholder=placeholder
+        name=name
+        readonly
+      )
+      #{label ? "span" : "div"}.date-picker__expand-button
+        +button({ text: "expand_more", theme: "icon", dateAction: "expand" })
+
+mixin date-picker(options = {})
+  -
+    const {
+      withSingleInput = false,
+      placeholder = "ДД.ММ.ГГГГ",
+      dropdownName = "entrance-and-departure",
+      dropdownLabel = "даты пребывания в отеле",
+      dropdownEntranceName = "entrance",
+      dropdownDepartureName = "departure",
+      dropdownEntranceLabel = "прибытие",
+      dropdownDepartureLabel = "выезд",
+    } = options;
+
+  .date-picker.js-date-picker
+    .date-picker__head
+      if withSingleInput
+        +date-picker-dropdown({
+          placeholder: `${placeholder} - ${placeholder}`,
+          label: dropdownLabel,
+          name: dropdownName,
+          type: "full",
+        })
+      else
+        +date-picker-dropdown({
+          placeholder,
+          label: dropdownEntranceLabel,
+          name: dropdownEntranceName,
+          type: "start",
+        })
+        +date-picker-dropdown({
+          placeholder,
+          label: dropdownDepartureLabel,
+          name: dropdownDepartureName,
+          type: "end",
+        })        
+    .date-picker__container
+      .date-picker__calendar
+        +calendar()

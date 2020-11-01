@@ -5,7 +5,7 @@ include /range-slider/range-slider.pug
 include /expandable-checkbox-list/expandable-checkbox-list.pug
 include /pagination/pagination.pug
 include /card-room-information/card-room-information.pug
-include /filter-date-dropdown/filter-date-dropdown.pug
+include /date-picker/date-picker.pug
 
 block pageHead
   title Подобрать комнату
@@ -18,11 +18,10 @@ block main
       section.search-room__filters
         form.search-room__form(action="/mock-address/change-me" method="post")
           .search-room__dropdown-date-filter
-            +filter-date-dropdown({ title: "даты пребывания в отеле", titleTagNumber: 2 })
+            +date-picker({ withSingleInput: true })
           .search-room__dropdown-guest
             +dropdown({
-              title: "Гости",
-              titleTagNumber: 2,
+              label: "Гости",
               placeholder: "Сколько гостей",
               name: "guests",
               variations: {
@@ -81,8 +80,7 @@ block main
                   +input-button(i)
           .search-room__dropdown-room-amenities
             +dropdown({
-              title: "удобства номера",
-              titleTagNumber: 2,
+              label: "удобства номера",
               placeholder: "Удобства номера",
               name: "room-amenities",
               variations: {

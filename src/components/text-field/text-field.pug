@@ -1,8 +1,7 @@
 mixin text-field(options = {})
   -
     const {
-      title,
-      titleTagNumber = 3,
+      label,
       withArrow,
       mask = false,
       type = "text",
@@ -11,9 +10,11 @@ mixin text-field(options = {})
       name = false,
     } = options;
 
-  .text-field(class=(withArrow ? "text-field_with-arrow" : ""))
-    #{`h${titleTagNumber}`}.text-field__title #{title}
-    .text-field__wrapper
+  
+  #{label ? 'label' : 'div'}.text-field(class=(withArrow ? "text-field_with-arrow" : ""))
+    if label
+      span.text-field__label #{label}
+    #{label ? 'span' : 'div'}.text-field__wrapper
       input.text-field__input.js-text-field__input(
         type=type,
         placeholder=placeholder,
@@ -22,10 +23,10 @@ mixin text-field(options = {})
         name=name
       )
       if withArrow
-        .text-field__arrow
+        #{label ? 'span' : 'div'}.text-field__arrow
           +button({
             text: "arrow_forward",
             theme: "icon",
             type: "submit",
             textColor: "gradient-primary",
-          })    
+          })

@@ -1,25 +1,33 @@
-.dropdown {
+$root: '.dropdown';
+
+#{$root} {
   @include reset-css;
   width: 100%;
 
   &_opened {
 
-    .dropdown__input {
+    #{$root}__input {
       border-radius: .2857rem .2857rem 0rem 0rem;
       border-color: $text-secondary;
     }
 
-    .dropdown__body {
+    #{$root}__body {
       display: block;
     }
   }
 
-  &__title {
+  &_with-label {
+    padding-top: 15px;
+  }
+
+  &__label {
     @include text-h3;
     margin-bottom: .2857rem;
+    display: block;
   }
 
   &__input-wrapper {
+    display: block;
     position: relative;
   }
 
