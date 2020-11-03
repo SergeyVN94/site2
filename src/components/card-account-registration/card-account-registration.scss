@@ -3,13 +3,13 @@
 
   &__title {
     @include text-h1;
-    margin-bottom: 1.3571rem;
+    margin-bottom: 19px;
     width: 100%;
     font-family: Montserrat, Arial, sans-serif;
   }
 
   &__form {
-    margin-bottom: 2rem;
+    margin-bottom: 28px;
     width: 100%;
   }
 
@@ -22,7 +22,7 @@
   }
 
   &__genders {
-    margin-bottom: 1.7857rem;
+    margin-bottom: 25px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -38,7 +38,7 @@
   
   &__authentication {
     display: block;
-    margin: 0 0 .5rem 0;
+    margin: 0 0 .70px 0;
     border: 0;
 
     &-title {

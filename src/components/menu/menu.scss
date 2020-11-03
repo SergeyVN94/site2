@@ -10,7 +10,7 @@
     }
 
     .menu__item {
-      margin: 0 0 1.5rem 0;
+      margin: 0 0 21px 0;
 
       &:not(:last-child) {
         margin-right: 0;
@@ -42,7 +42,7 @@
     cursor: pointer;
 
     &:not(:last-child) {
-      margin-right: 1.5rem;
+      margin-right: 21px;
     }
 
     &:focus-within,
@@ -50,7 +50,7 @@
 
       .menu__item-body {
         max-height: none;
-        padding: .5rem;
+        padding: .70px;
       }
     }
 
@@ -76,7 +76,7 @@
       width: 100%;
 
       &:not(:last-child) {
-        margin: 0 0 1.5rem 0;
+        margin: 0 0 21px 0;
       }
     }
   }
@@ -89,7 +89,7 @@
     @include text-body;
     position: relative;
     text-decoration: none;
-    line-height: 1.2857rem;
+    line-height: 18px;
     display: inline-block;
     align-items: center;
     color: $text-secondary;
@@ -101,12 +101,12 @@
       display: none;
       content: 'expand_more';
       width: $middle-third-size;
-      height: 1.5rem;
+      height: 21px;
       font-family: 'Material Icons';
       font-style: normal;
       font-weight: normal;
       font-size: $big-size;
-      line-height: 1.2857rem;
+      line-height: 18px;
       text-align: center;
       color: $text-secondary;
     }
@@ -132,7 +132,7 @@
     max-height: 0;
     overflow: hidden;
     background: #fff;    
-    border-radius: 0 0 .2857rem .2857rem;
+    border-radius: 0 0 4px 4px;
     box-shadow: 0 $tiny-size $middle-first-size $light-title;
     
     @media (max-width: $breakpoint-tablets) {
@@ -181,12 +181,12 @@
 
   &__btn-expand {
     width: $middle-third-size;
-    height: 1.5rem;
+    height: 21px;
     font-family: 'Material Icons';
     font-style: normal;
     font-weight: normal;
     font-size: $big-size;
-    line-height: 1.5rem;
+    line-height: 21px;
     text-align: center;
     color: $text-secondary;
   }

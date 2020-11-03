@@ -28,7 +28,7 @@
     flex-wrap: wrap;
     
     &:not(:last-child) {
-      margin-bottom: 7.1429rem;
+      margin-bottom: 100px;
     }
   }
 
@@ -109,7 +109,7 @@
 
     &-head {
       @include text-h3;
-      margin-bottom: 1.1429rem;
+      margin-bottom: 16px;
     }
   
     &-container {
@@ -129,7 +129,7 @@
 
   &__toggle-buttons-head {
     @include text-h3;
-    margin-bottom: .9286rem;
+    margin-bottom: 13px;
   }
 
   &__toggle-button:not(:last-child) {

@@ -98,8 +98,8 @@ $root: '.button';
     }
 
     &_round-icon {
-      width: 2.8571rem;
-      height: 2.8571rem;
+      width: 40px;
+      height: 40px;
       background: $gradient-primary;
       border-radius: $middle-second-size;
       display: flex;
@@ -117,22 +117,22 @@ $root: '.button';
     }
 
     &_round-little {
-      width: 2.1429rem;
-      height: 2.1429rem;
-      border: .0714rem solid rgba(31, 32, 65, .25);
+      width: 30px;
+      height: 30px;
+      border: 1px solid rgba(31, 32, 65, .25);
       border-radius: $middle-second-size;
     
       #{$root}__text {
         color: $text-secondary;
         font-weight: normal;
-        font-size: 1.2857rem;
-        line-height: 2.1429rem;
+        font-size: 18px;
+        line-height: 30px;
       }
     }
 
     &_round {
-      width: 2.8571rem;
-      height: 2.8571rem;
+      width: 40px;
+      height: 40px;
       border-radius: $middle-second-size;
       display: flex;
       align-items: center;
@@ -267,7 +267,7 @@ $root: '.button';
     }
 
     #{$root}__text {
-      padding: 9px 1.3571rem 10px;
+      padding: 9px 19px 10px;
     }
   } 
 

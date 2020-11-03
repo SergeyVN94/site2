@@ -1,25 +1,25 @@
 .card-room-information {
   width: 270px;
   background: #fff;
-  box-shadow: 0rem $tiny-size $middle-first-size $dim-shadow;
-  border-radius: .2857rem;
+  box-shadow: 0 $tiny-size $middle-first-size $dim-shadow;
+  border-radius: 4px;
 
   &__image-slider {
     height: 151px; 
-    border-radius: .2857rem .2857rem 0rem 0rem;
+    border-radius: 4px 4px 0 0;
   }
 
   &__body {
-    padding: $middle-first-size 1.2143rem $middle-first-size $middle-first-size;
+    padding: $middle-first-size 17px $middle-first-size $middle-first-size;
   }
   
   &__head {
-    padding-bottom: .5rem;
-    border-bottom: .0714rem solid $dim-border;
+    padding-bottom: .70px;
+    border-bottom: 1px solid $dim-border;
   }
 
   &__user-response {
-    padding: .5714rem 0px 0rem 0rem;
+    padding: 8px 0 0 0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

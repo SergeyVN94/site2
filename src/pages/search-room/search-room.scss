@@ -38,7 +38,7 @@
   }
 
   &__range-slider {
-    margin-bottom: 1.7857rem;
+    margin-bottom: 25px;
   }
 
   &__checkbox-list {
@@ -62,7 +62,7 @@
   }
 
   &__rich-checkbox-list {
-    margin-bottom: 2.2143rem;
+    margin-bottom: 31px;
     border: 0;
 
     &-title {
@@ -82,7 +82,7 @@
   }
 
   &__dropdown-room-amenities {
-    margin-bottom: 1.1429rem;
+    margin-bottom: 16px;
   }
 
   &__rooms {
@@ -91,7 +91,7 @@
   
     &-title {
       @include text-h1;
-      margin-bottom: .1429rem;
+      margin-bottom: 2px;
       font-family: Montserrat, Arial, sans-serif;
     }
   
@@ -122,7 +122,7 @@
   
   &__pagination {
     margin-top: 38px;
-    padding-right: 1.1429rem;
+    padding-right: 16px;
     display: flex;
     flex-direction: row;
     justify-content: center;

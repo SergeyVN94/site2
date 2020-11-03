@@ -33,10 +33,10 @@
   height: $middle-first-size;
   min-height: $middle-first-size;
   background: white;
-  border: .0714rem solid $light-title;
+  border: 1px solid $light-title;
   box-sizing: border-box;
   border-radius: $tiny-size;
-  padding: .2143rem;
+  padding: 3px;
 
   &:hover {
     box-shadow: 0px 0px 10px $bg-primary;

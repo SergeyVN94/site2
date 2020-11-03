@@ -1,6 +1,6 @@
 .header {
   background-color: #fff;
-  box-shadow: 0rem $tiny-size $middle-first-size $dim-shadow;
+  box-shadow: 0 $tiny-size $middle-first-size $dim-shadow;
 
   &_extended {
 
@@ -61,7 +61,7 @@
   }
 
   &__nav-container {
-    margin-left: 1.2rem;
+    margin-left: 17px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -78,7 +78,7 @@
     margin-left: $middle-second-size;
 
     @media (max-width: $breakpoint-tablets) {
-      margin: $middle-first-size 0rem $middle-first-size 0rem;
+      margin: $middle-first-size 0 $middle-first-size;
     }
   }
 
@@ -87,13 +87,13 @@
 
     @include text-body;
     padding-left: $middle-first-size;
-    border-left: .0714rem solid $dim-border;
+    border-left: 1px solid $dim-border;
     color: $text-secondary;
 
     @media (max-width: $breakpoint-tablets) {
-      padding: $middle-first-size 0rem 0rem 0rem;
+      padding: $middle-first-size 0 0;
       border-left: 0;
-      border-top: .0714rem solid $dim-border;
+      border-top: 1px solid $dim-border;
     }
   }
 

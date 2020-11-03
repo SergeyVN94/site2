@@ -5,19 +5,19 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-start;
-    margin-bottom: 1.1429rem;
+    margin-bottom: 16px;
   }
 
   &__text-container {
     width: 100%;
     max-width: 215px;
-    margin-right: .3571rem;
+    margin-right: 5px;
   }
 
   &__item-title {
     @include text-body;
     color: $text-primary;
-    line-height: 1.2857rem;
+    line-height: 18px;
   }
 
   &__icon {
@@ -41,7 +41,7 @@
     margin-left: 10px;
     flex: auto;
     color: $text-primary;
-    line-height: 1.2857rem;
+    line-height: 18px;
     text-align: right;
     white-space: nowrap;
   }
@@ -56,16 +56,16 @@
     white-space: nowrap;
   
     &:not(:only-child) {
-      margin-top: 2.2143rem;
+      margin-top: 31px;
     }
   }
 
   &__separate-line {
     @include reset-css;
     width: 100%;
-    margin: 0 .3571rem;
-    height: .0714rem;
-    border-bottom: .0714rem dotted $light-title;
+    margin: 0 5px;
+    height: 1px;
+    border-bottom: 1px dotted $light-title;
   }
 
   &__total-sum-title,

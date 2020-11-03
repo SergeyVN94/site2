@@ -6,10 +6,10 @@
   max-width: 320px;
   padding: $middle-first-size $middle-first-size;
   background: #ffffff;
-  border: .0714rem solid $light-title;
+  border: 1px solid $light-title;
   box-sizing: border-box;
-  box-shadow: 0rem $tiny-size $middle-first-size $dim-shadow;
-  border-radius: .2857rem;
+  box-shadow: 0 $tiny-size $middle-first-size $dim-shadow;
+  border-radius: 4px;
 
   &__date-navigation {
     margin-bottom: 30px;
@@ -41,9 +41,9 @@
     @include reset-css;
 
     @include text-body;
-    height: 2.8571rem;
+    height: 40px;
     width: 100%;
-    max-width: 2.8571rem;
+    max-width: 40px;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -86,7 +86,7 @@
   &__help-list {
     @include reset-css;
     list-style: none;
-    margin-left: 2.1429rem;
+    margin-left: 30px;
   }
 
   &__help-item {
@@ -97,7 +97,7 @@
   }
 
   &__marker-container {
-    margin-right: .3571rem;
+    margin-right: 5px;
     width: $tiny-size;
     min-width: $tiny-size;
     height: $big-size;

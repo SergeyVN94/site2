@@ -12,8 +12,8 @@
 
   &__avatar-container {
     display: block;
-    width: 3.4286rem;
-    height: 3.4286rem;
+    width: 48px;
+    height: 48px;
   }
 
   &__avatar-image {
@@ -22,8 +22,8 @@
     height: auto;
     border: $micro-size solid #fff;
     box-sizing: border-box;
-    box-shadow: 0rem $tiny-size $middle-first-size rgba(31, 32, 65, .1);
-    border-radius: 2.2857rem;
+    box-shadow: 0 $tiny-size $middle-first-size rgba(31, 32, 65, .1);
+    border-radius: 24px;
   }
 
   &__like-button {

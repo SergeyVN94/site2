@@ -1,5 +1,5 @@
 .room-details {
-  border-bottom: .0714rem solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
 
   &__banner {
     @include reset-css;
@@ -19,7 +19,7 @@
 
   &__cancel-reservation-head {
     @include text-h2;
-    margin-bottom: 1.2143rem;
+    margin-bottom: 17px;
     font-family: Montserrat, Arial, sans-serif;
   }
 
@@ -28,10 +28,10 @@
   }
 
   &__comments {
-    margin-bottom: 2.4286rem;
+    margin-bottom: 34px;
 
     &-head {
-      margin-bottom: 1.3571rem;
+      margin-bottom: 19px;
       display: flex;
       justify-content: space-between;
       flex-direction: row;
@@ -64,8 +64,8 @@
     @include reset-css;
 
     @include container-content;
-    padding-top: 4.8571rem;
-    padding-bottom: 5.1429rem;
+    padding-top: 68px;
+    padding-bottom: 72px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -82,7 +82,7 @@
     flex-wrap: nowrap;
   
     &:not(:last-child) {
-      margin-bottom: 1.1429rem;
+      margin-bottom: 16px;
     }
 
     @media (max-width: $breakpoint-old-displays) and (min-width: $breakpoint-cell-phones) {
@@ -100,9 +100,9 @@
 
   &__main-info {
     @include reset-css;
-    padding-top: .1429rem;
+    padding-top: 2px;
     width: 100%;
-    margin-right: 5rem;
+    margin-right: 70px;
 
     @media (max-width: $breakpoint-old-displays) {
       padding-left: 10px;
@@ -111,7 +111,7 @@
     }
   
     @media (max-width: $breakpoint-cell-phones) {
-      margin: 0rem 0rem 2.8571rem 0rem;
+      margin: 0 0 40px 0;
     }
   }
 
@@ -130,10 +130,10 @@
   }
 
   &__rules {
-    margin-right: 6.5714rem;
+    margin-right: 92px;
   
     @media (max-width: $breakpoint-cell-phones) {
-      margin: 0rem 0rem 2.1429rem 0rem;
+      margin: 0 0 30px;
     }
   }
 }

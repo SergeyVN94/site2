@@ -10,8 +10,8 @@ $mobile-width: 768px;
     @include reset-css;
 
     @include container-content;
-    padding-top: 7.1429rem;
-    padding-bottom: 5.7143rem;
+    padding-top: 100px;
+    padding-bottom: 80px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -60,7 +60,7 @@ $mobile-width: 768px;
   }
   
   &__nav {
-    margin-top: .3571rem;
+    margin-top: 5px;
     width: 100%;
     max-width: 160px;
   
@@ -70,13 +70,13 @@ $mobile-width: 768px;
 
     &-title {
       @include text-h3;
-      margin-bottom: 1.5rem;
+      margin-bottom: 21px;
     }
   }
   
   &__subscribe-container {
     @include reset-css;
-    margin-top: .3571rem;
+    margin-top: 5px;
     width: 100%;
     max-width: 260px;
 
@@ -87,7 +87,7 @@ $mobile-width: 768px;
   
   &__subscribe-title {
     @include text-h3;
-    margin-bottom: 1.2857rem;
+    margin-bottom: 18px;
   }
 
   &__subscribe-description {
@@ -96,7 +96,7 @@ $mobile-width: 768px;
   }
 
   &__copyright {
-    border-top: .0714rem solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
     
     @media (max-width: $mobile-width) {
       border-top: 0;
@@ -106,7 +106,7 @@ $mobile-width: 768px;
   &__copyright {
     padding: 23px 0;
     background: #fff;
-    box-shadow: 0rem $tiny-size $middle-first-size $dim-shadow;
+    box-shadow: 0 $tiny-size $middle-first-size $dim-shadow;
   
     &-content {
       @include container-content;

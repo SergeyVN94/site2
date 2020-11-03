@@ -26,7 +26,7 @@
     max-height: 100%;
     opacity: 0;
     transition: 1s;
-    border-radius: .2857rem .2857rem 0rem 0rem;
+    border-radius: 4px 4px 0 0;
 
     &_selected {
       opacity: 1;
@@ -46,11 +46,11 @@
 
   &__indicator {
     @include reset-css;
-    width: .5357rem;
-    height: .5357rem;
+    width: 75px;
+    height: 75px;
     border-radius: 50%;
-    border: .0714rem solid #ffffff;
-    box-shadow: 0rem .3571rem .3571rem #1f20414d;
+    border: 1px solid #ffffff;
+    box-shadow: 0 5px 5px #1f20414d;
     cursor: pointer;
 
     &:not(:last-child) {
@@ -68,10 +68,10 @@
     @include no-select;
     position: absolute;
     top: 0;
-    width: 3rem;
+    width: 42px;
     height: 100%;
     z-index: 999;
-    border-radius: .2857rem 0rem 0rem 0rem;
+    border-radius: 4px 0 0 0;
     display: none;
     align-items: center;
     justify-content: center;
