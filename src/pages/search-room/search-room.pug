@@ -108,14 +108,14 @@ block main
             })
       .search-room__rooms
         h1.search-room__rooms-title Номера, которые мы для вас подобрали
-        .search-room__rooms-container
+        ul.search-room__rooms-container
           -
             const getImages = function(img) {
               return [img, img, img, img].map((src) => {
                 return {src: require(`../../components/card-room-information/images/room-${src}`).default};
               });
             };
-          .search-room__room-information
+          li.search-room__room-information
             +card-room-information({
               images: getImages("888.jpg"),
               roomNumber: 888,

@@ -6,6 +6,7 @@ mixin input-button(options)
       description,
       checked = false,
       name = false,
+      value = false,
     } = options;
 
     if (!['checkbox', 'toggle', 'radio'].includes(type)) throw new TypeError(D`Invalid type: '${type}'`);
@@ -13,21 +14,22 @@ mixin input-button(options)
     const inputType = type === 'toggle' ? 'checkbox' : type;
     
   .input-button(class=(description && 'input-button_theme_rich'), data-type=type)
-    label.input-button__wrapper
-      input.input-button__input(type=inputType, checked=checked, name=name)
-      .input-button__new-input
-        if type === 'checkbox'
-          svg.input-button__vector(width="10" height="11" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg")
-            path(d="M1.46439 4.40768L5.70703 8.65032L4.29282 10.0645L0.0501771 5.82189L1.46439 4.40768Z" fill="url(#paint0_linear)")
-            path(d="M8.53546 2.99347L9.94967 4.40768L4.29282 10.0645L2.8786 8.65032L8.53546 2.99347Z" fill="url(#paint1_linear)")
-            defs
-              linearGradient(id="paint0_linear" x1="7.82835" y1="2.28636" x2="2.1715" y2="7.94321" gradientUnits="userSpaceOnUse")
-                stop(stop-color="#BC9CFF")
-                stop(offset="1" stop-color="#8BA4F9")
-              linearGradient(id="paint1_linear" x1="7.82835" y1="2.28636" x2="2.1715" y2="7.94321" gradientUnits="userSpaceOnUse")
-                stop(stop-color="#BC9CFF")
-                stop(offset="1" stop-color="#8BA4F9")
-      p.input-button__text #{text}
+    .input-button__wrapper
+      label.input-button__label
+        input.input-button__input(type=inputType, checked=checked, name=name, value=value)
+        .input-button__new-input
+          if type === 'checkbox'
+            svg.input-button__vector(width="10" height="11" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg")
+              path(d="M1.46439 4.40768L5.70703 8.65032L4.29282 10.0645L0.0501771 5.82189L1.46439 4.40768Z" fill="url(#paint0_linear)")
+              path(d="M8.53546 2.99347L9.94967 4.40768L4.29282 10.0645L2.8786 8.65032L8.53546 2.99347Z" fill="url(#paint1_linear)")
+              defs
+                linearGradient(id="paint0_linear" x1="7.82835" y1="2.28636" x2="2.1715" y2="7.94321" gradientUnits="userSpaceOnUse")
+                  stop(stop-color="#BC9CFF")
+                  stop(offset="1" stop-color="#8BA4F9")
+                linearGradient(id="paint1_linear" x1="7.82835" y1="2.28636" x2="2.1715" y2="7.94321" gradientUnits="userSpaceOnUse")
+                  stop(stop-color="#BC9CFF")
+                  stop(offset="1" stop-color="#8BA4F9")
+        p.input-button__text #{text}
     if description
       .input-button__bottom-container
         p.input-button__description #{description}

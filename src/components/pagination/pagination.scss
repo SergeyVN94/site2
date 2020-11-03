@@ -2,9 +2,12 @@
   display: inline-block;
 
   &__buttons {
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    list-style: none;
   }
 
   &__bottom-text {

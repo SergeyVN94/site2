@@ -32,9 +32,12 @@
   }
 
   &__weekday-names {
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    list-style: none;
   }
 
   &__weekday-name {
@@ -53,10 +56,12 @@
   }
 
   &__days-container {
+    margin: 0 0 $middle-first-size;
+    padding: 0;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    margin-bottom: $middle-first-size;
+    list-style: none;
   }
 
   &__day-week {

@@ -51,9 +51,9 @@ mixin pagination(options = {})
     });
 
   .pagination
-    .pagination__buttons
+    ul.pagination__buttons
       for config in buttonsConfig
-        .pagination__nav-button
+        li.pagination__nav-button
           +button(config)
     if bottomText
       p.pagination__bottom-text #{bottomText}

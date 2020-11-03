@@ -25,10 +25,10 @@ mixin calendar(options = {})
           theme: 'icon',
           dataAction: 'next-month',
         })
-    .calendar__weekday-names
+    ul.calendar__weekday-names
       for name in weekdayNames
-        p.calendar__weekday-name #{name}
-    .calendar__days-container.js-calendar__days-container
+        li.calendar__weekday-name #{name}
+    ul.calendar__days-container.js-calendar__days-container
     .calendar__control-buttons
       .calendar__clear-button
         +button({ text: buttonClear, theme: "textual", dataAction: "clear" })

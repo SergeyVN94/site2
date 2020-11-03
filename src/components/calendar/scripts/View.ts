@@ -95,7 +95,7 @@ class View {
   }
 
   private createDay(info: DayInfo): Element {
-    const day = document.createElement('div');
+    const day = document.createElement('li');
     const innerWrapper = document.createElement('p');
     const textContainer = document.createElement('span');
 

@@ -17,6 +17,10 @@
     }
   }
 
+  &__dropdown[data-type='full'] {
+    width: 100%;
+  }
+
   &__dropdown[data-type='start'] {
     margin-right: 10px;
 

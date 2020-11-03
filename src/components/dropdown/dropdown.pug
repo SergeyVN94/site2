@@ -14,12 +14,7 @@ mixin dropdown(options)
       buttonClear = "очистить",
     } = options;
 
-    const classes = [
-      isOpened ? "dropdown_opened" : "",
-      label ? "dropdown_with-label": "",
-    ];
-
-  .dropdown.js-dropdown(class=classes, data-variations=JSON.stringify(variations))
+  .dropdown.js-dropdown(class=(isOpened ? "dropdown_opened" : ""), data-variations=JSON.stringify(variations))
     #{label ? 'label' : 'div'}.dropdown__head
       if label
         span.dropdown__label #{label}
@@ -36,23 +31,24 @@ mixin dropdown(options)
     .dropdown__body-wrapper
       if counters.length
         .dropdown__body.js-dropdown__body
-          for counter in counters
-            -const { text: counterText, group, value = 0 } = counter;
-            .dropdown__counter
-              .dropdown__counter-text #{counterText}
-              .dropdown__counter-controls
-                +button({
-                  dataAction: "minus",
-                  text: "-",
-                  theme: "round-little",
-                  disabled: (value === 0),
-                })
-                p.dropdown__counter-out.js-dropdown__counter-out(data-group=group) #{value}
-                +button({
-                  dataAction: "plus",
-                  text: "+",
-                  theme: "round-little",
-                })
+          ul.dropdown__counters
+            for counter in counters
+              -const { text: counterText, group, value = 0 } = counter;
+              li.dropdown__counter
+                .dropdown__counter-text #{counterText}
+                .dropdown__counter-controls
+                  +button({
+                    dataAction: "minus",
+                    text: "-",
+                    theme: "round-little",
+                    disabled: (value === 0),
+                  })
+                  p.dropdown__counter-out.js-dropdown__counter-out(data-group=group) #{value}
+                  +button({
+                    dataAction: "plus",
+                    text: "+",
+                    theme: "round-little",
+                  })
           if withControls
             .dropdown__controls
               .dropdown__button-clear

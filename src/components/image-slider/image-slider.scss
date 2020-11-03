@@ -39,15 +39,18 @@
     right: $standard-size;
     bottom: $standard-size;
     z-index: 1000;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    list-style: none;
   }
 
   &__indicator {
     @include reset-css;
-    width: 75px;
-    height: 75px;
+    width: 7.5px;
+    height: 7.5px;
     border-radius: 50%;
     border: 1px solid #ffffff;
     box-shadow: 0 5px 5px #1f20414d;

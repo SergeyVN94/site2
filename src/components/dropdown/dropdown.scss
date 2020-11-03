@@ -16,10 +16,6 @@ $root: '.dropdown';
     }
   }
 
-  &_with-label {
-    padding-top: 15px;
-  }
-
   &__label {
     @include text-h3;
     margin-bottom: 4px;
@@ -84,6 +80,12 @@ $root: '.dropdown';
     border-radius: 0 0 4px 4px;
   }
 
+  &__counters {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
   &__counter {
     @include reset-css;
     width: 100%;
@@ -92,10 +94,6 @@ $root: '.dropdown';
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-
-    &:last-child {
-      padding-bottom: 7px;
-    }
   
     &-text {
       @include text-h3;

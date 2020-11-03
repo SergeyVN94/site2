@@ -110,8 +110,8 @@ $root: '.input-button';
     }
   }
 
-  &__wrapper {
-    display: flex;
+  &__label {
+    display: inline-flex;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: flex-start;
@@ -129,7 +129,6 @@ $root: '.input-button';
     padding-top: 1px;
     margin-left: $tiny-size;
     word-break: normal;
-    width: 100%;
     max-width: 215px;
     color: $text-secondary;
     line-height: normal;
