@@ -35,6 +35,13 @@ $body-border-width: 1px;
     cursor: pointer;
   }
 
+  &__input {
+    width: 0;
+    height: 0;
+    outline: 0;
+    visibility: hidden;
+  }
+
   &__point {
     @include no-select;
     display: block;

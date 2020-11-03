@@ -1,8 +1,7 @@
 import Model from './Model';
 import View from './View';
-import RANGE_SLIDER_CLASSES from './classes';
 
-$(`.${RANGE_SLIDER_CLASSES.SLIDER}`).each((index, element) => {
+$('.js-range-slider').each((_, element) => {
   $(() => {
     const $slider = $(element);
     const range = [

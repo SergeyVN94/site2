@@ -5,8 +5,8 @@ mixin range-slider(options = {})
       range = [0, step * 100],
       start = [],
       title,
-      titleTagNumber = 3,
       bottomText,
+      name,
     } = options;
 
     const [
@@ -19,9 +19,11 @@ mixin range-slider(options = {})
       startMax = rangeMax,
     ] = start;
 
+    if (!name) throw new Error('Requires name in range-slider');
+
   .range-slider.js-range-slider(data-range-min=rangeMin, data-range-max=rangeMax, data-step=step,data-start-min=startMin, data-start-max=startMax)
     .range-slider__head
-      #{`h${titleTagNumber}`}.range-slider__title #{title}
+      p.range-slider__title #{title}
       p.range-slider__out-range.js-range-slider__out-range
     .range-slider__body.js-range-slider__body
       .range-slider__point.js-range-slider__point(data-type="min")

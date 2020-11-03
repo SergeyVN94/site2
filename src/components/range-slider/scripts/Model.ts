@@ -1,16 +1,9 @@
 type modelUpdateCallback = (
   positions: [number, number],
-  values: string,
+  values: [number, number],
 ) => void;
 
-interface IModelInterface {
-  update: (targetPosition: number, type: 'min' | 'max' | null) => void;
-  onUpdate: (callback: modelUpdateCallback) => void;
-  initModel: (start: [number, number]) => void;
-  getState(): { positions: [number, number]; values: string };
-}
-
-class Model implements IModelInterface {
+class Model {
   private callback: modelUpdateCallback;
 
   private pointMinStep: number;
@@ -46,138 +39,88 @@ class Model implements IModelInterface {
 
   public update(targetPosition: number, type: 'min' | 'max' | null): void {
     if (type === null) {
-      this._updatePointSteps(targetPosition);
+      this.updatePointSteps(targetPosition);
     } else {
-      this._updatePointStep(targetPosition, type);
+      this.updatePointStep(targetPosition, type);
     }
 
-    this._toggleUpdateEvent();
+    this.triggerUpdateEvent();
   }
 
   public onUpdate(callback: modelUpdateCallback): void {
     this.callback = callback;
+    this.triggerUpdateEvent();
   }
 
   public initModel(start: [number, number]): void {
     const [startMin, startMax] = start;
-    this.pointMinStep = this._valueToPointStep(startMin);
-    this.pointMaxStep = this._valueToPointStep(startMax);
-    this._toggleUpdateEvent();
+    this.pointMinStep = this.valueToPointStep(startMin);
+    this.pointMaxStep = this.valueToPointStep(startMax);
   }
 
   public getState(): {
     positions: [number, number];
-    values: string;
+    values: [number, number];
   } {
     return {
       positions: [
-        this._stepToPointPosition(this.pointMinStep),
-        this._stepToPointPosition(this.pointMaxStep),
+        this.stepToPointPosition(this.pointMinStep),
+        this.stepToPointPosition(this.pointMaxStep),
       ],
-      values: this._getValuesStr(),
+      values: [
+        this.stepToValue(this.pointMinStep),
+        this.stepToValue(this.pointMaxStep),
+      ],
     };
   }
 
-  private _updatePointSteps(targetPosition: number): void {
-    const targetStep = this._positionToStep(targetPosition);
-    const pointMinPosition = this._stepToPointPosition(this.pointMinStep);
-    const pointMaxPosition = this._stepToPointPosition(this.pointMaxStep);
+  private updatePointSteps(targetPosition: number): void {
+    const targetStep = this.positionToStep(targetPosition);
+    const pointMinPosition = this.stepToPointPosition(this.pointMinStep);
+    const pointMaxPosition = this.stepToPointPosition(this.pointMaxStep);
 
     const distanceToMinPoint = Math.abs(pointMinPosition - targetPosition);
     const distanceToMaxPoint = Math.abs(pointMaxPosition - targetPosition);
 
     if (distanceToMinPoint < distanceToMaxPoint) {
-      if (targetStep <= this.pointMaxStep) {
-        this.pointMinStep = targetStep;
-      }
+      if (targetStep <= this.pointMaxStep) this.pointMinStep = targetStep;
     } else if (distanceToMaxPoint < distanceToMinPoint) {
-      if (targetStep >= this.pointMinStep) {
-        this.pointMaxStep = targetStep;
-      }
+      if (targetStep >= this.pointMinStep) this.pointMaxStep = targetStep;
     } else if (distanceToMaxPoint === distanceToMinPoint) {
-      if (targetPosition < pointMinPosition) {
-        this.pointMinStep = targetStep;
-      } else if (targetPosition > pointMaxPosition) {
-        this.pointMaxStep = targetStep;
-      }
+      if (targetPosition < pointMinPosition) this.pointMinStep = targetStep;
+      else if (targetPosition > pointMaxPosition) this.pointMaxStep = targetStep;
     }
   }
 
-  private _updatePointStep(targetPosition: number, type: 'min' | 'max' | null): void {
-    const targetStep = this._positionToStep(targetPosition);
+  private updatePointStep(targetPosition: number, type: 'min' | 'max' | null): void {
+    const targetStep = this.positionToStep(targetPosition);
 
-    if (type === 'min') {
-      if (targetStep <= this.pointMaxStep) {
-        this.pointMinStep = targetStep;
-      }
-    }
-
-    if (type === 'max') {
-      if (targetStep >= this.pointMinStep) {
-        this.pointMaxStep = targetStep;
-      }
-    }
+    if (type === 'min' && targetStep <= this.pointMaxStep) this.pointMinStep = targetStep;
+    if (type === 'max' && targetStep >= this.pointMinStep) this.pointMaxStep = targetStep;
   }
 
-  private _toggleUpdateEvent(): void {
+  private triggerUpdateEvent(): void {
     if (this.callback !== null) {
       const { positions, values } = this.getState();
       this.callback(positions, values);
     }
   }
 
-  private _getValuesStr(): string {
-    const valMin = this._stepToValue(this.pointMinStep);
-    const valMax = this._stepToValue(this.pointMaxStep);
-    const min = Model._divideNumberByDigits(valMin);
-    const max = Model._divideNumberByDigits(valMax);
-    return `${min}₽ - ${max}₽`;
-  }
-
-  private static _divideNumberByDigits(val: number): string {
-    const numStr = String(val);
-
-    if (numStr.length <= 3) {
-      return numStr;
-    }
-
-    const tmpNumStr = numStr.split('').reverse();
-    let indexSlice = 0;
-    const result = [];
-
-    while (indexSlice + 3 <= tmpNumStr.length) {
-      result.push(
-        ...tmpNumStr.slice(indexSlice, indexSlice + 3),
-      );
-      result.push(' ');
-
-      indexSlice += 3;
-    }
-
-    result.push(
-      ...tmpNumStr.slice(indexSlice),
-    );
-    result.push(' ');
-
-    return result.reverse().join('');
-  }
-
-  private _valueToPointStep(value: number): number {
+  private valueToPointStep(value: number): number {
     return Math.round(value / this.stepSize);
   }
 
-  private _stepToPointPosition(step: number): number {
+  private stepToPointPosition(step: number): number {
     return step / this.steps;
   }
 
-  private _stepToValue(step: number): number {
+  private stepToValue(step: number): number {
     return (step * this.stepSize) + this.rangeMin;
   }
 
-  private _positionToStep(position: number): number {
+  private positionToStep(position: number): number {
     return Math.round(position * this.steps);
   }
 }
 
 export default Model;
-export { IModelInterface };
