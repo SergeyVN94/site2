@@ -9,10 +9,12 @@ mixin input-button(options)
       value = false,
     } = options;
 
-    if (!['checkbox', 'toggle', 'radio'].includes(type)) throw new TypeError(D`Invalid type: '${type}'`);
+    if (!['checkbox', 'toggle', 'radio'].includes(type)) throw new TypeError(`Invalid type: '${type}'`);
+    if (type === 'radio' && !value) throw new TypeError('For radio, you must specify value.');
+    if (!name) throw new TypeError('For input-button, name must be specified.');
 
     const inputType = type === 'toggle' ? 'checkbox' : type;
-    
+
   .input-button(class=(description && 'input-button_theme_rich'), data-type=type)
     .input-button__wrapper
       label.input-button__label

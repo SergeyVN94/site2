@@ -1,12 +1,12 @@
-const enum IMAGE_SLIDER_CLASSES {
+enum IMAGE_SLIDER_CLASSES {
   SLIDER = 'js-image-slider',
   IMAGE = 'image-slider__image',
   IMAGE_SELECTED = 'image-slider__image_selected',
   INDICATOR_CONTAINER = 'js-image-slider__indicators',
   INDICATOR = 'js-image-slider__indicator',
   INDICATOR_SELECTED = 'image-slider__indicator_theme_selected',
-  BTN_PREV = 'js-image-slider__change-img_direction_previous',
-  BTN_NEXT = 'js-image-slider__change-img_direction_next',
+  BTN_PREV = 'js-image-slider__switch-button[name="previous-image"]',
+  BTN_NEXT = 'js-image-slider__switch-button[name="next-image"]',
   INDEX_ITEM = 'js-image-slider__image_index-item',
 }
 

@@ -4,10 +4,13 @@
   position: relative;
   overflow: hidden;
 
-  &:hover {
+  &:hover &__switch-button {
+    width: 42px;
+    transition: width .2s ease-in-out;
 
-    .image-slider__change-img {
-      display: flex;
+    &-text {
+      opacity: 1;
+      transition: opacity .1s ease-in-out;
     }
   }
 
@@ -65,19 +68,22 @@
     }
   }
 
-  &__change-img {
+  &__switch-button {
     @include reset-css;
 
     @include no-select;
+
     position: absolute;
     top: 0;
-    width: 42px;
-    height: 100%;
     z-index: 999;
     border-radius: 4px 0 0 0;
-    display: none;
+    outline: 0;
+    border: 0;
+    width: 0;
+    height: 100%;
     align-items: center;
     justify-content: center;
+
     background: linear-gradient(
       90deg,
       rgba(0, 0, 0, .5) 0%,
@@ -86,18 +92,20 @@
     );
     cursor: pointer;
 
-    &_direction_next {
+    &[name='next-image'] {
       right: 0;
       transform: matrix(-1, 0, 0, 1, 0, 0);
     }
-  }
 
-  &__change-img-icon {
-    font-family: 'Material Icons';
-    font-style: normal;
-    font-weight: normal;
-    font-size: $big-size;
-    color: #fff;
-    transform: rotate(90deg);
+    &-text {
+      opacity: 0;
+      display: block;
+      font-family: 'Material Icons';
+      font-style: normal;
+      font-weight: normal;
+      font-size: $big-size;
+      color: #fff;
+      transform: rotate(90deg);
+    }
   }
 }

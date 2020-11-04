@@ -7,7 +7,7 @@ mixin image-slider(images)
       ul.image-slider__indicators.js-image-slider__indicators
         -for (let i = 0; i < images.length; i += 1)
           li.image-slider__indicator.js-image-slider__indicator(data-index=i)
-    .image-slider__change-img.image-slider__change-img_direction_previous.js-image-slider__change-img_direction_previous
-      .image-slider__change-img-icon expand_more
-    .image-slider__change-img.image-slider__change-img_direction_next.js-image-slider__change-img_direction_next
-      .image-slider__change-img-icon expand_more
+    button.image-slider__switch-button.js-image-slider__switch-button(name="previous-image")
+      span.image-slider__switch-button-text expand_more
+    button.image-slider__switch-button.js-image-slider__switch-button(name="next-image")
+      span.image-slider__switch-button-text expand_more

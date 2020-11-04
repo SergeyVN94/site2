@@ -94,6 +94,10 @@ $root: '.dropdown';
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
+    &:last-child {
+      padding-bottom: 7px;
+    }
   
     &-text {
       @include text-h3;
@@ -122,6 +126,6 @@ $root: '.dropdown';
     justify-content: space-between;
     flex-direction: row;
     flex-wrap: nowrap;
-    padding: 21px 7px 12px $standard-size;
+    padding: 14px 7px 12px $standard-size;
   }
 }
