@@ -54,6 +54,8 @@ $display-size: 480px;
 
   &__title {
     visibility: hidden;
+    width: 0;
+    height: 0;
   }
 
   &__cancel-reservation {
