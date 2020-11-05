@@ -1,12 +1,12 @@
 extends /../template/page.pug
 
-include /simple-header/simple-header.pug
+include /logo/logo.pug
 include /card-selection-room/card-selection-room.pug
 include /card-account-registration/card-account-registration.pug
 include /card-book-room/card-book-room.pug
 include /card-authentication/card-authentication.pug
 include /calendar/calendar.pug
-include /card-room-information/card-room-information.pug
+include /room-card/room-card.pug
 
 block pageHead
   title Карточки
@@ -14,8 +14,9 @@ block pageHead
   meta(name="description" content="Used cards")
 
 block content
-  +simple-header(true)
   main.cards
+    .cards__logo
+      +logo(true)
     h1.cards__title Компоненты форм
     .cards__container-content
       .cards__column
@@ -27,30 +28,9 @@ block content
         .cards__item
           +card-book-room({
             titleTagNumber: 2,
-            roomHead: {
-              roomNumber: 888,
-              roomPrice: "9 990",
-              isLuxury: true,
-            },
-            receipt: {
-              total:  "38 081",
-              items: [
-                {
-                  text: "9 990₽ х 4 суток",
-                  price: "39 960",
-                },
-                {
-                  text: "Сбор за услуги: скидка 2 179₽",
-                  price: "0",
-                  icon: true,
-                },
-                {
-                  text: "Сбор за дополнительные услуги",
-                  price: "300",
-                  icon: true,
-                },
-              ],
-            },
+            roomNumber: 888,
+            roomPrice: "9 990",
+            isLuxury: true,
           })
         .cards__item
           +card-authentication({ titleTagNumber: 2 })
@@ -64,10 +44,10 @@ block content
               "840.jpg",
               "888.jpg",
               "840.jpg",
-            ].map((src) => ({src: require(`../../components/card-room-information/images/room-${src}`).default}));
+            ].map((src) => ({src: require(`../../components/room-card/images/room-${src}`).default}));
             const images2 = [...images1].reverse();
 
-          +card-room-information({
+          +room-card({
             images: images1,
             roomNumber: 888,
             roomPrice: "9 990",
@@ -76,7 +56,7 @@ block content
             comments: 145,
           })
         .cards__item
-          +card-room-information({
+          +room-card({
             images: images2,
             roomNumber: 840,
             roomPrice: "9 900",

@@ -1,8 +1,18 @@
 .cards {
   background-color: #e5e5e5;
 
+  &__logo {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 30px 30px 0;
+  }
+
   &__title {
     visibility: hidden;
+    width: 0;
+    height: 0;
   }
   
   &__container-content {

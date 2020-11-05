@@ -1,6 +1,6 @@
 extends /../template/page.pug
 
-include /simple-header/simple-header.pug
+include /logo/logo.pug
 include /text-field/text-field.pug
 include /button/button.pug
 include /dropdown/dropdown.pug
@@ -20,8 +20,9 @@ block pageHead
   meta(name="description" content="Basic site blocks")
 
 block content
-  +simple-header()
   main.form-elements
+    .form-elements__logo
+      +logo(true)
     .form-elements__container-content
       .form-elements__row
         .form-elements__column

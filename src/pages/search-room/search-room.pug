@@ -4,7 +4,7 @@ include /dropdown/dropdown.pug
 include /range-slider/range-slider.pug
 include /expandable-checkbox-list/expandable-checkbox-list.pug
 include /pagination/pagination.pug
-include /card-room-information/card-room-information.pug
+include /room-card/room-card.pug
 include /date-picker/date-picker.pug
 
 block pageHead
@@ -112,7 +112,7 @@ block main
           -
             const getImages = function(img) {
               return [img, img, img, img].map((src) => {
-                return {src: require(`../../components/card-room-information/images/room-${src}`).default};
+                return {src: require(`../../components/room-card/images/room-${src}`).default};
               });
             };
 
@@ -124,7 +124,7 @@ block main
                 roomPrice: "9 990",
                 stars: 5,
                 comments: 145,
-                roomInfoHref: "./room-details.html",
+                roomHref: "./room-details.html",
                 commentsHref: "./room-details.html#comments",
               },
               {
@@ -219,7 +219,7 @@ block main
 
           for item in roomItems
             li.search-room__room-information
-              +card-room-information(item)
+              +room-card(item)
 
         .search-room__pagination
           +pagination({

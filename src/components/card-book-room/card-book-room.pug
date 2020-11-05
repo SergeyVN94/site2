@@ -1,14 +1,25 @@
-include /room-head/room-head.pug
 include /date-picker/date-picker.pug
-include /receipt/receipt.pug
 include /button/button.pug
 include /dropdown/dropdown.pug
 
 mixin card-book-room(options = {})
   -
     const {
-      roomHead = {},
-      receipt = {},
+      roomNumber = 0,
+      roomPrice = 0,
+      isLuxury,
+      bookingButton = "забронировать",
+      formAction = "/mock-address/change-me",
+      luxuryText = "люкс",
+      pricePeriod = "в сутки",
+      receipt = {
+        total:  38081,
+        items: [
+          { text: "9 990₽ х 4 суток", price: 39960 },
+          { text: "Сбор за услуги: скидка 2 179₽", price: 0, icon: true},
+          { text: "Сбор за дополнительные услуги", price: 300, icon: true },
+        ],
+      },
       dropdownGuest = {
         label: "Гости",
         placeholder: "Сколько гостей",
@@ -25,20 +36,38 @@ mixin card-book-room(options = {})
         withControls: true,
       },
       datePicker = {},
-      bookingButton = "забронировать",
-      formAction = "/mock-address/change-me",
     } = options;
 
   .card-book-room
     .card-book-room__head
-      +room-head(roomHead)
+      p.card-book-room__number
+        span.card-book-room__room-number-wrapper №&nbsp;
+          span.card-book-room__room-number #{roomNumber}
+        if isLuxury
+          span.card-book-room__luxury #{luxuryText}
+      p.card-book-room__price
+        span.card-book-room__price-number #{`${roomPrice.toLocaleString()}₽`}
+        | &nbsp;#{pricePeriod}
     form.card-book-room__form(action=formAction, method="post")
       .card-book-room__date-range
         +date-picker(datePicker)
       .card-book-room__dropdown-guest
         +dropdown(dropdownGuest)
       .card-book-room__receipt
-        +receipt(receipt)
+        - const { total, items } = receipt;
+        ul.card-book-room__receipt-fields
+          for item in items
+            -const { text, price, icon } = item;
+            li.card-book-room__receipt-field
+              .card-book-room__receipt-field-container
+                p.card-book-room__receipt-field-title #{text}
+              if icon
+                .card-book-room__receipt-field-icon i
+              p.card-book-room__receipt-field-price #{`${price.toLocaleString()}₽`}
+        p.card-book-room__receipt-total-sum
+          span.card-book-room__receipt-label Итого
+          span.card-book-room__separate-line
+          span.card-book-room__receipt-sum-result #{`${total.toLocaleString()}₽`}
       .card-book-room__booking-button
         +button({
           text: bookingButton,

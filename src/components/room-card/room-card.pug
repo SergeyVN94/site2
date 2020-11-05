@@ -1,0 +1,36 @@
+include /image-slider/image-slider.pug
+include /rating/rating.pug
+
+mixin room-card(options = {})
+  -
+    const {
+      roomHref = "/mock-address/change-me",
+      roomNumber = 0,
+      roomPrice = 0,
+      images = [],
+      isLuxury = false,
+      stars = 0,
+      comments = 0,
+      commentsHref = "/mock-address/change-me",
+      luxuryText = "люкс",
+      pricePeriod = "в сутки",
+    } = options;
+
+  .room-card
+    .room-card__image-slider
+      +image-slider(images)
+    .room-card__body
+      .room-card__row
+        a.room-card__link-to-room-info(href=roomHref)
+          span.room-card__room-number-wrapper №&nbsp;
+            span.room-card__room-number #{roomNumber}
+          if isLuxury
+            span.room-card__luxury #{luxuryText}
+        p.room-card__price
+          span.room-card__price-number #{`${roomPrice.toLocaleString()}₽`}
+          | &nbsp;#{pricePeriod}
+      .room-card__row
+        +rating(stars)
+        a.room-card__link-to-reviews(href=commentsHref)
+          span.room-card__comments-counter #{comments}
+          span.room-card__comments-text &nbsp;Отзывов 

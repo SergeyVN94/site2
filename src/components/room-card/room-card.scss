@@ -1,0 +1,104 @@
+$root: '.room-card';
+
+#{$root} {
+  width: 270px;
+  background: #fff;
+  box-shadow: 0 $tiny-size $middle-first-size $dim-shadow;
+  border-radius: 4px;
+
+  &__image-slider {
+    height: 151px; 
+    border-radius: 4px 4px 0 0;
+  }
+
+  &__body {
+    padding: 21px 17px 19px 20px;
+  }
+  
+  &__row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: baseline;
+
+    &:first-child {
+      padding-bottom: 7px;
+      border-bottom: 1px solid $dim-border;
+    }
+
+    &:last-child {
+      padding: 8px 0 0;
+    }
+  }
+
+  &__link-to-room-info {
+    @include reset-link;
+
+    @include text-h3;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: baseline;
+    color: $text-title;
+    cursor: pointer;
+  
+    &:hover,
+    &:active {
+      text-shadow: 0 0 10px $text-title;
+    }
+  }
+
+  &__room-number-wrapper {
+    font-size: 14px;
+    line-height: 17px;
+    color: $text-title;
+  }
+
+  &__room-number {
+    @include text-h2;
+  }
+
+  &__luxury {
+    @include text-h3;
+    margin-left: 5px;
+    color: $bg-primary;
+    vertical-align: baseline;
+  }
+
+  &__price {
+    @include text-body;
+    color: $text-secondary;
+    font-size: 12px;
+    
+    &-number {
+      font-size: 14px;
+      font-weight: bold;
+    }
+  }
+
+  &__link-to-reviews {
+    @include reset-link;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: baseline;
+    text-decoration: none;
+  
+    &:hover,
+    &:active {
+      text-decoration: underline $light-title;
+    }
+  }
+
+  &__comments-counter {
+    @include text-body;
+    font-weight: bold;
+    color: $text-secondary;
+  }
+
+  &__comments-text {
+    @include text-body;
+    white-space: pre;
+  }
+}

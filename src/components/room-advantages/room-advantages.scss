@@ -6,7 +6,11 @@
     font-family: Montserrat, Arial, sans-serif;
   }
 
-  &__list {
+  &__container {
+    list-style: none;
+  }
+
+  &__item {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;

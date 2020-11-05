@@ -1,8 +1,6 @@
 extends /../template/page.pug
 
-include /simple-header/simple-header.pug
-include /demo-colors/demo-colors.pug
-include /demo-text/demo-text.pug
+include /logo/logo.pug
 
 block pageHead
   title Цвета и текст
@@ -10,39 +8,53 @@ block pageHead
   meta(name="description" content="Used colors and text")
 
 block content
-  +simple-header()
+  -
+    const colors = [
+      { name: "Dark Shade 100%", value: "#1F2041", bg: "dark-100" },
+      { name: "Dark Shade 75%", value: "#1F2041", bg: "dark-75" },
+      { name: "Dark Shade 50%", value: "#1F2041", bg: "dark-50" },
+      { name: "Dark Shade 25%", value: "#1F2041", bg: "dark-25" },
+      { name: "Dark Shade 5%", value: "#1F2041", bg: "dark-5" },
+      { name: "Purple", value: "#BC9CFF", bg: "purple" },
+      { name: "Green", value: "#6FCF97", bg: "green" },
+    ];
+
+    const texts = [
+      {
+        title: "H1",
+        example: "This one is the sub-section or widget title",
+        theme: "h1",
+      },
+      {
+        title: "H2",
+        example: "Next one is the item title inside widgets",
+        theme: "h2",
+      },
+      {
+        title: "H3",
+        example: "This is a label or CTA text",
+        theme: "h3",
+      },
+      {
+        title: "Body",
+        example: "This is the body text which is used for most of the design, like paragraphs, lists, etc.",
+        theme: "body",
+      },
+    ];
+
   main.colors-and-type
+    .colors-and-type__logo
+      +logo(true)
     .colors-and-type__container-content
-      .colors-and-type__demo-colors
-        +demo-colors([
-          { name: "Dark Shade 100%", value: "#1F2041", squareBg: "#1F2041" },
-          { name: "Dark Shade 75%", value: "#1F2041", squareBg: "rgba(31, 32, 65, 0.75)" },
-          { name: "Dark Shade 50%", value: "#1F2041", squareBg: "rgba(31, 32, 65, 0.5)" },
-          { name: "Dark Shade 25%", value: "#1F2041", squareBg: "rgba(31, 32, 65, 0.25)" },
-          { name: "Dark Shade 5%", value: "#1F2041", squareBg: "rgba(31, 32, 65, 0.05)" },
-          { name: "Purple", value: "#BC9CFF", squareBg: "#BC9CFF" },
-          { name: "Green", value: "#6FCF97", squareBg: "#6FCF97" },
-        ])
-      .colors-and-type__demo-text
-        +demo-text([
-          {
-            title: "H1",
-            example: "This one is the sub-section or widget title",
-            theme: "h1",
-          },
-          {
-            title: "H2",
-            example: "Next one is the item title inside widgets",
-            theme: "h2",
-          },
-          {
-            title: "H3",
-            example: "This is a label or CTA text",
-            theme: "h3",
-          },
-          {
-            title: "Body",
-            example: "This is the body text which is used for most of the design, like paragraphs, lists, etc.",
-            theme: "body",
-          },
-        ])
+      ul.colors-and-type__demo-colors
+        for color in colors
+          li.colors-and-type__color-item
+            .colors-and-type__color-square(class=`colors-and-type__color-square_bg_${color.bg}`)
+            .colors-and-type__color-description
+              p.colors-and-type__color-name #{color.name}
+              p.colors-and-type__color-value #{color.value}
+      ul.colors-and-type__demo-text
+        for text in texts
+          li.colors-and-type__text-item(class=`colors-and-type__text-item_theme_${text.theme}`)
+            p.colors-and-type__text-title #{text.title}
+            p.colors-and-type__text-example #{text.example}

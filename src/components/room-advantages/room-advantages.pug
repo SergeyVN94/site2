@@ -2,10 +2,10 @@ mixin room-advantages({ items, title, titleTagNumber = 3 })
   .room-advantages
     if title
       #{`h${titleTagNumber}`}.room-advantages__title #{title}
-    .room-advantages__container
-      for item in items
-        -const { icon, title, description } = item;
-        .room-advantages__list
+    ul.room-advantages__container
+    for item in items
+      - const { icon, title, description } = item;
+        li.room-advantages__item
           .room-advantages__icon #{icon}
           .room-advantages__text-container
             p.room-advantages__item-title #{title}

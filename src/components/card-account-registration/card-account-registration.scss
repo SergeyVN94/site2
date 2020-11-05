@@ -22,7 +22,7 @@
   }
 
   &__genders {
-    margin-bottom: 25px;
+    margin-bottom: 21px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -33,16 +33,17 @@
   }
 
   &__date-of-birth {
-    margin-bottom: $middle-third-size;
+    margin-bottom: 21px;
   }
   
   &__authentication {
     display: block;
-    margin: 0 0 .70px 0;
+    margin-bottom: 10px;
     border: 0;
 
     &-title {
       @include text-h3;
+      margin-bottom: 5px;
     }
   }
 
@@ -51,7 +52,7 @@
   }
   
   &__offer {
-    margin-bottom: $big-size;
+    margin-bottom: 22px;
   }
 
   &__account-question {
