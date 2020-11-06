@@ -51,13 +51,13 @@
   }
 
   &__indicator-container {
+    
     &:not(:last-child) {
       margin-right: 3.75px;
     }
   }
 
   &__indicator {
-    @include reset-css;
     width: 7.5px;
     height: 7.5px;
     border-radius: 50%;
@@ -73,8 +73,6 @@
   }
 
   &__switch-button {
-    @include reset-css;
-
     @include no-select;
 
     position: absolute;

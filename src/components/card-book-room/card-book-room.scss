@@ -98,9 +98,7 @@
       line-height: 18px;
     }
 
-    &-icon {
-      @include reset-css;
-  
+    &-icon {  
       @include no-select;
       width: $middle-first-size;
       min-width: $middle-first-size;

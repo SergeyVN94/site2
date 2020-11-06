@@ -3,7 +3,6 @@
 $root: '.input-button';
 
 #{$root} {
-  @include reset-css;
   display: flex;
   flex-direction: column;
 

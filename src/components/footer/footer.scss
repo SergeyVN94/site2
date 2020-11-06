@@ -7,8 +7,6 @@ $mobile-width: 768px;
   box-shadow: 0 1px 0 $dim-border;
 
   &__content {
-    @include reset-css;
-
     @include container-content;
     padding-top: 100px;
     padding-bottom: 80px;
@@ -75,7 +73,6 @@ $mobile-width: 768px;
   }
   
   &__subscribe-container {
-    @include reset-css;
     margin-top: 5px;
     width: 100%;
     max-width: 260px;

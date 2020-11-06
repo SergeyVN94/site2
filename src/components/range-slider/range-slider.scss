@@ -25,7 +25,6 @@ $body-border-width: 1px;
   }
 
   &__body {
-    @include reset-css;
     z-index: 1;
     width: 100%;
     height: 6px;
@@ -59,8 +58,6 @@ $body-border-width: 1px;
 
   &__bg-line {
     @include no-select;
-
-    @include reset-css;
     position: absolute;
     top: -$body-border-width;
     bottom: -$body-border-width;
@@ -73,7 +70,7 @@ $body-border-width: 1px;
   
   &__bottom-text {
     @include no-select;
-
+    
     @include text-body;
     margin-top: 9px;
     color: $text-secondary;

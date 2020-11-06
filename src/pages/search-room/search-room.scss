@@ -2,8 +2,6 @@
   border-bottom: 1px solid #e3e3e3;
 
   &__container-content {
-    @include reset-css;
-
     @include container-content;
     padding-top: 30px;
     padding-bottom: 72px;
@@ -86,7 +84,6 @@
   }
 
   &__rooms {
-    @include reset-css;
     width: 100%;
   
     &-title {
@@ -96,7 +93,6 @@
     }
   
     &-container {
-      @include reset-css;
       margin: 0;
       padding: 0;
       display: flex;

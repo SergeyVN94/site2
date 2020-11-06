@@ -17,8 +17,6 @@
   }
 
   &__banner-content {
-    @include reset-css;
-
     @include container-content;
     position: relative;
     width: 100%;

@@ -1,6 +1,4 @@
 .calendar {
-  @include reset-css;
-
   @include no-select;
   width: 100%;
   max-width: 320px;
@@ -41,8 +39,6 @@
   }
 
   &__weekday-name {
-    @include reset-css;
-
     @include text-body;
     height: 40px;
     width: 100%;
@@ -65,7 +61,6 @@
   }
 
   &__day-week {
-    @include reset-css;
     width: 14.285714286%;
     display: inline-block;
     border-radius: 50%;

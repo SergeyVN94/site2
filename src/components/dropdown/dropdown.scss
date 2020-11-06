@@ -1,7 +1,6 @@
 $root: '.dropdown';
 
 #{$root} {
-  @include reset-css;
   width: 100%;
 
   &_opened {
@@ -87,7 +86,6 @@ $root: '.dropdown';
   }
 
   &__counter {
-    @include reset-css;
     width: 100%;
     padding: 6px 6px 0px $standard-size;
     display: flex;
@@ -121,7 +119,6 @@ $root: '.dropdown';
   }
 
   &__controls {
-    @include reset-css;
     display: flex;
     justify-content: space-between;
     flex-direction: row;

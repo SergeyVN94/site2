@@ -4,7 +4,6 @@ $display-size: 480px;
   border-bottom: 1px solid #e5e5e5;
 
   &__banner {
-    @include reset-css;
     margin: 0 auto;
     width: 100%;
     max-width: 1440px;
@@ -106,8 +105,6 @@ $display-size: 480px;
   }
 
   &__container-content {
-    @include reset-css;
-
     @include container-content;
     padding-top: 68px;
     padding-bottom: 72px;
@@ -145,7 +142,6 @@ $display-size: 480px;
   }
 
   &__main-info {
-    @include reset-css;
     padding-top: 2px;
     width: 100%;
     margin-right: 70px;

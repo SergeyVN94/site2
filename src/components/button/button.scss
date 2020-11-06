@@ -1,8 +1,6 @@
 $root: '.button';
 
 #{$root} {
-  @include reset-css;
-
   @include no-select;
 
   @include reset-link;
