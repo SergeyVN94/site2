@@ -3,7 +3,16 @@ include /menu/menu.pug
 include /text-field/text-field.pug
 include /social-icons/social-icons.pug
 
-mixin footer({ siteDescription, navList = [], subscribe = {}, copyright = '', socialIcons })
+mixin footer()
+  -
+    const {
+      siteDescription,
+      navList = [],
+      subscribe = {},
+      copyright = '',
+      socialIcons
+    } = require('@components/footer/config.json');
+
   footer.footer
     .footer__content
       .footer__site-description

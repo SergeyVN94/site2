@@ -14,70 +14,9 @@ block content
     .headers-and-footers__logo
       +logo(true)
     .headers-and-footers__container-content
-      -
-        const menu = {
-          items: [
-            {text: "О нас", selected: true},
-            {
-              text: "Услуги",
-              items: [
-                {text: "example1"},
-                {text: "example2"},
-                {text: "example3"},
-              ],
-            },
-            {text: "Вакансии"},
-            {text: "Новости"},
-            {
-              text: "Соглашения",
-              items: [
-                {text: "example1"},
-                {text: "example2"},
-                {text: "example3"},
-              ],
-            },
-          ]
-        };
-
       .headers-and-footers__header
-        +header({ menu })
+        +header()
       .headers-and-footers__header
-        +header({ menu, user: "Юлий Цезарь" })
+        +header("Юлий Цезарь")
       .headers-and-footers__footer
-        +footer({
-          siteDescription: "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды",
-          subscribe: {
-            title: "Подписка",
-            description: "Получайте специальные предложения и новости сервиса",
-            placeholder: "Email",
-          },
-          navList: [
-            {
-              title: "навигация",
-              items: [
-                {text: "О нас"},
-                {text: "Новости"},
-                {text: "Служба поддержки"},
-                {text: "Услуги"},
-              ],
-            },
-            {
-              title: "О нас",
-              items: [
-                {text: "О сервисе"},
-                {text: "Наша команда"},
-                {text: "Вакансии"},
-                {text: "Инвесторы"},
-              ],
-            },
-            {
-              title: "Служба поддержки",
-              items: [
-                {text: "Соглашения"},
-                {text: "Сообщества"},
-                {text: "Связь с нами"},
-              ],
-            },
-          ],
-          copyright: "Copyright © 2018 Toxin отель. Все права зачищены.",
-        })
+        +footer()

@@ -1,0 +1,30 @@
+{
+  "menu": {
+    "items": [
+      { "text": "О нас", "selected": true },
+      {
+        "text": "Услуги",
+        "items": [
+          {"text": "example1"},
+          {"text": "example2"},
+          {"text": "example3"}
+        ]
+      },
+      { "text": "Вакансии" },
+      { "text": "Новости" },
+      {
+        "text": "Соглашения",
+        "items": [
+          {"text": "example1"},
+          {"text": "example2"},
+          {"text": "example3"}
+        ]
+      }
+    ]
+  },
+  "buttonLogin": "войти",
+  "buttonRegister": "зарегистрироваться",
+  "buttonLoginHref": "./sign-in.html",
+  "buttonRegisterHref": "./registration.html",
+  "mobileButtonIcon": "view_headline"
+}

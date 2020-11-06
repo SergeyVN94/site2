@@ -2,17 +2,16 @@ include /logo/logo.pug
 include /menu/menu.pug
 include /button/button.pug
 
-mixin header(options = {})
+mixin header(user)
   -
     const {
       menu,
-      user,
       buttonLogin = "войти",
       buttonRegister = "зарегистрироваться",
       buttonLoginHref = "./sign-in.html",
       buttonRegisterHref = "./registration.html",
       mobileButtonIcon = "view_headline",
-    } = options;
+    } = require('@components/header/config.json');
 
   header.header.js-header
     .header__content

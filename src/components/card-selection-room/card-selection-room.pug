@@ -8,21 +8,7 @@ mixin card-selection-room(options = {})
       title = "Найдём номера под ваши пожелания",
       titleTagNumber = 3,
       datePicker = {},
-      dropdownGuest = {
-        label: "Гости",
-        placeholder: "Сколько гостей",
-        name: "guests",
-        variations: {
-          adults:  ["гость", "гостя", "гостей"],
-          babies: ["младенец", "младенца", "младенцев"],
-        },
-        counters: [
-          { text: "взрослые", group: "adults", value: 0 },
-          { text: "дети", group: "adults", value: 0 },
-          { text: "младенцы", group: "babies", value: 0 },
-        ],
-        withControls: true,
-      },
+      dropdownGuest = require('@components/dropdown/config.json').guests,
       searchButtonRoom = "подобрать номер",
       formAction = "./search-room.html",
     } = options;
