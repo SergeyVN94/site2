@@ -50,6 +50,12 @@
     list-style: none;
   }
 
+  &__indicator-container {
+    &:not(:last-child) {
+      margin-right: 3.75px;
+    }
+  }
+
   &__indicator {
     @include reset-css;
     width: 7.5px;
@@ -57,11 +63,9 @@
     border-radius: 50%;
     border: 1px solid #ffffff;
     box-shadow: 0 5px 5px #1f20414d;
+    outline: 0;
+    background-color: transparent;
     cursor: pointer;
-
-    &:not(:last-child) {
-      margin-right: 3.75px;
-    }
 
     &_theme_selected {
       background-color: #fff;
