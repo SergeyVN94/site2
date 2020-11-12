@@ -13,47 +13,24 @@ mixin pagination(options = {})
         { value: 3 },
         { value: "..." },
         { value: 15 },
-        { type: "next-page" },
+        { type: "another-page" },
       ],
     } = options;
 
-    const buttonsConfig = buttons.map((config) => {
-      const {
-        type = "default",
-        value = "",
-      } = config;
-
-      if (type === "default") {
-        return {
-          text: value,
-          theme: "round",
-          textColor: "text-secondary",
-          hoverTheme: "gradient-primary",
-        }
-      }
-
-      if (type === "current") {
-        return {
-          text: value,
-          theme: "round",
-          isFontBold: true,
-          background: "gradient-primary",
-          hoverTheme: "gradient-primary",
-        }
-      }
-
-      return {
-        text: "arrow_forward",
-        theme: "round-icon",
-        background: "gradient-success",
-        hoverTheme: "gradient-success",
-      }
-    });
-
   .pagination
     ul.pagination__buttons
-      for config in buttonsConfig
-        li.pagination__nav-button
-          +button(config)
+      for config in buttons
+        li.pagination__nav-button-container
+          -
+            const { type, value } = config;
+            const classes = ['pagination__nav-button'];
+
+            if (['current', 'another-page'].includes(type)) classes.push(`pagination__nav-button_theme_${type}`);
+            else if (type) throw (new Error('Invalid pagination button type.'));
+
+            let resValue = value;
+            if (type === 'another-page') resValue = 'arrow_forward';
+
+          button(class=classes) #{resValue}
     if bottomText
       p.pagination__bottom-text #{bottomText}

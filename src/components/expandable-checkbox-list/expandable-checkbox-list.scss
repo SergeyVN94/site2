@@ -1,21 +1,17 @@
 .expandable-checkbox-list {
-  width: 100%;
-  max-width: 266px;
+  width: 266px;
 
-  &_expanded {
-
-    .expandable-checkbox-list__body {
-      display: block;
-    }
+  &_expanded &__body {
+    display: block;
+  }
   
-    .expandable-checkbox-list__button {
-      transform: rotate(180deg);
-    }
+  &_expanded &__button {
+    transform: rotate(180deg);
   }
 
   &__head {
-    height: $very-big-size;
     margin-bottom: 3px;
+    padding: 10px 0;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -26,23 +22,18 @@
 
   &__label {
     @include text-h3;
-    margin: 0;
   }
 
   &__button {
-    width: $very-big-size;
-    height: $very-big-size;
-    min-width: $very-big-size;
+    min-width: 44px;
+    max-height: 24px;
   }
   
   &__body {
     display: none;
   }
   
-  &__checkbox {
-
-    &:not(:last-child) {
-      margin-bottom: $tiny-size;
-    }
+  &__checkbox:not(:last-child) {
+    margin-bottom: $tiny-size;
   }
 }

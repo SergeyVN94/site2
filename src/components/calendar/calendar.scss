@@ -1,26 +1,26 @@
 .calendar {
   @include no-select;
+  padding: 20px;
+  border: 1px solid $light-title;
+  border-radius: 4px;
   width: 100%;
   max-width: 320px;
-  padding: $middle-first-size $middle-first-size;
-  background: #ffffff;
-  border: 1px solid $light-title;
+  background: #fff;
   box-sizing: border-box;
-  box-shadow: 0 $tiny-size $middle-first-size $dim-shadow;
-  border-radius: 4px;
+  box-shadow: 0 10px 20px $dim-shadow;
 
   &__date-navigation {
     margin-bottom: 30px;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
   }
 
   &__change-month {
-    width: $big-size;
-    height: $big-size;
+    width: 24px;
+    max-height: 24px;
   }
 
   &__drawn-date {
@@ -30,8 +30,6 @@
   }
 
   &__weekday-names {
-    margin: 0;
-    padding: 0;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -39,24 +37,17 @@
   }
 
   &__weekday-name {
-    @include text-body;
-    height: 40px;
-    width: 100%;
-    max-width: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 8px 0;
+    width: 14.285714286%;
+    display: inline-block;
     color: $bg-primary;
-    font-size: $small-size;
+    text-align: center;
+    font-size: 12px;
     font-weight: bold;
   }
 
   &__days-container {
-    margin: 0 0 $middle-first-size;
-    padding: 0;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    margin-bottom: 20px;
     list-style: none;
   }
 
@@ -80,25 +71,17 @@
           width: 50%;
           height: 100%;
           position: absolute;
-          display: block;
           background: $gradient-primary;
           opacity: .25;
         }
       }
 
-      &_end {
-
-        &::after {
-          left: 0;
-        }
+      &_end::after {
+        left: 0;
       }
 
-      &_start {
-        color: #fff;
-
-        &::after {
-          right: 0;
-        }
+      &_start::after {
+        right: 0;
       }
     }
 
@@ -155,7 +138,6 @@
   }
 
   &__day-inner {
-    margin: 0;
     padding: 50% 0;
     height: 0;
     display: flex;
@@ -164,12 +146,8 @@
   }
 
   &__day-number {
-    display: block;
     text-align: center;
-    font-family: Montserrat, Arial, sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: $small-size;
+    font-size: 12px;
     color: $text-secondary;
     text-align: center;
   }

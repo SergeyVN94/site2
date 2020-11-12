@@ -7,20 +7,20 @@ $root: '.input-button';
   flex-direction: column;
 
   &_theme_rich &__text {
-    line-height: $middle-first-size;
+    line-height: 20px;
     font-weight: bold;
     color: $text-primary;
   }
 
   &[data-type='checkbox'] {
-
     #{$root}__new-input {
       @include checkbox;    
     }
   
     #{$root}__vector {
-      visibility: hidden;
       margin-bottom: 1px;
+      opacity: 0;
+      transition: opacity .1s ease-in-out;
     }
 
     #{$root}__input {
@@ -30,15 +30,16 @@ $root: '.input-button';
       }
   
       &:checked + #{$root}__new-input > #{$root}__vector {
-        visibility: visible;
+        opacity: 1;
+        transition: opacity .1s ease-in-out;
       }
   
       &:hover + #{$root}__new-input {
-        box-shadow: 0px 0px 10px $bg-primary;
+        box-shadow: 0 0 10px $bg-primary;
       }
   
       &:active + #{$root}__new-input {
-        box-shadow: 0px 0px 5px $text-secondary;
+        box-shadow: 0 0 5px $text-secondary;
       }
   
       &:focus + #{$root}__new-input {
@@ -48,23 +49,18 @@ $root: '.input-button';
   }
 
   &[data-type='radio'] {
-
     #{$root}__new-input {
       @include radio;    
     }
 
     #{$root}__input {
-
       &:checked + #{$root}__new-input {
         border-color: $bg-primary;
+        transition: border-color .1s ease-in-out;
   
         &:after {
-          content: '';
-          display: block;
-          width: $small-size;
-          height: $small-size;
-          background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
-          border-radius: $tiny-size;
+          opacity: 1;
+          transition: opacity .1s ease-in-out;
         }
       }
   
@@ -83,7 +79,6 @@ $root: '.input-button';
   }
 
   &[data-type='toggle'] {
-
     #{$root}__new-input {
       @include toggle;    
     }
@@ -95,7 +90,8 @@ $root: '.input-button';
   
         &::after {
           background: $gradient-primary;
-          float: right;
+          left: 23px;
+          transition: left .1s ease-in-out;
         }
       }
   
@@ -107,6 +103,11 @@ $root: '.input-button';
     #{$root}__text {
       color: $text-primary;   
     }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-wrap: nowrap;
   }
 
   &__label {
@@ -124,9 +125,8 @@ $root: '.input-button';
   }
 
   &__text {
-    @include text-body;
     padding-top: 1px;
-    margin-left: $tiny-size;
+    margin-left: 10px;
     word-break: normal;
     max-width: 215px;
     color: $text-secondary;
@@ -141,7 +141,6 @@ $root: '.input-button';
   }
 
   &__description {
-    @include text-body;
     line-height: 14px;
     font-size: 12px;
     color: $text-secondary;

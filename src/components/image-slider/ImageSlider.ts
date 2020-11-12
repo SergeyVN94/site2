@@ -4,7 +4,7 @@ enum IMAGE_SLIDER_CLASSES {
   IMAGE_SELECTED = 'image-slider__image_selected',
   INDICATOR_CONTAINER = 'js-image-slider__indicators',
   INDICATOR = 'js-image-slider__indicator',
-  INDICATOR_SELECTED = 'image-slider__indicator_theme_selected',
+  INDICATOR_SELECTED = 'image-slider__indicator_selected',
   BTN_PREV = 'js-image-slider__switch-button[name="previous-image"]',
   BTN_NEXT = 'js-image-slider__switch-button[name="next-image"]',
   INDEX_ITEM = 'js-image-slider__image_index-item',

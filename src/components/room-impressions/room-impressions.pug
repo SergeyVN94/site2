@@ -122,18 +122,15 @@ mixin room-impressions({ items, title = "Впечатления от номер�
         .room-impressions__diagram-counter
           p.room-impressions__value.js-room-impressions__value #{totalVotes}
           p.room-impressions__label голосов
-      ul.room-impressions__help-list
+      ul.room-impressions__legend
         -
-          const helpItems = [
+          const legendItems = [
             {text: "Великолепно", theme: "very-good"},
             {text: "Хорошо", theme: "good"},
             {text: "Удовлетворительно", theme: "fine"},
             {text: "Разочарован", theme: "bad"},
           ];
 
-        for helpItem in helpItems
-          -const {text, theme} = helpItem;
-          li.room-impressions__help-item.js-room-impressions__help-item(data-theme=theme, data-value=(items[text] || "0"))
-            .room-impressions__marker-container
-              .room-impressions__help-marker
-            p.room-impressions__help-item-text #{text}
+        for legendItem in legendItems
+          -const {text, theme} = legendItem;
+          li.room-impressions__legend-item.js-room-impressions__legend-item(data-theme=theme, data-value=(items[text] || "0")) #{text}

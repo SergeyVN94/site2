@@ -28,10 +28,7 @@
 }
 
 @mixin text-title {
-  margin: 0;
-  padding: 0;
   font-family: Quicksand, Arial, sans-serif;
-  font-style: normal;
   font-weight: bold;
   color: $text-title;
 }
@@ -40,19 +37,16 @@
   @include text-title;
   font-size: $big-size;
   line-height: 30px;
-  text-transform: none;
 }
 
 @mixin text-h2 {
   @include text-title;
   font-size: 19px;
-  line-height: $big-size;
-  text-transform: none;
+  line-height: 24px;
 }
 
 @mixin text-h3 {
   @include text-title;
-  
   font-family: Montserrat, Arial, sans-serif;
   font-size: $small-size;
   line-height: $standard-size;
@@ -60,14 +54,18 @@
 }
 
 @mixin text-body {
-  margin: 0;
-  padding: 0;
-  font-family: Montserrat, Arial, sans-serif;
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
   font-weight: normal;
   font-size: 14px;
   line-height: $big-size;
   color: $text-primary;
   font-style: normal;
+}
+
+@mixin text-material-icon {
+  font-family: 'Material Icons';
+  font-size: 24px;
+  line-height: 24px;
   text-transform: none;
 }
 

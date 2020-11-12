@@ -8,31 +8,24 @@ mixin button(options = {})
       isLong,
       textColor, 
       dataAction = false,
-      disabled,
       hidden,
       withArrow,
-      background,
       isFontBold,
-      hoverTheme,
       href,
     } = options;
 
     const classes = [`button js-button`];
     if ([
-      "default", "icon", "light", "round-icon", "round-little", "round", "textual",
+      "default", "icon", "light", "round", "textual",
     ].includes(theme)) classes.push(`button_theme_${theme}`);
     if ([
       "text-secondary", "gradient-primary", "bg-primary",
     ].includes(textColor)) classes.push(`button_text-color_${textColor}`);
-    if ([
-      "gradient-primary", "gradient-success", "none",
-    ].includes(background)) classes.push(`button_background_${background}`);
     if (isSizeSmall) classes.push("button_size_sm");
     if (isFontBold) classes.push("button_font-weight_bold");
     if ([
       "gradient-primary", "gradient-success",
     ].includes(hoverTheme)) classes.push(`button_hover-theme_${hoverTheme}`);
-    if (disabled) classes.push("button_disabled");
     if (hidden) classes.push("button_hidden");
     if (withArrow) classes.push("button_with-arrow");
     if (isLong) classes.push("button_long");
@@ -42,12 +35,8 @@ mixin button(options = {})
       "data-action": dataAction,
     };
 
-    if (href) {
-      attr.href = href;
-    } else {
-      disabled && (attr.disabled = true);
-      attr.type = type;
-    }
+    if (href) attr.href = href;
+    else attr.type = type;
 
   #{href ? "a" : "button"}()&attributes(attr) 
     span.button__text.js-button__text #{text}

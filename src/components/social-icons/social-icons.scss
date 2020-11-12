@@ -6,7 +6,38 @@
   justify-content: space-around;
   list-style: none;
 
-  &__icon:not(:last-child) {
-    margin-right: 24px;
+  &__icon {
+    @include reset-link;
+    width: $big-size;
+    font-family: 'Font Awesome 5 Brands', Arial, sans-serif;
+    font-size: $big-size;
+    line-height: $middle-third-size;
+    background: $gradient-primary;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 0;
+
+    &:hover {
+      opacity: .86;
+    }
+
+    &:active {
+      background: $bg-primary;
+    }
+
+    &:focus {
+      background: $text-secondary;
+    }
+
+    &:active,
+    &:focus {
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      opacity: 1;
+    }
+
+    &:not(:last-child) {
+      margin-right: 24px;
+    }
   }
 }

@@ -6,7 +6,7 @@ mixin dropdown(options)
       label,
       placeholder = '',
       name = false,
-      isOpened = false,
+      isOpened = false, 
       variations = {},
       counters = [],
       withControls = false,
@@ -37,18 +37,9 @@ mixin dropdown(options)
               li.dropdown__counter
                 .dropdown__counter-text #{counterText}
                 .dropdown__counter-controls
-                  +button({
-                    dataAction: "minus",
-                    text: "-",
-                    theme: "round-little",
-                    disabled: (value === 0),
-                  })
-                  p.dropdown__counter-out.js-dropdown__counter-out(data-group=group) #{value}
-                  +button({
-                    dataAction: "plus",
-                    text: "+",
-                    theme: "round-little",
-                  })
+                  button.dropdown__button-change-count(type="button" data-action="minus" disabled=(value === 0)) -
+                  output.dropdown__counter-out.js-dropdown__counter-out(data-group=group) #{value}
+                  button.dropdown__button-change-count(type="button" data-action="plus") +
           if withControls
             .dropdown__controls
               .dropdown__button-clear

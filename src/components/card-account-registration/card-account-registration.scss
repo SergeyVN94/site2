@@ -14,11 +14,11 @@
   }
 
   &__user-name {
-    margin-bottom: $tiny-size;
+    margin-bottom: 10px;
   }
 
   &__user-surname {
-    margin-bottom: $tiny-size;
+    margin-bottom: 10px;
   }
 
   &__genders {
@@ -37,7 +37,6 @@
   }
   
   &__authentication {
-    display: block;
     margin-bottom: 10px;
     border: 0;
 
@@ -48,7 +47,7 @@
   }
 
   &__email {
-    margin-bottom: $tiny-size;
+    margin-bottom: 10px;
   }
   
   &__offer {
@@ -65,7 +64,6 @@
   }
 
   &__account-question-text {
-    @include text-body;
     color: #000000;
   }
 

@@ -1,6 +1,6 @@
 .header {
   background-color: #fff;
-  box-shadow: 0 $tiny-size $middle-first-size $dim-shadow;
+  box-shadow: 0 10px 20px $dim-shadow;
 
   &_extended {
 
@@ -76,18 +76,17 @@
     margin-left: $middle-second-size;
 
     @media (max-width: $breakpoint-tablets) {
-      margin: $middle-first-size 0 $middle-first-size;
+      margin: 20px 0 20px;
     }
   }
 
   &__user-name {
-    @include text-body;
-    padding-left: $middle-first-size;
+    padding-left: 20px;
     border-left: 1px solid $dim-border;
     color: $text-secondary;
 
     @media (max-width: $breakpoint-tablets) {
-      padding: $middle-first-size 0 0;
+      padding: 20px 0 0;
       border-left: 0;
       border-top: 1px solid $dim-border;
     }
@@ -106,10 +105,10 @@
   }
 
   &__button-login {
-    margin-right: $middle-first-size;
+    margin-right: 20px;
 
     @media (max-width: $breakpoint-tablets) {
-      margin: 0 $middle-first-size ($middle-first-size / 3) 0;
+      margin: 0 20px (20px / 3) 0;
     }
   }
 }

@@ -3,17 +3,17 @@ $root: '.button';
 #{$root} {
   @include no-select;
 
-  @include reset-link;
-  
   position: relative;
-  cursor: pointer;
   border: 0;
-  background: #ffffff;
-  font-family: Montserrat, Arial, sans-serif;
-  font-style: normal;
+  outline: 0;
+  background: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
   overflow: hidden;
+  cursor: pointer;
   
   @at-root a#{&} {
+    @include reset-link;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -22,7 +22,7 @@ $root: '.button';
   &_theme {
 
     &_default {
-      border-radius: $middle-second-size;
+      border-radius: 22px;
       background: $gradient-primary;
       
       &:hover,
@@ -35,10 +35,9 @@ $root: '.button';
       }
 
       #{$root}__text {
-        padding: 14px 19.7px 15px;
-        font-size: $small-size;
+        padding: 14px 20.5px 15px;
+        font-size: 12px;
         font-weight: bold;
-        text-transform: uppercase;
         color: white;
       }
     }
@@ -62,17 +61,16 @@ $root: '.button';
 
       #{$root}__text {
         font-family: 'Material Icons';
-        font-size: $big-size;
+        font-size: 24px;
         font-weight: normal;
-        line-height: $big-size;
+        line-height: 24px;
         color: $text-secondary;
         background-color: transparent;
-        word-wrap: inherit;
+        text-transform: none;
       }
     }
 
     &_light {
-      position: relative;
       background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
       background-origin: border-box;
       border-radius: 22px;
@@ -85,69 +83,19 @@ $root: '.button';
       }
 
       #{$root}__text {
-        font-weight: bold;
         color: $bg-primary;
-        font-size: $small-size;
-        padding: 12px 17px 13px;
+        font-size: 12px;
+        padding: 12px 18.5px 13px;
         border-radius: inherit;
-        background: #ffffff;
+        background: #fff;
         text-transform: uppercase;
-      }
-    }
-
-    &_round-icon {
-      width: 40px;
-      height: 40px;
-      background: $gradient-primary;
-      border-radius: $middle-second-size;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      
-      #{$root}__text {
-        font-family: 'Material Icons';
-        font-weight: normal;
-        font-size: $big-size;
-        line-height: $middle-first-size;
-        color: #ffffff;
-        word-wrap: inherit;
-      }
-    }
-
-    &_round-little {
-      width: 30px;
-      height: 30px;
-      border: 1px solid rgba(31, 32, 65, .25);
-      border-radius: $middle-second-size;
-    
-      #{$root}__text {
-        color: $text-secondary;
-        font-weight: normal;
-        font-size: 18px;
-        line-height: 30px;
-      }
-    }
-
-    &_round {
-      width: 40px;
-      height: 40px;
-      border-radius: $middle-second-size;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      
-      #{$root}__text {
-        font-weight: normal;
-        font-size: $small-size;
-        line-height: $standard-size;
-        color: $text-secondary;
       }
     }
 
     &_textual {
       font-weight: bold;
-      font-size: $small-size;
-      line-height: $standard-size;
+      font-size: 12px;
+      line-height: 15px;
       text-transform: uppercase;
       color: $bg-primary;
 
@@ -163,91 +111,6 @@ $root: '.button';
         text-shadow: 0px 0px 10px $text-secondary;
       }
     }
-  }
-
-  &_background {
-
-    &_gradient-primary {
-      background: $gradient-primary;
-
-      #{$root}__text {
-        color: #fff;
-      }
-    }
-
-    &_gradient-success {
-      background: $gradient-secondary;
-
-      #{$root}__text {
-        color: #fff;
-      }
-    }
-
-    &_none {
-      background: none;
-    }
-  }
-
-  &_hover-theme {
-
-    &_gradient-primary,
-    &_gradient-success {
-
-      &:focus {
-        z-index: 9999;
-      }
-
-      &:hover,
-      &:active {
-        z-index: 9999;
-
-        #{$root}__text {
-          color: #ffffff;
-          font-weight: bold;
-        }
-      }
-    }
-
-    &_gradient-primary {
-
-      &:hover,
-      &:active {
-        background: $gradient-primary;
-        box-shadow: 0px 0px 10px $bg-primary;
-      }
-
-      &:active,
-      &:focus {
-        box-shadow: 0px 0px 10px $bg-secondary;
-      }
-    }
-
-    &_gradient-success {
-      
-      &:hover,
-      &:active {
-        background: $gradient-secondary;
-        box-shadow: 0px 0px 10px $bg-secondary;
-      }
-
-      &:active,
-      &:focus {
-        box-shadow: 0px 0px 10px $bg-primary;
-      }
-    }
-  }
-
-  &_disabled {
-    opacity: .5;
-
-    &:active,
-    &:hover,
-    &:focus {
-      box-shadow: none;
-      text-shadow: none;
-    }
-
-    cursor: default;
   }
 
   &_font-weight_bold #{$root}__text {
@@ -310,8 +173,8 @@ $root: '.button';
     min-width: 44px;
     font-family: 'Material Icons';
     font-weight: normal;
-    font-size: $big-size;
-    line-height: $big-size;
+    font-size: 24px;
+    line-height: 24px;
     display: flex;
     align-items: center;
     justify-content: center;

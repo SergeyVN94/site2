@@ -67,10 +67,6 @@ $display-size: 480px;
     font-family: Montserrat, Arial, sans-serif;
   }
 
-  &__cancel-reservation-body {
-    @include text-body;
-  }
-
   &__comments {
     margin-bottom: 34px;
 
@@ -88,7 +84,6 @@ $display-size: 480px;
     }
   
     &-counter {
-      @include text-body;
       margin: 0;
       padding: 0;
       list-style: none;

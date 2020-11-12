@@ -1,5 +1,3 @@
-include /social-icon/social-icon.pug
-
 mixin social-icons(icons)
   -
     icons = icons || [
@@ -11,4 +9,5 @@ mixin social-icons(icons)
   ul.social-icons
     for icon in icons
       li.social-icons__icon
-        +social-icon(icon)
+        - const { href, icon: iconText } = icon;
+        a.social-icon(href=href, target="_blank" rel="noopener noreferrer") #{iconText}

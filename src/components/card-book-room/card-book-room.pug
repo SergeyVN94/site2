@@ -48,16 +48,15 @@ mixin card-book-room(options = {})
               .card-book-room__receipt-field-container
                 p.card-book-room__receipt-field-title #{text}
               if icon
-                .card-book-room__receipt-field-icon i
+                p.card-book-room__receipt-field-icon i
               p.card-book-room__receipt-field-price #{`${price.toLocaleString()}₽`}
         p.card-book-room__receipt-total-sum
           span.card-book-room__receipt-label Итого
           span.card-book-room__separate-line
           span.card-book-room__receipt-sum-result #{`${total.toLocaleString()}₽`}
-      .card-book-room__booking-button
-        +button({
-          text: bookingButton,
-          isLong: true,
-          withArrow: true,
-          type: "submit",
-        })
+      +button({
+        text: bookingButton,
+        isLong: true,
+        withArrow: true,
+        type: "submit",
+      })

@@ -3,10 +3,10 @@ const enum DROPDOWN_CLASSES {
   DROPDOWN_HEAD = 'js-dropdown__input-wrapper',
   DROPDOWN_IS_OPENED = 'dropdown_opened',
   DROPDOWN_BODY = 'js-dropdown__body',
-  BTN_PLUS = 'js-button[data-action="plus"]',
-  BTN_MINUS = 'js-button[data-action="minus"]',
-  BTN_APPLY = 'js-button[data-action="apply"]',
-  BTN_CLEAR = 'js-button[data-action="clear"]',
+  BTN_PLUS = '[data-action="plus"]',
+  BTN_MINUS = '[data-action="minus"]',
+  BTN_APPLY = '[data-action="apply"]',
+  BTN_CLEAR = '[data-action="clear"]',
   COUNTER_OUT = 'js-dropdown__counter-out',
   INPUT = 'js-dropdown__input',
 }
@@ -43,7 +43,7 @@ class Dropdown {
       $dropdownBody: $dropdown.find(`.${DROPDOWN_CLASSES.DROPDOWN_BODY}`),
       $countersOut: $dropdown.find(`.${DROPDOWN_CLASSES.COUNTER_OUT}`),
       $input: $dropdown.find(`.${DROPDOWN_CLASSES.INPUT}`),
-      $btnClear: $dropdown.find(`.${DROPDOWN_CLASSES.BTN_CLEAR}`),
+      $btnClear: $dropdown.find(DROPDOWN_CLASSES.BTN_CLEAR),
       $document: $(document),
     };
   }
@@ -72,7 +72,7 @@ class Dropdown {
     $dropdownHead.on('click.dropdown.expanded', this._handleDropdownHeadClick.bind(this));
     $dropdownBody.on(
       'click.dropdown.selectControl',
-      '.js-button',
+      'button',
       this._handleButtonClick.bind(this),
     );
   }
@@ -124,8 +124,8 @@ class Dropdown {
       $(out)
         .text(0)
         .parent()
-        .find(`.${DROPDOWN_CLASSES.BTN_MINUS}`)
-        .button('disable', true);
+        .find(DROPDOWN_CLASSES.BTN_MINUS)
+        .attr('disabled', 'disabled');
     });
 
     $btnClear.button('hidden', true);
@@ -153,7 +153,7 @@ class Dropdown {
     if (isBtnPlus || isBtnMinus) {
       const $controls = $button.parent();
       const $out = $controls.find(`.${DROPDOWN_CLASSES.COUNTER_OUT}`);
-      const $btnMinus = isBtnMinus ? $button : $controls.find(`.${DROPDOWN_CLASSES.BTN_MINUS}`);
+      const $btnMinus = isBtnMinus ? $button : $controls.find(DROPDOWN_CLASSES.BTN_MINUS);
       let outCount = parseInt($out.text(), 10);
 
       if (Number.isNaN(outCount)) outCount = 0;
@@ -161,7 +161,10 @@ class Dropdown {
       if (isBtnPlus) outCount += 1;
       if (isBtnMinus && outCount) outCount -= 1;
 
-      $btnMinus.button('disable', outCount === 0);
+      (outCount === 0)
+        ? $btnMinus.attr('disabled', 'disabled')
+        : $btnMinus.removeAttr('disabled');
+
       $out.text(outCount);
 
       this._updateDropdownHeadText();

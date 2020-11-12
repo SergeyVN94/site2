@@ -1,9 +1,8 @@
 @mixin checkbox {
+  padding: 3px 4px;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: $middle-first-size;
-  height: $middle-first-size;
   background: #fff;
   border: 1px solid $light-title;
   border-radius: 4px;
@@ -11,11 +10,8 @@
 }
 
 @mixin radio {
+  padding: 3px;
   display: flex;
-  width: $middle-first-size;
-  min-width: $middle-first-size;
-  height: $middle-first-size;
-  min-height: $middle-first-size;
   background: #fff;
   border: 1px solid $light-title;
   border-radius: $tiny-size;
@@ -25,30 +21,41 @@
   &:hover {
     box-shadow: 0px 0px 10px $bg-primary;
   }
+
+  &:after {
+    content: '';
+    padding: 6px;
+    display: block;
+    background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+    border-radius: $tiny-size;
+    opacity: 0;
+    transition: opacity .1s ease-in-out;
+  }
 }
 
 @mixin toggle {
+  position: relative;
+  padding: 9px 3px;
   width: 40px;
   min-width: 40px;
-  height: $middle-first-size;
-  min-height: $middle-first-size;
   background: white;
   border: 1px solid $light-title;
   box-sizing: border-box;
   border-radius: $tiny-size;
-  padding: 3px;
 
   &:hover {
-    box-shadow: 0px 0px 10px $bg-primary;
+    box-shadow: 0 0 10px $bg-primary;
   }
 
   &::after {
     content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    padding: 6px;
+    border-radius: 50%;
     display: block;
-    float: left;
-    width: $small-size;
-    height: $small-size;
     background: $light-title;
-    border-radius: $tiny-size;
+    transition: left .1s ease-in-out;
   }
 }

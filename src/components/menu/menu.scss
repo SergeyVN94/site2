@@ -22,7 +22,6 @@
   }
 
   &__wrapper {
-    padding: 0;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -49,26 +48,20 @@
 
       .menu__item-body {
         max-height: none;
-        padding: .70px;
+        padding: 7px;
       }
     }
 
-    &_expandable {
+    &_expandable .menu__item-text {
+      padding-right: 23px;
 
-      .menu__item-text {
-        padding-right: 23px;
-
-        &::after {
-          display: block;
-        }
+      &::after {
+        display: block;
       }
     }
 
-    &_selected {
-
-      .menu__item-text {
-        font-weight: bold;
-      }
+    &_selected &-text {
+      font-weight: bold;
     }
 
     @media (max-width: $breakpoint-tablets) {
@@ -83,7 +76,6 @@
   &__item-text {
     @include no-select;
 
-    @include text-body;
     position: relative;
     text-decoration: none;
     line-height: 18px;
@@ -98,11 +90,8 @@
       display: none;
       content: 'expand_more';
       width: $middle-third-size;
-      height: 21px;
       font-family: 'Material Icons';
-      font-style: normal;
-      font-weight: normal;
-      font-size: $big-size;
+      font-size: 24px;
       line-height: 18px;
       text-align: center;
       color: $text-secondary;
@@ -115,7 +104,7 @@
     &:active {
       outline: none;
       text-decoration: none;
-      text-shadow: 0px 0px 5px $text-secondary;
+      text-shadow: 0 0 5px $text-secondary;
     }
   }
 
@@ -129,7 +118,7 @@
     overflow: hidden;
     background: #fff;    
     border-radius: 0 0 4px 4px;
-    box-shadow: 0 $tiny-size $middle-first-size $light-title;
+    box-shadow: 0 10px 20px $light-title;
     
     @media (max-width: $breakpoint-tablets) {
       position: relative;
@@ -145,13 +134,13 @@
     list-style-type: none;
 
     &:not(:first-child) {
-      margin-top: $tiny-size;
+      margin-top: 10px;
     }
 
     @media (max-width: $breakpoint-tablets) {
 
       &:first-child {
-        margin-top: $tiny-size;
+        margin-top: 10px;
       }
     }
   }
@@ -159,7 +148,6 @@
   &__item-link {
     @include no-select;
 
-    @include text-body;
     text-decoration: none;
     cursor: pointer;
     color: $text-secondary;
@@ -179,8 +167,6 @@
     width: $middle-third-size;
     height: 21px;
     font-family: 'Material Icons';
-    font-style: normal;
-    font-weight: normal;
     font-size: $big-size;
     line-height: 21px;
     text-align: center;

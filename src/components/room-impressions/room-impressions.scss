@@ -81,56 +81,35 @@
     text-align: center;
   }
 
-  &__help-list {
+  &__legend {
     list-style: none;
     margin-left: 30px;
   }
 
-  &__help-item {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: flex-start;
-  }
+  &__legend-item {
 
-  &__marker-container {
-    margin-right: 5px;
-    width: $tiny-size;
-    min-width: $tiny-size;
-    height: $big-size;
-    display: flex;
-    align-items: center;
-  }
+    &::before {
+      margin-right: 5px;
+      padding: 5px;
+      border-radius: 50%;
+      display: inline-block;
+      content: '';
+    }
 
-  &__help-item {
-
-    &[data-theme='very-good'] .room-impressions__help-marker {
+    &[data-theme='very-good']::before {
       background: $gradient-warn;
     }
 
-    &[data-theme='good'] .room-impressions__help-marker {
+    &[data-theme='good']::before {
       background: $gradient-secondary;
     }
 
-    &[data-theme='fine'] .room-impressions__help-marker {
+    &[data-theme='fine']::before {
       background: $gradient-primary;
     }
 
-    &[data-theme='bad'] .room-impressions__help-marker {
+    &[data-theme='bad']::before {
       background: $gradient-dark;
     }
-  }
-
-  &__help-marker {
-    width: $tiny-size;
-    min-width: $tiny-size;
-    height: $tiny-size;
-    display: block;
-    border-radius: 50%;
-  }
-
-  &__help-item-text {
-    @include text-body;
-    word-break: break-all;
   }
 } 

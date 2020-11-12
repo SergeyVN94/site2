@@ -1,18 +1,12 @@
 .rating {
-  margin: 0;
-  padding: 0;
   list-style: none;
+  display: flex;
+  flex-wrap: nowrap;
 
   &__star {
-    display: inline-block;
-    vertical-align: middle;
-    width: $big-size;
-    height: $big-size;
     font-family: 'Material Icons';
-    font-style: normal;
-    font-weight: normal;
-    font-size: $big-size;
-    line-height: $big-size;
+    font-size: 24px;
+    line-height: 24px;
     text-align: center;
     background: $gradient-primary;
     background-clip: text;

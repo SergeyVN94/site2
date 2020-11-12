@@ -1,7 +1,6 @@
 $root: '.dropdown';
 
 #{$root} {
-  width: 100%;
 
   &_opened {
 
@@ -38,17 +37,12 @@ $root: '.dropdown';
     cursor: pointer;
 
     &::placeholder {
-      @include text-body;
       color: $text-primary;
     }
 
     &:hover,
     &:focus {
       border-color: $text-secondary;
-    }
-
-    &:focus {
-      outline: 0;
     }
   }
 
@@ -66,27 +60,23 @@ $root: '.dropdown';
   }
 
   &__body {
-    display: none;
     position: absolute;
-    width: 100%;
     left: 0;
     z-index: 999;
-    background: #fff;
     border: 1px solid $text-secondary;
     border-top: 0;
-    box-sizing: border-box;
-    box-shadow: 0 $tiny-size $middle-first-size $dim-shadow;
     border-radius: 0 0 4px 4px;
+    width: 100%;
+    display: none;
+    background: #fff;
+    box-shadow: 0 10px 20px $dim-shadow;
   }
 
   &__counters {
-    margin: 0;
-    padding: 0;
     list-style: none;
   }
 
   &__counter {
-    width: 100%;
     padding: 6px 6px 0px $standard-size;
     display: flex;
     flex-direction: row;
@@ -110,7 +100,6 @@ $root: '.dropdown';
   
     &-out {
       @include text-h3;
-      width: 100%;
       max-width: 24px;
       min-width: 24px;
       text-align: center;
@@ -123,6 +112,23 @@ $root: '.dropdown';
     justify-content: space-between;
     flex-direction: row;
     flex-wrap: nowrap;
-    padding: 14px 7px 12px $standard-size;
+    padding: 8px 7px 7px $standard-size;
+  }
+
+  &__button-change-count {
+    border: 1px solid rgba(31, 32, 65, .25);
+    border-radius: 50%;
+    outline: 0;
+    width: 30px;
+    font-size: 18px;
+    line-height: 28px;
+    color: $text-secondary;
+    background: #fff;
+    cursor: pointer;
+
+    &:disabled {
+      opacity: .5;
+      cursor: default;
+    }
   }
 }

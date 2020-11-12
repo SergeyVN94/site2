@@ -1,28 +1,23 @@
-$marker-size: $tiny-size;
-
 .bullet-list {
-  width: 100%;
   max-width: 270px;
 
   &__title {
     @include text-h3;
-    margin: 0 0 $small-size $middle-first-size;
+    margin: 0 0 12px 20px;
 
     &_theme_h2 {
       @include text-h2;
-      margin: 0 0 17px $middle-first-size;
+      margin: 0 0 17px 20px;
       font-family: Montserrat, Arial, sans-serif;
+      text-transform: none;
     }
   }
 
   &__container {
-    padding: 0;
-    margin: 0;
+    list-style: none;
   }
 
   &__item {
-    @include text-body;
-    list-style: none;
     position: relative;
     padding-left: 20px;
 
@@ -31,15 +26,13 @@ $marker-size: $tiny-size;
     }
 
     &::before {
-      content: '';
-      display: inline-block;
-      width: $marker-size;
-      height: $marker-size;
-      border-radius: 50%;
-      background-color: $light-title;
       position: absolute;
       left: 0;
       top: 7px;
+      padding: 5px;
+      content: '';
+      border-radius: 50%;
+      background-color: $light-title;
     }
   }
 }

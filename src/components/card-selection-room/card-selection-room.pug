@@ -20,10 +20,9 @@ mixin card-selection-room(options = {})
         +date-picker(datePicker)
       .card-selection-room__dropdown-guest
         +dropdown(dropdownGuest)
-      .card-selection-room__search-button
-        +button({
-          text: searchButtonRoom,
-          isLong: true,
-          withArrow: true,
-          type: "submit"
-        })
+      +button({
+        text: searchButtonRoom,
+        isLong: true,
+        withArrow: true,
+        type: "submit"
+      })

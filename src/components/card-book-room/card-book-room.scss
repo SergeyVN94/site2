@@ -15,11 +15,6 @@
     @include reset-link;
 
     @include text-h3;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: baseline;
-    color: $text-title;
     cursor: pointer;
   
     &:hover,
@@ -30,8 +25,6 @@
 
   &__room-number-wrapper {
     font-size: 14px;
-    line-height: 17px;
-    color: $text-title;
   }
 
   &__room-number {
@@ -39,14 +32,11 @@
   }
 
   &__luxury {
-    @include text-h3;
     margin-left: 5px;
     color: $bg-primary;
-    vertical-align: baseline;
   }
 
   &__price {
-    @include text-body;
     color: $text-secondary;
     font-size: 12px;
     
@@ -62,17 +52,14 @@
 
   &__date-range {
     margin-bottom: 21px;
-    width: 100%;
   }
 
   &__dropdown-guest {
     margin-bottom: 20px;
-    width: 100%;
   }
   
   &__receipt {
     margin-bottom: 17px;
-    width: 100%;
 
     &-fields {
       list-style: none;
@@ -80,46 +67,39 @@
   }
 
   &__receipt-field {
+    margin-bottom: 16px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-start;
-    margin-bottom: 16px;
+    align-items: baseline;
 
     &-container {
-      width: 100%;
       max-width: 215px;
       margin-right: 5px;
     }
 
     &-title {
-      @include text-body;
       color: $text-primary;
       line-height: 18px;
     }
 
     &-icon {  
       @include no-select;
-      width: $middle-first-size;
-      min-width: $middle-first-size;
-      height: $middle-first-size;
+      padding: 0 7px;
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       border: 1px solid $light-title;
+      line-height: 18px;
+      font-weight: bold;
       color: $light-title;
-      cursor: pointer;
     }
 
     &-price {
-      @include text-body;
       margin-left: 10px;
       flex: auto;
       color: $text-primary;
       line-height: 18px;
       text-align: right;
-      white-space: nowrap;
     }
   }
 
@@ -131,7 +111,6 @@
     align-items: baseline;
     justify-content: space-between;
     font-family: Montserrat, Arial, sans-serif;
-    white-space: nowrap;
   
     &:not(:only-child) {
       margin-top: 31px;
@@ -141,11 +120,6 @@
   &__separate-line {
     width: 100%;
     margin: 0 5px;
-    height: 1px;
     border-bottom: 1px dotted $light-title;
-  }
-
-  &__booking-button {
-    width: 100%;
   }
 }

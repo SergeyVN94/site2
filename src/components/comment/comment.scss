@@ -2,52 +2,39 @@
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  width: 100%;
 
   &__aside {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    text-align: center;
   }
 
   &__avatar-container {
     display: block;
     width: 48px;
-    height: 48px;
+    max-height: 48px;
   }
 
   &__avatar-image {
     max-width: 100%;
     max-height: 100%;
-    height: auto;
-    border: $micro-size solid #fff;
-    box-sizing: border-box;
-    box-shadow: 0 $tiny-size $middle-first-size rgba(31, 32, 65, .1);
+    border: 2px solid #fff;
     border-radius: 24px;
+    box-shadow: 0 10px 20px rgba(31, 32, 65, .1);
   }
 
   &__like-button {
-    margin-top: $small-size;
+    margin-top: 12px;
+    display: inline-block;
   }
 
   &__main {
-    margin-left: $tiny-size;
+    margin-left: 10px;
   }
 
   &__head {
-    margin-bottom: $tiny-size;
+    margin-bottom: 10px;
   }
 
   &__user-name {
-    @include text-body;
     font-weight: bold;
-  }
-
-  &__publication-date {
-    @include text-body;
-  }
-
-  &__body {
-    @include text-body;
   }
 }

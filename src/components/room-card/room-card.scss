@@ -7,12 +7,11 @@ $root: '.room-card';
   border-radius: 4px;
 
   &__image-slider {
-    height: 151px; 
     border-radius: 4px 4px 0 0;
   }
 
   &__body {
-    padding: 21px 17px 19px 20px;
+    padding: 19px 17px 19px 20px;
   }
   
   &__row {
@@ -45,7 +44,7 @@ $root: '.room-card';
   
     &:hover,
     &:active {
-      text-shadow: 0 0 10px $text-title;
+      text-shadow: 0 0 2px $text-secondary;
     }
   }
 
@@ -67,7 +66,6 @@ $root: '.room-card';
   }
 
   &__price {
-    @include text-body;
     color: $text-secondary;
     font-size: 12px;
     
@@ -79,11 +77,13 @@ $root: '.room-card';
 
   &__link-to-reviews {
     @include reset-link;
+    padding: 1px 3px 0 0;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: baseline;
     text-decoration: none;
+    color: $text-secondary;
   
     &:hover,
     &:active {
@@ -92,13 +92,7 @@ $root: '.room-card';
   }
 
   &__comments-counter {
-    @include text-body;
     font-weight: bold;
     color: $text-secondary;
-  }
-
-  &__comments-text {
-    @include text-body;
-    white-space: pre;
   }
 }

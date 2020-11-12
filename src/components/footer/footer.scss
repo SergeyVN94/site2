@@ -37,7 +37,6 @@ $mobile-width: 768px;
   }
 
   &__description {
-    @include text-body;
     margin-top: 14px;
 
     @media (max-width: $mobile-width) {
@@ -47,7 +46,7 @@ $mobile-width: 768px;
 
   &__nav-container {
     width: 100%;
-    padding: 0px 20px;
+    padding: 0 20px;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -59,7 +58,6 @@ $mobile-width: 768px;
   
   &__nav {
     margin-top: 5px;
-    width: 100%;
     max-width: 160px;
   
     @media (max-width: $breakpoint-cell-phones) {
@@ -88,7 +86,6 @@ $mobile-width: 768px;
   }
 
   &__subscribe-description {
-    @include text-body;
     margin-bottom: $middle-third-size;
   }
 
@@ -124,8 +121,6 @@ $mobile-width: 768px;
     }
   
     &-text {
-      @include text-body;
-
       @media (max-width: $mobile-width) {
         margin-bottom: 20px;
       }

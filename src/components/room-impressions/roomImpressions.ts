@@ -2,7 +2,7 @@ enum ROOM_IMPRESSION_CLASSES {
   DIAGRAM = 'js-room-impressions__diagram',
   SVG = 'js-room-impressions__diagram-image',
   VALUE_OUT = 'js-room-impressions__value',
-  HELP_ITEM = 'js-room-impressions__help-item',
+  LEGEND_ITEM = 'js-room-impressions__legend-item',
   ROOM_IMPRESSIONS = 'js-room-impressions',
 }
 
@@ -22,7 +22,7 @@ $(`.${ROOM_IMPRESSION_CLASSES.ROOM_IMPRESSIONS}`).each((_, element) => {
   const totalValue = $out.text();
 
   $roomImpressions
-    .find(`.${ROOM_IMPRESSION_CLASSES.HELP_ITEM}`)
+    .find(`.${ROOM_IMPRESSION_CLASSES.LEGEND_ITEM}`)
     .on('mouseover.roomImpression.selectPathWithHelp', (ev: JQuery.MouseOverEvent) => {
       const $path = $diagram.find(`svg path[data-theme='${ev.currentTarget.dataset.theme}']`);
       $out.text($(ev.currentTarget).data('value'));
