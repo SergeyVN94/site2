@@ -1,7 +1,7 @@
-mixin room-impressions({ items, title = "Впечатления от номера", titleTagNumber = 2 })
-  .room-impressions.js-room-impressions
-    #{`h${titleTagNumber}`}.room-impressions__title #{title}
-    .room-impressions__body
+mixin reviews-chart({ items, title = "Впечатления от номера", titleTagNumber = 2 })
+  .reviews-chart.js-reviews-chart
+    #{`h${titleTagNumber}`}.reviews-chart__title #{title}
+    .reviews-chart__body
       -
         const isPropertyExists = function isPropertyExists(obj, key) {
           return Object.hasOwnProperty.apply(obj, [key]);
@@ -86,8 +86,8 @@ mixin room-impressions({ items, title = "Впечатления от номер�
           });
         }
 
-      .room-impressions__diagram.js-room-impressions__diagram
-        svg.room-impressions__diagram-image.js-room-impressions__diagram-image(width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg", data-items=JSON.stringify(items))
+      .reviews-chart__chart.js-reviews-chart__chart
+        svg.reviews-chart__chart-image.js-reviews-chart__chart-image(width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg", data-items=JSON.stringify(items))
           for key in VALID_KEYS
             -const stroke = `url(#linear-gradient-${GRADIENTS[key]})`;
             path(
@@ -119,10 +119,10 @@ mixin room-impressions({ items, title = "Впечатления от номер�
             stop(stop-color="#FFBA9C")
             stop(offset="1" stop-color="#FFE39C")
 
-        .room-impressions__diagram-counter
-          p.room-impressions__value.js-room-impressions__value #{totalVotes}
-          p.room-impressions__label голосов
-      ul.room-impressions__legend
+        .reviews-chart__reviews
+          p.reviews-chart__value.js-reviews-chart__value #{totalVotes}
+          p.reviews-chart__label голосов
+      ul.reviews-chart__legend
         -
           const legendItems = [
             {text: "Великолепно", theme: "very-good"},
@@ -133,4 +133,4 @@ mixin room-impressions({ items, title = "Впечатления от номер�
 
         for legendItem in legendItems
           -const {text, theme} = legendItem;
-          li.room-impressions__legend-item.js-room-impressions__legend-item(data-theme=theme, data-value=(items[text] || "0")) #{text}
+          li.reviews-chart__legend-item.js-reviews-chart__legend-item(data-theme=theme, data-value=(items[text] || "0")) #{text}

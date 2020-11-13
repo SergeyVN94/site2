@@ -4,13 +4,26 @@ const enum CHECKBOX_LIST_CLASSES {
   EXPANDED = 'expandable-checkbox-list_expanded',
 }
 
-const handleExpandIconClick = function handleExpandIconClick(ev: JQuery.MouseEventBase): void {
-  const checkboxList = $(ev.delegateTarget);
-  checkboxList.toggleClass(CHECKBOX_LIST_CLASSES.EXPANDED);
-};
+class ExpandableCheckboxList {
+  private readonly $list: JQuery;
 
-$(`.${CHECKBOX_LIST_CLASSES.CHECKBOX_LIST}`).on(
-  'click.expandable-checkbox-list.expand',
-  `.${CHECKBOX_LIST_CLASSES.HEAD}`,
-  handleExpandIconClick,
-);
+  constructor($list: JQuery) {
+    this.$list = $list;
+    this.init();
+  }
+
+  private init(): void {
+    this.$list.find(`.${CHECKBOX_LIST_CLASSES.HEAD}`).on(
+      'click.expandable-checkbox-list.toggleOpened',
+      this.handleClick.bind(this),
+    );
+  }
+
+  private handleClick(): void {
+    this.$list.toggleClass(CHECKBOX_LIST_CLASSES.EXPANDED);
+  }
+}
+
+$(`.${CHECKBOX_LIST_CLASSES.CHECKBOX_LIST}`).each((_, list) => {
+  new ExpandableCheckboxList($(list));
+});

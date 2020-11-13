@@ -1,5 +1,5 @@
 mixin menu({ items, isVertical = false })
-  nav.menu(class=(isVertical ? "menu_theme_vertical" : ""))
+  nav.menu.js-menu(class=(isVertical ? "menu_theme_vertical" : ""))
     ul.menu__wrapper
       for item in items
         -

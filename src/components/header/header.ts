@@ -1,17 +1,29 @@
 const enum HEADER_CLASSES {
   MOBILE_BTN = 'js-button[data-action="expand-mobile-menu"]',
   HEADER = 'js-header',
-  EXPANDED_MENU = 'header_extended',
+  EXPANDED = 'header_extended',
 }
 
-const handleBtnMobileClick = function handleBtnMobileClick(ev: JQuery.MouseEventBase): void {
-  const $header = $(ev.delegateTarget);
-  $header.toggleClass(HEADER_CLASSES.EXPANDED_MENU);
-  $(ev.currentTarget).button('text', $header.hasClass(HEADER_CLASSES.EXPANDED_MENU) ? 'close' : 'view_headline');
-};
+class Header {
+  private readonly $header: JQuery;
 
-$(`.${HEADER_CLASSES.HEADER}`).on(
-  'click.header.expand-menu',
-  `.${HEADER_CLASSES.MOBILE_BTN}`,
-  handleBtnMobileClick,
-);
+  constructor($header: JQuery) {
+    this.$header = $header;
+    this.init();
+  }
+
+  private init(): void {
+    this.$header.find(`.${HEADER_CLASSES.MOBILE_BTN}`).on(
+      'click.header.expanded-menu',
+      this.handleClick.bind(this),
+    );
+  }
+
+  private handleClick(): void {
+    this.$header.toggleClass(HEADER_CLASSES.EXPANDED);
+  }
+}
+
+$(`.${HEADER_CLASSES.HEADER}`).each((_, header) => {
+  new Header($(header));
+});

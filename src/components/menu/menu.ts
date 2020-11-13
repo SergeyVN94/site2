@@ -1,34 +1,49 @@
 const enum MENU_CLASSES {
+  MENU = 'js-menu',
   ITEM_EXPANDABLE = 'js-menu__item_expandable',
   ITEM_EXPANDED = 'menu__item_expanded',
   ITEM_TEXT = 'js-menu__item-text',
 }
 
-const handleDocumentClick = function handleDocumentClick(
-  this: JQuery,
-  _ev: { originalEvent: { path: Element[] } },
-): void {
-  const isClickInItem = _ev.originalEvent.path.some((element) => {
-    if ('classList' in element) return element.classList.contains(MENU_CLASSES.ITEM_EXPANDABLE);
-    return false;
-  });
+class Menu {
+  private readonly $menu: JQuery;
 
-  if (!isClickInItem) {
-    this.removeClass(MENU_CLASSES.ITEM_EXPANDED);
-    $(document).off('click.menu__item_expandable.focusout');
+  private $itemsExpandable: JQuery;
+
+  constructor($menu: JQuery) {
+    this.$menu = $menu;
+    this.init();
   }
-};
 
-const handleMenuItemClick = function handleMenuItemClick(ev: JQuery.MouseEventBase): void {
-  const $item = $(ev.delegateTarget).toggleClass(MENU_CLASSES.ITEM_EXPANDED);
+  private init(): void {
+    this.$itemsExpandable = this.$menu.find(`.${MENU_CLASSES.ITEM_EXPANDABLE}`);
 
-  if ($item.hasClass(MENU_CLASSES.ITEM_EXPANDED)) {
-    $(document).on('click.menu__item_expandable.focusout', handleDocumentClick.bind($item));
+    if (this.$itemsExpandable.length) {
+      this.$itemsExpandable.find(`.${MENU_CLASSES.ITEM_TEXT}`).on(
+        'click.menu.toggleExpandableItem',
+        Menu.handleItemClick.bind(this),
+      );
+
+      $(document).on('click.menu.closeExpandableItem', this.handleDocumentClick.bind(this));
+    }
   }
-};
 
-$(`.${MENU_CLASSES.ITEM_EXPANDABLE}`).on(
-  'click.menu__item_expandable.expand',
-  `.${MENU_CLASSES.ITEM_TEXT}`,
-  handleMenuItemClick,
-);
+  private static handleItemClick(ev: JQuery.MouseEventBase): void {
+    $(ev.currentTarget).parent().toggleClass(MENU_CLASSES.ITEM_EXPANDED);
+  }
+
+  private handleDocumentClick(ev: JQuery.MouseEventBase): void {
+    const composed = ev.originalEvent.composedPath() as HTMLElement[];
+
+    const isNeedClose = !composed.some((element) => {
+      if ('classList' in element) return element.classList.contains(MENU_CLASSES.ITEM_EXPANDABLE);
+      return false;
+    });
+
+    if (isNeedClose) this.$itemsExpandable.removeClass(MENU_CLASSES.ITEM_EXPANDED);
+  }
+}
+
+$(`.${MENU_CLASSES.MENU}`).each((_, menu) => {
+  new Menu($(menu));
+});

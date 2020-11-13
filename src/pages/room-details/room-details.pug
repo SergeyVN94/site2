@@ -2,7 +2,7 @@ extends /../template/landing.pug
 
 include /card-book-room/card-book-room.pug
 include /room-advantages/room-advantages.pug
-include /room-impressions/room-impressions.pug
+include /reviews-chart/reviews-chart.pug
 include /comment/comment.pug
 include /bullet-list/bullet-list.pug
 
@@ -56,8 +56,8 @@ block main
                 },
               ],
             })
-          .room-details__room-impressions
-            +room-impressions({
+          .room-details__reviews-chart
+            +reviews-chart({
               items: {
                 "Великолепно": 520,
                 "Хорошо": 260,

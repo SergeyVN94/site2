@@ -1,4 +1,6 @@
-.room-impressions {
+$root: '.reviews-chart';
+
+#{$root} {
 
   &__title {
     @include text-h2;
@@ -13,7 +15,7 @@
     align-items: flex-end;
   }
 
-  &__diagram {
+  &__chart {
     margin-bottom: $micro-size;
     width: 120px;
     min-width: 120px;
@@ -26,25 +28,25 @@
 
     &_theme {
 
-      &_very-good .room-impressions__diagram-counter {
+      &_very-good #{$root}__reviews {
         background: $gradient-warn;
         background-clip: text;
         -webkit-text-fill-color: transparent;
       }
 
-      &_good .room-impressions__diagram-counter {
+      &_good #{$root}__reviews {
         background: $gradient-secondary;
         background-clip: text;
         -webkit-text-fill-color: transparent;
       }
 
-      &_fine .room-impressions__diagram-counter {
+      &_fine #{$root}__reviews {
         background: $gradient-primary;
         background-clip: text;
         -webkit-text-fill-color: transparent;
       }
 
-      &_bad .room-impressions__diagram-counter {
+      &_bad #{$root}__reviews {
         background: $gradient-dark;
         background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -52,7 +54,7 @@
     }
   }
 
-  &__diagram-image {
+  &__chart-image {
     position: absolute;
     left: 0;
     top: 0;
@@ -64,7 +66,7 @@
     }
   }
 
-  &__diagram-counter {
+  &__reviews {
     display: inline-block;
     margin-bottom: 6px;
   }
