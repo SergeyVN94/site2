@@ -8,7 +8,7 @@ mixin image-slider(images)
         -for (let i = 0; i < images.length; i += 1)
           li.image-slider__indicator-container
             button.image-slider__indicator.js-image-slider__indicator(data-index=i)
-    button.image-slider__switch-button.js-image-slider__switch-button(name="previous-image")
+    button.image-slider__switch-button.js-image-slider__switch-button(type="button" name="previous-image")
       span.image-slider__switch-button-text expand_more
-    button.image-slider__switch-button.js-image-slider__switch-button(name="next-image")
+    button.image-slider__switch-button.js-image-slider__switch-button(type="button" name="next-image")
       span.image-slider__switch-button-text expand_more
