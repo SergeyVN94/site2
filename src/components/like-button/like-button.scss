@@ -1,4 +1,6 @@
-.like-button {
+$root: '.like-button';
+
+#{$root} {
   @include no-select;
   min-width: 40px;
   border: 1px solid transparent;
@@ -18,13 +20,13 @@
     background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
     background-origin: border-box;
 
-    .like-button__icon {
+    #{$root}__icon {
       background: $bg-primary;
       background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    .like-button__counter {
+    #{$root}__counter {
       color: $bg-primary;
     }
 

@@ -1,13 +1,15 @@
-.menu {
+$root: '.menu';
+
+#{$root} {
 
   &_theme_vertical {
 
-    .menu__wrapper {
+    #{$root}__wrapper {
       flex-direction: column;
       align-items: flex-start;
     }
 
-    .menu__item {
+    #{$root}__item {
       margin: 0 0 21px 0;
 
       &:not(:last-child) {
@@ -15,7 +17,7 @@
       }
     }
 
-    .menu__item-text {
+    #{$root}__item-text {
       white-space: break-spaces;
     }
   }
@@ -45,13 +47,13 @@
     &:focus-within,
     &_expanded {
 
-      .menu__item-body {
+      #{$root}__item-body {
         max-height: none;
         padding: 7px;
       }
     }
 
-    &_expandable .menu__item-text {
+    &_expandable #{$root}__item-text {
       padding-right: 23px;
 
       &::after {

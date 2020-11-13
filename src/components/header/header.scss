@@ -1,16 +1,18 @@
-.header {
+$root: '.header';
+
+#{$root} {
   background-color: #fff;
   box-shadow: 0 10px 20px $dim-shadow;
 
   &_extended {
 
-    .header__main {
+    #{$root}__main {
       @media (max-width: $breakpoint-tablets) {
         margin-bottom: 20px;
       }
     }
 
-    .header__nav-container {
+    #{$root}__nav-container {
       @media (max-width: $breakpoint-tablets) {
         display: block;
       }

@@ -1,4 +1,6 @@
-.calendar {
+$root: '.calendar';
+
+#{$root} {
   @include no-select;
   padding: 20px;
   border: 1px solid $light-title;
@@ -89,12 +91,12 @@
       &_not-clickable {
         cursor: default;
         
-        .calendar__day-number {
+        #{$root}__day-number {
           color: $light-title;
         }
       }
 
-      &_another-month .calendar__day-number {
+      &_another-month #{$root}__day-number {
         color: $light-title;
       }
   
@@ -128,7 +130,7 @@
       &_range-day,
       &_today {
 
-        .calendar__day-number {
+        #{$root}__day-number {
           font-weight: bold;
           color: #fff;
         }
