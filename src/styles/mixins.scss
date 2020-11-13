@@ -17,16 +17,6 @@
   user-select: none;
 }
 
-@mixin inner-float {
-
-  &::after {
-    content: '';
-    display: block;
-    width: 100%;
-    clear: both;
-  }
-}
-
 @mixin text-title {
   font-family: Quicksand, Arial, sans-serif;
   font-weight: bold;
@@ -81,7 +71,6 @@
 }
 
 @mixin container-content {
-  width: 100%;
   min-width: 320px;
   max-width: 1190px;
   margin: 0 auto;

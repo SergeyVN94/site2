@@ -1,10 +1,8 @@
 .form-elements {
-  width: 100%;
   background-color: #fff;
 
   &__logo {
     box-sizing: border-box;
-    width: 100%;
     max-width: 1440px;
     margin: 0 auto;
     padding: 30px 30px 0;
@@ -57,25 +55,21 @@
   &__text-field-focused {
     margin-top: 20px;
     width: 320px;
-    max-width: 100%;
   }
 
   &__dropdown-guests {
     margin-top: 20px;
     width: 320px;
-    max-width: 100%;
   }
 
   &__masked-text-field {
     margin-top: 25px;
     width: 320px;
-    max-width: 100%;
   }
 
   &__date-range {
     margin-top: 42px;
     width: 320px;
-    max-width: 100%;
   }
 
   &__filter-date-dropdown {

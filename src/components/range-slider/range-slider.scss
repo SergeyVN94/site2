@@ -1,7 +1,6 @@
 $body-border-width: 1px;
 
 .range-slider {
-  width: 100%;
   min-width: 266px;
 
   &__head {
@@ -27,7 +26,6 @@ $body-border-width: 1px;
   &__body {
     z-index: 1;
     padding: 2px 0;
-    width: 100%;
     border-radius: 3px;
     position: relative;
     border: $body-border-width solid $light-title;

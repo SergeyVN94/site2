@@ -10,6 +10,7 @@ $mobile-width: 768px;
     @include container-content;
     padding-top: 100px;
     padding-bottom: 80px;
+    width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -25,7 +26,6 @@ $mobile-width: 768px;
   }
   
   &__site-description {
-    width: 100%;
     max-width: 260px;
     display: flex;
     flex-direction: column;
