@@ -22,6 +22,10 @@ $root: '.calendar';
   &__change-month {
     width: 24px;
     max-height: 24px;
+
+    &_hidden {
+      visibility: hidden;
+    }
   }
 
   &__drawn-date {
@@ -158,5 +162,9 @@ $root: '.calendar';
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
+  }
+
+  &__clear-button_hidden {
+    visibility: hidden;
   }
 }

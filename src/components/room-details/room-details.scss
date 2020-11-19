@@ -1,6 +1,7 @@
 $display-size: 480px;
 
 .room-details {
+  flex-grow: 1;
   border-bottom: 1px solid #e5e5e5;
 
   &__banner {

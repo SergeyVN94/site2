@@ -1,0 +1,7 @@
+include /card-authentication/card-authentication.pug
+
+mixin sign-in()
+  main.sign-in
+    .sign-in__banner
+      .sign-in__card-authentication
+        +card-authentication({ titleTagNumber: 1 })

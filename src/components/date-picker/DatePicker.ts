@@ -1,18 +1,4 @@
-const enum CLASSES {
-  DATE_PICKER = 'js-date-picker',
-  DATE_PICKER_OPENED = 'date-picker_opened',
-  DROPDOWN = 'js-date-picker__dropdown',
-  DROPDOWN_INPUT = 'js-date-picker__input',
-  DROPDOWN_SELECTED = 'date-picker__dropdown_selected',
-  CALENDAR = 'js-calendar',
-}
-
-interface IDomElements {
-  readonly $datePicker: JQuery;
-  readonly $dropdown: JQuery;
-  readonly $calendar: JQuery;
-  readonly $document: JQuery<Document>;
-}
+import DATE_PICKER_SELECTORS, { IDomElements } from './config';
 
 class DatePicker {
   private readonly domElements: IDomElements;
@@ -27,8 +13,8 @@ class DatePicker {
     return {
       $datePicker,
       $document: $(document),
-      $calendar: $datePicker.find(`.${CLASSES.CALENDAR}`),
-      $dropdown: $datePicker.find(`.${CLASSES.DROPDOWN}`),
+      $calendar: $datePicker.find(`.${DATE_PICKER_SELECTORS.CALENDAR}`),
+      $dropdown: $datePicker.find(`.${DATE_PICKER_SELECTORS.DROPDOWN}`),
     };
   }
 
@@ -44,7 +30,7 @@ class DatePicker {
   private handleDropdownClick(ev: JQuery.MouseEventBase): void {
     const $selectedDropdown = $(ev.currentTarget);
 
-    if ($selectedDropdown.hasClass(CLASSES.DROPDOWN_SELECTED)) {
+    if ($selectedDropdown.hasClass(DATE_PICKER_SELECTORS.DROPDOWN_SELECTED)) {
       this.close();
     } else {
       const { $dropdown, $datePicker, $calendar } = this.domElements;
@@ -55,9 +41,9 @@ class DatePicker {
         (type === 'start' || type === 'end') ? type : 'auto',
       );
 
-      $dropdown.removeClass(CLASSES.DROPDOWN_SELECTED);
-      $selectedDropdown.addClass(CLASSES.DROPDOWN_SELECTED);
-      $datePicker.addClass(CLASSES.DATE_PICKER_OPENED);
+      $dropdown.removeClass(DATE_PICKER_SELECTORS.DROPDOWN_SELECTED);
+      $selectedDropdown.addClass(DATE_PICKER_SELECTORS.DROPDOWN_SELECTED);
+      $datePicker.addClass(DATE_PICKER_SELECTORS.DATE_PICKER_OPENED);
       this.initFocusout();
     }
   }
@@ -67,7 +53,7 @@ class DatePicker {
 
     // $(ev.target).parents не работает!
     const dateRangeInPath = path.some((element) => (
-      (element.classList) && element.classList.contains(CLASSES.DATE_PICKER)
+      (element.classList) && element.classList.contains(DATE_PICKER_SELECTORS.DATE_PICKER)
     ));
 
     if (!dateRangeInPath) {
@@ -89,8 +75,8 @@ class DatePicker {
 
   private close(): void {
     const { $datePicker, $document, $dropdown } = this.domElements;
-    $dropdown.removeClass(CLASSES.DROPDOWN_SELECTED);
-    $datePicker.removeClass(CLASSES.DATE_PICKER_OPENED);
+    $dropdown.removeClass(DATE_PICKER_SELECTORS.DROPDOWN_SELECTED);
+    $datePicker.removeClass(DATE_PICKER_SELECTORS.DATE_PICKER_OPENED);
     $document.off('click.document.dateRange.unexpended');
   }
 
@@ -132,6 +118,6 @@ class DatePicker {
   }
 }
 
-$(`.${CLASSES.DATE_PICKER}`).each((_, element) => {
+$(`.${DATE_PICKER_SELECTORS.DATE_PICKER}`).each((_, element) => {
   new DatePicker($(element));
 });

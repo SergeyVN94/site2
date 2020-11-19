@@ -1,10 +1,6 @@
 extends /../template/landing.pug
 
-include /card-book-room/card-book-room.pug
-include /room-advantages/room-advantages.pug
-include /reviews-chart/reviews-chart.pug
-include /comment/comment.pug
-include /bullet-list/bullet-list.pug
+include /room-details/room-details.pug
 
 block pageHead
   title Информация о номере 888
@@ -12,104 +8,4 @@ block pageHead
   meta(name="description" content="Viewing room information")
 
 block main
-  main.room-details
-    .room-details__banner
-      .room-details__banner-main-img-container
-        img.room-details__banner-main-img(
-          src=require('./images/room-888-1.jpg').default,
-          alt="Image description template."
-        )
-      .room-details__banner-img-column
-        .room-details__banner-img-item-container
-          img.room-details__banner-img-item(
-            src=require('./images/room-888-2.jpg').default,
-            alt="Image description template."
-          )
-        .room-details__banner-img-item-container
-          img.room-details__banner-img-item(
-            src=require('./images/room-888-3.jpg').default,
-            alt="Image description template."
-          )
-    h1.room-details__title Информация о номере 888
-    .room-details__container-content
-      .room-details__main-info
-        section.room-details__feedback
-          .room-details__room-advantages
-            +room-advantages({
-              title: "Сведения о номере",
-              titleTagNumber: 2,
-              items: [
-                {
-                  title: "Комфорт",
-                  description: "Шумопоглощающие стены",
-                  icon: "insert_emoticon",
-                },
-                {
-                  title: "Удобство",
-                  description: "Окно в каждой из спален",
-                  icon: "location_city",
-                },
-                {
-                  title: "Уют",
-                  description: "Номер оснащён камином",
-                  icon: "whatshot",
-                },
-              ],
-            })
-          .room-details__reviews-chart
-            +reviews-chart({
-              items: {
-                "Великолепно": 520,
-                "Хорошо": 260,
-                "Удовлетворительно": 260,
-              },
-            })
-        //- id нужен для якоря, что бы сразу перейти к комментариям с карточки номера.
-        section.room-details__comments#comments 
-          -
-            const items = [
-              {
-                avatar: require("../../components/comment/images/user1.jpg").default,
-                userName: "Мурад Сарафанов",
-                publicationDate: "5 дней назад",
-                likes: 12,
-                text: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.",
-              },
-              {
-                avatar: require("../../components/comment/images/user2.jpg").default,
-                userName: "Патрисия Стёклышкова",
-                publicationDate: "Неделю назад",
-                likes: 2,
-                text: "Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент",
-              },
-            ];
-
-          .room-details__comments-head
-            h2.room-details__comments-title Отзывы посетителей номера
-            p.room-details__comments-counter 2 отзыва
-          ul.room-details__comments-body
-            for item in items
-              li.room-details__comment
-                +comment(item)
-        section.room-details__additional-information
-          .room-details__rules
-            +bullet-list({
-              title: "Правила",
-              titleTagNumber: 2,
-              isTitleThemeH2: true,
-              items: [
-                "Нельзя с питомцами",
-                "Без вечеринок и мероприятий",
-                "Время прибытия — после 13:00, а выезд до 12:00",
-              ],
-            })
-          .room-details__cancel-reservation
-            h2.room-details__cancel-reservation-head Отмена
-            p.room-details__cancel-reservation-body Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.
-      .room-details__book-room
-        +card-book-room({
-          titleTagNumber: 2,
-          roomNumber: 888,
-          roomPrice: "9 990",
-          isLuxury: true,
-        })
+  +room-details()

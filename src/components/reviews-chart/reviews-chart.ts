@@ -1,4 +1,4 @@
-enum CHART_CLASSES {
+enum CHART_SELECTORS {
   REVIEWS_CHART = 'js-reviews-chart',
   IMAGE = 'js-reviews-chart__chart-image',
   VALUE_OUT = 'js-reviews-chart__value',
@@ -48,10 +48,10 @@ class ReviewsChart {
         .on('mouseout', this.handleMouseout.bind(this));
     });
 
-    $chart.find(`.${CHART_CLASSES.LEGEND_ITEM}`).on('mouseover', this.handleMouseover.bind(this))
+    $chart.find(`.${CHART_SELECTORS.LEGEND_ITEM}`).on('mouseover', this.handleMouseover.bind(this))
       .on('mouseout', this.handleMouseout.bind(this));
 
-    this.$reviewsOut = $chart.find(`.${CHART_CLASSES.VALUE_OUT}`);
+    this.$reviewsOut = $chart.find(`.${CHART_SELECTORS.VALUE_OUT}`);
     this.allReviews = this.$reviewsOut.text();
   }
 
@@ -82,6 +82,6 @@ class ReviewsChart {
   }
 }
 
-$(`.${CHART_CLASSES.REVIEWS_CHART}`).each((_, chart) => {
+$(`.${CHART_SELECTORS.REVIEWS_CHART}`).each((_, chart) => {
   new ReviewsChart($(chart));
 });

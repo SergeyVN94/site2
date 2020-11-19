@@ -1,4 +1,4 @@
-const enum LIKE_BTN_CLASSES {
+enum LIKE_BTN_SELECTORS {
   LIKE_BTN = 'js-like-button',
   CHECKED = 'like-button_checked',
   ICON = 'js-like-button__icon',
@@ -27,8 +27,8 @@ class LikeButton {
   }
 
   private static _getDomElements($button: JQuery): ILikeBtnDomElements {
-    const $icon = $button.find(`.${LIKE_BTN_CLASSES.ICON}`);
-    const $counter = $button.find(`.${LIKE_BTN_CLASSES.COUNTER}`);
+    const $icon = $button.find(`.${LIKE_BTN_SELECTORS.ICON}`);
+    const $counter = $button.find(`.${LIKE_BTN_SELECTORS.COUNTER}`);
 
     return {
       $button,
@@ -62,9 +62,9 @@ class LikeButton {
       $counter,
       $icon,
     } = this.domElements;
-    const isChecked = $button.hasClass(LIKE_BTN_CLASSES.CHECKED);
+    const isChecked = $button.hasClass(LIKE_BTN_SELECTORS.CHECKED);
 
-    $button.toggleClass(LIKE_BTN_CLASSES.CHECKED, !isChecked);
+    $button.toggleClass(LIKE_BTN_SELECTORS.CHECKED, !isChecked);
     $icon.text(isChecked ? LIKE_BTN_ICONS.UNCHECKED : LIKE_BTN_ICONS.CHECKED);
     this.likes += isChecked ? -1 : 1;
 
@@ -76,6 +76,6 @@ class LikeButton {
   }
 }
 
-$(`.${LIKE_BTN_CLASSES.LIKE_BTN}`).each((index, element) => {
+$(`.${LIKE_BTN_SELECTORS.LIKE_BTN}`).each((index, element) => {
   new LikeButton($(element));
 });

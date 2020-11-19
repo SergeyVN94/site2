@@ -1,0 +1,58 @@
+include /logo/logo.pug
+include /card-selection-room/card-selection-room.pug
+include /card-account-registration/card-account-registration.pug
+include /card-book-room/card-book-room.pug
+include /card-authentication/card-authentication.pug
+include /calendar/calendar.pug
+include /room-card/room-card.pug
+
+mixin cards()
+  main.cards
+    .cards__logo
+      +logo({ isMinimality: true })
+    h1.cards__title Компоненты форм
+    .cards__container-content
+      .cards__column
+        .cards__item
+          +card-selection-room({ titleTagNumber: 2 })
+        .cards__item
+          +card-account-registration({ titleTagNumber: 2 })
+      .cards__column
+        .cards__item
+          +card-book-room({
+            titleTagNumber: 2,
+            roomNumber: 888,
+            roomPrice: "9 990",
+            isLuxury: true,
+          })
+        .cards__item
+          +card-authentication({ titleTagNumber: 2 })
+      .cards__column
+        .cards__item
+          +calendar()
+        .cards__item
+          -
+            const images1 = [
+              "888.jpg",
+              "840.jpg",
+              "888.jpg",
+              "840.jpg",
+            ].map((src) => ({src: require(`@components/room-card/images/room-${src}`).default}));
+            const images2 = [...images1].reverse();
+
+          +room-card({
+            images: images1,
+            roomNumber: 888,
+            roomPrice: "9 990",
+            isLuxury: true,
+            stars: 5,
+            comments: 145,
+          })
+        .cards__item
+          +room-card({
+            images: images2,
+            roomNumber: 840,
+            roomPrice: "9 900",
+            stars: 4,
+            comments: 65,
+          })

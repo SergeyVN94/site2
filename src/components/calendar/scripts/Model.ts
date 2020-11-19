@@ -1,25 +1,10 @@
-type DayInfo = {
-  date: Date;
-  labels: string[];
-};
-type ModelStatePackage = {
-  currentDate: Date;
-  days: DayInfo[];
-  rangeDays: {
-    start: Date;
-    end: Date;
-  };
-};
-type HandlerUpdateEvent = (state: ModelStatePackage) => void;
-type RangeDays = {
-  start: Date;
-  end: Date;
-};
-type DayLabelGenerator = (
-  date: Date,
-  currentDate: Date,
-  rangeDays: RangeDays,
-) => string | string[] | null;
+import {
+  HandlerUpdateEvent,
+  RangeDays,
+  DayLabelGenerator,
+  ModelStatePackage,
+  DayInfo,
+} from './config';
 
 class Model {
   private readonly currentDate: Date;

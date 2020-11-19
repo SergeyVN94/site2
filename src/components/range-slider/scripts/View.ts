@@ -1,6 +1,6 @@
 import Model from './Model';
 
-enum CLASSES {
+enum SLIDER_SELECTORS {
   SLIDER = 'js-range-slider',
   LINE = 'js-range-slider__body',
   POINT = 'js-range-slider__point',
@@ -44,16 +44,16 @@ class View {
   }
 
   private static getDomElements($slider: JQuery): IRangeSliderDomElements {
-    const $point1 = $($slider.find(`.${CLASSES.POINT}`).get()[0]);
-    const $point2 = $($slider.find(`.${CLASSES.POINT}`).get()[1]);
+    const $point1 = $($slider.find(`.${SLIDER_SELECTORS.POINT}`).get()[0]);
+    const $point2 = $($slider.find(`.${SLIDER_SELECTORS.POINT}`).get()[1]);
 
     return {
       $slider,
       $point1: $point1.css('z-index', 5),
       $point2: $point2.css('z-index', 6),
-      $line: $slider.find(`.${CLASSES.LINE}`),
-      $bgLine: $slider.find(`.${CLASSES.BG_LINE}`),
-      $out: $slider.find(`.${CLASSES.VALUES_OUT}`),
+      $line: $slider.find(`.${SLIDER_SELECTORS.LINE}`),
+      $bgLine: $slider.find(`.${SLIDER_SELECTORS.BG_LINE}`),
+      $out: $slider.find(`.${SLIDER_SELECTORS.VALUES_OUT}`),
       $document: $(document),
     };
   }
@@ -79,10 +79,9 @@ class View {
   }
 
   private handleSliderMousedown(ev: JQuery.MouseEventBase): void {
-    console.log(ev);
     const $target = $(ev.target);
 
-    if ($target.hasClass(CLASSES.POINT)) {
+    if ($target.hasClass(SLIDER_SELECTORS.POINT)) {
       this.pointSelectedType = $target.attr('data-type') === 'min' ? 'min' : 'max';
 
       if (this.pointSelectedType === 'max') {

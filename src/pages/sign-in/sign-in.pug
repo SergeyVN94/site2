@@ -1,6 +1,6 @@
 extends /../template/landing.pug
 
-include /card-authentication/card-authentication.pug
+include /sign-in/sign-in.pug
 
 block pageHead
   title Войти
@@ -8,7 +8,4 @@ block pageHead
   meta(name="description" content="Login page")
 
 block main
-  main.sign-in
-    .sign-in__banner
-      .sign-in__card-authentication
-        +card-authentication({ titleTagNumber: 1 })
+  +sign-in()

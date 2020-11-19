@@ -1,4 +1,4 @@
-import CALENDAR_CLASSES from './classes';
+import CALENDAR_CLASSES from './config';
 import Model from './Model';
 import View from './View';
 

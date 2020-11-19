@@ -1,0 +1,19 @@
+.sign-in {
+  flex-grow: 1;
+
+  &__banner {
+    margin: 0 auto;
+    padding: 171px 0 173px;
+    max-width: 1920px;
+    display: flex;
+    justify-content: center;
+    background-image: url('~@images/banners/login-registration.jpg');
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+    @media (max-width: 425px) {
+      padding: 50px 0 55px;
+    }
+  }
+}

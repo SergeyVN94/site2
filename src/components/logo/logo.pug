@@ -1,4 +1,5 @@
-mixin logo(isMinimality = false)
+mixin logo(options = {})
+  - const { isMinimality = false } = options;
   a.logo(href="./landing-page.html")
     if isMinimality
       .logo__icon

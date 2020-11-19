@@ -131,4 +131,8 @@ $root: '.dropdown';
       cursor: default;
     }
   }
+
+  &__button-clear_hidden {
+    visibility: hidden;
+  }
 }

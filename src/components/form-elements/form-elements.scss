@@ -1,4 +1,5 @@
 .form-elements {
+  flex-grow: 1;
   background-color: #fff;
 
   &__logo {
@@ -18,7 +19,6 @@
 
     @media (max-width: $breakpoint-cell-phones) {
       align-items: center;
-
       padding: 63px 10px 145px;
     }
   }

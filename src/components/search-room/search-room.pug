@@ -1,0 +1,220 @@
+include /dropdown/dropdown.pug
+include /range-slider/range-slider.pug
+include /expandable-checkbox-list/expandable-checkbox-list.pug
+include /pagination/pagination.pug
+include /room-card/room-card.pug
+include /date-picker/date-picker.pug
+
+mixin search-room()
+  main.search-room
+    .search-room__container-content
+      section.search-room__filters
+        form.search-room__form(action="/mock-address/change-me" method="post")
+          .search-room__dropdown-date-filter
+            +date-picker({ withSingleInput: true })
+          .search-room__dropdown-guest
+            +dropdown({
+              label: "Гости",
+              placeholder: "Сколько гостей",
+              name: "guests",
+              variations: {
+                adults:  ["гость", "гостя", "гостей"],
+                babies: ["младенец", "младенца", "младенцев"],
+              },
+              counters: [
+                { text: "взрослые", group: "adults", value: 0 },
+                { text: "дети", group: "adults", value: 0 },
+                { text: "младенцы", group: "babies", value: 0 },
+              ],
+              withControls: true,
+            })
+          .search-room__range-slider
+            +range-slider({
+              title: "диапазон цены",
+              range: [0, 16000],
+              start: [5000, 10000],
+              bottomText: "Стоимость за сутки пребывания в номере",
+              value: "0₽ - 15 000₽",
+              step: 1000,
+              name: "price-range",
+            })
+          fieldset.search-room__checkbox-list
+            -
+              items = [
+                { text: "Можно курить", name: "smokingAllowed" },
+                { text: "Можно с питомцами", name: "petsAllowed", checked: true },
+                { text: "Можно пригласить гостей (до 10 человек)", name: "guestsAllowed", checked: true },
+              ];
+
+            legend.search-room__checkbox-list-title правила дома
+            ul.search-room__checkbox-list-wrapper
+              for i in items
+                li.search-room__checkbox
+                  +input-button(i)
+          fieldset.search-room__rich-checkbox-list
+            -
+              items = [
+                {
+                  text: "Широкий коридор",
+                  description: "Ширина коридоров в номере не менее 91 см.",
+                  name: "wide-corridor",
+                },
+                {
+                  text: "Помощник для инвалидов",
+                  description: "На 1 этаже вас встретит специалист  и проводит до номера.",
+                  name: "disabled-assistant",
+                },
+              ];
+
+            legend.search-room__rich-checkbox-list-title доступность
+            ul.search-room__rich-checkbox-list-wrapper
+              for i in items
+                li.search-room__rich-checkbox
+                  +input-button(i)
+          .search-room__dropdown-room-amenities
+            +dropdown({
+              label: "удобства номера",
+              placeholder: "Удобства номера",
+              name: "room-amenities",
+              variations: {
+                bedrooms: ["спальня", "спальни", "спален"],
+                beds: ["кровать","кровати","кроватей"],
+                bathrooms: ["ванная комната","ванные комнаты","ванныx комнат"],
+              },
+              counters: [
+                { text: "спальни", group: "bedrooms" },
+                { text: "кровати", group: "beds" },
+                { text: "ванные комнаты", group: "bathrooms" },
+              ],
+            })
+          .search-room__expandable-checkbox-list
+            +expandable-checkbox-list({
+              label: "дополнительные удобства",
+              items: [
+                { text: "Завтрак", name: "breakfast" },
+                { text: "Письменный стол", name: "desk", checked: true },
+                { text: "Стул для кормления", name: "feeding-chair", checked: true },
+                { text: "Кроватка", name: "crib", checked: true },
+                { text: "Телевизор", name: "tv" },
+                { text: "Шампунь", name: "shampoo" },
+              ],
+            })
+      section.search-room__rooms
+        h1.search-room__rooms-title Номера, которые мы для вас подобрали
+        ul.search-room__rooms-container
+          -
+            const getImages = function(img) {
+              return [img, img, img, img].map((src) => {
+                return {src: require(`@components/room-card/images/room-${src}`).default};
+              });
+            };
+
+            const roomItems = [
+              {
+                images: getImages("888.jpg"),
+                roomNumber: 888,
+                isLuxury: true,
+                roomPrice: "9 990",
+                stars: 5,
+                comments: 145,
+                roomHref: "./room-details.html",
+                commentsHref: "./room-details.html#comments",
+              },
+              {
+                images: getImages("840.jpg"),
+                roomNumber: 840,
+                isLuxury: false,
+                roomPrice: "9 900",
+                stars: 4,
+                comments: 65,
+              },
+              {
+                images: getImages("980.jpg"),
+                roomNumber: 980,
+                isLuxury: true,
+                roomPrice: "8 500",
+                stars: 3,
+                comments: 35,
+              },
+              {
+                images: getImages("856.jpg"),
+                roomNumber: 856,
+                isLuxury: false,
+                roomPrice: "7 300",
+                stars: 5,
+                comments: 19,
+              },
+              {
+                images: getImages("740.jpg"),
+                roomNumber: 740,
+                isLuxury: false,
+                roomPrice: "6 000",
+                stars: 4,
+                comments: 44,
+              },
+              {
+                images: getImages("982.jpg"),
+                roomNumber: 982,
+                isLuxury: false,
+                roomPrice: "5 800",
+                stars: 3,
+                comments: 56,
+              },
+              {
+                images: getImages("678.jpg"),
+                roomNumber: 678,
+                isLuxury: false,
+                roomPrice: "5 500",
+                stars: 5,
+                comments: 45,
+              },
+              {
+                images: getImages("450.jpg"),
+                roomNumber: 450,
+                isLuxury: false,
+                roomPrice: "5 300",
+                stars: 4,
+                comments: 39,
+              },
+              {
+                images: getImages("350.jpg"),
+                roomNumber: 350,
+                isLuxury: false,
+                roomPrice: "5 000",
+                stars: 3,
+                comments: 77,
+              },
+              {
+                images: getImages("666.jpg"),
+                roomNumber: 666,
+                isLuxury: false,
+                roomPrice: "5 000",
+                stars: 5,
+                comments: 25,
+              },
+              {
+                images: getImages("444.jpg"),
+                roomNumber: 444,
+                isLuxury: false,
+                roomPrice: "5 000",
+                stars: 3,
+                comments: 15,
+              },
+              {
+                images: getImages("352.jpg"),
+                roomNumber: 352,
+                isLuxury: false,
+                roomPrice: "5 000",
+                stars: 3,
+                comments: 55,
+              },
+            ];
+
+          for item in roomItems
+            li.search-room__room-information
+              +room-card(item)
+
+        .search-room__pagination
+          +pagination({
+            bottomText: "1 – 12 из 100+ вариантов аренды",
+          })

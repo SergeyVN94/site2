@@ -1,6 +1,6 @@
 extends /../template/page.pug
 
-include /logo/logo.pug
+include /colors-and-type/colors-and-type.pug
 
 block pageHead
   title Цвета и текст
@@ -8,21 +8,4 @@ block pageHead
   meta(name="description" content="Used colors and text")
 
 block content
-  - const { colors, texts } = require('./config.json');
-
-  main.colors-and-type
-    .colors-and-type__logo
-      +logo(true)
-    .colors-and-type__container-content
-      ul.colors-and-type__demo-colors
-        for color in colors
-          li.colors-and-type__color-item
-            .colors-and-type__color-square(class=`colors-and-type__color-square_bg_${color.bg}`)
-            .colors-and-type__color-description
-              p.colors-and-type__color-name #{color.name}
-              p.colors-and-type__color-value #{color.value}
-      ul.colors-and-type__demo-text
-        for text in texts
-          li.colors-and-type__text-item(class=`colors-and-type__text-item_theme_${text.theme}`)
-            p.colors-and-type__text-title #{text.title}
-            p.colors-and-type__text-example #{text.example}
+  +colors-and-type()

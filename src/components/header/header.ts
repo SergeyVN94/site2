@@ -1,4 +1,4 @@
-const enum HEADER_CLASSES {
+const enum HEADER_SELECTORS {
   MOBILE_BTN = 'js-button[data-action="expand-mobile-menu"]',
   HEADER = 'js-header',
   EXPANDED = 'header_extended',
@@ -13,17 +13,17 @@ class Header {
   }
 
   private init(): void {
-    this.$header.find(`.${HEADER_CLASSES.MOBILE_BTN}`).on(
+    this.$header.find(`.${HEADER_SELECTORS.MOBILE_BTN}`).on(
       'click.header.expanded-menu',
       this.handleClick.bind(this),
     );
   }
 
   private handleClick(): void {
-    this.$header.toggleClass(HEADER_CLASSES.EXPANDED);
+    this.$header.toggleClass(HEADER_SELECTORS.EXPANDED);
   }
 }
 
-$(`.${HEADER_CLASSES.HEADER}`).each((_, header) => {
+$(`.${HEADER_SELECTORS.HEADER}`).each((_, header) => {
   new Header($(header));
 });

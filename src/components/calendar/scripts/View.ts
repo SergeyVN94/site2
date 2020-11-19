@@ -1,35 +1,8 @@
 import Model, { ModelStatePackage, DayInfo } from './Model';
-import CLASSES from './classes';
-
-type SelectMode = 'range-start' | 'range-end' | 'auto';
-
-const MONTH_NAMES = [
-  'Январь',
-  'Февраль',
-  'Март',
-  'Апрель',
-  'Май',
-  'Июнь',
-  'Июль',
-  'Август',
-  'Сентябрь',
-  'Октябрь',
-  'Ноябрь',
-  'Декабрь',
-];
-
-interface ICalendarDomElements {
-  readonly $calendar: JQuery;
-  readonly $btnNextMonth: JQuery;
-  readonly $btnPrevMonth: JQuery;
-  readonly $drawnDate: JQuery;
-  readonly $daysContainer: JQuery;
-  readonly $btnApply: JQuery;
-  readonly $btnClear: JQuery;
-}
+import CALENDAR_SELECTORS, { SelectMode, MONTH_NAMES, IDomElements } from './config';
 
 class View {
-  private readonly domElements: ICalendarDomElements;
+  private readonly domElements: IDomElements;
 
   private readonly model: Model;
 
@@ -67,7 +40,9 @@ class View {
     this.renderHead(currentDate);
     this.renderBody(days);
 
-    this.domElements.$btnClear.button('hidden', (start === null && end === null));
+    this.domElements.$btnClear.parent().toggleClass(
+      CALENDAR_SELECTORS.BUTTON_CLEAR_HIDDEN, (start === null && end === null),
+    );
   }
 
   private renderHead(date: Date): void {
@@ -75,7 +50,9 @@ class View {
     const isCannotSwitchToPreviousMonth = date.getMonth() === currentDate.getMonth()
       && date.getFullYear() === currentDate.getFullYear();
 
-    this.domElements.$btnPrevMonth.button('hidden', isCannotSwitchToPreviousMonth);
+    this.domElements.$btnPrevMonth.parent().toggleClass(
+      CALENDAR_SELECTORS.BUTTON_CLEAR_HIDDEN, isCannotSwitchToPreviousMonth,
+    );
 
     const monthName = MONTH_NAMES[date.getMonth()];
     const year = date.getFullYear();
@@ -101,12 +78,12 @@ class View {
 
     const { labels } = info;
 
-    day.classList.add(CLASSES.DAY_WEEK, `js-${CLASSES.DAY_WEEK}`, ...this.parseLabels(labels));
+    day.classList.add(CALENDAR_SELECTORS.DAY_WEEK, `js-${CALENDAR_SELECTORS.DAY_WEEK}`, ...this.parseLabels(labels));
 
-    textContainer.classList.add(CLASSES.DAY_NUMBER);
+    textContainer.classList.add(CALENDAR_SELECTORS.DAY_NUMBER);
     textContainer.innerHTML = info.date.getDate().toString();
 
-    innerWrapper.classList.add(CLASSES.DAY_INNER);
+    innerWrapper.classList.add(CALENDAR_SELECTORS.DAY_INNER);
     innerWrapper.append(textContainer);
 
     day.append(innerWrapper);
@@ -118,28 +95,28 @@ class View {
     const classList: string[] = [];
 
     const isAnotherMonth = labels.includes('next-month') || labels.includes('previous-month');
-    if (isAnotherMonth) classList.push(CLASSES.DAY_THEME_ANOTHER_MONTH, `js-${CLASSES.DAY_THEME_ANOTHER_MONTH}`);
-    if (labels.includes('today')) classList.push(CLASSES.DAY_THEME_TODAY);
-    if (labels.includes('range')) classList.push(CLASSES.DAY_THEME_RANGE_DAY);
-    if (labels.includes('range-start')) classList.push(CLASSES.RANGE_DAY_START);
-    if (labels.includes('range-end')) classList.push(CLASSES.RANGE_DAY_END);
-    if (labels.includes('range-middle')) classList.push(CLASSES.DAY_THEME_RANGE_DAY_MIDDLE);
-    if (labels.includes('not-selectable')) classList.push(CLASSES.DAY_THEME_NOT_CLICKABLE);
+    if (isAnotherMonth) classList.push(CALENDAR_SELECTORS.DAY_THEME_ANOTHER_MONTH, `js-${CALENDAR_SELECTORS.DAY_THEME_ANOTHER_MONTH}`);
+    if (labels.includes('today')) classList.push(CALENDAR_SELECTORS.DAY_THEME_TODAY);
+    if (labels.includes('range')) classList.push(CALENDAR_SELECTORS.DAY_THEME_RANGE_DAY);
+    if (labels.includes('range-start')) classList.push(CALENDAR_SELECTORS.RANGE_DAY_START);
+    if (labels.includes('range-end')) classList.push(CALENDAR_SELECTORS.RANGE_DAY_END);
+    if (labels.includes('range-middle')) classList.push(CALENDAR_SELECTORS.DAY_THEME_RANGE_DAY_MIDDLE);
+    if (labels.includes('not-selectable')) classList.push(CALENDAR_SELECTORS.DAY_THEME_NOT_CLICKABLE);
 
     const isNotSelectable = this.selectMode === 'range-end'
       && labels.includes('not-selectable-as-range-end');
-    if (isNotSelectable) classList.push(CLASSES.DAY_THEME_NOT_CLICKABLE);
+    if (isNotSelectable) classList.push(CALENDAR_SELECTORS.DAY_THEME_NOT_CLICKABLE);
 
     return classList;
   }
 
-  private static createDomElements($calendar: JQuery): ICalendarDomElements {
-    const $btnNextMonth = $calendar.find(`.js-${CLASSES.BUTTON_NEXT_MONTH}`);
-    const $btnPrevMonth = $calendar.find(`.js-${CLASSES.BUTTON_PREVIOUS_MONTH}`);
-    const $drawnDate = $calendar.find(`.js-${CLASSES.DRAWN_DATE}`);
-    const $daysContainer = $calendar.find(`.js-${CLASSES.DAYS_CONTAINER}`);
-    const $btnApply = $calendar.find(`.js-${CLASSES.BUTTON_APPLY}`);
-    const $btnClear = $calendar.find(`.js-${CLASSES.BUTTON_CLEAR}`);
+  private static createDomElements($calendar: JQuery): IDomElements {
+    const $btnNextMonth = $calendar.find(`.js-${CALENDAR_SELECTORS.BUTTON_NEXT_MONTH}`);
+    const $btnPrevMonth = $calendar.find(`.js-${CALENDAR_SELECTORS.BUTTON_PREVIOUS_MONTH}`);
+    const $drawnDate = $calendar.find(`.js-${CALENDAR_SELECTORS.DRAWN_DATE}`);
+    const $daysContainer = $calendar.find(`.js-${CALENDAR_SELECTORS.DAYS_CONTAINER}`);
+    const $btnApply = $calendar.find(`.js-${CALENDAR_SELECTORS.BUTTON_APPLY}`);
+    const $btnClear = $calendar.find(`.js-${CALENDAR_SELECTORS.BUTTON_CLEAR}`);
 
     return {
       $calendar,
@@ -164,7 +141,7 @@ class View {
 
     this.domElements.$daysContainer.on(
       'click.calendar.clickOnDay',
-      `.js-${CLASSES.DAY_WEEK}`,
+      `.js-${CALENDAR_SELECTORS.DAY_WEEK}`,
       this.handleClickDaysContainer.bind(this),
     );
 
@@ -203,9 +180,9 @@ class View {
 
   private handleClickDaysContainer(ev: JQuery.MouseEventBase): void {
     const $day = $(ev.currentTarget);
-    const dayNumber = parseInt($day.find(`.${CLASSES.DAY_NUMBER}`).text(), 10);
+    const dayNumber = parseInt($day.find(`.${CALENDAR_SELECTORS.DAY_NUMBER}`).text(), 10);
 
-    if ($day.hasClass(CLASSES.DAY_THEME_ANOTHER_MONTH)) {
+    if ($day.hasClass(CALENDAR_SELECTORS.DAY_THEME_ANOTHER_MONTH)) {
       (dayNumber > 20) ? this.model.previousMonth() : this.model.nextMonth();
     }
 

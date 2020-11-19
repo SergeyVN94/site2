@@ -1,6 +1,6 @@
 extends /../template/landing.pug
 
-include /card-selection-room/card-selection-room.pug
+include /landing-page/landing-page.pug
 
 block pageHead
   title Сайт для поиска номеров отеля
@@ -8,8 +8,4 @@ block pageHead
   meta(name="description" content="Hotel room search site")
 
 block main
-  main.landing-page
-    .landing-page__banner
-      .landing-page__banner-content
-        +card-selection-room({ titleTagNumber: 1 }) 
-        p.landing-page__description Лучшие номера для вашей работы, отдыха и просто вдохновения
+  +landing-page()

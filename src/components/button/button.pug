@@ -8,7 +8,6 @@ mixin button(options = {})
       isLong,
       textColor, 
       dataAction = false,
-      hidden,
       withArrow,
       isFontBold,
       href,
@@ -26,7 +25,6 @@ mixin button(options = {})
     if ([
       "gradient-primary", "gradient-success",
     ].includes(hoverTheme)) classes.push(`button_hover-theme_${hoverTheme}`);
-    if (hidden) classes.push("button_hidden");
     if (withArrow) classes.push("button_with-arrow");
     if (isLong) classes.push("button_long");
 

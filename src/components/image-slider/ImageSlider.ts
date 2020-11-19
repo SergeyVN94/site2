@@ -1,4 +1,4 @@
-enum IMAGE_SLIDER_CLASSES {
+enum IMAGE_SLIDER_SELECTORS {
   SLIDER = 'js-image-slider',
   IMAGE = 'image-slider__image',
   IMAGE_SELECTED = 'image-slider__image_selected',
@@ -38,11 +38,11 @@ class ImageSlider {
   }
 
   private static _getDomElements($slider: JQuery): IImageSliderDomElements {
-    const $btnNext = $slider.find(`.${IMAGE_SLIDER_CLASSES.BTN_NEXT}`);
-    const $btnPrev = $slider.find(`.${IMAGE_SLIDER_CLASSES.BTN_PREV}`);
-    const $images = $slider.find(`.${IMAGE_SLIDER_CLASSES.IMAGE}`);
-    const $indicators = $slider.find(`.${IMAGE_SLIDER_CLASSES.INDICATOR}`);
-    const $currentImageOut = $slider.find(`.${IMAGE_SLIDER_CLASSES.INDEX_ITEM}`);
+    const $btnNext = $slider.find(`.${IMAGE_SLIDER_SELECTORS.BTN_NEXT}`);
+    const $btnPrev = $slider.find(`.${IMAGE_SLIDER_SELECTORS.BTN_PREV}`);
+    const $images = $slider.find(`.${IMAGE_SLIDER_SELECTORS.IMAGE}`);
+    const $indicators = $slider.find(`.${IMAGE_SLIDER_SELECTORS.INDICATOR}`);
+    const $currentImageOut = $slider.find(`.${IMAGE_SLIDER_SELECTORS.INDEX_ITEM}`);
 
     return {
       $slider,
@@ -50,7 +50,7 @@ class ImageSlider {
       $btnPrev,
       $images,
       $indicators,
-      $indicatorContainer: $slider.find(`.${IMAGE_SLIDER_CLASSES.INDICATOR_CONTAINER}`),
+      $indicatorContainer: $slider.find(`.${IMAGE_SLIDER_SELECTORS.INDICATOR_CONTAINER}`),
       $currentImageOut,
     };
   }
@@ -76,7 +76,7 @@ class ImageSlider {
 
   private _handleIndicatorContainerClick(ev: JQuery.MouseEventBase): void {
     const $indicator = $(ev.target);
-    if ($indicator.hasClass(IMAGE_SLIDER_CLASSES.INDICATOR)) {
+    if ($indicator.hasClass(IMAGE_SLIDER_SELECTORS.INDICATOR)) {
       const index = parseInt(String($indicator.data('index')), 10);
       this.selectedImage = index + 1;
       this._update();
@@ -102,17 +102,17 @@ class ImageSlider {
   }
 
   private _update(): void {
-    this.domElements.$images.removeClass(IMAGE_SLIDER_CLASSES.IMAGE_SELECTED);
+    this.domElements.$images.removeClass(IMAGE_SLIDER_SELECTORS.IMAGE_SELECTED);
     this.domElements.$images.each((index, element) => {
       if (index + 1 === this.selectedImage) {
-        element.classList.add(IMAGE_SLIDER_CLASSES.IMAGE_SELECTED);
+        element.classList.add(IMAGE_SLIDER_SELECTORS.IMAGE_SELECTED);
       }
     });
 
-    this.domElements.$indicators.removeClass(IMAGE_SLIDER_CLASSES.INDICATOR_SELECTED);
+    this.domElements.$indicators.removeClass(IMAGE_SLIDER_SELECTORS.INDICATOR_SELECTED);
     this.domElements.$indicators.each((index, element) => {
       if (index + 1 === this.selectedImage) {
-        element.classList.add(IMAGE_SLIDER_CLASSES.INDICATOR_SELECTED);
+        element.classList.add(IMAGE_SLIDER_SELECTORS.INDICATOR_SELECTED);
       }
     });
 
@@ -120,6 +120,6 @@ class ImageSlider {
   }
 }
 
-$(`.${IMAGE_SLIDER_CLASSES.SLIDER}`).each((index, element) => {
+$(`.${IMAGE_SLIDER_SELECTORS.SLIDER}`).each((index, element) => {
   new ImageSlider($(element));
 });

@@ -1,8 +1,6 @@
 extends /../template/page.pug
 
-include /logo/logo.pug
-include /header/header.pug
-include /footer/footer.pug
+include /headers-and-footers/headers-and-footers.pug
 
 block pageHead
   title Шапки и подвалы
@@ -10,13 +8,4 @@ block pageHead
   meta(name="description" content="Header and footer examples")
 
 block content
-  main.headers-and-footers
-    .headers-and-footers__logo
-      +logo(true)
-    .headers-and-footers__container-content
-      .headers-and-footers__header
-        +header()
-      .headers-and-footers__header
-        +header("Юлий Цезарь")
-      .headers-and-footers__footer
-        +footer()
+  +headers-and-footers()

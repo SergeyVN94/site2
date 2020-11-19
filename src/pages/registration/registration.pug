@@ -1,6 +1,6 @@
 extends /../template/landing.pug
 
-include /card-account-registration/card-account-registration.pug
+include /registration/registration.pug
 
 block pageHead
   title Зарегистрироваться
@@ -8,7 +8,4 @@ block pageHead
   meta(name="description" content="New user registration")
 
 block main
-  main.registration
-    .registration__banner
-      .registration__card-account-registration
-        +card-account-registration({ titleTagNumber: 1 })
+  +registration()

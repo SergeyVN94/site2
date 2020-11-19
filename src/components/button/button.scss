@@ -117,10 +117,6 @@ $root: '.button';
     font-weight: bold;
   }
 
-  &_hidden {
-    display: none;
-  }
-
   &_size_sm {
 
     &#{$root}_theme_light #{$root}__text {
