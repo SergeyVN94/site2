@@ -19,15 +19,16 @@ $root: '.room-card';
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
-    align-items: baseline;
 
     &:first-child {
       padding-bottom: 7px;
       border-bottom: 1px solid $dim-border;
+      align-items: baseline;
     }
 
     &:last-child {
       padding: 8px 0 0;
+      align-items: center;
     }
   }
 

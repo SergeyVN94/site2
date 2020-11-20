@@ -1,6 +1,6 @@
 .logo {
   @include reset-link;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   flex-wrap: nowrap;
 
@@ -8,6 +8,10 @@
     margin-left: 11.5px;
     width: 55px;
     height: 14px;
+  }
+
+  &__text-img {
+    display: block;
   }
 
   &__icon {

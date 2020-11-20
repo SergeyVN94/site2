@@ -29,7 +29,7 @@
   }
 
   &__dropdown-date-filter {
-    margin-bottom: 22px;
+    margin-bottom: 21px;
   }
   
   &__dropdown-guest {
@@ -41,7 +41,7 @@
   }
 
   &__checkbox-list {
-    margin-bottom: 32px;
+    margin-bottom: 31px;
     border: 0;
 
     &-title {
@@ -57,7 +57,7 @@
   }
 
   &__checkbox:not(:last-child) {
-    margin-bottom: 11px;
+    margin-bottom: 10px;
   }
 
   &__rich-checkbox-list {
@@ -88,7 +88,6 @@
 
     &-title {
       @include text-h1;
-      margin-bottom: 2px;
       font-family: Montserrat, Arial, sans-serif;
     }
   
@@ -116,11 +115,11 @@
   }
 
   &__room-information {
-    margin-top: 19px;
+    margin-top: 20px;
   }
   
   &__pagination {
-    margin-top: 38px;
+    margin-top: 42px;
     padding-right: 16px;
     display: flex;
     flex-direction: row;
