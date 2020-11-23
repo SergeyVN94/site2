@@ -14,12 +14,12 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 63px 16px 145px;
+    padding: 60px 16px 145px;
     margin: 0 auto;
 
     @media (max-width: $breakpoint-cell-phones) {
       align-items: center;
-      padding: 63px 10px 145px;
+      padding: 60px 10px 145px;
     }
   }
 

@@ -1,6 +1,6 @@
 {
   "guests": {
-    "label": "dropdown",
+    "label": "гости",
     "placeholder": "Сколько гостей",
     "name": "guests",
     "variations": {
@@ -15,7 +15,7 @@
     "withControls": true
   },
   "roomAmenities": {
-    "label": "dropdown",
+    "label": "Удобства номера",
     "placeholder": "Удобства номера",
     "name": "room-amenities",
     "variations": {
