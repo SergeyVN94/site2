@@ -1,7 +1,7 @@
 {
   "menu": {
     "items": [
-      { "text": "О нас", "selected": true },
+      { "text": "О нас" },
       {
         "text": "Услуги",
         "items": [
