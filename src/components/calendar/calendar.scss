@@ -2,7 +2,7 @@ $root: '.calendar';
 
 #{$root} {
   @include no-select;
-  padding: 20px;
+  padding: 20px 20px 16px;
   border: 1px solid $light-title;
   border-radius: 4px;
   max-width: 320px;
@@ -52,7 +52,7 @@ $root: '.calendar';
   }
 
   &__days-container {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     list-style: none;
   }
 
